@@ -26,11 +26,10 @@
  *   lessons[]       lista de lecciones, cada una:
  *                     - id, title, duration, slides (ruta al HTML)
  *   test            { questions: [{ q, options: [...], correct: idx }, ...] }
- *   enrolledEmails  (OPCIONAL) lista de emails que tienen acceso.
- *                   Si no existe o está vacío → curso visible para
- *                   cualquier alumna logueada.
- *                   Si tiene emails → solo esas alumnas lo ven.
- *                   Ejemplo: ['maria@gmail.com', 'lucia@outlook.es']
+ *
+ * Quién tiene acceso a qué curso se gestiona FUERA de este
+ * archivo, en una Google Sheet (assets/js/enrollments.js sabe
+ * la URL). Aquí solo defines los cursos y su contenido.
  * ============================================================= */
 
 window.AUREA_COURSES = [
@@ -77,13 +76,10 @@ window.AUREA_COURSES = [
         }
       ]
     }
-    // Sin `enrolledEmails`: este curso lo verá cualquier alumna logueada.
-    // Si más adelante quieres restringirlo, descomenta:
-    // enrolledEmails: ['maria@gmail.com', 'lucia@outlook.es']
   }
   // -----------------------------------------------------------
   // Para añadir otro curso, copia el bloque de arriba y cambia
-  // id, title, lessons y test. Si es un curso de pago, añade
-  // enrolledEmails con la lista de quien ha pagado.
+  // id, title, lessons y test. Para dar acceso a una alumna,
+  // se hace en la Google Sheet de matrículas, NO aquí.
   // -----------------------------------------------------------
 ];

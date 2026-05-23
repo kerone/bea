@@ -145,35 +145,34 @@ Tres opciones:
 - **Google**: pulsa "Continuar con Google" y entra en un clic.
 - **Manual desde Supabase**: en el panel → **Authentication → Users → Invite user**. Le llega un email con enlace de acceso.
 
-### Controlar qué alumna ve qué curso
+### Controlar qué alumna ve qué curso (Google Sheets)
 
-Cada curso en `assets/js/courses-data.js` puede llevar (opcionalmente) un campo `enrolledEmails`:
+La gestión de matrículas vive en una **hoja de Google compartida**, no en el código. Así la persona que gestiona alumnas no necesita tocar git ni saber programar — solo añadir o quitar filas en un spreadsheet.
 
-```js
-{
-  id: 'peeling-quimico',
-  title: 'Peeling químico',
-  // ...
-  enrolledEmails: [
-    'maria@gmail.com',
-    'lucia@outlook.es'
-  ]
-}
-```
+**Estructura de la hoja:**
 
-Reglas:
-- **Sin el campo `enrolledEmails`** (o vacío) → el curso lo ve **cualquier alumna logueada**. Útil para cursos abiertos o demos.
-- **Con la lista** → solo esas alumnas lo ven. Si una alumna no enrolada intenta entrar por URL directa, se le bloquea con un aviso.
+| email             | curso                          |
+|-------------------|--------------------------------|
+| maria@gmail.com   | anatomia-fisiologia-cutanea    |
+| lucia@outlook.es  | anatomia-fisiologia-cutanea    |
+| lucia@outlook.es  | peeling-quimico                |
 
-Flujo típico:
-1. Alumna paga / se matricula (por el canal que uses: WhatsApp, Bizum, Stripe…).
-2. Te apunta su email.
-3. Editas `courses-data.js`, añades su email al curso correspondiente.
-4. Commit + push. En segundos lo ve en su aula.
+- Cabecera en la fila 1: literalmente `email` y `curso`.
+- **Una fila = una alumna con acceso a un curso**. Si una alumna tiene 3 cursos, hace 3 filas.
+- El valor de `curso` es el `id` que aparece en `assets/js/courses-data.js`.
 
-Para dar de baja a una alumna: quita su email del array. Pierde acceso al instante.
+**Compartido como:** "Cualquier persona con el enlace · Lector". No hace falta "Publicar en la web".
 
-> **Nota de seguridad:** este control vive en el JS del navegador, así que esconde el curso en la interfaz pero un usuario avanzado podría leer el código y ver los emails matriculados. No es un problema para una academia (los emails no son secretos), pero si en el futuro necesitas seguridad fuerte (impedir descargar el contenido aunque sepas la URL), lo migramos a una tabla `enrollments` en Supabase con Row Level Security. Cuando llegues a ese punto, dímelo.
+**Flujo diario:**
+1. Una alumna te paga un curso.
+2. Abres la hoja, escribes su email + el id del curso.
+3. La alumna refresca el aula y ya lo ve. (Hay un caché de 30s, así que puede tardar medio minuto.)
+
+**Dar de baja:** borras la fila → la alumna pierde acceso al instante (al expirar el caché).
+
+**Dónde está la URL de la hoja en el código:** `assets/js/enrollments.js`, constante `SHEET_ID`. Si cambias de hoja, solo hay que sustituir ese ID.
+
+> **Nota de seguridad:** la hoja es accesible para cualquiera que conozca la URL, pero el ID tiene 44 caracteres aleatorios — nadie la encuentra por casualidad. Suficiente para una academia. Si en el futuro quieres seguridad fuerte (impedir descargar el contenido aunque conozcan la URL del HTML), migramos a una tabla `enrollments` en Supabase con Row Level Security.
 
 ---
 
