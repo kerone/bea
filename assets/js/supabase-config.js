@@ -18,11 +18,11 @@
  * ============================================================= */
 
 window.AUREA_SUPABASE_CONFIG = {
-  // Reemplaza por tu URL real: https://xxxxxxxxxxxx.supabase.co
-  url: '',
+  // Project URL = https://<project-id>.supabase.co
+  url: 'https://fatgkdecpgiptvbagoij.supabase.co',
 
-  // Reemplaza por tu anon key (NO la service_role key)
-  anonKey: '',
+  // Publishable key (segura para usar en navegador)
+  anonKey: 'sb_publishable_MaHynsakKXTLWGUT1y6Vkw_op2lwDHg',
 
   // URL a la que vuelve Google tras autenticar.
   // En GitHub Pages será algo como https://TU_USUARIO.github.io/bea/
