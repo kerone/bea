@@ -161,8 +161,11 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .nav-left, .nav-right { display: flex; align-items: center; gap: 28px; flex: 1; }
 .nav-right { justify-content: flex-end; gap: 20px; }
 .nav-logo {
-  font-family: var(--serif); font-size: 24px; letter-spacing: 0.18em;
+  font-family: var(--serif); font-size: 34px; letter-spacing: 0.22em;
   color: var(--ink); cursor: pointer; flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .nav-logo { font-size: 22px; letter-spacing: 0.18em; }
 }
 .nav-link {
   font-size: 13.5px; font-weight: 400; color: var(--ink-soft);
@@ -279,7 +282,8 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     </div>
     <div class="nav-logo" onclick="goTo('home','')">AUREA</div>
     <div class="nav-right">
-      <button class="btn btn-dark btn-sm" onclick="goTo('aula','docencia')">Acceder</button>
+      <button class="btn btn-dark btn-sm acceder-btn" onclick="goTo('aula','docencia')">Acceder</button>
+      <button class="btn btn-text mi-aula-btn" style="display:none" onclick="goTo('aula','docencia')">Mi aula →</button>
     </div>
   </div>
   <!-- Desktop row 2 -->
@@ -296,7 +300,8 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <button class="hamburger" onclick="openDrawer()">☰</button>
     <div class="nav-logo" onclick="goTo('home','')">AUREA</div>
     <div class="nav-mobile-right">
-      <button class="btn btn-dark btn-sm" style="padding:8px 14px;font-size:12px" onclick="goTo('aula','docencia')">Acceder</button>
+      <button class="btn btn-dark btn-sm acceder-btn" style="padding:8px 14px;font-size:12px" onclick="goTo('aula','docencia')">Acceder</button>
+      <button class="btn btn-text mi-aula-btn" style="display:none;font-size:12px" onclick="goTo('aula','docencia')">Mi aula →</button>
     </div>
   </div>
 </nav>
@@ -316,7 +321,8 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <div class="drawer-section">Más</div>
     <div class="drawer-item">Diario</div>
     <div class="drawer-item" style="margin-top:16px">
-      <button class="btn btn-dark" style="width:100%;justify-content:center" onclick="goTo('aula','docencia');closeDrawer()">Acceder</button>
+      <button class="btn btn-dark acceder-btn" style="width:100%;justify-content:center" onclick="goTo('aula','docencia');closeDrawer()">Acceder</button>
+      <button class="btn btn-dark mi-aula-btn" style="display:none;width:100%;justify-content:center" onclick="goTo('aula','docencia');closeDrawer()">Mi aula →</button>
     </div>
   </div>
 </div>
@@ -345,15 +351,15 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 <div class="page active" id="page-home">
 <style>
 /* ─── HOME STYLES ─── */
-.hero { display: grid; grid-template-columns: 1.5fr 1fr; min-height: 780px; }
+.hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 640px; }
 .hero-left {
-  background: var(--bg); padding: 80px 64px 80px 56px;
+  background: var(--bg); padding: 64px 56px 64px 56px;
   display: flex; flex-direction: column; justify-content: center;
 }
 .hero-h1 {
-  font-family: var(--serif); font-size: 92px; line-height: 0.96;
+  font-family: var(--serif); font-size: 76px; line-height: 0.98;
   letter-spacing: -0.022em; color: var(--ink);
-  margin: 20px 0 28px;
+  margin: 18px 0 26px;
 }
 .hero-h1 em { font-style: italic; }
 .hero-desc { font-size: 15.5px; color: var(--ink-soft); max-width: 400px; line-height: 1.6; margin-bottom: 36px; }
@@ -894,7 +900,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 ════════════════════════════════════════════════════════ -->
 <div class="page" id="page-aula">
 <style>
-.aula-wrap { padding: 60px 56px 80px; max-width: 1280px; margin: 0 auto; }
+.aula-wrap { padding: 80px 56px 80px; max-width: 1280px; margin: 0 auto; }
 .aula-login { display: flex; align-items: center; justify-content: center; min-height: 70vh; }
 .aula-login-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 44px 38px; max-width: 460px; width: 100%; box-shadow: 0 12px 36px rgba(36,29,23,0.06); }
 .aula-login-h1 { font-family: var(--serif); font-size: 40px; line-height: 1.05; letter-spacing: -0.02em; margin: 12px 0 8px; }
@@ -921,7 +927,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 
 /* Listado privado */
 .aula-list-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 36px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
-.aula-list-h1 { font-family: var(--serif); font-size: 44px; line-height: 1.05; letter-spacing: -0.02em; overflow-wrap: anywhere; max-width: 100%; }
+.aula-list-h1 { font-family: var(--serif); font-size: 44px; line-height: 1.15; letter-spacing: -0.02em; overflow-wrap: anywhere; max-width: 100%; padding-top: 6px; }
 .aula-list-h1 em { font-style: italic; color: var(--accent); }
 .aula-list-sub { font-size: 14px; color: var(--ink-soft); margin-top: 6px; }
 .aula-courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }

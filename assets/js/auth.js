@@ -21,6 +21,11 @@
   // ─── UI helpers ─────────────────────────────────────────
   function $(id) { return document.getElementById(id); }
   function show(el, on) { if (el) el.style.display = on ? '' : 'none'; }
+  function setAuthClass(authed) {
+    document.body.classList.toggle('is-authed', !!authed);
+    document.querySelectorAll('.acceder-btn').forEach(b => b.style.display = authed ? 'none' : '');
+    document.querySelectorAll('.mi-aula-btn').forEach(b => b.style.display = authed ? '' : 'none');
+  }
   function setMsg(text, kind) {
     const el = $('aula-login-msg');
     if (!el) return;
@@ -60,6 +65,7 @@
     if (!client) {
       show(loginSection, true);
       show(listSection, false);
+      setAuthClass(false);
       return;
     }
     try {
@@ -67,6 +73,7 @@
       if (user) {
         show(loginSection, false);
         show(listSection, true);
+        setAuthClass(true);
         let display;
         const fullName = user.user_metadata && (user.user_metadata.full_name || user.user_metadata.name);
         if (fullName) {
@@ -82,11 +89,13 @@
       } else {
         show(loginSection, true);
         show(listSection, false);
+        setAuthClass(false);
       }
     } catch (err) {
       console.error('[auth] getUser error:', err);
       show(loginSection, true);
       show(listSection, false);
+      setAuthClass(false);
     }
   }
 
