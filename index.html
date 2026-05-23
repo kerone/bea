@@ -97,6 +97,8 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .btn-text:hover { color: var(--accent-dark); border-color: var(--accent-dark); }
 .btn-text-white { color: #fff; border-bottom-color: rgba(255,255,255,0.5); }
 .btn-text-white:hover { color: rgba(255,255,255,0.8); }
+.btn-light { background: var(--bg); color: var(--ink); }
+.btn-light:hover { background: var(--surface); }
 .btn-sm { padding: 9px 18px; font-size: 12.5px; }
 
 /* ─── CHIPS ──────────────────────────────────────────── */
@@ -279,7 +281,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <div class="nav-right">
       <span class="nav-icon">🔍</span>
       <span class="nav-icon" style="position:relative">🛒<span class="cart-badge">2</span></span>
-      <button class="btn btn-dark btn-sm">Acceder</button>
+      <button class="btn btn-dark btn-sm" onclick="goTo('aula','docencia')">Acceder</button>
     </div>
   </div>
   <!-- Desktop row 2 -->
@@ -287,10 +289,8 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <span class="nav-area-label" id="nav-area-label">Docencia</span>
     <div class="nav-sep"></div>
     <div class="nav-sub-links" id="nav-sub-links">
-      <span class="nav-sub-link active">Cursos</span>
-      <span class="nav-sub-link" onclick="goTo('tests','docencia')">Tests</span>
-      <span class="nav-sub-link">Profesoras</span>
-      <span class="nav-sub-link">Mi progreso</span>
+      <span class="nav-sub-link active" onclick="goTo('cursos','docencia')">Cursos</span>
+      <span class="nav-sub-link" onclick="goTo('aula','docencia')">Acceso alumnado</span>
     </div>
   </div>
   <!-- Mobile row -->
@@ -310,19 +310,16 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   <div class="drawer-panel">
     <button class="drawer-close" onclick="closeDrawer()">✕</button>
     <div class="drawer-section">Docencia</div>
-    <div class="drawer-subitem" onclick="goTo('curso','docencia');closeDrawer()">Cursos</div>
-    <div class="drawer-subitem" onclick="goTo('tests','docencia');closeDrawer()">Tests</div>
-    <div class="drawer-subitem">Profesoras</div>
-    <div class="drawer-subitem">Mi progreso</div>
+    <div class="drawer-subitem" onclick="goTo('cursos','docencia');closeDrawer()">Cursos</div>
+    <div class="drawer-subitem" onclick="goTo('aula','docencia');closeDrawer()">Acceso alumnado</div>
     <div class="drawer-section">Aparatología</div>
     <div class="drawer-subitem" onclick="goTo('tienda','aparatologia');closeDrawer()">Catálogo</div>
-    <div class="drawer-subitem">Categorías</div>
     <div class="drawer-subitem">Demos</div>
     <div class="drawer-subitem">Servicio técnico</div>
     <div class="drawer-section">Más</div>
     <div class="drawer-item">Diario</div>
     <div class="drawer-item" style="margin-top:16px">
-      <button class="btn btn-dark" style="width:100%;justify-content:center">Acceder</button>
+      <button class="btn btn-dark" style="width:100%;justify-content:center" onclick="goTo('aula','docencia');closeDrawer()">Acceder</button>
     </div>
   </div>
 </div>
@@ -333,13 +330,13 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <div class="tab-item active" onclick="goTo('home','')">
       <span class="tab-icon">⌂</span><span>Inicio</span>
     </div>
-    <div class="tab-item" onclick="goTo('curso','docencia')">
+    <div class="tab-item" onclick="goTo('cursos','docencia')">
       <span class="tab-icon">◷</span><span>Docencia</span>
     </div>
     <div class="tab-item" onclick="goTo('tienda','aparatologia')">
       <span class="tab-icon">◈</span><span>Aparatología</span>
     </div>
-    <div class="tab-item">
+    <div class="tab-item" onclick="goTo('aula','docencia')">
       <span class="tab-icon">◎</span><span>Yo</span>
     </div>
   </div>
@@ -577,21 +574,13 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       <h1 class="hero-h1">El protocolo<br>que da<br>la <em>ciencia.</em></h1>
       <p class="hero-desc">Formación avanzada para profesionales que entienden que la técnica sin conocimiento no es suficiente.</p>
       <div class="hero-ctas">
-        <button class="btn btn-dark" onclick="goTo('curso','docencia')">Ver cursos →</button>
+        <button class="btn btn-dark" onclick="goTo('cursos','docencia')">Ver cursos →</button>
         <button class="btn btn-outline" onclick="goTo('tienda','aparatologia')">Aparatología</button>
       </div>
       <div class="hero-stats">
         <div>
-          <div class="hero-stat-num serif">1.480</div>
-          <div class="hero-stat-lbl">alumnas</div>
-        </div>
-        <div>
-          <div class="hero-stat-num serif">38</div>
-          <div class="hero-stat-lbl">programas</div>
-        </div>
-        <div>
           <div class="hero-stat-num serif">12</div>
-          <div class="hero-stat-lbl">años</div>
+          <div class="hero-stat-lbl">años formando profesionales</div>
         </div>
       </div>
     </div>
@@ -620,7 +609,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
         <div class="diptych-sub-grid">
           <div class="diptych-sub-card">
             <div class="diptych-sub-title">Cursos</div>
-            <div class="diptych-sub-desc">38 programas · vídeo + apuntes + recursos</div>
+            <div class="diptych-sub-desc">Vídeo · apuntes · recursos</div>
           </div>
           <div class="diptych-sub-card">
             <div class="diptych-sub-title">Tests</div>
@@ -628,7 +617,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
           </div>
         </div>
         <div class="diptych-link">
-          <button class="btn btn-text btn-text-white" onclick="goTo('curso','docencia')">Entrar al área docente →</button>
+          <button class="btn btn-text btn-text-white" onclick="goTo('cursos','docencia')">Entrar al área docente →</button>
         </div>
       </div>
       <!-- Aparatología -->
@@ -639,11 +628,6 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
         </div>
         <div class="diptych-display" style="font-family:var(--serif);font-size:64px;letter-spacing:-0.022em;line-height:0.95;margin:16px 0 14px">Equípate.</div>
         <p class="diptych-desc" style="color:var(--ink-soft)">Aparatología profesional. El equipo que se enseña en AUREA, disponible para tu cabina.</p>
-        <div class="diptych-stats">
-          <span class="diptych-stat">148 productos</span>
-          <span class="diptych-stat">24 meses sin intereses</span>
-          <span class="diptych-stat">312 centros</span>
-        </div>
         <div class="diptych-link">
           <button class="btn btn-text" onclick="goTo('tienda','aparatologia')">Entrar a la tienda →</button>
         </div>
@@ -666,16 +650,16 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
         <span class="eyebrow">· Docencia / Cursos</span>
         <h2 class="section-h2" style="margin-top:8px">Áreas de <em>especialización</em></h2>
       </div>
-      <button class="btn btn-text" onclick="goTo('curso','docencia')">Ver los 38 cursos →</button>
+      <button class="btn btn-text" onclick="goTo('cursos','docencia')">Ver cursos →</button>
     </div>
     <div class="areas-grid">
-      <div class="area-card" style="cursor:pointer" onclick="goTo('curso','docencia')">
+      <div class="area-card" style="cursor:pointer" onclick="goTo('cursos','docencia')">
         <div class="area-card-img ph ph-clay">
           <span class="area-roman">I</span>
           <div class="ph-label">electroestética · AUREA</div>
         </div>
         <div class="area-card-body">
-          <div class="area-cat">Electroestética · 12 cursos</div>
+          <div class="area-cat">Electroestética</div>
           <div class="area-title">Tecnología de<br>la piel</div>
           <p class="area-desc">Radiofrecuencia, ultrasonidos y corrientes galvánicas aplicadas con precisión clínica.</p>
           <button class="btn btn-text">Ver itinerario →</button>
@@ -687,7 +671,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
           <div class="ph-label">cosmetología · AUREA</div>
         </div>
         <div class="area-card-body">
-          <div class="area-cat">Cosmetología · 9 cursos</div>
+          <div class="area-cat">Cosmetología</div>
           <div class="area-title">Formulación &<br>activos</div>
           <p class="area-desc">Cosmética de principio activo. Protocolos de formulación y lectura de ficha técnica.</p>
           <button class="btn btn-text">Ver itinerario →</button>
@@ -699,53 +683,11 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
           <div class="ph-label">micropigmentación · AUREA</div>
         </div>
         <div class="area-card-body">
-          <div class="area-cat">Micropigmentación · 6 cursos</div>
+          <div class="area-cat">Micropigmentación</div>
           <div class="area-title">Diseño &<br>pigmento</div>
           <p class="area-desc">Técnica, color y seguridad para micropigmentación de cejas, labios y delineado.</p>
           <button class="btn btn-text">Ver itinerario →</button>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTS -->
-  <section class="tests-section">
-    <div class="tests-grid">
-      <div>
-        <span class="eyebrow">· Docencia / Tests</span>
-        <h2 class="tests-left-h2">Aprendido.<br><em>Comprobado.</em></h2>
-        <div class="tests-feature">
-          <span class="tests-check">✓</span>
-          <div>
-            <div class="tests-feat-title">Sin tiempo límite</div>
-            <div class="tests-feat-desc">Responde con calma. Cada pregunta tiene una sola respuesta correcta y una explicación detallada.</div>
-          </div>
-        </div>
-        <div class="tests-feature">
-          <span class="tests-check">✓</span>
-          <div>
-            <div class="tests-feat-title">Certificado al 80 %</div>
-            <div class="tests-feat-desc">Supera el umbral y descarga tu certificado de módulo firmado digitalmente.</div>
-          </div>
-        </div>
-        <div class="tests-feature">
-          <span class="tests-check">✓</span>
-          <div>
-            <div class="tests-feat-title">Repetible hasta aprender</div>
-            <div class="tests-feat-desc">Cada intento te muestra qué fallaste y enlaza directamente a la lección.</div>
-          </div>
-        </div>
-        <div style="margin-top:32px">
-          <button class="btn btn-dark" onclick="goTo('tests','docencia')">Hacer un test →</button>
-        </div>
-      </div>
-      <div class="test-preview-card">
-        <div class="test-preview-module">· Módulo 2 · Electroestética facial</div>
-        <div class="test-preview-progress"><div class="test-preview-progress-inner"></div></div>
-        <p class="test-preview-q">¿Cuál es la diferencia fundamental entre la radiofrecuencia <em>monopolar</em> y la <em>bipolar</em> en el tratamiento facial?</p>
-        <div class="test-option" onclick="selectOption(this)"><span class="test-option-letter">A</span> La monopolar utiliza un electrodo activo y uno pasivo, la bipolar sólo electrodos activos.</div>
-        <div class="test-option selected" onclick="selectOption(this)"><span class="test-option-letter">B</span> La bipolar penetra más profundamente que la monopolar en tejidos subcutáneos.</div>
-        <div class="test-option" onclick="selectOption(this)"><span class="test-option-letter">C</span> No existe diferencia clínica relevante entre ambas modalidades.</div>
       </div>
     </div>
   </section>
@@ -758,7 +700,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
         <span class="eyebrow">· Equipo profesional</span>
         <h2 class="section-h2" style="margin-top:8px">Aparatología <em>destacada</em></h2>
       </div>
-      <button class="btn btn-text" onclick="goTo('tienda','aparatologia')">Ver catálogo (148) →</button>
+      <button class="btn btn-text" onclick="goTo('tienda','aparatologia')">Ver catálogo →</button>
     </div>
     <div class="products-grid">
       <div class="product-card" onclick="goTo('producto','aparatologia')">
@@ -845,32 +787,6 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     </div>
   </section>
 
-  <!-- CURSO DESTACADO -->
-  <section class="curso-destacado">
-    <div class="curso-grid">
-      <div class="curso-img ph ph-stone">
-        <div class="curso-bestseller"><span class="chip chip-accent">Bestseller</span></div>
-        <div class="ph-label">protocolo radiofrecuencia · AUREA</div>
-      </div>
-      <div class="curso-content">
-        <span class="eyebrow">· Curso destacado</span>
-        <h2 class="curso-h2">Radiofrecuencia<br>facial <em>profesional.</em></h2>
-        <div class="curso-features">
-          <div class="curso-feat"><span style="color:var(--accent)">✓</span> 14 lecciones en vídeo + apuntes PDF descargables</div>
-          <div class="curso-feat"><span style="color:var(--accent)">✓</span> 3 módulos con test evaluable y certificado</div>
-          <div class="curso-feat"><span style="color:var(--accent)">✓</span> Compatible con RF-200, RF-100 y sistemas de terceros</div>
-          <div class="curso-feat"><span style="color:var(--accent)">✓</span> Actualizado con los protocolos de primavera 2026</div>
-        </div>
-        <div class="curso-price serif">desde €290</div>
-        <div class="curso-cuotas">o 3 cuotas de €97 sin intereses</div>
-        <div class="curso-ctas">
-          <button class="btn btn-dark" onclick="goTo('curso','docencia')">Acceder al curso →</button>
-          <button class="btn btn-outline">Ver programa completo</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- NEWSLETTER -->
   <section class="newsletter">
     <div class="ph ph-honey newsletter-bg"></div>
@@ -895,15 +811,13 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       </div>
       <div>
         <div class="footer-col-title">Escuela</div>
-        <a class="footer-link" onclick="goTo('curso','docencia')">Cursos</a>
-        <a class="footer-link" onclick="goTo('tests','docencia')">Tests</a>
-        <a class="footer-link">Profesoras</a>
+        <a class="footer-link" onclick="goTo('cursos','docencia')">Cursos</a>
+        <a class="footer-link" onclick="goTo('aula','docencia')">Acceso alumnado</a>
         <a class="footer-link">Diario</a>
       </div>
       <div>
         <div class="footer-col-title">Aparatología</div>
         <a class="footer-link" onclick="goTo('tienda','aparatologia')">Catálogo</a>
-        <a class="footer-link">Categorías</a>
         <a class="footer-link">Solicitar demo</a>
         <a class="footer-link">Servicio técnico</a>
       </div>
@@ -929,7 +843,252 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 </div><!-- /page-home -->
 
 <!-- ═══════════════════════════════════════════════════════
-     PAGE: DETALLE DE CURSO
+     PAGE: CURSOS · LISTADO PÚBLICO
+════════════════════════════════════════════════════════ -->
+<div class="page" id="page-cursos">
+<style>
+.cursos-pub { padding: 60px 56px 80px; max-width: 1280px; margin: 0 auto; }
+.cursos-pub-head { max-width: 720px; margin-bottom: 48px; }
+.cursos-pub-h1 { font-family: var(--serif); font-size: 56px; line-height: 1.02; letter-spacing: -0.02em; margin: 12px 0 18px; }
+.cursos-pub-h1 em { font-style: italic; }
+.cursos-pub-desc { font-size: 16px; color: var(--ink-soft); line-height: 1.6; }
+.cursos-pub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px; }
+.cursos-pub-card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.18s, box-shadow 0.18s; }
+.cursos-pub-card:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(36,29,23,0.08); }
+.cursos-pub-card-cover { height: 180px; background: var(--bg2); position: relative; overflow: hidden; }
+.cursos-pub-card-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cursos-pub-card-cover-fallback { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-style: italic; font-size: 28px; color: var(--muted); }
+.cursos-pub-card-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+.cursos-pub-card-eyebrow { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+.cursos-pub-card-title { font-family: var(--serif); font-size: 22px; line-height: 1.15; margin-bottom: 10px; }
+.cursos-pub-card-desc { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; flex: 1; }
+.cursos-pub-card-meta { display: flex; gap: 14px; font-size: 11.5px; color: var(--muted); margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); }
+.cursos-pub-cta { background: var(--ink); color: var(--bg); padding: 56px; border-radius: 12px; margin-top: 64px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+.cursos-pub-cta h2 { font-family: var(--serif); font-size: 32px; line-height: 1.1; margin-bottom: 8px; }
+.cursos-pub-cta p { font-size: 14px; color: rgba(242,236,227,0.7); }
+.cursos-pub-empty { padding: 60px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 10px; grid-column: 1/-1; }
+@media (max-width: 768px) {
+  .cursos-pub { padding: 32px 20px 60px; }
+  .cursos-pub-h1 { font-size: 40px; }
+  .cursos-pub-cta { padding: 32px 24px; }
+}
+</style>
+<section class="cursos-pub">
+  <div class="cursos-pub-head">
+    <span class="eyebrow accent">· Docencia / Cursos</span>
+    <h1 class="cursos-pub-h1">Programas <em>formativos</em>.</h1>
+    <p class="cursos-pub-desc">Cursos de protocolo riguroso, basados en evidencia y diseñados para profesionales en activo. Si ya eres alumna de AUREA, accede al aula para entrar en tu materia y tests.</p>
+  </div>
+  <div class="cursos-pub-grid" id="cursos-pub-grid">
+    <!-- Generated by JS from window.AUREA_COURSES -->
+  </div>
+  <div class="cursos-pub-cta">
+    <div>
+      <h2>¿Ya eres alumna?</h2>
+      <p>Accede al aula con tu cuenta para ver tu materia y tests.</p>
+    </div>
+    <button class="btn btn-light" onclick="goTo('aula','docencia')">Acceso alumnado →</button>
+  </div>
+</section>
+</div><!-- /page-cursos -->
+
+<!-- ═══════════════════════════════════════════════════════
+     PAGE: ACCESO ALUMNADO (login + listado privado)
+════════════════════════════════════════════════════════ -->
+<div class="page" id="page-aula">
+<style>
+.aula-wrap { padding: 60px 56px 80px; max-width: 1280px; margin: 0 auto; }
+.aula-login { display: flex; align-items: center; justify-content: center; min-height: 70vh; }
+.aula-login-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 44px 38px; max-width: 460px; width: 100%; box-shadow: 0 12px 36px rgba(36,29,23,0.06); }
+.aula-login-h1 { font-family: var(--serif); font-size: 40px; line-height: 1.05; letter-spacing: -0.02em; margin: 12px 0 8px; }
+.aula-login-h1 em { font-style: italic; }
+.aula-login-sub { font-size: 14px; color: var(--ink-soft); margin-bottom: 24px; }
+.aula-google-btn { width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; font-size: 14px; font-weight: 500; cursor: pointer; transition: background 0.15s, border-color 0.15s; }
+.aula-google-btn:hover { background: var(--bg); border-color: var(--ink-soft); }
+.aula-google-g { width: 18px; height: 18px; display: inline-block; background: conic-gradient(from -45deg, #ea4335 0 25%, #fbbc05 0 50%, #34a853 0 75%, #4285f4 0); border-radius: 50%; }
+.aula-divider { display: flex; align-items: center; gap: 12px; margin: 22px 0; color: var(--muted); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+.aula-divider::before, .aula-divider::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+.aula-form { display: flex; flex-direction: column; gap: 10px; }
+.aula-input { padding: 13px 16px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--bg); transition: border-color 0.15s; }
+.aula-input:focus { outline: none; border-color: var(--accent); }
+.aula-form-btn { padding: 13px; background: var(--ink); color: var(--bg); border: none; border-radius: 999px; font-size: 14px; font-weight: 500; cursor: pointer; transition: background 0.15s; margin-top: 4px; }
+.aula-form-btn:hover { background: var(--accent-dark); }
+.aula-foot { font-size: 13px; color: var(--ink-soft); text-align: center; margin-top: 20px; }
+.aula-foot .aula-link { color: var(--accent); cursor: pointer; text-decoration: underline; }
+.aula-msg { margin-top: 14px; padding: 10px 14px; border-radius: 8px; font-size: 12.5px; line-height: 1.45; }
+.aula-msg.aula-msg-err { background: #fdecea; color: #8a2424; border: 1px solid #f3c7c1; }
+.aula-msg.aula-msg-ok { background: #e9f5ec; color: #1f5a30; border: 1px solid #c8e3d0; }
+.aula-msg.aula-msg-info { background: var(--accent-soft); color: var(--accent-dark); border: 1px solid #e0c8b6; }
+.aula-config-warn { background: #fff8e6; color: #7a5a00; border: 1px solid #f1d77d; border-radius: 8px; padding: 12px 14px; font-size: 12.5px; margin-bottom: 18px; line-height: 1.5; }
+.aula-config-warn code { background: rgba(0,0,0,0.06); padding: 1px 6px; border-radius: 4px; font-size: 11.5px; }
+
+/* Listado privado */
+.aula-list-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 36px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+.aula-list-h1 { font-family: var(--serif); font-size: 44px; line-height: 1.05; letter-spacing: -0.02em; }
+.aula-list-h1 em { font-style: italic; color: var(--accent); }
+.aula-list-sub { font-size: 14px; color: var(--ink-soft); margin-top: 6px; }
+.aula-courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }
+.aula-course-card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform 0.18s, box-shadow 0.18s; display: flex; flex-direction: column; }
+.aula-course-card:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(36,29,23,0.08); }
+.aula-course-card-cover { height: 150px; background: var(--bg2); }
+.aula-course-card-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.aula-course-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+.aula-course-card-title { font-family: var(--serif); font-size: 20px; line-height: 1.15; margin-bottom: 8px; }
+.aula-course-card-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.5; flex: 1; }
+.aula-course-card-meta { display: flex; gap: 14px; font-size: 11.5px; color: var(--muted); margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--line); }
+.aula-empty { padding: 60px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 10px; grid-column: 1/-1; }
+@media (max-width: 768px) {
+  .aula-wrap { padding: 32px 20px 60px; }
+  .aula-login-card { padding: 32px 24px; }
+  .aula-login-h1 { font-size: 32px; }
+  .aula-list-h1 { font-size: 32px; }
+}
+</style>
+
+<!-- ── Login (no autenticada) ── -->
+<section class="aula-wrap aula-login" id="aula-login-section">
+  <div class="aula-login-card">
+    <span class="eyebrow accent">· Docencia / Acceso alumnado</span>
+    <h1 class="aula-login-h1">Bienvenida al <em>aula</em>.</h1>
+    <p class="aula-login-sub">Accede con tu cuenta de Google o con tu email.</p>
+
+    <div class="aula-config-warn" id="aula-config-warn" style="display:none">
+      <strong>Supabase aún no configurado.</strong> Abre <code>assets/js/supabase-config.js</code> y pega tu URL y anon-key. Mientras tanto, el login no enviará datos a ningún servidor.
+    </div>
+
+    <button class="aula-google-btn" onclick="auth.loginWithGoogle()">
+      <span class="aula-google-g"></span>
+      Continuar con Google
+    </button>
+
+    <div class="aula-divider">o con email</div>
+
+    <form class="aula-form" onsubmit="event.preventDefault(); auth.loginWithEmail();">
+      <input class="aula-input" type="email" id="aula-email" placeholder="tu@email.com" autocomplete="email">
+      <input class="aula-input" type="password" id="aula-password" placeholder="Contraseña" autocomplete="current-password">
+      <button type="submit" class="aula-form-btn" id="aula-submit-btn">Entrar</button>
+    </form>
+
+    <div class="aula-foot">
+      <span id="aula-mode-text">¿No tienes cuenta?</span>
+      <span class="aula-link" id="aula-mode-toggle" onclick="auth.toggleMode()">Date de alta</span>
+    </div>
+
+    <div class="aula-msg" id="aula-login-msg" style="display:none"></div>
+  </div>
+</section>
+
+<!-- ── Listado privado (autenticada) ── -->
+<section class="aula-wrap" id="aula-list-section" style="display:none">
+  <div class="aula-list-head">
+    <div>
+      <span class="eyebrow accent">· Tu aula</span>
+      <h1 class="aula-list-h1">Hola, <em id="aula-user-name">alumna</em>.</h1>
+      <p class="aula-list-sub">Estos son tus cursos disponibles.</p>
+    </div>
+    <button class="btn btn-text" onclick="auth.logout()">Cerrar sesión</button>
+  </div>
+  <div class="aula-courses-grid" id="aula-courses-grid">
+    <!-- Generated by JS from window.AUREA_COURSES -->
+  </div>
+</section>
+</div><!-- /page-aula -->
+
+<!-- ═══════════════════════════════════════════════════════
+     PAGE: AULA · DETALLE DE CURSO (Materia + Test)
+════════════════════════════════════════════════════════ -->
+<div class="page" id="page-aula-curso">
+<style>
+.ac-wrap { padding: 40px 56px 80px; max-width: 1280px; margin: 0 auto; }
+.ac-bc { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
+.ac-bc span { cursor: pointer; }
+.ac-bc span:hover { color: var(--ink); }
+.ac-head { padding-bottom: 28px; border-bottom: 1px solid var(--line); margin-bottom: 28px; }
+.ac-h1 { font-family: var(--serif); font-size: 44px; line-height: 1.05; letter-spacing: -0.02em; }
+.ac-h1 em { font-style: italic; }
+.ac-desc { font-size: 14.5px; color: var(--ink-soft); margin-top: 12px; max-width: 720px; line-height: 1.55; }
+.ac-tabs { display: flex; gap: 32px; border-bottom: 1px solid var(--line); margin-bottom: 28px; }
+.ac-tab { font-size: 14px; font-weight: 500; padding: 14px 0; cursor: pointer; color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s, border-color 0.2s; }
+.ac-tab.active { color: var(--ink); border-bottom-color: var(--accent); }
+.ac-tab-content { display: none; }
+.ac-tab-content.active { display: block; }
+
+/* Materia: lecciones */
+.ac-lessons { display: flex; flex-direction: column; gap: 10px; }
+.ac-lesson { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 22px; display: flex; align-items: center; gap: 16px; cursor: pointer; transition: background 0.15s, border-color 0.15s; }
+.ac-lesson:hover { background: var(--bg); border-color: var(--ink-soft); }
+.ac-lesson-num { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--muted); width: 32px; flex-shrink: 0; }
+.ac-lesson-body { flex: 1; }
+.ac-lesson-title { font-size: 15px; font-weight: 500; }
+.ac-lesson-meta { font-size: 11.5px; color: var(--muted); margin-top: 3px; }
+.ac-lesson-cta { font-size: 12px; color: var(--accent); font-weight: 600; }
+.ac-empty { padding: 40px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 10px; }
+
+/* Visor de slides (iframe fullscreen) */
+.ac-slides-modal { position: fixed; inset: 0; background: rgba(36,29,23,0.85); z-index: 1000; display: none; flex-direction: column; }
+.ac-slides-modal.open { display: flex; }
+.ac-slides-topbar { padding: 14px 22px; display: flex; justify-content: space-between; align-items: center; color: var(--bg); background: rgba(36,29,23,0.95); border-bottom: 1px solid rgba(255,255,255,0.08); }
+.ac-slides-title { font-size: 13px; }
+.ac-slides-close { font-size: 22px; cursor: pointer; padding: 4px 12px; }
+.ac-slides-frame { flex: 1; border: none; background: var(--bg); width: 100%; }
+
+/* Test */
+.ac-test-empty { padding: 60px 24px; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 10px; }
+.ac-test-empty p { margin-bottom: 16px; }
+.ac-test-q { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px; margin-bottom: 14px; }
+.ac-test-q-num { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.ac-test-q-text { font-size: 15px; font-weight: 500; margin-bottom: 14px; line-height: 1.4; }
+.ac-test-opts { display: flex; flex-direction: column; gap: 8px; }
+.ac-test-opt { padding: 12px 16px; border: 1px solid var(--line); border-radius: 8px; cursor: pointer; font-size: 13.5px; transition: background 0.15s, border-color 0.15s; }
+.ac-test-opt:hover { background: var(--bg); }
+.ac-test-opt.selected { background: var(--accent-soft); border-color: var(--accent); }
+.ac-test-opt.correct { background: #e9f5ec; border-color: #6fb37e; color: #1f5a30; }
+.ac-test-opt.wrong { background: #fdecea; border-color: #d57a72; color: #8a2424; }
+.ac-test-submit { margin-top: 20px; padding: 14px 28px; background: var(--ink); color: var(--bg); border: none; border-radius: 999px; font-size: 14px; cursor: pointer; transition: background 0.15s; }
+.ac-test-submit:hover { background: var(--accent-dark); }
+.ac-test-result { background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 10px; padding: 22px; margin-top: 18px; text-align: center; }
+.ac-test-result-score { font-family: var(--serif); font-size: 36px; }
+.ac-test-result-lbl { font-size: 12px; color: var(--ink-soft); margin-top: 4px; }
+
+@media (max-width: 768px) {
+  .ac-wrap { padding: 24px 20px 60px; }
+  .ac-h1 { font-size: 32px; }
+  .ac-tabs { gap: 22px; }
+}
+</style>
+<section class="ac-wrap">
+  <div class="ac-bc">
+    <span onclick="goTo('aula','docencia')">Aula</span> ›
+    <span id="ac-bc-title">Curso</span>
+  </div>
+  <div class="ac-head">
+    <h1 class="ac-h1" id="ac-title">Curso</h1>
+    <p class="ac-desc" id="ac-desc"></p>
+  </div>
+  <div class="ac-tabs">
+    <span class="ac-tab active" data-tab="materia" onclick="aulaSwitchTab('materia')">Materia</span>
+    <span class="ac-tab" data-tab="test" onclick="aulaSwitchTab('test')">Test</span>
+  </div>
+  <div class="ac-tab-content active" id="ac-tab-materia">
+    <div class="ac-lessons" id="ac-lessons"></div>
+  </div>
+  <div class="ac-tab-content" id="ac-tab-test">
+    <div id="ac-test-container"></div>
+  </div>
+</section>
+
+<!-- Visor de slides en overlay -->
+<div class="ac-slides-modal" id="ac-slides-modal">
+  <div class="ac-slides-topbar">
+    <span class="ac-slides-title" id="ac-slides-title">Lección</span>
+    <span class="ac-slides-close" onclick="closeAulaSlides()">✕</span>
+  </div>
+  <iframe class="ac-slides-frame" id="ac-slides-frame" src="about:blank" title="Lección"></iframe>
+</div>
+</div><!-- /page-aula-curso -->
+
+<!-- ═══════════════════════════════════════════════════════
+     PAGE: DETALLE DE CURSO (heredado)
 ════════════════════════════════════════════════════════ -->
 <div class="page" id="page-curso">
 <style>
@@ -996,7 +1155,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <div>
       <div class="curso-detail-breadcrumb">
         <span onclick="goTo('home','')">Inicio</span> ›
-        <span onclick="goTo('curso','docencia')">Cursos</span> ›
+        <span onclick="goTo('cursos','docencia')">Cursos</span> ›
         <span>Cosmetología</span> ›
         <span style="color:var(--ink)">Anatomía y fisiología cutánea</span>
       </div>
@@ -1502,13 +1661,13 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 
 <!-- Topbar de progreso -->
 <div class="lv-topbar">
-  <span class="lv-back" onclick="goTo('curso','docencia')">←  Volver al curso</span>
+  <span class="lv-back" onclick="goTo('aula-curso','docencia')">←  Volver al curso</span>
   <span class="lv-crumb">Anatomía y fisiología cutánea · Módulo I · <b>Lección 1 — Introducción a la piel</b></span>
   <div class="lv-prog-wrap">
     <span class="lv-prog-num" id="lv-prog-num">01 / 09</span>
     <div class="lv-prog-bar"><div class="lv-prog-fill" id="lv-prog-fill"></div></div>
   </div>
-  <span class="lv-close" onclick="goTo('curso','docencia')">✕</span>
+  <span class="lv-close" onclick="goTo('aula-curso','docencia')">✕</span>
 </div>
 
 <!-- Puntos de navegación lateral -->
@@ -1702,7 +1861,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       </div>
       <div class="lv-end-ctas">
         <a class="lv-end-cta-main" onclick="goTo('leccion','docencia');window.scrollTo({top:0,behavior:'instant'});">Siguiente lección · La epidermis →</a>
-        <a class="lv-end-cta-ghost" onclick="goTo('curso','docencia')">Volver al temario</a>
+        <a class="lv-end-cta-ghost" onclick="goTo('aula-curso','docencia')">Volver al temario</a>
       </div>
     </div>
   </section>
@@ -1930,7 +2089,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   <div class="tienda-header">
     <span class="eyebrow">· Aparatología profesional</span>
     <h1 class="tienda-h1">El equipo que <em>se enseña</em><br>en AUREA.</h1>
-    <p class="tienda-meta">148 productos · ordenado por relevancia</p>
+    <p class="tienda-meta">Ordenado por relevancia</p>
   </div>
   <div class="filter-chips">
     <span class="filter-chip active" onclick="filterTienda(this,'todas')">Todas</span>
@@ -2111,7 +2270,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
         <button class="btn btn-outline">Solicitar demo</button>
       </div>
       <!-- Bloque aprende -->
-      <div class="producto-aprende" onclick="goTo('curso','docencia')">
+      <div class="producto-aprende" onclick="goTo('cursos','docencia')">
         <div class="producto-aprende-img ph ph-stone"></div>
         <div>
           <div class="producto-aprende-eyebrow">· Aprende a usarlo</div>
@@ -2141,20 +2300,43 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 <!-- ═══════════════════════════════════════════════════════
      JAVASCRIPT
 ════════════════════════════════════════════════════════ -->
+<!-- Supabase SDK (auth + DB). Lectura: https://supabase.com/docs/reference/javascript -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- Configuración propia: pega tu URL + anon key aquí -->
+<script src="assets/js/supabase-config.js"></script>
+<!-- Datos editables de los cursos -->
+<script src="assets/js/courses-data.js"></script>
+<!-- Matrículas (qué alumna tiene acceso a qué curso) leídas de Google Sheets -->
+<script src="assets/js/enrollments.js"></script>
+<!-- Lógica de autenticación -->
+<script src="assets/js/auth.js"></script>
 <script>
 // ─── ROUTING ──────────────────────────────────────────
+const SUBLINKS = {
+  docencia: [
+    { label: 'Cursos',           page: 'cursos' },
+    { label: 'Acceso alumnado',  page: 'aula' }
+  ],
+  aparatologia: [
+    { label: 'Catálogo',         page: 'tienda' },
+    { label: 'Demos',            page: null },
+    { label: 'Servicio técnico', page: null }
+  ]
+};
 const pages = {
-  'home':      { el: 'page-home',      area: '',           areaLabel: '',              subLinks: [] },
-  'curso':     { el: 'page-curso',     area: 'docencia',   areaLabel: 'Docencia',      subLinks: ['Cursos','Tests','Profesoras','Mi progreso'] },
-  'leccion':   { el: 'page-leccion',   area: 'docencia',   areaLabel: 'Docencia',      subLinks: ['Cursos','Tests','Profesoras','Mi progreso'] },
-  'tests':     { el: 'page-tests',     area: 'docencia',   areaLabel: 'Docencia',      subLinks: ['Cursos','Tests','Profesoras','Mi progreso'] },
-  'resultado': { el: 'page-resultado', area: 'docencia',   areaLabel: 'Docencia',      subLinks: ['Cursos','Tests','Profesoras','Mi progreso'] },
-  'tienda':    { el: 'page-tienda',    area: 'aparatologia', areaLabel: 'Aparatología', subLinks: ['Catálogo','Categorías','Demos','Servicio técnico'] },
-  'producto':  { el: 'page-producto',  area: 'aparatologia', areaLabel: 'Aparatología', subLinks: ['Catálogo','Categorías','Demos','Servicio técnico'] },
+  'home':       { el: 'page-home',       area: '',           areaLabel: '',              subActive: null },
+  'cursos':     { el: 'page-cursos',     area: 'docencia',   areaLabel: 'Docencia',      subActive: 'cursos' },
+  'curso':      { el: 'page-curso',      area: 'docencia',   areaLabel: 'Docencia',      subActive: 'cursos' },
+  'aula':       { el: 'page-aula',       area: 'docencia',   areaLabel: 'Docencia',      subActive: 'aula' },
+  'aula-curso': { el: 'page-aula-curso', area: 'docencia',   areaLabel: 'Docencia',      subActive: 'aula' },
+  'leccion':    { el: 'page-leccion',    area: 'docencia',   areaLabel: 'Docencia',      subActive: 'aula' },
+  'tests':      { el: 'page-tests',      area: 'docencia',   areaLabel: 'Docencia',      subActive: 'aula' },
+  'resultado':  { el: 'page-resultado',  area: 'docencia',   areaLabel: 'Docencia',      subActive: 'aula' },
+  'tienda':     { el: 'page-tienda',     area: 'aparatologia', areaLabel: 'Aparatología', subActive: 'tienda' },
+  'producto':   { el: 'page-producto',   area: 'aparatologia', areaLabel: 'Aparatología', subActive: 'tienda' },
 };
 
 function goTo(pageKey, area) {
-  // hide all
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const cfg = pages[pageKey];
   if (!cfg) return;
@@ -2162,29 +2344,27 @@ function goTo(pageKey, area) {
   window.scrollTo(0,0);
   updateNav(pageKey, cfg);
   updateTabBar(cfg.area);
+  if (typeof onPageEnter === 'function') onPageEnter(pageKey);
 }
 
 function updateNav(pageKey, cfg) {
-  // Row 1 active link
   document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
   if (cfg.area === 'docencia') document.querySelectorAll('.nav-link')[0].classList.add('active');
   if (cfg.area === 'aparatologia') document.querySelectorAll('.nav-link')[1].classList.add('active');
-  if (pageKey === 'home') { /* none active */ }
 
-  // Row 2
   const row2 = document.getElementById('nav-row2');
   const label = document.getElementById('nav-area-label');
   const subLinks = document.getElementById('nav-sub-links');
 
-  if (!cfg.area) {
-    row2.style.display = 'none';
-    return;
-  }
+  if (!cfg.area) { row2.style.display = 'none'; return; }
   row2.style.display = '';
   label.textContent = cfg.areaLabel;
-  subLinks.innerHTML = cfg.subLinks.map((s,i) =>
-    `<span class="nav-sub-link${i===0?' active':''}">${s}</span>`
-  ).join('');
+  const items = SUBLINKS[cfg.area] || [];
+  subLinks.innerHTML = items.map(it => {
+    const isActive = it.page && it.page === cfg.subActive;
+    const onclick = it.page ? `onclick="goTo('${it.page}','${cfg.area}')"` : '';
+    return `<span class="nav-sub-link${isActive ? ' active' : ''}" ${onclick}>${it.label}</span>`;
+  }).join('');
 }
 
 function updateTabBar(area) {
@@ -2494,8 +2674,257 @@ document.querySelectorAll('.producto-thumb').forEach(thumb => {
   };
 })();
 
+// ─── DOCENCIA · DATOS DE CURSOS ─────────────────────────
+function getCourses() {
+  return (window.AUREA_COURSES && Array.isArray(window.AUREA_COURSES)) ? window.AUREA_COURSES : [];
+}
+
+// ─── CURSOS PÚBLICO (listado con descripción) ───────────
+function renderPublicCourses() {
+  const grid = document.getElementById('cursos-pub-grid');
+  if (!grid) return;
+  const courses = getCourses();
+  if (courses.length === 0) {
+    grid.innerHTML = '<div class="cursos-pub-empty">Aún no hay cursos publicados. Edita <code>assets/js/courses-data.js</code> para añadir el primero.</div>';
+    return;
+  }
+  grid.innerHTML = courses.map(c => `
+    <article class="cursos-pub-card">
+      <div class="cursos-pub-card-cover">
+        ${c.cover ? `<img src="${c.cover}" alt="">` : `<div class="cursos-pub-card-cover-fallback">${escapeHtml(c.title)}</div>`}
+      </div>
+      <div class="cursos-pub-card-body">
+        ${c.eyebrow ? `<div class="cursos-pub-card-eyebrow">${escapeHtml(c.eyebrow)}</div>` : ''}
+        <div class="cursos-pub-card-title">${escapeHtml(c.title)}</div>
+        <div class="cursos-pub-card-desc">${escapeHtml(c.description || '')}</div>
+        <div class="cursos-pub-card-meta">
+          ${c.lessons ? `<span>${c.lessons.length} lecciones</span>` : ''}
+          ${c.duration ? `<span>${escapeHtml(c.duration)}</span>` : ''}
+          ${c.level ? `<span>${escapeHtml(c.level)}</span>` : ''}
+        </div>
+      </div>
+    </article>
+  `).join('');
+}
+
+// ─── AULA · CONTROL DE ACCESO POR ALUMNA ────────────────
+// Cada curso puede llevar un campo `enrolledEmails: ['a@x', 'b@y']`.
+// - Sin ese campo (o vacío) → visible para cualquier alumna logueada.
+// - Con emails → solo visible si el email de la alumna está en la lista.
+async function currentUserEmail() {
+  if (!window.auth || !window.auth.getClient) return null;
+  const client = window.auth.getClient();
+  if (!client) return null;
+  try {
+    const { data: { user } } = await client.auth.getUser();
+    return (user && user.email) ? user.email.toLowerCase().trim() : null;
+  } catch (e) { return null; }
+}
+async function canAccessCourse(course) {
+  if (!course) return false;
+  // 1) Si hay hoja de matrículas configurada (Google Sheets), manda esa.
+  //    Cada acceso requiere una fila (email, curso) en la hoja.
+  if (window.enrollments && window.enrollments.isConfigured()) {
+    const email = await currentUserEmail();
+    if (!email) return false;
+    return await window.enrollments.canAccess(email, course.id);
+  }
+  // 2) Modo legacy (sin hoja): se mira el array enrolledEmails del JSON.
+  if (!course.enrolledEmails || course.enrolledEmails.length === 0) return true;
+  const email = await currentUserEmail();
+  if (!email) return false;
+  return course.enrolledEmails.some(e => String(e).toLowerCase().trim() === email);
+}
+
+// ─── AULA · LISTADO PRIVADO ─────────────────────────────
+async function renderAulaCourses() {
+  const grid = document.getElementById('aula-courses-grid');
+  if (!grid) return;
+  const all = getCourses();
+  if (all.length === 0) {
+    grid.innerHTML = '<div class="aula-empty">Aún no hay cursos disponibles. Edita <code>assets/js/courses-data.js</code> para añadir el primero.</div>';
+    return;
+  }
+  const courses = [];
+  for (const c of all) {
+    if (await canAccessCourse(c)) courses.push(c);
+  }
+  if (courses.length === 0) {
+    grid.innerHTML = '<div class="aula-empty">Aún no tienes cursos asignados. Habla con tu profesora para que te dé acceso.</div>';
+    return;
+  }
+  grid.innerHTML = courses.map(c => `
+    <article class="aula-course-card" onclick="openAulaCurso('${escapeAttr(c.id)}')">
+      <div class="aula-course-card-cover">
+        ${c.cover ? `<img src="${c.cover}" alt="">` : ''}
+      </div>
+      <div class="aula-course-card-body">
+        <div class="aula-course-card-title">${escapeHtml(c.title)}</div>
+        <div class="aula-course-card-desc">${escapeHtml(c.shortDescription || c.description || '')}</div>
+        <div class="aula-course-card-meta">
+          ${c.lessons ? `<span>${c.lessons.length} lecciones</span>` : ''}
+          ${c.test ? `<span>Test incluido</span>` : ''}
+        </div>
+      </div>
+    </article>
+  `).join('');
+}
+
+// ─── AULA · DETALLE DEL CURSO ──────────────────────────
+let _currentAulaCourseId = null;
+async function openAulaCurso(courseId) {
+  const course = getCourses().find(c => c.id === courseId);
+  if (!course) return;
+  if (!(await canAccessCourse(course))) {
+    alert('No tienes acceso a este curso. Habla con tu profesora.');
+    return;
+  }
+  _currentAulaCourseId = courseId;
+  goTo('aula-curso','docencia');
+}
+
+function renderAulaCurso() {
+  const courses = getCourses();
+  const course = courses.find(c => c.id === _currentAulaCourseId) || courses[0];
+  if (!course) {
+    document.getElementById('ac-title').textContent = 'Sin cursos disponibles';
+    document.getElementById('ac-desc').textContent = '';
+    document.getElementById('ac-lessons').innerHTML = '<div class="ac-empty">Añade un curso en <code>assets/js/courses-data.js</code>.</div>';
+    return;
+  }
+  document.getElementById('ac-bc-title').textContent = course.title;
+  document.getElementById('ac-title').innerHTML = escapeHtml(course.title);
+  document.getElementById('ac-desc').textContent = course.description || '';
+
+  // Lecciones (Materia)
+  const lessonsEl = document.getElementById('ac-lessons');
+  if (!course.lessons || course.lessons.length === 0) {
+    lessonsEl.innerHTML = '<div class="ac-empty">Este curso aún no tiene lecciones publicadas.</div>';
+  } else {
+    lessonsEl.innerHTML = course.lessons.map((l, i) => `
+      <div class="ac-lesson" onclick="openAulaSlides('${escapeAttr(course.id)}', ${i})">
+        <div class="ac-lesson-num">${String(i+1).padStart(2,'0')}</div>
+        <div class="ac-lesson-body">
+          <div class="ac-lesson-title">${escapeHtml(l.title)}</div>
+          <div class="ac-lesson-meta">${l.duration ? escapeHtml(l.duration) + ' · ' : ''}${l.slides ? 'Diapositivas HTML' : 'Pendiente de subir'}</div>
+        </div>
+        <div class="ac-lesson-cta">Abrir →</div>
+      </div>
+    `).join('');
+  }
+
+  // Test
+  renderAulaTest(course);
+}
+
+function aulaSwitchTab(name) {
+  document.querySelectorAll('#page-aula-curso .ac-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+  document.getElementById('ac-tab-materia').classList.toggle('active', name === 'materia');
+  document.getElementById('ac-tab-test').classList.toggle('active', name === 'test');
+}
+
+function openAulaSlides(courseId, lessonIdx) {
+  const course = getCourses().find(c => c.id === courseId);
+  if (!course || !course.lessons || !course.lessons[lessonIdx]) return;
+  const lesson = course.lessons[lessonIdx];
+  if (!lesson.slides) {
+    alert('Esta lección aún no tiene slides asociados. Sube un index.html a la carpeta del curso y enlázalo en courses-data.js.');
+    return;
+  }
+  // Caso especial: usar la lección visual integrada (parallax 3D)
+  if (lesson.slides === 'leccion-integrada') {
+    goTo('leccion','docencia');
+    return;
+  }
+  document.getElementById('ac-slides-title').textContent = course.title + ' · ' + lesson.title;
+  document.getElementById('ac-slides-frame').src = lesson.slides;
+  document.getElementById('ac-slides-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeAulaSlides() {
+  document.getElementById('ac-slides-modal').classList.remove('open');
+  document.getElementById('ac-slides-frame').src = 'about:blank';
+  document.body.style.overflow = '';
+}
+
+// ─── AULA · TEST ────────────────────────────────────────
+function renderAulaTest(course) {
+  const container = document.getElementById('ac-test-container');
+  if (!course || !course.test || !course.test.questions || course.test.questions.length === 0) {
+    container.innerHTML = '<div class="ac-test-empty"><p>Este curso aún no tiene test publicado.</p><span class="aula-foot">Añade el campo <code>test</code> al curso en <code>courses-data.js</code>.</span></div>';
+    return;
+  }
+  const questions = course.test.questions;
+  container.innerHTML = `
+    <div id="ac-test-form">
+      ${questions.map((q, qi) => `
+        <div class="ac-test-q" data-qi="${qi}">
+          <div class="ac-test-q-num">Pregunta ${qi+1} / ${questions.length}</div>
+          <div class="ac-test-q-text">${escapeHtml(q.q)}</div>
+          <div class="ac-test-opts">
+            ${q.options.map((opt, oi) => `
+              <div class="ac-test-opt" data-oi="${oi}" onclick="aulaTestSelect(${qi}, ${oi})">${escapeHtml(opt)}</div>
+            `).join('')}
+          </div>
+        </div>
+      `).join('')}
+      <button class="ac-test-submit" onclick="aulaTestSubmit()">Corregir test</button>
+      <div id="ac-test-result"></div>
+    </div>
+  `;
+  window._aulaTestAnswers = {};
+  window._aulaTestQuestions = questions;
+}
+function aulaTestSelect(qi, oi) {
+  window._aulaTestAnswers = window._aulaTestAnswers || {};
+  window._aulaTestAnswers[qi] = oi;
+  const qEl = document.querySelector(`.ac-test-q[data-qi="${qi}"]`);
+  qEl.querySelectorAll('.ac-test-opt').forEach(o => o.classList.remove('selected'));
+  qEl.querySelector(`.ac-test-opt[data-oi="${oi}"]`).classList.add('selected');
+}
+function aulaTestSubmit() {
+  const answers = window._aulaTestAnswers || {};
+  const questions = window._aulaTestQuestions || [];
+  let correct = 0;
+  questions.forEach((q, qi) => {
+    const qEl = document.querySelector(`.ac-test-q[data-qi="${qi}"]`);
+    qEl.querySelectorAll('.ac-test-opt').forEach((opt, oi) => {
+      opt.classList.remove('selected');
+      if (oi === q.correct) opt.classList.add('correct');
+      if (answers[qi] === oi && oi !== q.correct) opt.classList.add('wrong');
+    });
+    if (answers[qi] === q.correct) correct++;
+  });
+  const pct = Math.round((correct / questions.length) * 100);
+  document.getElementById('ac-test-result').innerHTML = `
+    <div class="ac-test-result">
+      <div class="ac-test-result-score">${correct} / ${questions.length}</div>
+      <div class="ac-test-result-lbl">${pct}% de aciertos</div>
+    </div>
+  `;
+  document.querySelector('.ac-test-submit').style.display = 'none';
+}
+
+// ─── UTILIDADES ─────────────────────────────────────────
+function escapeHtml(s) {
+  if (s == null) return '';
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function escapeAttr(s) { return escapeHtml(s).replace(/`/g, '&#96;'); }
+
+// ─── HOOK por cambio de página ──────────────────────────
+function onPageEnter(pageKey) {
+  if (pageKey === 'cursos') renderPublicCourses();
+  if (pageKey === 'aula') {
+    if (window.auth && window.auth.refresh) window.auth.refresh();
+    renderAulaCourses();
+  }
+  if (pageKey === 'aula-curso') renderAulaCurso();
+}
+
 // ─── INIT ───────────────────────────────────────────────
 goTo('home','');
+if (window.auth && window.auth.init) window.auth.init();
 </script>
 </body>
 </html>

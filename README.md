@@ -1,128 +1,190 @@
 # AUREA — Escuela de estética avanzada
 
-Web estática (HTML/CSS/JS puro, sin dependencias) para la academia de estética **AUREA**.
-Incluye el sistema de marketing editorial + un **visor de lección visual** con animación parallax 3D al hacer scroll, basado en el temario "La piel · Introducción".
+Web estática (HTML/CSS/JS puro) para la academia **AUREA**.
+Sirve a la vez como vitrina pública de los cursos y como aula privada donde el alumnado accede a su materia (slides en HTML) y a sus tests.
+
+> **Stack:** un solo `index.html` + scripts en `assets/js/`. Sin build, sin instalación. El backend de login/usuarios va por **Supabase** (plan gratuito).
 
 ---
 
-## 📂 Estructura del proyecto
+## 🗺️ Estructura del proyecto
 
 ```
 .
-├── index.html              ← La web completa (single page, varias pantallas)
-├── assets/                 ← Imágenes y recursos
-│   ├── le-petit.jpg        ← Imagen usada en el parallax 3D
+├── index.html
+├── assets/
+│   ├── js/
+│   │   ├── supabase-config.js   ← URL + anon key de tu proyecto Supabase
+│   │   ├── courses-data.js      ← "Base de datos" editable de los cursos
+│   │   └── auth.js              ← Login/logout/signup (no tocar)
+│   ├── cursos/
+│   │   └── <id-del-curso>/
+│   │       └── leccion-N/
+│   │           └── index.html   ← Slides HTML de la lección
+│   ├── le-petit.jpg
 │   └── IMG-20260522-WA0032.jpg
-├── docs/                   ← Documentación y materiales fuente
-│   ├── Temario_La_Piel.docx  ← Temario académico completo (50 págs.)
-│   └── parallax-prompt.md    ← Especificación técnica de la sección parallax
-├── .gitignore
+├── docs/
+│   ├── Temario_La_Piel.docx
+│   └── parallax-prompt.md
 └── README.md
 ```
 
 ---
 
-## 🚀 Cómo verla en local
+## 🚀 Verla en local
 
-No necesita build ni instalación. Tres opciones:
-
-### Opción A — Doble clic
-Abre `index.html` directamente con el navegador. Funciona, aunque algunas imágenes pueden tardar más por la política `file://`.
-
-### Opción B — Servidor con Python (sin instalar nada extra)
+Sin build, sin instalación.
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Luego abre [http://localhost:8000](http://localhost:8000).
+Abre http://localhost:8000 y listo.
 
-### Opción C — Servidor con Node
+---
 
-```bash
-npx --yes http-server -p 8000 -c-1
+## 🧭 Estructura de navegación
+
+### Docencia
+- **Cursos** — Listado público con la portada y descripción de cada curso. Sin acceso al material; sirve para enseñar tu catálogo.
+- **Acceso alumnado** — Login (Google + email). Una vez dentro, la alumna ve sus cursos. Cada curso tiene dos pestañas: **Materia** (las slides) y **Test**.
+
+### Aparatología
+- **Catálogo** — Tienda de aparatos.
+- **Demos** y **Servicio técnico** — placeholders.
+
+### Inicio
+Una sola cifra de marca: "12 años formando profesionales". Resto del hero limpio.
+
+---
+
+## 🎓 Cómo gestionar el contenido (lo que te interesa)
+
+### 1. Añadir un curso nuevo
+
+1. Abre **`assets/js/courses-data.js`**.
+2. Copia uno de los bloques existentes dentro de `window.AUREA_COURSES`.
+3. Cambia `id` (sin espacios, todo en minúsculas), `title`, `description`, `cover`.
+4. Define las `lessons` (puede ser un array vacío `[]` al principio).
+5. Define el `test` con sus preguntas (campo `correct` es el **índice** de la respuesta correcta empezando en 0).
+6. `git add . && git commit -m "Add curso X" && git push`. GitHub Pages despliega solo.
+
+### 2. Subir las slides de una lección
+
+Las slides son HTML embebido en un iframe a pantalla completa.
+
+1. En **Claude Design Slides**, genera la lección y exporta como HTML (un solo archivo o una carpeta).
+2. Crea la carpeta destino: `assets/cursos/<id-del-curso>/leccion-N/`.
+3. Mete dentro el `index.html` (y los recursos que necesite: imágenes, css, js).
+4. En `courses-data.js`, dentro del array `lessons`, añade:
+   ```js
+   {
+     id: 'leccion-2',
+     title: 'La epidermis',
+     duration: '22 min',
+     slides: 'assets/cursos/anatomia-fisiologia-cutanea/leccion-2/index.html'
+   }
+   ```
+5. Commit + push.
+
+> **Lección 1 de "Anatomía y fisiología cutánea"** está enlazada con valor especial `'leccion-integrada'`, que abre la lección visual con parallax 3D ya integrada en `index.html`. Es solo un caso particular para no perder esa demo; las lecciones nuevas usan rutas a HTML como las demás.
+
+### 3. Editar los tests
+
+Cada curso lleva su test en `courses-data.js`:
+
+```js
+test: {
+  questions: [
+    {
+      q: '¿Cuántas capas tiene la piel?',
+      options: ['2', '3', '4', '5'],
+      correct: 1   // ← índice de la respuesta correcta (0-based)
+    },
+    ...
+  ]
+}
 ```
 
----
+La corrección se hace en cliente: la alumna pulsa "Corregir test" y ve sus aciertos.
 
-## 🧭 Pantallas disponibles
+### 4. Actualizar un curso ya publicado
 
-La web es una SPA (single page) con varias "pantallas" que se conmutan vía `goTo()`:
-
-| Pantalla | Cómo llegar | Contenido |
-|---|---|---|
-| **Home** | Por defecto | Hero editorial, áreas de especialización, cursos destacados, aparatología, tests, testimonios |
-| **Curso** | Click en "Cursos" o cualquier "Ver curso →" | Detalle del curso *Anatomía y fisiología cutánea*, con 16 lecciones en 4 módulos |
-| **Lección** | Click en la lección 1 del curso | **Lección visual con 9 diapositivas + parallax 3D + quiz final** |
-| **Test** | Botón "Hacer test" en home/lección | Tests interactivos con feedback |
-| **Resultado** | Tras enviar un test | Score, certificado, revisión de respuestas |
-| **Tienda** | "Aparatología" en la nav | Catálogo de aparatos |
-| **Producto** | Click en un producto | Detalle con galería y card "Aprende a usarlo" |
-
-> Consejo: el flujo principal de demo es **Home → Cursos → Lección 1** para ver la nueva lección visual con el parallax 3D.
+Solo edita el bloque correspondiente en `courses-data.js` o el HTML de la lección. Commit + push. La alumna ve los cambios al recargar.
 
 ---
 
-## 🎓 La lección visual (lección 1 — La piel)
+## 🔐 Configurar Supabase (login real)
 
-9 diapositivas que se descubren con scroll suave:
+Mientras no esté configurado, "Acceso alumnado" muestra un aviso amarillo y no permite login. Para activarlo:
 
-1. **Portada** — Título grande + meta (duración, slides, test)
-2. **Concepto** — Cifras clave de la piel (2 m², 5 kg, 28 días, 4M+ receptores)
-3. **Las 3 capas** — Diagrama interactivo (epidermis, dermis, hipodermis)
-4. **Piel fina vs gruesa** — Comparativa visual
-5. **Editorial parallax 3D** — La imagen `le-petit.jpg` con efecto profundidad al scrollear
-6. **Tu trabajo** — La responsabilidad del profesional
-7. **Tres ideas claras** — Resumen visual
-8. **Quiz** — 3 preguntas con feedback inmediato
-9. **Cierre** — Resultado y CTA a la siguiente lección
+1. Crea cuenta gratis en https://supabase.com → **New project**.
+2. Elige región **Europe (Frankfurt)** y espera ~1 min al provisioning.
+3. **Settings → API** → copia:
+   - **Project URL** (algo como `https://xxxx.supabase.co`)
+   - **anon public key** (la pública, NO la `service_role`)
+4. Abre `assets/js/supabase-config.js` y pégalos:
+   ```js
+   url: 'https://xxxx.supabase.co',
+   anonKey: 'eyJhbGciOi...'
+   ```
+5. **Settings → Authentication → URL Configuration**:
+   - **Site URL:** `https://TU_USUARIO.github.io/bea/`
+   - **Redirect URLs:** añade también `http://localhost:8000` para pruebas locales.
+6. **Activar Google** (opcional pero recomendado):
+   - **Authentication → Providers → Google** → enable.
+   - Necesitas un **OAuth Client ID** desde Google Cloud Console (`console.cloud.google.com` → APIs & Services → Credentials → OAuth client). Supabase te explica los pasos exactos.
+7. Commit + push y recarga la web. El aviso amarillo desaparece y el login funciona.
 
-Navegación lateral con dots (desktop), topbar de progreso fija, fade-in al entrar en viewport. Respeta `prefers-reduced-motion`.
+> Plan gratuito: 50.000 usuarios/mes, 500 MB de DB, 1 GB de storage, 5 GB de tráfico/mes. Suficiente de sobra para arrancar.
 
-### Si quieres separar la imagen `le-petit.jpg` en 3 capas reales
+### Dar de alta a una alumna
 
-El HTML/JS ya está preparado para varias capas con `data-depth` distintos. Sigue las instrucciones de `docs/parallax-prompt.md` (usar `rembg` para separar fondo / rostro / mano) y sustituye el `<img>` único en la sección `.lv-parallax-stage` por tres `<img class="lv-parallax-layer" data-depth="...">`.
+Tres opciones:
+- **Auto-alta**: ella se registra desde la propia web con su email + contraseña. Llega un correo de confirmación.
+- **Google**: pulsa "Continuar con Google" y entra en un clic.
+- **Manual desde Supabase**: en el panel → **Authentication → Users → Invite user**. Le llega un email con enlace de acceso.
+
+### Controlar qué alumna ve qué curso (Google Sheets)
+
+La gestión de matrículas vive en una **hoja de Google compartida**, no en el código. Así la persona que gestiona alumnas no necesita tocar git ni saber programar — solo añadir o quitar filas en un spreadsheet.
+
+**Estructura de la hoja:**
+
+| email             | curso                          |
+|-------------------|--------------------------------|
+| maria@gmail.com   | anatomia-fisiologia-cutanea    |
+| lucia@outlook.es  | anatomia-fisiologia-cutanea    |
+| lucia@outlook.es  | peeling-quimico                |
+
+- Cabecera en la fila 1: literalmente `email` y `curso`.
+- **Una fila = una alumna con acceso a un curso**. Si una alumna tiene 3 cursos, hace 3 filas.
+- El valor de `curso` es el `id` que aparece en `assets/js/courses-data.js`.
+
+**Compartido como:** "Cualquier persona con el enlace · Lector". No hace falta "Publicar en la web".
+
+**Flujo diario:**
+1. Una alumna te paga un curso.
+2. Abres la hoja, escribes su email + el id del curso.
+3. La alumna refresca el aula y ya lo ve. (Hay un caché de 30s, así que puede tardar medio minuto.)
+
+**Dar de baja:** borras la fila → la alumna pierde acceso al instante (al expirar el caché).
+
+**Dónde está la URL de la hoja en el código:** `assets/js/enrollments.js`, constante `SHEET_ID`. Si cambias de hoja, solo hay que sustituir ese ID.
+
+> **Nota de seguridad:** la hoja es accesible para cualquiera que conozca la URL, pero el ID tiene 44 caracteres aleatorios — nadie la encuentra por casualidad. Suficiente para una academia. Si en el futuro quieres seguridad fuerte (impedir descargar el contenido aunque conozcan la URL del HTML), migramos a una tabla `enrollments` en Supabase con Row Level Security.
 
 ---
 
-## 📚 Temario académico
+## 🛠️ Sistema de diseño
 
-`docs/Temario_La_Piel.docx` contiene el temario completo de FP Estética sobre "La Piel" (16 unidades, glosario, autoevaluaciones, ~50 páginas). Es la base de los contenidos del curso *Anatomía y fisiología cutánea* dentro de la web.
-
----
-
-## 🌍 Subir a GitHub
-
-Desde la raíz del proyecto:
-
-```bash
-git init
-git add .
-git commit -m "Initial commit: AUREA — web + lección visual de la piel"
-git branch -M main
-git remote add origin https://github.com/TU_USUARIO/TU_REPO.git
-git push -u origin main
-```
-
-### Publicar como GitHub Pages
-
-1. En el repo de GitHub → **Settings** → **Pages**.
-2. **Source**: *Deploy from a branch* → branch `main` / folder `/ (root)` → **Save**.
-3. La web quedará publicada en `https://TU_USUARIO.github.io/TU_REPO/`.
-
-No hace falta build: el `index.html` se sirve tal cual.
-
----
-
-## 🎨 Sistema de diseño (tokens CSS)
-
-Todo el sistema vive en `:root` dentro de `<style>` en `index.html`:
+Tokens CSS en `:root` dentro de `<style>`:
 
 | Token | Valor | Uso |
 |---|---|---|
-| `--bg` | `#F2ECE3` | Fondo base, "cream" |
-| `--bg2` | `#E6DDCC` | Fondo alterno, "cream profundo" |
-| `--ink` | `#241D17` | Texto principal, "espresso" |
+| `--bg` | `#F2ECE3` | Fondo crema |
+| `--bg2` | `#E6DDCC` | Crema profundo |
+| `--ink` | `#241D17` | Texto principal "espresso" |
 | `--accent` | `#A86B4E` | Acento "clay" |
 | `--accent-dark` | `#7E4C36` | Hover del acento |
 | `--accent-soft` | `#ECDDD0` | Fondos suaves de acento |
@@ -131,12 +193,13 @@ Todo el sistema vive en `:root` dentro de `<style>` en `index.html`:
 
 ---
 
-## 🛠️ Próximos pasos sugeridos
+## ✅ Checklist al añadir un curso
 
-- [ ] Separar `le-petit.jpg` en 3 capas PNG reales con `rembg` (instrucciones en `docs/parallax-prompt.md`).
-- [ ] Crear las lecciones 2–16 reutilizando la estructura de la lección 1 (`#page-leccion`).
-- [ ] Migrar a Next.js + Supabase cuando se necesite login, progreso persistente y certificados reales.
-- [ ] Integrar Stripe para los pagos de cursos y aparatología.
+- [ ] `id` único, en kebab-case (`peeling-quimico`, no `Peeling Químico`).
+- [ ] Imagen de portada en `assets/` y rutas relativas correctas.
+- [ ] Cada lección tiene su HTML subido a `assets/cursos/<id>/leccion-N/`.
+- [ ] El test tiene al menos 3 preguntas y todas con `correct` válido.
+- [ ] Probado en local con `python3 -m http.server 8000` antes de pushear.
 
 ---
 
