@@ -566,32 +566,146 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 12px; }
 }
+
+/* ═══════════════════════════════════════════════════════
+   HERO CINEMATOGRÁFICO (home)
+   Imagen position:fixed al viewport (z-index: -1, debajo del
+   contenido en flow). El hero reserva 100vh transparentes
+   para que la imagen se vea. Al hacer scroll la siguiente
+   sección sube por encima con esquinas redondeadas, creando
+   el efecto "el contenido entra desde abajo sobre la foto".
+   ═══════════════════════════════════════════════════════ */
+.hero-cinema-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center 20%;
+  z-index: -1;
+  pointer-events: none;
+}
+.hero-cinema {
+  position: relative;
+  height: 100vh;
+  min-height: 560px;
+  background: transparent;
+}
+.hero-cinema-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(36,29,23,0) 30%, rgba(36,29,23,0.72) 100%);
+  pointer-events: none;
+}
+.hero-cinema-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 56px 96px;
+  color: #fff;
+  max-width: 760px;
+}
+.eyebrow-light {
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.78);
+  margin-bottom: 18px;
+}
+.hero-cinema-h1 {
+  font-family: var(--serif);
+  font-size: 88px; line-height: 0.96; letter-spacing: -0.022em;
+  margin: 0 0 28px;
+  color: #fff;
+}
+.hero-cinema-h1 em { font-style: italic; color: #f3d6c2; }
+.hero-cinema-desc {
+  font-size: 16px; line-height: 1.55;
+  color: rgba(255,255,255,0.88);
+  max-width: 480px; margin-bottom: 36px;
+}
+.hero-cinema-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px; }
+.btn-outline-light {
+  background: transparent; color: #fff;
+  border: 1px solid rgba(255,255,255,0.55);
+}
+.btn-outline-light:hover { background: rgba(255,255,255,0.12); border-color: #fff; }
+.hero-cinema-meta {
+  font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+.hero-cinema-scroll-hint {
+  position: absolute;
+  bottom: 24px; left: 50%; transform: translateX(-50%);
+  color: rgba(255,255,255,0.55);
+  font-size: 22px;
+  animation: heroBob 2.4s ease-in-out infinite;
+}
+@keyframes heroBob { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
+
+/* La sección inmediatamente posterior al hero sube por encima
+   de la imagen con esquinas redondeadas y sombra suave. */
+#page-home .hero-cinema + section {
+  position: relative;
+  margin-top: -40px;
+  border-radius: 36px 36px 0 0;
+  background: var(--bg);
+  box-shadow: 0 -20px 60px rgba(0,0,0,0.22);
+  padding-top: 96px;
+}
+/* Las secciones del home sin bg propio (.diptych, .areas)
+   necesitan uno opaco para tapar la imagen fija al hacer scroll. */
+#page-home .diptych,
+#page-home .areas { background: var(--bg); }
+
+/* En el home, la imagen del hero llega hasta arriba del todo
+   (sin el padding-top del page-wrap que dejaria un hueco crema). */
+#page-home .page-wrap { padding-top: 0; }
+
+/* Nav transparente cuando va por encima del hero */
+#main-nav.over-hero { background: transparent; box-shadow: none; }
+#main-nav.over-hero .nav-link,
+#main-nav.over-hero .nav-logo,
+#main-nav.over-hero .hamburger { color: rgba(255,255,255,0.95); }
+#main-nav.over-hero .nav-link::after { background: rgba(255,255,255,0.5); }
+#main-nav.over-hero .btn-dark { background: rgba(255,255,255,0.95); color: var(--ink); }
+#main-nav.over-hero .btn-dark:hover { background: #fff; }
+#main-nav.over-hero .mi-aula-btn { color: #fff; border-bottom-color: rgba(255,255,255,0.6); }
+#main-nav.over-hero .mi-aula-btn:hover { color: rgba(255,255,255,0.85); border-bottom-color: #fff; }
+
+@media (max-width: 768px) {
+  .hero-cinema { min-height: 100vh; }
+  .hero-cinema-content { padding: 0 24px 64px; }
+  .hero-cinema-h1 { font-size: 54px; }
+  .hero-cinema-desc { font-size: 15px; }
+  .hero-cinema-bg { object-position: center 15%; }
+  #page-home .hero-cinema + section {
+    border-radius: 28px 28px 0 0;
+    margin-top: -28px;
+    padding-top: 64px;
+  }
+}
 </style>
 
 <div class="page-wrap">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-left">
-      <span class="eyebrow accent">· Escuela de estética avanzada · est. 2013</span>
-      <h1 class="hero-h1">El protocolo<br>que da<br>la <em>ciencia.</em></h1>
-      <p class="hero-desc">Formación avanzada para profesionales que entienden que la técnica sin conocimiento no es suficiente.</p>
-      <div class="hero-ctas">
-        <button class="btn btn-dark" onclick="goTo('cursos','docencia')">Ver cursos →</button>
-        <button class="btn btn-outline" onclick="goTo('tienda','aparatologia')">Aparatología</button>
+  <!-- HERO CINEMATOGRÁFICO -->
+  <!-- La imagen va position:fixed para que se quede al fondo mientras
+       el resto del contenido sube por encima al hacer scroll. -->
+  <img class="hero-cinema-bg" src="assets/IMG-20260522-WA0032.jpg" alt="">
+  <section class="hero-cinema">
+    <div class="hero-cinema-scrim"></div>
+    <div class="hero-cinema-content">
+      <span class="eyebrow eyebrow-light">· Escuela de estética avanzada · est. 2013</span>
+      <h1 class="hero-cinema-h1">El protocolo<br>que da<br>la <em>ciencia.</em></h1>
+      <p class="hero-cinema-desc">Formación avanzada para profesionales que entienden que la técnica sin conocimiento no es suficiente.</p>
+      <div class="hero-cinema-ctas">
+        <button class="btn btn-light" onclick="goTo('cursos','docencia')">Ver cursos →</button>
+        <button class="btn btn-outline-light" onclick="goTo('tienda','aparatologia')">Aparatología</button>
       </div>
-      <div class="hero-stats">
-        <div>
-          <div class="hero-stat-num serif">12</div>
-          <div class="hero-stat-lbl">años formando profesionales</div>
-        </div>
-      </div>
+      <div class="hero-cinema-meta">12 años formando profesionales · editorial primavera 2026</div>
     </div>
-    <div class="hero-right" style="position:relative;overflow:hidden;">
-      <img src="assets/IMG-20260522-WA0032.jpg" alt="Editorial AUREA"
-        style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
-      <div class="ph-label">editorial AUREA · primavera 2026</div>
-    </div>
+    <div class="hero-cinema-scroll-hint" aria-hidden="true">↓</div>
   </section>
 
   <!-- DIPTYCH -->
@@ -2381,9 +2495,24 @@ function updateTabBar(area) {
 }
 
 // ─── STICKY NAV ────────────────────────────────────────
+function updateNavOverHero() {
+  const nav = document.getElementById('main-nav');
+  const home = document.getElementById('page-home');
+  if (!nav || !home) return;
+  if (!home.classList.contains('active')) {
+    nav.classList.remove('over-hero');
+    return;
+  }
+  const hero = home.querySelector('.hero-cinema');
+  if (!hero) { nav.classList.remove('over-hero'); return; }
+  // Cambia el nav a solido cuando faltan ~90px para acabar el hero
+  const threshold = hero.offsetHeight - 90;
+  nav.classList.toggle('over-hero', window.scrollY < threshold);
+}
 window.addEventListener('scroll', () => {
   document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 80);
-});
+  updateNavOverHero();
+}, { passive: true });
 
 // ─── DRAWER ────────────────────────────────────────────
 function openDrawer() { document.getElementById('mobile-drawer').classList.add('open'); document.body.style.overflow='hidden'; }
@@ -2926,6 +3055,7 @@ function onPageEnter(pageKey) {
     renderAulaCourses();
   }
   if (pageKey === 'aula-curso') renderAulaCurso();
+  updateNavOverHero();
 }
 
 // ─── INIT ───────────────────────────────────────────────
