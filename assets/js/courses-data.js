@@ -26,6 +26,11 @@
  *   lessons[]       lista de lecciones, cada una:
  *                     - id, title, duration, slides (ruta al HTML)
  *   test            { questions: [{ q, options: [...], correct: idx }, ...] }
+ *   enrolledEmails  (OPCIONAL) lista de emails que tienen acceso.
+ *                   Si no existe o está vacío → curso visible para
+ *                   cualquier alumna logueada.
+ *                   Si tiene emails → solo esas alumnas lo ven.
+ *                   Ejemplo: ['maria@gmail.com', 'lucia@outlook.es']
  * ============================================================= */
 
 window.AUREA_COURSES = [
@@ -72,9 +77,13 @@ window.AUREA_COURSES = [
         }
       ]
     }
+    // Sin `enrolledEmails`: este curso lo verá cualquier alumna logueada.
+    // Si más adelante quieres restringirlo, descomenta:
+    // enrolledEmails: ['maria@gmail.com', 'lucia@outlook.es']
   }
   // -----------------------------------------------------------
   // Para añadir otro curso, copia el bloque de arriba y cambia
-  // id, title, lessons y test.
+  // id, title, lessons y test. Si es un curso de pago, añade
+  // enrolledEmails con la lista de quien ha pagado.
   // -----------------------------------------------------------
 ];

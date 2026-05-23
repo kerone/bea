@@ -145,14 +145,35 @@ Tres opciones:
 - **Google**: pulsa "Continuar con Google" y entra en un clic.
 - **Manual desde Supabase**: en el panel → **Authentication → Users → Invite user**. Le llega un email con enlace de acceso.
 
-### (Opcional) Restringir cursos por alumna
+### Controlar qué alumna ve qué curso
 
-Hoy todas las alumnas autenticadas ven todos los cursos. Si más adelante quieres limitar acceso por alumna (ej. "Marta tiene comprado el de RF pero no el de peeling"):
+Cada curso en `assets/js/courses-data.js` puede llevar (opcionalmente) un campo `enrolledEmails`:
 
-1. En Supabase crea una tabla `enrollments` con columnas `user_id`, `course_id`.
-2. Modifica `renderAulaCourses()` en `index.html` para filtrar los cursos cargados según las filas de esa tabla.
+```js
+{
+  id: 'peeling-quimico',
+  title: 'Peeling químico',
+  // ...
+  enrolledEmails: [
+    'maria@gmail.com',
+    'lucia@outlook.es'
+  ]
+}
+```
 
-Te lo monto cuando estés en ese punto; con 1-2 alumnas no merece la pena.
+Reglas:
+- **Sin el campo `enrolledEmails`** (o vacío) → el curso lo ve **cualquier alumna logueada**. Útil para cursos abiertos o demos.
+- **Con la lista** → solo esas alumnas lo ven. Si una alumna no enrolada intenta entrar por URL directa, se le bloquea con un aviso.
+
+Flujo típico:
+1. Alumna paga / se matricula (por el canal que uses: WhatsApp, Bizum, Stripe…).
+2. Te apunta su email.
+3. Editas `courses-data.js`, añades su email al curso correspondiente.
+4. Commit + push. En segundos lo ve en su aula.
+
+Para dar de baja a una alumna: quita su email del array. Pierde acceso al instante.
+
+> **Nota de seguridad:** este control vive en el JS del navegador, así que esconde el curso en la interfaz pero un usuario avanzado podría leer el código y ver los emails matriculados. No es un problema para una academia (los emails no son secretos), pero si en el futuro necesitas seguridad fuerte (impedir descargar el contenido aunque sepas la URL), lo migramos a una tabla `enrollments` en Supabase con Row Level Security. Cuando llegues a ese punto, dímelo.
 
 ---
 
