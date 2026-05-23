@@ -149,6 +149,16 @@ Tres opciones:
 
 La gestión de matrículas vive en una **hoja de Google compartida**, no en el código. Así la persona que gestiona alumnas no necesita tocar git ni saber programar — solo añadir o quitar filas en un spreadsheet.
 
+#### 📋 Lista de IDs de cursos (para la columna "curso" del Sheet)
+
+Esta es la única tabla que tu mujer necesita tener a mano. Cada vez que añadamos un curso nuevo, se actualiza esta lista.
+
+| Nombre visible del curso          | ID que va en el Sheet            |
+|-----------------------------------|----------------------------------|
+| Anatomía y fisiología cutánea     | `anatomia-fisiologia-cutanea`    |
+
+> Los IDs son siempre en minúsculas, sin acentos, sin espacios, separados por guiones. Si la copias mal (un acento, un espacio…) la web no detectará el acceso. Mejor copia-pega desde aquí.
+
 **Estructura de la hoja:**
 
 | email             | curso                          |
