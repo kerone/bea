@@ -67,9 +67,18 @@
       if (user) {
         show(loginSection, false);
         show(listSection, true);
-        const name = (user.user_metadata && (user.user_metadata.full_name || user.user_metadata.name)) || user.email || 'alumna';
+        let display;
+        const fullName = user.user_metadata && (user.user_metadata.full_name || user.user_metadata.name);
+        if (fullName) {
+          display = fullName.split(' ')[0]; // primer nombre
+        } else if (user.email) {
+          display = user.email.split('@')[0]; // parte antes del @
+        } else {
+          display = 'alumna';
+        }
+        if (display.length > 18) display = display.slice(0, 16) + '…';
         const userNameEl = $('aula-user-name');
-        if (userNameEl) userNameEl.textContent = name.split(' ')[0].toLowerCase();
+        if (userNameEl) userNameEl.textContent = display.toLowerCase();
       } else {
         show(loginSection, true);
         show(listSection, false);

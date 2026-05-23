@@ -279,8 +279,6 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     </div>
     <div class="nav-logo" onclick="goTo('home','')">AUREA</div>
     <div class="nav-right">
-      <span class="nav-icon">🔍</span>
-      <span class="nav-icon" style="position:relative">🛒<span class="cart-badge">2</span></span>
       <button class="btn btn-dark btn-sm" onclick="goTo('aula','docencia')">Acceder</button>
     </div>
   </div>
@@ -298,8 +296,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <button class="hamburger" onclick="openDrawer()">☰</button>
     <div class="nav-logo" onclick="goTo('home','')">AUREA</div>
     <div class="nav-mobile-right">
-      <span class="nav-icon">🔍</span>
-      <span class="nav-icon" style="position:relative">🛒<span class="cart-badge">2</span></span>
+      <button class="btn btn-dark btn-sm" style="padding:8px 14px;font-size:12px" onclick="goTo('aula','docencia')">Acceder</button>
     </div>
   </div>
 </nav>
@@ -924,7 +921,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 
 /* Listado privado */
 .aula-list-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 36px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
-.aula-list-h1 { font-family: var(--serif); font-size: 44px; line-height: 1.05; letter-spacing: -0.02em; }
+.aula-list-h1 { font-family: var(--serif); font-size: 44px; line-height: 1.05; letter-spacing: -0.02em; overflow-wrap: anywhere; max-width: 100%; }
 .aula-list-h1 em { font-style: italic; color: var(--accent); }
 .aula-list-sub { font-size: 14px; color: var(--ink-soft); margin-top: 6px; }
 .aula-courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }
