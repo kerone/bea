@@ -121,12 +121,39 @@
     refresh();
   }
 
+  async function forgotPassword() {
+    if (!client) { setMsg('Configura Supabase antes de poder recuperar la contraseña.', 'err'); return; }
+    const email = ($('aula-email').value || '').trim();
+    if (!email) { setMsg('Escribe tu email arriba y vuelve a pulsar "¿Olvidaste la contraseña?".', 'err'); return; }
+    setMsg('Enviando enlace de recuperación a ' + email + '…', 'info');
+    const { error } = await client.auth.resetPasswordForEmail(email, { redirectTo: cfg.redirectTo });
+    if (error) { setMsg(error.message, 'err'); return; }
+    setMsg('Listo. Revisa tu bandeja de entrada (y la de spam) y pulsa el enlace que te mandamos.', 'ok');
+  }
+
+  async function promptNewPassword() {
+    if (!client) return;
+    const pw = prompt('Recibimos tu solicitud de recuperación. Introduce tu nueva contraseña (mínimo 6 caracteres):');
+    if (!pw) return;
+    if (pw.length < 6) { alert('La contraseña debe tener al menos 6 caracteres.'); return promptNewPassword(); }
+    const { error } = await client.auth.updateUser({ password: pw });
+    if (error) { alert('Error al actualizar la contraseña: ' + error.message); return; }
+    alert('Contraseña actualizada. Ya estás dentro del aula.');
+    refresh();
+  }
+
   // ─── Init y suscripción a cambios ───────────────────────
   function init() {
     showConfigWarning();
     setMode('login');
     if (client) {
-      client.auth.onAuthStateChange(() => refresh());
+      client.auth.onAuthStateChange((event /*, session */) => {
+        if (event === 'PASSWORD_RECOVERY') {
+          // Llega aquí cuando la usuaria pulsa el enlace del email de recuperación.
+          promptNewPassword();
+        }
+        refresh();
+      });
     }
     refresh();
   }
@@ -134,6 +161,7 @@
   window.auth = {
     init, refresh,
     loginWithGoogle, loginWithEmail, toggleMode, logout,
+    forgotPassword,
     isConfigured: () => isConfigured,
     getClient: () => client
   };
