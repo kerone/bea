@@ -214,11 +214,13 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 /* Mobile nav */
 .nav-mobile {
   display: none;
-  align-items: center; justify-content: space-between;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
   padding: 16px 20px;
 }
-.nav-mobile-right { display: flex; align-items: center; gap: 16px; }
-.hamburger { font-size: 22px; cursor: pointer; color: var(--ink); background: none; border: none; }
+.nav-mobile .nav-logo { justify-self: center; }
+.nav-mobile-right { display: flex; align-items: center; gap: 16px; justify-self: end; }
+.hamburger { font-size: 22px; cursor: pointer; color: var(--ink); background: none; border: none; padding: 0; justify-self: start; }
 
 .tab-bar {
   display: none;
@@ -264,7 +266,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   .container { padding: 0 20px; }
   .page-wrap { padding-top: 64px; padding-bottom: 88px; }
   .nav-row1, .nav-row2 { display: none; }
-  .nav-mobile { display: flex; }
+  .nav-mobile { display: grid; }
   .tab-bar { display: block; }
 }
 </style>
