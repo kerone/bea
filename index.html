@@ -319,7 +319,6 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <div class="drawer-section">Aparatología</div>
     <div class="drawer-subitem" onclick="goTo('tienda','aparatologia');closeDrawer()">Catálogo</div>
     <div class="drawer-subitem">Demos</div>
-    <div class="drawer-subitem">Servicio técnico</div>
     <div class="drawer-section">Más</div>
     <div class="drawer-item">Diario</div>
     <div class="drawer-item" style="margin-top:16px">
@@ -884,7 +883,6 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
         <div class="footer-col-title">Aparatología</div>
         <a class="footer-link" onclick="goTo('tienda','aparatologia')">Catálogo</a>
         <a class="footer-link">Solicitar demo</a>
-        <a class="footer-link">Servicio técnico</a>
       </div>
       <div>
         <div class="footer-col-title">Compañía</div>
@@ -2558,9 +2556,8 @@ const SUBLINKS = {
     { label: 'Acceso alumnado',  page: 'aula' }
   ],
   aparatologia: [
-    { label: 'Catálogo',         page: 'tienda' },
-    { label: 'Demos',            page: null },
-    { label: 'Servicio técnico', page: null }
+    { label: 'Catálogo', page: 'tienda' },
+    { label: 'Demos',    page: null }
   ]
 };
 const pages = {
