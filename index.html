@@ -2328,6 +2328,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       <div class="producto-precio-nota">Envío peninsular incluido · Garantía 3 años · Formación incluida</div>
       <div class="producto-ctas">
         <button class="btn btn-clay" onclick="openQuoteForm('AUREA RF-200 Tripolar')">Pedir presupuesto</button>
+        <button class="btn btn-outline" onclick="openDemoForm('AUREA RF-200 Tripolar')">Solicitar demo</button>
       </div>
       <!-- Bloque aprende -->
       <div class="producto-aprende" onclick="goTo('cursos','docencia')">
@@ -3227,14 +3228,22 @@ function openContactForm(mode, opts) {
     title.innerHTML       = 'Solicitar <em>demo</em>';
     eyebrow.textContent   = '· Solicitud de demostración';
     subjectInput.value    = 'Nueva solicitud de demo · AUREA';
-    productLine.textContent = 'Te confirmamos disponibilidad (online o presencial) en menos de 24 h laborables.';
     mensaje.placeholder   = '¿Online o presencial? ¿Algún día u horario te conviene mejor?';
     // El campo "producto" activo es el select; el hidden queda inactivo.
     productHidden.disabled = true;
     productSelect.disabled = false;
     productSelect.required = true;
-    productSelect.value    = '';
     priceHidden.value      = '';
+    // Si nos pasan una máquina, la pre-seleccionamos en el dropdown.
+    const preselect = opts.productName || '';
+    const hasOption = preselect && Array.from(productSelect.options).some(o => o.value === preselect);
+    productSelect.value = hasOption ? preselect : '';
+    if (hasOption) {
+      productLine.innerHTML = 'Máquina: <strong>' + escapeHtml(preselect) +
+        '</strong>. Te confirmamos disponibilidad (online o presencial) en 24 h laborables.';
+    } else {
+      productLine.textContent = 'Te confirmamos disponibilidad (online o presencial) en menos de 24 h laborables.';
+    }
   } else {
     title.innerHTML       = 'Pedir <em>presupuesto</em>';
     eyebrow.textContent   = '· Solicitud de presupuesto';
@@ -3265,8 +3274,8 @@ function openContactForm(mode, opts) {
 function openQuoteForm(productName, productPrice) {
   openContactForm('presupuesto', { productName: productName, productPrice: productPrice });
 }
-function openDemoForm() {
-  openContactForm('demo');
+function openDemoForm(productName) {
+  openContactForm('demo', { productName: productName });
 }
 window.openContactForm = openContactForm;
 window.openQuoteForm   = openQuoteForm;
