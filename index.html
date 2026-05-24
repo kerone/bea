@@ -396,6 +396,47 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .diptych-stats { display: flex; gap: 20px; flex-wrap: wrap; margin: 16px 0; }
 .diptych-stat { font-family: var(--serif); font-size: 14px; opacity: 0.7; }
 
+/* Profesora */
+.profesora { background: var(--ink); color: var(--bg); padding: 96px 56px; }
+.profesora-grid {
+  display: grid; grid-template-columns: 0.85fr 1fr; gap: 64px;
+  max-width: 1240px; margin: 0 auto; align-items: center;
+}
+.profesora-img-wrap { position: relative; overflow: hidden; border-radius: 6px; aspect-ratio: 4/5; }
+.profesora-img { width: 100%; height: 100%; object-fit: cover; display: block; filter: contrast(1.02) saturate(0.96); }
+.profesora-img-label {
+  position: absolute; bottom: 14px; left: 14px;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
+.profesora-content { padding: 12px 0; }
+.profesora-content .eyebrow.accent { color: var(--accent-soft); margin-bottom: 18px; display: block; }
+.profesora-h2 {
+  font-family: var(--serif); font-size: 56px; line-height: 1.02;
+  letter-spacing: -0.02em; margin: 8px 0 28px;
+}
+.profesora-h2 em { font-style: italic; color: var(--accent-soft); }
+.profesora-lead {
+  font-size: 18px; line-height: 1.5;
+  color: rgba(242,236,227,0.92);
+  max-width: 520px; margin-bottom: 22px;
+}
+.profesora-lead em { font-style: italic; color: var(--accent-soft); }
+.profesora-desc {
+  font-size: 15px; line-height: 1.62;
+  color: rgba(242,236,227,0.72);
+  max-width: 520px; margin-bottom: 32px;
+}
+.profesora-creds { display: flex; flex-direction: column; gap: 8px; padding-top: 22px; border-top: 1px solid rgba(242,236,227,0.18); }
+.profesora-cred { font-size: 13px; color: rgba(242,236,227,0.82); display: flex; gap: 8px; align-items: flex-start; }
+.profesora-cred span { color: var(--accent); font-weight: 600; }
+@media (max-width: 768px) {
+  .profesora { padding: 64px 20px; }
+  .profesora-grid { grid-template-columns: 1fr; gap: 36px; }
+  .profesora-h2 { font-size: 38px; }
+  .profesora-lead { font-size: 16px; }
+}
+
 /* Pull quote */
 .pullquote { background: var(--bg2); padding: 96px 56px; text-align: center; }
 .pullquote-h2 {
@@ -633,6 +674,27 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
         <p class="diptych-desc" style="color:var(--ink-soft)">Aparatología profesional. El equipo que se enseña en AUREA, disponible para tu cabina.</p>
         <div class="diptych-link">
           <button class="btn btn-text" onclick="goTo('tienda','aparatologia')">Entrar a la tienda →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFESORA -->
+  <section class="profesora">
+    <div class="profesora-grid">
+      <div class="profesora-img-wrap">
+        <img class="profesora-img" src="assets/profesora.jpg" alt="Profesora de AUREA">
+        <div class="profesora-img-label">retrato editorial · AUREA</div>
+      </div>
+      <div class="profesora-content">
+        <span class="eyebrow accent">· La profesora</span>
+        <h2 class="profesora-h2">El criterio<br>detrás de cada<br><em>protocolo.</em></h2>
+        <p class="profesora-lead">12 años en cabina, miles de horas de docencia y una obsesión: que cada alumna entienda <em>por qué</em> cada técnica funciona, no solo cómo se aplica.</p>
+        <p class="profesora-desc">En AUREA no se enseña a copiar un protocolo: se enseña a leer la piel, anticipar su respuesta y diseñar el tratamiento que de verdad encaja con esa cabina, esa máquina y ese cliente. Cada curso pasa por sus manos antes de llegar al aula.</p>
+        <div class="profesora-creds">
+          <div class="profesora-cred"><span>·</span> Especialista en estética avanzada y aparatología</div>
+          <div class="profesora-cred"><span>·</span> Formadora en electroestética, cosmetología y radiofrecuencia</div>
+          <div class="profesora-cred"><span>·</span> Directora académica de AUREA desde 2013</div>
         </div>
       </div>
     </div>
