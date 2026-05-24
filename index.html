@@ -163,17 +163,9 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .nav-logo {
   font-family: var(--serif); font-size: 34px; letter-spacing: 0.22em;
   color: var(--ink); cursor: pointer; flex-shrink: 0;
-  display: inline-flex; align-items: center; gap: 12px;
-}
-.nav-logo-mark {
-  width: 22px; height: 22px; flex-shrink: 0;
-  opacity: 0.85;
-  /* corregir descenso optico del circulo respecto a la mayuscula */
-  margin-top: -1px;
 }
 @media (max-width: 768px) {
-  .nav-logo { font-size: 22px; letter-spacing: 0.18em; gap: 8px; }
-  .nav-logo-mark { width: 16px; height: 16px; }
+  .nav-logo { font-size: 22px; letter-spacing: 0.18em; }
 }
 .nav-link {
   font-size: 13.5px; font-weight: 400; color: var(--ink-soft);
@@ -290,7 +282,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       <span class="nav-link" onclick="goTo('tienda','aparatologia')">Aparatología</span>
       <span class="nav-link">Diario</span>
     </div>
-    <div class="nav-logo" onclick="goTo('home','')"><img class="nav-logo-mark" src="assets/logo-aurea.svg" alt=""><span>AUREA</span></div>
+    <div class="nav-logo" onclick="goTo('home','')">AUREA</div>
     <div class="nav-right">
       <button class="btn btn-dark btn-sm acceder-btn" onclick="goTo('aula','docencia')">Acceder</button>
       <button class="btn btn-text mi-aula-btn" style="display:none" onclick="goTo('aula','docencia')">Mi aula →</button>
@@ -308,7 +300,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   <!-- Mobile row -->
   <div class="nav-mobile">
     <button class="hamburger" onclick="openDrawer()">☰</button>
-    <div class="nav-logo" onclick="goTo('home','')"><img class="nav-logo-mark" src="assets/logo-aurea.svg" alt=""><span>AUREA</span></div>
+    <div class="nav-logo" onclick="goTo('home','')">AUREA</div>
     <div class="nav-mobile-right">
       <button class="btn btn-dark btn-sm acceder-btn" style="padding:8px 14px;font-size:12px" onclick="goTo('aula','docencia')">Acceder</button>
       <button class="btn btn-text mi-aula-btn" style="display:none;font-size:12px" onclick="goTo('aula','docencia')">Mi aula →</button>
