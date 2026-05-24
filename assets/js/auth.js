@@ -1,5 +1,5 @@
 /* =============================================================
- * AUREA · Autenticación (Supabase)
+ * PRECISSA · Autenticación (Supabase)
  * -------------------------------------------------------------
  * Maneja login con Google + email/contraseña, signup, logout y
  * la lectura de la sesión actual. Expone window.auth con la API
@@ -9,7 +9,7 @@
  * todas las acciones muestran un aviso pero no rompen la web.
  * ============================================================= */
 (function () {
-  const cfg = window.AUREA_SUPABASE_CONFIG || {};
+  const cfg = window.PRECISSA_SUPABASE_CONFIG || {};
   const isConfigured = Boolean(cfg.url && cfg.anonKey);
   let client = null;
   let mode = 'login'; // 'login' | 'signup'

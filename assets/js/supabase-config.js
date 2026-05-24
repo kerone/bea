@@ -1,5 +1,5 @@
 /* =============================================================
- * AUREA · Configuración de Supabase
+ * PRECISSA · Configuración de Supabase
  * -------------------------------------------------------------
  * Pega aquí tu URL y tu anon-key. Las dos vienen del panel de
  * Supabase: Project Settings → API.
@@ -17,7 +17,7 @@
  * normalmente.
  * ============================================================= */
 
-window.AUREA_SUPABASE_CONFIG = {
+window.PRECISSA_SUPABASE_CONFIG = {
   // Project URL = https://<project-id>.supabase.co
   url: 'https://fatgkdecpgiptvbagoij.supabase.co',
 

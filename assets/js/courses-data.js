@@ -1,5 +1,5 @@
 /* =============================================================
- * AUREA · Datos de los cursos
+ * PRECISSA · Datos de los cursos
  * -------------------------------------------------------------
  * Este archivo es la "base de datos" de los cursos mientras
  * no haya backend. Para añadir o modificar un curso:
@@ -32,7 +32,7 @@
  * la URL). Aquí solo defines los cursos y su contenido.
  * ============================================================= */
 
-window.AUREA_COURSES = [
+window.PRECISSA_COURSES = [
   {
     id: 'anatomia-fisiologia-cutanea',
     title: 'Anatomía y fisiología cutánea',

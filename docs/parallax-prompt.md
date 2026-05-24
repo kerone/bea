@@ -1,4 +1,4 @@
-# AUREA — Implementar sección de scroll 3D con parallax por capas
+# PRECISSA — Implementar sección de scroll 3D con parallax por capas
 
 > Prompt autosuficiente. Pégalo en Cowork o pásalo a un agente. Toda la información necesaria está aquí.
 
@@ -6,20 +6,20 @@
 
 ## 1. Qué hay que construir
 
-Una **sección editorial con efecto parallax 3D al hacer scroll** dentro de la web AUREA (escuela de estética + tienda de aparatología). La imagen base ya existe en disco. Hay que:
+Una **sección editorial con efecto parallax 3D al hacer scroll** dentro de la web PRECISSA (escuela de estética + tienda de aparatología). La imagen base ya existe en disco. Hay que:
 
 1. **Separar la imagen en 3 capas PNG** (fondo / rostro / mano).
-2. **Integrar la sección** en `aurea.html` en el lugar indicado.
+2. **Integrar la sección** en `precissa.html` en el lugar indicado.
 3. **Animar las capas al scrollear** con velocidades distintas → ilusión de profundidad real.
 
-El resultado debe encajar con el sistema de diseño AUREA: warm-neutral, editorial, sin animaciones spring exageradas.
+El resultado debe encajar con el sistema de diseño PRECISSA: warm-neutral, editorial, sin animaciones spring exageradas.
 
 ---
 
 ## 2. Archivos de entrada
 
 - **Proyecto:** `/Users/carlosalbiach/Documents/Web Bea/cowork-package/`
-- **HTML a modificar:** `aurea.html` (ya existe, está montado siguiendo `prompt.md`)
+- **HTML a modificar:** `precissa.html` (ya existe, está montado siguiendo `prompt.md`)
 - **Imagen original:** `le-petit-Jp4POW00eE0.jpg` (2624 × 3936 px, JPEG)
 - **Spec maestra del sitio:** `prompt.md` (referencia para tokens, tono y componentes)
 
@@ -81,7 +81,7 @@ Si no se puede ejecutar Python en el entorno, **deja preparado el HTML/CSS/JS pe
 
 ---
 
-## 5. Paso 2 — Dónde colocar la sección en `aurea.html`
+## 5. Paso 2 — Dónde colocar la sección en `precissa.html`
 
 **Ubicación recomendada:** entre la sección **Áreas de especialización** (sección 4 del Home según `prompt.md`) y la sección **Tests** (sección 5). Sirve como respiro editorial antes de cambiar de tema.
 
@@ -114,7 +114,7 @@ Ir con la **principal** salvo que el HTML actual no tenga espacio razonable para
         El detalle se aprende <em>mirando.</em>
       </h2>
       <p class="lede">
-        Cada protocolo de AUREA se graba sobre piel real. Cejas, labios, párpado.
+        Cada protocolo de PRECISSA se graba sobre piel real. Cejas, labios, párpado.
         La <em>técnica</em> antes que el resultado.
       </p>
       <a class="link-arrow" href="/cursos/cosmetologia">
@@ -310,7 +310,7 @@ Vanilla, sin dependencias. Usa `IntersectionObserver` para activar el listener s
 
 ## 8. Cómo verificar que está bien
 
-1. Abre `aurea.html` en un navegador.
+1. Abre `precissa.html` en un navegador.
 2. Haz scroll lento hasta la sección. Las 3 capas deben moverse a distinta velocidad: fondo lento, rostro medio, mano rápida.
 3. Activa "reducir movimiento" en el SO → el efecto se desactiva, la imagen queda fija.
 4. Redimensiona a 390 px → layout móvil, sin glitches.
@@ -320,7 +320,7 @@ Vanilla, sin dependencias. Usa `IntersectionObserver` para activar el listener s
 
 ## 9. Entregable
 
-- `aurea.html` modificado (nueva sección integrada en el orden indicado).
+- `precissa.html` modificado (nueva sección integrada en el orden indicado).
 - `assets/parallax/layer-bg.jpg|.webp`
 - `assets/parallax/layer-face.png`
 - `assets/parallax/layer-hand.png`

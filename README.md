@@ -1,6 +1,6 @@
-# AUREA — Escuela de estética avanzada
+# PRECISSA — Escuela de estética avanzada
 
-Web estática (HTML/CSS/JS puro) para la academia **AUREA**.
+Web estática (HTML/CSS/JS puro) para la academia **PRECISSA**.
 Sirve a la vez como vitrina pública de los cursos y como aula privada donde el alumnado accede a su materia (slides en HTML) y a sus tests.
 
 > **Stack:** un solo `index.html` + scripts en `assets/js/`. Sin build, sin instalación. El backend de login/usuarios va por **Supabase** (plan gratuito).
@@ -63,7 +63,7 @@ Una sola cifra de marca: "12 años formando profesionales". Resto del hero limpi
 ### 1. Añadir un curso nuevo
 
 1. Abre **`assets/js/courses-data.js`**.
-2. Copia uno de los bloques existentes dentro de `window.AUREA_COURSES`.
+2. Copia uno de los bloques existentes dentro de `window.PRECISSA_COURSES`.
 3. Cambia `id` (sin espacios, todo en minúsculas), `title`, `description`, `cover`.
 4. Define las `lessons` (puede ser un array vacío `[]` al principio).
 5. Define el `test` con sus preguntas (campo `correct` es el **índice** de la respuesta correcta empezando en 0).
@@ -215,4 +215,4 @@ Tokens CSS en `:root` dentro de `<style>`:
 
 ## 📄 Licencia
 
-Proyecto privado para la academia AUREA. Todos los derechos reservados.
+Proyecto privado para la academia PRECISSA. Todos los derechos reservados.
