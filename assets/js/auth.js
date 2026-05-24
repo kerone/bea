@@ -21,6 +21,11 @@
   // ─── UI helpers ─────────────────────────────────────────
   function $(id) { return document.getElementById(id); }
   function show(el, on) { if (el) el.style.display = on ? '' : 'none'; }
+  function setAuthClass(authed) {
+    document.body.classList.toggle('is-authed', !!authed);
+    document.querySelectorAll('.acceder-btn').forEach(b => b.style.display = authed ? 'none' : '');
+    document.querySelectorAll('.mi-aula-btn').forEach(b => b.style.display = authed ? '' : 'none');
+  }
   function setMsg(text, kind) {
     const el = $('aula-login-msg');
     if (!el) return;
@@ -60,6 +65,7 @@
     if (!client) {
       show(loginSection, true);
       show(listSection, false);
+      setAuthClass(false);
       return;
     }
     try {
@@ -67,17 +73,29 @@
       if (user) {
         show(loginSection, false);
         show(listSection, true);
-        const name = (user.user_metadata && (user.user_metadata.full_name || user.user_metadata.name)) || user.email || 'alumna';
+        setAuthClass(true);
+        let display;
+        const fullName = user.user_metadata && (user.user_metadata.full_name || user.user_metadata.name);
+        if (fullName) {
+          display = fullName.split(' ')[0]; // primer nombre
+        } else if (user.email) {
+          display = user.email.split('@')[0]; // parte antes del @
+        } else {
+          display = 'alumna';
+        }
+        if (display.length > 18) display = display.slice(0, 16) + '…';
         const userNameEl = $('aula-user-name');
-        if (userNameEl) userNameEl.textContent = name.split(' ')[0].toLowerCase();
+        if (userNameEl) userNameEl.textContent = display.toLowerCase();
       } else {
         show(loginSection, true);
         show(listSection, false);
+        setAuthClass(false);
       }
     } catch (err) {
       console.error('[auth] getUser error:', err);
       show(loginSection, true);
       show(listSection, false);
+      setAuthClass(false);
     }
   }
 
