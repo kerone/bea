@@ -521,34 +521,6 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .product-price { font-family: var(--serif); font-size: 15.5px; color: var(--accent); font-style: italic; letter-spacing: 0; }
 .product-footer { font-size: 11px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px; font-family: var(--serif); font-style: italic; }
 
-/* Featured product (cuando hay 1 sola máquina) */
-.featured-product {
-  display: grid; grid-template-columns: 1.05fr 1fr; gap: 0;
-  background: var(--surface); border: 1px solid var(--line);
-  border-radius: 16px; overflow: hidden;
-  margin-top: 48px;
-  transition: box-shadow 0.25s;
-}
-.featured-product:hover { box-shadow: 0 16px 48px rgba(36,29,23,0.10); }
-.featured-product-img { min-height: 460px; position: relative; }
-.featured-product-body { padding: 44px 44px 38px; display: flex; flex-direction: column; gap: 14px; }
-.featured-product-name { font-family: var(--serif); font-size: 40px; line-height: 1.04; letter-spacing: -0.018em; margin: 0 0 6px; }
-.featured-product-name em { font-style: italic; }
-.featured-product-desc { font-size: 14.5px; color: var(--ink-soft); line-height: 1.65; margin: 0; max-width: 460px; }
-.featured-product-specs {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
-  padding: 18px 0; margin: 10px 0 6px;
-  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-}
-.featured-product-specs > div { display: flex; flex-direction: column; gap: 2px; }
-.featured-product-specs b { font-family: var(--serif); font-size: 17px; font-style: italic; color: var(--ink); font-weight: 500; }
-.featured-product-specs span { font-size: 11px; color: var(--muted); letter-spacing: 0.04em; }
-.featured-product-ctas { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
-.featured-product-learn {
-  font-size: 12.5px; color: var(--muted); padding-top: 10px;
-  border-top: 1px solid var(--line); font-family: var(--serif); font-style: italic;
-}
-
 /* Testimonios */
 .testimonials { background: var(--surface); padding: 96px 56px; }
 .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 52px; }
@@ -623,11 +595,6 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   .diptych-grid, .tests-grid, .curso-grid { grid-template-columns: 1fr; }
   .areas-grid { grid-template-columns: 1fr; }
   .products-grid { grid-template-columns: 1fr 1fr; }
-  .featured-product { grid-template-columns: 1fr; margin-top: 32px; }
-  .featured-product-img { min-height: 280px; }
-  .featured-product-body { padding: 28px 24px; }
-  .featured-product-name { font-size: 30px; }
-  .featured-product-specs { grid-template-columns: 1fr 1fr; }
   .testimonials-grid { grid-template-columns: 1fr; }
   .diptych-h2, .pullquote-h2 { font-size: 30px; }
   .section-h2 { font-size: 32px; }
@@ -789,30 +756,23 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <div class="section-header">
       <div>
         <span class="eyebrow">· Equipo profesional</span>
-        <h2 class="section-h2" style="margin-top:8px">Una máquina, <em>todo el protocolo.</em></h2>
+        <h2 class="section-h2" style="margin-top:8px">Aparatología <em>destacada</em></h2>
       </div>
-      <button class="btn btn-text" onclick="goTo('producto','aparatologia')">Ver ficha completa →</button>
+      <button class="btn btn-text" onclick="goTo('tienda','aparatologia')">Ver catálogo →</button>
     </div>
-    <div class="featured-product">
-      <div class="featured-product-img ph ph-clay">
-        <span class="product-learn-chip">Aprende a usarla</span>
-        <div class="ph-label">PRECISSA RF-200 · tripolar · 2026</div>
-      </div>
-      <div class="featured-product-body">
-        <span class="chip chip-accent" style="margin-bottom:10px">Electroestética facial</span>
-        <h3 class="featured-product-name">PRECISSA <em>RF-200</em><br>Tripolar</h3>
-        <p class="featured-product-desc">Radiofrecuencia tripolar con sensor de impedancia en tiempo real. Control preciso de temperatura en dermis para lifting y remodelación facial. Diseñada para integrarse con el protocolo que se enseña en cabina.</p>
-        <div class="featured-product-specs">
-          <div><b>1 – 3 MHz</b><span>FRECUENCIA</span></div>
-          <div><b>50 W</b><span>POTENCIA</span></div>
-          <div><b>3 años</b><span>GARANTÍA</span></div>
-          <div><b>4,2 kg</b><span>PESO</span></div>
+    <div class="products-grid">
+      <div class="product-card" onclick="goTo('producto','aparatologia')">
+        <div class="product-img ph ph-clay"><span class="product-learn-chip">Aprende a usarlo</span></div>
+        <div class="product-body">
+          <span class="chip chip-accent" style="margin-bottom:8px">Electroestética</span>
+          <div class="product-name">PRECISSA RF-200</div>
+          <p class="product-desc">Radiofrecuencia facial tripolar con sensor de impedancia en tiempo real.</p>
+          <div class="product-price-row">
+            <span class="product-price serif">Consultar precio</span>
+            <span style="font-size:18px;color:var(--muted)">→</span>
+          </div>
+          <div class="product-footer">aprende con · <em>Radiofrecuencia facial profesional</em></div>
         </div>
-        <div class="featured-product-ctas">
-          <button class="btn btn-clay" onclick="openQuoteForm('PRECISSA RF-200 Tripolar')">Pedir presupuesto</button>
-          <button class="btn btn-outline" onclick="openDemoForm('PRECISSA RF-200 Tripolar')">Solicitar demo</button>
-        </div>
-        <div class="featured-product-learn">aprende con · <em>Radiofrecuencia facial profesional</em> · 5 h · 14 lecciones · incluido en la compra</div>
       </div>
     </div>
   </section>
@@ -2140,30 +2100,26 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   <div class="tienda-header">
     <span class="eyebrow">· Aparatología profesional</span>
     <h1 class="tienda-h1">El equipo que <em>se enseña</em><br>en PRECISSA.</h1>
-    <p class="tienda-meta">Una sola máquina, elegida con criterio. La próxima, en camino.</p>
+    <p class="tienda-meta">Ordenado por relevancia</p>
   </div>
-  <div style="padding:0 56px 64px">
-    <div class="featured-product" style="margin-top:24px">
-      <div class="featured-product-img ph ph-clay">
-        <span class="product-learn-chip">Aprende a usarla</span>
-        <div class="ph-label">PRECISSA RF-200 · tripolar · 2026</div>
-      </div>
-      <div class="featured-product-body">
-        <span class="chip chip-accent" style="margin-bottom:10px">Electroestética facial</span>
-        <h3 class="featured-product-name">PRECISSA <em>RF-200</em><br>Tripolar</h3>
-        <p class="featured-product-desc">Radiofrecuencia tripolar con sensor de impedancia en tiempo real. Control preciso de temperatura en dermis para lifting y remodelación facial. Diseñada para integrarse con el protocolo que se enseña en cabina.</p>
-        <div class="featured-product-specs">
-          <div><b>1 – 3 MHz</b><span>FRECUENCIA</span></div>
-          <div><b>50 W</b><span>POTENCIA</span></div>
-          <div><b>3 años</b><span>GARANTÍA</span></div>
-          <div><b>4,2 kg</b><span>PESO</span></div>
-        </div>
-        <div class="featured-product-ctas">
-          <button class="btn btn-dark btn-sm" onclick="goTo('producto','aparatologia')">Ver ficha completa →</button>
-          <button class="btn btn-clay" onclick="openQuoteForm('PRECISSA RF-200 Tripolar')">Pedir presupuesto</button>
-          <button class="btn btn-outline" onclick="openDemoForm('PRECISSA RF-200 Tripolar')">Solicitar demo</button>
-        </div>
-        <div class="featured-product-learn">aprende con · <em>Radiofrecuencia facial profesional</em> · 5 h · 14 lecciones · incluido en la compra</div>
+  <div class="filter-chips">
+    <span class="filter-chip active" onclick="filterTienda(this,'todas')">Todas</span>
+    <span class="filter-chip" onclick="filterTienda(this,'electro')">Electroestética</span>
+    <span class="filter-chip" onclick="filterTienda(this,'cosme')">Cosmetología</span>
+    <span class="filter-chip" onclick="filterTienda(this,'micro')">Micropigmentación</span>
+    <span class="filter-chip" onclick="filterTienda(this,'mob')">Mobiliario</span>
+    <span class="filter-chip" onclick="filterTienda(this,'cons')">Consumibles</span>
+    <span class="filter-chip filter-chip-special">⊞ Filtros</span>
+  </div>
+  <div class="tienda-grid">
+    <div class="tienda-product-card" onclick="goTo('producto','aparatologia')">
+      <div class="tienda-product-img ph ph-clay"><span class="product-learn-chip">Aprende a usarlo</span></div>
+      <div class="tienda-product-body">
+        <span class="chip chip-accent" style="margin-bottom:6px">Electroestética</span>
+        <div class="tienda-product-name">PRECISSA RF-200</div>
+        <p class="tienda-product-desc">RF tripolar con sensor de impedancia en tiempo real.</p>
+        <div class="tienda-product-bottom"><span class="tienda-product-price serif">Consultar precio</span><span style="color:var(--muted)">→</span></div>
+        <div class="tienda-product-course">aprende con · <em>Radiofrecuencia facial profesional</em></div>
       </div>
     </div>
   </div>
@@ -2609,6 +2565,17 @@ function toggleModulo(header) {
 }
 
 // ─── FILTER TIENDA ─────────────────────────────────────
+function filterTienda(chip, cat) {
+  chip.closest('.filter-chips').querySelectorAll('.filter-chip:not(.filter-chip-special)')
+    .forEach(c => c.classList.remove('active'));
+  chip.classList.add('active');
+  const grid = document.querySelector('.tienda-grid');
+  if (grid) {
+    grid.style.opacity = '0.4';
+    setTimeout(() => { grid.style.opacity = '1'; }, 200);
+  }
+}
+
 // ─── NEWSLETTER ────────────────────────────────────────
 // El formulario envía a Brevo (https://www.brevo.com), herramienta de
 // email marketing gratuita.
