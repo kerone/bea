@@ -1475,6 +1475,10 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 
 /* ─── DIAGRAMA 3 CAPAS ────────────────────────────────── */
 .lv-layers-wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; }
+.lv-layers-img {
+  display: block; width: 100%; max-width: 420px; height: auto; margin: 0 auto;
+  border-radius: 18px; box-shadow: 0 18px 40px rgba(36,29,23,0.18);
+}
 .lv-layers-diagram {
   position: relative; aspect-ratio: 4/5; max-width: 420px; margin: 0 auto;
   display: flex; flex-direction: column; justify-content: flex-start;
@@ -1771,23 +1775,9 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <div class="lv-slide-inner">
       <span class="lv-eyebrow">· 02 · Estructura</span>
       <div class="lv-layers-wrap">
-        <div class="lv-layers-diagram" id="lv-layers-diagram">
-          <div class="lv-layer lv-layer-ep is-active" data-layer="0">
-            <span class="lv-layer-dot">1</span>
-            <div class="lv-layer-tag"><em>Epidermis</em></div>
-            <div class="lv-layer-sub">Capa más externa, sin vasos, en constante renovación. Es la barrera que nos protege.</div>
-          </div>
-          <div class="lv-layer lv-layer-de" data-layer="1">
-            <span class="lv-layer-dot">2</span>
-            <div class="lv-layer-tag"><em>Dermis</em></div>
-            <div class="lv-layer-sub">Capa intermedia, conjuntiva. Aporta firmeza, elasticidad y nutre a la epidermis.</div>
-          </div>
-          <div class="lv-layer lv-layer-hi" data-layer="2">
-            <span class="lv-layer-dot">3</span>
-            <div class="lv-layer-tag"><em>Hipodermis</em></div>
-            <div class="lv-layer-sub">La capa profunda. Tejido adiposo: reserva, aislamiento y amortiguación.</div>
-          </div>
-        </div>
+        <img class="lv-layers-img" src="assets/capas-piel.jpg"
+             alt="Las tres capas de la piel: epidermis, dermis e hipodermis"
+             loading="lazy" decoding="async">
         <div class="lv-layers-side">
           <h2 class="lv-h2">Tres capas.<br><em>Una sola piel.</em></h2>
           <p class="lv-body">De la superficie hacia la profundidad. Cada capa tiene su composición, su misión y su comportamiento. Conocerlas es la base de todo lo que harás como profesional.</p>
