@@ -318,7 +318,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <div class="drawer-subitem" onclick="goTo('aula','docencia');closeDrawer()">Acceso alumnado</div>
     <div class="drawer-section">Aparatología</div>
     <div class="drawer-subitem" onclick="goTo('tienda','aparatologia');closeDrawer()">Catálogo</div>
-    <div class="drawer-subitem">Demos</div>
+    <div class="drawer-subitem" onclick="closeDrawer();openDemoForm()">Demos</div>
     <div class="drawer-section">Más</div>
     <div class="drawer-item">Diario</div>
     <div class="drawer-item" style="margin-top:16px">
@@ -882,7 +882,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       <div>
         <div class="footer-col-title">Aparatología</div>
         <a class="footer-link" onclick="goTo('tienda','aparatologia')">Catálogo</a>
-        <a class="footer-link">Solicitar demo</a>
+        <a class="footer-link" onclick="openDemoForm()">Solicitar demo</a>
       </div>
       <div>
         <div class="footer-col-title">Compañía</div>
@@ -2410,10 +2410,26 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   width:100%; box-sizing:border-box;
 }
 .quote-field input:focus,
-.quote-field textarea:focus {
+.quote-field textarea:focus,
+.quote-field select:focus {
   outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(168,107,78,0.12);
 }
 .quote-field textarea { resize:vertical; min-height:72px; }
+.quote-field select {
+  font-family:var(--sans); font-size:14px; color:var(--ink);
+  background:#fff; border:1px solid var(--line-strong);
+  border-radius:8px; padding:10px 36px 10px 12px;
+  transition:border-color 0.15s, box-shadow 0.15s;
+  width:100%; box-sizing:border-box;
+  appearance:none; -webkit-appearance:none; -moz-appearance:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%23544A40' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat:no-repeat; background-position:right 14px center;
+  cursor:pointer;
+}
+
+/* Visibilidad por modo */
+.quote-overlay[data-mode="demo"]        .presupuesto-only { display:none; }
+.quote-overlay[data-mode="presupuesto"] .demo-only        { display:none; }
 
 .quote-radio-row { display:flex; gap:8px; flex-wrap:wrap; }
 .quote-radio {
@@ -2461,13 +2477,13 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 }
 </style>
 
-<div class="quote-overlay" id="quote-overlay" onclick="if(event.target===this) closeQuoteForm()">
+<div class="quote-overlay" id="quote-overlay" data-mode="presupuesto" onclick="if(event.target===this) closeQuoteForm()">
   <div class="quote-modal" role="dialog" aria-modal="true" aria-labelledby="quote-title">
     <button class="quote-close" type="button" onclick="closeQuoteForm()" aria-label="Cerrar">×</button>
 
     <div id="quote-form-wrap">
       <div class="quote-header">
-        <div class="quote-eyebrow">· Solicitud de presupuesto</div>
+        <div class="quote-eyebrow" id="quote-eyebrow">· Solicitud de presupuesto</div>
         <h2 class="quote-title serif" id="quote-title">Pedir <em>presupuesto</em></h2>
         <p class="quote-product" id="quote-product-line">Te respondemos en menos de 24 h laborables.</p>
       </div>
@@ -2475,10 +2491,26 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       <form class="quote-form" id="quote-form" novalidate>
         <input type="hidden" name="producto"          id="quote-producto-input" value="">
         <input type="hidden" name="precio_referencia" id="quote-precio-input"   value="">
-        <input type="hidden" name="_subject"          value="Nueva solicitud de presupuesto · AUREA">
+        <input type="hidden" name="_subject"          id="quote-subject-input"  value="Nueva solicitud de presupuesto · AUREA">
         <input type="hidden" name="_template"         value="table">
         <!-- honeypot -->
         <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+
+        <label class="quote-field demo-only">
+          <span class="quote-label">¿Qué máquina quieres ver en demo? *</span>
+          <select name="producto" id="quote-product-select" disabled>
+            <option value="">— Selecciona una opción —</option>
+            <option value="AUREA RF-200 Tripolar">AUREA RF-200 Tripolar · Radiofrecuencia facial</option>
+            <option value="AUREA RF-100">AUREA RF-100 · Radiofrecuencia (entrada)</option>
+            <option value="AUREA US-300">AUREA US-300 · Cavitación y ultrasonidos</option>
+            <option value="Lumen LED Pro">Lumen LED Pro · Fototerapia LED</option>
+            <option value="HydraSkin Touch">HydraSkin Touch · Hidrodermabrasión</option>
+            <option value="IonPeel Pro">IonPeel Pro · Iontoforesis / electroporación</option>
+            <option value="Microblade M-12">Microblade M-12 · Micropigmentación</option>
+            <option value="PixelPen X">PixelPen X · Dermógrafo digital</option>
+            <option value="Asesoramiento general">Aún no lo sé · quiero asesoramiento</option>
+          </select>
+        </label>
 
         <label class="quote-field">
           <span class="quote-label">Nombre y apellidos *</span>
@@ -2557,7 +2589,7 @@ const SUBLINKS = {
   ],
   aparatologia: [
     { label: 'Catálogo', page: 'tienda' },
-    { label: 'Demos',    page: null }
+    { label: 'Demos',    page: null, action: 'openDemoForm()' }
   ]
 };
 const pages = {
@@ -2599,7 +2631,9 @@ function updateNav(pageKey, cfg) {
   const items = SUBLINKS[cfg.area] || [];
   subLinks.innerHTML = items.map(it => {
     const isActive = it.page && it.page === cfg.subActive;
-    const onclick = it.page ? `onclick="goTo('${it.page}','${cfg.area}')"` : '';
+    const onclick = it.page
+      ? `onclick="goTo('${it.page}','${cfg.area}')"`
+      : (it.action ? `onclick="${it.action}"` : '');
     return `<span class="nav-sub-link${isActive ? ' active' : ''}" ${onclick}>${it.label}</span>`;
   }).join('');
 }
@@ -3159,43 +3193,84 @@ function onPageEnter(pageKey) {
   if (pageKey === 'aula-curso') renderAulaCurso();
 }
 
-// ─── PEDIR PRESUPUESTO (modal + FormSubmit AJAX) ───────
-// FormSubmit.co envía las solicitudes al email indicado.
-// Importante: la PRIMERA vez que se envíe una solicitud, FormSubmit mandará un
-// email de verificación a beautysecrets.betty@gmail.com. Hay que pinchar el enlace
-// que llegue para activar el reenvío. A partir de ahí todas las solicitudes
-// llegan limpiamente al inbox.
+// ─── CONTACTO COMERCIAL (modal + FormSubmit AJAX) ───────
+// Modo 'presupuesto': pedir precio de una máquina (auto-rellena el producto).
+// Modo 'demo':        solicitar demostración (selector desplegable de máquinas).
+// FormSubmit.co envía los formularios al email indicado.
+// Importante: la PRIMERA vez que llegue una solicitud, FormSubmit mandará un
+// email de verificación a beautysecrets.betty@gmail.com. Hay que pinchar el
+// enlace de activación. A partir de ahí todas las solicitudes llegan limpiamente.
 const QUOTE_ENDPOINT = 'https://formsubmit.co/ajax/beautysecrets.betty@gmail.com';
 
-function openQuoteForm(productName, productPrice) {
-  const overlay     = document.getElementById('quote-overlay');
-  const form        = document.getElementById('quote-form');
-  const formWrap    = document.getElementById('quote-form-wrap');
-  const success     = document.getElementById('quote-success');
-  const productLine = document.getElementById('quote-product-line');
-  const status      = document.getElementById('quote-status');
+function openContactForm(mode, opts) {
+  opts = opts || {};
+  mode = (mode === 'demo') ? 'demo' : 'presupuesto';
 
-  document.getElementById('quote-producto-input').value = productName || '(Consulta general)';
-  document.getElementById('quote-precio-input').value   = productPrice || '';
-
-  if (productName) {
-    productLine.innerHTML = 'Producto: <strong>' + escapeHtml(productName) +
-      '</strong>' + (productPrice ? ' · <strong>' + escapeHtml(productPrice) + '</strong>' : '') +
-      '. Te respondemos en menos de 24 h laborables.';
-  } else {
-    productLine.textContent = 'Te respondemos en menos de 24 h laborables.';
-  }
+  const overlay        = document.getElementById('quote-overlay');
+  const form           = document.getElementById('quote-form');
+  const formWrap       = document.getElementById('quote-form-wrap');
+  const success        = document.getElementById('quote-success');
+  const status         = document.getElementById('quote-status');
+  const title          = document.getElementById('quote-title');
+  const eyebrow        = document.getElementById('quote-eyebrow');
+  const subjectInput   = document.getElementById('quote-subject-input');
+  const productHidden  = document.getElementById('quote-producto-input');
+  const productSelect  = document.getElementById('quote-product-select');
+  const priceHidden    = document.getElementById('quote-precio-input');
+  const productLine    = document.getElementById('quote-product-line');
+  const mensaje        = form.querySelector('textarea[name="mensaje"]');
 
   form.reset();
-  formWrap.hidden = false;
-  success.hidden  = true;
+  overlay.setAttribute('data-mode', mode);
+
+  if (mode === 'demo') {
+    title.innerHTML       = 'Solicitar <em>demo</em>';
+    eyebrow.textContent   = '· Solicitud de demostración';
+    subjectInput.value    = 'Nueva solicitud de demo · AUREA';
+    productLine.textContent = 'Te confirmamos disponibilidad (online o presencial) en menos de 24 h laborables.';
+    mensaje.placeholder   = '¿Online o presencial? ¿Algún día u horario te conviene mejor?';
+    // El campo "producto" activo es el select; el hidden queda inactivo.
+    productHidden.disabled = true;
+    productSelect.disabled = false;
+    productSelect.required = true;
+    productSelect.value    = '';
+    priceHidden.value      = '';
+  } else {
+    title.innerHTML       = 'Pedir <em>presupuesto</em>';
+    eyebrow.textContent   = '· Solicitud de presupuesto';
+    subjectInput.value    = 'Nueva solicitud de presupuesto · AUREA';
+    mensaje.placeholder   = '¿Necesitas formación incluida, demo previa, financiación…?';
+    // El campo "producto" activo es el hidden; el select queda inactivo.
+    productSelect.disabled = true;
+    productSelect.required = false;
+    productHidden.disabled = false;
+    productHidden.value    = opts.productName || '(Consulta general)';
+    priceHidden.value      = opts.productPrice || '';
+    if (opts.productName) {
+      productLine.innerHTML = 'Producto: <strong>' + escapeHtml(opts.productName) +
+        '</strong>. Te respondemos en menos de 24 h laborables.';
+    } else {
+      productLine.textContent = 'Te respondemos en menos de 24 h laborables.';
+    }
+  }
+
+  formWrap.hidden    = false;
+  success.hidden     = true;
   status.textContent = '';
 
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
   setTimeout(() => form.querySelector('input[name="nombre"]').focus(), 80);
 }
-window.openQuoteForm = openQuoteForm;
+function openQuoteForm(productName, productPrice) {
+  openContactForm('presupuesto', { productName: productName, productPrice: productPrice });
+}
+function openDemoForm() {
+  openContactForm('demo');
+}
+window.openContactForm = openContactForm;
+window.openQuoteForm   = openQuoteForm;
+window.openDemoForm    = openDemoForm;
 
 function closeQuoteForm() {
   document.getElementById('quote-overlay').classList.remove('open');
