@@ -2710,9 +2710,71 @@ function filterTienda(chip, cat) {
 }
 
 // ─── NEWSLETTER ────────────────────────────────────────
-function submitNewsletter() {
-  document.getElementById('newsletter-form').style.display = 'none';
-  document.getElementById('newsletter-thanks').style.display = 'block';
+// El formulario envía a Brevo (https://www.brevo.com), herramienta de
+// email marketing gratuita.
+//
+// PASOS PARA ACTIVARLO (una sola vez):
+//   1. Crear cuenta gratis en https://onboarding.brevo.com/account/register
+//   2. En el panel: Contacts → Lists → "+ Add a new list" → nombre p.ej.
+//      "Newsletter AUREA" → guardar.
+//   3. Forms → "+ Create a new form" → tipo "Subscription form".
+//      Asigna la lista creada en el paso 2. Diseño da igual (no se usa).
+//   4. En la pestaña "Share" del form: copia el atributo `action` del
+//      bloque <form> que aparece (URL larga tipo
+//      https://sibforms.com/serve/MUIFAA...).
+//   5. Pega esa URL en la constante BREVO_FORM_URL de abajo y haz commit.
+//
+// Mientras BREVO_FORM_URL está vacío, las suscripciones se envían como
+// fallback al inbox de beautysecrets.betty@gmail.com via FormSubmit.
+const BREVO_FORM_URL = '';  // ← PEGAR AQUÍ la URL del form de Brevo
+
+async function submitNewsletter() {
+  const form   = document.getElementById('newsletter-form');
+  const input  = form.querySelector('.newsletter-input');
+  const btn    = form.querySelector('.newsletter-btn');
+  const thanks = document.getElementById('newsletter-thanks');
+  const email  = (input.value || '').trim();
+
+  // Validación mínima de email
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    input.focus();
+    input.style.borderColor = 'rgba(255,150,140,0.8)';
+    return;
+  }
+  input.style.borderColor = '';
+
+  btn.disabled = true;
+  btn.textContent = 'Enviando…';
+
+  try {
+    if (BREVO_FORM_URL) {
+      // Envío al endpoint de Brevo (form público, no expone API key).
+      const data = new FormData();
+      data.append('EMAIL', email);
+      data.append('email_address_check', ''); // honeypot de Brevo
+      data.append('locale', 'es');
+      data.append('html_type', 'simple');
+      await fetch(BREVO_FORM_URL, { method:'POST', body:data, mode:'no-cors' });
+    } else {
+      // Fallback: enviar al inbox via FormSubmit con asunto distinguible.
+      await fetch(QUOTE_ENDPOINT, {
+        method:  'POST',
+        headers: { 'Content-Type':'application/json', 'Accept':'application/json' },
+        body:    JSON.stringify({
+          email:     email,
+          origen:    'Suscripcion newsletter (Diario AUREA)',
+          _subject:  'Nueva suscripcion newsletter · AUREA',
+          _template: 'table'
+        })
+      });
+    }
+    form.style.display   = 'none';
+    thanks.style.display = 'block';
+  } catch (err) {
+    btn.disabled    = false;
+    btn.textContent = 'Suscribirme';
+    input.style.borderColor = 'rgba(255,150,140,0.8)';
+  }
 }
 
 // ─── PRODUCT THUMBS ────────────────────────────────────
