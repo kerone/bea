@@ -455,6 +455,19 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .pullquote-h2 em { font-style: italic; }
 .pullquote-desc { font-size: 14.5px; color: var(--ink-soft); max-width: 480px; margin: 0 auto; }
 
+/* Enfoque pedagógico */
+.enfoque { padding: 104px 56px; background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.enfoque-intro { max-width: 880px; margin: 0 auto 72px; }
+.enfoque-h2 { font-family: var(--serif); font-size: 56px; line-height: 1.06; letter-spacing: -0.018em; margin: 14px 0 28px; }
+.enfoque-h2 em { font-style: italic; }
+.enfoque-lede { font-size: 16.5px; line-height: 1.65; color: var(--ink-soft); max-width: 720px; }
+.enfoque-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 1200px; margin: 0 auto; }
+.enfoque-card { border-top: 1px solid var(--line-strong); padding-top: 24px; }
+.enfoque-num { font-family: var(--serif); font-style: italic; font-size: 30px; color: var(--accent); margin-bottom: 14px; line-height: 1; }
+.enfoque-card-h { font-family: var(--serif); font-size: 22px; line-height: 1.22; letter-spacing: -0.012em; margin: 0 0 12px; font-weight: 400; }
+.enfoque-card-h em { font-style: italic; }
+.enfoque-card-d { font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); }
+
 /* Areas */
 .areas { padding: 96px 56px; position: relative; }
 .section-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 48px; }
@@ -611,6 +624,11 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   .products-grid { grid-template-columns: 1fr 1fr; }
   .testimonials-grid { grid-template-columns: 1fr; }
   .diptych-h2, .pullquote-h2 { font-size: 30px; }
+  .enfoque { padding: 64px 20px; }
+  .enfoque-intro { margin-bottom: 48px; }
+  .enfoque-h2 { font-size: 32px; }
+  .enfoque-lede { font-size: 15px; }
+  .enfoque-grid { grid-template-columns: 1fr; gap: 28px; }
   .section-h2 { font-size: 32px; }
   .pullquote { padding: 64px 20px; }
   .newsletter-content { padding: 0 20px; }
@@ -630,7 +648,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   <section class="hero">
     <div class="hero-left">
       <span class="eyebrow accent">· Escuela de estética avanzada</span>
-      <h1 class="hero-h1">El protocolo<br>que da<br>la <em>ciencia.</em></h1>
+      <h1 class="hero-h1">El protocolo<br>de la <em>ciencia.</em></h1>
       <p class="hero-desc">Formación avanzada para profesionales que entienden que la técnica sin conocimiento no es suficiente.</p>
       <div class="hero-ctas">
         <button class="btn btn-dark" onclick="goTo('cursos','docencia')">Ver cursos →</button>
@@ -712,6 +730,32 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <span class="eyebrow">· Nuestra filosofía</span>
     <h2 class="pullquote-h2">La piel se cuida con <em>conocimiento.</em><br>La cabina se respeta con <em>método.</em></h2>
     <p class="pullquote-desc">En PRECISSA INSTITUTE no separamos la ciencia del gesto. Cada protocolo nace de evidencia clínica y se perfecciona en cabina.</p>
+  </section>
+
+  <!-- ENFOQUE PEDAGÓGICO -->
+  <section class="enfoque">
+    <div class="enfoque-intro">
+      <span class="eyebrow accent">· Nuestro enfoque</span>
+      <h2 class="enfoque-h2">Aprende <em>haciendo.</em><br>Entiende <em>practicando.</em></h2>
+      <p class="enfoque-lede">En PRECISSA INSTITUTE invertimos el orden clásico de la formación en estética. No estudias teoría para algún día aplicarla — la descubres cuando tus manos la necesitan. Cada concepto llega en el momento exacto: sobre piel real, con la profesora al lado, con el resultado a la vista.</p>
+    </div>
+    <div class="enfoque-grid">
+      <div class="enfoque-card">
+        <div class="enfoque-num">i.</div>
+        <h3 class="enfoque-card-h">Aula y cabina, <em>a la vez.</em></h3>
+        <p class="enfoque-card-d">Cada sesión combina concepto y ejecución el mismo día. No memorizas para luego aplicar: aplicas mientras aprendes.</p>
+      </div>
+      <div class="enfoque-card">
+        <div class="enfoque-num">ii.</div>
+        <h3 class="enfoque-card-h">Entender <em>haciendo.</em></h3>
+        <p class="enfoque-card-d">La fisiología, la histología, la electroestética dejan de ser conceptos abstractos. Llegan cuando tus manos las reclaman.</p>
+      </div>
+      <div class="enfoque-card">
+        <div class="enfoque-num">iii.</div>
+        <h3 class="enfoque-card-h">De la experiencia, <em>al protocolo.</em></h3>
+        <p class="enfoque-card-d">No al revés. Primero las manos exploran; después la teoría explica lo que han visto. Así se fija el conocimiento.</p>
+      </div>
+    </div>
   </section>
 
   <!-- ÁREAS DE ESPECIALIZACIÓN -->
