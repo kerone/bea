@@ -941,7 +941,12 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .cursos-pub-h1 { font-family: var(--serif); font-size: 56px; line-height: 1.02; letter-spacing: -0.02em; margin: 12px 0 18px; }
 .cursos-pub-h1 em { font-style: italic; }
 .cursos-pub-desc { font-size: 16px; color: var(--ink-soft); line-height: 1.6; }
-.cursos-pub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px; }
+.cursos-pub-grid { display: flex; flex-direction: column; gap: 64px; }
+.cursos-pub-category-head { margin-bottom: 22px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.cursos-pub-category-title { font-family: var(--serif); font-size: 32px; line-height: 1.1; letter-spacing: -0.01em; margin: 0 0 6px; }
+.cursos-pub-category-tagline { font-size: 13.5px; color: var(--ink-soft); margin: 0; }
+.cursos-pub-category-count { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; display: block; }
+.cursos-pub-category-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px; }
 .cursos-pub-card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.18s, box-shadow 0.18s; }
 .cursos-pub-card:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(36,29,23,0.08); }
 .cursos-pub-card-cover { height: 180px; background: var(--bg2); position: relative; overflow: hidden; }
@@ -1016,7 +1021,12 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .aula-list-h1 { font-family: var(--serif); font-size: 44px; line-height: 1.15; letter-spacing: -0.02em; overflow-wrap: anywhere; max-width: 100%; padding-top: 6px; }
 .aula-list-h1 em { font-style: italic; color: var(--accent); }
 .aula-list-sub { font-size: 14px; color: var(--ink-soft); margin-top: 6px; }
-.aula-courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }
+.aula-courses-grid { display: flex; flex-direction: column; gap: 48px; }
+.aula-category-head { margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.aula-category-title { font-family: var(--serif); font-size: 26px; line-height: 1.1; letter-spacing: -0.01em; margin: 0 0 4px; }
+.aula-category-tagline { font-size: 12.5px; color: var(--ink-soft); margin: 0; }
+.aula-category-count { font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; display: block; }
+.aula-category-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }
 .aula-course-card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform 0.18s, box-shadow 0.18s; display: flex; flex-direction: column; }
 .aula-course-card:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(36,29,23,0.08); }
 .aula-course-card-cover { height: 150px; background: var(--bg2); }
@@ -2951,7 +2961,27 @@ function getCourses() {
   return (window.PRECISSA_COURSES && Array.isArray(window.PRECISSA_COURSES)) ? window.PRECISSA_COURSES : [];
 }
 
-// ─── CURSOS PÚBLICO (listado con descripción) ───────────
+// ─── CURSOS PÚBLICO (listado agrupado por categoría) ────
+function getCategories() {
+  return (window.PRECISSA_CATEGORIES && Array.isArray(window.PRECISSA_CATEGORIES)) ? window.PRECISSA_CATEGORIES : [];
+}
+function renderCourseCardPublic(c) {
+  return `
+    <article class="cursos-pub-card">
+      <div class="cursos-pub-card-cover">
+        ${c.cover ? `<img src="${c.cover}" alt="">` : `<div class="cursos-pub-card-cover-fallback">${escapeHtml(c.title)}</div>`}
+      </div>
+      <div class="cursos-pub-card-body">
+        ${c.eyebrow ? `<div class="cursos-pub-card-eyebrow">${escapeHtml(c.eyebrow)}</div>` : ''}
+        <div class="cursos-pub-card-title">${escapeHtml(c.title)}</div>
+        <div class="cursos-pub-card-desc">${escapeHtml(c.shortDescription || c.description || '')}</div>
+        <div class="cursos-pub-card-meta">
+          ${c.duration ? `<span>${escapeHtml(c.duration)}</span>` : ''}
+          ${c.level ? `<span>${escapeHtml(c.level)}</span>` : ''}
+        </div>
+      </div>
+    </article>`;
+}
 function renderPublicCourses() {
   const grid = document.getElementById('cursos-pub-grid');
   if (!grid) return;
@@ -2960,23 +2990,40 @@ function renderPublicCourses() {
     grid.innerHTML = '<div class="cursos-pub-empty">Aún no hay cursos publicados. Edita <code>assets/js/courses-data.js</code> para añadir el primero.</div>';
     return;
   }
-  grid.innerHTML = courses.map(c => `
-    <article class="cursos-pub-card">
-      <div class="cursos-pub-card-cover">
-        ${c.cover ? `<img src="${c.cover}" alt="">` : `<div class="cursos-pub-card-cover-fallback">${escapeHtml(c.title)}</div>`}
-      </div>
-      <div class="cursos-pub-card-body">
-        ${c.eyebrow ? `<div class="cursos-pub-card-eyebrow">${escapeHtml(c.eyebrow)}</div>` : ''}
-        <div class="cursos-pub-card-title">${escapeHtml(c.title)}</div>
-        <div class="cursos-pub-card-desc">${escapeHtml(c.description || '')}</div>
-        <div class="cursos-pub-card-meta">
-          ${c.lessons ? `<span>${c.lessons.length} lecciones</span>` : ''}
-          ${c.duration ? `<span>${escapeHtml(c.duration)}</span>` : ''}
-          ${c.level ? `<span>${escapeHtml(c.level)}</span>` : ''}
+  const categories = getCategories();
+  // Si no hay categorías definidas, render plano (compatibilidad)
+  if (categories.length === 0) {
+    grid.innerHTML = courses.map(renderCourseCardPublic).join('');
+    return;
+  }
+  // Agrupado por categoría, en el orden definido en PRECISSA_CATEGORIES
+  const blocks = categories.map(cat => {
+    const inCat = courses.filter(c => c.category === cat.id);
+    if (inCat.length === 0) return '';
+    return `
+      <section class="cursos-pub-category">
+        <header class="cursos-pub-category-head">
+          <span class="cursos-pub-category-count">${inCat.length} ${inCat.length === 1 ? 'curso' : 'cursos'}</span>
+          <h3 class="cursos-pub-category-title">${escapeHtml(cat.label)}</h3>
+          <p class="cursos-pub-category-tagline">${escapeHtml(cat.tagline || '')}</p>
+        </header>
+        <div class="cursos-pub-category-cards">
+          ${inCat.map(renderCourseCardPublic).join('')}
         </div>
+      </section>`;
+  }).filter(Boolean).join('');
+  // Cursos sin categoría asignada (compatibilidad) — al final
+  const orphans = courses.filter(c => !categories.find(cat => cat.id === c.category));
+  const orphansBlock = orphans.length === 0 ? '' : `
+    <section class="cursos-pub-category">
+      <header class="cursos-pub-category-head">
+        <h3 class="cursos-pub-category-title">Otros cursos</h3>
+      </header>
+      <div class="cursos-pub-category-cards">
+        ${orphans.map(renderCourseCardPublic).join('')}
       </div>
-    </article>
-  `).join('');
+    </section>`;
+  grid.innerHTML = blocks + orphansBlock;
 }
 
 // ─── AULA · CONTROL DE ACCESO POR ALUMNA ────────────────
@@ -3025,7 +3072,7 @@ async function renderAulaCourses() {
     grid.innerHTML = '<div class="aula-empty">Aún no tienes cursos asignados. Habla con tu profesora para que te dé acceso.</div>';
     return;
   }
-  grid.innerHTML = courses.map(c => `
+  const renderAulaCard = (c) => `
     <article class="aula-course-card" onclick="openAulaCurso('${escapeAttr(c.id)}')">
       <div class="aula-course-card-cover">
         ${c.cover ? `<img src="${c.cover}" alt="">` : ''}
@@ -3034,12 +3081,38 @@ async function renderAulaCourses() {
         <div class="aula-course-card-title">${escapeHtml(c.title)}</div>
         <div class="aula-course-card-desc">${escapeHtml(c.shortDescription || c.description || '')}</div>
         <div class="aula-course-card-meta">
-          ${c.lessons ? `<span>${c.lessons.length} lecciones</span>` : ''}
-          ${c.test ? `<span>Test incluido</span>` : ''}
+          ${c.lessons && c.lessons.length > 0 ? `<span>${c.lessons.length} lecciones</span>` : '<span>Próximamente</span>'}
+          ${c.test && c.test.questions && c.test.questions.length > 0 ? `<span>Test incluido</span>` : ''}
         </div>
       </div>
-    </article>
-  `).join('');
+    </article>`;
+  const categories = getCategories();
+  if (categories.length === 0) {
+    grid.innerHTML = courses.map(renderAulaCard).join('');
+    return;
+  }
+  const blocks = categories.map(cat => {
+    const inCat = courses.filter(c => c.category === cat.id);
+    if (inCat.length === 0) return '';
+    return `
+      <section class="aula-category">
+        <header class="aula-category-head">
+          <span class="aula-category-count">${inCat.length} ${inCat.length === 1 ? 'curso' : 'cursos'}</span>
+          <h3 class="aula-category-title">${escapeHtml(cat.label)}</h3>
+          <p class="aula-category-tagline">${escapeHtml(cat.tagline || '')}</p>
+        </header>
+        <div class="aula-category-cards">
+          ${inCat.map(renderAulaCard).join('')}
+        </div>
+      </section>`;
+  }).filter(Boolean).join('');
+  const orphans = courses.filter(c => !categories.find(cat => cat.id === c.category));
+  const orphansBlock = orphans.length === 0 ? '' : `
+    <section class="aula-category">
+      <header class="aula-category-head"><h3 class="aula-category-title">Otros cursos</h3></header>
+      <div class="aula-category-cards">${orphans.map(renderAulaCard).join('')}</div>
+    </section>`;
+  grid.innerHTML = blocks + orphansBlock;
 }
 
 // ─── AULA · DETALLE DEL CURSO ──────────────────────────
