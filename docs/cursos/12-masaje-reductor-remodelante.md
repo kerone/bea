@@ -208,12 +208,11 @@ Las maniobras siguen líneas anatómicas que redibujan el contorno:
 
 **Fase 5 · Drenaje final y cierre vascular (8-10 min)**
 
-Idéntico al reductor en estructura pero con más énfasis en el componente sedativo, ya que la paciente del remodelante valora especialmente la experiencia global de la sesión.
+Idéntico al reductor con más énfasis sedativo: la paciente del remodelante valora especialmente la experiencia global.
 
 **Fase 6 · Cierre cosmético (5-7 min)**
 
-- Aplicación de cosmética **reafirmante** (centella asiática, DMAE, péptidos, retinoides corporales suaves) más que reductora pura, aunque las fórmulas mixtas son habituales.
-- Posible vendaje frío o aplicación de mascarillas modeladoras según protocolo del centro.
+Cosmética **reafirmante** (centella, DMAE, péptidos, retinoides corporales suaves) más que reductora pura, aunque las fórmulas mixtas son habituales. Posible vendaje frío o mascarillas modeladoras según protocolo.
 
 ### 5.3 · Caso clínico 1 — Celulitis grado II-III en muslos, mujer 35 años
 
