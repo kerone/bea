@@ -173,16 +173,11 @@ Concentra la técnica reductora propiamente dicha y se adapta a la zona. Las man
 
 **Fase 5 · Drenaje de cierre y vaciado vascular (8-10 min)**
 
-- Repetición de la secuencia de drenaje en sentido fisiológico, con presión moderada inicialmente y muy ligera al final, para evacuar los líquidos movilizados durante el trabajo profundo.
-- Apertura final de ganglios regionales y terminales.
-- Maniobras de roce superficial descendente y ascendente para "asentar" el trabajo y permitir la transición progresiva al reposo.
+Repetición de la secuencia de drenaje en sentido fisiológico, con presión moderada inicialmente y ligera al final, para evacuar los líquidos movilizados. Apertura final de ganglios regionales y terminales. Roce superficial para "asentar" el trabajo y transición al reposo.
 
-**Fase 6 · Cierre y aplicación cosmética (5-7 min)**
+**Fase 6 · Cierre y cosmética (5-7 min)**
 
-- Limpieza suave de restos de aceite con toalla tibia.
-- Aplicación de **cosmética reductora de cabina** (cafeína, carnitina, escina) o **emulsión termoactiva** según prescripción del protocolo.
-- Vendaje frío opcional en zonas de retención líquida significativa.
-- Indicaciones de aftercare a la paciente: hidratación oral, evitar ejercicio intenso en zona tratada las primeras 24h, fotoprotección si la zona estará expuesta.
+Limpieza con toalla tibia; **cosmética reductora de cabina** (cafeína, carnitina, escina) o **emulsión termoactiva**; vendaje frío opcional en zonas de retención líquida; indicaciones de aftercare (hidratación, evitar ejercicio intenso en zona tratada 24 h, fotoprotección si procede).
 
 ### 5.2 · Sub-protocolo REMODELANTE (60-90 min)
 
