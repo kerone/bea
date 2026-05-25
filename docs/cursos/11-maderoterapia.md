@@ -25,7 +25,7 @@ Este origen reciente tiene consecuencias importantes. El corpus de evidencia cl�
 
 PRECISSA INSTITUTE plantea este curso desde tres premisas. La primera es la honestidad sobre la evidencia: la maderoterapia es una técnica mecánica plausible —comparte mecanismo con la endermologie, la vacuumterapia y el masaje con ventosas— y los pacientes refieren mejorías subjetivas consistentes (menor pesadez en piernas, alisamiento percibido del relieve, sensación de tonificación). Pero las afirmaciones sobre lipólisis, destrucción de adipocitos o reducción permanente de la celulitis grado III no tienen respaldo científico sólido y la profesional formada debe abstenerse de prometerlas. La segunda premisa es el criterio dermatológico y vascular: un instrumento mal seleccionado o una presión excesiva producen hematomas, petequias y, en pacientes con fragilidad capilar, lesiones persistentes. La tercera es la integración: la maderoterapia funciona mejor como componente de un protocolo combinado (presoterapia, radiofrecuencia, cavitación, drenaje linfático manual y modificación de hábitos) que como técnica aislada vendida en sesión única.
 
-El curso está pensado para la profesional con base sólida en estética corporal que quiere incorporar maderoterapia con criterio clínico, distinguir indicaciones reales de las exageradas, manejar el instrumental con presión y ritmo adecuados y construir protocolos coherentes. Se aborda también la cosmetología de soporte porque la elección del producto condiciona tanto el resultado como la seguridad. La meta no es producir aplicadoras de catálogo: es producir profesionales que sepan justificar cada movimiento que hacen sobre la piel del paciente.
+El curso está pensado para la profesional con base sólida en estética corporal que quiere incorporar maderoterapia con criterio clínico, distinguir indicaciones reales de las exageradas, manejar el instrumental con presión y ritmo adecuados y construir protocolos coherentes. La meta no es producir aplicadoras de catálogo: es producir profesionales que sepan justificar cada movimiento que hacen sobre la piel del paciente.
 
 ## 2 · Fundamentos científicos
 
@@ -179,16 +179,16 @@ El protocolo estándar se estructura en seis fases sucesivas. Duración habitual
 
 ### 5.3 · Tiempos, presiones y ritmos por zona
 
-| Zona | Tiempo total | Presión predominante | Ritmo |
+| Zona | Tiempo total | Presión | Ritmo |
 |---|---|---|---|
 | Abdomen y flancos | 30-40 min | Moderada (cuidado con línea media) | Lento en flancos, medio en abdomen |
 | Glúteos | 25-35 min | Alta (zona muscular tolerante) | Medio-rápido en reducción, lento en tonificación |
 | Muslos posteriores y cara externa | 30-40 min | Alta | Medio |
 | Muslos cara interna | 20-25 min | Moderada (zona vascular sensible) | Lento |
 | Brazos | 20-25 min | Moderada-baja | Medio |
-| Espalda | 25-35 min | Alta sobre dorsal, moderada sobre lumbar | Medio |
+| Espalda | 25-35 min | Alta dorsal, moderada lumbar | Medio |
 
-La presión adecuada es siempre la que produce eritema sin palidez, molestia tolerable sin dolor agudo, y ausencia de petequias visibles inmediatamente. Una buena regla práctica: la profesional debe ser capaz de mantener una conversación tranquila con la paciente durante todo el protocolo. Si la paciente no puede hablar, la presión es excesiva.
+La presión adecuada produce eritema sin palidez, molestia tolerable sin dolor agudo, y ausencia de petequias inmediatas. Regla práctica: la profesional debe poder mantener una conversación tranquila con la paciente durante el protocolo; si la paciente no puede hablar, la presión es excesiva.
 
 ### 5.4 · Caso clínico 1 — Celulitis edematosa en muslos
 

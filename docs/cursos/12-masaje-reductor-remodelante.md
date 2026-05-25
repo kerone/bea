@@ -346,71 +346,40 @@ Regla práctica: **evitar ejercicio intenso en la zona tratada durante las prime
 
 ## 8 · Manejo de complicaciones
 
-Aunque el masaje sea una de las técnicas estéticas de menor riesgo, no está exento de complicaciones, especialmente en su variante reductora. Reconocerlas y manejarlas adecuadamente es parte de la competencia profesional.
+El masaje es una de las técnicas estéticas de menor riesgo, pero no está exento de complicaciones, especialmente en su variante reductora.
 
 ### 8.1 · Hematomas y equimosis
 
-Son la complicación más frecuente del masaje reductor. Aparecen típicamente a las 24-48 h en zonas trabajadas con amasamiento profundo, palper-rouler intenso o percusión. Suelen ser pequeños, no dolorosos significativamente, y se resuelven en 5-10 días sin tratamiento.
+Complicación más frecuente del reductor. Aparecen a las 24-48 h en zonas trabajadas con amasamiento profundo, palper-rouler intenso o percusión. Suelen ser pequeños, no muy dolorosos y se resuelven en 5-10 días.
 
-**Manejo**:
-- Aplicar frío local las primeras 24 h si el hematoma es reciente y extenso.
-- Suspender el trabajo profundo sobre esa zona durante las dos sesiones siguientes.
-- Revisar presión aplicada y modular técnica.
-- Cosmética con árnica, hamamelis, vitamina K topica.
-- Si los hematomas son recurrentes, extensos o aparecen con presión mínima, **suspender el ciclo** y derivar para descartar trastorno hemostático o medicación anticoagulante no declarada.
+**Manejo**: frío local primeras 24 h si extenso; suspender trabajo profundo en esa zona las dos sesiones siguientes; revisar presión; cosmética con árnica, hamamelis, vitamina K tópica. Si recurrentes, extensos o con presión mínima, **suspender el ciclo** y derivar para descartar trastorno hemostático o anticoagulación no declarada.
 
 ### 8.2 · Petequias persistentes
 
-Pequeños puntos hemorrágicos dérmicos, típicamente en zonas tratadas con percusión vigorosa o palper-rouler en pacientes con fragilidad capilar.
-
-**Manejo**:
-- Si son ocasionales y se resuelven en 3-5 días: nada específico, solo modular técnica.
-- Si son extensas, persistentes o aparecen con técnica suave: revisar anamnesis (medicación, antecedentes), reducir intensidad drásticamente y considerar derivación si se sospecha alteración hemostática.
+Puntos hemorrágicos dérmicos, típicamente en zonas con percusión vigorosa o palper-rouler en pacientes con fragilidad capilar. Ocasionales y resolutivas en 3-5 días: solo modular técnica. Extensas, persistentes o con técnica suave: revisar anamnesis (medicación, antecedentes), reducir intensidad y considerar derivación.
 
 ### 8.3 · Dolor diferido excesivo
 
-Tras un protocolo reductor intenso es relativamente normal una sensación de molestia tipo DOMS (dolor muscular de aparición tardía) leve durante 24-48 h. El dolor severo no es normal y debe alertar.
-
-**Manejo**:
-- Si dolor leve-moderado: tranquilizar, indicar paracetamol si la paciente lo solicita, calor local suave, hidratación.
-- Si dolor severo, localizado, con signos inflamatorios (calor, rubor extenso, induración): considerar paniculitis traumática y derivar.
-- En la sesión siguiente: reducir presión 30-40% sobre la zona dolorida y reevaluar la técnica empleada.
+Tras un reductor intenso es normal una molestia tipo DOMS leve 24-48 h. El dolor severo no es normal. Leve-moderado: tranquilizar, paracetamol si solicita, calor local suave, hidratación. Severo, localizado, con signos inflamatorios (calor, rubor, induración): considerar paniculitis traumática y derivar. Siguiente sesión: reducir presión 30-40% sobre la zona y reevaluar técnica.
 
 ### 8.4 · Eritema persistente
 
-Hiperemia que dura más de 24-48 h, más allá de la respuesta vasodilatadora normal.
-
-**Manejo**:
-- Aplicar mentolados refrescantes en la zona.
-- Cosmética calmante (centella, alantoína, bisabolol).
-- En la siguiente sesión, prolongar fase de calentamiento y reducir tiempo de trabajo intenso.
+Hiperemia más allá de 24-48 h. Aplicar mentolados refrescantes y cosmética calmante (centella, alantoína, bisabolol). En la siguiente sesión, prolongar calentamiento y reducir tiempo de trabajo intenso.
 
 ### 8.5 · Reacciones a cosméticos
 
-Picor, eritema o irritación tras aplicación de cosmética reductora o termoactiva, especialmente con capsaicina o con perfumes alergénicos.
-
-**Manejo**:
-- Suspender el producto y limpiar la zona con agua y emulsión calmante.
-- Hidrocortisona tópica 1% si la reacción es marcada (la paciente puede adquirirla sin receta).
-- Identificar el alérgeno, sustituir por fórmula libre del activo sospechoso.
-- En reacciones graves o generalizadas, derivar a alergología.
+Picor, eritema o irritación tras cosmética reductora o termoactiva, especialmente capsaicina o perfumes alergénicos. Suspender producto, limpiar con agua y emulsión calmante. Hidrocortisona tópica 1% si reacción marcada. Identificar alérgeno, sustituir por fórmula libre del activo. Reacciones graves: derivar a alergología.
 
 ### 8.6 · Ausencia de resultados
 
-La queja más frecuente del ciclo no es una complicación clínica sino una insatisfacción. "Llevo 8 sesiones y no veo nada". El abordaje correcto no es defensivo ni evasivo: es metódico.
+La queja más frecuente no es una complicación clínica sino una insatisfacción: "llevo 8 sesiones y no veo nada". Abordaje metódico, no defensivo:
 
-**Revisión sistemática**:
-- ¿Las medidas perimetrales objetivas muestran cambio o no? Las fotografías comparadas, ¿muestran cambio que la paciente no percibe?
-- ¿La adherencia al aftercare ha sido real? Hidratación, dieta, ejercicio, cosmética domiciliaria.
-- ¿La selección del protocolo era la adecuada? ¿Una paciente con flacidez predominante recibió un protocolo reductor cuando necesitaba remodelante? ¿Una celulitis grado III muy esclerótica está siendo tratada solo con manual cuando necesita combinación con aparatología?
-- ¿La paciente tiene expectativas realistas? Si esperaba "perder cuatro tallas", la frustración no es del protocolo sino de la promesa inicial mal calibrada.
+- ¿Las medidas y fotografías comparadas muestran cambio que la paciente no percibe?
+- ¿La adherencia al aftercare (hidratación, dieta, ejercicio, cosmética domiciliaria) ha sido real?
+- ¿La selección del protocolo era la adecuada? ¿Flacidez predominante tratada con reductor? ¿Celulitis grado III esclerótica solo con manual cuando necesita aparatología?
+- ¿Las expectativas eran realistas? Si esperaba "perder cuatro tallas", la frustración nace de la promesa inicial mal calibrada.
 
-**Decisión**:
-- Si las medidas y fotografías son objetivamente positivas, mostrar evidencia y reformular expectativa.
-- Si las medidas son neutras pero la adherencia ha sido pobre, replantear el ciclo con pacto explícito de adherencia.
-- Si las medidas son neutras y la adherencia ha sido buena, replantear el protocolo: cambiar técnica dominante, sumar aparatología (cavitación, radiofrecuencia), derivar para valoración nutricional o endocrinológica si procede.
-
-La honestidad es siempre mejor estrategia que la defensa corporativa. Una paciente a la que se le explica honestamente lo que ha funcionado y lo que no, lo que cambiar y por qué, vuelve. Una paciente a la que se le esquiva no vuelve y, con frecuencia, deja reseña negativa.
+**Decisión**: si las medidas son objetivamente positivas, mostrar evidencia y reformular expectativa; si son neutras con adherencia pobre, replantear el ciclo con pacto explícito; si son neutras con adherencia buena, replantear el protocolo (cambiar técnica dominante, sumar cavitación o radiofrecuencia, derivar a nutrición o endocrinología si procede). La honestidad es mejor estrategia que la defensa corporativa.
 
 ---
 
