@@ -189,11 +189,11 @@ Idéntica al reductor, con especial atención a la calidad cutánea, presencia d
 
 **Fase 2 · Calentamiento (7-10 min)**
 
-Más prolongado y elaborado que en el reductor: el remodelante busca preparar el tejido para un trabajo más sostenido pero menos agresivo. Roces, fricciones superficiales y deslizamientos amplios hasta lograr una hiperemia homogénea y una piel claramente templada.
+Más prolongado que en el reductor: prepara el tejido para un trabajo sostenido pero menos agresivo. Roces, fricciones superficiales y deslizamientos amplios hasta lograr hiperemia homogénea.
 
 **Fase 3 · Drenaje sistemático (10-12 min)**
 
-Más completo que en el reductor: abre todos los grupos ganglionares regionales que correspondan, recorre las vías linfáticas en su totalidad y "vacía" el tejido antes de modelar. La lógica es que un tejido edematoso no se deja modelar; primero hay que desinflamarlo, después esculpirlo.
+Más completo que en el reductor: abre todos los grupos ganglionares que correspondan, recorre las vías linfáticas en su totalidad y "vacía" el tejido antes de modelar. Un tejido edematoso no se deja modelar; primero desinflamar, después esculpir.
 
 **Fase 4 · Modelado direccional (20-30 min, bloque central)**
 
@@ -450,4 +450,4 @@ d) Aplicar palper-rouler intensivo para "compensar" la alteración del drenaje.
 
 ---
 
-*Curso elaborado para PRECISSA INSTITUTE. Material de uso exclusivo del alumnado matriculado. Última revisión: revisión continua según evidencia disponible.*
+*Curso elaborado para PRECISSA INSTITUTE. Material de uso exclusivo del alumnado matriculado.*

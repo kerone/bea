@@ -39,7 +39,7 @@ Sobre este sustrato la maderoterapia actúa mediante un único mecanismo: **est�
 
 La aplicación rítmica de presión, arrastre, rodamiento y vibración sobre el tejido subcutáneo produce respuestas enumerables con razonable seguridad sobre la base de la fisiología del masaje y la analogía con técnicas instrumentales documentadas.
 
-**Activación de la microcirculación local**. La fricción y la deformación mecánica producen vasodilatación arteriolar y capilar refleja, mediada por óxido nítrico, histamina y otros mediadores. Se manifiesta como eritema de calentamiento. Es la respuesta más inmediata y mejor documentada.
+**Activación de la microcirculación local**. La fricción y la deformación mecánica producen vasodilatación arteriolar refleja, mediada por óxido nítrico, histamina y otros mediadores. Se manifiesta como eritema de calentamiento. Es la respuesta más inmediata y mejor documentada.
 
 **Estímulo del bombeo linfático**. La compresión rítmica direccional en sentido del flujo fisiológico favorece el avance de la linfa. Mecanismo similar al del drenaje linfático manual (Vodder, Leduc) y a la presoterapia. Menos selectiva que el drenaje manual pero más vigorosa; su efecto sobre la retención hídrica es referido sistemáticamente.
 
@@ -49,7 +49,7 @@ La aplicación rítmica de presión, arrastre, rodamiento y vibración sobre el 
 
 **Posible facilitación de la lipólisis**. Algunos textos divulgativos afirman que la maderoterapia "rompe" el adipocito: es incorrecto, ninguna presión manual con instrumental de madera tiene la energía necesaria para lisar la membrana adipocitaria. Lo plausible —no demostrado específicamente— es una facilitación indirecta: la mejora del retorno linfático y la microcirculación crean un entorno favorable a la movilización de ácidos grasos liberados por la lipólisis fisiológica (déficit calórico, ejercicio, cosmético lipolítico). La maderoterapia, por sí sola, no sirve para perder peso.
 
-**Respuesta parasimpática de relajación**. El masaje rítmico y mantenido reduce la frecuencia cardiaca, baja el cortisol salivar y produce sensación de bienestar. Componente poco discutido y probablemente clave en la satisfacción de la paciente.
+**Respuesta parasimpática**. El masaje rítmico mantenido reduce la frecuencia cardiaca, baja el cortisol salivar y produce sensación de bienestar. Componente poco discutido y probablemente clave en la satisfacción de la paciente.
 
 ### 2.3 · Qué SÍ está documentado y qué NO
 
@@ -371,13 +371,12 @@ No es complicación del paciente pero sí frecuente en la profesional con biomec
 
 La maderoterapia tiene un corpus de evidencia indexada notablemente delgado. Las fuentes siguientes corresponden a (a) literatura sobre técnicas de masaje instrumental afines (endermologie, vacuumterapia, ventosas) extrapolables por mecanismo, (b) literatura general sobre celulitis y modelado corporal no invasivo, (c) materiales de escuelas colombianas y fabricantes de instrumental, y (d) revisiones divulgativas accesibles.
 
-- Adcock D, Paulsen S, Jabour K, Davis S, Nanney LB, Shack RB. *Analysis of the effects of deep mechanical massage in the porcine model*. Plastic and Reconstructive Surgery. Trabajo histológico sobre endermologie frecuentemente citado en masaje instrumental.
-- Khan MH, Victor F, Rao B, Sadick NS. *Treatment of cellulite: Part I. Pathophysiology* y *Part II. Advances and controversies*. Journal of the American Academy of Dermatology.
+- Adcock D, Paulsen S, Jabour K, Davis S, Nanney LB, Shack RB. *Analysis of the effects of deep mechanical massage in the porcine model*. Plastic and Reconstructive Surgery. Histológico sobre endermologie.
+- Khan MH, Victor F, Rao B, Sadick NS. *Treatment of cellulite: Part I. Pathophysiology* y *Part II. Advances and controversies*. JAAD.
 - Rawlings AV. *Cellulite and its treatment*. International Journal of Cosmetic Science.
-- Hexsel D, Soirefmann M. *Cosmeceuticals for cellulite*. Seminars in Cutaneous Medicine and Surgery. Revisión sobre cafeína, carnitina, escina y retinoides aplicados a celulitis.
-- Wanitphakdeedecha R, Manuskiatti W. *Treatment of cellulite with a bipolar radiofrequency, infrared heat, and pulsatile suction device: a pilot study*. Ilustrativo sobre técnicas combinadas mecánico-térmicas.
-- Materiales formativos del **CIFES (Centro Internacional de Formación en Estética y Salud, Colombia)** y de escuelas colombianas dedicadas a la enseñanza de maderoterapia.
-- Documentación técnica de fabricantes de instrumental de maderoterapia.
-- Revisiones divulgativas sobre historia y popularización contemporánea de la técnica.
+- Hexsel D, Soirefmann M. *Cosmeceuticals for cellulite*. Seminars in Cutaneous Medicine and Surgery.
+- Wanitphakdeedecha R, Manuskiatti W. *Treatment of cellulite with a bipolar radiofrequency, infrared heat, and pulsatile suction device: a pilot study*.
+- Materiales formativos del **CIFES (Centro Internacional de Formación en Estética y Salud, Colombia)** y de escuelas colombianas dedicadas a maderoterapia.
+- Documentación técnica de fabricantes de instrumental.
 
-Nota metodológica: la mayor parte de la literatura específica sobre maderoterapia es divulgativa o comercial. La argumentación clínica se construye sobre la base del masaje instrumental afín, pero los ensayos clínicos aleatorizados específicos son a día de hoy escasos. Conviene mantener una postura honesta con la paciente: la técnica es ampliamente utilizada, los resultados subjetivos son consistentes, los mecanismos son plausibles, y la evidencia cuantitativa de alta calidad sigue siendo una asignatura pendiente. Esta honestidad es, paradójicamente, el mejor argumento profesional frente al paciente bien informado.
+Nota metodológica: la mayor parte de la literatura específica sobre maderoterapia es divulgativa o comercial. La argumentación clínica se construye sobre el masaje instrumental afín, pero los RCTs específicos siguen siendo escasos. Conviene una postura honesta: técnica ampliamente utilizada, resultados subjetivos consistentes, mecanismos plausibles, evidencia cuantitativa de alta calidad aún pendiente. Esta honestidad es el mejor argumento profesional frente al paciente bien informado.
