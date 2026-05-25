@@ -106,25 +106,23 @@ La evidencia disponible respalda el uso de limpieza profesional combinada con co
 
 ### 5.1 · Consulta inicial y preparación
 
-La consulta inicial tiene cuatro objetivos: identificar el sustrato (comedoniano, foliculítico, mixto), descartar contraindicaciones, gestionar expectativas y documentar fotográficamente la situación basal.
+La consulta tiene cuatro objetivos: identificar sustrato (comedoniano, foliculítico, mixto), descartar contraindicaciones, gestionar expectativas y documentar fotográficamente la situación basal.
 
-Pasos:
-
-1. **Anamnesis dirigida**: edad, sexo, fototipo, antecedentes de acné, tratamientos previos (tópicos, orales, isotretinoína, antiandrógenos), fármacos actuales, embarazo, alergias, exposición solar, profesión, actividad deportiva, tipo de ropa habitual.
-2. **Exploración con buena iluminación**: identificación de comedones cerrados, comedones abiertos, pápulas, pústulas, nódulos, cicatrices, manchas residuales. Mapeo mental del triángulo seborreico, hombros, escápulas y región lumbosacra.
-3. **Documentación fotográfica estandarizada**: misma distancia, misma iluminación, fondo neutro, paciente con bra deportivo o sin prenda según consentimiento. Tres ángulos (posterior recto, oblicuo derecho, oblicuo izquierdo).
-4. **Información al paciente**: número de sesiones previstas, expectativa realista, cosmética domiciliaria obligatoria, restricciones post-tratamiento (sol, sauna, ejercicio intenso), coste y compromiso temporal.
+1. **Anamnesis dirigida**: edad, sexo, fototipo, antecedentes de acné, tratamientos previos (tópicos, orales, isotretinoína, antiandrógenos), fármacos actuales, embarazo, alergias, exposición solar, actividad deportiva, ropa habitual.
+2. **Exploración con buena iluminación**: mapeo de comedones cerrados, comedones abiertos, pápulas, pústulas, nódulos, cicatrices y manchas residuales, en triángulo interescapular, hombros, escápulas y región lumbosacra.
+3. **Fotografía estandarizada**: misma distancia, misma iluminación, fondo neutro; tres ángulos (posterior recto, oblicuo derecho, oblicuo izquierdo).
+4. **Información al paciente**: número de sesiones, expectativa realista, cosmética domiciliaria obligatoria, restricciones post-tratamiento (sol, sauna, ejercicio intenso).
 5. **Consentimiento informado por escrito** y archivado.
 
 ### 5.2 · Preparación de la cabina
 
 - Camilla con cabecero abatible y agujero facial para decúbito prono confortable.
-- Vaporizador (Vapozono) revisado, con depósito de agua destilada cargado y boquilla a 30-40 cm del paciente.
-- Aparato de alta frecuencia con electrodo de hongo o de pasada amplia, revisado y limpio.
-- Lupa con luz fría y, si se dispone, lámpara de Wood para descartar foliculitis por *Malassezia* (fluorescencia amarillo-verdosa) o por *Cutibacterium acnes* (fluorescencia coral).
-- Toallas calientes, gasas estériles, guantes nitrilo, mascarilla quirúrgica.
-- Extractor de comedones esterilizado (lazo de Unna o equivalente). Idealmente uso individual; si reutilizable, esterilización por autoclave entre pacientes.
-- Productos cosméticos del protocolo, presentados en envases sin contaminación cruzada (espátula o dosificador).
+- Vaporizador (Vapozono) con agua destilada, boquilla a 30-40 cm del paciente.
+- Alta frecuencia con electrodo de hongo o de pasada amplia.
+- Lupa con luz fría; lámpara de Wood opcional para orientar foliculitis por *Malassezia* (fluorescencia amarillo-verdosa) o por *Cutibacterium acnes* (fluorescencia coral).
+- Toallas calientes, gasas estériles, guantes nitrilo, mascarilla.
+- Extractor de comedones esterilizado (lazo de Unna o equivalente).
+- Productos cosméticos presentados en envases sin contaminación cruzada (espátula o dosificador).
 
 ### 5.3 · Protocolo paso a paso
 
