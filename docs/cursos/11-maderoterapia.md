@@ -19,11 +19,11 @@
 
 ## 1 · Introducción y posicionamiento clínico
 
-La maderoterapia es, hoy, una de las técnicas corporales de mayor crecimiento comercial en la cabina estética española. Apenas existía en los catálogos europeos hace quince años y, sin embargo, no hay actualmente una agenda de centro de estética avanzada que no ofrezca al menos un protocolo de modelado con instrumental de madera. Su origen, aunque a menudo se describe como "ancestral" en textos divulgativos, es razonablemente reciente y geográficamente acotado: la técnica fue codificada y popularizada en Colombia a finales del siglo XX, donde profesionales del masaje estético rediseñaron herramientas tradicionales —rodillos, mazos, cuencos— para adaptarlas a las distintas geometrías del cuerpo y a objetivos estéticos específicos. La narrativa de un linaje milenario asiático (varillas de bambú de la medicina tradicional china) tiene fundamento parcial, pero la maderoterapia que se aplica hoy en cabina es una elaboración contemporánea colombiana, no la transmisión directa de una tradición ancestral.
+La maderoterapia es, hoy, una de las técnicas corporales de mayor crecimiento comercial en la cabina estética española. Apenas existía en los catálogos europeos hace quince años y, sin embargo, no hay agenda de centro avanzado que no la ofrezca. Su origen es razonablemente reciente y geográficamente acotado: fue codificada y popularizada en Colombia a finales del siglo XX, donde profesionales del masaje estético rediseñaron herramientas tradicionales —rodillos, mazos, cuencos— para adaptarlas a las geometrías del cuerpo y a objetivos estéticos específicos. La narrativa de un linaje milenario asiático (varillas de bambú de la medicina tradicional china) tiene fundamento parcial, pero la maderoterapia que se aplica hoy en cabina es una elaboración contemporánea colombiana, no la transmisión directa de una tradición ancestral.
 
-Este origen reciente tiene consecuencias importantes. El corpus de evidencia clínica es notablemente delgado: prácticamente no existen ensayos clínicos aleatorizados en revistas indexadas que evalúen específicamente la maderoterapia frente a placebo o frente a comparadores activos como la presoterapia, el drenaje linfático manual o la cavitación. La mayor parte de la literatura accesible es divulgativa, comercial, o procede de escuelas formativas colombianas y de fabricantes de instrumental. Esto no significa que la técnica sea ineficaz: significa que afirmaciones cuantitativas (porcentajes de reducción, centímetros perdidos, mejora objetiva de la celulitis) deben tomarse con cautela y nunca extrapolarse a la consulta como cifras verificadas. Los protocolos, además, no están estandarizados: cada escuela enseña secuencias ligeramente distintas y con criterios de presión que dependen más de la tradición del formador que de un consenso clínico.
+Este origen reciente tiene consecuencias. El corpus de evidencia clínica es notablemente delgado: prácticamente no existen ensayos aleatorizados en revistas indexadas que evalúen específicamente la maderoterapia frente a placebo o comparadores activos (presoterapia, drenaje linfático manual, cavitación). La literatura accesible es mayoritariamente divulgativa, comercial o procede de escuelas colombianas y fabricantes. Esto no significa que la técnica sea ineficaz: significa que las afirmaciones cuantitativas (porcentajes de reducción, centímetros perdidos) deben tomarse con cautela y no extrapolarse a la consulta como cifras verificadas. Los protocolos, además, no están estandarizados: cada escuela enseña secuencias ligeramente distintas según la tradición del formador.
 
-PRECISSA INSTITUTE plantea este curso desde tres premisas. La primera es la honestidad sobre la evidencia: la maderoterapia es una técnica mecánica plausible —comparte mecanismo con la endermologie, la vacuumterapia y el masaje con ventosas— y los pacientes refieren mejorías subjetivas consistentes (menor pesadez en piernas, alisamiento percibido del relieve, sensación de tonificación). Pero las afirmaciones sobre lipólisis, destrucción de adipocitos o reducción permanente de la celulitis grado III no tienen respaldo científico sólido y la profesional formada debe abstenerse de prometerlas. La segunda premisa es el criterio dermatológico y vascular: un instrumento mal seleccionado o una presión excesiva producen hematomas, petequias y, en pacientes con fragilidad capilar, lesiones persistentes. La tercera es la integración: la maderoterapia funciona mejor como componente de un protocolo combinado (presoterapia, radiofrecuencia, cavitación, drenaje linfático manual y modificación de hábitos) que como técnica aislada vendida en sesión única.
+PRECISSA INSTITUTE plantea este curso desde tres premisas. La primera es la honestidad sobre la evidencia: la maderoterapia es una técnica mecánica plausible —comparte mecanismo con endermologie, vacuumterapia y ventosas— y los pacientes refieren mejorías subjetivas consistentes. Pero las afirmaciones sobre lipólisis, destrucción de adipocitos o reducción permanente de la celulitis grado III no tienen respaldo sólido y la profesional formada debe abstenerse de prometerlas. La segunda es el criterio dermatológico y vascular: un instrumento mal seleccionado o presión excesiva producen hematomas, petequias y, en pacientes con fragilidad capilar, lesiones persistentes. La tercera es la integración: la maderoterapia funciona mejor como componente de un protocolo combinado (presoterapia, radiofrecuencia, cavitación, drenaje manual, modificación de hábitos) que como técnica aislada en sesión única.
 
 El curso está pensado para la profesional con base sólida en estética corporal que quiere incorporar maderoterapia con criterio clínico, distinguir indicaciones reales de las exageradas, manejar el instrumental con presión y ritmo adecuados y construir protocolos coherentes. La meta no es producir aplicadoras de catálogo: es producir profesionales que sepan justificar cada movimiento que hacen sobre la piel del paciente.
 
@@ -37,17 +37,17 @@ Sobre este sustrato la maderoterapia actúa mediante un único mecanismo: **est�
 
 ### 2.2 · Mecánica del estímulo y respuestas tisulares plausibles
 
-La aplicación rítmica de presión, arrastre, rodamiento y vibración sobre el tejido subcutáneo produce una serie de respuestas que pueden enumerarse con razonable seguridad sobre la base de la fisiología del masaje y la analogía con otras técnicas instrumentales documentadas.
+La aplicación rítmica de presión, arrastre, rodamiento y vibración sobre el tejido subcutáneo produce respuestas enumerables con razonable seguridad sobre la base de la fisiología del masaje y la analogía con técnicas instrumentales documentadas.
 
 **Activación de la microcirculación local**. La fricción y la deformación mecánica producen vasodilatación arteriolar y capilar refleja, mediada por óxido nítrico, histamina y otros mediadores. Se manifiesta como eritema de calentamiento. Es la respuesta más inmediata y mejor documentada.
 
-**Estímulo del bombeo linfático**. La compresión rítmica direccional en sentido del flujo fisiológico favorece el avance de la linfa por los colectores. Mecanismo similar al del drenaje linfático manual (Vodder, Leduc) y al de la presoterapia. La maderoterapia es menos selectiva que el drenaje manual bien ejecutado, pero más vigorosa, y su efecto sobre la retención hídrica es plausible y referido sistemáticamente por las pacientes.
+**Estímulo del bombeo linfático**. La compresión rítmica direccional en sentido del flujo fisiológico favorece el avance de la linfa. Mecanismo similar al del drenaje linfático manual (Vodder, Leduc) y a la presoterapia. Menos selectiva que el drenaje manual pero más vigorosa; su efecto sobre la retención hídrica es referido sistemáticamente.
 
-**Movilización del tejido adiposo y de los septos fibrosos**. El plegado y la rodadura sobre la hipodermis ejerce tracción sobre los septos verticales y desplaza los lobulillos grasos. En la celulitis fibroesclerótica, esta tracción repetida puede contribuir a la rotura mecánica de puentes fibrosos cortos y al despegado parcial de adherencias —efecto análogo al de la endermologie, mejor estudiada.
+**Movilización del tejido adiposo y de los septos fibrosos**. El plegado y la rodadura sobre la hipodermis ejerce tracción sobre los septos verticales y desplaza lobulillos grasos. En la celulitis fibroesclerótica, esta tracción repetida puede contribuir a la rotura de puentes fibrosos cortos y al despegado parcial de adherencias —efecto análogo al de la endermologie.
 
-**Estímulo mecánico del fibroblasto**. El estrés tensional repetido sobre la dermis activa la mecanotransducción (vía integrinas y citoesqueleto) y puede incrementar la síntesis de colágeno y de matriz extracelular. Mecanismo demostrado para la endermologie en estudios histológicos, razonablemente extrapolable a la maderoterapia aunque sin estudios específicos.
+**Estímulo mecánico del fibroblasto**. El estrés tensional repetido activa la mecanotransducción (integrinas, citoesqueleto) y puede incrementar la síntesis de colágeno y matriz extracelular. Mecanismo demostrado para endermologie en estudios histológicos, razonablemente extrapolable.
 
-**Posible facilitación de la lipólisis**. Algunos textos divulgativos afirman que la maderoterapia "rompe" el adipocito. Es incorrecto: ninguna presión mecánica aplicada con instrumental manual de madera tiene la energía necesaria para lisar la membrana del adipocito. Lo plausible —no demostrado específicamente— es una facilitación indirecta: la mejora del retorno linfático y de la microcirculación crea un entorno más favorable a la movilización de ácidos grasos liberados por la lipólisis fisiológica (déficit calórico, ejercicio, cosmético lipolítico superficial). La maderoterapia, por sí sola, no sirve para perder peso ni eliminar grasa.
+**Posible facilitación de la lipólisis**. Algunos textos divulgativos afirman que la maderoterapia "rompe" el adipocito: es incorrecto, ninguna presión manual con instrumental de madera tiene la energía necesaria para lisar la membrana adipocitaria. Lo plausible —no demostrado específicamente— es una facilitación indirecta: la mejora del retorno linfático y la microcirculación crean un entorno favorable a la movilización de ácidos grasos liberados por la lipólisis fisiológica (déficit calórico, ejercicio, cosmético lipolítico). La maderoterapia, por sí sola, no sirve para perder peso.
 
 **Respuesta parasimpática de relajación**. El masaje rítmico y mantenido reduce la frecuencia cardiaca, baja el cortisol salivar y produce sensación de bienestar. Componente poco discutido y probablemente clave en la satisfacción de la paciente.
 
@@ -273,9 +273,9 @@ El cuidado posterior condiciona el resultado tanto como el gesto técnico. Las i
 
 **Fotoprotección** en zonas expuestas (escote, brazos): la piel calentada y con eritema es más vulnerable a pigmentación postinflamatoria. **Evitar calor intenso** (sauna, baños muy calientes, hammam) durante 12-24 h, especialmente si han aparecido petequias o eritema marcado.
 
-**Documentar la evolución**. Fotografías estandarizadas (misma luz, ángulo, distancia y vestuario) al inicio y cierre del ciclo. Es la herramienta más honesta de seguimiento y el mejor argumento contra la sobreexpectativa.
+**Documentar la evolución**. Fotografías estandarizadas (misma luz, ángulo, distancia, vestuario) al inicio y cierre. Es la herramienta más honesta de seguimiento y el mejor argumento contra la sobreexpectativa.
 
-**Cadencia y mantenimiento**. Ciclo inicial de 8-12 sesiones, frecuencia 1-2 por semana. Tras el cierre, una sesión cada 3-4 semanas para sostener el resultado. La maderoterapia no produce cambios permanentes: la suspensión del mantenimiento y el retorno a los hábitos previos revierten el resultado en pocos meses. Debe explicarse desde el principio.
+**Cadencia y mantenimiento**. Ciclo inicial 8-12 sesiones, 1-2 por semana. Tras el cierre, una sesión cada 3-4 semanas. La maderoterapia no produce cambios permanentes: la suspensión del mantenimiento y el retorno a los hábitos previos revierten el resultado en pocos meses. Debe explicarse desde el principio.
 
 ## 8 · Manejo de complicaciones
 
@@ -317,52 +317,52 @@ No es complicación del paciente pero sí frecuente en la profesional con biomec
 
 ## 9 · Test de evaluación (8 preguntas)
 
-**1.** Una paciente acude para tratamiento de fibrosis residual en flancos tras lipoescultura realizada hace 4 semanas. La cicatriz está cerrada, no hay signos inflamatorios. La actuación correcta es:
-- a) Iniciar protocolo estándar de modelado con rodillo cubano
-- b) Aplicar protocolo conservador de drenaje y modelado suave
+**1.** Paciente para tratamiento de fibrosis residual en flancos tras lipoescultura hace 4 semanas, cicatriz cerrada sin signos inflamatorios. Actuación correcta:
+- a) Iniciar protocolo estándar con rodillo cubano
+- b) Protocolo conservador de drenaje y modelado suave
 - c) Posponer maderoterapia hasta al menos las 6 semanas postoperatorias y trabajar con autorización del cirujano
 - d) Aplicar solo trabajo facial mientras se espera
 
-**2.** Cuál de los siguientes instrumentos es el más indicado para la fase de calentamiento inicial sobre miembros inferiores:
+**2.** Instrumento más indicado para la fase de calentamiento inicial sobre miembros inferiores:
 - a) Rodillo dentado
 - b) Rodillo cubano
 - c) Rodillo liso
 - d) Copa anti-celulitis
 
-**3.** Para un trabajo de modelado y efecto de "elevación" sobre glúteos, la herramienta más característica del protocolo colombiano es:
+**3.** Para modelado y efecto de "elevación" en glúteos, la herramienta más característica del protocolo colombiano es:
 - a) Tabla guitarra
 - b) Copa sueca grande
 - c) Palillos chinos
 - d) Hongo
 
-**4.** Una paciente embarazada de 16 semanas desea tratamiento de retención de líquidos en piernas. La conducta correcta es:
-- a) Aplicar protocolo completo incluyendo abdomen
-- b) Tratar solo miembros inferiores con maniobras suaves de drenaje, evitando abdomen y zona lumbar, con criterio muy conservador y, preferentemente, con autorización obstétrica
-- c) Contraindicar absolutamente cualquier maderoterapia durante todo el embarazo
-- d) Aplicar maderoterapia facial únicamente
+**4.** Embarazada de 16 semanas que desea tratamiento de retención de líquidos en piernas. Conducta correcta:
+- a) Protocolo completo incluyendo abdomen
+- b) Tratar solo miembros inferiores con maniobras suaves de drenaje, evitando abdomen y lumbar, con criterio muy conservador y autorización obstétrica
+- c) Contraindicar absolutamente toda maderoterapia durante el embarazo
+- d) Solo maderoterapia facial
 
-**5.** Durante la primera sesión sobre cara externa de muslos en una paciente joven sin antecedentes relevantes, observa aparición rápida de petequias extensas y eritema intenso con tres pasadas de rodillo dentado. La actuación correcta es:
-- a) Continuar el protocolo, las petequias son la respuesta deseada
+**5.** Primera sesión sobre cara externa de muslos en paciente joven sin antecedentes: aparición rápida de petequias extensas y eritema intenso con tres pasadas de rodillo dentado. Actuación correcta:
+- a) Continuar, las petequias son la respuesta deseada
 - b) Detener el rodillo dentado, reducir presión, cambiar a instrumental más suave, completar sesión y revisar entrevista para descartar fragilidad capilar, suplementos antiagregantes o medicación no declarada
 - c) Suspender definitivamente la maderoterapia en esa paciente
 - d) Aplicar capsaicina para enmascarar el eritema
 
-**6.** El orden correcto de las fases del protocolo estándar de maderoterapia corporal es:
+**6.** Orden correcto de las fases del protocolo estándar:
 - a) Reducción → calentamiento → drenaje → modelado → tonificación → cierre
 - b) Calentamiento → modelado → drenaje → reducción → cierre → tonificación
 - c) Calentamiento → drenaje → modelado → reducción → tonificación → drenaje de cierre
 - d) Drenaje → calentamiento → reducción → modelado → tonificación → cierre
 
 **7.** Sobre la evidencia científica actual de la maderoterapia, la afirmación más correcta es:
-- a) Existen múltiples ensayos clínicos aleatorizados que demuestran reducción cuantificada del tejido adiposo
-- b) La literatura clínica de alto nivel es muy limitada; los mecanismos son plausibles por analogía con otras técnicas instrumentales y los pacientes refieren mejorías subjetivas consistentes, pero las afirmaciones cuantitativas de lipólisis directa o de eliminación permanente de la celulitis no están demostradas
-- c) Está demostrado que la maderoterapia destruye adipocitos por presión mecánica
-- d) Es una técnica milenaria con eficacia consensuada en literatura asiática
+- a) Existen múltiples ensayos aleatorizados que demuestran reducción cuantificada del tejido adiposo
+- b) La literatura de alto nivel es limitada; los mecanismos son plausibles por analogía con otras técnicas instrumentales y los pacientes refieren mejorías subjetivas consistentes, pero las afirmaciones cuantitativas de lipólisis directa o eliminación permanente de la celulitis no están demostradas
+- c) Está demostrado que destruye adipocitos por presión mecánica
+- d) Es técnica milenaria con eficacia consensuada en literatura asiática
 
-**8.** Una paciente toma anticoagulante oral por antecedente de TVP hace dos años. Solicita maderoterapia para celulitis en muslos. La actuación más correcta es:
-- a) Aplicar protocolo estándar
-- b) Aplicar protocolo con instrumental suave y consentimiento informado verbal
-- c) Considerar contraindicación relativa, requerir valoración hematológica y consentimiento informado escrito específico; en la mayoría de los casos prácticos, contraindicar
+**8.** Paciente que toma anticoagulante oral por antecedente de TVP hace dos años, solicita maderoterapia para celulitis en muslos. Actuación más correcta:
+- a) Protocolo estándar
+- b) Protocolo con instrumental suave y consentimiento verbal
+- c) Contraindicación relativa, exigir valoración hematológica y consentimiento escrito específico; en la mayoría de casos, contraindicar
 - d) Tratar solo zonas no vasculares
 
 **Respuestas**: 1-c, 2-c, 3-b, 4-b, 5-b, 6-c, 7-b, 8-c.
