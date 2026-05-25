@@ -58,16 +58,11 @@ La inervación sensitiva procede del **V par (trigémino), rama oftálmica (V1)*
 
 ### 2.3 · Tipos de pigmentos y marco REACH
 
-Desde la entrada en vigor del **Reglamento (UE) 2020/2081** (4 de enero de 2022), que modifica el Anexo XVII del Reglamento REACH (CE) 1907/2006 para regular las sustancias contenidas en tintas para tatuaje y maquillaje permanente, el escenario de pigmentos disponibles para PMU en la Unión Europea se ha reducido drásticamente. La normativa restringe más de 4.000 sustancias por debajo de umbrales operativos y prohíbe explícitamente dos pigmentos azules y verdes muy utilizados —**Pigment Blue 15:3 y Pigment Green 7**— a partir de 2023, además de fijar límites estrictos para metales pesados (cobalto, níquel, cromo, plomo, mercurio, arsénico).
+Desde la entrada en vigor del **Reglamento (UE) 2020/2081** (4 de enero de 2022), que modifica el Anexo XVII del Reglamento REACH (CE) 1907/2006 para regular las sustancias contenidas en tintas para tatuaje y maquillaje permanente, el escenario de pigmentos disponibles para PMU en la Unión Europea se ha reducido drásticamente. La normativa restringe múltiples sustancias por debajo de umbrales operativos, prohíbe explícitamente los pigmentos **Blue 15:3 y Green 7** y fija límites estrictos para metales pesados (cobalto, níquel, cromo, plomo, mercurio, arsénico).
 
-La consecuencia operativa para el eyeliner es contundente: **la paleta práctica se reduce a óxidos de hierro negros y marrones** (CI 77499, CI 77491, CI 77492 y combinaciones), pigmentos minerales bien tolerados, fotoestables y compatibles con la regulación. **Quedan excluidos los pigmentos azules y verdes** de moda en algunas escuelas anteriores a la regulación y que producían viraje crómico característico al cabo de los años (eyeliner que evolucionaba a azul-verdoso por degradación selectiva del componente rojo, hoy uno de los motivos más frecuentes de consulta para corrección).
+La consecuencia operativa para el eyeliner es contundente: **la paleta práctica se reduce a óxidos de hierro negros y marrones** (CI 77499, CI 77491, CI 77492 y combinaciones), pigmentos minerales bien tolerados, fotoestables y compatibles con la regulación. **Quedan excluidos los pigmentos azules y verdes** de moda en algunas escuelas anteriores y que producían viraje crómico característico (eyeliner que evolucionaba a azul-verdoso por degradación selectiva del componente rojo, hoy uno de los motivos más frecuentes de consulta para corrección).
 
-La profesional debe:
-
-- Trabajar exclusivamente con pigmentos certificados **REACH-compliant** y con número de lote trazable.
-- Conservar la ficha técnica y la ficha de datos de seguridad de cada pigmento utilizado.
-- Documentar en la historia clínica el lote y el tono empleado en cada sesión.
-- Desconfiar de marcas sin certificación europea, especialmente las importadas de mercados sin equivalente regulatorio.
+La profesional debe trabajar exclusivamente con pigmentos certificados **REACH-compliant** y con lote trazable, conservar ficha técnica y de datos de seguridad, documentar en la historia clínica el lote y el tono empleado en cada sesión, y desconfiar de marcas sin certificación europea.
 
 ### 2.4 · Selección cromática por subtono
 

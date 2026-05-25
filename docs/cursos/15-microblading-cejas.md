@@ -157,7 +157,7 @@ El protocolo completo dura **3-4 horas en primera sesión** en dos bloques: **DI
 
 ### 5.1 · Consulta inicial y consentimiento
 
-Antes de cualquier acto técnico se realiza la **consulta clínica estructurada**, que cumple tres funciones simultáneas: descartar contraindicaciones, gestionar expectativas y obtener consentimiento informado.
+Antes de cualquier acto técnico se realiza la **consulta clínica estructurada**: descartar contraindicaciones, gestionar expectativas y obtener consentimiento.
 
 1. **Anamnesis dirigida**: edad, embarazo o lactancia, alergias (especial atención a metales, anestésicos, pigmentos previos), enfermedades crónicas, medicación (anticoagulantes, antiagregantes, isotretinoína, inmunosupresores, terapia hormonal), antecedente herpético, tratamientos estéticos recientes (bótox, peelings, láser), cirugías faciales, antecedente de queloides, exposición solar reciente.
 2. **Historia ciliar**: depilación previa, micropigmentaciones o microbladings anteriores, intentos de tatuaje, presencia de cicatrices, alopecia ciliar conocida, tratamientos para densidad ciliar (minoxidil, PRP).

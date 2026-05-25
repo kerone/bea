@@ -58,20 +58,17 @@ La **proporción estética clásica** sitúa el labio inferior en relación 1:1,
 
 ### 2.2 · Vascularización: por qué el labio sangra y por qué importa
 
-La vascularización labial es densa, superficial y predecible. El conocimiento del trayecto vascular **no es opcional**: condiciona el sangrado intraoperatorio, la dispersión del pigmento y la calidad de la retención.
+La vascularización labial es densa, superficial y predecible. El conocimiento del trayecto vascular **no es opcional**: condiciona sangrado, dispersión del pigmento y retención.
 
-El aporte arterial principal procede de las **arterias labiales superior e inferior**, ramas directas de la **arteria facial** (rama de la carótida externa). Su trayecto es característico:
+El aporte arterial procede de las **arterias labiales superior e inferior**, ramas de la **arteria facial** (rama de la carótida externa). La arteria labial superior discurre en el plano submucoso aproximadamente a 5-6 mm por encima del vermellion border, formando arco anastomótico con su homóloga contralateral. La labial inferior transcurre en posición análoga, ligeramente más superficial y variable.
 
-- La **arteria labial superior** discurre **profundamente al músculo orbicular**, en el plano submucoso, aproximadamente a 5-6 mm por encima del vermellion border en el labio superior, formando un arco anastomótico con su homóloga contralateral en la línea media.
-- La **arteria labial inferior** transcurre en posición análoga en el labio inferior, ligeramente más superficial y más variable en trayecto.
-
-La **trama capilar superficial** que da el color rojo al bermellón deriva de ramos perforantes verticales de estas arterias, que ascienden desde el plano submucoso hasta las papilas dérmicas superficiales. Estos capilares son extremadamente delicados y se rompen con facilidad ante el microtrauma del dermógrafo: de ahí el sangrado puntiforme característico de la sesión, que es **fisiológico y esperable**, y que la profesional debe saber gestionar sin alarmismo pero sin minimizar.
+La **trama capilar superficial** que da el color al bermellón deriva de ramos perforantes verticales que ascienden hasta las papilas dérmicas superficiales. Estos capilares se rompen con facilidad ante el microtrauma del dermógrafo: el sangrado puntiforme intraoperatorio es **fisiológico y esperable**.
 
 Operativamente:
 
-- La trabajada **rasante y superficial** del dermógrafo (epitelio y dermis papilar) limita el sangrado a sangrado capilar puntiforme manejable con compresión suave.
-- La trabajada **excesivamente profunda** alcanza el plexo capilar profundo, produce sangrado franco, **dispersa el pigmento por arrastre hemático** y arruina la retención por dilución sanguínea del depósito cromático.
-- El sangrado abundante en sesión es un **indicador directo de profundidad incorrecta**, no un problema cosmético menor.
+- Trabajada **rasante y superficial**: sangrado capilar puntiforme manejable con compresión suave.
+- Trabajada **excesivamente profunda**: alcanza el plexo capilar profundo, sangrado franco, **dispersa el pigmento por arrastre hemático** y arruina la retención por dilución del depósito.
+- El sangrado abundante en sesión es **indicador directo de profundidad incorrecta**, no un problema cosmético menor.
 
 ### 2.3 · Inervación: por qué duele
 
