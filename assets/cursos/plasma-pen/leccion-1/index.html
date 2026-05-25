@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRECISSA INSTITUTE · Plasma Pen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F5EDE3;
+  --bg2: #EDE2D2;
+  --surface: #FFFFFF;
+  --ink: #241D17;
+  --ink-soft: #5C4E42;
+  --muted: #8C7B6D;
+  --accent: #B66E3A;
+  --accent-dark: #8A4F25;
+  --line: #E0D4C2;
+  --line-strong: #C9B89E;
+  --serif: 'Instrument Serif', serif;
+  --sans: 'Manrope', sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.curso-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 64px 28px 96px;
+}
+/* Cabecera con eyebrow + título */
+.curso-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.curso-h1 {
+  font-family: var(--serif);
+  font-size: 64px;
+  line-height: 1.02;
+  letter-spacing: -0.018em;
+  font-weight: 400;
+  margin: 0 0 12px;
+}
+.curso-h1 em { font-style: italic; }
+.curso-meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 56px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 28px;
+}
+/* Blockquote/lede */
+.curso-content > blockquote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.4;
+  border-left: 2px solid var(--accent);
+  margin: 0 0 48px;
+  padding: 0 0 0 24px;
+  color: var(--ink-soft);
+}
+.curso-content > blockquote p { margin: 0; }
+/* Headings */
+.curso-content h2 {
+  font-family: var(--serif);
+  font-size: 38px;
+  line-height: 1.1;
+  letter-spacing: -0.014em;
+  font-weight: 400;
+  margin: 72px 0 22px;
+  color: var(--ink);
+}
+.curso-content h2:first-child { margin-top: 0; }
+.curso-content h3 {
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.008em;
+  font-weight: 400;
+  margin: 44px 0 14px;
+  color: var(--ink);
+}
+.curso-content h4 {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 32px 0 12px;
+  color: var(--accent-dark);
+}
+/* Paragraphs */
+.curso-content p {
+  margin: 0 0 18px;
+  color: var(--ink);
+}
+.curso-content em { font-style: italic; }
+.curso-content strong { font-weight: 600; color: var(--ink); }
+/* Lists */
+.curso-content ul, .curso-content ol {
+  margin: 0 0 22px;
+  padding-left: 28px;
+}
+.curso-content li { margin-bottom: 8px; }
+.curso-content li::marker { color: var(--accent); }
+/* Tables */
+.curso-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 28px 0;
+  font-size: 14px;
+  background: var(--surface);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(36,29,23,0.04);
+}
+.curso-content thead {
+  background: var(--bg2);
+}
+.curso-content th {
+  text-align: left;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line-strong);
+}
+.curso-content td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  line-height: 1.55;
+}
+.curso-content tr:last-child td { border-bottom: none; }
+.curso-content tbody tr:hover { background: var(--bg); }
+/* HR */
+.curso-content hr {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 56px 0;
+}
+/* Code / inline code */
+.curso-content code {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 13.5px;
+  background: var(--bg2);
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: var(--accent-dark);
+}
+.curso-content pre {
+  background: var(--ink);
+  color: var(--bg);
+  padding: 20px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin: 22px 0;
+}
+.curso-content pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+/* Footer del curso */
+.curso-footer {
+  margin-top: 80px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+}
+/* Responsive */
+@media (max-width: 640px) {
+  .curso-wrap { padding: 40px 20px 64px; }
+  .curso-h1 { font-size: 44px; }
+  .curso-content h2 { font-size: 30px; margin-top: 52px; }
+  .curso-content h3 { font-size: 22px; }
+  .curso-content table { font-size: 13px; }
+  .curso-content th, .curso-content td { padding: 10px 12px; }
+}
+</style>
+</head>
+<body>
+<div class="curso-wrap">
+  <span class="curso-eyebrow">· Lección · Electroestética avanzada</span>
+  <h1 class="curso-h1">Plasma <em>Pen</em></h1>
+  <div class="curso-meta">Material docente PRECISSA INSTITUTE · 7.500 palabras · 18 h teóricas + 22 h prácticas</div>
+  <div class="curso-content">
+<blockquote>
+<p>Sublimación epidérmica controlada con plasma frío atmosférico: indicaciones reales, riesgos honestos y protocolo profesional ajustado al marco normativo español.</p>
+</blockquote>
+<hr>
+<h2 id="ficha-del-curso">· Ficha del curso</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Modalidad</td>
+<td>Presencial + aula virtual</td>
+</tr>
+<tr>
+<td>Duración estimada</td>
+<td>18 h teóricas · 22 h prácticas</td>
+</tr>
+<tr>
+<td>Nivel</td>
+<td>Profesional / Avanzado</td>
+</tr>
+<tr>
+<td>Requisitos previos</td>
+<td>Titulación en estética + nociones de electroestética básica</td>
+</tr>
+<tr>
+<td>Certificación</td>
+<td>Sí · tras superar test final y prácticas evaluadas</td>
+</tr>
+<tr>
+<td>Materiales incluidos</td>
+<td>Dispositivo en aula · consumibles para prácticas · apuntes descargables</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="1-introduccion-y-posicionamiento-clinico">1 · Introducción y posicionamiento clínico</h2>
+<p>El Plasma Pen es uno de los dispositivos que más ruido mediático ha generado en la cabina estética de los últimos diez años, y también uno de los peor entendidos. Promete blefaroplastia sin bisturí, eliminación de fibromas blandos, suavizado de líneas peribucales y periorbitarias, y un retemplado dérmico que, bien hecho, dura entre uno y tres años. Mal hecho, deja cicatrices puntiformes permanentes, manchas que tardan meses en aclarar o, en pieles oscuras, una hiperpigmentación que puede no resolverse nunca del todo. La diferencia entre ambos escenarios está casi siempre en tres variables: selección del paciente, parámetros técnicos y aftercare disciplinado.</p>
+<p>Este curso parte de una premisa: la profesional que aplica Plasma Pen tiene que saber lo que está haciendo a nivel histológico, no solo a nivel de mapa de puntos. Sublimar tejido epidérmico no es un gesto cosmético; es una agresión térmica controlada que activa la cascada inflamatoria y obliga al dermis a reorganizar su matriz extracelular. Quien no entiende esa cascada no puede prevenir sus complicaciones.</p>
+<p>El segundo eje, transversal a todo el programa, es la disciplina del protocolo: anamnesis estructurada, parámetros documentados, fotografía estandarizada, aftercare entregado por escrito, seguimiento pautado. Sin esa disciplina, el plasma pen se convierte en una técnica errática y los buenos resultados, en accidentes felices.</p>
+<h2 id="2-fundamentos-cientificos">2 · Fundamentos científicos</h2>
+<h3 id="21-recordatorio-anatomico">2.1 · Recordatorio anatómico</h3>
+<p>El plasma pen actúa, en condiciones normales de uso, sobre la <strong>epidermis</strong> (40-150 µm de profundidad según la zona anatómica y la intensidad). El blanco terapéutico real, sin embargo, no es la epidermis sino el <strong>fibroblasto dérmico</strong>, que reacciona por proximidad térmica y mediante señalización inflamatoria desde la unión dermo-epidérmica.</p>
+<p>Capas relevantes que la profesional debe tener memorizadas:</p>
+<ul>
+<li><strong>Estrato córneo</strong>: 10-20 µm. Primera barrera. La sublimación lo elimina parcialmente en el punto de impacto.</li>
+<li><strong>Estratos vivos epidérmicos</strong> (granuloso, espinoso, basal): contienen melanocitos. La densidad melanocitaria es lo que determina el riesgo de hiperpigmentación post-inflamatoria.</li>
+<li><strong>Unión dermo-epidérmica</strong>: zona crítica. Si la sublimación la atraviesa de forma excesiva, el riesgo de cicatriz se multiplica.</li>
+<li><strong>Dermis papilar y reticular</strong>: contiene los fibroblastos, vasos y fibras colágenas y elásticas que se remodelarán durante las 8-12 semanas posteriores.</li>
+</ul>
+<p>La piel periorbitaria (60-80 µm de epidermis) y la del cuello son particularmente finas y exigen intensidades reducidas y mayor distancia entre puntos.</p>
+<h3 id="22-el-plasma-como-cuarto-estado-de-la-materia">2.2 · El plasma como cuarto estado de la materia</h3>
+<p>El plasma es gas ionizado: moléculas con electrones desligados, eléctricamente conductor, capaz de transferir energía térmica de forma localizada. En el plasma pen, una punta metálica genera un arco voltaico de alta frecuencia que <strong>ioniza el nitrógeno y el oxígeno del aire</strong> entre la punta y la piel, sin tocarla. Ese arco —el plasma propiamente dicho— es lo que impacta el tejido.</p>
+<p>Diferencias clave con otras tecnologías:</p>
+<ul>
+<li><strong>Frente a láser ablativo (CO₂ o Er:YAG)</strong>: el láser entrega fotones que el agua tisular absorbe selectivamente; el plasma entrega calor por contacto del arco ionizado. El plasma es más superficial y más artesanal (depende mucho de la mano), pero también menos costoso y sin necesidad de gafas certificadas para la cabina.</li>
+<li><strong>Frente a radiofrecuencia</strong>: la RF calienta volumétricamente; el plasma sublima puntualmente. Son tecnologías complementarias, no equivalentes.</li>
+<li><strong>Frente a electrocauterio</strong>: el electrocauterio conduce corriente a través del tejido; el plasma transfiere energía sin contacto eléctrico directo con la piel.</li>
+</ul>
+<h3 id="23-mecanismo-de-accion-cutaneo">2.3 · Mecanismo de acción cutáneo</h3>
+<p>El proceso clínico se descompone en cuatro fenómenos simultáneos:</p>
+<ol>
+<li><strong>Sublimación epidérmica</strong> en el punto de impacto: el tejido pasa directamente de estado sólido a vapor, dejando una micro-costra de 0,5-1 mm (carbon spot o carbon dot).</li>
+<li><strong>Contracción inmediata</strong> de las fibras colágenas y elásticas adyacentes por desnaturalización térmica. Es lo que produce el efecto tensor visible al instante.</li>
+<li><strong>Cascada inflamatoria aséptica</strong>: liberación de citoquinas (IL-1, TNF-α, FGF), reclutamiento de neutrófilos y posteriormente macrófagos M2, que orquestan la reparación.</li>
+<li><strong>Neocolagénesis</strong>: los fibroblastos activados sintetizan colágeno tipo III durante las primeras 3-4 semanas y lo remodelan a colágeno tipo I (más maduro y resistente) entre la semana 4 y la 12. La densidad final aumenta hasta el mes 6.</li>
+</ol>
+<p>Esta cronología histológica es la que justifica los intervalos de 8-12 semanas entre sesiones: tratar antes interrumpe la remodelación y no aporta beneficio adicional, solo riesgo.</p>
+<h2 id="3-indicaciones">3 · Indicaciones</h2>
+<p>Las indicaciones con mayor respaldo en la literatura son las que la profesional debería ofrecer con confianza. Las demás, exigen prudencia comercial.</p>
+<table>
+<thead>
+<tr>
+<th>Indicación</th>
+<th>Evidencia</th>
+<th>Zonas / observaciones</th>
+<th>Sesiones habituales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Blefaroplastia no quirúrgica superior</strong></td>
+<td>Sólida (estudios prospectivos con escala GAIS, satisfacción &gt;90% en laxitud leve-moderada)</td>
+<td>Párpado superior con dermatocalasia leve-moderada. Excluye bolsas grasas.</td>
+<td>1-2</td>
+</tr>
+<tr>
+<td><strong>Líneas peribucales (código de barras)</strong></td>
+<td>Buena, sobre todo en arrugas estáticas finas</td>
+<td>Labio superior</td>
+<td>2-3</td>
+</tr>
+<tr>
+<td><strong>Líneas periorbitarias (patas de gallo estáticas)</strong></td>
+<td>Buena</td>
+<td>Lateral del canto externo</td>
+<td>2</td>
+</tr>
+<tr>
+<td><strong>Fibromas blandos (acrocordones)</strong></td>
+<td>Muy buena, técnica simple y eficaz</td>
+<td>Cuello, axilas, párpados</td>
+<td>1 (sesión única por lesión)</td>
+</tr>
+<tr>
+<td><strong>Queratosis seborreicas planas</strong></td>
+<td>Buena. Un ECA de 2023 mostró superioridad frente a crioterapia en aclaramiento a 6 semanas.</td>
+<td>Tronco, dorso de manos. Confirmar diagnóstico antes.</td>
+<td>1-2</td>
+</tr>
+<tr>
+<td><strong>Lentigos solares</strong></td>
+<td>Moderada. Riesgo de PIH en fototipos altos.</td>
+<td>Dorso de manos, escote.</td>
+<td>1-2</td>
+</tr>
+<tr>
+<td><strong>Cicatrices de acné atróficas leves</strong></td>
+<td>Limitada</td>
+<td>Combinar con otras técnicas</td>
+<td>3-4</td>
+</tr>
+<tr>
+<td><strong>Estrías</strong></td>
+<td>Débil. La literatura disponible es de baja calidad metodológica y los resultados son irregulares.</td>
+<td>No prometer resultados drásticos.</td>
+<td>3-6</td>
+</tr>
+<tr>
+<td><strong>Flacidez abdominal post-parto o post-pérdida de peso</strong></td>
+<td>Marketing más que evidencia. La profundidad alcanzada es insuficiente para flacidez moderada-severa.</td>
+<td>Honestidad clínica: derivar.</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Regla del curso</strong>: si la lesión es pigmentada, hay que descartar malignidad antes de tratar. Cualquier lesión sospechosa (asimetría, bordes irregulares, color heterogéneo, diámetro &gt;6 mm, evolución reciente) <strong>se deriva a dermatólogo</strong> antes de cualquier intervención.</p>
+<h2 id="4-contraindicaciones-y-advertencias">4 · Contraindicaciones y advertencias</h2>
+<h3 id="41-absolutas">4.1 · Absolutas</h3>
+<ul>
+<li><strong>Fitzpatrick V-VI</strong>: el riesgo de hiperpigmentación post-inflamatoria es alto y, en algunos casos, irreversible. La literatura coincide en que las técnicas ablativas o sub-ablativas son las de mayor riesgo de PIH en piel de color.</li>
+<li><strong>Marcapasos o desfibrilador implantable</strong>: el arco eléctrico puede interferir con el dispositivo.</li>
+<li><strong>Embarazo y lactancia</strong>: por principio de precaución; no hay datos de seguridad.</li>
+<li><strong>Historia personal de queloides o cicatrización hipertrófica documentada</strong>.</li>
+<li><strong>Infección activa en la zona</strong> (herpes labial activo, foliculitis, impétigo).</li>
+<li><strong>Isotretinoína sistémica en los últimos 6 meses</strong> (algunos autores ya admiten 1-3 meses si la dosis ha sido baja y la piel ha recuperado su función barrera, pero por seguridad mantenemos los 6 meses).</li>
+<li><strong>Inmunosupresión activa</strong> (tratamiento con corticoides sistémicos, biológicos, quimioterapia, VIH no controlado).</li>
+<li><strong>Enfermedades autoinmunes cutáneas activas</strong> (lupus, vitíligo en fase de actividad, esclerodermia).</li>
+<li><strong>Patología oncológica activa</strong> sin alta médica.</li>
+<li><strong>Epilepsia mal controlada</strong>.</li>
+</ul>
+<h3 id="42-relativas">4.2 · Relativas</h3>
+<ul>
+<li><strong>Fitzpatrick IV</strong>: tratable con prudencia, intensidad reducida, espaciado mayor y protocolo despigmentante riguroso pre y post.</li>
+<li><strong>Diabetes</strong>: cicatrización ralentizada; valorar control glucémico.</li>
+<li><strong>Tratamiento anticoagulante</strong>: aumenta el riesgo de petequias y hematomas.</li>
+<li><strong>Historia de herpes labial recurrente</strong>: profilaxis con antiviral oral pautado por médico (valaciclovir o aciclovir) 2 días antes y 5 días después si se trata zona perioral.</li>
+<li><strong>Bronceado reciente (&lt;4 semanas)</strong> o exposición solar inminente prevista.</li>
+<li><strong>Uso reciente de retinoides tópicos, AHA/BHA en altas concentraciones, peelings</strong>: suspender 7-14 días antes.</li>
+<li><strong>Edad avanzada con piel muy atrófica</strong>: la respuesta fibroblástica puede ser insuficiente.</li>
+</ul>
+<h3 id="43-banderas-rojas-en-consulta">4.3 · Banderas rojas en consulta</h3>
+<p>Situaciones en las que la profesional <strong>no debe tratar y sí debe documentar la negativa</strong>:</p>
+<ul>
+<li>Paciente que minimiza una lesión pigmentada sospechosa y la quiere "quitar rápido".</li>
+<li>Expectativas desproporcionadas ("quiero parecer 20 años más joven").</li>
+<li>Antecedente de cirugías estéticas con malos resultados y descontento crónico (posible trastorno dismórfico corporal).</li>
+<li>Paciente que no acepta el aftercare o no puede comprometerse a evitar el sol.</li>
+<li>Menores de edad sin indicación médica clara.</li>
+<li>Paciente que ya se ha tratado en otro centro recientemente y vuelve a buscar tratamiento antes de completar la cicatrización.</li>
+</ul>
+<h2 id="5-protocolo-de-tratamiento">5 · Protocolo de tratamiento</h2>
+<h3 id="51-consulta-inicial-y-consentimiento-informado">5.1 · Consulta inicial y consentimiento informado</h3>
+<p>La consulta tiene cuatro objetivos: confirmar indicación, descartar contraindicaciones, gestionar expectativas y documentar.</p>
+<p>Pasos:</p>
+<ol>
+<li><strong>Anamnesis estructurada</strong>: enfermedades sistémicas, medicación, alergias, fototipo, antecedentes de cicatrización anómala, episodios de herpes, embarazos, tratamientos estéticos previos.</li>
+<li><strong>Exploración física</strong>: clasificación Fitzpatrick, valoración de la zona a tratar, identificación de lesiones pigmentadas sospechosas, fotografía clínica estandarizada (misma distancia, misma luz, mismo encuadre).</li>
+<li><strong>Información</strong>: explicación del mecanismo, del aftercare, del cronograma de costras y de los riesgos. Es preferible que la paciente vea fotos reales de días 1, 3, 7 y 14 antes de firmar.</li>
+<li><strong>Consentimiento informado por escrito</strong>, específico para Plasma Pen, incluyendo riesgo de hiperpigmentación, hipopigmentación, cicatriz y necesidad de fotoprotección estricta. Debe firmarlo la paciente y la profesional responsable.</li>
+<li><strong>Pago y agendado</strong>: nunca tratar en la misma consulta de valoración. Se recomienda dejar un margen de 48-72 horas mínimo para que la paciente repose la decisión.</li>
+</ol>
+<h3 id="52-preparacion-de-la-piel">5.2 · Preparación de la piel</h3>
+<p>Pre-tratamiento (en cabina, el día de la sesión):</p>
+<ol>
+<li><strong>Doble limpieza</strong> con limpiador suave sin tensioactivos agresivos.</li>
+<li><strong>Desmaquillado completo</strong> y secado.</li>
+<li><strong>Antisepsia</strong> con clorhexidina acuosa al 0,05-0,1% o povidona yodada (esta última puede dejar tinción transitoria que dificulta la visualización).</li>
+<li><strong>Anestésico tópico</strong>: lidocaína-prilocaína 2,5%/2,5% (tipo EMLA) en oclusión durante 45-60 minutos, o lidocaína 4-5% (tipo LMX) sin oclusión durante 30 minutos. Retirar completamente antes de aplicar el plasma: residuos grasos alteran el arco y aumentan el riesgo de carbonización irregular.</li>
+<li><strong>Secado meticuloso</strong> y nueva antisepsia ligera.</li>
+<li><strong>Marcado opcional</strong> con lápiz dermográfico de los puntos clave o del patrón en zonas grandes.</li>
+</ol>
+<p>Recomendaciones a la paciente las 2 semanas previas: suspender retinoides, ácidos exfoliantes, peelings, depilación con cera en la zona, exposición solar y autobronceadores.</p>
+<h3 id="53-tecnica-de-aplicacion">5.3 · Técnica de aplicación</h3>
+<p><strong>Distancia punta-piel</strong>: aproximadamente 0,5-1 mm. No contacto directo. El arco debe verse y oírse claramente como un chasquido breve y limpio.</p>
+<p><strong>Patrón de puntos</strong>:</p>
+<ul>
+<li>Espaciado entre puntos: 1-2 mm en zonas finas (párpados, peribucal), 2-3 mm en zonas más gruesas.</li>
+<li>Distribución: matriz regular en cuadrícula o tresbolillo según protocolo del fabricante y zona.</li>
+<li><strong>Una sola pasada por sesión</strong>: no repasar el mismo punto en la misma sesión.</li>
+</ul>
+<p><strong>Intensidad orientativa</strong> (escala genérica 1-10; cada equipo tiene su propia escala — consultar manual):</p>
+<table>
+<thead>
+<tr>
+<th>Zona</th>
+<th>Intensidad orientativa</th>
+<th>Notas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Párpado superior</td>
+<td>Baja (2-3 / 10)</td>
+<td>Piel finísima, alto riesgo</td>
+</tr>
+<tr>
+<td>Párpado inferior</td>
+<td>Baja (2-3 / 10)</td>
+<td>Idem</td>
+</tr>
+<tr>
+<td>Patas de gallo</td>
+<td>Baja-media (3-4 / 10)</td>
+<td></td>
+</tr>
+<tr>
+<td>Líneas peribucales</td>
+<td>Media (3-5 / 10)</td>
+<td></td>
+</tr>
+<tr>
+<td>Frente</td>
+<td>Media (4-5 / 10)</td>
+<td></td>
+</tr>
+<tr>
+<td>Cuello</td>
+<td>Baja-media (3-4 / 10)</td>
+<td>Cicatrización lenta</td>
+</tr>
+<tr>
+<td>Fibromas blandos</td>
+<td>Variable, según base de la lesión</td>
+<td>Punto único o varios contiguos</td>
+</tr>
+<tr>
+<td>Queratosis seborreica</td>
+<td>Media (4-5 / 10)</td>
+<td>Hasta blanqueamiento de la lesión</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Duración del contacto</strong>: arco breve, milisegundos. El punto debe quedar marcado pero <strong>nunca debe haber sangrado</strong>. Sangrado = sobre-tratamiento, profundidad inadecuada, riesgo elevado de cicatriz.</p>
+<p><strong>Color del carbon spot</strong>: marrón claro a dorado. Negro intenso o gris = sobre-tratamiento.</p>
+<h3 id="54-cuidado-intra-tratamiento">5.4 · Cuidado intra-tratamiento</h3>
+<p>Durante la sesión no se aplica nada sobre la piel (ni cremas, ni alcoholes, ni geles). El campo debe permanecer seco. Si hay edema importante (frecuente en periorbitaria), aplicar compresas frías intermitentes después de completar la zona, nunca durante la aplicación.</p>
+<p>La sesión completa de una zona facial dura 25-45 minutos en cabina (sin contar la anestesia).</p>
+<h3 id="55-numero-de-sesiones-y-cronograma">5.5 · Número de sesiones y cronograma</h3>
+<ul>
+<li><strong>Sesiones por indicación</strong>: 1-3 habitualmente, hasta 4 en cicatrices o estrías.</li>
+<li><strong>Intervalo entre sesiones</strong>: mínimo 8 semanas, idealmente 10-12 semanas. No retratar hasta que la piel haya recuperado color y textura basal.</li>
+<li><strong>Resultado visible</strong>: parcial a las 3 semanas, óptimo a las 8-12 semanas, máximo a los 6 meses.</li>
+<li><strong>Duración del resultado</strong>: 1-3 años según zona, edad y cuidados.</li>
+</ul>
+<h3 id="56-casos-clinicos-comentados">5.6 · Casos clínicos comentados</h3>
+<p>Los tres casos siguientes condensan decisiones reales de cabina. La intención no es ofrecer recetas sino mostrar el razonamiento clínico que une selección, parámetros y seguimiento.</p>
+<h4 id="caso-1-blefaroplastia-no-quirurgica-fitzpatrick-iii">Caso 1 · Blefaroplastia no quirúrgica · Fitzpatrick III</h4>
+<p><strong>Perfil</strong>: mujer de 54 años, fototipo III, profesora, sin patología sistémica. Refiere "los párpados caídos" desde hace 3 años. No fuma. No toma anticoagulantes. Antecedente de herpes labial 2 episodios/año.</p>
+<p><strong>Hallazgos</strong>: dermatocalasia leve-moderada del párpado superior bilateral, sin bolsas grasas relevantes, sin ptosis del músculo elevador. Piel periorbitaria fina pero bien hidratada. No lesiones pigmentadas sospechosas.</p>
+<p><strong>Decisión técnica</strong>: indicación clara para plasma pen, no requiere derivación a cirugía. Se programa <strong>2 sesiones</strong> separadas 10 semanas. Profilaxis antiviral pautada por médico colaborador (valaciclovir 500 mg/12 h, 2 días antes y 5 días después de cada sesión) pese a que la zona tratada no es perioral directa, por proximidad y reactivaciones previas.</p>
+<p><strong>Parámetros usados</strong>:</p>
+<ul>
+<li>Intensidad 2/10 (escala del equipo del aula).</li>
+<li>Espaciado 1,5 mm en cuadrícula sobre el pliegue dermatocalásico.</li>
+<li>Distancia punta-piel 0,8 mm.</li>
+<li>Patrón: dos hileras paralelas al pliegue tarsal, sin invadir el borde libre del párpado.</li>
+<li>Carbon spots color dorado, ningún punto sangra.</li>
+<li>Tiempo en cabina por ojo: 18 minutos.</li>
+</ul>
+<p><strong>Evolución observada</strong>: edema importante días 1-3 (ojo cerrado parcialmente al despertar día 2, advertido en consentimiento). Costras consolidadas día 3, caída espontánea días 7-8. Eritema rosado hasta día 14. Resultado tensor parcial visible a las 3 semanas. A las 10 semanas, mejora clínica clara con elevación discreta del pliegue y suavizado del exceso cutáneo. Se realiza segunda sesión con los mismos parámetros. A los 6 meses post-segunda sesión, la paciente reporta satisfacción 9/10 en escala subjetiva. Sin PIH, sin cicatriz visible.</p>
+<p><strong>Aprendizajes</strong>: en periorbitaria, menos es más. Dos sesiones suaves bien espaciadas dan mejor resultado y menos complicaciones que una sesión agresiva.</p>
+<h4 id="caso-2-fibromas-cervicales-multiples-fitzpatrick-iv">Caso 2 · Fibromas cervicales múltiples · Fitzpatrick IV</h4>
+<p><strong>Perfil</strong>: mujer de 41 años, fototipo IV (origen mediterráneo), administrativa. Acude por 12 acrocordones de 1-3 mm distribuidos por cuello lateral y nuca. Sin patología relevante. No embarazo. No antecedente de PIH documentada, pero refiere que cualquier picadura de mosquito "me deja mancha durante meses".</p>
+<p><strong>Hallazgos</strong>: el antecedente referido es <strong>bandera amarilla</strong>: tendencia a PIH. Fototipo IV combinado con esa propensión exige protocolo despigmentante reforzado.</p>
+<p><strong>Decisión técnica</strong>: indicación clara para los fibromas (la técnica es muy eficaz en acrocordones). Se decide <strong>prevención agresiva de PIH</strong> mediante:</p>
+<ul>
+<li><strong>Fase pre-tratamiento (4 semanas)</strong>: niacinamida 10% + alfa-arbutina 2% por la noche; SPF 50+ mineral diario; suspensión de exposición solar directa.</li>
+<li><strong>Sesión única</strong> para todos los fibromas, en intensidad baja-media (3/10), distancia punta-piel 1 mm, punto único centrado sobre la base de cada lesión.</li>
+<li><strong>Fase post-tratamiento (12 semanas)</strong>: tras reepitelización (semana 3), reintroducción de niacinamida + alfa-arbutina + ácido tranexámico tópico 3%. Fotoprotección estricta.</li>
+</ul>
+<p><strong>Parámetros usados</strong>:</p>
+<ul>
+<li>Intensidad 3/10.</li>
+<li>Distancia 1 mm.</li>
+<li>Un solo carbon spot por fibroma, color marrón claro, sin sangrado.</li>
+<li>Tiempo total: 15 minutos para los 12 fibromas.</li>
+</ul>
+<p><strong>Evolución observada</strong>: caída de las costras día 5-7. Reepitelización completa día 12. A las 4 semanas aparecen 2 manchas hiperpigmentadas leves sobre los puntos tratados más posteriores (zona de mayor exposición solar inadvertida durante la conducción). Se intensifica el protocolo despigmentante (añadir vitamina C 10% por la mañana). Resolución completa de la PIH a las 14 semanas. Sin recidiva de los fibromas. Sin cicatriz residual.</p>
+<p><strong>Aprendizajes</strong>: en fototipo IV con antecedente de hiperreactividad melanocitaria, el protocolo despigmentante pre y post no es opcional; la fotoprotección incluye recordar a la paciente que la luz visible azul atraviesa el cristal del coche.</p>
+<h4 id="caso-3-queratosis-seborreicas-planas-en-dorso-de-mano-fitzpatrick-ii">Caso 3 · Queratosis seborreicas planas en dorso de mano · Fitzpatrick II</h4>
+<p><strong>Perfil</strong>: mujer de 67 años, fototipo II, jubilada, antecedente de exposición solar acumulada importante (campo y huerta). Acude por "manchas marrones que sobresalen" en dorso de ambas manos.</p>
+<p><strong>Hallazgos</strong>: 6 lesiones compatibles con queratosis seborreica plana en dorso de mano derecha y 4 en mano izquierda. Pápulas marrón claro, superficie ligeramente verrugosa, bordes bien definidos, aspecto "pegado" característico. Se identifica además <strong>una lesión asimétrica de 5 mm en dorso derecho con bordes irregulares y dos tonalidades de marrón</strong>. Esta lesión no encaja con queratosis típica.</p>
+<p><strong>Decisión técnica</strong>: <strong>se deriva la lesión sospechosa al dermatólogo antes de cualquier tratamiento</strong>. Dermatoscopia confirma queratosis seborreica atípica, biopsia negativa para malignidad. Con el informe en mano, se procede al tratamiento de las 10 lesiones confirmadas en <strong>1 sesión</strong>.</p>
+<p><strong>Parámetros usados</strong>:</p>
+<ul>
+<li>Intensidad 4/10 sobre cada lesión.</li>
+<li>Carbon spots contiguos cubriendo toda la superficie de cada queratosis hasta blanqueamiento.</li>
+<li>Sin sangrado en ninguna lesión.</li>
+<li>Distancia 0,8 mm.</li>
+<li>Tiempo total: 22 minutos para las 10 lesiones.</li>
+</ul>
+<p><strong>Evolución observada</strong>: costras consolidadas día 3-4. Caída días 8-10 (dorso de mano cicatriza más lentamente que cara). Eritema residual hasta día 21. A las 6 semanas, las 10 queratosis han desaparecido completamente con piel de tono homogéneo. Sin PIH (fototipo II favorable). Sin recidiva a los 6 meses.</p>
+<p><strong>Aprendizajes</strong>: la responsabilidad diagnóstica está siempre antes que el gesto técnico. Una lesión dudosa entre diez "obvias" basta para detener el protocolo y derivar. La fotografía dermatoscópica del dermatólogo se archiva como respaldo.</p>
+<h2 id="6-cosmetologia-aplicada">6 · Cosmetología aplicada</h2>
+<h3 id="61-productos-pre-tratamiento">6.1 · Productos pre-tratamiento</h3>
+<ul>
+<li><strong>Limpiador suave</strong>, pH 5-5,5, sin sulfatos agresivos.</li>
+<li><strong>Antiséptico</strong>: clorhexidina acuosa 0,05-0,1% (de elección por baja capacidad irritante y no tinción).</li>
+<li><strong>Anestésico tópico</strong>: lidocaína-prilocaína (EMLA) o lidocaína 4-5% (LMX). Aplicación según protocolo (60 min con oclusión / 30 min sin oclusión respectivamente).</li>
+<li>En las 2 semanas previas: <strong>fotoprotección SPF 50+ obligatoria</strong> y suspensión de activos potencialmente irritantes (retinoides, AHA, BHA, vitamina C en altas concentraciones).</li>
+</ul>
+<h3 id="62-productos-post-tratamiento-inmediatos">6.2 · Productos post-tratamiento inmediatos</h3>
+<p>Aplicación en cabina inmediatamente después y durante los primeros 7-10 días:</p>
+<ul>
+<li><strong>Regeneradores epiteliales</strong>: cremas o sérums con <strong>pantenol (5%)</strong>, <strong>madecasósido / centella asiática</strong>, <strong>alantoína</strong>, <strong>bisabolol</strong>. La literatura sobre post-láser apoya estos activos para reducir eritema y acelerar reepitelización.</li>
+<li><strong>Factor de crecimiento epidérmico (EGF)</strong> recombinante o derivados: acelera la migración de queratinocitos y la reepitelización.</li>
+<li><strong>Ácido hialurónico libre de bajo peso molecular</strong>: hidratación sin oclusión excesiva.</li>
+<li><strong>Complejos cobre-zinc-manganeso</strong>: efecto cicatrizante y antioxidante documentado.</li>
+<li><strong>Fotoprotector mineral SPF 50+</strong> (óxido de zinc, dióxido de titanio) desde el día siguiente. Evitar filtros químicos las primeras 2 semanas por mayor riesgo irritativo.</li>
+</ul>
+<h3 id="63-cosmetica-de-mantenimiento">6.3 · Cosmética de mantenimiento</h3>
+<p>A partir de la semana 3-4, con piel ya reepitelizada:</p>
+<ul>
+<li><strong>Despigmentantes preventivos</strong> en pieles con tendencia: <strong>ácido kójico 1-2%</strong>, <strong>alfa-arbutina 2%</strong>, <strong>ácido tranexámico 3-5%</strong>, <strong>niacinamida 4-10%</strong>, <strong>vitamina C estabilizada</strong>.</li>
+<li><strong>Antioxidantes</strong>: vitamina C, vitamina E, resveratrol, ferúlico.</li>
+<li><strong>Reintroducción gradual de retinoides</strong> a partir de la semana 4-6, empezando por concentraciones bajas (retinol 0,1-0,3%) y noches alternas.</li>
+<li><strong>Mantenimiento de la fotoprotección estricta</strong> durante mínimo 12 semanas tras la última sesión, idealmente de forma continuada.</li>
+</ul>
+<h3 id="64-lineas-comerciales-espanolas-habituales">6.4 · Líneas comerciales españolas habituales</h3>
+<p>Las siguientes tablas recogen marcas y referencias frecuentes en cabina española, organizadas por finalidad. No constituyen recomendación cerrada; cada centro adapta la cartera a su perfil de cliente y a su acuerdo con distribuidores. La columna de <strong>dosis y posología</strong> es orientativa y siempre prevalece la indicación del fabricante.</p>
+<p><strong>Regeneradores epiteliales post-procedimiento</strong></p>
+<table>
+<thead>
+<tr>
+<th>Línea / referencia</th>
+<th>Activos principales</th>
+<th>Posología orientativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mesoestetic · Post-Procedure Fast Skin Repair</td>
+<td>EGF, pantenol, alantoína</td>
+<td>2-3 aplicaciones/día durante 7-10 días</td>
+</tr>
+<tr>
+<td>SesDerma · Reti Age o Post-Procedure</td>
+<td>Centella asiática, pantenol</td>
+<td>2 aplicaciones/día durante 7-14 días</td>
+</tr>
+<tr>
+<td>Endocare · Cellage / Tensage Radiance</td>
+<td>SCA (extracto de caracol), factor de crecimiento</td>
+<td>2 aplicaciones/día desde día 2</td>
+</tr>
+<tr>
+<td>Cantabria Labs · Heliocare 360 Pigment Solution AK</td>
+<td>Activos calmantes y despigmentantes</td>
+<td>1 aplicación/día desde día 7</td>
+</tr>
+<tr>
+<td>Skinceuticals · Phyto Corrective Masque</td>
+<td>Bisabolol, tiosulfato sódico</td>
+<td>Mascarilla 10 min, 3 veces/semana primera quincena</td>
+</tr>
+<tr>
+<td>Cumlaude · Crema Hidratante DS</td>
+<td>Ácido hialurónico, pantenol</td>
+<td>2-3 aplicaciones/día primeros 10 días</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Despigmentantes (uso desde semana 3-4)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Línea / referencia</th>
+<th>Activos principales</th>
+<th>Posología orientativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mesoestetic · Cosmelan 2 (mantenimiento)</td>
+<td>Ácido kójico, ácido fítico, ácido azelaico</td>
+<td>1 aplicación/noche, supervisado</td>
+</tr>
+<tr>
+<td>Mesoestetic · Melan Recovery</td>
+<td>Niacinamida, pantenol</td>
+<td>1 aplicación/noche durante 4-8 semanas</td>
+</tr>
+<tr>
+<td>Cantabria Labs · Neoretin Discrom Control Sérum</td>
+<td>Retinoides + despigmentantes</td>
+<td>1 aplicación/noche, no antes de semana 4-6</td>
+</tr>
+<tr>
+<td>ISDIN · Auriderm XO Gel</td>
+<td>Vitamina K1 óxido</td>
+<td>2-3 aplicaciones/día sobre PIH puntual</td>
+</tr>
+<tr>
+<td>SesDerma · K-Vit</td>
+<td>Vitamina K, árnica</td>
+<td>2 aplicaciones/día si hematomas/petequias</td>
+</tr>
+<tr>
+<td>Martiderm · DSP-Bright Sérum</td>
+<td>Vitamina C, niacinamida, alfa-arbutina</td>
+<td>1 aplicación/mañana, semana 3 en adelante</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Fotoprotectores minerales SPF 50+</strong></p>
+<table>
+<thead>
+<tr>
+<th>Línea / referencia</th>
+<th>Filtros</th>
+<th>Notas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ISDIN · Fotoprotector Fusion Mineral Brush</td>
+<td>Óxido de zinc, dióxido de titanio</td>
+<td>Polvo aplicable sobre costras; cómodo para retoque</td>
+</tr>
+<tr>
+<td>Heliocare 360 Mineral Tolerance Fluid</td>
+<td>Óxido de zinc, dióxido de titanio</td>
+<td>Textura ligera, color discreto</td>
+</tr>
+<tr>
+<td>Avène · Mineral Fluid SPF 50+</td>
+<td>Óxido de zinc, dióxido de titanio</td>
+<td>Indicada en piel reactiva</td>
+</tr>
+<tr>
+<td>La Roche-Posay · Anthelios UVMune 400 Mineral</td>
+<td>Óxido de zinc, dióxido de titanio</td>
+<td>Buena adherencia, sin filtros químicos</td>
+</tr>
+<tr>
+<td>SesDerma · Repaskin Mineral SPF 50+</td>
+<td>Óxido de zinc, dióxido de titanio</td>
+<td>Buena tolerancia post-procedimiento</td>
+</tr>
+</tbody>
+</table>
+<h3 id="65-mini-guia-de-stacking-de-activos">6.5 · Mini-guía de stacking de activos</h3>
+<p>Tras un plasma pen, la profesional debe explicar a la paciente qué combinar y qué separar, porque la confusión habitual lleva a empeorar la PIH o a interrumpir la reepitelización.</p>
+<p><strong>Combinaciones seguras desde el día 1 (con piel cerrada por costra o tras caída de la misma)</strong>:</p>
+<ul>
+<li>Pantenol + centella asiática + ácido hialurónico libre: pilar regenerador, sin riesgo de irritación.</li>
+<li>Niacinamida + ácido hialurónico: hidratación y modulación inflamatoria.</li>
+<li>Fotoprotector mineral + regenerador: aplicar primero el regenerador, esperar absorción, después el SPF.</li>
+</ul>
+<p><strong>Combinaciones seguras desde la semana 3-4 (piel cerrada y reepitelizada)</strong>:</p>
+<ul>
+<li>Niacinamida + alfa-arbutina + ácido tranexámico: stack despigmentante de bajo riesgo.</li>
+<li>Vitamina C estabilizada (mañana) + niacinamida (mañana o noche): compatibles en formulaciones modernas; ya no se mantiene la antigua contraindicación.</li>
+<li>Vitamina C (mañana) + retinol (noche): permitido desde semana 4-6, no antes.</li>
+</ul>
+<p><strong>Combinaciones que NO deben hacerse antes de la semana 4-6</strong>:</p>
+<ul>
+<li>Retinol + AHA o BHA: irritación garantizada sobre piel en remodelación.</li>
+<li>Vitamina C en pH bajo (&lt;3,5) + niacinamida en alta concentración: bien tolerado en cosmética actual, pero sobre piel post-plasma puede picar y generar microirritación que dispara PIH.</li>
+<li>Peróxido de benzoilo + cualquier activo despigmentante: el peróxido oxida y desactiva la mayoría de despigmentantes; además es excesivamente irritante.</li>
+<li>Hidroquinona + retinoides sin supervisión médica: aunque es una combinación clásicamente eficaz, requiere prescripción y control.</li>
+</ul>
+<p><strong>Reintroducción ordenada (semana 4 en adelante)</strong>:</p>
+<ol>
+<li>Semana 4: añadir niacinamida si no se ha usado.</li>
+<li>Semana 5: añadir vitamina C estabilizada por la mañana.</li>
+<li>Semana 6: añadir retinol 0,1-0,3% en noches alternas.</li>
+<li>Semana 8: subir a retinol diario si tolera; valorar alfa-arbutina o ácido tranexámico tópico continuo en fototipos altos.</li>
+</ol>
+<h3 id="66-ingredientes-a-evitar-post-tratamiento">6.6 · Ingredientes a EVITAR post-tratamiento</h3>
+<p>Durante las primeras <strong>2-4 semanas</strong> está contraindicado:</p>
+<ul>
+<li><strong>Retinoides</strong> (retinol, retinaldehído, tretinoína, adapaleno): comprometen la reepitelización y aumentan riesgo de irritación y PIH.</li>
+<li><strong>Alfa-hidroxiácidos</strong> (glicólico, láctico, mandélico) en concentraciones cosméticas activas: agresivos sobre piel en reparación.</li>
+<li><strong>Beta-hidroxiácidos</strong> (salicílico).</li>
+<li><strong>Peróxido de benzoilo</strong>.</li>
+<li><strong>Vitamina C en concentraciones altas o pH bajo</strong> (&gt;10%, pH &lt;3,5): puede irritar; las formas más estables y de pH neutro pueden tolerarse antes.</li>
+<li><strong>Exfoliantes mecánicos</strong>: scrubs, cepillos, microdermoabrasión.</li>
+<li><strong>Autobronceadores con DHA</strong>: pueden teñir las costras de forma desigual.</li>
+<li><strong>Hidroquinona sin supervisión médica</strong>: aunque es eficaz frente a PIH, su uso no controlado puede inducir ocronosis y está restringido a prescripción facultativa en muchas jurisdicciones europeas.</li>
+<li><strong>Calor directo prolongado</strong>: sauna, baño turco, ejercicio intenso con sudoración profusa, exposición solar.</li>
+</ul>
+<h2 id="7-aftercare-y-seguimiento">7 · Aftercare y seguimiento</h2>
+<p>Cronograma orientativo. La profesional entrega esta información por escrito a la paciente y la repasa verbalmente.</p>
+<p><strong>Día 0 (sesión)</strong>: eritema, edema discreto y aparición de puntos marrones (carbon spots) en el patrón aplicado. Sensación de quemadura solar moderada durante las primeras horas. Aplicar regenerador. No tocar.</p>
+<p><strong>Día 1-2</strong>: pico de edema, especialmente en zona periorbitaria (puede llegar a impedir abrir el ojo completamente; es normal y autolimitado). Eritema. Comienzo de la formación de costras. Lavado suave con agua y jabón neutro 1-2 veces al día, secado por contacto (no frotar), aplicación frecuente de regenerador.</p>
+<p><strong>Día 3-5</strong>: descenso del edema. Las costras se consolidan y comienzan a oscurecerse. Posible picor leve: <strong>no rascar, no arrancar</strong>. Si pica mucho, aplicar más regenerador o compresa fría.</p>
+<p><strong>Día 6-8</strong>: caída espontánea de las costras. Piel rosada o ligeramente rojiza por debajo, lo que es <strong>normal</strong> (eritema post-inflamatorio fisiológico). Iniciar fotoprotección mineral estricta si no se ha iniciado antes.</p>
+<p><strong>Día 8-14</strong>: piel cerrada. Rosado va disminuyendo. Se puede reintroducir maquillaje mineral suave. Continuar regenerador e hidratación.</p>
+<p><strong>Semana 3-4</strong>: la piel recupera tono basal. Se reintroducen progresivamente activos según fototipo y respuesta. Inicio de la neocolagénesis perceptible.</p>
+<p><strong>Semana 8-12</strong>: resultado clínico óptimo de la sesión. Punto de control fotográfico. Decisión sobre necesidad de segunda sesión.</p>
+<p><strong>Signos de complicación que exigen consulta urgente</strong> (la paciente debe conocerlos):</p>
+<ul>
+<li>Dolor creciente más allá del día 3.</li>
+<li>Secreción purulenta, mal olor, costra blanda y húmeda.</li>
+<li>Fiebre.</li>
+<li>Vesículas agrupadas (sospecha de reactivación herpética).</li>
+<li>Eritema que se extiende más allá de la zona tratada con bordes definidos (celulitis).</li>
+<li>Aparición de mancha oscura intensa, especialmente si surge tras exposición solar inadvertida.</li>
+</ul>
+<h2 id="8-manejo-de-complicaciones">8 · Manejo de complicaciones</h2>
+<h3 id="81-hiperpigmentacion-post-inflamatoria">8.1 · Hiperpigmentación post-inflamatoria</h3>
+<p>Es <strong>la complicación más frecuente</strong> del plasma pen y la principal limitación de la técnica en pieles oscuras. Aparece típicamente entre la semana 2 y la semana 6 post-tratamiento, especialmente si ha habido exposición solar precoz.</p>
+<p>Manejo:</p>
+<ul>
+<li><strong>Fotoprotección estricta SPF 50+ mineral</strong>, varias veces al día, indefinida hasta resolución.</li>
+<li><strong>Despigmentantes tópicos sin hidroquinona</strong>: combinaciones de ácido kójico, alfa-arbutina, ácido tranexámico, niacinamida, vitamina C. Aplicación constante 2-6 meses.</li>
+<li><strong>Derivación al médico</strong> si no hay respuesta a las 8-12 semanas o si la PIH es intensa: puede pautar hidroquinona supervisada, retinoides tópicos, peelings despigmentantes o láseres específicos (Q-switched, picosegundo).</li>
+<li>Documentar fotográficamente la evolución.</li>
+</ul>
+<p>Pronóstico: la mayoría de las PIH resuelven en 3-12 meses, pero en fototipos altos puede ser persistente.</p>
+<h3 id="82-flujograma-de-decision-ante-pih">8.2 · Flujograma de decisión ante PIH</h3>
+<p>La gravedad clínica de la PIH se categoriza para decidir la conducta sin titubeos:</p>
+<p><strong>Leve</strong>: mancha rosada-marrón muy clara, contornos difusos, sobre uno o dos puntos del patrón, sin afectar la confianza social de la paciente.</p>
+<p>→ Refuerzo de fotoprotección mineral SPF 50+ cada 2-3 h.
+→ Niacinamida 10% + alfa-arbutina 2% noche.
+→ Vitamina C estabilizada 10-15% mañana desde semana 4.
+→ Revisión a las 4 semanas. Documentar fotográficamente.
+→ Resolución esperada: 8-12 semanas.</p>
+<p><strong>Moderada</strong>: mancha marrón media-oscura, contornos definidos, sobre varios puntos del patrón, con impacto cosmético objetivo y queja explícita de la paciente.</p>
+<p>→ Todo lo anterior, intensificado.
+→ Añadir ácido tranexámico tópico 3-5% (mañana o noche separado del retinol).
+→ Considerar reintroducir retinol 0,1-0,3% noches alternas desde semana 6.
+→ Revisión a las 4 semanas. Si no hay mejora del 30-40%, derivar al médico para valorar pauta despigmentante reforzada.
+→ Resolución esperada: 3-6 meses.</p>
+<p><strong>Grave</strong>: mancha marrón oscura o gris-marrón, contornos muy definidos, extensa, con impacto psicológico claro o persistente &gt;12 semanas pese a tratamiento.</p>
+<p>→ <strong>Derivación médica sin demora</strong>.
+→ El dermatólogo podrá pautar hidroquinona 4% supervisada, fórmula tipo Kligman (hidroquinona + retinoide + corticoide), peelings despigmentantes (TCA bajo, kójico, mandélico) o láser específico (Q-switched, picosegundo).
+→ Continuar fotoprotección absoluta y soporte cosmético del centro.
+→ Pronóstico variable; en fototipos altos puede ser persistente o solo parcial.</p>
+<h3 id="83-infeccion">8.3 · Infección</h3>
+<p>Poco frecuente si la antisepsia y el aftercare son correctos.</p>
+<p>Manejo:</p>
+<ul>
+<li>Signos: dolor que aumenta tras día 3, eritema expansivo, secreción purulenta, mal olor, fiebre.</li>
+<li><strong>Derivación médica inmediata</strong>. La paciente requiere valoración para antibioterapia oral. No automedicar.</li>
+<li>Si se sospecha reactivación herpética (vesículas agrupadas con base eritematosa, pinchazos previos), también derivación médica para antiviral oral.</li>
+</ul>
+<h3 id="84-cicatriz-anomala">8.4 · Cicatriz anómala</h3>
+<p>Poco frecuente pero posible, especialmente con sobre-tratamiento, infección sobreañadida o predisposición individual.</p>
+<ul>
+<li><strong>Cicatriz atrófica puntiforme</strong>: ocasionalmente residual; mejora parcial con microneedling o tópicos a base de péptidos y centella, gestionados por profesional.</li>
+<li><strong>Cicatriz hipertrófica o queloide</strong>: derivación a dermatólogo. Manejo médico con corticoides intralesionales, parches de silicona, láseres específicos.</li>
+</ul>
+<h3 id="85-cuando-derivar-al-medico">8.5 · Cuándo derivar al médico</h3>
+<p>Siempre, sin demora, en:</p>
+<ul>
+<li>Sospecha de infección bacteriana o vírica.</li>
+<li>PIH intensa o sin respuesta a manejo cosmético en 8-12 semanas.</li>
+<li>Cicatriz hipertrófica o queloidea incipiente.</li>
+<li>Reacciones inflamatorias prolongadas (&gt;4 semanas).</li>
+<li>Cualquier lesión pigmentada que aparezca o cambie tras el tratamiento.</li>
+<li>Dudas diagnósticas sobre la lesión tratada.</li>
+</ul>
+<h3 id="86-anexo-scripts-de-comunicacion-con-la-paciente">8.6 · Anexo · Scripts de comunicación con la paciente</h3>
+<p>La forma en que se comunica una complicación define la confianza posterior y el riesgo legal. Los siguientes guiones son ejemplos adaptables, no rígidos. El principio es siempre el mismo: nombrar la complicación, contextualizarla, explicar el plan y documentar por escrito.</p>
+<p><strong>Script 1 · Comunicación de PIH leve-moderada al detectarla en revisión</strong></p>
+<blockquote>
+<p>"Lo que vemos aquí es lo que llamamos hiperpigmentación post-inflamatoria. Es la reacción más frecuente tras un plasma pen, sobre todo en pieles como la suya. No es una cicatriz, no es un daño permanente en la mayoría de los casos. Lo que ha ocurrido es que su melanocito ha respondido al estímulo térmico produciendo más pigmento del esperado. El plan es claro: vamos a intensificar la fotoprotección a 50+ mineral varias veces al día, vamos a añadir un sérum despigmentante que le voy a pautar, y vamos a vernos cada 4 semanas para documentar la evolución. La mayoría de los casos como el suyo se resuelven en 2 a 6 meses. Si en la primera revisión no vemos mejora, la derivaremos al dermatólogo colaborador para reforzar el tratamiento. ¿Tiene dudas? Le entrego este resumen por escrito y firmamos juntas la hoja de seguimiento."</p>
+</blockquote>
+<p>Documentar: fotografía, descripción clínica, plan pautado, firma de la paciente.</p>
+<p><strong>Script 2 · Comunicación de sospecha de infección</strong></p>
+<blockquote>
+<p>"Lo que me describe y lo que veo no es la evolución normal. El dolor que aumenta a partir del día 3, este enrojecimiento que se extiende y el calor local son signos que tenemos que valorar como posible infección. No me corresponde a mí pautarle un tratamiento antibiótico; lo que voy a hacer ahora mismo es llamar al médico colaborador / pedirle que acuda hoy a su médico de cabecera o a urgencias para que la valore y, si lo considera, le pauten un antibiótico. Mientras tanto, mantenga la zona limpia con suero salino y no aplique más cremas hasta que el médico la valore. Le envío por escrito el resumen de lo que hemos hecho y de lo que sospechamos para que se lo enseñe al médico. ¿Puede ir hoy mismo?"</p>
+</blockquote>
+<p>Documentar: descripción objetiva de signos, recomendación de derivación, hora de la comunicación, vía (presencial / teléfono / WhatsApp), respuesta de la paciente.</p>
+<p><strong>Script 3 · Comunicación de cicatriz incipiente</strong></p>
+<blockquote>
+<p>"He revisado la zona y veo que aquí, en estos puntos, la piel está reaccionando con un relieve que no es el esperado. Puede tratarse de una cicatriz hipertrófica incipiente. Es poco frecuente pero ocurre, y cuanto antes lo abordemos, mejor es el pronóstico. La voy a derivar al dermatólogo colaborador para que valore el inicio de un tratamiento médico que puede incluir parches de silicona, infiltraciones o láser específico. No es algo que se trate desde la cabina estética. Mientras consigue la cita, le pido que no aplique nada nuevo y que evite la exposición solar. ¿Quiere que llame yo al consultorio para agilizar la cita?"</p>
+</blockquote>
+<p>Documentar: fotografía, descripción, derivación efectuada, fecha de cita si la hay.</p>
+<p><strong>Script 4 · Comunicación cuando la paciente no ha respetado el aftercare</strong></p>
+<blockquote>
+<p>"Veo en la evolución algunas cosas que probablemente se relacionan con lo que comentábamos en consulta. ¿Recuerda cuando hablamos de la importancia de no exponerse al sol y de evitar los retinoides estas primeras semanas? Lo que vemos hoy es coherente con esa exposición. No le digo esto para regañarla, sino para que entendamos juntas qué ha pasado y para reforzar a partir de ahora. El plan es el siguiente..."</p>
+</blockquote>
+<p>Documentar siempre: lo que la paciente reconoce haber hecho fuera de protocolo se anota tal cual en la ficha, sin juicio pero sin omisiones. Esa anotación es la que protege al centro frente a una reclamación posterior.</p>
+<h2 id="9-diagnostico-diferencial-pre-tratamiento">9 · Diagnóstico diferencial pre-tratamiento</h2>
+<p>Aunque el diagnóstico definitivo de una lesión cutánea no es competencia de la profesional de estética, sí lo es la <strong>detección de la sospecha</strong> y la decisión de derivar. Esta sección entrena el ojo clínico para reconocer cuándo una lesión "parece lo que parece" y cuándo conviene parar.</p>
+<h3 id="91-lentigo-solar-vs-nevus-melanocitico-vs-melanoma">9.1 · Lentigo solar vs nevus melanocítico vs melanoma</h3>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>Lentigo solar</th>
+<th>Nevus melanocítico común</th>
+<th>Melanoma (sospecha)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Forma</td>
+<td>Mácula plana</td>
+<td>Mácula o pápula simétrica</td>
+<td>Asimétrica</td>
+</tr>
+<tr>
+<td>Bordes</td>
+<td>Bien definidos, regulares</td>
+<td>Regulares</td>
+<td>Irregulares, dentados</td>
+</tr>
+<tr>
+<td>Color</td>
+<td>Marrón homogéneo claro-medio</td>
+<td>Marrón uniforme</td>
+<td>Heterogéneo (2+ tonos)</td>
+</tr>
+<tr>
+<td>Diámetro</td>
+<td>Variable, suele &lt;10 mm</td>
+<td>Variable</td>
+<td>Frecuentemente &gt;6 mm</td>
+</tr>
+<tr>
+<td>Localización</td>
+<td>Áreas fotoexpuestas (manos, escote, cara)</td>
+<td>Cualquier zona</td>
+<td>Cualquier zona</td>
+</tr>
+<tr>
+<td>Evolución</td>
+<td>Estable o aumento muy lento</td>
+<td>Estable años</td>
+<td>Cambio reciente</td>
+</tr>
+<tr>
+<td>Conducta</td>
+<td>Tratable con plasma pen tras valoración</td>
+<td>Si dudas, derivar</td>
+<td><strong>Derivar siempre</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="92-queratosis-seborreica-vs-queratosis-actinica">9.2 · Queratosis seborreica vs queratosis actínica</h3>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>Queratosis seborreica</th>
+<th>Queratosis actínica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aspecto</td>
+<td>"Pegada", verrugosa, marrón</td>
+<td>Rugosa, eritematosa, mal definida</td>
+</tr>
+<tr>
+<td>Tacto</td>
+<td>Cerosa, granulosa</td>
+<td>Áspera, como lija fina</td>
+</tr>
+<tr>
+<td>Color</td>
+<td>Marrón claro a oscuro, homogéneo</td>
+<td>Rosado-rojizo, a veces con escama amarillenta</td>
+</tr>
+<tr>
+<td>Localización</td>
+<td>Tronco, cara, dorso de manos</td>
+<td>Áreas crónicamente fotoexpuestas (cara, cuero cabelludo, dorso de manos)</td>
+</tr>
+<tr>
+<td>Edad</td>
+<td>Cualquier edad adulta</td>
+<td>Predomina &gt;50 años con daño solar</td>
+</tr>
+<tr>
+<td>Naturaleza</td>
+<td>Benigna</td>
+<td><strong>Premaligna</strong> (riesgo de evolución a carcinoma epidermoide)</td>
+</tr>
+<tr>
+<td>Conducta</td>
+<td>Tratable con plasma pen</td>
+<td><strong>Derivar al dermatólogo. No tratar en cabina.</strong></td>
+</tr>
+</tbody>
+</table>
+<p>La queratosis actínica es el error diagnóstico más relevante para la profesional. Tratarla con plasma pen retrasa el diagnóstico de una lesión que puede degenerar. Ante cualquier mancha rugosa al tacto en una persona con daño solar acumulado, derivar.</p>
+<h3 id="93-fibroma-blando-vs-nevus-pediculado">9.3 · Fibroma blando vs nevus pediculado</h3>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>Fibroma blando (acrocordón)</th>
+<th>Nevus melanocítico pediculado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Color</td>
+<td>Color piel o ligeramente más oscuro</td>
+<td>Marrón, a veces con pelos</td>
+</tr>
+<tr>
+<td>Consistencia</td>
+<td>Blando, móvil</td>
+<td>Más firme</td>
+</tr>
+<tr>
+<td>Base</td>
+<td>Pediculada estrecha</td>
+<td>Pediculada o sésil</td>
+</tr>
+<tr>
+<td>Localización</td>
+<td>Cuello, axilas, ingles, párpados</td>
+<td>Cualquier zona</td>
+</tr>
+<tr>
+<td>Conducta</td>
+<td>Tratable con plasma pen</td>
+<td>Derivar para confirmación; mejor extirpación con estudio histológico</td>
+</tr>
+</tbody>
+</table>
+<p>Ante cualquier lesión pediculada <strong>con pigmento intenso o heterogéneo</strong>, derivar antes de tratar. El plasma pen sobre un nevus impide el estudio histológico posterior y borra información diagnóstica que podría ser relevante.</p>
+<h3 id="94-regla-abcde-benigno-vs-sospechoso">9.4 · Regla ABCDE — benigno vs sospechoso</h3>
+<p>Aplicable a cualquier lesión pigmentada. Si cumple uno o más criterios, <strong>derivar</strong>:</p>
+<ul>
+<li><strong>A · Asimetría</strong>: una mitad no es espejo de la otra.</li>
+<li><strong>B · Bordes</strong>: irregulares, dentados, mal definidos.</li>
+<li><strong>C · Color</strong>: heterogéneo, con dos o más tonalidades, áreas blancas o azuladas.</li>
+<li><strong>D · Diámetro</strong>: mayor de 6 mm (referencia orientativa, no absoluta).</li>
+<li><strong>E · Evolución</strong>: cambio reciente en tamaño, forma, color, picor o sangrado.</li>
+</ul>
+<p>Norma de oro: <strong>ante la duda, derivar</strong>. Una derivación de más nunca daña; una sublimación inadecuada de una lesión maligna sí.</p>
+<h2 id="10-troubleshooting-tecnico">10 · Troubleshooting técnico</h2>
+<p>Situaciones frecuentes en cabina y conducta razonada.</p>
+<p><strong>El arco hace zumbido pero no salta chispa</strong>.</p>
+<ul>
+<li>Verificar carga de batería o conexión eléctrica.</li>
+<li>Comprobar que la punta esté correctamente enroscada y limpia (residuos carbonizados aíslan).</li>
+<li>Distancia punta-piel: si está demasiado lejos (&gt;1,5 mm) o demasiado cerca (contacto directo) el arco no se forma. Ajustar a 0,5-1 mm.</li>
+<li>Humedad excesiva del campo: secar de nuevo la piel.</li>
+<li>Si persiste tras estas comprobaciones, suspender la sesión y revisar el equipo. No insistir.</li>
+</ul>
+<p><strong>La costra se desprende muy pronto (día 2-3)</strong>.</p>
+<ul>
+<li>Indica reepitelización rápida pero también riesgo de exposición prematura de piel inmadura.</li>
+<li>Posibles causas: fricción mecánica (la paciente la ha tocado, dormido del lado tratado, usado mascarilla ajustada), exceso de regenerador oclusivo, lavado con jabones agresivos.</li>
+<li>Conducta: intensificar regenerador no oclusivo (pantenol + centella), fotoprotección mineral estricta desde ya, evitar maquillaje hasta cierre completo. Vigilar PIH en revisión a las 2 semanas.</li>
+</ul>
+<p><strong>La paciente reporta hipersensibilidad excesiva (días siguientes)</strong>.</p>
+<ul>
+<li>Diferenciar dolor (sospecha de complicación, valorar infección) de hipersensibilidad-escozor-tirantez (proceso normal exacerbado).</li>
+<li>Si es escozor: confirmar que no se está aplicando ningún activo prohibido (retinol, vitamina C alta, AHA). Cambiar a fórmulas mínimas (pantenol o ácido hialurónico libre solos) durante 3-5 días.</li>
+<li>Compresas frías intermitentes con suero fisiológico.</li>
+<li>Si hay enrojecimiento expansivo, calor o dolor pulsátil: derivación médica (descartar infección o reacción alérgica al regenerador).</li>
+</ul>
+<p><strong>Hay sangrado puntual durante la aplicación</strong>.</p>
+<ul>
+<li>Indica sobre-tratamiento en ese punto. Detener inmediatamente la pasada en esa zona.</li>
+<li>Limpiar con suero fisiológico. No aplicar nada más en ese punto durante la sesión.</li>
+<li>Documentar la incidencia. Ese punto tiene riesgo aumentado de cicatriz; informar a la paciente.</li>
+<li>En la próxima sesión, <strong>reducir intensidad un grado</strong> y aumentar distancia punta-piel.</li>
+</ul>
+<p><strong>El carbon spot queda negro intenso o grisáceo en lugar de marrón claro</strong>.</p>
+<ul>
+<li>Sobre-tratamiento por exceso de duración del arco o intensidad demasiado alta.</li>
+<li>Detener la sesión en esa zona, valorar continuar con intensidad inferior o suspender.</li>
+<li>Riesgo aumentado de PIH e hipopigmentación residual. Documentar.</li>
+</ul>
+<p><strong>Patrón irregular de puntos</strong>.</p>
+<ul>
+<li>Suele ser fallo de mano: apoyar el meñique sobre la piel adyacente para estabilizar. El marcado previo con dermográfico ayuda en zonas grandes. Si la paciente se mueve por dolor, revisar el tiempo de oclusión de la anestesia tópica.</li>
+</ul>
+<p><strong>Edema desproporcionado al día siguiente</strong>.</p>
+<ul>
+<li>En periorbitaria es esperable; en otras zonas indica respuesta inflamatoria intensa.</li>
+<li>Conducta: compresas frías 10 min cada 2-3 h, dormir con cabecera elevada, evitar sal y alcohol 48 h.</li>
+<li>Si el edema se acompaña de fiebre, dolor pulsátil o eritema expansivo, derivar.</li>
+</ul>
+<p><strong>La paciente quiere reanudar maquillaje antes de tiempo</strong>.</p>
+<ul>
+<li>Educación firme: nada de maquillaje hasta cierre completo de las costras (mínimo día 8-10). Tras esa fecha, solo maquillaje mineral suave con pincel limpio. Mientras tanto, ofrecer alternativas: fotoprotector mineral con tono, gafas grandes, sombrero.</li>
+</ul>
+<p><strong>El equipo se calienta o emite olor anómalo durante la sesión</strong>.</p>
+<ul>
+<li>Detener inmediatamente. Desconectar, dejar enfriar, revisar manual del fabricante. Reagendar.</li>
+</ul>
+<h2 id="11-test-de-evaluacion">11 · Test de evaluación</h2>
+<p><strong>1. ¿Cuál es la profundidad habitual de la sublimación inducida por plasma pen en condiciones normales de uso?</strong></p>
+<ul>
+<li>a) 5-10 µm, solo estrato córneo</li>
+<li>b) 40-150 µm, epidermis hasta unión dermo-epidérmica ✓</li>
+<li>c) 500 µm, dermis reticular</li>
+<li>d) 1-2 mm, hipodermis</li>
+</ul>
+<p><em>Feedback</em>: el plasma pen es una técnica fundamentalmente epidérmica; la acción sobre el fibroblasto es indirecta, por proximidad térmica y señalización inflamatoria.</p>
+<p><strong>2. ¿Cuál de estos es el riesgo MÁS frecuente en piel Fitzpatrick V tratada con plasma pen?</strong></p>
+<ul>
+<li>a) Cicatriz queloidea</li>
+<li>b) Infección bacteriana</li>
+<li>c) Hiperpigmentación post-inflamatoria ✓</li>
+<li>d) Hipopigmentación permanente</li>
+</ul>
+<p><em>Feedback</em>: la PIH es la complicación más prevalente y la razón por la que muchos autores desaconsejan el plasma pen en fototipos V-VI. Las técnicas que generan más calor y coagulación son las de mayor riesgo de PIH.</p>
+<p><strong>3. ¿Qué ingrediente está contraindicado las primeras 2-4 semanas post-tratamiento?</strong></p>
+<ul>
+<li>a) Pantenol al 5%</li>
+<li>b) Tretinoína ✓</li>
+<li>c) Centella asiática</li>
+<li>d) Ácido hialurónico libre</li>
+</ul>
+<p><em>Feedback</em>: los retinoides interfieren con la reepitelización, aumentan la irritación y elevan el riesgo de hiperpigmentación inflamatoria. Se reintroducen progresivamente a partir de la semana 4-6.</p>
+<p><strong>4. ¿Cuál es el intervalo mínimo recomendado entre dos sesiones de plasma pen en la misma zona?</strong></p>
+<ul>
+<li>a) 1 semana</li>
+<li>b) 3-4 semanas</li>
+<li>c) 8-12 semanas ✓</li>
+<li>d) 6 meses</li>
+</ul>
+<p><em>Feedback</em>: la neocolagénesis y remodelación requiere 8-12 semanas para completarse; tratar antes interrumpe el proceso y multiplica el riesgo sin aportar resultado adicional.</p>
+<p><strong>5. Ante un fibroma blando de 2 mm en cuello con base pediculada en una paciente Fitzpatrick III sin antecedentes relevantes, ¿qué procede?</strong></p>
+<ul>
+<li>a) Tratar en la misma consulta de valoración tras consentimiento verbal</li>
+<li>b) Tratar tras consentimiento informado escrito, intensidad media-baja, sesión única ✓</li>
+<li>c) Derivar siempre a cirugía menor por riesgo de cicatriz</li>
+<li>d) Aplicar 3 sesiones espaciadas para minimizar riesgo</li>
+</ul>
+<p><em>Feedback</em>: el acrocordón es una de las indicaciones con mejor respaldo. Una única sesión bien dosificada suele bastar. El consentimiento escrito y la valoración previa son obligatorios.</p>
+<p><strong>6. ¿Cuál de estas situaciones obliga a NO tratar o derivar al médico antes de cualquier intervención?</strong></p>
+<ul>
+<li>a) Paciente con Fitzpatrick II y arrugas periorbitarias estáticas</li>
+<li>b) Paciente con fibroma blando estable de varios años</li>
+<li>c) Lesión pigmentada de bordes irregulares, asimétrica, de aparición reciente ✓</li>
+<li>d) Paciente con dermatocalasia leve del párpado superior</li>
+</ul>
+<p><em>Feedback</em>: cualquier lesión pigmentada con criterios ABCDE de sospecha exige derivación a dermatólogo antes de aplicar plasma. Tratar una lesión maligna con plasma pen retrasa el diagnóstico y puede empeorar el pronóstico.</p>
+<p><strong>7. Una paciente acude al día 5 post-tratamiento con eritema que se extiende más allá de la zona tratada, dolor creciente y sensación de calor local. ¿Qué procede?</strong></p>
+<ul>
+<li>a) Aumentar la frecuencia de aplicación del regenerador y citar en 1 semana</li>
+<li>b) Aplicar corticoide tópico de potencia media</li>
+<li>c) Derivar al médico con sospecha de infección ✓</li>
+<li>d) Iniciar despigmentantes tópicos preventivos</li>
+</ul>
+<p><em>Feedback</em>: el patrón descrito (dolor creciente tras día 3, eritema expansivo, calor) es compatible con infección bacteriana. Requiere valoración médica para eventual antibioterapia. Nunca automedicar antibióticos.</p>
+<p><strong>8. Durante una sesión sobre lentigos en dorso de mano de una paciente Fitzpatrick II, en uno de los puntos aparece sangrado puntiforme tras el impacto del arco. ¿Cuál es la conducta correcta?</strong></p>
+<ul>
+<li>a) Continuar la sesión con la misma intensidad para mantener la uniformidad del patrón</li>
+<li>b) Repasar inmediatamente el punto sangrante para coagularlo</li>
+<li>c) Detener la pasada en esa zona, limpiar con suero, documentar la incidencia y reducir intensidad en la próxima sesión ✓</li>
+<li>d) Aplicar corticoide tópico en ese punto y continuar el resto del tratamiento</li>
+</ul>
+<p><em>Feedback</em>: el sangrado durante la aplicación es un marcador inequívoco de sobre-tratamiento y de penetración más allá de la unión dermo-epidérmica. Repasar agrava la lesión; continuar con la misma intensidad multiplica el riesgo de cicatriz en otros puntos. La conducta correcta es detener esa zona, limpiar, documentar el punto de riesgo (que debe vigilarse en revisión por posible cicatriz puntiforme) y ajustar parámetros a la baja en futuras sesiones.</p>
+<h2 id="12-referencias">12 · Referencias</h2>
+<ul>
+<li>AEMPS. <em>Productos sin finalidad médica del Anexo XVI</em>. https://www.aemps.gob.es/productos-sanitarios/productos-sanitarios/productos-sin-finalidad-medica-anexo-xvi/</li>
+<li>AEMPS. <em>Productos sanitarios — clasificación</em>. https://www.aemps.gob.es/productos-sanitarios/productos-sanitarios/</li>
+<li>BOE. <em>Reglamento de Ejecución (UE) 2022/2346</em> sobre especificaciones comunes de productos del Anexo XVI. https://www.boe.es/buscar/doc.php?id=DOUE-L-2022-81778</li>
+<li>Reglamento (UE) 2017/745 del Parlamento Europeo y del Consejo sobre productos sanitarios.</li>
+<li>Real Decreto 192/2023, sobre productos sanitarios.</li>
+<li>Real Decreto 1277/2003, sobre centros, servicios y establecimientos sanitarios.</li>
+<li>SEME (Sociedad Española de Medicina Estética). <em>El Tribunal Supremo ratifica que la Medicina Estética es campo exclusivo del médico</em>. https://www.seme.org/</li>
+<li>SEME. <em>El Reglamento de Ejecución europeo no modifica la legislación ni el criterio de los tribunales en España</em>. https://www.seme.org/</li>
+<li>Tsioumas SG, Pona A, Brodell RT. <em>A Descriptive Study on the Applications of Plasma Exeresis in Dermatology</em>. Journal of Clinical and Aesthetic Dermatology (JCAD). https://jcadonline.com/descriptive-plasma-exeresis/</li>
+<li>Noorbakhsh et al. <em>Comparing the efficacy of plasma exeresis and cryotherapy for the treatment of seborrheic keratosis: A randomized controlled trial</em>. Skin Research and Technology, 2023.</li>
+<li>Rossi E et al. Estudios sobre plasma exéresis en lesiones cutáneas benignas (blefaroplastia, fibromas, queratosis, xantelasma).</li>
+<li>Periorbital postinflammatory hyperpigmentation after plasma exeresis. PMC. https://pmc.ncbi.nlm.nih.gov/articles/PMC7317400/</li>
+<li>StatPearls. <em>Postinflammatory Hyperpigmentation</em>. NCBI Bookshelf. https://www.ncbi.nlm.nih.gov/books/NBK559150/</li>
+<li><em>Tranexamic Acid for Hyperpigmentation Disorders: A Literature Review on Efficacy and Safety in Melasma and PIH</em>. PMC.</li>
+<li><em>Cosmeceuticals for Hyperpigmentation: What is Available?</em> PMC. https://pmc.ncbi.nlm.nih.gov/articles/PMC3663177/</li>
+<li><em>A split-face study of moisturizer containing Centella asiatica extract after ablative fractional carbon dioxide laser resurfacing</em>.</li>
+<li><em>Evaluation of the Efficacy and Safety of a Panthenol-Enriched Mask for Skin Barrier Recovery After Facial Laser Treatment</em>. Journal of Cosmetic Dermatology, 2025.</li>
+<li>FDA. <em>EMLA (lidocaine 2.5% and prilocaine 2.5%) prescribing information</em>. https://www.accessdata.fda.gov/</li>
+</ul>
+<hr>
+<p><em>Material docente PRECISSA INSTITUTE · Última revisión 25 de mayo de 2026</em></p>
+  </div>
+</div>
+</body>
+</html>
