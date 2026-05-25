@@ -1,5 +1,5 @@
 /* =============================================================
- * PRECISSA · Datos de los cursos
+ * PRECISSA INSTITUTE · Datos de los cursos
  * -------------------------------------------------------------
  * Este archivo es la "base de datos" de los cursos mientras
  * no haya backend. Para añadir o modificar un curso:

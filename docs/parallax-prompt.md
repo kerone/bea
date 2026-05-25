@@ -1,4 +1,4 @@
-# PRECISSA — Implementar sección de scroll 3D con parallax por capas
+# PRECISSA INSTITUTE — Implementar sección de scroll 3D con parallax por capas
 
 > Prompt autosuficiente. Pégalo en Cowork o pásalo a un agente. Toda la información necesaria está aquí.
 
@@ -6,13 +6,13 @@
 
 ## 1. Qué hay que construir
 
-Una **sección editorial con efecto parallax 3D al hacer scroll** dentro de la web PRECISSA (escuela de estética + tienda de aparatología). La imagen base ya existe en disco. Hay que:
+Una **sección editorial con efecto parallax 3D al hacer scroll** dentro de la web PRECISSA INSTITUTE (escuela de estética + tienda de aparatología). La imagen base ya existe en disco. Hay que:
 
 1. **Separar la imagen en 3 capas PNG** (fondo / rostro / mano).
 2. **Integrar la sección** en `precissa.html` en el lugar indicado.
 3. **Animar las capas al scrollear** con velocidades distintas → ilusión de profundidad real.
 
-El resultado debe encajar con el sistema de diseño PRECISSA: warm-neutral, editorial, sin animaciones spring exageradas.
+El resultado debe encajar con el sistema de diseño PRECISSA INSTITUTE: warm-neutral, editorial, sin animaciones spring exageradas.
 
 ---
 
@@ -114,7 +114,7 @@ Ir con la **principal** salvo que el HTML actual no tenga espacio razonable para
         El detalle se aprende <em>mirando.</em>
       </h2>
       <p class="lede">
-        Cada protocolo de PRECISSA se graba sobre piel real. Cejas, labios, párpado.
+        Cada protocolo de PRECISSA INSTITUTE se graba sobre piel real. Cejas, labios, párpado.
         La <em>técnica</em> antes que el resultado.
       </p>
       <a class="link-arrow" href="/cursos/cosmetologia">

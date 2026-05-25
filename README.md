@@ -1,6 +1,6 @@
-# PRECISSA — Escuela de estética avanzada
+# PRECISSA INSTITUTE — Escuela de estética avanzada
 
-Web estática (HTML/CSS/JS puro) para la academia **PRECISSA**.
+Web estática (HTML/CSS/JS puro) para la academia **PRECISSA INSTITUTE**.
 Sirve a la vez como vitrina pública de los cursos y como aula privada donde el alumnado accede a su materia (slides en HTML) y a sus tests.
 
 > **Stack:** un solo `index.html` + scripts en `assets/js/`. Sin build, sin instalación. El backend de login/usuarios va por **Supabase** (plan gratuito).
@@ -215,4 +215,4 @@ Tokens CSS en `:root` dentro de `<style>`:
 
 ## 📄 Licencia
 
-Proyecto privado para la academia PRECISSA. Todos los derechos reservados.
+Proyecto privado para la academia PRECISSA INSTITUTE. Todos los derechos reservados.

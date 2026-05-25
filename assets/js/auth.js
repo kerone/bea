@@ -1,5 +1,5 @@
 /* =============================================================
- * PRECISSA · Autenticación (Supabase)
+ * PRECISSA INSTITUTE · Autenticación (Supabase)
  * -------------------------------------------------------------
  * Maneja login con Google + email/contraseña, signup, logout y
  * la lectura de la sesión actual. Expone window.auth con la API

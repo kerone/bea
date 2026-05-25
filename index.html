@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PRECISSA — Escuela de estética avanzada</title>
+<title>PRECISSA INSTITUTE — Escuela de estética avanzada</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -163,9 +163,17 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .nav-logo {
   font-family: var(--serif); font-size: 34px; letter-spacing: 0.22em;
   color: var(--ink); cursor: pointer; flex-shrink: 0;
+  line-height: 1; text-align: center;
+}
+.nav-logo-sub {
+  display: block;
+  font-family: var(--sans); font-size: 9px; font-weight: 500;
+  letter-spacing: 0.46em; color: var(--muted);
+  margin-top: 5px; padding-left: 0.46em;
 }
 @media (max-width: 768px) {
   .nav-logo { font-size: 22px; letter-spacing: 0.18em; }
+  .nav-logo-sub { font-size: 7.5px; letter-spacing: 0.38em; margin-top: 3px; padding-left: 0.38em; }
 }
 .nav-link {
   font-size: 13.5px; font-weight: 400; color: var(--ink-soft);
@@ -282,7 +290,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       <span class="nav-link" onclick="goTo('tienda','aparatologia')">Aparatología</span>
       <span class="nav-link">Diario</span>
     </div>
-    <div class="nav-logo" onclick="goTo('home','')">PRECISSA</div>
+    <div class="nav-logo" onclick="goTo('home','')">PRECISSA<span class="nav-logo-sub">INSTITUTE</span></div>
     <div class="nav-right">
       <button class="btn btn-dark btn-sm acceder-btn" onclick="goTo('aula','docencia')">Acceder</button>
       <button class="btn btn-text mi-aula-btn" style="display:none" onclick="goTo('aula','docencia')">Mi aula →</button>
@@ -300,7 +308,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   <!-- Mobile row -->
   <div class="nav-mobile">
     <button class="hamburger" onclick="openDrawer()">☰</button>
-    <div class="nav-logo" onclick="goTo('home','')">PRECISSA</div>
+    <div class="nav-logo" onclick="goTo('home','')">PRECISSA<span class="nav-logo-sub">INSTITUTE</span></div>
     <div class="nav-mobile-right">
       <button class="btn btn-dark btn-sm acceder-btn" style="padding:8px 14px;font-size:12px" onclick="goTo('aula','docencia')">Acceder</button>
       <button class="btn btn-text mi-aula-btn" style="display:none;font-size:12px" onclick="goTo('aula','docencia')">Mi aula →</button>
@@ -574,7 +582,13 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 /* Footer */
 .footer { background: var(--ink); color: var(--bg); padding: 64px 56px 32px; }
 .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
-.footer-logo { font-family: var(--serif); font-size: 28px; letter-spacing: 0.18em; margin-bottom: 12px; }
+.footer-logo { font-family: var(--serif); font-size: 28px; letter-spacing: 0.18em; margin-bottom: 12px; line-height: 1; }
+.footer-logo-sub {
+  display: block;
+  font-family: var(--sans); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.46em; color: var(--muted);
+  margin-top: 6px; padding-left: 0.46em;
+}
 .footer-bio { font-size: 13px; color: rgba(242,236,227,0.55); line-height: 1.6; max-width: 240px; }
 .footer-col-title { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: rgba(242,236,227,0.45); margin-bottom: 16px; }
 .footer-link { font-size: 13.5px; color: rgba(242,236,227,0.7); display: block; margin-bottom: 8px; cursor: pointer; transition: color 0.15s; }
@@ -624,9 +638,9 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       </div>
     </div>
     <div class="hero-right" style="position:relative;overflow:hidden;">
-      <img src="assets/IMG-20260522-WA0032.jpg" alt="Editorial PRECISSA"
+      <img src="assets/IMG-20260522-WA0032.jpg" alt="Editorial PRECISSA INSTITUTE"
         style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
-      <div class="ph-label">editorial PRECISSA · primavera 2026</div>
+      <div class="ph-label">editorial PRECISSA INSTITUTE · primavera 2026</div>
     </div>
   </section>
 
@@ -666,7 +680,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
           <span class="chip chip-outline">Aparatología</span>
         </div>
         <div class="diptych-display" style="font-family:var(--serif);font-size:64px;letter-spacing:-0.022em;line-height:0.95;margin:16px 0 14px">Equípate.</div>
-        <p class="diptych-desc" style="color:var(--ink-soft)">Aparatología profesional. El equipo que se enseña en PRECISSA, disponible para tu cabina.</p>
+        <p class="diptych-desc" style="color:var(--ink-soft)">Aparatología profesional. El equipo que se enseña en PRECISSA INSTITUTE, disponible para tu cabina.</p>
         <div class="diptych-link">
           <button class="btn btn-text" onclick="goTo('tienda','aparatologia')">Entrar a la tienda →</button>
         </div>
@@ -678,13 +692,13 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   <section class="profesora">
     <div class="profesora-grid">
       <div class="profesora-img-wrap">
-        <img class="profesora-img" src="assets/profesora.jpg" alt="Profesora de PRECISSA">
+        <img class="profesora-img" src="assets/profesora.jpg" alt="Profesora de PRECISSA INSTITUTE">
       </div>
       <div class="profesora-content">
         <span class="eyebrow accent">Beatriz Navarro</span>
         <h2 class="profesora-h2">El criterio<br>detrás de cada<br><em>protocolo.</em></h2>
         <p class="profesora-lead">Más de 15 años en cabina, cientos de horas de docencia y una obsesión: que cada alumna entienda <em>por qué</em> cada técnica funciona, no solo cómo se aplica.</p>
-        <p class="profesora-desc">En PRECISSA no se enseña a copiar un protocolo: se enseña a leer la piel, anticipar su respuesta y diseñar el tratamiento que de verdad encaja con esa cabina, esa máquina y ese cliente. Cada curso pasa por sus manos antes de llegar al aula.</p>
+        <p class="profesora-desc">En PRECISSA INSTITUTE no se enseña a copiar un protocolo: se enseña a leer la piel, anticipar su respuesta y diseñar el tratamiento que de verdad encaja con esa cabina, esa máquina y ese cliente. Cada curso pasa por sus manos antes de llegar al aula.</p>
         <div class="profesora-creds">
           <div class="profesora-cred"><span>·</span> Especialista en estética avanzada y aparatología</div>
           <div class="profesora-cred"><span>·</span> Formadora en electroestética, cosmetología y radiofrecuencia</div>
@@ -697,7 +711,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   <section class="pullquote">
     <span class="eyebrow">· Nuestra filosofía</span>
     <h2 class="pullquote-h2">La piel se cuida con <em>conocimiento.</em><br>La cabina se respeta con <em>método.</em></h2>
-    <p class="pullquote-desc">En PRECISSA no separamos la ciencia del gesto. Cada protocolo nace de evidencia clínica y se perfecciona en cabina.</p>
+    <p class="pullquote-desc">En PRECISSA INSTITUTE no separamos la ciencia del gesto. Cada protocolo nace de evidencia clínica y se perfecciona en cabina.</p>
   </section>
 
   <!-- ÁREAS DE ESPECIALIZACIÓN -->
@@ -714,7 +728,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       <div class="area-card" style="cursor:pointer" onclick="goTo('cursos','docencia')">
         <div class="area-card-img ph ph-clay">
           <span class="area-roman">I</span>
-          <div class="ph-label">electroestética · PRECISSA</div>
+          <div class="ph-label">electroestética · PRECISSA INSTITUTE</div>
         </div>
         <div class="area-card-body">
           <div class="area-cat">Electroestética</div>
@@ -726,7 +740,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       <div class="area-card" style="cursor:pointer">
         <div class="area-card-img ph ph-rose">
           <span class="area-roman">II</span>
-          <div class="ph-label">cosmetología · PRECISSA</div>
+          <div class="ph-label">cosmetología · PRECISSA INSTITUTE</div>
         </div>
         <div class="area-card-body">
           <div class="area-cat">Cosmetología</div>
@@ -738,7 +752,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       <div class="area-card" style="cursor:pointer">
         <div class="area-card-img ph ph-dusk">
           <span class="area-roman">III</span>
-          <div class="ph-label">micropigmentación · PRECISSA</div>
+          <div class="ph-label">micropigmentación · PRECISSA INSTITUTE</div>
         </div>
         <div class="area-card-body">
           <div class="area-cat">Micropigmentación</div>
@@ -765,7 +779,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
         <div class="product-img ph ph-clay"><span class="product-learn-chip">Aprende a usarlo</span></div>
         <div class="product-body">
           <span class="chip chip-accent" style="margin-bottom:8px">Electroestética</span>
-          <div class="product-name">PRECISSA RF-200</div>
+          <div class="product-name">PRECISSA INSTITUTE RF-200</div>
           <p class="product-desc">Radiofrecuencia facial tripolar con sensor de impedancia en tiempo real.</p>
           <div class="product-price-row">
             <span class="product-price serif">Consultar precio</span>
@@ -787,7 +801,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
           <img src="assets/IMG-20260522-WA0032.jpg" alt="Nerea Álvarez"
             style="width:100%;height:240px;object-fit:cover;object-position:center top;display:block;filter:grayscale(100%);">
         </div>
-        <p class="testimonial-quote">"PRECISSA me dio el lenguaje para explicar lo que ya hacía. Ahora mis clientas confían en el protocolo, no sólo en mí."</p>
+        <p class="testimonial-quote">"PRECISSA INSTITUTE me dio el lenguaje para explicar lo que ya hacía. Ahora mis clientas confían en el protocolo, no sólo en mí."</p>
         <div class="testimonial-name">Nerea Álvarez</div>
         <div class="testimonial-centro">Centro Estético Nerea · Bilbao</div>
       </div>
@@ -799,7 +813,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       </div>
       <div class="testimonial-card">
         <div class="testimonial-img ph ph-clay"></div>
-        <p class="testimonial-quote">"Los tests son lo que diferencia a PRECISSA. Saber que tengo el 83 % en electroestética me da seguridad real en cabina."</p>
+        <p class="testimonial-quote">"Los tests son lo que diferencia a PRECISSA INSTITUTE. Saber que tengo el 83 % en electroestética me da seguridad real en cabina."</p>
         <div class="testimonial-name">Marta Iglesias</div>
         <div class="testimonial-centro">Clínica Estética Iglesias · Sevilla</div>
       </div>
@@ -811,7 +825,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <div class="ph ph-honey newsletter-bg"></div>
     <div class="newsletter-overlay"></div>
     <div class="newsletter-content">
-      <span class="eyebrow white">· Diario PRECISSA</span>
+      <span class="eyebrow white">· Diario PRECISSA INSTITUTE</span>
       <h2 class="newsletter-h2">Suscríbete al diario<br>de cabina. Protocolos,<br>fichas y <em>ofertas en<br>aparatología.</em></h2>
       <div class="newsletter-form" id="newsletter-form">
         <input class="newsletter-input" type="email" placeholder="tu@email.com">
@@ -825,7 +839,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   <footer class="footer">
     <div class="footer-grid">
       <div>
-        <div class="footer-logo">PRECISSA</div>
+        <div class="footer-logo">PRECISSA<span class="footer-logo-sub">INSTITUTE</span></div>
         <p class="footer-bio">Escuela de estética avanzada y tienda de aparatología profesional. Formación rigurosa para las mejores especialistas de España.</p>
       </div>
       <div>
@@ -841,14 +855,14 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       </div>
       <div>
         <div class="footer-col-title">Compañía</div>
-        <a class="footer-link">Sobre PRECISSA</a>
+        <a class="footer-link">Sobre PRECISSA INSTITUTE</a>
         <a class="footer-link">Trabaja con nosotras</a>
         <a class="footer-link">Aviso legal</a>
         <a class="footer-link">Privacidad</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy">© 2026 PRECISSA · Todos los derechos reservados</span>
+      <span class="footer-copy">© 2026 PRECISSA INSTITUTE · Todos los derechos reservados</span>
       <div class="footer-socials">
         <span class="footer-social">Instagram</span>
         <span class="footer-social">YouTube</span>
@@ -895,7 +909,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   <div class="cursos-pub-head">
     <span class="eyebrow accent">· Docencia / Cursos</span>
     <h1 class="cursos-pub-h1">Programas <em>formativos</em>.</h1>
-    <p class="cursos-pub-desc">Cursos de protocolo riguroso, basados en evidencia y diseñados para profesionales en activo. Si ya eres alumna de PRECISSA, accede al aula para entrar en tu materia y tests.</p>
+    <p class="cursos-pub-desc">Cursos de protocolo riguroso, basados en evidencia y diseñados para profesionales en activo. Si ya eres alumna de PRECISSA INSTITUTE, accede al aula para entrar en tu materia y tests.</p>
   </div>
   <div class="cursos-pub-grid" id="cursos-pub-grid">
     <!-- Generated by JS from window.PRECISSA_COURSES -->
@@ -1196,7 +1210,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
         <div class="precio-card-play" style="background:rgba(36,29,23,0.18);">
           <div class="precio-card-play-btn" onclick="goTo('leccion','docencia')">▶</div>
         </div>
-        <div class="ph-label">la piel · lección 1 · PRECISSA</div>
+        <div class="ph-label">la piel · lección 1 · PRECISSA INSTITUTE</div>
       </div>
       <div class="precio-card-body">
         <div class="precio-old">€220</div>
@@ -1800,7 +1814,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
           <div class="lv-pquote">El detalle se aprende <em>mirando.</em></div>
         </div>
         <div>
-          <p class="lv-pbody">Cada protocolo de PRECISSA se graba sobre piel real. Cejas, labios, párpado. La <em>técnica</em> antes que el resultado: respeto, criterio y precisión sobre el órgano que tienes delante.</p>
+          <p class="lv-pbody">Cada protocolo de PRECISSA INSTITUTE se graba sobre piel real. Cejas, labios, párpado. La <em>técnica</em> antes que el resultado: respeto, criterio y precisión sobre el órgano que tienes delante.</p>
         </div>
       </div>
     </div>
@@ -2099,7 +2113,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 <div class="page-wrap">
   <div class="tienda-header">
     <span class="eyebrow">· Aparatología profesional</span>
-    <h1 class="tienda-h1">El equipo que <em>se enseña</em><br>en PRECISSA.</h1>
+    <h1 class="tienda-h1">El equipo que <em>se enseña</em><br>en PRECISSA INSTITUTE.</h1>
     <p class="tienda-meta">Ordenado por relevancia</p>
   </div>
   <div class="filter-chips">
@@ -2116,7 +2130,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       <div class="tienda-product-img ph ph-clay"><span class="product-learn-chip">Aprende a usarlo</span></div>
       <div class="tienda-product-body">
         <span class="chip chip-accent" style="margin-bottom:6px">Electroestética</span>
-        <div class="tienda-product-name">PRECISSA RF-200</div>
+        <div class="tienda-product-name">PRECISSA INSTITUTE RF-200</div>
         <p class="tienda-product-desc">RF tripolar con sensor de impedancia en tiempo real.</p>
         <div class="tienda-product-bottom"><span class="tienda-product-price serif">Consultar precio</span><span style="color:var(--muted)">→</span></div>
         <div class="tienda-product-course">aprende con · <em>Radiofrecuencia facial profesional</em></div>
@@ -2178,10 +2192,10 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
         <span onclick="goTo('home','')">Inicio</span> ›
         <span onclick="goTo('tienda','aparatologia')">Aparatología</span> ›
         <span>Electroestética</span> ›
-        <span style="color:var(--ink)">PRECISSA RF-200</span>
+        <span style="color:var(--ink)">PRECISSA INSTITUTE RF-200</span>
       </div>
       <div class="producto-gallery-main ph ph-clay">
-        <div class="ph-label">PRECISSA RF-200 · tripolar · 2026</div>
+        <div class="ph-label">PRECISSA INSTITUTE RF-200 · tripolar · 2026</div>
       </div>
       <div class="producto-thumbs">
         <div class="producto-thumb active ph ph-clay"></div>
@@ -2192,7 +2206,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     </div>
     <div class="producto-right">
       <div class="producto-eyebrow-row">
-        <span class="eyebrow">PRECISSA · Electroestética facial</span>
+        <span class="eyebrow">PRECISSA INSTITUTE · Electroestética facial</span>
       </div>
       <h1 class="producto-h1">RF-200 <em>Tripolar</em></h1>
       <p class="producto-desc">Radiofrecuencia tripolar con sensor de impedancia en tiempo real. Control preciso de temperatura en dermis para tratamientos de lifting y remodelación facial.</p>
@@ -2201,8 +2215,8 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       </div>
       <div class="producto-precio-nota">Envío peninsular incluido · Garantía 3 años · Formación incluida</div>
       <div class="producto-ctas">
-        <button class="btn btn-clay" onclick="openQuoteForm('PRECISSA RF-200 Tripolar')">Pedir presupuesto</button>
-        <button class="btn btn-outline" onclick="openDemoForm('PRECISSA RF-200 Tripolar')">Solicitar demo</button>
+        <button class="btn btn-clay" onclick="openQuoteForm('PRECISSA INSTITUTE RF-200 Tripolar')">Pedir presupuesto</button>
+        <button class="btn btn-outline" onclick="openDemoForm('PRECISSA INSTITUTE RF-200 Tripolar')">Solicitar demo</button>
       </div>
       <!-- Bloque aprende -->
       <div class="producto-aprende" onclick="goTo('cursos','docencia')">
@@ -2366,7 +2380,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       <form class="quote-form" id="quote-form" novalidate>
         <input type="hidden" name="producto"          id="quote-producto-input" value="">
         <input type="hidden" name="precio_referencia" id="quote-precio-input"   value="">
-        <input type="hidden" name="_subject"          id="quote-subject-input"  value="Nueva solicitud de presupuesto · PRECISSA">
+        <input type="hidden" name="_subject"          id="quote-subject-input"  value="Nueva solicitud de presupuesto · PRECISSA INSTITUTE">
         <input type="hidden" name="_template"         value="table">
         <!-- honeypot -->
         <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
@@ -2375,7 +2389,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
           <span class="quote-label">¿Qué máquina quieres ver en demo? *</span>
           <select name="producto" id="quote-product-select" disabled>
             <option value="">— Selecciona una opción —</option>
-            <option value="PRECISSA RF-200 Tripolar">PRECISSA RF-200 Tripolar · Radiofrecuencia facial</option>
+            <option value="PRECISSA INSTITUTE RF-200 Tripolar">PRECISSA INSTITUTE RF-200 Tripolar · Radiofrecuencia facial</option>
             <option value="Asesoramiento general">Aún no lo sé · quiero asesoramiento</option>
           </select>
         </label>
@@ -2583,7 +2597,7 @@ function filterTienda(chip, cat) {
 // PASOS PARA ACTIVARLO (una sola vez):
 //   1. Crear cuenta gratis en https://onboarding.brevo.com/account/register
 //   2. En el panel: Contacts → Lists → "+ Add a new list" → nombre p.ej.
-//      "Newsletter PRECISSA" → guardar.
+//      "Newsletter PRECISSA INSTITUTE" → guardar.
 //   3. Forms → "+ Create a new form" → tipo "Subscription form".
 //      Asigna la lista creada en el paso 2. Diseño da igual (no se usa).
 //   4. En la pestaña "Share" del form: copia el atributo `action` del
@@ -2629,8 +2643,8 @@ async function submitNewsletter() {
         headers: { 'Content-Type':'application/json', 'Accept':'application/json' },
         body:    JSON.stringify({
           email:     email,
-          origen:    'Suscripcion newsletter (Diario PRECISSA)',
-          _subject:  'Nueva suscripcion newsletter · PRECISSA',
+          origen:    'Suscripcion newsletter (Diario PRECISSA INSTITUTE)',
+          _subject:  'Nueva suscripcion newsletter · PRECISSA INSTITUTE',
           _template: 'table'
         })
       });
@@ -3156,7 +3170,7 @@ function openContactForm(mode, opts) {
   if (mode === 'demo') {
     title.innerHTML       = 'Solicitar <em>demo</em>';
     eyebrow.textContent   = '· Solicitud de demostración';
-    subjectInput.value    = 'Nueva solicitud de demo · PRECISSA';
+    subjectInput.value    = 'Nueva solicitud de demo · PRECISSA INSTITUTE';
     mensaje.placeholder   = '¿Online o presencial? ¿Algún día u horario te conviene mejor?';
     // El campo "producto" activo es el select; el hidden queda inactivo.
     productHidden.disabled = true;
@@ -3176,7 +3190,7 @@ function openContactForm(mode, opts) {
   } else {
     title.innerHTML       = 'Pedir <em>presupuesto</em>';
     eyebrow.textContent   = '· Solicitud de presupuesto';
-    subjectInput.value    = 'Nueva solicitud de presupuesto · PRECISSA';
+    subjectInput.value    = 'Nueva solicitud de presupuesto · PRECISSA INSTITUTE';
     mensaje.placeholder   = '¿Necesitas formación incluida, demo previa, financiación…?';
     // El campo "producto" activo es el hidden; el select queda inactivo.
     productSelect.disabled = true;

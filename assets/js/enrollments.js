@@ -1,5 +1,5 @@
 /* =============================================================
- * PRECISSA · Matrículas (Google Sheets)
+ * PRECISSA INSTITUTE · Matrículas (Google Sheets)
  * -------------------------------------------------------------
  * Lee qué alumna tiene acceso a qué curso desde una hoja de
  * Google publicada como CSV. La hoja debe tener al menos dos

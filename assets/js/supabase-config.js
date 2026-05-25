@@ -1,5 +1,5 @@
 /* =============================================================
- * PRECISSA · Configuración de Supabase
+ * PRECISSA INSTITUTE · Configuración de Supabase
  * -------------------------------------------------------------
  * Pega aquí tu URL y tu anon-key. Las dos vienen del panel de
  * Supabase: Project Settings → API.
