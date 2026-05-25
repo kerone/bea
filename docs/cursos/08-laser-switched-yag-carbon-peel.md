@@ -346,6 +346,18 @@ Tras la quinta sesión: mejora subjetiva del paciente y objetivable fotográfica
 
 Lecciones del caso: el Carbon Peel es excelente en este perfil. Resultado visible desde la primera sesión, acumulativo, sin downtime. La integración con cosmética activa domiciliaria potencia y mantiene el resultado.
 
+### 5.4 · Sinergias y combinaciones
+
+El Q-switched no es una técnica aislada. Su rendimiento clínico mejora cuando se integra en un plan estético más amplio y, en algunos casos, cuando se combina deliberadamente con otras tecnologías.
+
+- **Carbon Peel + cosmética activa domiciliaria**: la disciplina con vitamina C, niacinamida y BHA en pauta diaria potencia y mantiene el "glow" entre sesiones.
+- **Q-switched 1064 toning + tratamiento médico del melasma**: solo bajo supervisión médica; las fluencias subablativas ("toning") repetidas pueden formar parte de un protocolo multimodal con tranexámico oral y despigmentantes tópicos pautados por dermatología. **No es protocolo de cabina autónoma.**
+- **Eliminación de tatuajes + láser fraccional (CO₂ o no ablativo)** en sesiones intercaladas: en algunos protocolos médicos avanzados se combina Q-switched con fraccional para mejorar el aclaramiento y el remodelado dérmico simultáneamente. Pertenece a centros médicos especializados.
+- **Carbon Peel + peeling químico superficial alternados**: para mantenimiento estético de pieles seborreicas, alternando una sesión de Carbon Peel y una de peeling de ácido salicílico mensualmente puede ofrecer beneficio aditivo. Espaciar mínimo 14 días.
+- **Q-switched + radiofrecuencia o LED**: combinaciones con bioestimulación posterior pueden suavizar el eritema y acelerar la recuperación tras Carbon Peel.
+
+La regla general: combinar tecnologías exige conocer cada una por separado, respetar tiempos de cicatrización entre sesiones y documentar el plan completo en la historia clínica.
+
 ## 6 · Cosmetología aplicada
 
 ### 6.1 · Pre-tratamiento

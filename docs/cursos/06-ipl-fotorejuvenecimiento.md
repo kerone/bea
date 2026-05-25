@@ -168,6 +168,17 @@ El lentigo solar (o lentigo senil) es una lesión benigna producida por prolifer
 
 **Evidencia.** La eficacia de la IPL sobre lentigos solares en fototipos I-III está bien establecida, con tasas de aclaramiento significativo (50-100%) habitualmente referidas en estudios prospectivos con seguimiento a 3-6 meses. La eficacia disminuye y el riesgo aumenta en fototipo IV.
 
+**Diferencias entre lentigo y otras lesiones pigmentadas frecuentes.** En la práctica diaria conviene tener interiorizadas, junto al melasma y al nevus, otras entidades que pueden confundirse con lentigo solar:
+
+- **Efélide (peca)**: mácula más pequeña (1-3 mm), color marrón claro, distribución difusa centrofacial y sobre el puente nasal, característicamente más marcada en verano y atenuada en invierno, predominante en fototipos I-II. Responde a IPL con aclaramiento muy bueno, generalmente con una o dos sesiones. La diferencia con el lentigo se asienta en el tamaño, la variabilidad estacional y la edad de aparición (infancia).
+- **Queratosis seborreica plana**: lesión queratósica benigna que en fases iniciales puede confundirse con lentigo, pero suele tener superficie ligeramente granular, color que tiende al pardo-amarillo y aspecto "pegado" al tegumento. Responde parcialmente a IPL, pero su tratamiento de elección es crioterapia, electrocoagulación o curetaje. Si la lesión tiene cualquier componente queratósico evidente, no es indicación de IPL.
+- **Hiperpigmentación post-inflamatoria** residual de un acné, una depilación con cera o un eczema previo: pigmento basal y dérmico secundario a inflamación. La IPL puede mejorarla en algunos casos, pero también empeorarla; la decisión debe ser cuidadosa, con test patch y cosmética despigmentante previa.
+- **Lentigo simple**: lesión congénita o de aparición precoz, melanocítica, sin relación con fotoexposición. Responde menos a IPL y, si se trata, conviene confirmar diagnóstico dermatoscópico.
+- **Mácula café con leche**: lesión congénita uniforme, color café claro, asociada en ocasiones a síndromes (neurofibromatosis si son múltiples). No es indicación de IPL aislada.
+- **Léntigo maligno**: forma in situ de melanoma, frecuente en zonas crónicamente fotoexpuestas en mayores de 60 años. Cualquier mácula pigmentada en cara de paciente añosa con bordes irregulares, varios tonos de marrón o componente negro debe derivarse a dermatología antes de cualquier IPL. La IPL aplicada por error sobre un léntigo maligno puede borrar parcialmente el pigmento superficial y dificultar el diagnóstico histológico.
+
+La regla operativa: ante cualquier duda diagnóstica, se deriva. Ningún ingreso económico por una sesión compensa el riesgo de borrar un melanoma incipiente.
+
 **Parámetros orientativos:**
 
 | Parámetro | Lentigo en cara · fototipo II | Lentigo en mano · fototipo II-III | Lentigo en escote · fototipo III |
