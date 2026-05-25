@@ -31,20 +31,20 @@ El cuarto eje, transversal, es la **seguridad**. Las contraindicaciones absoluta
 
 ### 2.1 · Arquitectura general del sistema linfático
 
-El sistema linfático es un sistema circulatorio paralelo al venoso, **unidireccional** (de la periferia al centro), de baja presión y sin bomba central, que cumple tres funciones principales: drenaje del líquido intersticial excedente —entre 2 y 4 litros diarios en condiciones normales—, transporte de macromoléculas, lípidos absorbidos en el intestino y células inmunitarias, y filtrado inmunológico en las cadenas ganglionares. Anatómicamente está organizado en cuatro niveles jerárquicos:
+El sistema linfático es un circulatorio paralelo al venoso, **unidireccional** (periferia a centro), de baja presión y sin bomba central. Cumple tres funciones: drenaje del líquido intersticial excedente (2-4 L/día en el adulto sano), transporte de macromoléculas, lípidos intestinales y células inmunitarias, y filtrado inmunológico en los ganglios. Se organiza en cuatro niveles:
 
-1. **Capilares linfáticos iniciales** (también llamados terminales o de absorción). Son tubos ciegos, de calibre 10-60 μm, formados por una sola capa de células endoteliales superpuestas en "tejas" sin uniones estancas, ancladas al tejido conjuntivo circundante por **filamentos de anclaje**. Cuando aumenta la presión intersticial, los filamentos traccionan de los bordes celulares, abriendo "aletas" por las que entra el líquido intersticial junto con proteínas, lípidos y, en su caso, restos celulares y patógenos. Estos capilares no tienen válvulas ni musculatura propia: dependen mecánicamente del entorno.
+1. **Capilares linfáticos iniciales**: tubos ciegos de 10-60 μm, una sola capa de células endoteliales superpuestas en "tejas" sin uniones estancas, ancladas al tejido conjuntivo por **filamentos de anclaje**. Al aumentar la presión intersticial, los filamentos traccionan de los bordes y abren "aletas" que captan el líquido intersticial. No tienen válvulas ni musculatura propia.
 
-2. **Precolectores**. Tubos de transición de 80-200 μm, con escasas válvulas y una capa muscular incipiente. Recogen el linfático inicial de varios capilares y lo conducen a los colectores.
+2. **Precolectores**: 80-200 μm, escasas válvulas, capa muscular incipiente.
 
-3. **Colectores linfáticos**. Vasos de 200 μm a 2 mm, dotados de **válvulas bicúspides** a intervalos regulares y de una **capa de músculo liso** en su pared. El segmento de vaso comprendido entre dos válvulas consecutivas se denomina **linfangión**: es la unidad contráctil del sistema. Cada linfangión se comporta como un mini-corazón, contrayéndose rítmicamente —en condiciones de reposo a una frecuencia descrita en la literatura entre **1 y 15 ciclos por minuto**, con valores habituales en torno a 6-10— y propulsando el linfático al linfangión siguiente. La contracción se regula por la presión interna (estiramiento), por estímulos neurales (inervación simpática) y por mediadores humorales.
+3. **Colectores linfáticos**: 200 μm-2 mm, con **válvulas bicúspides** y **músculo liso** parietal. El segmento entre dos válvulas es el **linfangión**, unidad contráctil del sistema. Se contrae rítmicamente entre **1 y 15 ciclos por minuto** (habitual 6-10), regulado por presión interna (estiramiento), inervación simpática y mediadores humorales.
 
-4. **Troncos linfáticos y conductos terminales**. Los colectores confluyen progresivamente formando los troncos principales: **yugulares** (drenan cabeza y cuello), **subclavios** (miembro superior y pared torácica), **broncomediastínicos** (vísceras torácicas), **lumbares** (miembros inferiores, pelvis, pared abdominal inferior) y el **tronco intestinal** (vísceras digestivas). Estos troncos drenan en dos conductos terminales:
+4. **Troncos y conductos terminales**: los colectores confluyen en troncos principales —**yugulares** (cabeza-cuello), **subclavios** (MS y pared torácica), **broncomediastínicos** (vísceras torácicas), **lumbares** (MMII, pelvis, pared abdominal inferior) e **intestinal** (vísceras digestivas)— que drenan en dos conductos:
 
-   - **Conducto torácico** (también llamado, por su origen, gran vena linfática): nace en la cisterna del quilo —dilatación situada a la altura de L1-L2, ventral a los cuerpos vertebrales—, asciende por el mediastino posterior y desemboca en el **ángulo venoso izquierdo** (confluente yugulo-subclavio izquierdo). Drena los miembros inferiores, el abdomen, el hemitórax izquierdo, el miembro superior izquierdo y la mitad izquierda de cabeza y cuello. Representa aproximadamente tres cuartas partes del retorno linfático corporal.
-   - **Conducto linfático derecho** (o gran vena linfática derecha en parte de la literatura clásica): vaso corto, de pocos centímetros, que recoge el hemitórax derecho, el miembro superior derecho y la mitad derecha de cabeza y cuello, y desemboca en el **ángulo venoso derecho**.
+   - **Conducto torácico**: nace en la cisterna del quilo (L1-L2 ventral), asciende por mediastino posterior y desemboca en el **ángulo venoso izquierdo**. Drena MMII, abdomen, hemitórax izquierdo, MS izquierdo y mitad izquierda de cabeza-cuello (≈ tres cuartas partes del retorno).
+   - **Conducto linfático derecho** (o gran vena linfática derecha): vaso corto que recoge hemitórax derecho, MS derecho y mitad derecha de cabeza-cuello, y desemboca en el **ángulo venoso derecho**.
 
-Estos dos puntos de desembocadura, los ángulos venosos supraclaviculares, son los denominados **terminus** del sistema linfático. Constituyen la "puerta de salida" del linfático al sistema venoso. Toda secuencia de DLM, sea facial o corporal, comienza por la apertura del terminus correspondiente: si la puerta está cerrada, drenar la periferia es empujar contra una salida ocluida.
+Los dos ángulos venosos supraclaviculares son los **terminus** del sistema —la "puerta de salida" al sistema venoso—. Toda secuencia de DLM comienza por la apertura del terminus correspondiente: si la puerta está cerrada, drenar la periferia es empujar contra una salida ocluida.
 
 ### 2.2 · Cadenas ganglionares principales
 
@@ -77,47 +77,42 @@ La consecuencia práctica para el DLM es directa: si una clienta tiene edema en 
 
 ### 2.4 · Fisiología del drenaje: filtración capilar y transporte linfático
 
-A nivel del lecho capilar sanguíneo, el equilibrio descrito clásicamente por Starling rige el intercambio: la presión hidrostática intracapilar empuja agua y solutos pequeños al intersticio en el extremo arteriolar, y la presión oncótica de las proteínas plasmáticas reabsorbe parte de ese líquido en el extremo venular. El balance neto **no es cero**: hay un excedente diario, en el adulto sano, de aproximadamente 2-4 litros que **debe ser recogido por el sistema linfático** para retornar a la circulación sistémica. Si la capacidad linfática se ve superada —por aumento de la filtración (insuficiencia venosa, inflamación, postquirúrgico) o por reducción del transporte (linfedema)—, se acumula líquido en el intersticio y aparece **edema clínicamente visible**.
+En el lecho capilar sanguíneo, el equilibrio de Starling rige el intercambio: presión hidrostática intracapilar empuja agua al intersticio en el extremo arteriolar; presión oncótica reabsorbe parte en el venular. El balance neto **no es cero**: hay un excedente diario de aproximadamente 2-4 L en el adulto sano que **debe ser recogido por el linfático**. Si la capacidad linfática se ve superada —por aumento de filtración (insuficiencia venosa, inflamación, postquirúrgico) o reducción del transporte (linfedema)—, aparece edema clínico.
 
-El transporte linfático es **activo**, no pasivo. Los linfangiones contráctiles generan la propulsión principal. Factores coadyuvantes:
+El transporte linfático es **activo**. Los linfangiones contráctiles generan la propulsión principal. Factores coadyuvantes: contracción muscular esquelética (ejercicio, ambulación), bomba diafragmática-respiratoria (la inspiración profunda "aspira" el linfático a través del conducto torácico), pulsación arterial adyacente y **presión cutánea externa intermitente** —exactamente lo que aporta el DLM bien aplicado—.
 
-- **Contracción muscular esquelética** (ejercicio, ambulación). Comprime los colectores entre los grupos musculares.
-- **Bomba diafragmática y respiratoria**. La inspiración profunda reduce la presión intratorácica y "aspira" el linfático a través del conducto torácico.
-- **Pulsación arterial adyacente**. Los colectores acompañan habitualmente a las arterias y se comprimen rítmicamente.
-- **Presión cutánea externa intermitente**. Es exactamente lo que aporta el DLM correctamente aplicado.
-
-La presión de los capilares linfáticos iniciales en reposo es muy baja, del orden de 1-5 mmHg, y se colapsan con presiones externas superiores a los 30-40 mmHg. De ahí la **regla cardinal de la presión en DLM**: nunca superar el rango **15-30 mmHg**, suficiente para movilizar el líquido intersticial y aumentar la frecuencia de contracción del linfangión, pero insuficiente para colapsar los capilares de captación o para producir hiperemia (vasodilatación arteriolar) que aumentaría secundariamente la filtración y empeoraría el edema.
+La presión de los capilares linfáticos iniciales en reposo es 1-5 mmHg y se colapsan con presiones externas superiores a 30-40 mmHg. De ahí la **regla cardinal de la presión en DLM**: no superar el rango **15-30 mmHg**, suficiente para movilizar líquido intersticial y aumentar la frecuencia de contracción linfangional, pero insuficiente para colapsar los capilares de captación o producir hiperemia (que aumentaría la filtración y agravaría el edema).
 
 ### 2.5 · Las dos escuelas: Vodder y Leduc
 
 #### Vodder (1932-1936, Dinamarca-Francia)
 
-Emil Vodder, fisioterapeuta danés afincado en Cannes, y su esposa Estrid, desarrollaron entre 1932 y 1936 una técnica manual orientada a tratar empíricamente los catarros crónicos y las alteraciones cutáneas asociadas a ganglios cervicales palpables. La técnica se presentó públicamente en un congreso en París en 1936. Su base anatómica derivaba de grabados clásicos del sistema linfático (notablemente las planchas de Sappey) interpretados con intuición clínica. El método se estructura en torno a **cuatro maniobras fundamentales**:
+Emil Vodder, fisioterapeuta danés afincado en Cannes, y su esposa Estrid, desarrollaron entre 1932 y 1936 una técnica manual presentada públicamente en París en 1936. Su base anatómica derivaba de los grabados clásicos de Sappey interpretados con intuición clínica. El método se estructura en torno a **cuatro maniobras fundamentales**:
 
-- **Círculos fijos** (stationary circles): los dedos o la palma se aplican en una zona y describen círculos cutáneos sin desplazarse, traccionando el tegumento sobre los planos profundos. Útiles sobre ganglios y zonas reducidas.
-- **Círculos dadores o de bombeo** (pumping strokes): movimiento ovalado que combina apoyo de la palma con flexión de muñeca. Aplicación principal en miembros y grandes superficies.
-- **Movimiento dador o "scoop"**: rotación de muñeca con la mano abierta que "recoge" el líquido en una dirección determinada. Útil en miembro superior y muslo.
-- **Movimiento rotativo** (rotary): combinación de presión y rotación con la palma, aplicada en superficies amplias y planas como espalda y abdomen.
+- **Círculos fijos** (stationary circles): los dedos o la palma describen círculos cutáneos sin desplazarse, traccionando el tegumento sobre planos profundos. Útiles sobre ganglios y zonas reducidas.
+- **Círculos dadores o de bombeo** (pumping): movimiento ovalado con apoyo palmar y flexión de muñeca. Miembros y grandes superficies.
+- **Movimiento dador o "scoop"**: rotación de muñeca con mano abierta que "recoge" el líquido. Miembro superior, muslo.
+- **Movimiento rotativo** (rotary): presión y rotación con la palma sobre superficies amplias y planas (espalda, abdomen).
 
-Cada maniobra se ejecuta **a presión muy baja**, en sentido del drenaje fisiológico (hacia el terminus o ganglio correspondiente), y se repite **5-7 veces** en cada localización antes de avanzar a la siguiente. El **ritmo es lento**, en torno a una maniobra cada **2-3 segundos**, deliberadamente sincronizado para no exceder la frecuencia natural del linfangión.
+Cada maniobra a presión muy baja, en sentido fisiológico, **5-7 repeticiones** por localización, **ritmo lento (una maniobra cada 2-3 s)**, sincronizado para no exceder la frecuencia natural del linfangión.
 
 #### Leduc (años 1970, Bélgica)
 
-Albert Leduc, fisioterapeuta y profesor en la Universidad Libre de Bruselas, desarrolló a partir de los años setenta una variante con **fundamentación biofísica explícita**. Su aportación, junto con la de su hijo Olivier Leduc, fue introducir la validación experimental —mediante linfoscintigrafía y modelos animales— de las presiones, direcciones y secuencias eficaces. La escuela Leduc distingue dos tipos de maniobras:
+Albert Leduc, fisioterapeuta y profesor en la Universidad Libre de Bruselas, desarrolló desde los setenta una variante con **fundamentación biofísica explícita**, validada por linfoscintigrafía y modelos animales (con su hijo Olivier). La escuela distingue dos tipos de maniobras:
 
-- **Maniobras de llamada** (manœuvres d'appel): se aplican **proximalmente** al edema, en zonas con drenaje conservado, para "vaciar" los colectores proximales y crear una pendiente de presión que aspire el linfático desde la zona afectada.
-- **Maniobras de reabsorción** (manœuvres de résorption): se aplican **sobre** la zona edematosa, una vez que las maniobras de llamada han preparado la salida, para movilizar el líquido intersticial hacia los capilares iniciales.
+- **Maniobras de llamada** (manœuvres d'appel): aplicadas **proximalmente** al edema, en zonas con drenaje conservado, para "vaciar" colectores proximales y crear pendiente de presión que aspire el linfático afectado.
+- **Maniobras de reabsorción** (manœuvres de résorption): aplicadas **sobre** la zona edematosa, una vez preparada la salida, para movilizar el líquido intersticial hacia los capilares iniciales.
 
-La secuencia siempre se inicia proximal y avanza distal, alternando llamada y reabsorción. Las presiones experimentalmente validadas se sitúan también en el rango 30-40 mmHg como techo, con valores habituales menores. La técnica Leduc utiliza con mayor frecuencia **la palma completa** y movimientos amplios, frente al uso más digital del Vodder clásico.
+Secuencia siempre proximal-distal, alternando llamada y reabsorción. Uso predominante de **palma completa** frente al uso más digital del Vodder clásico.
 
-En la práctica contemporánea, las dos escuelas se han ido sincretizando. El curso enseña ambas y combina las maniobras de Vodder (más versátiles en cara y zonas pequeñas) con la lógica secuencial de Leduc (más sistemática en miembros y grandes superficies). La elección entre uno u otro estilo en un caso concreto no es ideológica: es topográfica y funcional.
+En la práctica contemporánea las dos escuelas se sincretizan. El curso enseña ambas: las maniobras de Vodder (más versátiles en cara y zonas pequeñas) con la lógica secuencial de Leduc (más sistemática en miembros y grandes superficies). La elección es topográfica y funcional, no ideológica.
 
 #### Otras escuelas (mención)
 
-- **Földi** (Michael y Ethel Földi, Alemania, años 1970-): médico-clínica, integra DLM en la Terapia Descongestiva Compleja con vendaje multicapa, ejercicio y cuidados cutáneos. Es el estándar en linfología hospitalaria europea.
-- **Casley-Smith** (Judith y John Casley-Smith, Australia, años 1970-1990): énfasis en presiones muy bajas, secuencias muy lentas, evidencia microscópica de la apertura de los filamentos de anclaje.
+- **Földi** (Alemania): médico-clínica, integra DLM en la Terapia Descongestiva Compleja con vendaje multicapa, ejercicio y cuidados cutáneos. Estándar en linfología hospitalaria europea.
+- **Casley-Smith** (Australia): énfasis en presiones muy bajas y secuencias lentísimas, evidencia microscópica de apertura de filamentos de anclaje.
 
-Estas escuelas son médicas y se mencionan por completitud histórica; no son objeto de práctica en el presente curso estético.
+Mencionadas por completitud; no son objeto del presente curso estético.
 
 ## 3 · Indicaciones estéticas
 
@@ -163,28 +158,22 @@ En presencia de cualquiera de las siguientes, **no se realiza DLM**, ni siquiera
 
 ### 4.2 · Contraindicaciones relativas
 
-Requieren valoración individualizada, frecuentemente informe médico, y eventual modificación del protocolo (zonas a evitar, duración reducida):
+Requieren valoración individualizada y eventual modificación del protocolo:
 
-- **Embarazo**: el DLM facial y de miembros inferiores en gestación normal es generalmente seguro, **a partir del segundo trimestre**, y puede ser útil para el edema gestacional. **No se realiza en abdomen.** Se contraindica completamente en embarazos de riesgo (amenaza de parto pretérmino, preeclampsia, placenta previa, antecedente de abortos de repetición).
-- **Insuficiencia renal moderada o grave**.
-- **Hipertensión arterial mal controlada**.
-- **Asma bronquial estable** (modificar la zona supraclavicular: estimulación del terminus puede inducir broncoespasmo en pacientes sensibles).
-- **Antecedente personal o familiar de TVP** sin estudio actual.
-- **Enfermedades autoinmunes en brote** (lupus, esclerodermia activa).
-- **Patología tiroidea bajo tratamiento**: evitar maniobras directas sobre la región tiroidea.
-- **Marcapasos o desfibrilador implantado**: evitar presión directa sobre el dispositivo.
-- **Cicatrices recientes no consolidadas** en la zona a tratar.
-- **Dermatosis activa** (psoriasis en placas activas, eccema agudo, herpes activo) en la zona a tratar.
+- **Embarazo**: DLM facial y de miembros inferiores generalmente seguro **a partir del 2.º trimestre** en gestación normal. **No abdomen.** Contraindicación completa en embarazo de riesgo (amenaza de parto pretérmino, preeclampsia, placenta previa, abortos de repetición).
+- **Insuficiencia renal moderada-grave**.
+- **HTA mal controlada**.
+- **Asma bronquial estable**: modificar zona supraclavicular (puede inducir broncoespasmo en sensibles).
+- **Antecedente personal/familiar de TVP** sin estudio actual.
+- **Autoinmunes en brote** (lupus, esclerodermia activa).
+- **Patología tiroidea**: evitar maniobras directas sobre tiroides.
+- **Marcapasos/DAI**: evitar presión directa sobre el dispositivo.
+- **Cicatrices recientes no consolidadas** en la zona.
+- **Dermatosis activa** (psoriasis en brote, eccema agudo, herpes) en la zona.
 
 ### 4.3 · Banderas amarillas durante la sesión
 
-Síntomas que obligan a **interrumpir la sesión** y valorar derivación:
-
-- Aparición súbita de dolor torácico, disnea o palpitaciones.
-- Mareo, sudoración profusa, palidez, sensación de desmayo (síncope vasovagal).
-- Dolor unilateral inexplicable en pantorrilla o muslo durante o tras la sesión.
-- Aparición de eritema con cordón ascendente, calor local y fiebre en las horas posteriores (sospecha de linfangitis).
-- Edema brusco en una zona no tratada (sospecha de movilización indebida).
+Síntomas que obligan a **interrumpir** y valorar derivación: dolor torácico, disnea o palpitaciones súbitas; mareo, sudoración profusa, palidez (síncope vasovagal); dolor unilateral inexplicable en pantorrilla o muslo; eritema con cordón ascendente, calor local y fiebre tras la sesión (sospecha de linfangitis); edema brusco en zona no tratada.
 
 ## 5 · Protocolo de tratamiento
 
@@ -192,26 +181,26 @@ El curso aborda dos protocolos principales —facial y corporal— que comparten
 
 ### 5.1 · Principios técnicos comunes
 
-Antes de detallar los sub-protocolos, conviene fijar los **parámetros técnicos universales** que rigen toda sesión de DLM, independientemente de la zona:
+Parámetros universales que rigen toda sesión de DLM:
 
-- **Presión**: rango 15-30 mmHg. Como referencia táctil orientativa: la presión necesaria para mover la piel sobre los planos profundos sin que aparezca enrojecimiento ni se sienta resistencia muscular subyacente. Si la piel se enrojece, la presión es excesiva.
-- **Dirección**: siempre hacia el terminus o ganglio correspondiente al territorio drenado. **Nunca** en sentido contrario al fisiológico.
-- **Ritmo**: una maniobra completa cada **2-3 segundos**, sincronizada con la frecuencia respiratoria lenta de la profesional. Equivale a 20-30 maniobras por minuto, no más.
-- **Repeticiones**: cada maniobra se repite **5-7 veces** en una misma localización antes de avanzar.
-- **Secuencia**: siempre **del centro a la periferia y vuelta**. Se abre primero el terminus, después se trabaja la zona proximal próxima al terminus, después se avanza progresivamente hacia la periferia (distal), y finalmente se realizan pasadas largas de drenaje desde la periferia de vuelta al terminus.
-- **Continuidad de contacto**: las manos no se levantan abruptamente de la piel; los desplazamientos son fluidos. La interrupción del contacto reinicia la "memoria" del linfangión y reduce la eficacia.
-- **Ambiente**: temperatura agradable (22-24 ºC), iluminación tenue, música ambiental suave o silencio. El estado neurovegetativo de la clienta —tono parasimpático predominante— favorece la contractilidad linfangional.
+- **Presión**: 15-30 mmHg. Referencia táctil: presión que mueve la piel sobre planos profundos sin enrojecimiento ni resistencia muscular. Si la piel se enrojece, presión excesiva.
+- **Dirección**: siempre hacia el terminus o ganglio del territorio drenado. **Nunca** sentido contrario al fisiológico.
+- **Ritmo**: una maniobra cada **2-3 segundos** (20-30/min). Sincronizada con respiración lenta de la profesional.
+- **Repeticiones**: **5-7 veces** por localización antes de avanzar.
+- **Secuencia**: del centro a la periferia y vuelta. Apertura de terminus, zona proximal, periferia, pases largos de retorno.
+- **Continuidad de contacto**: desplazamientos fluidos sin levantar las manos. La interrupción reinicia la "memoria" del linfangión.
+- **Ambiente**: 22-24 ºC, iluminación tenue, silencio o música ambiental. Tono parasimpático favorece la contractilidad linfangional.
 
 ### 5.2 · Sub-protocolo facial (30-45 min)
 
-Indicaciones más frecuentes: post-blefaroplastia o post-lifting (a partir de la semana 1 con autorización del cirujano), edema facial premenstrual, fatiga ocular, ojeras vasculares, post-rinoplastia (a partir de la semana 2), preparación pre-evento. También como cierre estético tras un tratamiento facial (peeling superficial, mesoterapia facial, aparatología).
+Indicaciones más frecuentes: post-blefaroplastia o post-lifting (desde semana 1 con autorización del cirujano), edema facial premenstrual, fatiga ocular, ojeras vasculares, post-rinoplastia (desde semana 2), pre-evento, cierre tras tratamiento facial (peeling, mesoterapia, aparatología).
 
 #### 5.2.1 · Preparación
 
-- Clienta en decúbito supino, cabeza ligeramente elevada (10-15 º) para favorecer el retorno gravitacional.
+- Decúbito supino, cabeza elevada 10-15º (retorno gravitacional).
 - Retirada de maquillaje y limpieza ligera con tónico no astringente.
-- Aplicación de un **medio de deslizamiento mínimo**: un gel drenante de absorción rápida o una bruma facial. Se evitan aceites densos y cremas oclusivas, porque dificultan la palpación y la tracción cutánea fina.
-- La profesional, sentada a la cabecera, con manos limpias y tibias.
+- Medio de deslizamiento mínimo: gel drenante de absorción rápida o bruma facial. Se evitan aceites densos y cremas oclusivas.
+- Profesional a la cabecera, manos limpias y tibias.
 
 #### 5.2.2 · Secuencia
 
@@ -230,14 +219,14 @@ Duración total: 30-45 min según la profundidad del trabajo y la sensibilidad d
 
 ### 5.3 · Sub-protocolo corporal (60-90 min)
 
-Indicaciones más frecuentes: post-liposucción / lipoabdominoplastia (a partir del día 5-7 con autorización del cirujano), retención de líquidos en miembros inferiores, fatiga venolinfática, componente edematoso de la celulitis, edema gestacional en zonas autorizadas (segundo y tercer trimestre, sin abdomen). La sesión puede centrarse en un hemicuerpo (típicamente miembros inferiores y abdomen, o miembros superiores y tronco) o ser completa según objetivo.
+Indicaciones frecuentes: post-liposucción/lipoabdominoplastia (desde día 5-7 con autorización del cirujano), retención de miembros inferiores, fatiga venolinfática, celulitis edematosa, edema gestacional en zonas autorizadas (2.º-3.er trimestre, sin abdomen). La sesión puede centrarse en un hemicuerpo o ser completa.
 
 #### 5.3.1 · Preparación
 
-- Clienta en decúbito supino, miembros inferiores ligeramente elevados sobre cojín en zona poplítea (favorece retorno).
-- Cobertura con sábana excepto la zona a tratar.
-- Aplicación de aceite neutro o gel drenante en pequeña cantidad, suficiente para deslizamiento sin lubricación excesiva.
-- Profesional posicionada a un lado de la camilla.
+- Decúbito supino, MMII ligeramente elevados sobre cojín poplíteo.
+- Sábana cubriendo todo excepto zona tratada.
+- Aceite neutro o gel drenante en cantidad pequeña.
+- Profesional a un lado de la camilla.
 
 #### 5.3.2 · Secuencia para miembros inferiores y abdomen (60-75 min)
 
@@ -290,43 +279,41 @@ Indicaciones más frecuentes: post-liposucción / lipoabdominoplastia (a partir 
 
 #### Caso 1 — Post-liposucción de abdomen y flancos, día 5
 
-Mujer de 38 años, sometida a liposucción de abdomen completo y flancos cinco días antes. Lleva faja compresiva. Presenta edema marcado, induración difusa, equimosis en evolución amarillenta y referencia de tirantez molesta. La cirujana autoriza por escrito el inicio del DLM a partir del quinto día postoperatorio.
+Mujer de 38 años, liposucción de abdomen completo y flancos cinco días antes. Lleva faja compresiva. Edema marcado, induración difusa, equimosis en evolución amarillenta, tirantez molesta. La cirujana autoriza por escrito el inicio del DLM a partir del quinto día.
 
-**Plan**: 10 sesiones de DLM corporal centradas en abdomen, flancos y muslos altos, con frecuencia diaria los primeros 7 días y días alternos hasta completar el ciclo. Duración por sesión: 60 min.
+**Plan**: 10 sesiones de DLM corporal centradas en abdomen, flancos y muslos altos. Frecuencia diaria los primeros 7 días, después días alternos hasta completar el ciclo. Duración: 60 min.
 
-**Técnica**: apertura inguinal bilateral y axilar bilateral (las zonas tratadas se reparten entre ambos terminus por el watershed umbilical). Maniobras de **llamada** (escuela Leduc) sobre axilas e inguinales con bombeos amplios. Maniobras de **reabsorción** muy suaves sobre la zona tratada, respetando las incisiones aún no totalmente cicatrizadas (rodeándolas, no presionando directamente). Presión mantenida en el rango bajo (15-20 mmHg) por la sensibilidad de la zona. Cierre con pases largos hacia los terminus.
+**Técnica**: apertura inguinal y axilar bilaterales (la zona tratada se reparte entre ambos terminus por el watershed umbilical). Maniobras de **llamada** (escuela Leduc) sobre axilas e inguinales con bombeos amplios. Maniobras de **reabsorción** muy suaves sobre la zona tratada, rodeando las incisiones aún no consolidadas en lugar de presionarlas. Presión en rango bajo (15-20 mmHg). Cierre con pases largos hacia los terminus.
 
-**Aftercare específico**: recolocación correcta de la faja al terminar, hidratación oral abundante, instrucción para deambular cada 2 horas durante el día.
+**Aftercare específico**: recolocación correcta de la faja al terminar, hidratación abundante, deambulación cada 2 h.
 
-**Evolución esperada**: reducción visible del edema a partir de la tercera-cuarta sesión, mejoría del confort precoz, prevención de zonas duras de fibrosis. La perimetría abdominal disminuye 3-5 cm a lo largo del ciclo (con cautela: parte de la reducción es la propia resolución del edema postquirúrgico, no atribuible exclusivamente al DLM).
+**Evolución esperada**: reducción visible del edema desde la tercera-cuarta sesión, mejoría precoz del confort, prevención de fibrosis. La perimetría abdominal puede disminuir varios centímetros a lo largo del ciclo (con cautela: parte de la reducción es la resolución espontánea del edema postquirúrgico, no atribuible exclusivamente al DLM).
 
-**Honestidad**: la evidencia para DLM post-liposucción es **consistente en cuanto a alivio del edema y prevención de fibrosis**, aunque la cuantificación exacta del beneficio frente a no realizarlo es difícil de aislar en estudios sin grupo control adecuado. El cliente entiende que el DLM es parte de la recuperación, no un acelerador milagroso.
+**Honestidad**: la evidencia post-liposucción es consistente en cuanto a alivio del edema y prevención de fibrosis; la cuantificación exacta del beneficio frente a no realizarlo es difícil de aislar en estudios sin grupo control adecuado. El DLM es parte de la recuperación, no un acelerador milagroso.
 
-#### Caso 2 — Retención de líquidos premenstrual con afectación de cara y miembros inferiores
+#### Caso 2 — Retención premenstrual con afectación de cara y miembros inferiores
 
-Mujer de 31 años, sin patología conocida, refiere edema cíclico en los 4-5 días previos a la menstruación: cara hinchada al despertar, anillos que aprietan, tobillos engrosados al final del día. Sin signos de TVP. Sin hipertensión. No anticoncepción hormonal. Acude solicitando "drenaje" tras consejo de una amiga.
+Mujer de 31 años, sin patología conocida, edema cíclico los 4-5 días previos a la menstruación: cara hinchada al despertar, anillos apretados, tobillos engrosados al final del día. Sin signos de TVP, sin HTA, sin anticoncepción hormonal.
 
-**Anamnesis**: descartar causas secundarias (función tiroidea, hábito de sodio elevado, sedentarismo). Confirmar carácter cíclico y reversible.
+**Anamnesis**: descartar causas secundarias (función tiroidea, sodio dietético, sedentarismo). Confirmar carácter cíclico y reversible.
 
-**Plan**: 1 sesión sintomática en el momento álgido del ciclo (día -3 a -1 antes de la menstruación). Duración: 75 min, combinada cara + miembros inferiores. Si la satisfacción es alta, repetir mensualmente sincronizado con el ciclo.
+**Plan**: 1 sesión sintomática en momento álgido del ciclo (día -3 a -1). Duración 75 min, combinada cara + miembros inferiores. Si satisfacción alta, repetir mensual sincronizada.
 
-**Técnica**: secuencia facial completa (30 min) + secuencia de miembros inferiores (45 min). Énfasis especial en peri-orbitario y submandibular para la cara, y en inguinales y muslo para los miembros inferiores.
+**Técnica**: facial completa (30 min) + miembros inferiores (45 min). Énfasis en peri-orbitario y submandibular en cara; inguinales y muslo en piernas.
 
-**Aftercare**: hidratación oral abundante, reducción de sal en la dieta esa noche, evitar baño caliente prolongado.
-
-**Honestidad**: el DLM **alivia sintomáticamente** la retención premenstrual, pero **no resuelve la causa hormonal**. Si la retención es severa, recurrente y mal tolerada, se valora derivación ginecológica para estudio (anticoncepción reguladora, descarte de causas secundarias). El DLM no sustituye al estudio médico cuando el cuadro es clínicamente llamativo.
+**Honestidad**: el DLM **alivia sintomáticamente** pero **no resuelve la causa hormonal**. Si la retención es severa, recurrente y mal tolerada, se deriva a ginecología (regulación hormonal, descarte de causas secundarias). El DLM no sustituye al estudio médico cuando el cuadro es clínicamente llamativo.
 
 #### Caso 3 — Ojeras vasculares en mujer joven sin patología orbitaria
 
-Mujer de 26 años, fototipo III, refiere "ojeras desde siempre" empeoradas con el descanso insuficiente. A la inspección, presenta una coloración violácea-azulada en el área infraorbitaria, **sin pigmentación marrón asociada y sin surco palpebro-malar profundo**. Al tensar suavemente la piel infraorbitaria con dos dedos, la coloración se aclara: hallazgo sugestivo de componente vascular y estancamiento linfático superficial, no pigmentario ni estructural.
+Mujer de 26 años, fototipo III, "ojeras desde siempre" agravadas con descanso insuficiente. Coloración violácea-azulada infraorbitaria **sin pigmentación marrón asociada y sin surco palpebro-malar profundo**. Al tensar la piel infraorbitaria, la coloración se aclara: hallazgo sugestivo de componente vascular y estancamiento linfático superficial.
 
-**Plan**: ciclo de 6 sesiones de DLM facial, una vez por semana, focalizadas en la zona peri-orbitaria pero con secuencia facial completa. Duración: 30-40 min por sesión.
+**Plan**: 6 sesiones de DLM facial, 1/semana, focalizadas en peri-orbitario dentro de secuencia facial completa. Duración 30-40 min.
 
-**Técnica**: secuencia facial habitual, con énfasis en la apertura de preauriculares y la zona peri-orbitaria. Presión particularmente reducida (10-15 mmHg) en párpado. Combinación con bruma fría facial al inicio (vasoconstricción transitoria) y, al cierre, aplicación de un gel ocular con cafeína o escina.
+**Técnica**: secuencia facial habitual con énfasis en preauriculares y peri-orbitario. Presión reducida (10-15 mmHg) en párpado. Bruma fría al inicio; al cierre, gel ocular con cafeína o escina.
 
-**Recomendaciones de hábitos**: higiene del sueño, hidratación, elevación leve de la cabecera al dormir, fotoprotección estricta de la zona (la pigmentación post-inflamatoria es un agravante frecuente).
+**Recomendaciones**: higiene del sueño, hidratación, elevación leve de cabecera al dormir, fotoprotección estricta de la zona (la pigmentación post-inflamatoria es un agravante frecuente).
 
-**Honestidad**: las ojeras vasculares **mejoran modestamente** con DLM en una parte de las clientas, pero la mejoría es **transitoria** y rara vez "borra" el área. Si tras el ciclo de 6-8 sesiones la mejoría es escasa, **no se prolonga indefinidamente** el protocolo: se reconsidera la etiología (¿hay un componente pigmentario que requiere despigmentación dirigida?, ¿hay un componente estructural que requiere otro abordaje?) y se ofrece a la clienta una valoración honesta. Las ojeras son una de las indicaciones donde el DLM se sobrepromete con más facilidad y se decepciona con más frecuencia.
+**Honestidad**: las ojeras vasculares **mejoran modestamente** con DLM en una parte de las clientas; la mejoría es transitoria y rara vez "borra" la zona. Si tras 6-8 sesiones la respuesta es escasa, **no se prolonga indefinidamente**: se reconsidera la etiología (componente pigmentario, componente estructural) y se ofrece valoración honesta. Es una de las indicaciones donde el DLM se sobrepromete con más facilidad.
 
 ## 6 · Cosmetología aplicada
 

@@ -107,16 +107,7 @@ La conclusión profesional es que **el HIFU al que se refiere la literatura clí
 
 ### 2.6 · El acoplamiento acústico
 
-Una particularidad técnica del HIFU que se subestima a menudo es la importancia del **gel de acoplamiento acústico**. El ultrasonido se propaga muy mal a través del aire; cualquier burbuja de aire entre el transductor y la piel produce reflexión total de la onda, que rebota hacia el cristal piezoeléctrico, no entrega energía al tejido y, además, puede dañar el propio transductor.
-
-Por eso el gel utilizado debe ser:
-
-- Específico para ultrasonido (no sirve cualquier gel cosmético).
-- Aplicado en cantidad generosa y homogénea.
-- Libre de burbujas (extender con espátula, no extender en exceso para evitar atrapar aire).
-- Renovado entre líneas de tratamiento si se seca o se desplaza.
-
-El contacto del transductor con la piel debe ser **firme y perpendicular**, sin angulación, para que la geometría focal teórica del cabezal coincida con la profundidad real de disparo. Una angulación incorrecta puede desplazar el foco real respecto al planeado y, en zonas próximas a estructuras de riesgo, esto es relevante.
+Una particularidad técnica subestimada es la importancia del **gel de acoplamiento acústico**. El ultrasonido se propaga muy mal por el aire; cualquier burbuja entre transductor y piel produce reflexión total, rebota al cristal piezoeléctrico, no entrega energía y puede dañar el transductor. El gel debe ser específico para ultrasonido, aplicado en cantidad generosa y homogénea, libre de burbujas y renovado entre líneas si se seca. El contacto con la piel debe ser **firme y perpendicular**: una angulación incorrecta desplaza el foco real respecto al planeado, lo que en zonas próximas a estructuras nobles es crítico.
 
 ## 3 · Indicaciones
 
@@ -124,11 +115,11 @@ El contacto del transductor con la piel debe ser **firme y perpendicular**, sin 
 
 El HIFU está indicado en pacientes que cumplen, idealmente, los siguientes criterios:
 
-- **Edad**: 35-65 años. Por debajo de los 35 años, salvo casos de descenso prematuro por pérdida de peso brusca o factores genéticos, la respuesta es modesta porque el tejido no necesita estímulo de remodelación. Por encima de los 65 años, la respuesta sigue siendo posible pero menos predecible: a mayor edad, menor población fibroblástica activa, menor capacidad de neocolagénesis.
-- **Flacidez**: leve o moderada. La paciente con flacidez severa, dermatocalasia franca, exceso cutáneo cervical importante o descolgamiento malar marcado **no es candidata** a HIFU sino a cirugía. Aplicar HIFU sobre flacidez severa produce decepción sistemática y desprestigia la técnica.
-- **Calidad cutánea**: piel con elasticidad razonable, espesor dérmico conservado. Las pieles muy delgadas, fotoenvejecidas en grado IV-V, con telangiectasias múltiples y elastosis avanzada responden menos.
-- **IMC**: estable. En tratamientos corporales, el HIFU se aplica sobre flacidez con grosor subcutáneo razonable; no es un tratamiento adelgazante propiamente dicho, aunque algunas indicaciones corporales explotan también la apoptosis adipocitaria parcial inducida por la temperatura focal.
-- **Expectativas realistas**: la paciente debe comprender que el resultado es progresivo, sutil, no comparable a la cirugía, y temporal (12-18 meses).
+- **Edad**: 35-65 años. Por debajo, salvo descenso prematuro por pérdida brusca de peso o genética, la respuesta es modesta. Por encima de 65, la respuesta es menos predecible: menor población fibroblástica, menor capacidad de neocolagénesis.
+- **Flacidez**: leve o moderada. La paciente con flacidez severa, dermatocalasia franca, exceso cutáneo cervical o descolgamiento malar marcado **no es candidata** a HIFU sino a cirugía. Aplicar HIFU sobre flacidez severa produce decepción sistemática y desprestigia la técnica.
+- **Calidad cutánea**: piel con elasticidad razonable, espesor dérmico conservado. Las pieles muy delgadas, fotoenvejecidas grado IV-V con elastosis avanzada responden menos.
+- **IMC estable**. En tratamientos corporales, el HIFU no es un tratamiento adelgazante propiamente dicho, aunque algunas indicaciones aprovechan la apoptosis adipocitaria parcial inducida por la temperatura focal.
+- **Expectativas realistas**: resultado progresivo, sutil, no comparable a la cirugía y temporal (12-18 meses).
 - **Sin contraindicaciones absolutas o relativas** (sección 4).
 
 ### 3.2 · Indicaciones faciales
@@ -175,12 +166,12 @@ El protocolo de sesión única anual es lo que diferencia al HIFU de tecnología
 
 El HIFU se integra bien en protocolos combinados, y de hecho su mejor rendimiento estético suele obtenerse en combinación racional con otras tecnologías y procedimientos:
 
-- **HIFU + toxina botulínica**: la toxina relaja la musculatura hiperactiva (frontal, glabela, periocular) y permite que la contracción inducida por HIFU se manifieste sin oposición muscular. Combinación clásica y bien tolerada.
-- **HIFU + ácido hialurónico (relleno)**: el HIFU tensa y redensifica; el relleno repone volumen perdido. Lógica complementaria, no competitiva. Habitualmente se infiltra el relleno **antes** del HIFU si se hace en la misma cita (porque el HIFU sobre relleno reciente podría desplazarlo) o se espera 2-4 semanas entre uno y otro.
-- **HIFU + hilos tensores**: los hilos reposicionan mecánicamente; el HIFU consolida con tensado tisular. Combinación útil en pacientes con descenso moderado-importante pero todavía no candidatos a cirugía. Espaciar 4-6 semanas entre técnicas.
-- **HIFU + radiofrecuencia**: complementarios en profundidad. La RF actúa en dermis superficial y subcutáneo, el HIFU en SMAS. Pueden alternarse en el mismo ciclo anual.
-- **HIFU + láser fraccional o IPL**: el HIFU no mejora textura, pigmento ni vascular; la combinación con IPL o láser aborda esos componentes complementariamente.
-- **HIFU + mesoterapia con péptidos o vitaminas**: lógica de "bioestimulación dérmica" complementaria.
+- **HIFU + toxina botulínica**: la toxina relaja la musculatura hiperactiva y permite que la contracción inducida por HIFU se manifieste sin oposición muscular. Combinación clásica.
+- **HIFU + ácido hialurónico**: HIFU tensa y redensifica; el relleno repone volumen. Si se hacen el mismo día, infiltrar relleno **antes**; idealmente, espaciar 2-4 semanas.
+- **HIFU + hilos tensores**: los hilos reposicionan mecánicamente; el HIFU consolida tensando. Útil en descenso moderado-importante no candidato a cirugía. Espaciar 4-6 semanas.
+- **HIFU + radiofrecuencia**: complementarios en profundidad (RF en dermis-subcutáneo superficial, HIFU en SMAS). Alternables en el ciclo anual.
+- **HIFU + láser fraccional o IPL**: el HIFU no mejora textura, pigmento ni vascular; IPL o láser cubren esos componentes.
+- **HIFU + mesoterapia con péptidos o vitaminas**: bioestimulación dérmica complementaria.
 
 ## 4 · Contraindicaciones
 
@@ -317,51 +308,51 @@ Estos rangos son **orientativos**. El manual del fabricante específico, el prot
 
 **Caso 1 · Lifting submentoniano. Mujer de 48 años, fototipo III.**
 
-Paciente sin antecedentes médicos relevantes, sin medicación, sin implantes ni cirugías faciales previas. Consulta por papada moderada que ha aparecido en los últimos 4 años, asociada a leve pérdida de definición de la línea mandibular. Peso estable. Fotografía estandarizada muestra papada submentoniana grado II-III, sin exceso cutáneo cervical relevante, mandíbula todavía definida lateralmente.
+Sin antecedentes médicos relevantes, sin medicación, sin implantes ni cirugías faciales previas. Consulta por papada moderada aparecida en los últimos 4 años con leve pérdida de definición mandibular. Peso estable. Fotografía estandarizada: papada submentoniana grado II-III, sin exceso cutáneo cervical relevante, mandíbula todavía definida lateralmente.
 
-*Valoración*: candidata adecuada para HIFU submentoniano. Expectativas razonables tras consulta (entiende que el resultado será visible a 3 meses y máximo a 6).
+*Valoración*: candidata adecuada para HIFU submentoniano; expectativas razonables (resultado visible a 3 meses, óptimo a 6).
 
-*Plan*: una sesión única con transductor 4,5 mm en submentón (zona central, respetando trayecto de marginal mandibular lateralmente) más complemento con 3,0 mm en línea mandibular (zona segura). Aproximadamente 60-70 líneas con 4,5 mm en submentón, 30 líneas con 3,0 mm en cada lado mandibular fuera de zona prohibida.
+*Plan*: sesión única con 4,5 mm en submentón (zona central, respetando trayecto de marginal mandibular lateralmente) más 3,0 mm complementario en línea mandibular (zona segura). Aproximadamente 60-70 líneas con 4,5 mm en submentón, 30 líneas con 3,0 mm por lado mandibular.
 
-*Preparación*: anestesia tópica oclusiva 40 minutos antes, paracetamol 1 g oral 30 minutos antes, marcaje detallado de zonas prohibidas y rejilla de trabajo.
+*Preparación*: anestesia tópica oclusiva 40 min antes, paracetamol 1 g oral 30 min antes, marcaje detallado de zonas prohibidas y rejilla de trabajo.
 
-*Sesión*: bien tolerada con pausas, dolor referido 5-6/10. Eritema y edema leves al finalizar. Sin hematomas ni signos de alarma.
+*Sesión*: bien tolerada con pausas, dolor referido 5-6/10. Eritema y edema leves al finalizar.
 
-*Aftercare*: pauta de cosmética calmante con centella asiática, antiinflamatorios tópicos suaves, fotoprotección estricta, hidratación oral, suplementación oral con péptidos de colágeno y vitamina C durante 3 meses, evitar masaje vigoroso en la zona durante 2 semanas.
+*Aftercare*: cosmética calmante con centella asiática, antiinflamatorios tópicos suaves, fotoprotección estricta, suplementación oral con péptidos de colágeno y vitamina C durante 3 meses, evitar masaje vigoroso 2 semanas.
 
-*Evolución*: eritema y leve edema durante 4 días. Sensibilidad submentoniana al tacto durante 10 días. A las 2 semanas refiere "no nota nada todavía". A los 2 meses observa mejora en fotografía comparativa. A los 4 meses refiere mejora subjetiva clara: "la papada está más recogida y la mandíbula se ve más definida". Fotografía a 6 meses confirma reducción objetiva de la proyección submentoniana y mejor definición del borde mandibular. Se planifica revisión a los 12 meses para valorar refresco o sesión completa anual.
+*Evolución*: eritema y edema 4 días, sensibilidad submentoniana 10 días. A las 2 semanas refiere no notar cambios. A 2 meses, mejora en fotografía comparativa. A 4 meses, mejora subjetiva clara ("papada más recogida, mandíbula más definida"). Fotografía a 6 meses confirma reducción objetiva de la proyección submentoniana. Revisión a 12 meses para valorar refresco o sesión anual.
 
 **Caso 2 · Lifting de tercio medio facial. Mujer de 52 años, fototipo II.**
 
-Antecedentes: hipotiroidismo subclínico bien controlado con levotiroxina, sin patología tiroidea activa. Sin alergias, sin medicación adicional, sin cirugías ni rellenos previos declarados. Consulta por "descolgamiento de las mejillas" y "el surco nasogeniano cada vez más marcado" tras la menopausia.
+Hipotiroidismo subclínico bien controlado con levotiroxina, sin patología tiroidea activa. Sin alergias, sin rellenos previos declarados. Consulta postmenopáusica por "descolgamiento de mejillas" y surco nasogeniano marcado.
 
-*Valoración*: descenso malar moderado, surco nasogeniano grado II, sin exceso cutáneo significativo en mejilla, piel de calidad razonable, peso estable. Indicación clara para HIFU de tercio medio.
+*Valoración*: descenso malar moderado, surco nasogeniano grado II, sin exceso cutáneo significativo, piel de calidad razonable. Indicación clara para HIFU de tercio medio.
 
-*Plan*: sesión única con 4,5 mm sobre zona pomular y mejilla media (vector ascendente desde región submalar hacia pómulo), complementada con 3,0 mm en superficie de mejilla media, y 3,0 mm conservador en frente lateral baja para reforzar vector de elevación. Respeto absoluto al trayecto temporal (zona prohibida sobre arco cigomático). Aproximadamente 80 líneas con 4,5 mm y 80 líneas con 3,0 mm por lado.
+*Plan*: sesión única con 4,5 mm sobre zona pomular y mejilla media (vector ascendente desde región submalar hacia pómulo) + 3,0 mm en superficie de mejilla y 3,0 mm conservador en frente lateral baja. Respeto absoluto al trayecto temporal (zona prohibida sobre arco cigomático). Aproximadamente 80 líneas con 4,5 mm y 80 con 3,0 mm por lado.
 
-*Preparación*: anestesia tópica, paracetamol, marcaje minucioso de la línea de Pitanguy y reborde orbitario.
+*Preparación*: anestesia tópica, paracetamol, marcaje minucioso de línea de Pitanguy y reborde orbitario.
 
-*Sesión*: dolor referido 6-7/10 en zonas próximas a hueso (cigomático), 4-5/10 en mejilla central. Pausas frecuentes. Eritema y edema moderados al finalizar. Sin complicaciones inmediatas.
+*Sesión*: dolor 6-7/10 en zonas próximas a hueso, 4-5/10 en mejilla central. Pausas frecuentes. Eritema y edema moderados al finalizar.
 
-*Aftercare*: idem caso 1. Se añade indicación de dormir con cabecera ligeramente elevada las primeras noches para reducir edema malar matutino.
+*Aftercare*: como caso 1. Se añade dormir con cabecera elevada las primeras noches para reducir edema malar matutino.
 
-*Evolución*: edema malar visible durante 5-7 días, eritema durante 3 días, sensibilidad puntual a la palpación durante 2 semanas. A las 4 semanas la paciente refiere "rostro un poco más descansado". A los 3 meses, mejora visible en fotografía con reposicionamiento del pómulo y atenuación parcial del surco nasogeniano. A los 5 meses, satisfacción alta. Se programa sesión anual de mantenimiento.
+*Evolución*: edema malar 5-7 días, eritema 3 días, sensibilidad a palpación 2 semanas. A 4 semanas refiere "rostro más descansado". A 3 meses, mejora visible con reposicionamiento del pómulo y atenuación parcial del surco. A 5 meses, satisfacción alta. Se programa sesión anual.
 
 **Caso 3 · Abdomen flácido post-parto. Mujer de 36 años, fototipo II, 14 meses post-segundo parto.**
 
-Antecedentes: dos embarazos, parto vaginal el último hace 14 meses, lactancia finalizada hace 4 meses. IMC actual 24, peso estable desde hace 6 meses. Consulta por flacidez abdominal infraumbilical con piel ligeramente excedente pero sin diástasis muscular relevante (valorada previamente por su ginecólogo). Sin antecedentes médicos, no toma medicación, no tiene implantes.
+Dos embarazos, parto vaginal el último hace 14 meses, lactancia finalizada hace 4 meses. IMC 24, peso estable desde hace 6 meses. Consulta por flacidez abdominal infraumbilical con piel ligeramente excedente pero sin diástasis muscular relevante (valorada por ginecóloga).
 
-*Valoración*: flacidez subcutánea moderada en hemiabdomen inferior, panículo de aproximadamente 1,5-2 cm de grosor, sin estrías recientes activas. Indicación adecuada para HIFU corporal con objetivo de tensado, no de eliminación grasa propiamente dicha. Se explica que el HIFU no corrige diástasis (si la hubiera, sería quirúrgica) ni elimina exceso cutáneo franco (que requeriría abdominoplastia).
+*Valoración*: flacidez subcutánea moderada en hemiabdomen inferior, panículo de 1,5-2 cm. Indicación adecuada para HIFU corporal con objetivo de tensado, no de eliminación grasa. Se aclara que el HIFU no corrige diástasis ni elimina exceso cutáneo franco (eso es abdominoplastia).
 
-*Plan*: una sesión con transductores 4,5 mm (componente cutáneo profundo) + 6,0 mm (subcutáneo superior) + 9,0 mm (subcutáneo medio), trabajando la zona infraumbilical en rejilla sistemática. Respeto a línea media (vasos epigástricos) con energías moderadas.
+*Plan*: una sesión con 4,5 mm (cutáneo profundo) + 6,0 mm (subcutáneo superior) + 9,0 mm (subcutáneo medio), trabajando zona infraumbilical en rejilla. Respeto a línea media (vasos epigástricos) con energías moderadas.
 
-*Preparación*: paracetamol oral, sin anestesia tópica (zona corporal de mayor tolerancia, anestesia tópica útil pero no imprescindible).
+*Preparación*: paracetamol oral, sin anestesia tópica (zona corporal de mayor tolerancia).
 
-*Sesión*: dolor referido 4-5/10. Eritema y leve edema al finalizar. Sin hematomas.
+*Sesión*: dolor referido 4-5/10. Eritema y leve edema al finalizar.
 
-*Aftercare*: presoterapia o drenaje linfático suave a las 48 h, hidratación tópica generosa, ingesta hídrica abundante, ejercicio cardiovascular ligero permitido a partir del tercer día (caminar), reincorporación a entrenamiento de fuerza pasada la primera semana. Suplementación oral con péptidos de colágeno y vitamina C durante 3 meses.
+*Aftercare*: presoterapia o drenaje linfático suave a las 48 h, hidratación tópica generosa, ingesta hídrica abundante, caminar desde el tercer día, fuerza pasada la primera semana. Suplementación oral con péptidos de colágeno y vitamina C 3 meses.
 
-*Evolución*: eritema y leve edema 4-5 días, sensibilidad localizada 10 días. Tensado discreto perceptible al mes. A los 3 meses, mejora visible en fotografía con tensado evidente y reducción discreta del panículo. La paciente refiere mayor firmeza al palpar. Se plantea segunda sesión a los 6 meses para potenciar resultado, dado el componente flacidez post-gestacional.
+*Evolución*: eritema y edema 4-5 días, sensibilidad 10 días. Tensado discreto al mes. A 3 meses, mejora visible con tensado evidente y reducción discreta del panículo. Se plantea segunda sesión a 6 meses dado el componente post-gestacional.
 
 ## 6 · Cosmetología aplicada al protocolo HIFU
 
@@ -575,15 +566,9 @@ Si se ha tratado sobre relleno permanente o semipermanente no declarado, puede d
 
 ### 8.10 · Resultado insuficiente
 
-No es estrictamente una complicación, pero es la queja más frecuente en HIFU. Causas posibles:
+No es complicación stricto sensu, pero es la queja más frecuente. Causas: selección incorrecta de paciente (flacidez excesiva), energía o número de líneas insuficientes, equipo inadecuado (HIFU "estético" sin densidad energética real), mala respuesta tisular individual, expectativas mal encuadradas.
 
-- **Selección incorrecta de paciente**: flacidez excesiva para la técnica.
-- **Energía insuficiente o número de líneas insuficiente**.
-- **Equipo inadecuado** (HIFU "estético" comercial sin densidad energética real).
-- **Mala respuesta tisular individual**: existe, aunque la mayoría de las "no respuestas" reales se deben a las causas anteriores.
-- **Expectativas mal encuadradas**.
-
-Manejo: revisión técnica del protocolo aplicado, fotografía comparativa rigurosa, replanteamiento honesto con la paciente. En algunos casos, sesión complementaria a los 3 meses. En otros, redirección a otra técnica (hilos, cirugía).
+Manejo: revisión técnica del protocolo, fotografía comparativa rigurosa, replanteamiento honesto con la paciente. Sesión complementaria a 3 meses en algunos casos; redirección a otra técnica (hilos, cirugía) en otros.
 
 ## 9 · Test de evaluación
 
@@ -649,21 +634,14 @@ Selecciona la respuesta correcta. Test discriminativo de 8 preguntas, una opció
 
 **Respuestas comentadas** (para el formador):
 
-1. **c**. La profundidad focal correspondiente al plano SMAS facial en la mayoría de equipos de referencia es 4,5 mm. 1,5 mm es dermis superficial, 3,0 mm es dermis profunda, 6,0 mm es subcutáneo (corporal).
-
-2. **c**. Los implantes metálicos en la zona de tratamiento son contraindicación local por el riesgo de reflexión/calentamiento incontrolado.
-
-3. **a**. La línea de Pitanguy describe el trayecto cutáneo aproximado de la rama temporal del facial sobre el arco cigomático. Es la zona prohibida facial por excelencia para HIFU profundo.
-
-4. **c**. Embarazo es contraindicación absoluta sin matices.
-
-5. **c**. Es la definición canónica del mecanismo HIFU.
-
-6. **b**. Asimetría aguda al sonreír post-HIFU sugiere afectación de la marginal mandibular. Requiere derivación médica inmediata, documentación y comunicación honesta.
-
-7. **c**. Cronología bien establecida: contracción inmediata sutil, pico de neocolagénesis a 4-6 meses.
-
-8. **b**. Posición clínica y ética correcta: el HIFU es complementario, no sustitutivo, y la flacidez severa es indicación quirúrgica.
+1. **c**. SMAS facial = 4,5 mm en equipos de referencia.
+2. **c**. Implantes metálicos en zona = contraindicación local por reflexión/calentamiento.
+3. **a**. Línea de Pitanguy = trayecto de la rama temporal del facial. Zona prohibida.
+4. **c**. Embarazo = contraindicación absoluta.
+5. **c**. Definición canónica del mecanismo HIFU.
+6. **b**. Asimetría aguda al sonreír sugiere afectación de marginal mandibular: derivación médica inmediata y documentación.
+7. **c**. Pico de neocolagénesis a 4-6 meses.
+8. **b**. HIFU es complementario, no sustitutivo; flacidez severa es indicación quirúrgica.
 
 ## 10 · Referencias
 
@@ -675,36 +653,35 @@ Selecciona la respuesta correcta. Test discriminativo de 8 preguntas, una opció
 - Sociedad Española de Medicina Estética (SEME). Documentos de consenso sobre tecnologías de tensado cutáneo.
 - Documentación técnica y de formación del fabricante (Merz Aesthetics – Ulthera/Ultherapy; Classys – Ultraformer III/MPT; HIRONIC – Doublo). Consultar manuales específicos del equipo en uso.
 
-### Literatura clínica seleccionada (búsqueda PubMed: "HIFU facial lifting", "microfocused ultrasound SMAS", "Ulthera SMAS tightening", "HIFU complications")
+### Literatura clínica seleccionada
 
-- *Complications and Risks of High-Intensity Focused Ultrasound (HIFU) in Esthetic Procedures: A Review*. **Applied Sciences (MDPI)**, 2025. Revisión amplia de complicaciones publicadas y estrategias de prevención.
-- *A Systematic Review of the Efficacy of Microfocused Ultrasound for Facial Skin Tightening*. PMC, accesible vía NCBI. Revisión sistemática que documenta la eficacia del HIFU en tensado facial en >90% de las pacientes incluidas en las series revisadas.
-- *Systematic Review of High-Intensity Focused Ultrasound in Skin Tightening and Body Contouring*. **Aesthetic Surgery Journal**, 2025. Revisión sistemática de eficacia en contorno corporal y tensado.
-- *Quantified Facial Rejuvenation Utilizing High Intense Focus Ultrasound with Multiple Penetrative Depths*. **Clinical, Cosmetic and Investigational Dermatology**, accesible vía PMC. Cuantificación de resultados con HIFU multi-profundidad.
-- *Neurologic complication associated with intense focused ultrasound*. Caso clínico publicado en literatura dermatológica; ilustra el riesgo de afectación nerviosa transitoria post-HIFU.
-- *Nerve injury associated with high-intensity focused ultrasound: A case report*. ResearchGate y revistas dermatológicas. Documentación de lesión nerviosa con HIFU, evolución y recuperación.
-- *Numerical study of high-intensity focused ultrasound (HIFU) in fat reduction*. PMC. Modelo numérico de aplicación HIFU corporal.
-- *Pilot Study on High-Intensity Focused Ultrasound (HIFU) for Basal Cell Carcinoma: Effectiveness and Safety*. PMC. (Contexto: usos médicos no estéticos del HIFU.)
+Búsquedas PubMed: "HIFU facial lifting", "microfocused ultrasound SMAS", "Ulthera SMAS tightening", "HIFU complications".
+
+- *Complications and Risks of High-Intensity Focused Ultrasound (HIFU) in Esthetic Procedures: A Review*. **Applied Sciences (MDPI)**, 2025.
+- *A Systematic Review of the Efficacy of Microfocused Ultrasound for Facial Skin Tightening*. PMC / NCBI. Documenta tensado en >90% de pacientes incluidas.
+- *Systematic Review of High-Intensity Focused Ultrasound in Skin Tightening and Body Contouring*. **Aesthetic Surgery Journal**, 2025.
+- *Quantified Facial Rejuvenation Utilizing High Intense Focus Ultrasound with Multiple Penetrative Depths*. **Clinical, Cosmetic and Investigational Dermatology**, PMC.
+- *Neurologic complication associated with intense focused ultrasound*. Caso clínico ilustrativo de afectación nerviosa transitoria post-HIFU.
+- *Nerve injury associated with high-intensity focused ultrasound: A case report*. Documentación de lesión nerviosa, evolución y recuperación.
+- *Numerical study of high-intensity focused ultrasound (HIFU) in fat reduction*. PMC.
 
 ### Suplementación oral y cosmética coadyuvante
 
-- *The effect of oral collagen peptide supplementation on skin moisture and the dermal collagen network: evidence from an ex vivo model and randomized, placebo-controlled clinical trials*. Asserin J, et al. **Journal of Cosmetic Dermatology**, 2015. Evidencia de mejora de hidratación y densidad colágena dérmica con péptidos orales.
-- *A Collagen Supplement Improves Skin Hydration, Elasticity, Roughness, and Density: Results of a Randomized, Placebo-Controlled, Blind Study*. **Nutrients (MDPI)**, 2019. Ensayo con péptidos de colágeno, vitamina C, zinc, biotina y vitamina E.
-- *Oral Intake of Low-Molecular-Weight Collagen Peptide Improves Hydration, Elasticity, and Wrinkling in Human Skin: A Randomized, Double-Blind, Placebo-Controlled Study*. PMC. Ensayo doble ciego con péptidos de bajo peso molecular.
-- *The Effects of Dietary Supplementation with Collagen and Vitamin C and Their Combination with Hyaluronic Acid on Skin Density, Texture and Other Parameters*. PMC, 2024. Ensayo aleatorizado de combinación colágeno + vitamina C + ácido hialurónico.
-- *Effects of collagen-based supplements on skin's hydration and elasticity: A systematic review and meta-analysis*. **Indian Journal of Dermatology, Venereology and Leprology**. Meta-análisis de 26 ECA con efectos positivos sobre elasticidad e hidratación.
+- Asserin J, et al. *Oral collagen peptide supplementation on skin moisture and the dermal collagen network*. **Journal of Cosmetic Dermatology**, 2015.
+- *A Collagen Supplement Improves Skin Hydration, Elasticity, Roughness, and Density: RCT*. **Nutrients**, 2019.
+- *Oral Intake of Low-Molecular-Weight Collagen Peptide Improves Hydration, Elasticity, and Wrinkling: RCT*. PMC.
+- *Dietary Supplementation with Collagen and Vitamin C and Their Combination with Hyaluronic Acid on Skin Density*. PMC, 2024.
+- *Effects of collagen-based supplements on skin's hydration and elasticity: Systematic review and meta-analysis (26 RCTs)*. **Indian Journal of Dermatology, Venereology and Leprology**.
 
 ### Anatomía y zonas de seguridad
 
-- *Facial Nerve Danger Zones*. Mohs course revisado, ASMS. Mapa anatómico de zonas de riesgo del nervio facial aplicable a procedimientos dermatológicos y energéticos.
-- *Preserving the marginal mandibular branch of the facial nerve during submandibular region surgery: a cadaveric safety study*. PMC. Anatomía aplicada al trayecto de la marginal mandibular.
-- Literatura clásica de anatomía facial aplicada: descripciones del trayecto de la rama temporal del facial (línea de Pitanguy) en textos de cirugía plástica y dermatológica.
+- *Facial Nerve Danger Zones*. Mohs course revisado, ASMS. Mapa anatómico aplicable a procedimientos energéticos.
+- *Preserving the marginal mandibular branch of the facial nerve during submandibular region surgery: a cadaveric safety study*. PMC.
+- Descripciones clásicas del trayecto de la rama temporal del facial (línea de Pitanguy) en textos de cirugía plástica y dermatológica.
 
-### Avisos sobre la literatura
+### Aviso sobre la literatura
 
-La literatura publicada sobre HIFU estético es **heterogénea en calidad**. Los estudios más rigurosos suelen referirse a equipos médicos de referencia (Ulthera principalmente); la evidencia para equipos de gama baja es escasa o inexistente. La profesional debe leer críticamente los datos del fabricante y distinguir entre estudios independientes revisados por pares y materiales promocionales.
-
-No existe, a día de hoy, un ensayo clínico aleatorizado comparativo head-to-head a gran escala entre los principales equipos HIFU médicos. Las decisiones de equipamiento se toman habitualmente en función de datos publicados aislados, experiencia clínica del centro, soporte técnico del fabricante y consideraciones económicas.
+La literatura sobre HIFU estético es **heterogénea en calidad**. Los estudios más rigurosos se refieren a equipos médicos de referencia (Ulthera principalmente); la evidencia para equipos de gama baja es escasa o inexistente. No existe ensayo aleatorizado head-to-head a gran escala entre los principales equipos médicos. La profesional debe distinguir entre estudios independientes revisados por pares y materiales promocionales del fabricante.
 
 ---
 

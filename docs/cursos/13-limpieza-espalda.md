@@ -128,80 +128,60 @@ La consulta tiene cuatro objetivos: identificar sustrato (comedoniano, foliculí
 
 El protocolo estándar consta de **ocho fases** y se ejecuta en 60-90 minutos. Cada fase tiene un objetivo definido y un tiempo aproximado.
 
-**Fase 1 · Doble limpieza (5-7 min)**
+**Fase 1 · Doble limpieza (5-7 min)**. Primera pasada con **desmaquillante oleoso o aceite limpiador** sobre piel seca, masaje circular ascendente que disuelve sebo oxidado y restos de fotoprotector. Emulsión con agua tibia y retirada con gasa. Segunda pasada con **gel limpiador de pH fisiológico (5,0-5,5)**, tensioactivos suaves; preferible con **ácido salicílico al 0,5-2%** en pieles comedonianas por su penetración intrafolicular lipófila. Aclarado.
 
-Primera pasada con **desmaquillante oleoso o aceite limpiador** sobre piel seca, masaje circular ascendente que disuelve sebo oxidado, restos de protector solar, residuos de desodorantes y cremas corporales. Emulsión con agua tibia y retirada con gasa o toalla húmeda. Segunda pasada con **gel limpiador suave de pH fisiológico (5,0-5,5)** con tensioactivos no agresivos; un limpiador con **ácido salicílico al 0,5-2%** es preferible en pieles con tendencia comedoniana, porque su carácter lipófilo permite penetración intrafolicular. Aclarado.
+**Fase 2 · Vaporización con Vapozono (10-15 min)**. Vapor a 30-40 cm dirigido al tercio superior y medio. Función: **reblandecer estrato córneo, hidratar infundíbulo y dilatar ostium folicular**, facilitando la extracción. El ozono incorporado aporta efecto bactericida superficial leve. Tiempo: 10 min en piel normal, hasta 15 min en piel gruesa o comedones muy adheridos. No prolongar: el exceso macera y altera la barrera. Vigilar temperatura percibida en nuca con preguntas frecuentes. En fototipos altos, mayor distancia y menor tiempo.
 
-**Fase 2 · Vaporización con Vapozono (10-15 min)**
+**Fase 3 · Exfoliación (10 min)**. Combinación de mecánica suave + química. Mecánica con **gel exfoliante de partículas redondeadas (jojoba, sílice esférica)**, masaje suave, evitando fricción sobre pápulas; **nunca partículas angulares (cáscara de nuez, hueso de albaricoque)**, que microlesionan y favorecen PIH. Aclarado.
 
-Vapor a 30-40 cm de distancia, dirigido al tercio superior y medio de la espalda. Función del vapor: **reblandecer el estrato córneo, hidratar el infundíbulo folicular y dilatar el ostium**, lo que facilita la extracción posterior. La incorporación de ozono en el vapor aporta un efecto bactericida superficial leve. Tiempo: 10 minutos en piel normal, hasta 15 minutos en piel muy gruesa o con comedones muy adheridos. No prolongar más allá: el vapor excesivo macera el estrato córneo y altera la barrera. Cubrir ojos del paciente con toalla doblada si el cabecero permite cierta visualización; vigilar la temperatura percibida en la nuca (zona más sensible) preguntando con frecuencia. En fototipos altos, distancia mayor y tiempo inferior.
+Exfoliación química con **ácido salicílico al 2%** aplicado con pincel o gasa, 3-5 minutos según tolerancia y fototipo. Salicílico es de elección por carácter lipófilo —penetra el sebo, desobstruye el folículo desde dentro— y efecto antiinflamatorio leve. Alternativa: **enzimático** (papaína, bromelina) en piel sensible, 5-10 minutos. Aclarado completo.
 
-**Fase 3 · Exfoliación (10 min)**
+**Fase 4 · Extracción manual de comedones (15-25 min)**. Fase de mayor exigencia técnica. Reglas:
 
-Combinación de exfoliación mecánica muy suave + exfoliación química. La mecánica se ejecuta con un **gel exfoliante de partículas redondeadas (jojoba, sílice esférica)** en masaje suave, evitando fricción intensa sobre zonas con pápulas; **nunca exfoliantes de partículas angulares (cáscara de nuez, hueso de albaricoque)**, que microlesionan el estrato córneo y favorecen PIH. Aclarado.
+- **Asepsia rigurosa**: guantes nitrilo limpios, extractor esterilizado, gasas estériles.
+- **Solo comedones maduros** con orificio visible y permeable. Los cerrados profundos sin drenaje **no se fuerzan**: la presión los rompe en dermis y desencadena inflamación, PIH y riesgo cicatricial.
+- **Comedones abiertos**: extractor de lazo perpendicular al folículo, presión suave y continua hasta vaciado.
+- **Comedones cerrados maduros con punto visible**: ligera apertura con extractor o lanceta (si formación y legislación lo autorizan al perfil profesional) y extracción.
+- **Pápulas y pústulas inflamatorias**: **no extraer**. La presión empeora inflamación y aumenta riesgo cicatricial.
+- **Tiempo acotado**: no prolongar más de 25 minutos. Fatiga del operador y maceración son factores de complicación.
+- Tónico antiséptico suave al finalizar (clorhexidina acuosa diluida 0,05%, agua termal o tónico sin alcohol).
 
-A continuación, exfoliación química con **ácido salicílico al 2%** aplicado con pincel o gasa en una sola pasada, dejado actuar 3-5 minutos según tolerancia y fototipo. El salicílico es de elección por su carácter lipófilo —penetra el sebo y desobstruye el folículo desde dentro— y por su efecto antiinflamatorio leve. Como alternativa, **exfoliante enzimático** (papaína, bromelina) en piel sensible o reactiva, dejado actuar 5-10 minutos. Neutralización si el producto lo requiere, aclarado completo.
+**Fase 5 · Alta frecuencia (5-7 min)**. Electrodo de hongo o pasada amplia con efecto germicida y secante, útil tras lesiones pustulosas mínimas o congestión visible. Barrido continuo, intensidad confortable, sin chispa salvo lesión concreta. Genera ozono local con efecto bactericida superficial y vasoconstricción leve que calma el eritema.
 
-**Fase 4 · Extracción manual de comedones (15-25 min)**
+**Fase 6 · Mascarilla (10-15 min)**. Elección según sustrato:
 
-Es la fase de mayor exigencia técnica y donde más se diferencia la profesional formada de la improvisada. Reglas:
-
-- **Asepsia rigurosa**: guantes nitrilo limpios para esta fase, extractor esterilizado, gasas estériles.
-- **Solo comedones maduros**: aquellos cuyo orificio es visible y permeable. Los comedones cerrados profundos sin punto de drenaje **no se fuerzan**: la presión los rompe en dermis y desencadena lesión inflamatoria, riesgo de PIH y de cicatriz.
-- **Comedones abiertos**: extracción con extractor de lazo perpendicular al folículo, presión suave y continua hasta vaciado. Limpieza inmediata con gasa.
-- **Comedones cerrados maduros con punto visible**: ligera apertura con extractor o lanceta (si la formación lo permite y la legislación local lo autoriza al perfil profesional) y extracción del contenido.
-- **Pápulas y pústulas inflamatorias**: **no extraer**. La presión empeora la inflamación y aumenta el riesgo cicatricial. Si una pústula está "madura" y abierta espontáneamente, drenaje suave con gasa y antiséptico, nada más.
-- **Tiempo total acotado**: no prolongar la extracción más allá de 25 minutos. La fatiga del operador y la maceración prolongada de la piel son factores de complicación.
-- Limpieza con tónico antiséptico suave (clorhexidina acuosa diluida 0,05%, agua termal o tónico sin alcohol) al finalizar.
-
-**Fase 5 · Alta frecuencia (5-7 min)**
-
-Aplicación de electrodo de hongo o de pasada amplia con efecto germicida y secante, especialmente útil si han quedado lesiones pustulosas mínimas tras la extracción o si la piel se ve congestiva. Pasadas continuas en barrido sobre todo el campo tratado, intensidad confortable (sin chispa visible si no se persigue efecto chispa local sobre lesión concreta). La alta frecuencia genera ozono local, con efecto bactericida superficial, y produce vasoconstricción secundaria leve, que calma el eritema. Tiempo: 5 minutos como pauta general.
-
-**Fase 6 · Mascarilla (10-15 min)**
-
-Elección según sustrato:
-
-- **Piel grasa, congestiva, con tendencia comedoniana**: mascarilla de **arcilla verde, caolín o arcilla negra**, aplicada en capa uniforme de 2-3 mm, retirada antes de secado completo (cuando empieza a perder brillo, no agrietada). Las arcillas absorben sebo y aportan minerales. Tiempo: 10-12 minutos.
-- **Piel con foliculitis residual**: mascarilla con **piritionato de zinc** o con activos antimicrobianos suaves.
-- **Piel sensibilizada tras extracción intensa**: mascarilla **calmante** con avena coloidal, alantoína, pantenol, centella asiática, niacinamida. Tiempo: 10-15 minutos.
-- **Mascarilla peel-off**: opción cosmética con efecto inmediato sobre textura, útil en sesión pre-evento.
+- **Piel grasa-congestiva-comedoniana**: **arcilla verde, caolín o arcilla negra**, capa de 2-3 mm, retirar antes de secado completo. 10-12 minutos.
+- **Foliculitis residual**: mascarilla con **piritionato de zinc** o antimicrobianos suaves.
+- **Piel sensibilizada post-extracción**: **calmante** con avena coloidal, alantoína, pantenol, centella, niacinamida. 10-15 minutos.
+- **Peel-off**: efecto cosmético inmediato, útil pre-evento.
 
 Retirada con agua templada y gasas, sin frotar.
 
-**Fase 7 · Sérum activo (3 min)**
+**Fase 7 · Sérum activo (3 min)**. Según objetivo:
 
-Aplicación de sérum según objetivo:
+- **Sebo-regulador queratolítico**: niacinamida 5-10%, salicílico bajo (0,5-1%), zinc PCA.
+- **Anti-PIH y antiinflamatorio**: azelaico 10%, niacinamida, ácido tranexámico.
+- **Antioxidante**: vitamina C estabilizada 10-15% si el sustrato lo tolera.
 
-- **Sebo-regulador y queratolítico**: niacinamida 5-10%, ácido salicílico bajo (0,5-1%), zinc PCA.
-- **Anti-PIH y antiinflamatorio**: ácido azelaico 10%, niacinamida, ácido tranexámico.
-- **Antioxidante**: vitamina C estabilizada 10-15% (etilascorbato, ascorbil glucósido, ácido ascórbico tamponado), si el sustrato lo tolera y no hay piel sensibilizada en la sesión.
-
-Masaje suave hasta absorción.
-
-**Fase 8 · Crema oil-free + fotoprotección**
-
-Crema hidratante **oil-free**, con textura ligera (gel-crema), no comedogénica, idealmente con activos compatibles (niacinamida, ácido hialurónico, pantenol). Sobre ella, **fotoprotección oil-free SPF 50** mineral o químico-mineral de textura no oclusiva, sobre todo si el paciente sale de la cabina con luz solar directa o si está en temporada estival.
+**Fase 8 · Crema oil-free + fotoprotección**. Hidratante **oil-free**, gel-crema no comedogénica con activos compatibles (niacinamida, hialurónico, pantenol). **Fotoprotección oil-free SPF 50** mineral o químico-mineral si el paciente sale con luz directa o en temporada estival.
 
 ### 5.4 · Casos clínicos
 
-**Caso 1. Paciente de 16 años, mujer, fototipo III, acné comedoniano dorsal.**
+**Caso 1. Mujer de 16 años, fototipo III, acné comedoniano dorsal.**
 
-Estudiante de instituto, sin tratamiento dermatológico actual. Acné facial leve controlado con cosmética con peróxido de benzoilo 2,5% indicada por su pediatra. Espalda con comedones cerrados extensos en triángulo interescapular, algún comedón abierto, sin pápulas ni pústulas inflamatorias significativas, sin cicatrices. Preocupación estética antes del verano por bañadores. Sin antecedentes de cicatrización anómala, sin PIH residual visible.
+Estudiante, acné facial leve controlado con peróxido de benzoilo 2,5% indicado por su pediatra. Espalda con comedones cerrados extensos en triángulo interescapular y algún comedón abierto, sin pápulas inflamatorias, sin cicatrices. Preocupación estética pre-verano por bañadores.
 
-Plan: ciclo de cuatro sesiones quincenales. Protocolo estándar de ocho fases, con exfoliación química suave (salicílico 2%, 3 minutos por riesgo de PIH discreto en fototipo III) y extracción contenida exclusivamente sobre comedones maduros. Cosmética domiciliaria pautada: limpiador con salicílico 2% en ducha cada noche, gel BHA 2% en aplicación nocturna en zona afecta tres veces por semana, hidratante oil-free, fotoprotector SPF 50 los días de bañador. Educación específica sobre no rascar y no usar esponjas abrasivas.
+Plan: ciclo de cuatro sesiones quincenales. Protocolo estándar con exfoliación química suave (salicílico 2%, 3 min por riesgo discreto de PIH en fototipo III) y extracción contenida sobre comedones maduros. Cosmética domiciliaria: limpiador con salicílico 2% en ducha nocturna, gel BHA 2% nocturno en zona afecta 3 noches/semana, hidratante oil-free, fotoprotector SPF 50 los días de bañador. Educación sobre no rascar ni usar esponjas abrasivas.
 
-Resultado a las ocho semanas: reducción muy visible de comedones, textura uniforme, dos pápulas residuales que se resuelven sin manipulación. Pauta de mantenimiento mensual durante el verano. Sin PIH.
+Resultado a las ocho semanas: reducción visible de comedones, textura uniforme, dos pápulas residuales que se resuelven sin manipulación. Mantenimiento mensual en verano. Sin PIH.
 
-**Caso 2. Paciente de 34 años, varón, fototipo IV, foliculitis crónica dorsal en deportista.**
+**Caso 2. Varón de 34 años, fototipo IV, foliculitis crónica dorsal en deportista.**
 
-Triatleta amateur, entrenamiento diario con ropa técnica ajustada y sudoración intensa prolongada. Refiere desde hace dos años pápulo-pústulas monomorfas en hombros y tercio superior de la espalda, prurito leve, brotes asociados a periodos de mayor carga de entrenamiento. Ya ha probado limpiador con peróxido de benzoilo de venta libre con mejoría parcial. Sospecha clínica orientativa: cuadro mixto, foliculitis bacteriana leve sumada a posible foliculitis por *Malassezia* (monomorfismo, localización en hombros). Sin acné comedoniano significativo. Fototipo IV con PIH discreta residual en zonas de brotes pasados.
+Triatleta amateur, ropa técnica ajustada y sudoración intensa prolongada. Pápulo-pústulas monomorfas en hombros y tercio superior desde hace dos años, brotes asociados a mayor carga de entrenamiento. Sospecha orientativa: cuadro mixto, foliculitis bacteriana leve y posible foliculitis por *Malassezia* (monomorfismo, localización). Sin acné comedoniano significativo. PIH residual discreta en zonas de brotes previos.
 
-Decisión clínica: **derivación previa al dermatólogo para confirmar diagnóstico y, en su caso, prescribir antifúngico tópico u oral**. El paciente acude al dermatólogo, que confirma foliculitis por *Malassezia* y prescribe ketoconazol champú 2% como gel de ducha durante cuatro semanas e itraconazol oral en pauta corta. A las cuatro semanas, con brote controlado, se inicia tratamiento estético complementario: ciclo de cuatro sesiones quincenales con protocolo adaptado —vaporización breve (8 minutos), exfoliación enzimática (no salicílico inicial, por sensibilización por antifúngico tópico previo), extracción mínima limitada a comedones residuales, alta frecuencia más prolongada por efecto germicida, mascarilla calmante con niacinamida y pantenol, sérum con ácido azelaico 10% para PIH residual.
+Decisión: **derivación previa al dermatólogo para confirmar diagnóstico y prescribir antifúngico**. El dermatólogo confirma *Malassezia* y prescribe ketoconazol 2% champú como gel de ducha cuatro semanas e itraconazol oral en pauta corta. A las cuatro semanas, con brote controlado, ciclo estético complementario: vapor breve (8 min), exfoliación enzimática (no salicílico inicial por sensibilización por antifúngico tópico), extracción mínima, alta frecuencia prolongada por efecto germicida, mascarilla calmante con niacinamida y pantenol, sérum con azelaico 10% para PIH residual.
 
-Pauta domiciliaria: gel de ducha con piritionato de zinc o ketoconazol 1% (en mantenimiento, no tratamiento agudo), ducha inmediata tras entrenamiento, secado completo antes de vestirse, ropa técnica de fibras transpirables y cambio inmediato al terminar, hidratante oil-free no oclusivo. Cita de revisión dermatológica a los tres meses.
-
-Resultado a las doce semanas: control del cuadro, mejoría progresiva de PIH con cosmética azelaica, mantenimiento estético mensual coordinado con seguimiento médico.
+Pauta domiciliaria: gel de ducha con piritionato de zinc en mantenimiento, ducha inmediata post-entrenamiento, secado completo, ropa técnica transpirable, hidratante oil-free. Revisión dermatológica a los tres meses. Resultado a las doce semanas: control del cuadro, mejoría progresiva de PIH, mantenimiento estético mensual coordinado con el médico.
 
 ## 6 · Cosmetología aplicada
 
@@ -209,39 +189,32 @@ La cosmetología de cabina y la cosmetología domiciliaria recomendada son los d
 
 ### 6.1 · Limpiadores
 
-- **pH fisiológico 5,0-5,5**: imprescindible. Los jabones alcalinos (pH 8-10) alteran la barrera, aumentan la pérdida transepidérmica de agua y, paradójicamente, estimulan la producción compensatoria de sebo.
-- **Tensioactivos suaves**: cocoglucósidos, decil glucósidos, betaínas. **Evitar sulfatos agresivos (SLS) en piel reactiva**.
-- **Activos**: ácido salicílico 0,5-2% como activo de elección en sustrato comedoniano; ácido glicólico 5-8% en piel gruesa y queratósica sin componente inflamatorio dominante; piritionato de zinc 1-2% en sustrato foliculítico o seborreico.
-- **Vehículo en gel o espuma**, no en crema oclusiva.
+- **pH fisiológico 5,0-5,5**: imprescindible. Los jabones alcalinos (pH 8-10) alteran la barrera y estimulan producción compensatoria de sebo.
+- **Tensioactivos suaves**: cocoglucósidos, decil glucósidos, betaínas. **Evitar SLS en piel reactiva**.
+- **Activos**: salicílico 0,5-2% en sustrato comedoniano; glicólico 5-8% en piel queratósica sin componente inflamatorio dominante; piritionato de zinc 1-2% en sustrato foliculítico o seborreico.
+- **Vehículo gel o espuma**, no crema oclusiva.
 
 ### 6.2 · Exfoliantes
 
-- **Mecánicos suaves**: partículas redondeadas (jojoba, sílice esférica). Uso 1-2 veces por semana.
-- **Químicos beta-hidroxiácidos**: ácido salicílico 2% en sérum o gel nocturno, aplicación 3-4 veces por semana en mantenimiento, hasta diaria en piel adaptada. Es el activo más coste-efectivo para acné comedoniano dorsal.
-- **Químicos alfa-hidroxiácidos**: glicólico 8-10%, láctico 5-10%, mandélico 5-10%. Útiles en pieles con queratosis o textura irregular sin componente comedoniano dominante.
-- **Enzimáticos**: papaína, bromelina, subtilisina. Opción para piel sensible o como alternativa rotacional.
+- **Mecánicos suaves**: partículas redondeadas (jojoba, sílice esférica), 1-2 veces/semana.
+- **BHA**: salicílico 2% en sérum o gel nocturno, 3-4 veces/semana hasta diario en piel adaptada. Activo más coste-efectivo en acné comedoniano dorsal.
+- **AHA**: glicólico 8-10%, láctico 5-10%, mandélico 5-10%. Útiles en queratosis o textura irregular sin componente comedoniano dominante.
+- **Enzimáticos** (papaína, bromelina): piel sensible o alternativa rotacional.
 
 ### 6.3 · Activos principales
 
-- **Niacinamida (vitamina B3) 4-10%**: sebo-regulador, antiinflamatorio, refuerzo de barrera, anti-PIH. Excelente tolerabilidad incluso en piel reactiva. Compatible con la mayoría de activos.
-- **Ácido azelaico 10-20%**: comedolítico, antimicrobiano frente a *Cutibacterium acnes*, despigmentante por inhibición de tirosinasa. Especialmente útil en piel con PIH activa o riesgo. Bien tolerado en embarazo (las concentraciones farmacéuticas requieren prescripción).
-- **Ácido salicílico**: tratado en limpiadores y exfoliantes.
-- **Vitamina C estabilizada 10-15%**: antioxidante, sinérgica con fotoprotección, refuerzo del manejo despigmentante. Usar por la mañana.
-- **Retinoides cosméticos** (retinol, retinaldehído) y farmacéuticos (adapaleno 0,1%, tretinoína): regulación del recambio epidérmico, comedolíticos, anti-PIH. **Adapaleno 0,1% es de venta libre en muchos países y, en España, su forma comercial requiere indicación; conviene que sea pautado por médico**. Reintroducir gradualmente, alternando con noches de descanso.
-- **Peróxido de benzoilo 2,5-5%**: antimicrobiano clave en acné, pauta libre en concentraciones bajas en algunos países. En **acné moderado o con componente inflamatorio derivar al médico** para pauta correcta y vigilar irritación y blanqueamiento de tejidos.
+- **Niacinamida 4-10%**: sebo-regulador, antiinflamatorio, refuerzo de barrera, anti-PIH. Excelente tolerabilidad, compatible con la mayoría de activos.
+- **Ácido azelaico 10-20%**: comedolítico, antimicrobiano frente a *C. acnes*, despigmentante por inhibición de tirosinasa. Útil en PIH activa o riesgo. Bien tolerado en embarazo (concentraciones farmacéuticas requieren prescripción).
+- **Vitamina C estabilizada 10-15%**: antioxidante, sinérgica con fotoprotección, refuerzo despigmentante. Por la mañana.
+- **Retinoides cosméticos** (retinol, retinaldehído) y farmacéuticos (adapaleno 0,1%, tretinoína): comedolíticos, anti-PIH. Pauta médica preferible. Reintroducción gradual.
+- **Peróxido de benzoilo 2,5-5%**: antimicrobiano clave en acné. En **acné moderado o inflamatorio derivar al médico**; vigilar irritación y blanqueamiento de tejidos.
 
-### 6.4 · Mascarillas
+### 6.4 · Mascarillas y fotoprotección
 
-- **Arcillas (verde, caolín, negra)**: absorción sebácea, efecto matificante. Indicación: piel grasa, congestiva. Frecuencia domiciliaria: 1-2 veces por semana.
-- **Mascarillas con azufre 3-5%**: queratolítico, antimicrobiano leve. Útil en sustrato seborreico.
-- **Calmantes con avena coloidal, centella, alantoína, pantenol, bisabolol**: post-extracción, post-exfoliación química intensa, piel reactiva.
-- **Peel-off**: opción cosmética de efecto inmediato pre-evento, no terapéutica.
-
-### 6.5 · Fotoprotección
-
-- **Fotoprotector facial-corporal oil-free SPF 50** mineral (óxido de zinc, dióxido de titanio) o filtros químicos modernos no comedogénicos. Aplicación obligada los días de exposición de la espalda (bañador, escote, ejercicio al aire libre).
-- **Reaplicación cada 2 horas** si exposición prolongada.
-- En pacientes con PIH activa o riesgo, fotoprotección continua independiente de exposición intensa.
+- **Arcillas (verde, caolín, negra)**: absorción sebácea en piel grasa-congestiva, 1-2 veces/semana.
+- **Azufre 3-5%**: queratolítico, antimicrobiano leve, sustrato seborreico.
+- **Calmantes** (avena, centella, alantoína, pantenol, bisabolol): post-extracción, post-exfoliación intensa, piel reactiva.
+- **Fotoprotector oil-free SPF 50** mineral o químico-mineral no comedogénico. Obligado los días de exposición dorsal; reaplicación cada 2 horas en exposición prolongada. En PIH activa o riesgo, fotoprotección continua.
 
 ### 6.6 · Cosmética domiciliaria recomendada (kit estándar)
 
@@ -257,66 +230,53 @@ La cosmetología de cabina y la cosmetología domiciliaria recomendada son los d
 
 ## 7 · Aftercare y seguimiento
 
-Cronograma orientativo. Información entregada por escrito al paciente y repasada verbalmente al finalizar la sesión.
+Cronograma orientativo. Información entregada por escrito y repasada verbalmente al finalizar la sesión.
 
-**Día 0 (sesión)**: eritema dorsal difuso, sensación de calor leve. Posible costra puntiforme microscópica en los puntos de extracción. Aplicación inmediata del sérum y la crema; en cabina, fotoprotección si el paciente se expone al sol al salir.
+**Día 0**: eritema dorsal difuso, sensación de calor leve, posible costra puntiforme microscópica en puntos de extracción. Aplicación inmediata de sérum y crema; fotoprotección si el paciente sale al sol.
 
 **Día 1-2 (48 h críticas)**:
 
-- **Evitar exposición solar directa** sobre la espalda. Si el paciente debe salir, ropa cubriente o fotoprotector oil-free SPF 50 cada 2 horas.
-- **No aplicar exfoliantes mecánicos ni químicos activos** (BHA, AHA, retinoides) durante 3-5 días en zona tratada.
-- **No sauna, no baño turco, no jacuzzi**: el calor sostenido prolonga el eritema y altera la barrera reciente.
-- **No ejercicio intenso con sudoración profusa** en las primeras 24 horas; reanudar progresivamente con ducha inmediata posterior.
-- **Hidratación oral abundante**.
-- **Ropa transpirable**, evitar tejidos sintéticos ajustados las primeras 48 horas.
+- **Evitar exposición solar directa**. Si sale, ropa cubriente o fotoprotector oil-free SPF 50 cada 2 horas.
+- **No aplicar exfoliantes** mecánicos ni químicos activos (BHA, AHA, retinoides) durante 3-5 días en zona tratada.
+- **No sauna, baño turco ni jacuzzi**: el calor sostenido prolonga eritema y altera la barrera.
+- **No ejercicio intenso con sudoración profusa** las primeras 24 h; reanudar progresivamente con ducha inmediata posterior.
+- **Hidratación oral abundante**, ropa transpirable, evitar tejidos sintéticos ajustados las primeras 48 h.
 
-**Día 3-7**:
+**Día 3-7**: reintroducción progresiva de cosmética domiciliaria: hidratante y niacinamida desde día 1; salicílico nocturno desde día 5-7 según tolerancia. Mantener fotoprotección.
 
-- Reintroducción progresiva de cosmética domiciliaria: hidratante, niacinamida desde el primer día; salicílico nocturno desde el día 5-7 según tolerancia.
-- Mantener fotoprotección si exposición.
+**Día 7-14**: pauta domiciliaria completa restablecida. Cita de seguimiento si es primera sesión del ciclo.
 
-**Día 7-14**:
+**Sesión siguiente**: **15 días** en ciclos de tratamiento; **30 días** en mantenimiento.
 
-- Pauta domiciliaria completa restablecida.
-- Cita de seguimiento si es la primera sesión de un ciclo, para evaluar tolerancia y ajustar.
-
-**Sesión siguiente**: idealmente **a los 15 días** en ciclos de tratamiento; a los **30 días** en mantenimiento.
-
-**Signos de alarma que exigen consulta**:
-
-- Eritema intenso que persiste más de 72 h.
-- Aparición de pústulas nuevas dolorosas en zona tratada.
-- Sensación de quemazón o dolor que aumenta a partir del día 2.
-- Aparición de mancha oscura nueva.
-- Fiebre o malestar general.
+**Signos de alarma que exigen consulta**: eritema intenso >72 h, pústulas nuevas dolorosas, quemazón o dolor creciente desde día 2, mancha oscura nueva, fiebre o malestar.
 
 ## 8 · Manejo de complicaciones
 
 ### 8.1 · Eritema persistente
 
-Aparece como rubor mantenido más de 48-72 h tras la sesión. Causas habituales: exfoliación excesiva, vaporización prolongada en piel reactiva, extracción agresiva, intolerancia individual al ácido aplicado. Manejo: suspensión total de activos, mascarilla calmante en cabina (avena, centella, niacinamida), hidratación con crema reparadora rica en pantenol y ceramidas durante 5-7 días, fotoprotección estricta. En la sesión siguiente, **reducir tiempos y concentraciones**: vaporización 8 minutos, salicílico al 1% o sustitución por enzimático, extracción contenida.
+Rubor mantenido >48-72 h. Causas: exfoliación excesiva, vapor prolongado en piel reactiva, extracción agresiva, intolerancia al ácido aplicado. Manejo: suspensión de activos, mascarilla calmante (avena, centella, niacinamida), crema reparadora con pantenol y ceramidas 5-7 días, fotoprotección. Sesión siguiente: **reducir tiempos y concentraciones** (vapor 8 min, salicílico 1% o enzimático, extracción contenida).
 
 ### 8.2 · Foliculitis post-tratamiento
 
-Aparición de pústulas foliculares dispersas en zona tratada en los 2-5 días posteriores. Causa probable: contaminación durante extracción, manipulación del paciente, ropa contaminada, sudoración inmediata post-sesión. Manejo: tónico antiséptico suave 2 veces al día, aplicación de gel con peróxido de benzoilo 2,5% en lesiones (si el paciente lo tolera y no hay sensibilidad cutánea aguda), evitar manipulación. Si en 7 días no mejora o se extiende: **derivación médica para valoración de antibiótico tópico** (clindamicina, eritromicina) **u oral**. Revisar protocolo de asepsia en cabina.
+Pústulas foliculares dispersas en zona tratada a los 2-5 días. Causa: contaminación en extracción, manipulación del paciente, ropa contaminada, sudoración post-sesión. Manejo: tónico antiséptico 2 veces/día, gel con peróxido de benzoilo 2,5% en lesiones si lo tolera, evitar manipulación. Si en 7 días no mejora o se extiende: **derivación para antibiótico tópico** (clindamicina, eritromicina) **u oral**. Revisar asepsia en cabina.
 
 ### 8.3 · Hiperpigmentación post-inflamatoria
 
-Aparición a las 2-6 semanas, sobre todo en fototipos III-VI o tras exposición solar precoz. Manejo: **fotoprotección estricta SPF 50 oil-free diaria**, niacinamida 5-10% y/o azelaico 10-15% domiciliarios durante 8-12 semanas, vitamina C antioxidante por la mañana. Resolución progresiva en 2-6 meses. **Derivación dermatológica si no hay respuesta a las 8-12 semanas** o si la PIH es intensa: el médico puede prescribir hidroquinona supervisada, retinoides tópicos, peelings despigmentantes o láseres específicos.
+Aparición a las 2-6 semanas, sobre todo en fototipos III-VI o exposición solar precoz. Manejo: **fotoprotección SPF 50 oil-free diaria**, niacinamida 5-10% y/o azelaico 10-15% domiciliarios 8-12 semanas, vitamina C por la mañana. Resolución en 2-6 meses. **Derivación si no hay respuesta a las 8-12 semanas** o PIH intensa: hidroquinona supervisada, retinoides, peelings o láseres específicos.
 
-### 8.4 · Ausencia de resultados clínicos
+### 8.4 · Ausencia de resultados
 
-Tras 3-4 sesiones sin mejoría visible. Reevaluar:
+Tras 3-4 sesiones sin mejoría. Reevaluar:
 
-- ¿El diagnóstico era correcto? Puede tratarse de foliculitis por *Malassezia* no diagnosticada, acné inflamatorio infraestimado, o queratosis pilar (eficacia limitada inherente).
-- ¿La cosmética domiciliaria se está cumpliendo? Lo más frecuente: sí en el limpiador, no en el BHA nocturno ni en la fotoprotección.
-- ¿Hay factores no controlados? Sudoración deportiva sin ducha inmediata, ropa oclusiva, suplementación con anabolizantes o corticoides, alteración hormonal no estudiada.
+- ¿Diagnóstico correcto? Posible foliculitis por *Malassezia* no diagnosticada, acné inflamatorio infraestimado o queratosis pilar (eficacia limitada inherente).
+- ¿Cumplimiento de cosmética domiciliaria? Lo habitual: sí limpiador, no BHA nocturno ni fotoprotección.
+- ¿Factores no controlados? Sudoración deportiva sin ducha inmediata, ropa oclusiva, anabolizantes o corticoides, alteración hormonal.
 
-Si la reevaluación no aporta una causa corregible y el sustrato es inflamatorio: **derivación dermatológica**. Las guías de práctica clínica internacionales coinciden en que el acné moderado y severo requiere tratamiento médico (tópico combinado u oral) y que la limpieza estética sin terapia médica de base es insuficiente.
+Si no hay causa corregible y el sustrato es inflamatorio: **derivación dermatológica**. Las guías coinciden en que el acné moderado-severo requiere tratamiento médico y que la limpieza estética sin terapia médica de base es insuficiente.
 
 ### 8.5 · Reacción de contacto a producto
 
-Picor, eritema intenso desproporcionado, vesículas o edema durante o tras la sesión. Manejo: retirada inmediata del producto con agua templada abundante, antihistamínico oral si prurito significativo, valoración médica si reacción extensa. Documentación de la alergia en historia clínica de forma indeleble. **Patch test futuro** antes de reintroducir cualquier activo similar.
+Picor, eritema desproporcionado, vesículas o edema. Manejo: retirada con agua templada abundante, antihistamínico oral si prurito significativo, valoración médica si reacción extensa. Documentar la alergia en historia clínica de forma indeleble. **Patch test futuro** antes de reintroducir activos similares.
 
 ## 9 · Test de evaluación
 
@@ -374,17 +334,17 @@ d) Recomendar peróxido de benzoilo 10% sin más
 
 ## 10 · Referencias
 
-La bibliografía es selectiva. Se han priorizado revisiones con revisión por pares y publicaciones de sociedades dermatológicas internacionales sobre acné truncal y manejo cosmético complementario. Las cifras y rangos citados se mantienen en valores publicados en estas fuentes; la profesional debe contrastarlos con la formación específica de equipo y producto.
+Bibliografía selectiva, priorizando revisiones con revisión por pares y publicaciones de sociedades dermatológicas sobre acné truncal y manejo cosmético complementario.
 
-- **American Academy of Dermatology (AAD)**: guías clínicas para el manejo del acné vulgar, incluyendo recomendaciones de tratamiento por gravedad y criterios de derivación. Apoyan que el acné moderado y severo requiere tratamiento médico de base (tópico combinado u oral).
+- **American Academy of Dermatology (AAD)**: guías clínicas del manejo del acné vulgar, recomendaciones por gravedad y criterios de derivación. El acné moderado y severo requiere tratamiento médico de base.
 - **British Association of Dermatologists (BAD)**: guías sobre acné y manejo de cicatrización y PIH.
-- **PMC / NCBI · Truncal Acne: An Overview**: revisión específica sobre acné truncal, su prevalencia, particularidades clínicas y respuesta terapéutica más lenta que el acné facial.
-- **Journal of the American Academy of Dermatology (JAAD)**: trabajos sobre limpiadores y exfoliantes en acné truncal, incluyendo combinaciones con ácido salicílico y polihidroxiácidos.
-- **Cosmoderma · Clinical approaches in vogue for combination therapies for acne and post-inflammatory hyperpigmentation**: revisión sobre manejo combinado de acné y PIH con azelaico, niacinamida y retinoides.
-- **Dove Medical Press / Clinical, Cosmetic and Investigational Dermatology**: revisión sobre mecanismos y aplicaciones clínicas del ácido azelaico, incluyendo PIH y acné.
+- **PMC / NCBI · Truncal Acne: An Overview**: revisión específica sobre acné truncal, prevalencia, particularidades clínicas y respuesta más lenta que el acné facial.
+- **Journal of the American Academy of Dermatology (JAAD)**: trabajos sobre limpiadores y exfoliantes en acné truncal con salicílico y polihidroxiácidos.
+- **Cosmoderma**: revisión sobre manejo combinado de acné y PIH con azelaico, niacinamida y retinoides.
+- **Clinical, Cosmetic and Investigational Dermatology**: revisión sobre mecanismos y aplicaciones clínicas del ácido azelaico (PIH y acné).
 - **Acta Dermato-Venereologica**: revisión sobre PIH post-acné, gradación y tratamiento.
 - **DermNet NZ**: monografías sobre acné truncal, foliculitis bacteriana, foliculitis por *Malassezia* y queratosis pilar.
-- **Manuales de protocolos profesionales de estética facial-corporal** publicados por escuelas y distribuidores cosméticos especializados (referencia operativa de protocolos paso a paso).
+- **Manuales de protocolos profesionales de estética facial-corporal** de escuelas y distribuidores cosméticos especializados.
 - **Reglamento (CE) 1223/2009** sobre productos cosméticos.
 
-Las cifras citadas (porcentajes de activos, tiempos de aplicación, intervalos entre sesiones) corresponden a rangos habitualmente publicados o establecidos en la práctica clínica. La profesional debe mantener su formación al día y consensuar siempre con el dermatólogo cualquier paciente cuyo cuadro exceda el plano comedoniano superficial.
+La profesional debe mantener su formación al día y consensuar con el dermatólogo cualquier paciente cuyo cuadro exceda el plano comedoniano superficial.
