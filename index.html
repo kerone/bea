@@ -161,19 +161,19 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .nav-left, .nav-right { display: flex; align-items: center; gap: 28px; flex: 1; }
 .nav-right { justify-content: flex-end; gap: 20px; }
 .nav-logo {
-  font-family: var(--serif); font-size: 34px; letter-spacing: 0.22em;
+  font-family: var(--serif); font-size: 24px; letter-spacing: 0.14em;
   color: var(--ink); cursor: pointer; flex-shrink: 0;
-  line-height: 1; text-align: center;
+  line-height: 1; text-align: center; white-space: nowrap;
 }
 .nav-logo-sub {
   display: block;
   font-family: var(--sans); font-size: 9px; font-weight: 500;
-  letter-spacing: 0.46em; color: var(--muted);
-  margin-top: 5px; padding-left: 0.46em;
+  letter-spacing: 0.10em; color: var(--muted);
+  margin-top: 6px; white-space: nowrap;
 }
 @media (max-width: 768px) {
-  .nav-logo { font-size: 22px; letter-spacing: 0.18em; }
-  .nav-logo-sub { font-size: 7.5px; letter-spacing: 0.38em; margin-top: 3px; padding-left: 0.38em; }
+  .nav-logo { font-size: 17px; letter-spacing: 0.10em; }
+  .nav-logo-sub { font-size: 7px; letter-spacing: 0.08em; margin-top: 4px; }
 }
 .nav-link {
   font-size: 13.5px; font-weight: 400; color: var(--ink-soft);
@@ -290,7 +290,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       <span class="nav-link" onclick="goTo('tienda','aparatologia')">Aparatología</span>
       <span class="nav-link">Diario</span>
     </div>
-    <div class="nav-logo" onclick="goTo('home','')">PRECISSA<span class="nav-logo-sub">INSTITUTE</span></div>
+    <div class="nav-logo" onclick="goTo('home','')">PRECISSA INSTITUTE<span class="nav-logo-sub">Dermocosmiatría &amp; Electroestética</span></div>
     <div class="nav-right">
       <button class="btn btn-dark btn-sm acceder-btn" onclick="goTo('aula','docencia')">Acceder</button>
       <button class="btn btn-text mi-aula-btn" style="display:none" onclick="goTo('aula','docencia')">Mi aula →</button>
@@ -308,7 +308,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   <!-- Mobile row -->
   <div class="nav-mobile">
     <button class="hamburger" onclick="openDrawer()">☰</button>
-    <div class="nav-logo" onclick="goTo('home','')">PRECISSA<span class="nav-logo-sub">INSTITUTE</span></div>
+    <div class="nav-logo" onclick="goTo('home','')">PRECISSA INSTITUTE<span class="nav-logo-sub">Dermocosmiatría &amp; Electroestética</span></div>
     <div class="nav-mobile-right">
       <button class="btn btn-dark btn-sm acceder-btn" style="padding:8px 14px;font-size:12px" onclick="goTo('aula','docencia')">Acceder</button>
       <button class="btn btn-text mi-aula-btn" style="display:none;font-size:12px" onclick="goTo('aula','docencia')">Mi aula →</button>
@@ -582,12 +582,12 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 /* Footer */
 .footer { background: var(--ink); color: var(--bg); padding: 64px 56px 32px; }
 .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
-.footer-logo { font-family: var(--serif); font-size: 28px; letter-spacing: 0.18em; margin-bottom: 12px; line-height: 1; }
+.footer-logo { font-family: var(--serif); font-size: 24px; letter-spacing: 0.12em; margin-bottom: 12px; line-height: 1; }
 .footer-logo-sub {
   display: block;
   font-family: var(--sans); font-size: 10px; font-weight: 500;
-  letter-spacing: 0.46em; color: var(--muted);
-  margin-top: 6px; padding-left: 0.46em;
+  letter-spacing: 0.08em; color: var(--muted);
+  margin-top: 7px;
 }
 .footer-bio { font-size: 13px; color: rgba(242,236,227,0.55); line-height: 1.6; max-width: 240px; }
 .footer-col-title { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: rgba(242,236,227,0.45); margin-bottom: 16px; }
@@ -839,7 +839,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   <footer class="footer">
     <div class="footer-grid">
       <div>
-        <div class="footer-logo">PRECISSA<span class="footer-logo-sub">INSTITUTE</span></div>
+        <div class="footer-logo">PRECISSA INSTITUTE<span class="footer-logo-sub">Dermocosmiatría &amp; Electroestética</span></div>
         <p class="footer-bio">Escuela de estética avanzada y tienda de aparatología profesional. Formación rigurosa para las mejores especialistas de España.</p>
       </div>
       <div>
