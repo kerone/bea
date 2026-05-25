@@ -386,6 +386,16 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .diptych-h2 em { font-style: italic; }
 .diptych-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .diptych-card { border-radius: 12px; overflow: hidden; min-height: 420px; position: relative; padding: 44px 40px; display: flex; flex-direction: column; }
+.diptych-img { margin: -44px -40px 22px; height: 220px; position: relative; overflow: hidden; }
+.diptych-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.diptych-img-cap {
+  position: absolute; bottom: 12px; left: 14px;
+  font-family: var(--serif); font-style: italic; font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.92);
+  background: rgba(36,29,23,0.55);
+  padding: 4px 10px; border-radius: 4px;
+}
 .diptych-dark { background: var(--ink); color: var(--bg); }
 .diptych-light { background: var(--bg2); color: var(--ink); }
 .diptych-display {
@@ -671,6 +681,10 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <div class="diptych-grid">
       <!-- Docencia -->
       <div class="diptych-card diptych-dark">
+        <div class="diptych-img">
+          <img src="assets/capas-piel.jpg" alt="Vista previa de lección de anatomía cutánea" loading="lazy" decoding="async">
+          <span class="diptych-img-cap">lección 01 · la piel</span>
+        </div>
         <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
           <span class="chip chip-white" style="font-size:9.5px">PARTE I</span>
           <span class="chip chip-white">Docencia</span>
@@ -693,6 +707,9 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       </div>
       <!-- Aparatología -->
       <div class="diptych-card diptych-light">
+        <div class="diptych-img ph ph-clay">
+          <span class="diptych-img-cap">PRECISSA RF-200 · radiofrecuencia</span>
+        </div>
         <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
           <span class="chip chip-filled" style="font-size:9.5px">PARTE II</span>
           <span class="chip chip-outline">Aparatología</span>
@@ -737,7 +754,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <div class="enfoque-intro">
       <span class="eyebrow accent">· Nuestro enfoque</span>
       <h2 class="enfoque-h2">Aprende <em>haciendo.</em><br>Entiende <em>practicando.</em></h2>
-      <p class="enfoque-lede">En PRECISSA INSTITUTE invertimos el orden clásico de la formación en estética. No estudias teoría para algún día aplicarla — la descubres cuando tus manos la necesitan. Cada concepto llega en el momento exacto: sobre piel real, con la profesora al lado, con el resultado a la vista.</p>
+      <p class="enfoque-lede">PRECISSA INSTITUTE introduce una <em>innovación pedagógica</em> en la formación en estética: la teoría ya no precede a la práctica, emerge de ella. No estudias para algún día aplicarla — la descubres cuando tus manos la necesitan. Cada concepto llega en el momento exacto: sobre piel real, con la profesora al lado, con el resultado a la vista.</p>
     </div>
     <div class="enfoque-grid">
       <div class="enfoque-card">
