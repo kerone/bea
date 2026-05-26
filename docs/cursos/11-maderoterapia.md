@@ -1,6 +1,6 @@
 # Curso · Maderoterapia corporal
 
-> Masaje instrumental con piezas de madera anatómicas de origen colombiano para drenaje, modelado, reducción de adiposidad localizada y abordaje de la celulitis. Una técnica de gran aceptación comercial cuya evidencia científica es limitada y a la que conviene acercarse con rigor clínico, no con épica.
+> Masaje instrumental con piezas de madera anatómicas de origen colombiano para drenaje, modelado, reducción de adiposidad localizada y abordaje de la celulitis. Técnica de gran aceptación comercial cuya evidencia científica es limitada y a la que conviene acercarse con rigor clínico, no con épica.
 
 ---
 
@@ -11,7 +11,7 @@
 | Modalidad | Presencial + aula virtual |
 | Duración estimada | 20 h teóricas · 40 h prácticas |
 | Nivel | Profesional |
-| Requisitos previos | Titulación en estética + nociones de anatomía corporal y de masaje manual clásico (sueco o terapéutico) |
+| Requisitos previos | Titulación en estética + nociones de anatomía corporal y de masaje manual clásico |
 | Certificación | Sí · tras superar test final y prácticas evaluadas sobre modelo |
 | Materiales incluidos | Set completo de instrumental de madera (10 piezas) · aceites y cremas de prácticas · plantilla de protocolo y consentimiento informado · apuntes descargables |
 
@@ -19,124 +19,97 @@
 
 ## 1 · Introducción y posicionamiento clínico
 
-La maderoterapia es, hoy, una de las técnicas corporales de mayor crecimiento comercial en la cabina estética española. Apenas existía en los catálogos europeos hace quince años y, sin embargo, no hay agenda de centro avanzado que no la ofrezca. Su origen es razonablemente reciente y geográficamente acotado: fue codificada y popularizada en Colombia a finales del siglo XX, donde profesionales del masaje estético rediseñaron herramientas tradicionales —rodillos, mazos, cuencos— para adaptarlas a las geometrías del cuerpo y a objetivos estéticos específicos. La narrativa de un linaje milenario asiático (varillas de bambú de la medicina tradicional china) tiene fundamento parcial, pero la maderoterapia que se aplica hoy en cabina es una elaboración contemporánea colombiana, no la transmisión directa de una tradición ancestral.
+La maderoterapia es hoy una de las técnicas corporales de mayor crecimiento en cabina estética. Fue codificada y popularizada en Colombia a finales del siglo XX, donde se rediseñaron herramientas tradicionales (rodillos, mazos, cuencos) para adaptarlas a geometrías corporales y objetivos estéticos. La maderoterapia que se aplica hoy es una elaboración contemporánea colombiana, no la transmisión directa de una tradición ancestral asiática.
 
-Este origen reciente tiene consecuencias. El corpus de evidencia clínica es notablemente delgado: prácticamente no existen ensayos aleatorizados en revistas indexadas que evalúen específicamente la maderoterapia frente a placebo o comparadores activos (presoterapia, drenaje linfático manual, cavitación). La literatura accesible es mayoritariamente divulgativa, comercial o procede de escuelas colombianas y fabricantes. Esto no significa que la técnica sea ineficaz: significa que las afirmaciones cuantitativas (porcentajes de reducción, centímetros perdidos) deben tomarse con cautela y no extrapolarse a la consulta como cifras verificadas. Los protocolos, además, no están estandarizados: cada escuela enseña secuencias ligeramente distintas según la tradición del formador.
+PRECISSA INSTITUTE plantea el curso desde tres premisas: **honestidad sobre la evidencia** (mecanismos plausibles y mejorías subjetivas consistentes, pero sin respaldo sólido para lipólisis, destrucción de adipocitos o reducción permanente de celulitis grado III); **criterio dermatológico y vascular** (instrumento mal seleccionado o presión excesiva producen hematomas, petequias y lesiones persistentes); e **integración** en protocolos combinados (presoterapia, radiofrecuencia, drenaje manual, modificación de hábitos). La meta es producir profesionales que sepan justificar cada movimiento sobre la piel del paciente.
 
-PRECISSA INSTITUTE plantea este curso desde tres premisas. La primera es la honestidad sobre la evidencia: la maderoterapia es una técnica mecánica plausible —comparte mecanismo con endermologie, vacuumterapia y ventosas— y los pacientes refieren mejorías subjetivas consistentes. Pero las afirmaciones sobre lipólisis, destrucción de adipocitos o reducción permanente de la celulitis grado III no tienen respaldo sólido y la profesional formada debe abstenerse de prometerlas. La segunda es el criterio dermatológico y vascular: un instrumento mal seleccionado o presión excesiva producen hematomas, petequias y, en pacientes con fragilidad capilar, lesiones persistentes. La tercera es la integración: la maderoterapia funciona mejor como componente de un protocolo combinado (presoterapia, radiofrecuencia, cavitación, drenaje manual, modificación de hábitos) que como técnica aislada en sesión única.
+## 2 · Fundamentos
 
-El curso está pensado para la profesional con base sólida en estética corporal que quiere incorporar maderoterapia con criterio clínico, distinguir indicaciones reales de las exageradas, manejar el instrumental con presión y ritmo adecuados y construir protocolos coherentes. La meta no es producir aplicadoras de catálogo: es producir profesionales que sepan justificar cada movimiento que hacen sobre la piel del paciente.
+### 2.1 · Sustrato anatómico
 
-## 2 · Fundamentos científicos
+- **Dermis** (1-4 mm): fibroblastos, colágeno I/III, plexos vasculares, capilares linfáticos iniciales.
+- **Hipodermis**: lobulillos de adipocitos separados por septos conjuntivos. En la mujer, septos perpendiculares (favorecen herniación lobulillar y celulitis); en el varón, oblicuos y entrecruzados.
+- **Microcirculación linfática**: capilares iniciales en dermis superficial → colectores valvulados en dermis profunda e hipodermis. Vía de eliminación obligada.
 
-### 2.1 · Anatomía relevante del tejido subcutáneo
+### 2.2 · Mecanismos (estímulo mecánico exclusivo)
 
-La maderoterapia opera sobre el mismo compartimento que la vacuumterapia, la presoterapia y el drenaje linfático manual: panículo adiposo subcutáneo, red linfática superficial y profunda, microcirculación dérmica y septos fibroconjuntivos que organizan el lobulillo graso. La **dermis** (1-4 mm según zona) aloja fibroblastos, colágeno tipo I y III, fibras elásticas, plexos vasculares y capilares linfáticos iniciales. La **hipodermis** está formada por lobulillos de adipocitos separados por septos conjuntivos verticales que se anclan a dermis profunda y fascia muscular. En la mujer, esos septos son perpendiculares a la superficie cutánea, lo que predispone a la herniación lobulillar y al relieve característico de la celulitis (paniculopatía edemato-fibro-esclerótica o PEFE). En el varón, los septos son oblicuos y entrecruzados, lo que explica la escasa incidencia de celulitis. La **microcirculación linfática** discurre por la dermis superficial (capilares iniciales sin válvulas) y desemboca en colectores valvulados en dermis profunda e hipodermis: es la vía de eliminación obligada de los líquidos movilizados por cualquier técnica de masaje.
+| Respuesta | Mecanismo | Documentación |
+|---|---|---|
+| Activación microcirculatoria | Vasodilatación arteriolar refleja (NO, histamina) → eritema | Bien documentada |
+| Estímulo del bombeo linfático | Compresión rítmica direccional → avance linfático | Documentada (análoga a DLM y presoterapia) |
+| Movilización de septos fibrosos | Tracción repetida → posible rotura de puentes cortos | Plausible (análoga a endermologie) |
+| Estímulo fibroblástico | Mecanotransducción (integrinas) → posible neocolagénesis | Plausible, extrapolada |
+| Facilitación de lipólisis | Indirecta vía mejora linfática y microcirculación | No demostrada específicamente |
+| Respuesta parasimpática | Masaje rítmico → ↓ cortisol, bienestar | Documentada |
 
-Sobre este sustrato la maderoterapia actúa mediante un único mecanismo: **estímulo mecánico de presión, arrastre y vibración aplicado de forma rítmica y secuenciada con instrumentos rígidos de madera**. No hay aporte térmico significativo (más allá del calor de fricción superficial), eléctrico ni químico (más allá del producto cosmético de deslizamiento). Es masaje instrumental puro.
+**No demostrado / poco plausible**: destrucción de adipocitos, lipólisis directa por la madera, reducción permanente sin déficit calórico, eliminación definitiva de celulitis grado III.
 
-### 2.2 · Mecánica del estímulo y respuestas tisulares plausibles
+**Marketing puro**: "pierde 10 cm en una sesión", "elimina la celulitis para siempre", "esculpe sin esfuerzo". No se respaldan desde PRECISSA.
 
-La aplicación rítmica de presión, arrastre, rodamiento y vibración sobre el tejido subcutáneo produce respuestas enumerables con razonable seguridad sobre la base de la fisiología del masaje y la analogía con técnicas instrumentales documentadas.
+### 2.3 · La madera como material
 
-**Activación de la microcirculación local**. La fricción y la deformación mecánica producen vasodilatación arteriolar refleja, mediada por óxido nítrico, histamina y otros mediadores. Se manifiesta como eritema de calentamiento. Es la respuesta más inmediata y mejor documentada.
-
-**Estímulo del bombeo linfático**. La compresión rítmica direccional en sentido del flujo fisiológico favorece el avance de la linfa. Mecanismo similar al del drenaje linfático manual (Vodder, Leduc) y a la presoterapia. Menos selectiva que el drenaje manual pero más vigorosa; su efecto sobre la retención hídrica es referido sistemáticamente.
-
-**Movilización del tejido adiposo y de los septos fibrosos**. El plegado y la rodadura sobre la hipodermis ejerce tracción sobre los septos verticales y desplaza lobulillos grasos. En la celulitis fibroesclerótica, esta tracción repetida puede contribuir a la rotura de puentes fibrosos cortos y al despegado parcial de adherencias —efecto análogo al de la endermologie.
-
-**Estímulo mecánico del fibroblasto**. El estrés tensional repetido activa la mecanotransducción (integrinas, citoesqueleto) y puede incrementar la síntesis de colágeno y matriz extracelular. Mecanismo demostrado para endermologie en estudios histológicos, razonablemente extrapolable.
-
-**Posible facilitación de la lipólisis**. Algunos textos divulgativos afirman que la maderoterapia "rompe" el adipocito: es incorrecto, ninguna presión manual con instrumental de madera tiene la energía necesaria para lisar la membrana adipocitaria. Lo plausible —no demostrado específicamente— es una facilitación indirecta: la mejora del retorno linfático y la microcirculación crean un entorno favorable a la movilización de ácidos grasos liberados por la lipólisis fisiológica (déficit calórico, ejercicio, cosmético lipolítico). La maderoterapia, por sí sola, no sirve para perder peso.
-
-**Respuesta parasimpática**. El masaje rítmico mantenido reduce la frecuencia cardiaca, baja el cortisol salivar y produce sensación de bienestar. Componente poco discutido y probablemente clave en la satisfacción de la paciente.
-
-### 2.3 · Qué SÍ está documentado y qué NO
-
-**Documentado con razonable consistencia** (extrapolable desde la literatura del masaje y de técnicas instrumentales afines): activación de la microcirculación local, estímulo del drenaje linfático, alivio de la pesadez, respuesta parasimpática, mejora aparente de la celulitis edematosa leve-moderada, alisamiento percibido a corto plazo.
-
-**Plausible pero no específicamente demostrado**: estímulo fibroblástico y neocolagénesis, movilización de adherencias fibrosas, modelado glúteo y otras zonas, mejora estructural de la celulitis fibroesclerótica.
-
-**No demostrado y poco plausible**: destrucción de adipocitos, lipólisis directa por la madera, reducción permanente sin déficit calórico, eliminación definitiva de celulitis grado III, efecto sobre obesidad, efecto "definitivo" sin mantenimiento.
-
-**Marketing puro**: cualquier promesa cuantificada tipo "pierde 10 cm en una sesión", "elimina la celulitis para siempre", "esculpe tu cuerpo sin esfuerzo". Una profesional formada en PRECISSA INSTITUTE no debe hacer ni respaldar estas afirmaciones.
-
-### 2.4 · La madera como material
-
-El material del instrumental tiene relevancia clínica y práctica. La madera utilizada (típicamente haya, encina, olivo o maderas tropicales de densidad media) ofrece dureza suficiente para transmitir presión sin deformarse, peso adecuado para que el propio instrumento contribuya a la maniobra, calidez de contacto superior al metal o al plástico, baja conductividad térmica y un acabado pulido que reduce el riesgo de pellizcos cutáneos. La madera debe estar correctamente sellada (barniz alimentario o aceite mineral) y debe limpiarse y desinfectarse entre pacientes con productos no agresivos al barniz (no inmersión; sí paño humedecido en desinfectante de superficies compatible). El instrumental dañado, astillado o con barniz deteriorado debe retirarse del servicio.
+Haya, encina, olivo o tropicales de densidad media. Dureza para transmitir presión, peso que contribuye a la maniobra, calidez de contacto, baja conductividad térmica. Sellado con barniz alimentario o aceite mineral. Limpieza con paño humedecido en desinfectante compatible (no inmersión). Retirar del servicio el instrumental astillado o con barniz deteriorado.
 
 ## 3 · Indicaciones
 
-### 3.1 · Indicaciones aceptadas
-
-Indicaciones habituales en cabina, con criterio realista sobre lo esperable:
-
-| Indicación | Perfil del paciente | Resultado esperable realista | Sesiones |
+| Indicación | Perfil | Resultado realista | Sesiones |
 |---|---|---|---|
-| **Celulitis grado I-II edematosa** (componente hídrico predominante) | Mujer joven o adulta, normopeso, retención de líquidos, relieve visible solo al pellizcar | Mejora visible del relieve y de la sensación de pesadez; resultado bueno como técnica adyuvante | 8-12 sesiones iniciales, mantenimiento mensual |
-| **Celulitis grado II-III fibroesclerótica** (componente fibroso predominante) | Mujer adulta, evolución larga, relieve visible en bipedestación, nódulos palpables | Mejora moderada, lenta y limitada; mejores resultados combinando con radiofrecuencia o presoterapia | 10-15 sesiones, mantenimiento mensual o quincenal |
-| **Adiposidad localizada moderada** (como complemento de dieta y ejercicio) | Normopeso o sobrepeso leve, adiposidad subcutánea localizada en flancos, abdomen bajo, cara interna de muslos | Mejora modesta del contorno, perceptible si hay déficit calórico asociado; insignificante en ausencia de cambio de hábitos | 10-12 sesiones, mantenimiento periódico |
-| **Modelado de glúteos** | Paciente con masa muscular suficiente que busca mejora de contorno y firmeza superficial | Efecto inmediato de "pellizco-elevación" y mejora progresiva del tono percibido; no produce hipertrofia muscular | 8-10 sesiones, mantenimiento mensual |
-| **Retención de líquidos en miembros inferiores** | Pesadez, edema vespertino, factor postural u hormonal | Alivio sintomático rápido y consistente, efecto comparable a un drenaje vigoroso | Sesiones puntuales o ciclos breves de 6-8 |
-| **Fibrosis post-liposucción tardía** (a partir de 6 semanas postquirúrgicas, con autorización del cirujano) | Paciente con irregularidades fibrosas localizadas tras lipoescultura | Mejora del despegado de adherencias y de la homogeneización del relieve | Pauta personalizada, siempre coordinada con cirujano |
-| **Tonificación corporal general en combinación con otras técnicas** | Paciente con flacidez leve y deseo de "puesta a punto" estacional | Sensación de tono y firmeza superficial, efecto integrado en protocolo combinado | Ciclos de 6-8 sesiones |
+| Celulitis grado I-II edematosa | Mujer joven/adulta, normopeso, retención | Buena mejora del relieve y la pesadez | 8-12 + mantenimiento mensual |
+| Celulitis grado II-III fibroesclerótica | Evolución larga, nódulos palpables | Moderada y lenta; mejor combinada con RF/presoterapia | 10-15 + mantenimiento |
+| Adiposidad localizada moderada | Normopeso o sobrepeso leve | Modesta, perceptible solo con déficit calórico | 10-12 + mantenimiento |
+| Modelado de glúteos | Masa muscular suficiente | "Pellizco-elevación" y mejora del tono; no produce hipertrofia | 8-10 + mantenimiento mensual |
+| Retención de líquidos en MMII | Pesadez vespertina | Alivio sintomático rápido | Sesiones puntuales o ciclos 6-8 |
+| Fibrosis post-liposucción (≥6 sem) | Con autorización del cirujano | Despegado de adherencias, homogeneización | Personalizada |
+| Tonificación general combinada | Flacidez leve | Firmeza superficial integrada en protocolo | 6-8 |
 
-### 3.2 · Indicaciones por instrumento
+**Indicaciones por instrumento**:
 
-Cada herramienta tiene una vocación funcional dominante (desarrollada en la sección 5):
-
-| Objetivo | Instrumentos principales |
+| Objetivo | Instrumentos |
 |---|---|
-| Calentamiento y preparación | Rodillo liso, hongo |
-| Drenaje linfático | Rodillo paraguas, copa sueca pequeña, hongo |
-| Modelado y contorno | Tabla guitarra, tabla moldeadora, paleta tonificadora |
-| Reducción de adiposidad | Rodillo cubano, rodillo dentado |
+| Calentamiento | Rodillo liso, hongo |
+| Drenaje | Rodillo paraguas, copa sueca pequeña, hongo |
+| Modelado | Tabla guitarra, tabla moldeadora, paleta tonificadora |
+| Reducción | Rodillo cubano, rodillo dentado |
 | Anti-celulitis | Copa anti-celulitis, copa sueca grande, rodillo dentado |
-| Tonificación de glúteos | Copa sueca grande, paleta tonificadora, palillos chinos |
-| Trabajo fino y zonal | Palillos chinos, hongo pequeño |
+| Glúteos | Copa sueca grande, paleta tonificadora, palillos chinos |
+| Trabajo fino | Palillos chinos, hongo pequeño |
 
-### 3.3 · Perfil de paciente ideal
-
-La paciente que mejor responde a la maderoterapia reúne: edad 25-55 años, normopeso o sobrepeso leve (IMC inferior a 30), motivación para sostener un ciclo de 10-12 sesiones, disposición a complementar con ejercicio cardiovascular y modificación dietética moderada, hidratación adecuada, ausencia de contraindicaciones y expectativas realistas formadas en la consulta inicial. Las pacientes que no encajan en este perfil —obesidad clase II-III, expectativas mágicas, contraindicaciones vasculares, "una sesión milagro"— deben ser reorientadas o rechazadas: tratarlas erosiona el resultado y la reputación del centro.
+**Perfil ideal**: 25-55 años, IMC <30, motivación para 10-12 sesiones, hidratación adecuada, expectativas realistas. Obesidad clase II-III, expectativas mágicas o contraindicaciones vasculares → reorientar o rechazar.
 
 ## 4 · Contraindicaciones
 
-### 4.1 · Contraindicaciones absolutas
+### 4.1 · Absolutas
 
-Situaciones en las que la maderoterapia no debe aplicarse en ninguna zona ni con ningún instrumento. Tratar con contraindicación absoluta expone al paciente a complicaciones graves y a la profesional a responsabilidad legal.
+- Embarazo (abdomen/lumbar siempre; resto solo con criterio muy conservador y autorización obstétrica).
+- Trombosis venosa profunda activa o reciente; tromboflebitis activa.
+- Procesos oncológicos activos sin autorización oncológica.
+- Infecciones cutáneas activas, heridas abiertas, úlceras, quemaduras recientes, petequias/hematomas extensos en zona.
+- Cardiopatía descompensada, insuficiencia cardiaca o renal severa, HTA no controlada.
+- Coagulopatías no controladas.
+- Anticoagulación oral sin valoración hematológica y consentimiento específico (en la práctica, contraindicar salvo excepción).
+- Fiebre o infección sistémica.
+- Alergia conocida al cosmético deslizante.
 
-- **Embarazo** (cualquier trimestre, abdomen y zona lumbar; el resto del cuerpo solo con criterio muy conservador y autorización obstétrica).
-- **Trombosis venosa profunda activa** o antecedente reciente sin alta vascular; **tromboflebitis activa**.
-- **Procesos oncológicos activos** sin autorización oncológica explícita.
-- **Infecciones cutáneas activas** (foliculitis, celulitis, herpes, micosis), **heridas abiertas, úlceras o quemaduras recientes**, **hematomas o petequias activas** extensas en la zona.
-- **Cardiopatía descompensada, insuficiencia cardiaca o renal severa** (la movilización brusca de líquidos sobrecarga el sistema); **hipertensión arterial no controlada**.
-- **Coagulopatías congénitas** no controladas.
-- **Tratamiento con anticoagulantes orales** sin valoración hematológica y consentimiento específico: la probabilidad de hematomas significativos es muy elevada; en la práctica, conviene contraindicar salvo excepción.
-- **Fiebre o proceso infeccioso sistémico**.
-- **Alergia conocida al cosmético** previsto como deslizante.
+### 4.2 · Relativas y precauciones
 
-### 4.2 · Contraindicaciones relativas y precauciones
-
-Exigen valoración individualizada, ajuste de presión, selección cuidadosa de instrumental o postergación.
-
-- **Varices visibles**: las reticulares o telangiectasias finas no impiden tratar zonas próximas pero exigen evitar el paso directo del instrumental sobre el trayecto vascular. Las tronculares importantes contraindican la zona y obligan a valoración vascular.
-- **Fragilidad capilar** sin medicación: ajustar presión, comenzar con instrumentos suaves, evaluar respuesta a 24-48 h antes de progresar.
-- **Menstruación**: aplazar abdomen y lumbar por incomodidad y congestión pélvica fisiológica. El resto del cuerpo puede tratarse si la paciente está cómoda.
-- **Diabetes mal controlada**: microcirculación y cicatrización alteradas; presión moderada, caso a caso.
-- **Hipotensión sintomática**: el drenaje vigoroso acentúa el mareo. Paciente bien hidratada, evitar decúbito prolongado.
-- **Cicatrices recientes** (<6 semanas): no atravesar con el instrumental; bordear.
-- **Liposucción reciente** (<6 semanas): tejido en fase inflamatoria-edematosa, riesgo de seroma. La maderoterapia se introduce a partir de 4-6 semanas postquirúrgicas, **siempre con autorización del cirujano** y empezando con drenaje muy suave. El postquirúrgico inmediato es competencia del fisioterapeuta, no del centro de estética.
+- **Varices**: reticulares → evitar trayecto directo; tronculares → contraindicar zona, valoración vascular.
+- **Fragilidad capilar**: instrumentos suaves, evaluar respuesta a 24-48 h.
+- **Menstruación**: aplazar abdomen y lumbar.
+- **Diabetes mal controlada**: presión moderada, caso a caso.
+- **Hipotensión sintomática**: paciente hidratada, evitar decúbito prolongado.
+- **Cicatrices recientes (<6 sem)**: bordear, no atravesar.
+- **Liposucción reciente (<6 sem)**: postergar; el postquirúrgico inmediato es competencia del fisioterapeuta.
 - **Pieles muy sensibles, atópicas o con dermatitis activa**: postergar.
-- **Implantes (mamarios, glúteos)**: no aplicar instrumental directamente sobre la zona implantada; trabajar perímetro con presión moderada y autorización del cirujano.
-- **Marcapasos, DAI**: no es contraindicación electromagnética (la técnica no es eléctrica) pero exige conocer la localización del dispositivo y evitar presión directa.
-- **Antiagregantes plaquetarios** (AAS a dosis bajas, clopidogrel): fragilidad capilar aumentada; caso a caso, instrumentos suaves, consentimiento específico sobre riesgo de hematomas.
+- **Implantes**: no instrumentar directamente; trabajar perímetro con autorización del cirujano.
+- **Marcapasos/DAI**: conocer ubicación, evitar presión directa.
+- **Antiagregantes**: instrumental suave, consentimiento específico.
 
 ### 4.3 · Zonas con consideraciones específicas
 
-- **Abdomen**: contraindicado en embarazo y durante la regla. Evitar presión profunda sobre línea media (aorta, vena cava) y sobre hipogastrio en mujeres con DIU reciente.
-- **Cara interna de muslos y brazos**: piel fina, zona vascular sensible, alta probabilidad de hematomas; presión siempre moderada, instrumental suave.
-- **Hueco poplíteo**: paquete vasculonervioso; nunca presión directa.
-- **Ingles y axilas**: zonas ganglionares; presión muy moderada, vocación drenante.
+- **Abdomen**: evitar línea media (aorta, cava); hipogastrio con cautela tras DIU reciente.
+- **Cara interna de muslos y brazos**: presión moderada, instrumental suave.
+- **Hueco poplíteo**: nunca presión directa (paquete vasculonervioso).
+- **Ingles y axilas**: presión muy moderada, vocación drenante.
 - **Mamas**: no se trabajan con maderoterapia en cabina estética.
 
 ## 5 · Protocolo de tratamiento
@@ -192,128 +165,79 @@ La presión adecuada produce eritema sin palidez, molestia tolerable sin dolor a
 
 ### 5.4 · Caso clínico 1 — Celulitis edematosa en muslos
 
-Mujer de 32 años, normopeso (IMC 23), profesión sedentaria, refiere sensación de pesadez en miembros inferiores y relieve celulítico al pellizcar cara externa de muslos y región glútea inferior. Sin medicación. Exploración: celulitis grado I-II con componente edematoso predominante (fóvea positiva discreta, alisamiento parcial al elevar la pierna), sin nódulos fibrosos palpables, sin varices significativas. Hidratación oral autodeclarada baja (1-1,2 L/día).
+Mujer de 32 años, normopeso (IMC 23), profesión sedentaria, refiere sensación de pesadez en MMII y relieve celulítico al pellizcar cara externa de muslos y región glútea inferior. Exploración: celulitis grado I-II con componente edematoso predominante (fóvea positiva discreta), sin nódulos fibrosos, sin varices significativas. Hidratación oral baja (1-1,2 L/día).
 
-Plan: ciclo de 10 sesiones, 2 por semana las primeras 4 semanas y 1 semanal en semanas 5-6, mantenimiento mensual posterior. Cada sesión trabaja miembros inferiores posteriores completos con protocolo estándar y énfasis en fase de drenaje (rodillo paraguas, copa sueca pequeña), modelado con tabla moldeadora siguiendo contorno glúteo y muslo posterior, reducción moderada con rodillo cubano sobre cara externa, copa anti-celulitis sobre relieve visible y cierre con drenaje vigoroso. Cosmetología: aceite de almendras como deslizante, crema con cafeína 5% y carnitina antes de la fase de reducción. Aftercare: hidratación mínima de 2 L/día, caminar 30 min diarios, reducción del sodio, ducha fría ascendente vespertina. Evolución esperada: alivio de la pesadez desde la 2ª-3ª sesión, mejora visible del relieve a partir de la 5ª-6ª, consolidación al cierre. Resultado realista: mejora subjetiva alta, mejora objetiva moderada con necesidad de mantenimiento indefinido.
+Plan: ciclo de 10 sesiones, 2 por semana las primeras 4 semanas y 1 semanal en semanas 5-6, mantenimiento mensual posterior. Protocolo estándar con énfasis en drenaje (rodillo paraguas, copa sueca pequeña), modelado con tabla moldeadora, reducción moderada con rodillo cubano sobre cara externa, copa anti-celulitis sobre relieve visible, cierre con drenaje vigoroso. Cosmetología: aceite de almendras como deslizante, crema con cafeína 5% y carnitina antes de la fase de reducción. Aftercare: ≥2 L agua/día, 30 min caminar diarios, reducción de sodio, ducha fría ascendente vespertina.
+
+Evolución esperada: alivio de la pesadez desde la 2ª-3ª sesión, mejora visible del relieve a partir de la 5ª-6ª, consolidación al cierre. Resultado realista: mejora subjetiva alta, mejora objetiva moderada con necesidad de mantenimiento indefinido.
 
 ### 5.5 · Caso clínico 2 — Modelado de glúteos
 
-Mujer de 27 años, normopeso (IMC 22), masa muscular glútea conservada, deportista ocasional. Solicita "subir y firmar el glúteo" sin cirugía. Exploración: buena trofia muscular, flacidez superficial leve en cuadrante inferior, sin celulitis significativa. Expectativa expresada: "efecto BBL sin cirugía". Se explica claramente que la maderoterapia no produce aumento de volumen y que el efecto realista es de modelado superficial, redistribución de tejido y mejora del tono percibido; se ofrece tratamiento sobre esa base y se firma consentimiento informado.
+Mujer de 27 años, normopeso (IMC 22), masa muscular glútea conservada, deportista ocasional. Solicita "subir y firmar el glúteo" sin cirugía. Exploración: buena trofia, flacidez superficial leve en cuadrante inferior, sin celulitis significativa. Expectativa: "efecto BBL sin cirugía". Se explica que la maderoterapia no produce aumento de volumen y se firma consentimiento informado.
 
-Plan: 8 sesiones semanales combinadas con plan de hipertrofia glútea ofrecido por entrenadora externa. Protocolo focalizado glúteo (30-35 min): calentamiento con rodillo liso, drenaje breve con rodillo paraguas, modelado con tabla guitarra y moldeadora siguiendo contorno ascendente, copa sueca grande con efecto elevación (succión por desplazamiento mantenida 3-5 s en cada posición, patrón en abanico desde inferior hacia cresta iliaca), reducción focal con rodillo cubano sobre adiposidad de cuadrante superior externo, paleta tonificadora con percusión rítmica de cierre, palillos chinos. Cosmetología: crema reafirmante con centella asiática y cafeína. Sin maniobras profundas sobre cara interna del muslo. Resultado realista: mejora visible del tono y firmeza superficial al cierre, redondeado discreto del contorno, efecto inmediato de "elevación" que se diluye en 48-72 h. Mantenimiento: 1 sesión cada 3-4 semanas.
+Plan: 8 sesiones semanales combinadas con plan de hipertrofia glútea (entrenadora externa). Protocolo focalizado glúteo (30-35 min): calentamiento con rodillo liso, drenaje breve con rodillo paraguas, modelado con tabla guitarra y moldeadora siguiendo contorno ascendente, copa sueca grande con efecto elevación (succión mantenida 3-5 s en cada posición, patrón en abanico desde inferior hacia cresta iliaca), reducción focal con rodillo cubano sobre adiposidad de cuadrante superior externo, paleta tonificadora con percusión rítmica de cierre, palillos chinos. Cosmetología: reafirmante con centella asiática y cafeína. Sin maniobras profundas sobre cara interna del muslo.
+
+Resultado realista: mejora visible del tono y firmeza superficial al cierre, redondeado discreto del contorno, efecto inmediato de "elevación" que se diluye en 48-72 h. Mantenimiento: 1 sesión cada 3-4 semanas.
 
 ### 5.6 · Caso clínico 3 — Fibrosis post-liposucción en flancos a 6 semanas
 
-Mujer de 41 años, lipoescultura de flancos y abdomen hace 6 semanas. Acude derivada por su cirujano con autorización escrita. Exploración: cicatrices cerradas y secas, sin signos inflamatorios ni seromas residuales, bandas fibrosas lineales en flancos y transición lumbo-glútea, relieve irregular a palpación bimanual, sin equimosis activas. Refiere zonas "endurecidas" molestas al sentarse y rotar tronco.
+Mujer de 41 años, lipoescultura de flancos y abdomen hace 6 semanas. Derivada por su cirujano con autorización escrita. Exploración: cicatrices cerradas y secas, sin signos inflamatorios ni seromas residuales, bandas fibrosas lineales en flancos y transición lumbo-glútea, relieve irregular a palpación bimanual. Refiere zonas "endurecidas" molestas al sentarse.
 
-Plan: 8 sesiones semanales en coordinación con el cirujano. **No tratar antes de las 6 semanas postoperatorias**: el tejido sigue en fase inflamatoria-edematosa y la maderoterapia puede producir seroma, hematoma o desorganización del resultado. La intervención antes de 6 semanas, cuando procede, es competencia del fisioterapeuta postquirúrgico (drenaje linfático manual, ultrasonido, presoterapia suave), no del centro de estética.
+**No tratar antes de las 6 semanas postoperatorias**: tejido aún en fase inflamatoria-edematosa; riesgo de seroma, hematoma o desorganización del resultado. La intervención precoz es competencia del fisioterapeuta postquirúrgico.
 
-Protocolo deliberadamente conservador: calentamiento suave con hongo, drenaje prolongado con rodillo paraguas y copa sueca pequeña (15 min), modelado lento con tabla moldeadora (10 min), abordaje de bandas fibrosas con copa anti-celulitis y rodillo dentado a presión moderada (10 min) trabajando perpendicular a la banda. **No atravesar la cicatriz**: bordear. **Vigilar hematomas o seromas tras cada sesión**: si aparecen, suspender y derivar al cirujano. Cosmetología: aceite de almendras o jojoba puro, sin termoactivos sobre tejido en cicatrización. Aftercare: prenda compresiva si la prescribió el cirujano, hidratación, evitar sol directo sobre cicatrices. Resultado esperable: despegado progresivo de bandas, homogeneización del relieve, alivio de tensión. Las irregularidades estructurales del propio resultado quirúrgico no son corregibles con maderoterapia y deben referirse al cirujano.
+Protocolo deliberadamente conservador (8 sesiones semanales, coordinadas con cirujano): calentamiento suave con hongo, drenaje prolongado con rodillo paraguas y copa sueca pequeña (15 min), modelado lento con tabla moldeadora (10 min), abordaje de bandas fibrosas con copa anti-celulitis y rodillo dentado a presión moderada (10 min) trabajando perpendicular a la banda. **No atravesar la cicatriz**: bordear. Vigilar hematomas o seromas tras cada sesión; si aparecen, suspender y derivar. Cosmetología: aceite de almendras o jojoba puro, sin termoactivos sobre tejido en cicatrización. Aftercare: prenda compresiva si fue prescrita, hidratación, fotoprotección sobre cicatrices.
+
+Resultado esperable: despegado progresivo de bandas, homogeneización del relieve, alivio de tensión. Las irregularidades estructurales del propio resultado quirúrgico no son corregibles con maderoterapia y deben referirse al cirujano.
 
 ## 6 · Cosmetología aplicada
 
-La elección del producto de soporte condiciona la maderoterapia en dos dimensiones: el deslizamiento del instrumental sobre la piel (fricción excesiva produce hematomas y eritema; deslizamiento excesivo impide transmitir presión) y la incorporación de activos cosméticos que actúan en sinergia con la maniobra mecánica.
+| Categoría | Productos | Indicación / fase | Notas |
+|---|---|---|---|
+| **Aceites de deslizamiento** | Almendras dulces (clásico), jojoba (sensibles), uva, coco fraccionado | Calentamiento, modelado, drenaje | Aceites esenciales (ciprés, cedro, pomelo) al 1-3%; contraindicados en embarazo |
+| **Cremas reductoras** | Cafeína 3-7% (referente), L-carnitina 1-3%, forskolina | Fase de reducción, sobre piel calentada | Cafeína: inhibe fosfodiesterasa, vasodilatadora |
+| **Drenantes / venotónicos** | Escina, hiedra, centella asiática | Drenaje y reafirmación | Centella: estimula colágeno |
+| **Algas** | Fucus, laminaria | Remineralizante | Contraindicadas en patología tiroidea |
+| **Termoactivos calor** | Capsaicina, canela, jengibre | Fibrosis, celulitis fibroesclerótica | Capsaicina: proteger manos, evitar mucosas y pieles sensibles |
+| **Termoactivos frío** | Mentol, alcanfor | Cierre tras drenaje | Sensación descongestiva |
+| **Contraindicados en sesión** | Vaselinas/parafinas espesas, AHA/retinoides activos, cosméticos recién introducidos | — | Impiden transmisión de presión o irritan |
+| **Cierre y domicilio** | Reafirmante con cafeína + centella, aplicación matinal y vespertina con automasaje ascendente | Mantenimiento | La adherencia domiciliaria mejora el resultado |
 
-### 6.1 · Aceites de deslizamiento
+## 7 · Aftercare
 
-Los aceites vegetales puros son los productos de elección en las fases de calentamiento, modelado y drenaje: deslizamiento fluido, baja obstrucción del poro, buena tolerancia.
-
-- **Aceite de almendras dulces**: el clásico del masaje estético. Elección por defecto.
-- **Aceite de jojoba**: cera líquida muy estable, no enrancia, excelente perfil dermatológico. Indicado en pieles sensibles.
-- **Aceite de uva o coco fraccionado**: deslizamiento fluido, buena tolerancia, alta estabilidad.
-- **Aceites esenciales como aditivos** (ciprés, cedro, pomelo, romero): efecto venotónico y descongestionante percibido; siempre diluidos en aceite portador a 1-3% y previo test. Contraindicados en embarazo.
-
-Los aceites minerales (parafina) se reservan para uso clínico postquirúrgico.
-
-### 6.2 · Cremas reductoras (activos cosméticos lipolíticos)
-
-Se aplican típicamente en la fase de reducción, sobre piel calentada y receptiva. Su mecanismo es de penetración superficial y acción local; no son medicamentos y su efecto sin maniobra mecánica es limitado.
-
-- **Cafeína (3-7%)**: el activo reductor más respaldado. Inhibe la fosfodiesterasa, prolonga AMPc intracelular en el adipocito y favorece la lipólisis. Vasodilatadora y diurética local. Ingrediente estrella.
-- **L-Carnitina (1-3%)**: transporta ácidos grasos liberados al interior mitocondrial. Penetración cutánea modesta.
-- **Escina** (castaño de Indias): venotónica, antiedematosa, refuerza pared capilar. Útil en vocación drenante.
-- **Centella asiática**: estimula síntesis de colágeno y efecto venotónico. Vocación reafirmante.
-- **Algas (fucus, laminaria)**: yodo y oligoelementos, efecto remineralizante. Contraindicadas en patología tiroidea.
-- **Hiedra**: drenante y descongestionante.
-- **Forskolina**: activador de adenilato ciclasa, potencia el efecto de la cafeína. Activo premium.
-
-### 6.3 · Termoactivos
-
-Cremas con efecto térmico (calor o frío) que potencian la sensación percibida y, en el caso del calor, favorecen la vasodilatación inicial.
-
-- **Capsaicina** (extracto de pimiento): calor intenso por estimulación TRPV1. Indicada en fibrosis y celulitis fibroesclerótica. Contraindicada en pieles sensibles y mucosas; proteger las manos de la profesional.
-- **Canela, jengibre**: calor moderado, mejor tolerados.
-- **Mentol, alcanfor**: frío y descongestión. Indicados en cierre tras protocolos drenantes.
-
-Los termoactivos no se aplican durante el calentamiento ni de forma masiva: la combinación de fricción intensa con capsaicina puede producir irritación significativa. Se reservan para fases específicas y se usan con economía.
-
-### 6.4 · Productos contraindicados durante el protocolo
-
-- **Cremas oclusivas pesadas** (vaselinas, parafinas espesas, ceras): impiden la transmisión de presión, el instrumental "patina" sin trabajo y se reduce drásticamente la eficacia.
-- **Activos exfoliantes en la sesión** (alfahidroxiácidos en concentración media-alta, retinoides cosméticos): la fricción sobre piel sensibilizada produce irritación y eritema persistente.
-- **Cosméticos sensibilizantes recientemente introducidos**: esperar al menos una semana para discriminar reacciones.
-
-### 6.5 · Cosmética de cierre y mantenimiento domiciliario
-
-Al cierre se aplica cosmética hidratante con activos reafirmantes o drenantes. Para uso domiciliario se prescribe típicamente una crema reductora-reafirmante con cafeína y centella asiática, aplicación matinal y vespertina con automasaje ascendente. La adherencia domiciliaria mejora consistentemente el resultado del ciclo.
-
-## 7 · Aftercare y seguimiento
-
-El cuidado posterior condiciona el resultado tanto como el gesto técnico. Las indicaciones se entregan por escrito y se revisan verbalmente al cierre.
-
-**Hidratación oral intensiva**. Incrementar la ingesta a 2-2,5 L el día de la sesión y el siguiente, para facilitar la eliminación renal de los líquidos movilizados. La paciente debe entender que "eliminar toxinas" es un concepto cosmético, no un fenómeno bioquímico específico; la hidratación, en cambio, sí es real y necesaria.
-
-**Evitar ejercicio físico intenso en las 24 h siguientes** sobre la zona tratada. El tejido está ligeramente inflamado; ejercicio superpuesto puede producir mayor edema, hematomas y molestia. Caminar y actividad ligera favorecen el drenaje y son deseables.
-
-**Hidratación cutánea continuada**. Cosmética prescrita dos veces al día; la piel hidratada responde mejor a sesiones sucesivas.
-
-**Ejercicio cardiovascular complementario**. La maderoterapia no quema grasa por sí misma; el ejercicio sí. 30-45 min de cardio 3-4 veces por semana multiplican el resultado percibido. La paciente que no modifica hábitos obtiene resultados modestos.
-
-**Alimentación**. Equilibrada, con reducción de sodio, control del azúcar añadido y aporte proteico adecuado. Derivación a nutricionista cuando esté disponible.
-
-**Fotoprotección** en zonas expuestas (escote, brazos): la piel calentada y con eritema es más vulnerable a pigmentación postinflamatoria. **Evitar calor intenso** (sauna, baños muy calientes, hammam) durante 12-24 h, especialmente si han aparecido petequias o eritema marcado.
-
-**Documentar la evolución**. Fotografías estandarizadas (misma luz, ángulo, distancia, vestuario) al inicio y cierre. Es la herramienta más honesta de seguimiento y el mejor argumento contra la sobreexpectativa.
-
-**Cadencia y mantenimiento**. Ciclo inicial 8-12 sesiones, 1-2 por semana. Tras el cierre, una sesión cada 3-4 semanas. La maderoterapia no produce cambios permanentes: la suspensión del mantenimiento y el retorno a los hábitos previos revierten el resultado en pocos meses. Debe explicarse desde el principio.
+| Indicación | Detalle |
+|---|---|
+| Hidratación oral | 2-2,5 L el día de la sesión y siguiente |
+| Ejercicio intenso | Evitar 24 h sobre zona tratada; caminar y actividad ligera sí |
+| Hidratación cutánea | Cosmética prescrita 2 veces/día |
+| Cardiovascular | 30-45 min, 3-4 veces/semana (multiplica el resultado) |
+| Alimentación | Equilibrada, baja en sodio, control del azúcar, aporte proteico |
+| Fotoprotección | Sobre piel calentada (escote, brazos); evitar calor intenso (sauna, hammam) 12-24 h |
+| Documentación | Fotografías estandarizadas inicio/cierre (misma luz, ángulo, distancia) |
+| Cadencia | Ciclo inicial 8-12 sesiones (1-2/sem); mantenimiento cada 3-4 sem; sin mantenimiento se revierte el resultado |
 
 ## 8 · Manejo de complicaciones
 
-La maderoterapia es de bajo riesgo cuando se aplica con criterio, pero no es inocua. Las complicaciones frecuentes son leves y autolimitadas; las graves, raras y casi siempre evitables con buena selección de paciente y dosificación correcta de la presión.
+### 8.1 · Algoritmo general
 
-### 8.1 · Hematomas (equimosis)
+1. **Detectar** durante o tras la sesión: dolor, palidez, petequias inmediatas, hematoma extenso, mareo.
+2. **Detener** inmediatamente la maniobra problemática.
+3. **Reevaluar** instrumental, presión, zona y entrevista clínica (medicación, suplementos, fragilidad).
+4. **Manejar** según cuadro (ver tabla).
+5. **Documentar** en ficha y, si procede, fotografiar.
+6. **Derivar** ante seroma postquirúrgico, hematoma significativo persistente, reacción cutánea grave o sospecha de coagulopatía.
 
-Complicación más frecuente. Aparece sobre prominencias óseas (cresta iliaca, trocánter), zonas de piel fina (cara interna de muslos y brazos) y en pacientes con fragilidad capilar. Hematomas puntuales pequeños son aceptables; extensos o llamativos señalan presión excesiva, instrumento mal seleccionado o fragilidad capilar no detectada en la entrevista.
+### 8.2 · Cuadros frecuentes
 
-**Manejo**: reducir presión en la siguiente sesión; reconsiderar instrumental (sustituir cubano o dentado por liso o paraguas en zonas problemáticas); reevaluar la entrevista clínica (antiagregantes, anticoagulantes, suplementos con efecto antiagregante como ginkgo, ginseng, omega-3 a dosis altas, fragilidad capilar idiopática); aplicación local de frío 10-15 min en las primeras 24 h, cosmética con árnica o vitamina K, abstención de tratar la zona hasta resolución (7-14 días); documentar fotográficamente.
-
-### 8.2 · Petequias persistentes
-
-Microhemorragias puntiformes. Si son escasas y autolimitadas, aceptables. Si son extensas o persistentes a las 48 h, indican fragilidad capilar significativa o presión inadecuada: mismo manejo que en hematomas, valoración hematológica si recurren sin explicación.
-
-### 8.3 · Dolor desproporcionado durante o tras la sesión
-
-La maderoterapia puede ser molesta pero no debe ser agudamente dolorosa. Dolor agudo indica presión excesiva, trabajo sobre estructura sensible (vaso, nervio, prominencia ósea) o instrumento inadecuado. **Detener inmediatamente** y reconsiderar la maniobra. Dolor postsesión tipo "agujetas" a 24-48 h es aceptable; dolor agudo persistente requiere reducir intensidad y descartar lesión.
-
-### 8.4 · Eritema persistente
-
-Eritema generalizado postsesión es normal y se resuelve en 1-3 h. El que persiste 24 h o más indica reactividad cutánea, sensibilidad al cosmético o fricción excesiva. Manejo: cambiar producto, reducir presión, espaciar sesiones, derivar a dermatología si recurre.
-
-### 8.5 · Hipotensión ortostática
-
-Mareo, palidez, sudoración fría al incorporarse, más frecuente tras drenaje prolongado en pacientes hipotensas o en ayunas. Manejo: incorporación lenta, agua, sedestación 5-10 min antes de salir. Prevención: paciente hidratada y no en ayunas prolongado.
-
-### 8.6 · Seroma o hematoma significativo postquirúrgico
-
-Si tras una sesión sobre paciente post-liposucción aparece colección líquida palpable o hematoma extenso: **suspender** y derivar al cirujano. No reanudar sin autorización explícita.
-
-### 8.7 · Reacciones cutáneas a los cosméticos
-
-Eritema delimitado, prurito o vesículas en la zona de aplicación: reacción irritativa o alérgica. Suspender el producto, derivar a dermatología si no resuelve, dejar constancia en la ficha.
-
-### 8.8 · Lesión por la profesional
-
-No es complicación del paciente pero sí frecuente en la profesional con biomecánica deficiente: tendinopatías de muñeca y codo, dolor cervical. Prevención: postura correcta, camilla a altura adecuada, alternancia de lados, fortalecimiento del cinturón escapular, descansos entre sesiones. El dolor en mano dominante, codo, hombro o cuello debe evaluarse precozmente con fisioterapia ocupacional.
+| Complicación | Causa habitual | Manejo |
+|---|---|---|
+| **Hematomas (equimosis)** | Presión excesiva, instrumental inadecuado, fragilidad capilar, antiagregantes/anticoagulantes, ginkgo/ginseng/omega-3 altos | Frío local 10-15 min en 24 h; árnica o vitamina K tópica; suspender zona 7-14 días; reducir presión y cambiar a rodillo liso o paraguas en próximas sesiones; revisar anamnesis |
+| **Petequias persistentes (>48 h)** | Fragilidad capilar, presión inadecuada | Igual que hematoma; valoración hematológica si recurre sin causa |
+| **Dolor desproporcionado** | Presión excesiva, vaso/nervio/hueso, instrumento inadecuado | Detener, cambiar instrumento, reducir presión; descartar lesión si persiste |
+| **Eritema persistente >24 h** | Reactividad cutánea, sensibilidad al cosmético, fricción excesiva | Cambiar producto, espaciar sesiones, dermatología si recurre |
+| **Hipotensión ortostática** | Drenaje prolongado, hipotensa, ayuno | Incorporación lenta, agua, sedestación 5-10 min; prevención con paciente hidratada |
+| **Seroma/hematoma postquirúrgico** | Maniobra demasiado vigorosa o precoz | Suspender, derivar al cirujano, no reanudar sin autorización |
+| **Reacción cutánea al cosmético** | Irritativa o alérgica | Suspender producto, dermatología si no resuelve, registrar en ficha |
+| **Lesión por la profesional** (tendinopatías) | Biomecánica deficiente | Camilla a altura correcta, alternar lados, fortalecer cinturón escapular, fisioterapia ocupacional precoz |
 
 ## 9 · Test de evaluación (8 preguntas)
 
@@ -369,14 +293,12 @@ No es complicación del paciente pero sí frecuente en la profesional con biomec
 
 ## 10 · Referencias
 
-La maderoterapia tiene un corpus de evidencia indexada notablemente delgado. Las fuentes siguientes corresponden a (a) literatura sobre técnicas de masaje instrumental afines (endermologie, vacuumterapia, ventosas) extrapolables por mecanismo, (b) literatura general sobre celulitis y modelado corporal no invasivo, (c) materiales de escuelas colombianas y fabricantes de instrumental, y (d) revisiones divulgativas accesibles.
-
-- Adcock D, Paulsen S, Jabour K, Davis S, Nanney LB, Shack RB. *Analysis of the effects of deep mechanical massage in the porcine model*. Plastic and Reconstructive Surgery. Histológico sobre endermologie.
-- Khan MH, Victor F, Rao B, Sadick NS. *Treatment of cellulite: Part I. Pathophysiology* y *Part II. Advances and controversies*. JAAD.
-- Rawlings AV. *Cellulite and its treatment*. International Journal of Cosmetic Science.
-- Hexsel D, Soirefmann M. *Cosmeceuticals for cellulite*. Seminars in Cutaneous Medicine and Surgery.
-- Wanitphakdeedecha R, Manuskiatti W. *Treatment of cellulite with a bipolar radiofrequency, infrared heat, and pulsatile suction device: a pilot study*.
+- Adcock D et al. *Analysis of the effects of deep mechanical massage in the porcine model*. Plast Reconstr Surg.
+- Khan MH, Victor F, Rao B, Sadick NS. *Treatment of cellulite: Part I. Pathophysiology* / *Part II. Advances and controversies*. JAAD.
+- Rawlings AV. *Cellulite and its treatment*. Int J Cosmet Sci.
+- Hexsel D, Soirefmann M. *Cosmeceuticals for cellulite*. Semin Cutan Med Surg.
+- Wanitphakdeedecha R, Manuskiatti W. *Treatment of cellulite with a bipolar radiofrequency, infrared heat, and pulsatile suction device*.
 - Materiales formativos del **CIFES (Centro Internacional de Formación en Estética y Salud, Colombia)** y de escuelas colombianas dedicadas a maderoterapia.
 - Documentación técnica de fabricantes de instrumental.
 
-Nota metodológica: la mayor parte de la literatura específica sobre maderoterapia es divulgativa o comercial. La argumentación clínica se construye sobre el masaje instrumental afín, pero los RCTs específicos siguen siendo escasos. Conviene una postura honesta: técnica ampliamente utilizada, resultados subjetivos consistentes, mecanismos plausibles, evidencia cuantitativa de alta calidad aún pendiente. Esta honestidad es el mejor argumento profesional frente al paciente bien informado.
+Nota metodológica: la literatura específica sobre maderoterapia es mayoritariamente divulgativa o comercial. La argumentación clínica se apoya en el masaje instrumental afín (endermologie, vacuumterapia). Postura honesta: técnica ampliamente utilizada, resultados subjetivos consistentes, mecanismos plausibles, evidencia cuantitativa de alta calidad aún pendiente.
