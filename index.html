@@ -283,14 +283,12 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   display: flex; flex-direction: column; gap: 6px;
 }
 .drawer-close { align-self: flex-end; font-size: 24px; cursor: pointer; margin-bottom: 16px; }
-.drawer-section { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin: 16px 0 6px; }
+.drawer-section { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); font-weight: 700; margin: 18px 0 6px; }
 .drawer-item { font-size: 16px; font-weight: 400; color: var(--ink); padding: 8px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
-.drawer-subitem { font-size: 14px; color: var(--ink-soft); padding: 8px 0 8px 14px; border-bottom: 1px solid var(--line); cursor: pointer; }
-/* Sub-categorias agrupadas en arbol con linea vertical guia */
-#drawer-cursos-cats { margin: 2px 0 6px 18px; padding-left: 14px; border-left: 1px solid var(--line-strong); }
-.drawer-subitem.is-cat { padding: 7px 0 7px 0; font-size: 12.5px; color: var(--muted); letter-spacing: 0.01em; border-bottom: none; transition: color 0.12s; }
-.drawer-subitem.is-cat:hover { color: var(--ink); }
-.drawer-subitem.is-cat:not(:last-child) { margin-bottom: 0; }
+.drawer-subitem { font-size: 14px; color: var(--ink-soft); padding: 8px 0 8px 18px; border-bottom: 1px solid var(--line); cursor: pointer; position: relative; }
+.drawer-subitem:not(.is-cat)::before { content: '▸'; position: absolute; left: 2px; top: 50%; transform: translateY(-50%); font-size: 9px; color: var(--accent); line-height: 1; }
+#drawer-cursos-cats { margin: 0; padding: 0; border-left: none; }
+.drawer-subitem.is-cat { padding-left: 28px; font-size: 13px; color: var(--ink-soft); }
 
 /* ─── LAYOUT UTILS ───────────────────────────────────── */
 .container { max-width: 1280px; margin: 0 auto; padding: 0 56px; }
