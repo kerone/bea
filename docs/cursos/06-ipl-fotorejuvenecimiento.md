@@ -166,25 +166,25 @@ Sesión clínica más importante del proceso; 30-45 min mínimo. Estructura:
 
 ### 5.2 · Test patch
 
-El test patch es obligatorio en cualquier paciente nuevo y en cualquier cambio relevante de parámetros. Procedimiento estándar:
+**Obligatorio en cualquier paciente nuevo y en cambios de parámetros.** Procedimiento:
 
-1. Elegir una zona discreta pero representativa: en cara, área preauricular alta o línea de inserción del cabello en la sien; en cuerpo, una zona contigua al área a tratar. Evitar el dorso de la mano como predictor de respuesta facial (la piel es distinta).
+1. Zona discreta y representativa: preauricular alta o línea de inserción del cabello (cara); zona contigua al área (cuerpo). Evitar el dorso de la mano como predictor facial.
 2. Aplicar gel conductor frío.
 3. Disparar 2-3 pulsos con los parámetros previstos para la primera sesión, o ligeramente inferiores.
-4. Observar respuesta inmediata: eritema esperado, ausencia de ampolla, ausencia de blanqueamiento epidérmico (signo de quemadura), oscurecimiento esperable de lesiones pigmentadas pequeñas.
-5. Revisión a las 24-72 horas (idealmente 48 horas). Si la respuesta es la esperada (eritema leve resuelto, oscurecimiento controlado de pigmento, sin ampolla, sin hipopigmentación), se procede a sesión completa. Si aparece reacción excesiva, se reajustan los parámetros y se repite test patch antes de tratamiento.
+4. Respuesta inmediata esperada: eritema; sin ampolla; sin blanqueamiento epidérmico; oscurecimiento esperable de pequeñas pigmentadas.
+5. Revisión a 24-72 h (ideal 48 h). Si la respuesta es la esperada, sesión completa. Si hay reacción excesiva, reajustar parámetros y repetir test.
 
-En fototipos IV y en pacientes con antecedente de PIH, el intervalo de observación se prolonga a 7-14 días antes de la sesión completa.
+En fototipos IV y antecedente de PIH, la observación se prolonga a 7-14 días antes de la sesión completa.
 
 ### 5.3 · Preparación inmediata de la sesión
 
-- Verificar que han transcurrido al menos 4 semanas (6 en estación cálida) sin exposición solar y sin autobronceador.
-- Verificar suspensión de retinoides y exfoliantes ácidos 5-7 días previos.
-- Verificar profilaxis antiherpética si procede.
-- Desmaquillar y limpiar la zona con limpiador suave. La piel debe estar perfectamente limpia y seca antes del gel.
-- Recoger el cabello y proteger cejas y línea de implantación si están próximas al tratamiento.
-- Colocar gafas de protección ocular **a la paciente Y a la profesional** (ver apartado 5.6).
-- Aplicar gel conductor frío en capa uniforme de 1-2 mm de espesor.
+- ≥ 4 semanas (6 en estación cálida) sin exposición solar ni autobronceador.
+- Suspensión de retinoides y exfoliantes ácidos 5-7 días previos.
+- Profilaxis antiherpética si procede.
+- Desmaquillar y limpiar con limpiador suave; piel limpia y seca antes del gel.
+- Recoger cabello, proteger cejas y línea de implantación próximas.
+- Gafas de protección ocular **paciente Y profesional** (ver 5.6).
+- Gel conductor frío en capa uniforme de 1-2 mm.
 
 ### 5.4 · Técnica común y endpoints
 
