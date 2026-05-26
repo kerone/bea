@@ -188,41 +188,34 @@ En fototipos IV y antecedente de PIH, la observación se prolonga a 7-14 días a
 
 ### 5.4 · Técnica común y endpoints
 
-La paciente se coloca en decúbito supino con la cabeza ligeramente elevada. La profesional sostiene el cabezal perpendicular a la piel, en contacto firme pero no compresivo. Los disparos se hacen contiguos, con un solapamiento del 10-15% en zonas planas y solapamiento mínimo en zonas curvas para evitar acumulación térmica. Se recorre la zona de tratamiento de forma sistemática, dividiendo mentalmente la cara en cuadrantes (frente, malar derecho, malar izquierdo, perinasal, mentón).
+Decúbito supino con cabeza ligeramente elevada. Cabezal perpendicular a la piel, contacto firme no compresivo. Disparos contiguos con solapamiento 10-15% en zonas planas y mínimo en zonas curvas para evitar acumulación térmica. Recorrido sistemático por cuadrantes (frente, malar derecho, malar izquierdo, perinasal, mentón).
 
-**Endpoints clínicos visibles** que indican respuesta correcta:
+**Endpoints clínicos correctos**:
 
-- En lesiones pigmentadas: oscurecimiento inmediato visible ("café molido"). Si la lesión blanquea (gris-blanca), se ha excedido fluencia: parar inmediatamente y aplicar frío.
-- En vasos y eritema: blanqueamiento transitorio del vaso, eritema perilesional ligero.
-- En tratamiento global de fotorejuvenecimiento: eritema rosáceo uniforme, calor cutáneo soportable, sin ampollas ni blanqueamiento gris.
+- Pigmentadas: oscurecimiento inmediato ("café molido"). Si blanquea (gris-blanca) → sobre-fluencia, parar y enfriar.
+- Vasos / eritema: blanqueamiento transitorio del vaso, eritema perilesional ligero.
+- Fotorejuvenecimiento global: eritema rosáceo uniforme, calor soportable, sin ampollas ni gris.
 
-**Signos de alarma intra-sesión** que obligan a interrumpir:
-
-- Blanqueamiento epidérmico gris (quemadura inminente).
-- Ampolla.
-- Dolor intenso desproporcionado.
-- Olor a quemado.
-
-Si aparecen, se interrumpe, se aplica enfriamiento intensivo, se valora la lesión y se reajusta el protocolo o se suspende la sesión.
+**Signos de alarma intra-sesión que obligan a interrumpir**: blanqueamiento epidérmico gris, ampolla, dolor intenso desproporcionado, olor a quemado. Enfriamiento intensivo, valorar y reajustar o suspender la sesión.
 
 ### 5.5 · Enfriamiento
 
-El enfriamiento es parte integral del procedimiento, no un accesorio. Tres modalidades, no excluyentes:
+Parte integral del procedimiento; tres modalidades no excluyentes:
 
-- **Gel conductor frío**: pre-aplicado sobre la zona, refrigerado a 4-8 °C. Actúa como medio óptico de acoplamiento y como sumidero térmico.
-- **Cabezal con cristal de zafiro refrigerado** (contact cooling): incorporado en muchos equipos modernos, mantiene la superficie cutánea a 10-15 °C durante el disparo. Mejora la transmisión óptica frente al contacto metálico y reduce dolor y daño epidérmico.
-- **Aire frío forzado** (Zimmer u otros): chorro de aire a -10 °C orientado a la zona, especialmente útil entre disparos sucesivos en sesiones largas.
+- **Gel conductor frío** a 4-8 °C: acoplamiento óptico y sumidero térmico.
+- **Cabezal de zafiro refrigerado** (contact cooling) a 10-15 °C durante el disparo.
+- **Aire frío forzado** (Zimmer) a -10 °C entre disparos en sesiones largas.
 
-Tras el último disparo, se retira el gel suavemente, se aplica compresa fría sobre la zona durante 5-10 minutos y se pasa al post-inmediato cosmético (apartado 6).
+Tras el último disparo, retirar gel y aplicar compresa fría 5-10 min antes del post-inmediato cosmético.
 
 ### 5.6 · Protección ocular: no es opcional
 
-La protección ocular es la medida de seguridad más infravalorada y la que genera más accidentes documentados en cabina IPL. Cuatro reglas inviolables:
+Medida de seguridad más infravalorada y mayor fuente de accidentes documentados en IPL. Cuatro reglas inviolables:
 
-1. **Tanto la profesional como la paciente** llevan gafas durante todos los disparos. La paciente lleva gafas opacas o protectores oculares específicos para IPL (a menudo metálicos adhesivos para zonas periorbitarias). La profesional lleva gafas certificadas para el rango espectral del equipo.
-2. **Las gafas deben corresponder al rango de longitudes de onda del equipo concreto.** Una gafa de láser de 1064 nm no protege de IPL 515-1200 nm. Verificar siempre la etiqueta de densidad óptica (OD) y el rango certificado.
-3. **Nunca disparar dentro del reborde orbitario sin protector intra-orbitario metálico.** La luz IPL puede atravesar el párpado cerrado y dañar retina e iris. En tratamientos periorbitarios, los protectores corneales metálicos (estilo Cox II) son obligatorios y deben colocarse tras anestésico tópico oftálmico aplicado por profesional capacitado, o derivarse a centros médicos.
-4. **Verificar la integridad de las gafas en cada sesión**: rayas profundas, golpes o filtros agrietados las invalidan.
+1. **Paciente Y profesional** llevan gafas en todos los disparos. La paciente: gafas opacas o protectores específicos para IPL (a menudo metálicos adhesivos en periorbitarias). La profesional: gafas certificadas para el rango espectral del equipo.
+2. **Las gafas deben corresponder al rango del equipo concreto.** Una gafa de láser 1064 nm no protege de IPL 515-1200 nm. Verificar etiqueta de densidad óptica (OD) y rango certificado.
+3. **Nunca disparar dentro del reborde orbitario sin protector intra-orbitario metálico.** La luz IPL atraviesa el párpado cerrado y daña retina e iris. Protectores corneales metálicos (Cox II) tras anestésico tópico oftálmico aplicado por profesional capacitado, o derivar a centros médicos.
+4. **Verificar integridad de gafas en cada sesión**: rayas profundas, golpes o filtros agrietados las invalidan.
 
 ### 5.7 · Casos clínicos
 
