@@ -1154,16 +1154,52 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .ac-tab-content { display: none; }
 .ac-tab-content.active { display: block; }
 
-/* Materia: lecciones */
-.ac-lessons { display: flex; flex-direction: column; gap: 10px; }
-.ac-lesson { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 22px; display: flex; align-items: center; gap: 16px; cursor: pointer; transition: background 0.15s, border-color 0.15s; }
-.ac-lesson:hover { background: var(--bg); border-color: var(--ink-soft); }
-.ac-lesson-num { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--muted); width: 32px; flex-shrink: 0; }
-.ac-lesson-body { flex: 1; }
-.ac-lesson-title { font-size: 15px; font-weight: 500; }
-.ac-lesson-meta { font-size: 11.5px; color: var(--muted); margin-top: 3px; }
-.ac-lesson-cta { font-size: 12px; color: var(--accent); font-weight: 600; }
+/* Materia: lectura larga del .md */
+.ac-materia { max-width: 760px; margin: 0 auto; padding: 8px 0 64px; font-size: 16px; line-height: 1.72; color: var(--ink); }
+.ac-materia h1, .ac-materia h2, .ac-materia h3, .ac-materia h4 { font-family: var(--serif); letter-spacing: -0.01em; line-height: 1.15; margin: 1.6em 0 0.4em; }
+.ac-materia h1 { font-size: 38px; margin-top: 0.2em; }
+.ac-materia h2 { font-size: 28px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+.ac-materia h3 { font-size: 22px; }
+.ac-materia h4 { font-size: 17px; font-style: italic; color: var(--ink-soft); }
+.ac-materia p { margin: 0 0 1em; }
+.ac-materia ul, .ac-materia ol { padding-left: 1.4em; margin: 0 0 1em; }
+.ac-materia li { margin-bottom: 0.4em; }
+.ac-materia strong { color: var(--ink); }
+.ac-materia em { font-style: italic; color: var(--ink-soft); }
+.ac-materia code { background: var(--bg2); padding: 2px 6px; border-radius: 4px; font-size: 13.5px; font-family: ui-monospace, Menlo, Consolas, monospace; }
+.ac-materia pre { background: var(--bg2); padding: 14px 16px; border-radius: 8px; overflow-x: auto; font-size: 13px; line-height: 1.5; margin: 0 0 1em; }
+.ac-materia pre code { background: transparent; padding: 0; }
+.ac-materia blockquote { border-left: 3px solid var(--accent); padding: 8px 18px; margin: 0 0 1em; color: var(--ink-soft); background: var(--bg2); border-radius: 0 8px 8px 0; }
+.ac-materia hr { border: none; border-top: 1px solid var(--line); margin: 2em 0; }
+.ac-materia a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.ac-materia table { width: 100%; border-collapse: collapse; margin: 0 0 1.4em; font-size: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.ac-materia th { background: var(--bg2); text-align: left; padding: 10px 14px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 1px solid var(--line); }
+.ac-materia td { padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.5; }
+.ac-materia tr:last-child td { border-bottom: none; }
+.ac-materia-empty, .ac-materia-loading { padding: 60px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 10px; }
 .ac-empty { padding: 40px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 10px; }
+
+/* Presentación: deck embebido + selector de lección + fullscreen */
+.ac-pres-host { display: flex; flex-direction: column; gap: 14px; }
+.ac-pres-toolbar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.ac-pres-picker { display: flex; gap: 8px; flex-wrap: wrap; flex: 1; }
+.ac-pres-lesson { padding: 8px 14px; border-radius: 999px; font-size: 12.5px; cursor: pointer; border: 1px solid var(--line-strong); color: var(--ink-soft); background: transparent; transition: all 0.15s; }
+.ac-pres-lesson:hover { border-color: var(--ink); color: var(--ink); }
+.ac-pres-lesson.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.ac-pres-fs { padding: 9px 18px; border-radius: 999px; font-size: 12.5px; font-weight: 600; cursor: pointer; background: var(--ink); color: var(--bg); border: none; letter-spacing: 0.03em; transition: background 0.15s; display: inline-flex; align-items: center; gap: 8px; }
+.ac-pres-fs:hover { background: var(--accent-dark, var(--accent)); }
+.ac-pres-fs-icon { display: inline-block; width: 14px; height: 14px; border: 1.5px solid currentColor; border-radius: 2px; position: relative; }
+.ac-pres-fs-icon::before, .ac-pres-fs-icon::after { content: ''; position: absolute; width: 4px; height: 4px; }
+.ac-pres-fs-icon::before { top: -1px; left: -1px; border-top: 1.5px solid currentColor; border-left: 1.5px solid currentColor; }
+.ac-pres-fs-icon::after { bottom: -1px; right: -1px; border-bottom: 1.5px solid currentColor; border-right: 1.5px solid currentColor; }
+.ac-pres-frame-wrap { position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; aspect-ratio: 16 / 9; min-height: 480px; }
+.ac-pres-frame-wrap:fullscreen { border-radius: 0; aspect-ratio: auto; min-height: 0; }
+.ac-pres-frame-wrap:fullscreen iframe { border-radius: 0; }
+.ac-pres-frame { width: 100%; height: 100%; border: none; display: block; background: var(--bg); }
+.ac-pres-empty { padding: 60px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 10px; }
+@media (max-width: 768px) {
+  .ac-pres-frame-wrap { aspect-ratio: auto; min-height: 70vh; }
+}
 
 /* Visor de slides (iframe fullscreen) */
 .ac-slides-modal { position: fixed; inset: 0; background: rgba(36,29,23,0.85); z-index: 1000; display: none; flex-direction: column; }
@@ -1208,10 +1244,14 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   </div>
   <div class="ac-tabs">
     <span class="ac-tab active" data-tab="materia" onclick="aulaSwitchTab('materia')">Materia</span>
+    <span class="ac-tab" data-tab="presentacion" onclick="aulaSwitchTab('presentacion')">Presentación</span>
     <span class="ac-tab" data-tab="test" onclick="aulaSwitchTab('test')">Test</span>
   </div>
   <div class="ac-tab-content active" id="ac-tab-materia">
-    <div class="ac-lessons" id="ac-lessons"></div>
+    <div class="ac-materia-host" id="ac-materia-host"></div>
+  </div>
+  <div class="ac-tab-content" id="ac-tab-presentacion">
+    <div class="ac-pres-host" id="ac-pres-host"></div>
   </div>
   <div class="ac-tab-content" id="ac-tab-test">
     <div id="ac-test-container"></div>
@@ -3257,38 +3297,113 @@ function renderAulaCurso() {
   if (!course) {
     document.getElementById('ac-title').textContent = 'Sin cursos disponibles';
     document.getElementById('ac-desc').textContent = '';
-    document.getElementById('ac-lessons').innerHTML = '<div class="ac-empty">Añade un curso en <code>assets/js/courses-data.js</code>.</div>';
+    document.getElementById('ac-materia-host').innerHTML = '<div class="ac-materia-empty">Añade un curso en <code>assets/js/courses-data.js</code>.</div>';
     return;
   }
   document.getElementById('ac-bc-title').textContent = course.title;
   document.getElementById('ac-title').innerHTML = escapeHtml(course.title);
   document.getElementById('ac-desc').textContent = course.description || '';
 
-  // Lecciones (Materia)
-  const lessonsEl = document.getElementById('ac-lessons');
-  if (!course.lessons || course.lessons.length === 0) {
-    lessonsEl.innerHTML = '<div class="ac-empty">Este curso aún no tiene lecciones publicadas.</div>';
-  } else {
-    lessonsEl.innerHTML = course.lessons.map((l, i) => `
-      <div class="ac-lesson" onclick="openAulaSlides('${escapeAttr(course.id)}', ${i})">
-        <div class="ac-lesson-num">${String(i+1).padStart(2,'0')}</div>
-        <div class="ac-lesson-body">
-          <div class="ac-lesson-title">${escapeHtml(l.title)}</div>
-          <div class="ac-lesson-meta">${l.duration ? escapeHtml(l.duration) + ' · ' : ''}${l.slides ? 'Diapositivas HTML' : 'Pendiente de subir'}</div>
-        </div>
-        <div class="ac-lesson-cta">Abrir →</div>
-      </div>
-    `).join('');
-  }
-
-  // Test
+  // Tab por defecto: Materia
+  aulaSwitchTab('materia');
+  renderAulaMateria(course);
+  renderAulaPresentacion(course);
   renderAulaTest(course);
 }
 
 function aulaSwitchTab(name) {
   document.querySelectorAll('#page-aula-curso .ac-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
-  document.getElementById('ac-tab-materia').classList.toggle('active', name === 'materia');
-  document.getElementById('ac-tab-test').classList.toggle('active', name === 'test');
+  ['materia','presentacion','test'].forEach(n => {
+    const el = document.getElementById('ac-tab-' + n);
+    if (el) el.classList.toggle('active', n === name);
+  });
+}
+
+// ─── AULA · MATERIA (renderizado del .md fuente) ────────
+async function loadMarkdownLib() {
+  if (window.marked) return window.marked;
+  return new Promise((resolve, reject) => {
+    const s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/marked@12/marked.min.js';
+    s.onload = () => {
+      if (window.marked && window.marked.setOptions) {
+        window.marked.setOptions({ gfm: true, breaks: false });
+      }
+      resolve(window.marked);
+    };
+    s.onerror = () => reject(new Error('No se pudo cargar el renderizador de Markdown.'));
+    document.head.appendChild(s);
+  });
+}
+async function renderAulaMateria(course) {
+  const host = document.getElementById('ac-materia-host');
+  if (!host) return;
+  if (!course.sourceDoc) {
+    host.innerHTML = '<div class="ac-materia-empty">Este curso aún no tiene materia integrada. Añade <code>sourceDoc</code> al curso en <code>courses-data.js</code> apuntando a su .md.</div>';
+    return;
+  }
+  host.innerHTML = '<div class="ac-materia-loading">Cargando materia…</div>';
+  try {
+    const res = await fetch(course.sourceDoc, { cache: 'no-cache' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const md = await res.text();
+    const lib = await loadMarkdownLib();
+    const html = lib.parse(md);
+    host.innerHTML = '<article class="ac-materia">' + html + '</article>';
+  } catch (e) {
+    host.innerHTML = '<div class="ac-materia-empty">No se pudo cargar la materia (' + escapeHtml(e.message || 'error desconocido') + ').</div>';
+  }
+}
+
+// ─── AULA · PRESENTACIÓN (slide decks inline + fullscreen) ──
+function renderAulaPresentacion(course) {
+  const host = document.getElementById('ac-pres-host');
+  if (!host) return;
+  const lessons = (course.lessons || []).filter(l => l.slides && l.slides !== 'leccion-integrada');
+  if (lessons.length === 0) {
+    host.innerHTML = '<div class="ac-pres-empty">Este curso aún no tiene presentaciones publicadas.</div>';
+    return;
+  }
+  const picker = lessons.length > 1
+    ? `<div class="ac-pres-picker">${lessons.map((l, i) =>
+        `<button class="ac-pres-lesson${i === 0 ? ' active' : ''}" data-li="${i}" onclick="aulaPresLoad(${i})">${escapeHtml(l.title)}</button>`
+      ).join('')}</div>`
+    : `<div class="ac-pres-picker"><span style="font-size:13px;color:var(--ink-soft);padding:8px 0">${escapeHtml(lessons[0].title)}</span></div>`;
+  host.innerHTML = `
+    <div class="ac-pres-toolbar">
+      ${picker}
+      <button class="ac-pres-fs" onclick="aulaPresFullscreen()" title="Pantalla completa">
+        <span class="ac-pres-fs-icon"></span> Pantalla completa
+      </button>
+    </div>
+    <div class="ac-pres-frame-wrap" id="ac-pres-frame-wrap">
+      <iframe class="ac-pres-frame" id="ac-pres-frame" src="${escapeAttr(lessons[0].slides)}" title="${escapeAttr(lessons[0].title)}" allowfullscreen></iframe>
+    </div>
+  `;
+  window._aulaPresLessons = lessons;
+}
+function aulaPresLoad(idx) {
+  const lessons = window._aulaPresLessons || [];
+  if (!lessons[idx]) return;
+  document.querySelectorAll('#ac-pres-host .ac-pres-lesson').forEach(b => b.classList.toggle('active', Number(b.dataset.li) === idx));
+  const f = document.getElementById('ac-pres-frame');
+  if (f) { f.src = lessons[idx].slides; f.title = lessons[idx].title; }
+}
+function aulaPresFullscreen() {
+  const wrap = document.getElementById('ac-pres-frame-wrap');
+  if (!wrap) return;
+  if (document.fullscreenElement) {
+    document.exitFullscreen();
+  } else if (wrap.requestFullscreen) {
+    wrap.requestFullscreen().catch(() => {
+      // Fallback: abrir en pestaña nueva
+      const f = document.getElementById('ac-pres-frame');
+      if (f && f.src) window.open(f.src, '_blank');
+    });
+  } else {
+    const f = document.getElementById('ac-pres-frame');
+    if (f && f.src) window.open(f.src, '_blank');
+  }
 }
 
 function openAulaSlides(courseId, lessonIdx) {
