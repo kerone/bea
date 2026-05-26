@@ -12,5 +12,4 @@ Disallow: /.github/
 Disallow: /docs/cursos/  # los .md son fuente, el contenido renderizado va en /cursos
 
 # Sitemap
-# ⚠ Al migrar a precissainstitute.com: actualizar la URL siguiente
-Sitemap: https://kerone.github.io/bea/sitemap.xml
+Sitemap: https://precissainstitute.com/sitemap.xml
