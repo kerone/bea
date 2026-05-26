@@ -1,6 +1,6 @@
 # Curso · Limpieza de espalda profunda
 
-> Protocolo profesional de higiene facial trasladado a la zona dorsal: una de las prestaciones más rentables de la cabina de estética avanzada y, a la vez, una de las que más exige criterio dermatológico para distinguir el acné comedoniano subsidiario de tratamiento estético del acné inflamatorio que pertenece al dermatólogo.
+> Protocolo profesional de higiene profunda en zona dorsal, una de las prestaciones más rentables de la cabina estética avanzada y, a la vez, una de las que más exige criterio dermatológico para distinguir el acné comedoniano subsidiario de tratamiento estético del acné inflamatorio que pertenece al dermatólogo.
 
 ---
 
@@ -19,88 +19,78 @@
 
 ## 1 · Introducción y posicionamiento clínico
 
-La limpieza de espalda es una de las prestaciones más demandadas y peor protocolizadas de la cabina estética española contemporánea. La demanda crece desde la popularización de los escotes posteriores, la cultura del entrenamiento de fuerza, las temporadas de boda y fotografía profesional, y la mayor conciencia sobre el acné dorsal como problema estético legítimo. La oferta oscila entre dos extremos insatisfactorios: la traslación literal del protocolo facial sin entender que la espalda no es una cara grande, y la promesa terapéutica de resolver con higiene cosmética cuadros que pertenecen a la consulta dermatológica.
+La limpieza de espalda es una prestación muy demandada y a menudo mal protocolizada. El curso parte de tres premisas operativas: **la espalda no es una cara grande** (estrato córneo más grueso, mayor densidad sebácea interescapular, vascularización menos densa, cicatrización más lenta, mayor riesgo de hiperpigmentación post-inflamatoria); **la limpieza estética resuelve eficazmente acné comedoniano, comedones extensos, foliculitis leve y queratosis pilar parcial**, pero **no es tratamiento de primera línea** para acné inflamatorio moderado-severo ni nódulo-quístico (derivación obligada); y el protocolo bien calibrado es sencillo y rentable: **ocho fases, 60-90 minutos por sesión, 4-6 sesiones quincenales y mantenimiento mensual**.
 
-El curso parte de tres premisas. La primera es que la espalda tiene biología cutánea propia que condiciona cada fase del protocolo: estrato córneo más grueso, mayor densidad de glándulas sebáceas en la zona interescapular —el llamado **triángulo seborreico**, que se extiende desde la nuca hasta la línea intermamilar posterior—, vascularización dérmica menos densa, cicatrización más lenta y mayor propensión a hiperpigmentación post-inflamatoria. La segunda es que la limpieza de espalda profesional resuelve con eficacia el acné comedoniano dorsal, los comedones cerrados extensos, la foliculitis crónica leve y la queratosis pilar parcial, y prepara muy bien la piel para eventos puntuales; pero no es el tratamiento de primera línea para el **acné inflamatorio moderado o severo, ni para el acné nódulo-quístico**, enfermedad dermatológica que requiere derivación al especialista, con frecuencia para terapia oral (antibiótico, antiandrógeno o isotretinoína). La tercera es que el protocolo, una vez calibrado al sustrato dorsal, es sencillo y rentable: ocho fases, 60 a 90 minutos por sesión, ciclos de cuatro a seis sesiones quincenales y mantenimiento mensual.
+Se dirige a la profesional que ya domina la higiene facial profunda y quiere trasladarla a la zona dorsal con criterio clínico, identificando cuándo trata, cuándo combina y cuándo deriva.
 
-El curso se dirige a la profesional que ya domina la higiene facial profunda y quiere trasladarla a la zona dorsal con criterio clínico, identificando cuándo trata, cuándo combina y cuándo deriva.
+## 2 · Fundamentos
 
-## 2 · Fundamentos científicos
+### 2.1 · Anatomía dorsal relevante
 
-### 2.1 · Anatomía dorsal de interés cosmético
+- **Estrato córneo grueso y compacto**, con tendencia a hiperqueratinización folicular y formación de comedones.
+- **Densidad sebácea elevada** en triángulo interescapular y región lumbosacra alta, sobre todo en varones jóvenes y perfil androgénico.
+- **Vascularización dérmica menos densa**: cicatrización más lenta, respuesta vasodilatadora perezosa.
+- **Inervación sensitiva menor**: mayor riesgo de sobreexfoliar o sobrecalentar sin advertencia del paciente.
+- **Mayor propensión a PIH** en fototipos III-VI.
+- **Alto riesgo de cicatrización hipertrófica y queloidea**, especialmente en tercio superior y línea media. Consecuencia: **no extraer lesiones inflamadas, no presionar con fuerza, derivar lo que excede el plano comedoniano superficial**.
 
-La piel de la espalda es la más gruesa del organismo después de la planta del pie y la palma de la mano. Estrato córneo y dermis son significativamente más espesos que los faciales, con haces de colágeno densamente entrelazados que explican la resistencia mecánica de la zona y su tendencia a cicatrización hipertrófica y queloidea, sobre todo en el segmento alto y la línea media. Características operativas:
+### 2.2 · Patología dorsal y diagnóstico diferencial
 
-- **Estrato córneo grueso y compacto**, con tendencia a la hiperqueratinización folicular. Los queratinocitos del infundíbulo se descaman con menor eficiencia que en cara, favoreciendo la formación de tapones córneos y de comedones cerrados y abiertos.
-- **Densidad sebácea elevada en el tercio superior**, especialmente en el triángulo interescapular y la región lumbosacra alta. Glándulas sebáceas de mayor calibre que las faciales, sobre todo en varones jóvenes y mujeres con perfil androgénico.
-- **Vascularización dérmica menos densa** que la del rostro: aporte basal menor, cicatrización más lenta, respuesta vasodilatadora más perezosa.
-- **Inervación sensitiva menor** y, por tanto, **menor percepción del dolor**, lo que convierte a la espalda en una zona donde es más fácil sobreexfoliar o sobrecalentar sin advertencia inmediata del paciente.
-- **Mayor propensión a hiperpigmentación post-inflamatoria (PIH)** en fototipos III-VI, sobre todo asociada a lesiones inflamatorias previas, manipulación traumática o exposición solar precoz tras tratamiento.
-
-### 2.2 · Comedogénesis dorsal y patología asociada
-
-La cadena fisiopatológica del acné dorsal sigue los cuatro pilares clásicos —hiperqueratinización folicular, hiperseborrea, colonización por *Cutibacterium acnes* e inflamación inmunomediada— con particularidades clínicas:
-
-- **Comedones cerrados extensos**: pápulas no inflamatorias del color de la piel, palpables al deslizar la mano. Sustrato típico que mejor responde a la limpieza estética.
-- **Comedones abiertos (puntos negros)**: tapones de queratina y sebo oxidados visibles en el infundíbulo. Susceptibles de extracción manual atraumática.
-- **Acné comedoniano dorsal**: predominio no inflamatorio. Indicación más clara de limpieza estética en ciclos.
-- **Acné papulopustuloso**: con lesiones inflamatorias activas. La limpieza puede ser complemento; el centro del tratamiento es médico. Derivación si es moderado o no responde.
-- **Acné nodular o quístico**: lesiones profundas, dolorosas, riesgo cicatricial. **No es indicación estética**: derivación obligada.
-- **Foliculitis bacteriana** (típicamente *Staphylococcus aureus*): pústulas centradas en folículo. Las formas agudas o extensas requieren antibioterapia tópica u oral.
-- **Foliculitis por *Malassezia*** (antes *Pityrosporum*): pápulo-pústulas monomorfas en hombros y tercio superior, frecuente en varones jóvenes deportistas con sudoración intensa. Responde a antifúngicos prescritos; los protocolos sebo-reguladores y limpiadores con piritionato de zinc complementan.
-- **Queratosis pilar dorsal**: pápulas foliculares ásperas asintomáticas. **Eficacia limitada de la limpieza estética**, debe explicitarse: el componente genético es el principal determinante.
-- **Hiperpigmentación post-inflamatoria** residual: mejora lentamente con despigmentantes y fotoprotección rigurosa.
-
-### 2.3 · Cicatrización en piel dorsal
-
-La espalda, junto con escote y hombros, es una de las zonas con **mayor riesgo de cicatrización hipertrófica y queloidea**. Cualquier extracción traumática, cualquier lesión inflamatoria mal manejada o procedimiento que rompa la integridad dérmica profunda puede dejar secuela visible. Consecuencia operativa: **no extraer lesiones inflamadas, no presionar con fuerza, no usar lancetas en sustratos profundos sin formación médica**, derivar siempre que la lesión exceda el plano comedoniano superficial. A la lentitud cicatricial se suma la propensión a PIH, que en fototipos altos puede prolongarse meses.
+| Cuadro | Características | Manejo |
+|---|---|---|
+| **Comedones cerrados/abiertos** | Pápulas color piel o tapones queratínicos visibles | Indicación clara de limpieza estética |
+| **Acné comedoniano dorsal** | Predominio no inflamatorio | Limpieza en ciclos |
+| **Acné papulopustuloso** | Lesiones inflamatorias activas | Tratamiento médico + limpieza complementaria |
+| **Acné nódulo-quístico** | Lesiones profundas, dolorosas, cicatriciales | **Derivación obligada** |
+| **Foliculitis bacteriana** (*S. aureus*) | Pústulas centradas en folículo | Antibioterapia si extensa |
+| **Foliculitis por *Malassezia*** | Pápulo-pústulas monomorfas en hombros, deportistas | Antifúngico prescrito + complemento estético |
+| **Queratosis pilar** | Pápulas foliculares ásperas | Eficacia limitada; gestionar expectativas |
+| **PIH residual** | Manchas post-acné | Despigmentantes + fotoprotección estricta |
 
 ## 3 · Indicaciones
 
-El perfil de paciente subsidiario de limpieza de espalda profunda incluye:
+| Indicación | Perfil clínico | Sesiones |
+|---|---|---|
+| **Acné comedoniano dorsal** | Comedones cerrados/abiertos sin componente inflamatorio | 4-6 quincenales + mantenimiento mensual |
+| **Comedones extensos sin acné** | Piel grasa dorsal, poros dilatados | 3-4 quincenales |
+| **Foliculitis crónica leve** | Pápulo-pústulas dispersas, sin signos agudos | 4-6 · derivar si no mejora |
+| **Queratosis pilar** | Pápulas ásperas asintomáticas | 4-6 · resultado limitado |
+| **Preparación pre-evento** | Boda, fotografía, vestido escotado | 1-2 + cosmética domiciliaria |
+| **Mantenimiento estético** | Piel grasa, ex-acné, sudoración intensa | 1 sesión mensual |
+| **Post-deportiva intensiva** | Maceración por sudor y ropa técnica | 1 cada 3-4 semanas |
+| **PIH residual** | Manchas post-acné, sin lesiones activas | Combinar con cosmética activa 8-12 semanas |
 
-| Indicación | Perfil clínico | Objetivo realista | Sesiones recomendadas |
-|---|---|---|---|
-| **Acné comedoniano dorsal** | Predominio de comedones cerrados y abiertos, sin componente inflamatorio activo significativo | Reducción visible de comedones, mejoría de la textura cutánea | 4-6 sesiones quincenales + mantenimiento mensual |
-| **Comedones extensos sin acné** | Paciente con piel grasa dorsal, poros dilatados visibles, sin lesiones inflamatorias | Vaciado folicular, refinamiento del poro aparente | 3-4 sesiones quincenales |
-| **Foliculitis crónica leve** | Pápulo-pústulas foliculares dispersas, sin signos de infección aguda | Reducción de carga lesional, control de hiperqueratinización | 4-6 sesiones · derivación si no mejora |
-| **Queratosis pilar dorsal** | Pápulas foliculares ásperas asintomáticas | Mejoría parcial de la textura, gestión de expectativas | 4-6 sesiones · resultado limitado |
-| **Preparación pre-evento** | Boda, sesión fotográfica, vestido escotado | Piel uniforme, sin comedones visibles, sin grasa aparente | 1-2 sesiones próximas + cosmética domiciliaria |
-| **Mantenimiento estético** | Piel grasa dorsal, antecedente de acné resuelto, deportista con sudoración intensa | Prevención de recidiva comedoniana, control sebo-regulador | 1 sesión mensual |
-| **Post-deportiva intensiva** | Triatletas, ciclistas, gimnastas con maceración crónica por sudoración y ropa técnica | Prevención de foliculitis y comedones por oclusión | 1 sesión cada 3-4 semanas |
-| **Hiperpigmentación post-inflamatoria residual** | Manchas residuales de acné dorsal resuelto, sin lesiones activas | Mejoría progresiva con despigmentantes; nunca tratamiento único | Combinar con cosmética domiciliaria activa 8-12 semanas |
-
-La evidencia disponible respalda el uso de limpieza profesional combinada con cosmética activa (limpiador con salicílico 2%, exfoliante químico nocturno) en el **acné truncal leve a moderado-leve**. En cuadros moderados o severos, las guías dermatológicas internacionales coinciden en que el centro del tratamiento es la terapia tópica prescrita (retinoide, peróxido de benzoilo, ácido azelaico) o sistémica (antibiótico, isotretinoína, antiandrógenos en mujer), y la limpieza estética actúa como complemento bajo supervisión médica.
+En **acné truncal moderado o severo**, las guías dermatológicas internacionales coinciden: el centro es tratamiento tópico prescrito (retinoide, peróxido de benzoilo, azelaico) o sistémico (antibiótico, isotretinoína, antiandrógenos); la limpieza actúa como complemento bajo supervisión médica.
 
 ## 4 · Contraindicaciones, banderas rojas y advertencias
 
 ### 4.1 · Contraindicaciones absolutas
 
-- **Acné inflamatorio moderado o severo, acné nódulo-quístico, acné conglobata**. Enfermedad dermatológica. La manipulación estética empeora la inflamación, favorece cicatrización deformante y retrasa el tratamiento médico. **Derivación obligada**.
-- **Lesiones inflamatorias activas extensas** (foliculitis aguda extensa, paniculitis, abscesos): derivación.
-- **Foliculitis decalvante o cicatricial activa**: competencia dermatológica estricta.
-- **Herpes zoster o herpes simple activo** en la zona: contraindicación absoluta hasta resolución y costras caídas.
-- **Dermatitis seborreica en brote** con eritema y descamación: tratar el brote antes.
-- **Infección bacteriana activa de la piel** (impétigo, ectima, celulitis, forunculosis): derivación para antibioterapia.
-- **Eccema o psoriasis en brote en la zona**: solo intervenir tras valoración dermatológica.
-- **Lesión pigmentada sospechosa o no diagnosticada** en el campo a tratar: la espalda alta es localización clásica de melanoma en varones; cualquier lesión asimétrica, de bordes irregulares, color heterogéneo, diámetro superior a 6 mm o evolución reciente justifica posponer y derivar.
+- Acné inflamatorio moderado/severo, nódulo-quístico, conglobata → derivación.
+- Lesiones inflamatorias activas extensas (foliculitis aguda, paniculitis, abscesos).
+- Foliculitis decalvante o cicatricial activa.
+- Herpes zoster o simple activo en la zona.
+- Dermatitis seborreica en brote con eritema y descamación.
+- Infección bacteriana activa (impétigo, ectima, celulitis, forunculosis).
+- Eccema o psoriasis en brote en la zona.
+- Lesión pigmentada sospechosa o no diagnosticada (ABCDE) en el campo a tratar.
 
 ### 4.2 · Contraindicaciones relativas
 
-- **Fototipos Fitzpatrick V-VI**: cautela con exfoliación química, calor sostenido y extracción. Despigmentantes preventivos y fotoprotección estricta.
-- **Isotretinoína actual o reciente** (menos de 6 meses): piel frágil, mayor riesgo de irritación y cicatrización anómala. Evitar exfoliación química intensa, vapor a alta temperatura y extracción agresiva. Sesiones muy suaves consensuadas con el dermatólogo prescriptor.
-- **Embarazo**: la limpieza en sí no está contraindicada; revisar cosmetología y evitar activos contraindicados (retinoides tópicos, ácido salicílico en concentraciones altas sobre grandes superficies de forma habitual). Vapor a temperatura moderada, posición lateral confortable en gestación avanzada.
-- **Historia personal de cicatrización hipertrófica o queloidea**: extracción mínima o nula.
-- **Anticoagulación o trastorno de la coagulación**: extracción más conservadora.
-- **Bronceado reciente intenso**: posponer al menos 7 días; el calor y la exfoliación sobre piel bronceada favorecen PIH.
+- Fototipo Fitzpatrick V-VI → cautela con exfoliación química, calor, extracción; despigmentantes preventivos.
+- Isotretinoína actual o reciente (<6 meses) → consensuar con dermatólogo; sesiones muy suaves.
+- Embarazo → revisar cosmetología (evitar retinoides, salicílico en grandes superficies); posición confortable.
+- Historia personal de cicatrización hipertrófica/queloidea → extracción mínima o nula.
+- Anticoagulación o trastorno de la coagulación → extracción más conservadora.
+- Bronceado reciente intenso → posponer 7 días.
 
-### 4.3 · Banderas rojas en consulta
+### 4.3 · Banderas rojas
 
-- **Acné con cicatrices atróficas o hipertróficas activas**: no candidato a manejo estético aislado; derivación.
-- **Dolor profundo, nódulos palpables o supuración persistente**: derivación.
-- **Brote agudo extenso** en pocas semanas, especialmente en varón adulto sin historia previa: descartar foliculitis por *Malassezia*, foliculitis bacteriana o acné inducido por fármacos (corticoides, anabolizantes). Derivación.
-- **Varios tratamientos estéticos previos sin respuesta**: derivar, no insistir.
-- **Lesiones pigmentadas nuevas o cambiantes**: derivar antes de cualquier procedimiento.
+- Cicatrices atróficas o hipertróficas activas.
+- Dolor profundo, nódulos palpables o supuración persistente.
+- Brote agudo extenso, sobre todo en varón adulto sin historia previa (sospechar *Malassezia*, bacteriana o acné inducido por fármacos).
+- Múltiples tratamientos estéticos previos sin respuesta.
+- Lesiones pigmentadas nuevas o cambiantes.
 
 ## 5 · Protocolo de tratamiento
 
@@ -165,118 +155,63 @@ Retirada con agua templada y gasas, sin frotar.
 
 **Fase 8 · Crema oil-free + fotoprotección**. Hidratante **oil-free**, gel-crema no comedogénica con activos compatibles (niacinamida, hialurónico, pantenol). **Fotoprotección oil-free SPF 50** mineral o químico-mineral si el paciente sale con luz directa o en temporada estival.
 
-### 5.4 · Casos clínicos
+### 5.6 · Casos clínicos
 
 **Caso 1. Mujer de 16 años, fototipo III, acné comedoniano dorsal.**
 
-Estudiante, acné facial leve controlado con peróxido de benzoilo 2,5% indicado por su pediatra. Espalda con comedones cerrados extensos en triángulo interescapular y algún comedón abierto, sin pápulas inflamatorias, sin cicatrices. Preocupación estética pre-verano por bañadores.
+Estudiante, acné facial leve controlado con peróxido de benzoilo 2,5% indicado por su pediatra. Espalda con comedones cerrados extensos en triángulo interescapular y algún comedón abierto, sin pápulas inflamatorias, sin cicatrices. Preocupación estética pre-verano.
 
-Plan: ciclo de cuatro sesiones quincenales. Protocolo estándar con exfoliación química suave (salicílico 2%, 3 min por riesgo discreto de PIH en fototipo III) y extracción contenida sobre comedones maduros. Cosmética domiciliaria: limpiador con salicílico 2% en ducha nocturna, gel BHA 2% nocturno en zona afecta 3 noches/semana, hidratante oil-free, fotoprotector SPF 50 los días de bañador. Educación sobre no rascar ni usar esponjas abrasivas.
+Plan: ciclo de cuatro sesiones quincenales. Protocolo estándar con exfoliación química suave (salicílico 2%, 3 min por riesgo de PIH en fototipo III) y extracción contenida sobre comedones maduros. Domiciliaria: limpiador con salicílico 2% nocturno, gel BHA 2% 3 noches/semana, hidratante oil-free, fotoprotector SPF 50.
 
-Resultado a las ocho semanas: reducción visible de comedones, textura uniforme, dos pápulas residuales que se resuelven sin manipulación. Mantenimiento mensual en verano. Sin PIH.
+Resultado a 8 semanas: reducción visible de comedones, textura uniforme, dos pápulas residuales resueltas sin manipulación. Mantenimiento mensual en verano. Sin PIH.
 
 **Caso 2. Varón de 34 años, fototipo IV, foliculitis crónica dorsal en deportista.**
 
-Triatleta amateur, ropa técnica ajustada y sudoración intensa prolongada. Pápulo-pústulas monomorfas en hombros y tercio superior desde hace dos años, brotes asociados a mayor carga de entrenamiento. Sospecha orientativa: cuadro mixto, foliculitis bacteriana leve y posible foliculitis por *Malassezia* (monomorfismo, localización). Sin acné comedoniano significativo. PIH residual discreta en zonas de brotes previos.
+Triatleta amateur, ropa técnica ajustada y sudoración intensa. Pápulo-pústulas monomorfas en hombros y tercio superior desde hace dos años, brotes con mayor carga de entrenamiento. Sospecha: cuadro mixto, foliculitis bacteriana leve y posible *Malassezia*. PIH residual discreta.
 
-Decisión: **derivación previa al dermatólogo para confirmar diagnóstico y prescribir antifúngico**. El dermatólogo confirma *Malassezia* y prescribe ketoconazol 2% champú como gel de ducha cuatro semanas e itraconazol oral en pauta corta. A las cuatro semanas, con brote controlado, ciclo estético complementario: vapor breve (8 min), exfoliación enzimática (no salicílico inicial por sensibilización por antifúngico tópico), extracción mínima, alta frecuencia prolongada por efecto germicida, mascarilla calmante con niacinamida y pantenol, sérum con azelaico 10% para PIH residual.
+Decisión: **derivación previa al dermatólogo**. Confirma *Malassezia*; prescribe ketoconazol 2% champú como gel de ducha 4 semanas + itraconazol oral pauta corta. A las 4 semanas, con brote controlado: ciclo complementario con vapor breve (8 min), exfoliación enzimática (no salicílico inicial), extracción mínima, alta frecuencia prolongada, mascarilla calmante con niacinamida y pantenol, sérum azelaico 10% para PIH.
 
-Pauta domiciliaria: gel de ducha con piritionato de zinc en mantenimiento, ducha inmediata post-entrenamiento, secado completo, ropa técnica transpirable, hidratante oil-free. Revisión dermatológica a los tres meses. Resultado a las doce semanas: control del cuadro, mejoría progresiva de PIH, mantenimiento estético mensual coordinado con el médico.
+Domiciliaria: gel piritionato de zinc en mantenimiento, ducha post-entrenamiento, secado completo, ropa transpirable. Resultado a 12 semanas: control del cuadro, mejoría de PIH, mantenimiento mensual coordinado con dermatólogo.
 
 ## 6 · Cosmetología aplicada
 
-La cosmetología de cabina y la cosmetología domiciliaria recomendada son los dos pilares que multiplican el rendimiento del protocolo y mantienen el resultado entre sesiones. La regla operativa: **la sesión hace el 30% del trabajo, la cosmética domiciliaria hace el 70%**.
+**Regla operativa**: la sesión hace el 30 % del trabajo; la cosmética domiciliaria, el 70 %.
 
-### 6.1 · Limpiadores
+| Fase | Producto / activo | Pauta |
+|---|---|---|
+| Limpieza | Gel pH 5,0-5,5 con **salicílico 0,5-2 %** (comedoniano) o **piritionato de zinc 1-2 %** (foliculítico/seborreico). Tensioactivos suaves (cocoglucósidos, betaínas). | Diario en ducha |
+| Exfoliación química | **BHA salicílico 2 %** nocturno (acné comedoniano dorsal); **AHA** glicólico 8-10 %, láctico o mandélico 5-10 % en queratosis/textura | 3-7 noches/semana |
+| Sebo-regulación y PIH | **Niacinamida 4-10 %**; **azelaico 10-20 %** (comedolítico, anti-*C. acnes*, despigmentante; útil en embarazo) | Diario |
+| Antioxidante | **Vitamina C 10-15 %** estabilizada | Mañana |
+| Retinoides | Retinol/retinaldehído cosméticos; adapaleno 0,1 % o tretinoína (prescripción) | Reintroducción gradual |
+| Antimicrobiano | **Peróxido de benzoilo 2,5-5 %** spot (en acné moderado, derivar) | Lesión a lesión |
+| Mascarillas | **Arcilla** (verde, caolín, negra) 1-2 veces/semana; **azufre 3-5 %** seborreico; calmantes (avena, centella, pantenol, bisabolol) post-extracción | Según sustrato |
+| Hidratación | Crema oil-free no comedogénica con niacinamida, hialurónico, pantenol | Diario |
+| Fotoprotección | **SPF 50 oil-free** mineral o químico-mineral | Días de exposición; reaplicar cada 2 h |
 
-- **pH fisiológico 5,0-5,5**: imprescindible. Los jabones alcalinos (pH 8-10) alteran la barrera y estimulan producción compensatoria de sebo.
-- **Tensioactivos suaves**: cocoglucósidos, decil glucósidos, betaínas. **Evitar SLS en piel reactiva**.
-- **Activos**: salicílico 0,5-2% en sustrato comedoniano; glicólico 5-8% en piel queratósica sin componente inflamatorio dominante; piritionato de zinc 1-2% en sustrato foliculítico o seborreico.
-- **Vehículo gel o espuma**, no crema oclusiva.
+Evitar: jabones alcalinos (pH 8-10), partículas exfoliantes angulares, cremas oclusivas ricas en aceites minerales, exposición solar para "secar".
 
-### 6.2 · Exfoliantes
+## 7 · Aftercare
 
-- **Mecánicos suaves**: partículas redondeadas (jojoba, sílice esférica), 1-2 veces/semana.
-- **BHA**: salicílico 2% en sérum o gel nocturno, 3-4 veces/semana hasta diario en piel adaptada. Activo más coste-efectivo en acné comedoniano dorsal.
-- **AHA**: glicólico 8-10%, láctico 5-10%, mandélico 5-10%. Útiles en queratosis o textura irregular sin componente comedoniano dominante.
-- **Enzimáticos** (papaína, bromelina): piel sensible o alternativa rotacional.
+| Tiempo | Indicación |
+|---|---|
+| **Día 0** | Eritema difuso esperable. Aplicar sérum + crema oil-free. Fotoprotección si sale al sol. |
+| **Día 1-2 (48 h críticas)** | No exfoliantes mecánicos ni químicos (BHA/AHA/retinoides) 3-5 días. No sauna, baño turco ni jacuzzi. No ejercicio intenso con sudor profuso 24 h. Ropa transpirable, evitar sintéticos ajustados. Hidratación oral. |
+| **Día 3-7** | Reintroducir hidratante y niacinamida desde día 1; salicílico nocturno desde día 5-7 según tolerancia. Mantener fotoprotección. |
+| **Día 7-14** | Pauta domiciliaria completa restablecida. Cita de seguimiento si es primera sesión del ciclo. |
+| **Siguiente sesión** | **15 días** en ciclo; **30 días** en mantenimiento. |
 
-### 6.3 · Activos principales
-
-- **Niacinamida 4-10%**: sebo-regulador, antiinflamatorio, refuerzo de barrera, anti-PIH. Excelente tolerabilidad, compatible con la mayoría de activos.
-- **Ácido azelaico 10-20%**: comedolítico, antimicrobiano frente a *C. acnes*, despigmentante por inhibición de tirosinasa. Útil en PIH activa o riesgo. Bien tolerado en embarazo (concentraciones farmacéuticas requieren prescripción).
-- **Vitamina C estabilizada 10-15%**: antioxidante, sinérgica con fotoprotección, refuerzo despigmentante. Por la mañana.
-- **Retinoides cosméticos** (retinol, retinaldehído) y farmacéuticos (adapaleno 0,1%, tretinoína): comedolíticos, anti-PIH. Pauta médica preferible. Reintroducción gradual.
-- **Peróxido de benzoilo 2,5-5%**: antimicrobiano clave en acné. En **acné moderado o inflamatorio derivar al médico**; vigilar irritación y blanqueamiento de tejidos.
-
-### 6.4 · Mascarillas y fotoprotección
-
-- **Arcillas (verde, caolín, negra)**: absorción sebácea en piel grasa-congestiva, 1-2 veces/semana.
-- **Azufre 3-5%**: queratolítico, antimicrobiano leve, sustrato seborreico.
-- **Calmantes** (avena, centella, alantoína, pantenol, bisabolol): post-extracción, post-exfoliación intensa, piel reactiva.
-- **Fotoprotector oil-free SPF 50** mineral o químico-mineral no comedogénico. Obligado los días de exposición dorsal; reaplicación cada 2 horas en exposición prolongada. En PIH activa o riesgo, fotoprotección continua.
-
-### 6.6 · Cosmética domiciliaria recomendada (kit estándar)
-
-| Producto | Activo principal | Pauta | Indicación |
-|---|---|---|---|
-| Gel limpiador BHA | Ácido salicílico 1-2% | Diario en ducha | Sustrato comedoniano y mixto |
-| Sérum o gel nocturno BHA | Ácido salicílico 2% | 3-7 noches/semana | Exfoliación química mantenida |
-| Sérum o crema niacinamida | Niacinamida 5-10% | Diario, mañana o noche | Sebo-regulación, PIH |
-| Crema o sérum ácido azelaico | Azelaico 10-15% (cosmético) o 15-20% (farmacéutico) | Diario o alterno | PIH, acné inflamatorio leve |
-| Crema hidratante oil-free | Niacinamida, hialurónico, pantenol | Diario | Mantenimiento barrera |
-| Fotoprotector oil-free SPF 50 | Filtros minerales o mixtos | Días de exposición | Prevención PIH |
-| Spot treatment | Peróxido de benzoilo 2,5% (derivación médica en acné moderado) o azelaico 15-20% | Lesión a lesión, según indicación | Pápulas inflamatorias aisladas |
-
-## 7 · Aftercare y seguimiento
-
-Cronograma orientativo. Información entregada por escrito y repasada verbalmente al finalizar la sesión.
-
-**Día 0**: eritema dorsal difuso, sensación de calor leve, posible costra puntiforme microscópica en puntos de extracción. Aplicación inmediata de sérum y crema; fotoprotección si el paciente sale al sol.
-
-**Día 1-2 (48 h críticas)**:
-
-- **Evitar exposición solar directa**. Si sale, ropa cubriente o fotoprotector oil-free SPF 50 cada 2 horas.
-- **No aplicar exfoliantes** mecánicos ni químicos activos (BHA, AHA, retinoides) durante 3-5 días en zona tratada.
-- **No sauna, baño turco ni jacuzzi**: el calor sostenido prolonga eritema y altera la barrera.
-- **No ejercicio intenso con sudoración profusa** las primeras 24 h; reanudar progresivamente con ducha inmediata posterior.
-- **Hidratación oral abundante**, ropa transpirable, evitar tejidos sintéticos ajustados las primeras 48 h.
-
-**Día 3-7**: reintroducción progresiva de cosmética domiciliaria: hidratante y niacinamida desde día 1; salicílico nocturno desde día 5-7 según tolerancia. Mantener fotoprotección.
-
-**Día 7-14**: pauta domiciliaria completa restablecida. Cita de seguimiento si es primera sesión del ciclo.
-
-**Sesión siguiente**: **15 días** en ciclos de tratamiento; **30 días** en mantenimiento.
-
-**Signos de alarma que exigen consulta**: eritema intenso >72 h, pústulas nuevas dolorosas, quemazón o dolor creciente desde día 2, mancha oscura nueva, fiebre o malestar.
+**Signos de alarma que exigen consulta**: eritema intenso >72 h · pústulas nuevas dolorosas · quemazón o dolor creciente desde día 2 · mancha oscura nueva · fiebre o malestar.
 
 ## 8 · Manejo de complicaciones
 
-### 8.1 · Eritema persistente
-
-Rubor mantenido >48-72 h. Causas: exfoliación excesiva, vapor prolongado en piel reactiva, extracción agresiva, intolerancia al ácido aplicado. Manejo: suspensión de activos, mascarilla calmante (avena, centella, niacinamida), crema reparadora con pantenol y ceramidas 5-7 días, fotoprotección. Sesión siguiente: **reducir tiempos y concentraciones** (vapor 8 min, salicílico 1% o enzimático, extracción contenida).
-
-### 8.2 · Foliculitis post-tratamiento
-
-Pústulas foliculares dispersas en zona tratada a los 2-5 días. Causa: contaminación en extracción, manipulación del paciente, ropa contaminada, sudoración post-sesión. Manejo: tónico antiséptico 2 veces/día, gel con peróxido de benzoilo 2,5% en lesiones si lo tolera, evitar manipulación. Si en 7 días no mejora o se extiende: **derivación para antibiótico tópico** (clindamicina, eritromicina) **u oral**. Revisar asepsia en cabina.
-
-### 8.3 · Hiperpigmentación post-inflamatoria
-
-Aparición a las 2-6 semanas, sobre todo en fototipos III-VI o exposición solar precoz. Manejo: **fotoprotección SPF 50 oil-free diaria**, niacinamida 5-10% y/o azelaico 10-15% domiciliarios 8-12 semanas, vitamina C por la mañana. Resolución en 2-6 meses. **Derivación si no hay respuesta a las 8-12 semanas** o PIH intensa: hidroquinona supervisada, retinoides, peelings o láseres específicos.
-
-### 8.4 · Ausencia de resultados
-
-Tras 3-4 sesiones sin mejoría. Reevaluar:
-
-- ¿Diagnóstico correcto? Posible foliculitis por *Malassezia* no diagnosticada, acné inflamatorio infraestimado o queratosis pilar (eficacia limitada inherente).
-- ¿Cumplimiento de cosmética domiciliaria? Lo habitual: sí limpiador, no BHA nocturno ni fotoprotección.
-- ¿Factores no controlados? Sudoración deportiva sin ducha inmediata, ropa oclusiva, anabolizantes o corticoides, alteración hormonal.
-
-Si no hay causa corregible y el sustrato es inflamatorio: **derivación dermatológica**. Las guías coinciden en que el acné moderado-severo requiere tratamiento médico y que la limpieza estética sin terapia médica de base es insuficiente.
-
-### 8.5 · Reacción de contacto a producto
-
-Picor, eritema desproporcionado, vesículas o edema. Manejo: retirada con agua templada abundante, antihistamínico oral si prurito significativo, valoración médica si reacción extensa. Documentar la alergia en historia clínica de forma indeleble. **Patch test futuro** antes de reintroducir activos similares.
+| Signo / complicación | Acción inmediata | Derivación |
+|---|---|---|
+| **Eritema persistente >48-72 h** | Suspender activos. Mascarilla calmante (avena, centella, niacinamida). Crema reparadora con pantenol y ceramidas 5-7 días. Reducir vapor a 8 min, salicílico al 1 % o enzimático, extracción contenida en próxima sesión. | Si no remite en 7 días |
+| **Foliculitis post-tratamiento** (pústulas 2-5 días) | Tónico antiséptico 2 veces/día; peróxido de benzoilo 2,5 % en lesiones si lo tolera. Revisar asepsia en cabina. | Si no mejora o se extiende en 7 días → antibiótico tópico (clindamicina, eritromicina) u oral |
+| **Hiperpigmentación post-inflamatoria** (2-6 semanas) | SPF 50 oil-free diario. Niacinamida 5-10 % y/o azelaico 10-15 % 8-12 semanas. Vitamina C matinal. | Si no hay respuesta a 8-12 semanas → hidroquinona supervisada, retinoides, peelings, láser |
+| **Ausencia de resultados (3-4 sesiones)** | Reevaluar diagnóstico (*Malassezia*, acné inflamatorio infraestimado, queratosis); revisar cumplimiento domiciliario; descartar sudoración no controlada, anabolizantes, alteración hormonal. | Sustrato inflamatorio sin causa corregible → dermatólogo |
+| **Reacción de contacto a producto** (picor, eritema desproporcionado, vesículas, edema) | Retirar con agua templada abundante. Antihistamínico oral si prurito. Documentar alergia en historia. Patch test antes de reintroducir. | Si reacción extensa → valoración médica |
 
 ## 9 · Test de evaluación
 
@@ -334,17 +269,13 @@ d) Recomendar peróxido de benzoilo 10% sin más
 
 ## 10 · Referencias
 
-Bibliografía selectiva, priorizando revisiones con revisión por pares y publicaciones de sociedades dermatológicas sobre acné truncal y manejo cosmético complementario.
-
-- **American Academy of Dermatology (AAD)**: guías clínicas del manejo del acné vulgar, recomendaciones por gravedad y criterios de derivación. El acné moderado y severo requiere tratamiento médico de base.
-- **British Association of Dermatologists (BAD)**: guías sobre acné y manejo de cicatrización y PIH.
-- **PMC / NCBI · Truncal Acne: An Overview**: revisión específica sobre acné truncal, prevalencia, particularidades clínicas y respuesta más lenta que el acné facial.
-- **Journal of the American Academy of Dermatology (JAAD)**: trabajos sobre limpiadores y exfoliantes en acné truncal con salicílico y polihidroxiácidos.
-- **Cosmoderma**: revisión sobre manejo combinado de acné y PIH con azelaico, niacinamida y retinoides.
-- **Clinical, Cosmetic and Investigational Dermatology**: revisión sobre mecanismos y aplicaciones clínicas del ácido azelaico (PIH y acné).
-- **Acta Dermato-Venereologica**: revisión sobre PIH post-acné, gradación y tratamiento.
-- **DermNet NZ**: monografías sobre acné truncal, foliculitis bacteriana, foliculitis por *Malassezia* y queratosis pilar.
-- **Manuales de protocolos profesionales de estética facial-corporal** de escuelas y distribuidores cosméticos especializados.
+- **American Academy of Dermatology (AAD)** · guías clínicas de manejo del acné vulgar y criterios de derivación.
+- **British Association of Dermatologists (BAD)** · guías sobre acné, cicatrización y PIH.
+- **DermNet NZ** · monografías sobre acné truncal, foliculitis bacteriana, foliculitis por *Malassezia* y queratosis pilar.
+- **PMC / NCBI · Truncal Acne: An Overview** · revisión sobre prevalencia y particularidades clínicas del acné truncal.
+- **Journal of the American Academy of Dermatology (JAAD)** · limpiadores y exfoliantes en acné truncal con salicílico y polihidroxiácidos.
+- **Clinical, Cosmetic and Investigational Dermatology** · mecanismos y aplicaciones clínicas del ácido azelaico (PIH y acné).
+- **Acta Dermato-Venereologica** · PIH post-acné, gradación y tratamiento.
+- **Cosmoderma** · manejo combinado de acné y PIH con azelaico, niacinamida y retinoides.
 - **Reglamento (CE) 1223/2009** sobre productos cosméticos.
-
-La profesional debe mantener su formación al día y consensuar con el dermatólogo cualquier paciente cuyo cuadro exceda el plano comedoniano superficial.
+- Manuales de protocolos profesionales de estética facial-corporal de escuelas y distribuidores especializados.
