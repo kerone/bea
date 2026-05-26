@@ -1,6 +1,6 @@
 # Curso · Lifting de pestañas y tinte profesional
 
-> Curvado permanente de la pestaña natural y coloración de pestañas y cejas como servicio combinado de cabina rápido, rentable y de aprendizaje accesible. Curso íntegramente operativo: química del tioglicolato y del tinte cosmético específico, anatomía periocular, selección de pad por morfología ciliar y resultado deseado, gestión estricta de tiempos y manejo de complicaciones que aparecen invariablemente cuando alguno de esos cuatro pilares se descuida.
+> Curvado permanente de la pestaña natural y coloración de pestañas y cejas como servicio combinado de cabina rápido, rentable y de aprendizaje accesible. Curso íntegramente operativo: química del tioglicolato y del tinte cosmético, anatomía periocular, selección de pad, gestión estricta de tiempos y manejo de complicaciones.
 
 ---
 
@@ -9,114 +9,85 @@
 | | |
 |---|---|
 | Modalidad | Presencial intensivo + aula virtual de seguimiento |
-| Duración estimada | 8 h teóricas · 16 h prácticas tuteladas sobre cabeza de entrenamiento y modelo |
+| Duración | 8 h teóricas · 16 h prácticas tuteladas sobre cabeza de entrenamiento y modelo |
 | Nivel | Intermedio · monográfico de cabina de cejas y pestañas |
-| Requisitos previos | Titulación en estética o experiencia acreditada en servicios de cabina · formación en bioseguridad básica |
-| Certificación | Sí · tras superar test teórico y ejecución completa supervisada sobre dos modelos con morfología ciliar contrastada |
-| Materiales incluidos | Kit completo de lifting (solución 1, solución 2, queratina nutritiva, pegamento de lash) · juego de silicon pads en cuatro medidas (S, M, L, XL) · pinzas curvas y rectas · cepillos disposables · micropore hipoalergénico · tintes específicos de pestañas y cejas en negro, marrón oscuro, marrón medio y marrón cálido · oxidante 1,5% y 3% · limpiador oil-free · parches de hidrogel · plantillas de ficha técnica y consentimiento informado |
+| Requisitos previos | Titulación en estética o experiencia acreditada · bioseguridad básica |
+| Certificación | Sí · tras superar test teórico y ejecución supervisada sobre dos modelos contrastados |
+| Materiales incluidos | Kit completo de lifting (solución 1, 2, queratina, pegamento) · silicon pads S/M/L/XL · pinzas curvas y rectas · cepillos disposables · micropore hipoalergénico · tintes de pestañas y cejas (negro, marrón oscuro, medio, cálido) · oxidante 1,5% y 3% · limpiador oil-free · parches de hidrogel · plantillas de ficha técnica y consentimiento |
 
 ---
 
 ## 1 · Introducción y posicionamiento clínico
 
-El lifting de pestañas, también llamado lash lift o, en la nomenclatura comercial de algunas marcas, lash perming, es un procedimiento de curvado semipermanente de la pestaña natural mediante un sistema químico en dos pasos análogo al de la permanente capilar, adaptado en concentración, vehículo y tiempos a la finura del pelo ciliar y a la proximidad de la mucosa ocular. La técnica eleva la pestaña desde su raíz, fija la curvatura nueva por reorganización de los puentes disulfuro de la queratina alfa y produce un efecto visual de mirada abierta, pestañas aparentemente más largas y párpado más despejado, sin recurso a extensiones, sin pegamentos persistentes y sin mantenimientos intermedios. Cuando se combina con tinte profesional de pestañas —y, en la inmensa mayoría de protocolos comerciales actuales, también de cejas— el servicio entrega en una única sesión de sesenta a setenta y cinco minutos un resultado que la paciente percibe como un cambio significativo de su imagen, y que se mantiene seis a ocho semanas hasta la renovación natural del ciclo folicular.
+El lifting de pestañas es un curvado semipermanente de la pestaña natural mediante un sistema químico en dos pasos análogo al de la permanente capilar, adaptado en concentración y tiempos a la finura del pelo ciliar y a la proximidad ocular. Eleva la pestaña desde su raíz, fija la curvatura por reorganización de los puentes disulfuro de la queratina alfa y produce mirada abierta sin extensiones. Combinado con tinte profesional de pestañas y cejas, entrega en 60-75 minutos un resultado que se mantiene **6-8 semanas** hasta la renovación folicular.
 
-El curso parte de un dato económico que conviene explicitar desde el inicio: el lifting con tinte es, en términos de rentabilidad por hora de cabina, **uno de los servicios mejor remunerados del catálogo de estética**. La inversión inicial en producto e instrumental es modesta (un kit profesional cubre entre veinte y treinta servicios, los pads son reutilizables con desinfección adecuada o monouso según marca, y el oxidante y los tintes tienen rendimiento alto por sesión), el tiempo de ejecución es predecible, no requiere consumibles caros por servicio (a diferencia de las extensiones de pestaña, que demandan reposición continua de pestañas individuales o volumen) y el ticket medio en el mercado español oscila, según zona y posicionamiento del centro, entre los cuarenta y los ochenta euros por servicio combinado. La curva de aprendizaje es comparativamente corta —una semana intensiva basta para ejecutar con seguridad— y la fidelización es alta porque la clienta vuelve a las seis u ocho semanas con regularidad de reloj.
-
-Estos datos económicos no deben ocultar, sin embargo, que el lifting de pestañas es un acto químico sobre el pelo y en la inmediata proximidad de la córnea, la conjuntiva y la película lagrimal. Cada uno de los productos empleados, manejado con incorrección, puede causar **quemadura química de la pestaña** (pestañas frágiles, decoloradas, quebradas en el tercio distal, en casos extremos pérdida masiva por debilitamiento del bulbo), **irritación o quemadura conjuntival** si el reductor entra en contacto con la mucosa, **reacción alérgica** al tinte (a veces explosiva, con edema palpebral severo a las pocas horas), y consecuencias estéticas duraderas que la clienta vive como traición a una promesa de belleza y que se traducen, con frecuencia, en publicación negativa en redes y pérdida de reputación del centro. El curso aborda, por tanto, lo que hace falta para que esto no suceda: comprensión química, selección rigurosa de la paciente, ejecución protocolizada con cronómetro en mano y manejo solvente de los incidentes.
-
-La profesional formada según este programa debe saber explicar con honestidad qué hace el lifting y qué no hace. **No alarga la pestaña**: ningún tratamiento cosmético tópico hace crecer la pestaña más allá de su programación folicular, salvo análogos de prostaglandinas con prescripción facultativa y bajo control oftalmológico. **No densifica la línea ciliar**: no aparece pestaña donde no había. **No sustituye a las extensiones** en pacientes que buscan volumen exagerado o efecto de pestañas postizas; el lifting respeta el número, el grosor y la longitud real de la pestaña nativa y solo redistribuye la dirección del eje. Confundir estas expectativas en la consulta inicial es la fuente más frecuente de insatisfacción.
+Es **uno de los servicios mejor remunerados por hora de cabina**: inversión modesta, tiempo predecible, ticket medio en España entre 40 y 80 €, curva de aprendizaje corta y fidelización alta. No oculta, sin embargo, que es un acto químico sobre la pestaña y en proximidad de córnea, conjuntiva y película lagrimal: la mala praxis genera quemadura química del pelo, irritación conjuntival, reacción alérgica al tinte y daño reputacional severo. La profesional debe explicar con honestidad qué hace y qué no hace el servicio: **levanta y oscurece, no alarga ni densifica, no sustituye a las extensiones**. Confundir expectativas en consulta inicial es la fuente principal de insatisfacción.
 
 ## 2 · Fundamentos científicos
 
-### 2.1 · Anatomía del folículo pilosebáceo de la pestaña
+### 2.1 · Anatomía y ciclo folicular
 
-La pestaña es un pelo terminal corto, grueso y curvo, implantado en el borde libre del párpado en dos a cuatro filas en el párpado superior (entre 90 y 160 pestañas por ojo) y una a dos filas en el inferior (entre 70 y 80). La pestaña superior es más larga (10-12 mm de media) y más curvada que la inferior (6-8 mm). El folículo es oblicuo, de implantación más profunda que el folículo del cuero cabelludo en proporción a la longitud del pelo, y está asociado a las **glándulas de Zeiss** (sebáceas modificadas, que lubrican el pelo) y **de Moll** (sudoríparas apocrinas modificadas, que contribuyen a la capa lipídica de la lágrima). La proximidad de estas glándulas explica que la pestaña tenga, en estado basal, un manto sebáceo discreto pero suficiente para repeler agua y maquillaje suave, y obliga a la limpieza profunda **oil-free** antes del lifting: cualquier resto graso interpone una barrera entre el reductor y la fibra del pelo y aborta la reacción química.
+La pestaña es un pelo terminal corto y curvo implantado en el borde libre del párpado (90-160 pestañas superiores de 10-12 mm; 70-80 inferiores de 6-8 mm). El folículo se asocia a glándulas de **Zeiss** (sebáceas) y **Moll** (sudoríparas), cuyo manto graso obliga a la limpieza **oil-free** previa: cualquier resto graso aborta la reacción química.
 
-El **ciclo folicular** de la pestaña es más corto que el del cuero cabelludo y tiene una distribución de fases que conviene memorizar porque condiciona expectativas de duración y momento óptimo de revisión:
+Ciclo asíncrono: **anágena** 30-45 días (solo 35-40% simultáneamente; fase con mejor respuesta al lifting), **catágena** 14-21 días, **telógena** 80-120 días. La asincronía explica que el efecto se pierda gradualmente. Repetir antes de 6 semanas es innecesario y agresivo.
 
-- **Anágena** (crecimiento activo): 30-45 días. Es la fase en la que la pestaña responde mejor al lifting porque la queratina del tallo se está reestructurando activamente. Solo el 35-40% de las pestañas está en anágena simultáneamente.
-- **Catágena** (regresión): 14-21 días. El bulbo se retrae, cesa la mitosis, el pelo se desconecta progresivamente de la papila.
-- **Telógena** (reposo y caída): 80-120 días, según paciente y zona. La pestaña madura permanece anclada hasta que un nuevo folículo en anágena la desplaza. Es la fase más larga.
+### 2.2 · Química del lifting: reducción-oxidación
 
-Esta distribución asíncrona —cada pestaña en una fase distinta, sin sincronización entre las del mismo ojo— explica que el efecto del lifting se pierda **gradualmente y no de golpe**: a las seis a ocho semanas, aproximadamente la mitad de las pestañas tratadas habrán caído y sido reemplazadas por pestañas nuevas no liftadas, lo que produce la impresión visual de "pérdida de curva" y motiva la siguiente sesión. Repetir el lifting antes de las seis semanas es **innecesario y agresivo**: somete a pestañas que aún conservan curvatura a una segunda agresión química, con riesgo de fragilización acumulativa.
+El tallo es **queratina alfa**, cohesionada por puentes de hidrógeno, salinos y, sobre todo, **disulfuro (S-S)** entre cisteínas. El lifting actúa sobre estos últimos:
 
-### 2.2 · Estructura química de la queratina ciliar y reacción del lifting
+1. **Solución 1 (reductor)**: **tioglicolato de amonio al 4-7%**, pH 8,5-9,5. El grupo tiol rompe los puentes disulfuro en dos sulfhidrilos libres (2 -SH) y deja la fibra maleable, que adopta la curvatura del pad.
+2. **Solución 2 (neutralizador/fijador/oxidante)**: **peróxido de hidrógeno 1-2%** (o bromato sódico/potásico). Reoxida los sulfhidrilos y reforma nuevos puentes disulfuro en la posición impuesta por el pad.
 
-El tallo de la pestaña, como el del resto del pelo terminal, está formado por **queratina alfa**, proteína fibrilar cuya cohesión depende de tres tipos de enlace: **puentes de hidrógeno** (numerosos pero débiles, responsables del rizado temporal con calor y agua), **puentes salinos** (iónicos, sensibles a pH) y **puentes disulfuro** (covalentes, entre dos átomos de azufre de aminoácidos de cisteína adyacentes). El puente disulfuro es el responsable de la forma permanente del pelo y el blanco directo de la química del lifting.
+Tres principios operativos:
+- **El tiempo es producto**: subexponer da rizo parcial; sobreexponer rompe puentes sin posibilidad de reformación y causa quemadura química irreversible.
+- **El fijador debe actuar el mismo tiempo que el reductor**, nunca menos.
+- **Cabina caliente acelera la reacción**: cronómetro siempre.
 
-El procedimiento explota la reacción de **reducción-oxidación** clásica de la permanente capilar:
+### 2.3 · Química del tinte específico
 
-1. La **solución 1**, llamada permanente o reductor, contiene **tioglicolato de amonio** en concentraciones del 4 al 7% (sensiblemente inferiores al 8-11% de las permanentes capilares profesionales, por la finura del pelo ciliar y la proximidad ocular), a pH alcalino (8,5-9,5) ajustado con amoniaco o etanolamina. El grupo tiol (-SH) del tioglicolato dona electrones al puente disulfuro (S-S), lo rompe en dos grupos sulfhidrilo libres (2 -SH) y deja la fibra de queratina **maleable**, capaz de adoptar una nueva forma. Mientras el reductor actúa, las pestañas pegadas al pad de silicona adoptan progresivamente la curvatura del pad.
-2. La **solución 2**, llamada neutralizador, fijador o oxidante, contiene habitualmente **peróxido de hidrógeno** en concentración baja (1-2%) o, en formulaciones menos extendidas, **bromato sódico** o **bromato potásico**. Su función es **reoxidar** los grupos sulfhidrilo libres y forzar la formación de **nuevos puentes disulfuro**, pero esta vez en la posición geométrica impuesta por el pad. La reacción fija la nueva curvatura de forma estable hasta la caída natural de la pestaña por ciclo folicular.
+El tinte cosmético de pestañas y cejas **no es tinte capilar**: aplicar tinte capilar sobre pestaña/ceja es peligroso (concentraciones de PPD, amoniaco y oxidantes pensadas para cuero cabelludo, no para mucosa ocular). Provoca quemadura conjuntival, dermatitis palpebral y sensibilización a PPD.
 
-Tres principios químicos tienen consecuencia directa sobre la cabina:
+El tinte específico se formula con base pigmentada (óxidos de hierro, p-aminofenol, hidroxietil-p-fenilendiamina sulfato en concentraciones reducidas; existen líneas sin PPD ni amoniaco) y **activador oxidante al 1,5% o 3%** (nunca 6% ni 9%). No es inocuo: es primera causa de dermatitis alérgica de contacto en cabina de cejas y pestañas. **Patch test obligatorio** en primera aplicación.
 
-- **El tiempo es producto**: subexponer la pestaña al reductor (menos de seis minutos) da un curvado parcial e irregular que la clienta percibe como un servicio fallido; sobreexponerla (más allá del tiempo recomendado por marca y tipo de pestaña) **continúa rompiendo puentes disulfuro sin posibilidad de reformación completa**, debilita irreversiblemente la fibra y produce el cuadro clínico de "quemadura química" (pestañas crespas, deshidratadas, quebradas, que se desprenden al tacto en los días siguientes).
-- **El neutralizador debe actuar el mismo tiempo que el reductor**, no menos. Si la solución 2 no fija completamente los nuevos puentes, la curvatura no se mantiene y el resultado se pierde en pocos días.
-- **La temperatura ambiente acelera la reacción**: en cabinas calientes hay que reducir el tiempo respecto al pautado en producto frío. La sensibilidad a la temperatura justifica que la cabina mantenga consigna térmica estable y que la profesional cronometre cada paso.
+### 2.4 · Especificidad del campo periocular
 
-### 2.3 · Química del tinte específico de pestañas y cejas
-
-El tinte cosmético de pestañas y cejas **no es, en ningún caso, tinte capilar**. Aplicar tinte capilar sobre la pestaña o la ceja —error que persiste por desconocimiento o por intento de ahorro en algunos centros— es una práctica peligrosa: los tintes capilares contienen concentraciones de **parafenilendiamina** (PPD), de amoniaco y de oxidantes pensadas para penetrar la cutícula del cabello terminal grueso del cuero cabelludo, no para el contacto con mucosa ocular ni con pestaña fina. El resultado previsible es la **quemadura química conjuntival**, la **dermatitis palpebral de contacto** y la sensibilización a PPD que invalida a la paciente para futuros tintes capilares.
-
-El tinte de pestañas y cejas profesional se formula con:
-
-- **Base pigmentada** con colorantes específicos (frecuentemente óxidos de hierro micronizados, p-aminofenol, hidroxietil-p-fenilendiamina sulfato en concentraciones reducidas y otras moléculas de la familia oxidativa con perfil de mucho menor potencial sensibilizante que la PPD pura). Algunas marcas premium ofrecen líneas sin PPD y sin amoniaco.
-- **Activador oxidante** específico al **1,5% o 3% de peróxido de hidrógeno**, nunca superiores. El uso de oxidantes capilares al 6% o al 9% sobre pestañas o cejas es contraindicación absoluta.
-- Ausencia o presencia mínima de amoniaco; el ajuste de pH se hace con bases más suaves.
-
-A pesar de su mejor perfil, el tinte de pestañas y cejas **no es inocuo**: es la primera causa de dermatitis alérgica de contacto en cabina de cejas y pestañas. Por eso el **patch test obligatorio en pieles sensibles o en primera aplicación** —deposito de una microgota detrás del pabellón auricular o en el pliegue del codo, lectura a las 48 horas— no es burocracia: es protección de la paciente y del centro frente a una reacción alérgica que, sobre el párpado, puede desencadenar edema severo con cierre completo del ojo.
-
-### 2.4 · Anatomía periocular y especificidad del campo
-
-El campo de trabajo es la **línea ciliar** del párpado superior, con la pestaña pegada al pad de silicona colocado sobre el párpado en posición exacta, respetando la curvatura del borde libre. La proximidad operativa es: pad apoyado a 1-2 mm de la línea de implantación, pestañas adheridas al pad mediante pegamento de lash en su tercio medio y distal, párpado superior cerrado y párpado inferior protegido con parche de hidrogel o cinta micropore.
-
-Las estructuras críticas que la profesional debe tener presentes son:
-
-- **Película lagrimal**: capa lipídica-acuosa-mucínica que tapiza la córnea. Cualquier producto químico que rompa esta película produce sensación inmediata de quemazón intensa y, si la exposición se prolonga, lesión epitelial corneal con queratitis química.
-- **Conjuntiva tarsal y bulbar**: mucosa altamente vascularizada e inervada por terminales del trigémino. Reacciona con enrojecimiento, edema y secreción ante cualquier irritante.
-- **Punto lagrimal** (canto interno, párpado superior e inferior): orificio de entrada al sistema de drenaje lacrimal. Producto que alcanza el punto lagrimal se distribuye por la vía nasolagrimal y puede causar irritación nasal y de orofaringe.
-- **Glándulas de Meibomio**: hileras de glándulas sebáceas en el espesor tarsal cuya secreción mantiene la capa lipídica de la lágrima. Manipulación agresiva del borde libre puede comprometerlas.
-
-La consecuencia operativa es absoluta: **el producto no debe entrar en el ojo**. Si lo hace, **lavado abundante inmediato** con suero fisiológico estéril durante quince a veinte minutos sin interrupción y derivación urgente a oftalmología si persiste cualquier síntoma. El kit de cabina debe incluir suero fisiológico monouso de 500 ml en cantidad suficiente para esta eventualidad.
+Trabajo a 1-2 mm de la línea de implantación, con pestañas adheridas al pad y párpado inferior protegido. Estructuras críticas: **película lagrimal**, **conjuntiva tarsal y bulbar**, **punto lagrimal** (drena hacia vía nasolagrimal) y **glándulas de Meibomio**. Consecuencia operativa: **el producto no debe entrar en el ojo**. Si lo hace, **lavado abundante con suero fisiológico durante 15-20 minutos** y derivación oftalmológica urgente si persisten síntomas. El kit debe incluir suero fisiológico monouso 500 ml.
 
 ## 3 · Indicaciones y perfil de paciente
 
-El lifting de pestañas combinado con tinte está indicado en la paciente con pestaña natural en cantidad y longitud razonables que desea **maximizar el efecto visual de lo que ya tiene** sin recurrir a extensiones. El perfil estadístico más frecuente es mujer de 25 a 60 años, profesional o estudiante, con rutina diaria que no admite el mantenimiento de extensiones, que busca un servicio "lo dejo y me olvido durante seis semanas" y que valora la mirada despejada en su imagen sin maquillaje. También es indicación frecuente la paciente con pestañas **rectas o caídas** (asiáticas, mediterráneas con caída por edad) en las que el rizador térmico cotidiano no consigue resultado duradero.
+Indicado en paciente con pestaña natural en cantidad y longitud razonables que desea **maximizar el efecto visual** de lo que ya tiene sin extensiones. Perfil típico: mujer de 25 a 60 años con rutina que no admite el mantenimiento de extensiones. Indicación frecuente: pestañas **rectas o caídas** (asiáticas, mediterráneas con descenso por edad).
 
-Las expectativas que la profesional debe contrastar en la consulta inicial son:
+Expectativas a contrastar en consulta:
+- Levanta y curva, **no alarga**.
+- No añade pestañas: quien tiene pocas, seguirá teniendo pocas (ahora más visibles).
+- El tinte da impresión de mayor densidad y permite prescindir del rímel diario.
+- Resultado **6-8 semanas**, pérdida progresiva.
+- La pestaña bien tratada **no se debilita**: la caída a las 6-8 semanas es renovación natural.
 
-- El lifting **levanta y curva** la pestaña, **no la alarga**.
-- El lifting **no añade pestañas**; quien tiene pestañas escasas seguirá teniendo pestañas escasas, ahora más visibles porque están levantadas.
-- El tinte oscurece la pestaña existente, lo que **da impresión de mayor densidad** y permite a muchas pacientes prescindir del rímel diario.
-- El resultado **dura seis a ocho semanas** y se pierde de forma progresiva, no abrupta.
-- La pestaña, **bien tratada**, no se debilita: la pérdida que la paciente percibe a las seis u ocho semanas es **renovación natural**, no consecuencia del lifting.
-
-Las pacientes con expectativas de "pestañas postizas" o de "volumen de extensiones" deben ser **redirigidas honestamente** a otros servicios; aceptarlas garantiza insatisfacción.
+Pacientes con expectativas de "volumen de extensiones" deben ser redirigidas honestamente a otros servicios.
 
 ## 4 · Contraindicaciones
 
-Las contraindicaciones absolutas son las siguientes:
+**Absolutas**:
+- Conjuntivitis activa (vírica o bacteriana).
+- Orzuelo o chalación en cualquier estadio.
+- Blefaritis activa con descamación o secreción.
+- Dermatitis palpebral o eccema en zona.
+- Cirugía ocular reciente (cataratas, LASIK, palpebral): esperar 3 meses y consultar oftalmólogo.
+- Alergia conocida a tinte de pestañas o capilar.
+- Tricotilomanía activa.
+- Quimioterapia activa o primeras semanas tras finalizarla.
 
-- **Conjuntivitis activa**, vírica o bacteriana: contagiosa, dolorosa, contraindicación inmediata.
-- **Orzuelo o chalación** en cualquier estadio: la manipulación agrava y puede diseminar.
-- **Blefaritis** activa con descamación o secreción del borde libre.
-- **Dermatitis palpebral** o eccema en la zona de aplicación.
-- **Cirugía ocular reciente** (cataratas, LASIK, cirugía palpebral): respetar al menos tres meses y consultar al oftalmólogo.
-- **Alergia conocida al tinte de pestañas o capilar** (sospecha o antecedente).
-- **Tricotilomanía** activa: la fragilidad por arrancamiento repetido contraindica químicos adicionales.
-- **Quimioterapia activa** o las primeras semanas tras finalizarla: la pestaña post-quimioterapia es extremadamente frágil y de implantación inestable.
+**Relativas** (valoración individualizada):
+- **Embarazo y lactancia**: principio de prudencia, muchos centros desaconsejan el lifting en primer trimestre y aceptan el tinte sin tioglicolato.
+- **Ojo seco severo**: valorar reducir tiempo o suspender.
+- **Lentes de contacto**: retirar 24 h antes, no recolocar hasta 24 h después.
+- **Isotretinoína oral**: esperar 6 meses tras finalizar.
+- **Bimatoprost o análogos de prostaglandinas tópicos**: comportamiento químico atípico.
 
-Las contraindicaciones relativas exigen valoración individualizada:
+### Prueba alérgica (patch test) — obligatoria
 
-- **Embarazo y lactancia**: no hay evidencia robusta de daño con tioglicolato a la concentración cosmética y la absorción sistémica es nula, pero por **principio de prudencia** muchos centros desaconsejan el lifting durante el primer trimestre y aceptan el tinte sin tioglicolato. Cada centro debe tener una política escrita.
-- **Ojo seco severo**: la película lagrimal alterada potencia la irritación; valorar suspender o reducir tiempo de exposición.
-- **Lentes de contacto**: **retirar al menos 24 horas antes** y no recolocar hasta 24 horas después.
-- **Tratamiento concomitante con isotretinoína oral**: pestaña frágil; esperar al menos seis meses tras finalizar.
-- **Uso de bimatoprost o análogos de prostaglandinas tópicos**: la pestaña tratada con prostaglandinas tiene comportamiento químico atípico; consultar con la paciente y valorar.
-
-El **patch test** se realiza **en toda primera sesión** y siempre que hayan transcurrido más de seis meses desde el último servicio en la misma clienta o haya cambiado la marca de producto. Microgota de tinte activado detrás del pabellón auricular, lectura a 48 horas, registro en ficha.
+**Se realiza en toda primera sesión** y siempre que hayan transcurrido más de 6 meses desde el último servicio o haya cambiado la marca de producto. Microgota de tinte activado detrás del pabellón auricular o en el pliegue del codo, **lectura a las 48 horas**, registro en ficha. No es burocracia: una reacción alérgica sobre el párpado puede desencadenar edema severo con cierre completo del ojo.
 
 ## 5 · Protocolo paso a paso
 
@@ -174,74 +145,73 @@ El **lash + brow tint** es el formato comercial dominante. La ceja se tiñe **an
 
 ### 5.5 · Caso práctico A — Clienta de 30 años, pestañas rectas asiáticas, tinte negro
 
-Mujer de 30 años, origen del este de Asia, ejecutiva. Pestañas cortas (7-8 mm), rectas, de implantación oblicua hacia abajo, color negro intenso. Acude porque "el rizador no me dura nada y quiero algo que se note". No usa lentes de contacto, no embarazada, no alergias conocidas. Primera sesión: patch test 48 h antes en pabellón auricular, lectura negativa.
+Mujer de 30 años, origen del este de Asia, ejecutiva. Pestañas cortas (7-8 mm), rectas, de implantación oblicua hacia abajo, color negro intenso. Sin lentes de contacto, no embarazada, no alergias conocidas. Primera sesión: patch test 48 h antes, lectura negativa.
 
-- **Selección de pad**: **S (small)** — pestaña corta y recta exige curvatura máxima; la implantación oblicua hacia abajo se beneficia de levantamiento agresivo.
-- **Tiempo solución 1**: **11 minutos** — pestaña negra y gruesa absorbe más lentamente, requiere extremo superior de la franja.
-- **Tiempo solución 2**: **11 minutos** — siempre igualado al reductor.
-- **Tinte**: negro puro (la pestaña ya es negra, pero el tinte iguala color en la zona de la raíz donde la nueva pestaña en anágena puede tener tono ligeramente más claro y unifica la línea visualmente).
-- **Tinte de ceja combinado**: ceja negra natural, tinte negro 3 min, suficiente para igualar pelos canosos incipientes.
-- **Resultado**: pestañas elevadas en rizo cerrado tipo "doll eye", mirada visiblemente abierta, efecto que la clienta percibe como "transformador". Mantenimiento previsto a las 7 semanas.
+- **Pad**: **S (small)** — pestaña corta y recta exige curvatura máxima; la implantación oblicua se beneficia de levantamiento agresivo.
+- **Solución 1**: **11 min** — pestaña negra y gruesa, extremo superior de la franja.
+- **Solución 2**: **11 min** — igualado al reductor.
+- **Tinte**: negro puro (unifica raíz en anágena con tono más claro).
+- **Ceja combinada**: tinte negro 3 min, suficiente para igualar canas incipientes.
+- **Resultado**: rizo cerrado tipo "doll eye", mirada abierta, efecto "transformador". Mantenimiento previsto a 7 semanas.
 
 ### 5.6 · Caso práctico B — Clienta de 50 años, pestañas rubias caídas, tinte marrón cálido
 
-Mujer de 50 años, fototipo II, rubia natural con canas, ama de casa. Pestañas medias (9-10 mm), finas, rubias muy claras casi invisibles sin rímel, caídas en su tercio distal por descenso palpebral leve asociado a la edad. Tampoco lleva lentes de contacto, no embarazada, sin patología palpebral. Refiere alergia a "algunos tintes de pelo": **patch test obligatorio a 48 h con marca de cabina, lectura negativa antes de proceder**.
+Mujer de 50 años, fototipo II, rubia con canas. Pestañas medias (9-10 mm), finas, casi invisibles sin rímel, caídas en su tercio distal por descenso palpebral leve. Sin lentes de contacto, no embarazada. Refiere "alergia a algunos tintes de pelo": **patch test obligatorio 48 h con marca de cabina, lectura negativa antes de proceder**.
 
-- **Selección de pad**: **M (medium)** — pestaña media y caída pide rizo natural pronunciado, no exagerado; el pad S daría efecto antinatural en pestaña de su edad.
-- **Tiempo solución 1**: **7 minutos** — pestaña fina y rubia absorbe rápido, mantenerse en el extremo inferior de la franja, prevenir quemadura química que en pestaña rubia es especialmente visible (decoloración hasta blanco roto).
-- **Tiempo solución 2**: **7 minutos**.
-- **Tinte**: **marrón cálido medio**, nunca negro. El negro sobre rubia da efecto duro, "máscara de Halloween", envejecedor. El marrón cálido respeta la armonía de coloración con cejas y cabello.
-- **Tinte de ceja combinado**: marrón cálido, 4 min (las cejas canosas tardan algo más en saturar).
-- **Resultado**: pestañas visibles, oscurecidas a tono coherente con cejas, elevadas con naturalidad. La clienta percibe efecto "rejuvenecedor" sin "exagerado". Mantenimiento a las 6-7 semanas.
+- **Pad**: **M (medium)** — pestaña media y caída pide rizo natural; el pad S daría efecto antinatural a su edad.
+- **Solución 1**: **7 min** — pestaña fina y rubia absorbe rápido; extremo inferior de la franja para prevenir quemadura química (en pestaña rubia, decoloración hasta blanco roto especialmente visible).
+- **Solución 2**: **7 min**.
+- **Tinte**: **marrón cálido medio**, nunca negro (daría efecto duro y envejecedor).
+- **Ceja combinada**: marrón cálido, 4 min (canas tardan más en saturar).
+- **Resultado**: pestañas visibles, oscurecidas en tono coherente con cejas y cabello, elevadas con naturalidad. Efecto "rejuvenecedor" sin exageración. Mantenimiento a 6-7 semanas.
 
 ## 6 · Cosmetología aplicada
 
-La cabina debe disponer de cuatro categorías de producto auxiliar bien diferenciadas:
-
-- **Limpiadores oil-free pre-tratamiento**: micelares específicos sin aceites, con tensioactivos suaves (cocamidopropil betaína, coco-glucósidos), pH neutro, libres de siliconas. La marca puede ser propia o de proveedor de confianza; lo determinante es **ausencia total de aceites y siliconas**, que interpondrían película grasa.
-- **Productos del kit de lifting**: solución 1, solución 2, queratina nutritiva, pegamento de lash. **No mezclar marcas dentro del mismo servicio**: los tiempos y la química están calibrados por marca y la mezcla introduce variabilidad incontrolable.
-- **Nutrientes y séricos de mantenimiento doméstico**:
-    - **Queratina hidrolizada** en sérum, aplicación nocturna 2-3 veces por semana las primeras semanas tras el lifting; restaura masa proteica del tallo.
-    - **Aceite de ricino** tradicional, evidencia clínica controlada limitada pero uso histórico consolidado, perfil de seguridad alto. Aplicación nocturna con bastoncillo o cepillo dedicado, en cantidad mínima para no escurrir al ojo (causa irritación si entra).
-    - **Péptidos como myristoyl pentapeptide-17** y otros activos comercializados como "potenciadores del crecimiento": **evidencia clínica limitada**, mejora marginal documentada en estudios pequeños, perfil de seguridad aceptable; recomendar con honestidad sin sobrevender.
-    - **Bimatoprost cosmético**: análogos de prostaglandinas presentes en algunos séricos comerciales. **Cuestionable**: el bimatoprost es fármaco con efectos adversos documentados (hiperpigmentación periorbitaria, cambio de color de iris, alteración de la presión intraocular). **Derivar a oftalmología** cuando la paciente pida específicamente este principio activo; no recomendar en cabina.
-- **Sueros fisiológicos y consumibles de seguridad**: suero fisiológico estéril 500 ml monouso para lavado ocular ante incidente, gasas estériles, torundas dedicadas, parches de hidrogel.
+| Categoría | Producto | Uso / notas |
+|---|---|---|
+| Limpieza pre-tratamiento | Micelar **oil-free**, pH neutro, sin siliconas | Ausencia total de aceites/siliconas; restos grasos invalidan la reacción |
+| Kit lifting | Solución 1, solución 2, queratina nutritiva, pegamento de lash | **No mezclar marcas** dentro del mismo servicio |
+| Nutrición doméstica | Queratina hidrolizada en sérum | 2-3 noches/semana primeras semanas; restaura masa proteica |
+| Nutrición doméstica | Aceite de ricino | Aplicación nocturna mínima con cepillo dedicado; evitar entrada en ojo |
+| Activos discutibles | Péptidos (myristoyl pentapeptide-17) | Evidencia limitada; recomendar sin sobrevender |
+| Contraindicado en cabina | Bimatoprost cosmético | Fármaco con efectos adversos (hiperpigmentación, cambios iris, PIO); **derivar a oftalmología** |
+| Seguridad | Suero fisiológico 500 ml monouso, gasas estériles, parches hidrogel | Disponibilidad obligatoria ante incidente |
 
 ## 7 · Aftercare
 
-Las primeras **24 horas** son críticas para la consolidación de los nuevos puentes disulfuro:
+**Primeras 24 h** (consolidación de los nuevos puentes disulfuro):
+- No mojar las pestañas (agua, vapor, lagrimeo).
+- No maquillaje ocular (rímel, eyeliner, sombras).
+- No frotar los ojos ni dormir boca abajo.
+- No lentes de contacto.
+- No calor intenso (vapor, sauna, secador cercano).
 
-- **No mojar las pestañas** con agua, vapor, lágrimas excesivas. La hidratación abrupta puede deshacer la nueva curvatura aún no estabilizada.
-- **No aplicar maquillaje ocular** (rímel, eyeliner, sombras).
-- **No frotar los ojos** ni dormir con la cara hundida en almohada.
-- **No usar lentes de contacto**.
-- **No exponerse a calor intenso** (cocina al vapor, sauna, secador cerca de la cara).
+**24-48 h**:
+- Evitar sauna, hammam, piscina (cloro), mar (sal).
+- Maquillaje ocular suave admitido; **evitar rímel waterproof** las 2 primeras semanas.
+- Reanudar lentes de contacto.
 
-Entre las **24 y 48 horas**:
+**Mantenimiento 6-8 semanas**:
+- Queratina o aceite de ricino 2-3 noches/semana con cepillo dedicado.
+- Peinado matinal con cepillito limpio.
+- **Evitar rizadores térmicos**.
+- Desmaquillar siempre con producto oil-free.
 
-- **Evitar sauna, hammam, piscina (cloro), mar (sal)**: agresiones químicas que aceleran la pérdida de curvatura.
-- Maquillaje ocular suave admitido a partir de las 24 h; **evitar rímel waterproof** durante las primeras dos semanas (su retirada exige desmaquillantes oleosos agresivos que pueden alterar el lifting).
-- Reanudar uso de lentes de contacto.
-
-**Mantenimiento doméstico** durante las 6-8 semanas:
-
-- Aplicar **queratina o aceite de ricino** 2-3 noches por semana con cepillo dedicado.
-- Peinar las pestañas con cepillito limpio cada mañana para mantener dirección.
-- **Evitar rizadores térmicos** (innecesarios y agresivos sobre pestaña liftada).
-- **Desmaquillar siempre antes de dormir** con desmaquillante oil-free.
-
-Programar revisión y nuevo servicio a las **6-8 semanas**. Antes de las 6 semanas es prematuro; después de las 8, la paciente percibe pérdida de resultado.
+Revisión y nuevo servicio **a las 6-8 semanas**: antes es prematuro; después, pérdida visible del resultado.
 
 ## 8 · Manejo de complicaciones
 
-La cabina debe tener protocolo escrito y kit de respuesta inmediata.
+Protocolo escrito y kit de respuesta inmediata obligatorios.
 
-- **Irritación ocular durante el tratamiento** (lagrimeo intenso, quemazón, enrojecimiento): retirar inmediatamente el producto con torunda seca y lavar con **suero fisiológico abundante** durante al menos 15 minutos en chorro continuo, con la paciente inclinada hacia el lado afecto. Si los síntomas no remiten en 30 minutos, **derivar a urgencias oftalmológicas**. Documentar en historia clínica.
-- **Quemadura química de la pestaña** (pestañas crespas, decoloradas, quebradas tras el servicio o en las 48 h siguientes): **suspender cualquier nuevo tratamiento químico durante 8-12 semanas**. Prescribir nutrición intensiva domiciliaria con queratina hidrolizada y aceite de ricino diaria. Informar a la paciente de que la pestaña dañada se recuperará por ciclo folicular (renovación en 3-4 meses) pero no por reparación del pelo existente. Disculpa explícita y, según política del centro, reposición del importe del servicio.
-- **Reacción alérgica al tinte** (eritema palpebral intenso, edema, picor, en horas o hasta 48 h post): **suspender, lavar con suero, frío local**. Antihistamínico oral solo si pautado por médico. **Derivar inmediatamente a dermatología o urgencias** si edema severo o cierre palpebral. Registrar en historia clínica con asterisco rojo: la paciente no puede recibir más tinte de esa marca **ni de ninguna otra sin patch test previo riguroso**.
-- **Pestaña arrancada al retirar el pad**: aplicar suero, calmar a la paciente, informar de que el folículo no está dañado y la pestaña reaparecerá en 6-8 semanas por ciclo normal. Revisar técnica de despegado en próximas sesiones.
-- **Tinción residual de la piel** por desbordamiento del tinte: limpiar con desmaquillante oleoso suave; el pigmento residual desaparece en 5-7 días por descamación natural. Informar sin alarma.
-- **Conjuntivitis aparente en días siguientes** (ojo rojo, secreción, fotofobia): **derivar a oftalmología** sin diagnosticar; puede ser irritativa, alérgica o infecciosa coincidente. No tratar en cabina.
+| Complicación | Algoritmo |
+|---|---|
+| **Quemazón ocular intraoperatoria** | Retirar producto con torunda seca → lavado con **suero fisiológico abundante 15 min en chorro continuo** → si síntomas persisten 30 min, **derivar a urgencias oftalmológicas** → documentar |
+| **Quemadura corneal sospechada** (dolor intenso, fotofobia, visión borrosa) | Lavado inmediato 15-20 min → **derivación oftalmológica urgente sin demora** → no aplicar colirios ni anestésicos en cabina |
+| **Quemadura química de la pestaña** (crespa, decolorada, quebrada en 48 h) | Suspender químicos 8-12 semanas → nutrición intensiva diaria (queratina + ricino) → informar: renovación folicular 3-4 meses → disculpa explícita y, según política, reposición del importe |
+| **Reacción alérgica al tinte** (eritema, edema, picor) | Lavar con suero, frío local → antihistamínico oral **solo si pautado por médico** → **derivar a dermatología o urgencias** si edema severo o cierre palpebral → marcar ficha con asterisco rojo: sin más tinte sin patch test riguroso |
+| **Pestaña arrancada al retirar el pad** | Suero, calmar a la paciente, informar de que el folículo no está dañado y reaparecerá en 6-8 semanas → revisar técnica de despegado |
+| **Tinción residual de piel** | Desmaquillante oleoso suave; desaparece en 5-7 días por descamación |
+| **Conjuntivitis aparente en días siguientes** (ojo rojo, secreción, fotofobia) | **Derivar a oftalmología sin diagnosticar**; no tratar en cabina |
 
 ## 9 · Evaluación · Test discriminativo (8 preguntas)
 
@@ -254,17 +224,28 @@ La cabina debe tener protocolo escrito y kit de respuesta inmediata.
 7. ¿Qué porcentaje aproximado de pestañas está simultáneamente en fase anágena y qué consecuencia tiene este dato para la duración del efecto del lifting?
 8. Una clienta refiere "alergia a algunos tintes de pelo" y nunca se ha hecho lash tint: ¿procede a aplicar el servicio en la sesión inicial? Justifique la conducta.
 
+### Respuestas
+
+1. Es un agente reductor: su grupo tiol (-SH) rompe los puentes disulfuro (S-S) de la queratina alfa en dos grupos sulfhidrilo libres, dejando la fibra maleable para adoptar la curvatura del pad.
+2. Porque la solución 2 (oxidante) debe reformar todos los puentes disulfuro en la nueva geometría. Si actúa menos tiempo, la fijación es incompleta y la curvatura se pierde en pocos días.
+3. **No re-aplicar**. Explicar el ciclo folicular (la mitad de las pestañas siguen liftadas a las 4 semanas) y citar a las 6-8 semanas. Repetir antes fragiliza por agresión química acumulativa.
+4. Pad **M** o **L** según longitud exacta; solución 1 en **6-7 minutos** (extremo inferior por finura y absorción rápida); tinte **marrón cálido o medio**, nunca negro (rompería armonía con cabello rubio).
+5. Los tintes capilares contienen PPD, amoniaco y oxidantes (6-9%) calibrados para cabello del cuero cabelludo, no para mucosa ocular. Sobre pestaña/ceja causan quemadura conjuntival, dermatitis palpebral y sensibilización a PPD. El tinte específico usa oxidante 1,5-3%, moléculas menos sensibilizantes y mínimo o nulo amoniaco.
+6. (1) Retirar producto inmediatamente con torunda seca; (2) lavar con suero fisiológico abundante en chorro continuo durante al menos 15 minutos; (3) si los síntomas persisten más de 30 minutos, derivar a urgencias oftalmológicas. Documentar.
+7. Aproximadamente **35-40%**. Solo esa fracción está en fase de crecimiento activo en cada momento; las pestañas en telógena caerán y serán reemplazadas progresivamente por pestañas nuevas no liftadas, lo que explica la pérdida gradual del efecto a las 6-8 semanas.
+8. **No**. Aplicar **patch test obligatorio** con la marca exacta del tinte de cabina detrás del pabellón auricular, lectura a las 48 h. Solo si lectura negativa, proceder. La alergia cruzada con tintes capilares (PPD) es posible y obliga a verificar antes de exponer el párpado.
+
 ## 10 · Referencias
 
-- AEDV (Academia Española de Dermatología y Venereología). Documentos de consenso sobre dermatitis de contacto a parafenilendiamina y derivados.
-- Reglamento (CE) 1223/2009 sobre productos cosméticos, anexos II, III y V (sustancias prohibidas, restringidas y colorantes permitidos en productos cosméticos para zona periocular).
-- Reglamento (UE) 2020/2081 sobre tintas y maquillaje permanente (referencia colateral relevante por marco general de pigmentos cosméticos).
-- Trüeb, R.M., Schoenlaub, P. *The Hair Cycle and Its Relation to Lash Behavior*. Bibliografía dermatológica de referencia sobre ciclo folicular del pelo terminal.
-- Goldberg, R.A., Lee, S. *Anatomy and Pathology of the Eyelid Margin and Lash Follicle*. Textos oftalmológicos de referencia sobre estructura del borde libre palpebral.
-- Documentación técnica y fichas de seguridad de los fabricantes de kits profesionales de lash lift y de tintes cosméticos específicos para pestañas y cejas (consultar la del producto efectivamente empleado en cada cabina y mantenerla accesible).
-- Wambier, C.G. et al. Revisiones sobre dermatitis alérgica de contacto en cosmética periocular.
-- INVASSAT y guías autonómicas sobre prevención de riesgos químicos en centros de estética (referencia operativa para gestión de productos y residuos).
+1. AEDV (Academia Española de Dermatología y Venereología). Documentos de consenso sobre dermatitis de contacto a parafenilendiamina y derivados.
+2. Reglamento (CE) 1223/2009 sobre productos cosméticos, anexos II, III y V (sustancias y colorantes permitidos en zona periocular).
+3. Reglamento (UE) 2020/2081 sobre tintas y maquillaje permanente.
+4. Trüeb, R.M., Schoenlaub, P. *The Hair Cycle and Its Relation to Lash Behavior*.
+5. Goldberg, R.A., Lee, S. *Anatomy and Pathology of the Eyelid Margin and Lash Follicle*.
+6. Wambier, C.G. et al. Revisiones sobre dermatitis alérgica de contacto en cosmética periocular.
+7. INVASSAT y guías autonómicas sobre prevención de riesgos químicos en centros de estética.
+8. Fichas técnicas y de seguridad de los fabricantes de kits profesionales de lash lift y tintes específicos de pestañas y cejas.
 
 ---
 
-*Material docente de PRECISSA INSTITUTE. Uso restringido a alumnado matriculado. Última revisión del temario conforme a la práctica profesional y a la normativa cosmética vigente en la fecha de impresión; consultar siempre la ficha técnica del producto efectivamente utilizado en cabina, que prevalece sobre los rangos orientativos del manual.*
+*Material docente de PRECISSA INSTITUTE. Uso restringido a alumnado matriculado. Consultar siempre la ficha técnica del producto efectivamente utilizado en cabina, que prevalece sobre los rangos orientativos del manual.*
