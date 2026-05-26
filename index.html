@@ -3728,10 +3728,12 @@ injectCoursesItemListJsonLd();
 // Modo 'presupuesto': pedir precio de una máquina (auto-rellena el producto).
 // Modo 'demo':        solicitar demostración (selector desplegable de máquinas).
 // FormSubmit.co envía los formularios al email indicado.
-// Importante: la PRIMERA vez que llegue una solicitud, FormSubmit mandará un
-// email de verificación a precissainstitute@gmail.com. Hay que pinchar el
-// enlace de activación. A partir de ahí todas las solicitudes llegan limpiamente.
-const QUOTE_ENDPOINT = 'https://formsubmit.co/ajax/precissainstitute@gmail.com';
+//
+// Usamos el TOKEN ofuscado de FormSubmit en lugar del email en plano:
+// evita que scrapers de spam vean precissainstitute@gmail.com en el HTML.
+// El token está vinculado al email en la cuenta de FormSubmit, así que el
+// flujo de entrega no cambia.
+const QUOTE_ENDPOINT = 'https://formsubmit.co/ajax/e42ac5fc68012174f8ffe40e562d842b';
 
 function openContactForm(mode, opts) {
   opts = opts || {};
