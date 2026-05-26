@@ -1,6 +1,6 @@
 # Curso · IPL (Luz Pulsada Intensa)
 
-> Fotorejuvenecimiento facial, tratamiento de lentigos solares y manejo de la rosácea eritematotelangiectásica con luz pulsada intensa: fundamentos de fototermólisis selectiva, selección honesta de candidatas, parámetros por indicación y un protocolo asistencial adaptado a la cabina avanzada.
+> Fotorejuvenecimiento facial, lentigos solares y rosácea eritematotelangiectásica con luz pulsada intensa: fototermólisis selectiva, selección honesta de candidatas, parámetros por indicación y protocolo asistencial de cabina avanzada.
 
 ---
 
@@ -19,9 +19,9 @@
 
 ## 1 · Introducción y posicionamiento clínico
 
-La luz pulsada intensa (IPL, *Intense Pulsed Light*) es la tecnología fototérmica más extendida en estética avanzada y una de las peor comprendidas. Trata pigmentación irregular, eritema, telangiectasias y fotoenvejecimiento global con menor agresividad que un láser ablativo, pero la frontera entre el "fotofacial luminoso" y la quemadura con hiperpigmentación residual es estrecha: filtros equivocados, fluencia excesiva, fototipo no valorado o un diagnóstico erróneo (un melasma confundido con lentigos) bastan para cruzarla.
+La luz pulsada intensa (IPL, *Intense Pulsed Light*) trata pigmentación irregular, eritema, telangiectasias y fotoenvejecimiento con menor agresividad que un láser ablativo, pero la frontera entre el "fotofacial luminoso" y la quemadura con hiperpigmentación residual es estrecha: filtros equivocados, fluencia excesiva, fototipo no valorado o un melasma confundido con lentigos bastan para cruzarla.
 
-El curso parte de tres premisas: (1) **la IPL no es un láser**: es luz policromática filtrada, no coherente y no colimada; (2) su espacio clínico en cabina es el fotoenvejecimiento leve-moderado, los lentigos solares en pieles claras y el manejo modulador (no curativo) de la rosácea eritematotelangiectásica; (3) la **honestidad clínica** sostiene el consentimiento informado: hay manchas que se aclaran y otras que empeoran, y la profesional debe diferenciarlas antes del primer pulso.
+Tres premisas: (1) **la IPL no es un láser** — luz policromática filtrada, no coherente y no colimada; (2) su espacio en cabina es el fotoenvejecimiento leve-moderado, los lentigos en pieles claras y la rosácea eritematotelangiectásica como modulador no curativo; (3) la **honestidad clínica** sostiene el consentimiento: hay manchas que se aclaran y otras que empeoran.
 
 ## 2 · Fundamentos científicos
 
@@ -31,10 +31,10 @@ Principio de Anderson y Parrish (*Science*, 1983): si un cromóforo absorbe una 
 
 ### 2.2 · Cromóforos cutáneos
 
-| Cromóforo | Picos / rangos de absorción | Indicaciones IPL |
+| Cromóforo | Absorción | Indicaciones IPL |
 |---|---|---|
-| Melanina epidérmica | Decreciente continua 400-1.100 nm | Lentigos solares, efélides, fotoenvejecimiento pigmentario |
-| Oxihemoglobina | 418 nm (Soret) · 542 · 577 · ~940 nm | Telangiectasias, eritema rosácea, poiquilodermia |
+| Melanina epidérmica | Decreciente 400-1.100 nm | Lentigos, efélides, fotoenvejecimiento pigmentario |
+| Oxihemoglobina | 418 (Soret) · 542 · 577 · ~940 nm | Telangiectasias, eritema rosácea, poiquilodermia |
 | Desoxihemoglobina | ~755 nm | Vasos venulares profundos |
 | Agua | >1.400 nm (irrelevante en IPL) | — |
 | Melanina folicular | 600-1.100 nm (filtros 640/695/755) | Reducción capilar |
@@ -54,15 +54,15 @@ PDL (595 nm) o KTP (532 nm) tratan una telangiectasia con más precisión; la IP
 
 Los filtros pasa-altos eliminan longitudes inferiores al valor nominal. A mayor filtro, menor absorción melánica epidérmica y mayor seguridad en fototipos altos.
 
-| Filtro (nm) | Cromóforos privilegiados | Indicaciones principales | Fototipos |
+| Filtro (nm) | Cromóforos | Indicaciones | Fototipos |
 |---|---|---|---|
-| 515 | Melanina superficial · oxihemoglobina | Efélides, lentigos muy superficiales, eritema fino | I-II |
+| 515 | Melanina superficial · oxihemoglobina | Efélides, lentigos superficiales, eritema fino | I-II |
 | 530-560 | Melanina · hemoglobina superficial | Fotorejuvenecimiento, lentigos, telangiectasias finas | I-III |
-| 590 | Mixto pigmento-vascular más profundo | Lentigos en III, eritema rosácea, poiquilodermia | II-IV (con prudencia) |
-| 640 | Melanina profunda, menos absorción epidérmica | Vasos profundos, reducción capilar en piel clara | III-IV |
+| 590 | Mixto pigmento-vascular profundo | Lentigos en III, rosácea, poiquilodermia | II-IV |
+| 640 | Melanina profunda | Vasos profundos, reducción capilar en piel clara | III-IV |
 | 695-755 | Melanina folicular profunda | Reducción capilar en fototipos altos | IV-V (extrema prudencia) |
 
-Regla: ante la duda entre dos filtros, en piel más oscura se elige el más alto y se reduce la fluencia.
+Regla: ante la duda, en piel más oscura se elige el filtro más alto y se reduce la fluencia.
 
 ### 2.5 · Parámetros operativos y TRT
 
@@ -221,61 +221,53 @@ Medida de seguridad más infravalorada y mayor fuente de accidentes documentados
 
 #### Caso 1 · Lentigo solar dorsal nasal, fototipo II
 
-Mujer de 47 años, fototipo II, con lentigo de 6 mm en dorso nasal (marrón uniforme, bordes nítidos, estable 4 años) y tres satélites de 2-3 mm en mejillas. Dermatoscopia con patrón reticular regular compatible con lentigo solar. Sin melasma ni lesiones atípicas. Plan: dos sesiones de IPL focal con filtro 515 nm, 20 J/cm², single 3 ms, separadas 4 semanas. Test patch preauricular 48 h antes con respuesta adecuada. Pre-tratamiento: SPF 50+ 4 semanas, sin despigmentante por bajo riesgo de PIH.
-
-Sesión 1: oscurecimiento inmediato del lentigo principal y satélites; eritema perilesional leve. Día 4 micro-costra, día 10 caída espontánea sin manipulación. A 4 semanas, aclaramiento del 85%; segunda sesión sobre residual con misma fluencia. Resultado a 3 meses: aclaramiento prácticamente completo. Mantenimiento: SPF 50+ diario, revisión anual.
+Mujer de 47 años con lentigo de 6 mm en dorso nasal (marrón uniforme, bordes nítidos, estable 4 años) y tres satélites de 2-3 mm en mejillas. Dermatoscopia con patrón reticular regular. Sin melasma ni lesiones atípicas. **Plan**: dos sesiones IPL focal con filtro 515 nm, 20 J/cm², single 3 ms, cada 4 semanas. Test patch preauricular 48 h antes adecuado. Pre-tratamiento: SPF 50+ 4 semanas, sin despigmentante (bajo riesgo de PIH en FT II). Evolución: oscurecimiento inmediato, micro-costra día 4, caída espontánea día 10; aclaramiento 85% a 4 semanas; segunda sesión sobre residual. Resultado a 3 meses: aclaramiento prácticamente completo. Mantenimiento: SPF 50+ diario, revisión anual.
 
 #### Caso 2 · Rosácea eritematotelangiectásica malar, fototipo II
 
-Mujer de 38 años, diagnosticada por dermatología hace dos años, en mantenimiento con metronidazol gel nocturno y brimonidina puntual. Eritema basal centrofacial persistente y telangiectasias finas en alas nasales y mejilla derecha. Sin pápulas ni pústulas activas. Plan: cinco sesiones con filtro 560 nm, 16 J/cm², doble 4+4 ms y delay 25 ms, cada 4 semanas. Mantiene metronidazol salvo la noche previa. Test patch correcto.
-
-Sesión 1: blanqueamiento transitorio de telangiectasias, eritema post-sesión que cede en 24 h. Sesiones 2-3: reducción visible de telangiectasias mayores. Sesiones 4-5: atenuación del eritema basal con escala fotográfica estandarizada y menor frecuencia de flushing (compatible con efecto antiinflamatorio descrito). Mantenimiento: una sesión cada 6 meses, revisión anual con dermatología. La rosácea no se cura; el mantenimiento es de por vida.
+Mujer de 38 años, diagnosticada hace dos años, con metronidazol nocturno y brimonidina puntual. Eritema basal y telangiectasias finas en alas nasales y mejilla derecha; sin pápulas ni pústulas. **Plan**: cinco sesiones con filtro 560 nm, 16 J/cm², doble 4+4 ms con delay 25 ms, cada 4 semanas. Mantiene metronidazol salvo la noche previa. Evolución: blanqueamiento transitorio de telangiectasias en sesión 1; reducción visible de las mayores en sesiones 2-3; atenuación del eritema basal y menor frecuencia de flushing en sesiones 4-5 (efecto antiinflamatorio descrito). Mantenimiento: una sesión cada 6 meses, revisión anual con dermatología. La rosácea no se cura; mantenimiento de por vida.
 
 #### Caso 3 · Fotorejuvenecimiento facial global, fototipo III
 
-Mujer de 54 años, perimenopáusica, con exposición solar laboral acumulada. Consulta por "piel apagada", múltiples lentigos solares dispersos en mejillas/dorso nasal/sienes, telangiectasias finas en mejillas, eritema intermitente y textura áspera. Sin melasma ni lesiones atípicas. Plan: cinco sesiones con filtro 590 nm, 14 J/cm², triple con duración total 18 ms, cada 4 semanas. Pre-tratamiento: 4 semanas con alfa-arbutina + niacinamida nocturna, suspensión de retinoides 7 días antes de cada sesión, SPF 50+ diario. Test patch correcto en sien.
-
-Sesión 1: oscurecimiento inmediato de lentigos, eritema rosáceo que cede en 36 h, micro-costras puntuales caídas entre día 7-12. Sesiones 2-5: aclaramiento pigmentario progresivo, reducción de telangiectasias menores, tono más uniforme. Sin PIH ni hipopigmentación. GAIS estimado 2-3 puntos a 3 meses. Mantenimiento: refuerzo a los 12 meses, despigmentante nocturno, SPF 50+. Las arrugas finas peri-orbitarias y periorales no han mejorado significativamente — informado en consulta inicial.
+Mujer de 54 años, perimenopáusica, con exposición solar acumulada. "Piel apagada", múltiples lentigos en mejillas/dorso nasal/sienes, telangiectasias finas, eritema intermitente y textura áspera. Sin melasma ni lesiones atípicas. **Plan**: cinco sesiones con filtro 590 nm, 14 J/cm², triple con duración total 18 ms, cada 4 semanas. Pre-tratamiento: 4 semanas con alfa-arbutina + niacinamida nocturnas, suspensión de retinoides 7 días antes, SPF 50+ diario. Test patch en sien adecuado. Evolución: oscurecimiento inmediato, micro-costras caídas entre día 7-12; aclaramiento pigmentario progresivo y reducción de telangiectasias menores sesiones 2-5; sin PIH ni hipopigmentación. GAIS 2-3 puntos a 3 meses. Mantenimiento: refuerzo a 12 meses, despigmentante nocturno, SPF 50+. Las arrugas finas peri-orbitarias y periorales no han mejorado — informado en consulta inicial.
 
 ## 6 · Cosmetología aplicada
 
-La IPL se integra en un esquema cosmético que la precede y la prolonga.
-
 | Fase | Activos clave | Notas operativas |
 |---|---|---|
-| Pre-tratamiento (2-4 sem) | Alfa-arbutina · ácido tranexámico tópico · niacinamida · vitamina C estabilizada | En fototipos III-IV o antecedente de PIH. Hidroquinona 2-4% magistral solo bajo prescripción. |
-| Suspensiones previas | Retinoides, AHA, BHA: 5-7 días antes. Peelings: 2-4 semanas según profundidad. | Reanudar 7 días después si no hay irritación. |
-| Fotoprotección | SPF 50+ diario desde la consulta, reaplicación cada 2 h en exterior | Es la medida cosmética más importante del protocolo. |
+| Pre-tratamiento (2-4 sem) | Alfa-arbutina · ác. tranexámico tópico · niacinamida · vit C estabilizada | En FT III-IV o antecedente de PIH. Hidroquinona 2-4% magistral bajo prescripción. |
+| Suspensiones previas | Retinoides, AHA, BHA: 5-7 días antes. Peelings: 2-4 sem según profundidad. | Reanudar 7 días después si no hay irritación. |
+| Fotoprotección | SPF 50+ diario desde la consulta, reaplicación cada 2 h en exterior | Medida cosmética más importante del protocolo. |
 | Durante la sesión | Solo gel conductor frío específico para IPL (1-2 mm) | Anestesia tópica solo si imprescindible: enmascara dolor de alarma. |
 | Post-inmediato (24-72 h) | Ceramidas · pantenol · alantoína · centella · niacinamida; SPF 50+ mineral | Sin perfume ni alcohol. No exfoliar, no calor, no manipular costras. |
-| Mantenimiento | Despigmentante suave nocturno · antioxidantes · SPF 50+ indefinido | Reintroducir retinoides 1 semana post-sesión. |
+| Mantenimiento | Despigmentante nocturno · antioxidantes · SPF 50+ indefinido | Reintroducir retinoides 1 semana post-sesión. |
 
 ## 7 · Aftercare
 
-| Fase | Hallazgos esperables | Indicaciones a la paciente |
+| Fase | Hallazgos esperables | Indicaciones |
 |---|---|---|
-| Día 0 | Eritema rosáceo, calor, "café molido" sobre lentigos | Compresas frías; regenerador cada 4-6 h; sin maquillaje; sin sauna/deporte/ducha caliente |
-| Días 2-3 | Eritema decreciente; pigmento aún oscuro; edema leve posible en zonas finas | Continuar regenerador y SPF 50+ mineral |
+| Día 0 | Eritema rosáceo, calor, "café molido" sobre lentigos | Compresas frías; regenerador cada 4-6 h; sin maquillaje, sauna, deporte o ducha caliente |
+| Días 2-3 | Eritema decreciente; pigmento oscuro; edema leve posible en zonas finas | Regenerador y SPF 50+ mineral |
 | Días 4-7 | Micro-costra fina ("papel de fumar") sobre lentigos | **No manipular**. Vaselina opcional. Maquillaje suave si barrera íntegra. |
-| Días 7-14 | Caída espontánea de costras en cara (4-6 semanas en cuerpo); piel rosada subyacente | Reintroducción progresiva de cosmética habitual; retinoides al final si no hay sensibilidad |
-| Semanas 2-4 | Evaluación de respuesta; documentación fotográfica | Programar siguiente sesión (≥3-4 sem cara, 4-6 sem cuerpo) |
-| Mantenimiento | Resultado estabilizado | SPF 50+ indefinido; despigmentante y antioxidantes; sesión de refuerzo según indicación |
+| Días 7-14 | Caída espontánea (4-6 sem en cuerpo); piel rosada subyacente | Reintroducir cosmética habitual; retinoides al final si no hay sensibilidad |
+| Semanas 2-4 | Evaluación, documentación fotográfica | Programar siguiente sesión (≥3-4 sem cara, 4-6 sem cuerpo) |
+| Mantenimiento | Resultado estabilizado | SPF 50+ indefinido; despigmentante y antioxidantes; refuerzo según indicación |
 
 ## 8 · Manejo de complicaciones
 
-**Algoritmo general**: identificar precozmente → enfriar y proteger → derivar si excede el alcance de cabina → revisar el incidente y ajustar protocolo.
+**Algoritmo general**: identificar precozmente → enfriar y proteger → derivar si excede cabina → revisar incidente y ajustar protocolo.
 
 | Complicación | Reconocimiento | Manejo |
 |---|---|---|
-| Eritema persistente | >48-72 h, leve | Regenerador, frío, evitar irritantes. Si >1 semana, consultar. |
-| Edema | Zonas finas (párpados, malar), autolimitado 24-48 h | Compresas frías, antihistamínico oral si molesto |
-| Ampolla / costra profunda | Sobre-fluencia, mal acoplamiento o fototipo no identificado | No pinchar; cura oclusiva (hidrocoloide, sulfadiazina argéntica); ATB tópico profiláctico; derivar si extensa; suspender IPL en zona |
-| Quemadura epidérmica | Blanqueamiento gris o ampolla inmediata intra-sesión | Frío intensivo 20 min (no hielo directo); reparadora intensiva; fotografiar; derivar; revisión del incidente |
-| PIH | Mácula hiperpigmentada 2.ª-8.ª semana, más en III-IV o melasma oculto | Despigmentantes (alfa-arbutina, ácido tranexámico, niacinamida, vit C); SPF 50+ estricto; derivar si severa; suspender protocolo; reevaluar diagnóstico |
-| Hipopigmentación | Mácula despigmentada tardía por daño melanocitario | Derivar; análogos de prostaglandinas (bimatoprost), trasplante de melanocitos en literatura; suele ser permanente. Reducir fluencia futura. |
-| Empeoramiento de melasma | Aumento de pigmentación en patrón malar/frontal | **Suspender IPL definitivamente**; derivar para hidroquinona, tranexámico oral, peelings de Jessner; fotoprotección estricta indefinida |
+| Eritema persistente | >48-72 h, leve | Regenerador, frío, evitar irritantes. Si >1 sem, consultar. |
+| Edema | Zonas finas, autolimitado 24-48 h | Compresas frías; antihistamínico oral si molesto |
+| Ampolla / costra profunda | Sobre-fluencia, mal acoplamiento o fototipo erróneo | No pinchar; cura oclusiva (hidrocoloide, sulfadiazina argéntica); ATB tópico profiláctico; derivar si extensa; suspender IPL en zona |
+| Quemadura epidérmica | Blanqueamiento gris o ampolla intra-sesión | Frío intensivo 20 min (no hielo directo); reparadora; fotografiar; derivar; revisión del incidente |
+| PIH | Mácula hiperpigmentada 2.ª-8.ª sem (más en III-IV o melasma oculto) | Despigmentantes (alfa-arbutina, tranexámico, niacinamida, vit C); SPF 50+ estricto; derivar si severa; suspender; reevaluar diagnóstico |
+| Hipopigmentación | Mácula despigmentada tardía por daño melanocitario | Derivar; análogos de prostaglandinas (bimatoprost), trasplante de melanocitos. Suele ser permanente. Reducir fluencia futura. |
+| Empeoramiento de melasma | Aumento de pigmentación en patrón malar/frontal | **Suspender IPL definitivamente**; derivar (hidroquinona, tranexámico oral, peeling de Jessner); fotoprotección estricta |
 | Herpes simple reactivado | Vesículas peri-orales | Antiviral oral (valaciclovir) terapéutico; suspender hasta resolución; profilaxis en sesiones futuras |
-| Reacción ocular | Dolor, fotofobia, visión borrosa, lagrimeo | **Urgencias oftalmológicas el mismo día**; las lesiones de retina/iris pueden ser irreversibles; documentar y revisar protocolos |
+| Reacción ocular | Dolor, fotofobia, visión borrosa, lagrimeo | **Urgencias oftalmológicas el mismo día**; lesiones retina/iris pueden ser irreversibles; documentar |
 
 ## 9 · Test de evaluación
 
@@ -333,15 +325,15 @@ d) Omeprazol
 
 ## 10 · Referencias
 
-- Anderson, R. R., & Parrish, J. A. (1983). *Selective photothermolysis: precise microsurgery by selective absorption of pulsed radiation.* Science, 220(4596), 524-527.
-- Babilas, P., Schreml, S., Szeimies, R. M., & Landthaler, M. (2010). *Intense pulsed light (IPL): a review.* Lasers in Surgery and Medicine, 42(2), 93-104.
-- Raulin, C., Greve, B., & Grema, H. (2003). *IPL technology: a review.* Lasers in Surgery and Medicine, 32(2), 78-87.
-- Goldberg, D. J. (2012). *Current trends in intense pulsed light.* Journal of Clinical and Aesthetic Dermatology, 5(6), 45-53.
-- StatPearls (NCBI Bookshelf). *Intense Pulsed Light (IPL) Therapy* y *Rosacea.* Actualización continua.
-- Knight, J. M., & Kautz, G. (2019). *Sequential facial skin rejuvenation with intense pulsed light and non-ablative fractionated laser resurfacing in Fitzpatrick skin type II-IV patients.* Lasers in Surgery and Medicine.
-- Wilkin, J. et al. (2002). *Standard classification of rosacea.* Journal of the American Academy of Dermatology.
-- Schaller, M. et al. *ROSCO consensus recommendations on the management of rosacea.* British Journal of Dermatology.
-- Wat, H. et al. (2014). *Application of intense pulsed light in the treatment of dermatologic disease: a systematic review.* Dermatologic Surgery.
-- Normativa CE para equipos médicos y de cabina estética (Reglamento UE 2017/745) y documentación técnica de fabricantes (Lumenis, Alma, Cynosure, Cutera, BTL) sobre rangos espectrales y protección ocular.
+- Anderson RR, Parrish JA (1983). *Selective photothermolysis.* Science, 220(4596), 524-527.
+- Babilas P et al. (2010). *Intense pulsed light (IPL): a review.* Lasers Surg Med, 42(2), 93-104.
+- Raulin C, Greve B, Grema H (2003). *IPL technology: a review.* Lasers Surg Med, 32(2), 78-87.
+- Goldberg DJ (2012). *Current trends in intense pulsed light.* J Clin Aesthet Dermatol, 5(6), 45-53.
+- StatPearls (NCBI). *Intense Pulsed Light (IPL) Therapy* y *Rosacea.* Actualización continua.
+- Knight JM, Kautz G (2019). *Sequential facial skin rejuvenation with IPL and non-ablative fractionated laser in Fitzpatrick II-IV.* Lasers Surg Med.
+- Wilkin J et al. (2002). *Standard classification of rosacea.* JAAD.
+- Schaller M et al. *ROSCO consensus recommendations on rosacea management.* Br J Dermatol.
+- Wat H et al. (2014). *Application of IPL in dermatologic disease: a systematic review.* Dermatol Surg.
+- Reglamento UE 2017/745 (productos sanitarios) y documentación técnica de fabricantes (Lumenis, Alma, Cynosure, Cutera, BTL).
 
-> Nota metodológica: temario redactado a partir de literatura abierta indexada en PubMed Central, guías de sociedades dermatológicas (AAD, BAD, AEDV) y documentación técnica de fabricantes. Las cifras de fluencia, duración de pulso e intervalos son rangos orientativos que deben adaptarse al equipo concreto, al fototipo individual y a la respuesta observada en test patch. La profesional formada en este curso es responsable última de la decisión clínica en cabina.
+> Nota: las cifras de fluencia, duración de pulso e intervalos son rangos orientativos. Deben adaptarse al equipo concreto, al fototipo individual y a la respuesta observada en test patch. La profesional es responsable última de la decisión clínica en cabina.
