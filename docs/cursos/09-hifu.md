@@ -117,9 +117,9 @@ Sesión única anual; combinable con toxina, relleno (espaciar 2-4 sem), hilos (
 
 ### 5.1 · Consulta y consentimiento previo
 
-La primera visita es evaluación, no sesión. Objetivos: **valorar indicación real** (¿candidata a HIFU o a cirugía? ¿expectativas alineadas? ¿contraindicaciones?), **planificar** (zonas, transductores, líneas, energía orientativa) y **documentar** (anamnesis, antecedentes quirúrgicos, medicación, implantes, fototipo, **fotografía estandarizada en cinco posiciones** —frontal, oblicuas 45°, perfiles— y consentimiento informado firmado).
+La primera visita es evaluación: **valorar indicación** (¿HIFU o cirugía? ¿expectativas? ¿contraindicaciones?), **planificar** (zonas, transductores, líneas, energía) y **documentar** (anamnesis, medicación, implantes, fototipo, **fotografía estandarizada en cinco posiciones** —frontal, oblicuas 45°, perfiles— y consentimiento firmado).
 
-El consentimiento debe explicitar: naturaleza y cronología real del resultado, que el HIFU **no sustituye al lifting quirúrgico**, riesgos (dolor durante el procedimiento, eritema, edema, hematomas leves, **parálisis facial transitoria** poco frecuente, quemadura superficial, atrofia grasa, asimetría, resultado subóptimo), cuidados post, coste y política de retoque.
+El consentimiento explicita: cronología real del resultado, que el HIFU **no sustituye al lifting quirúrgico**, riesgos (dolor, eritema, edema, hematomas, **parálisis facial transitoria**, quemadura superficial, atrofia grasa, asimetría, resultado subóptimo), cuidados post y política de retoque.
 
 ### 5.2 · Preparación y marcaje
 
@@ -139,14 +139,9 @@ Una sesión sin marcaje riguroso es una sesión insegura.
 
 ### 5.3 · Anestesia y manejo del dolor
 
-El HIFU es notablemente molesto, sobre todo con 4,5 mm sobre zonas óseas. Estrategias:
+El HIFU es notablemente molesto, sobre todo con 4,5 mm sobre zonas óseas. Estrategias: **anestesia tópica EMLA** con oclusión 30-45 min antes (no elimina dolor profundo de SMAS); crioterapia de contacto; distracción y pausas; **paracetamol 1 g oral** 30 min antes (no AINE); baja tolerancia, derivar a médico para sedación consciente.
 
-- **Anestesia tópica EMLA** con oclusión 30-45 min antes (no elimina el dolor profundo de SMAS).
-- **Crioterapia de contacto** antes y después de cada línea.
-- Distracción (música, respiración pautada), pausas, **paracetamol 1 g oral** 30 min antes (no AINE).
-- Baja tolerancia: derivar a médico para sedación consciente.
-
-La sensación de calor profundo durante el disparo es **esperable y proporcional al efecto**. Un HIFU completamente indoloro probablemente deposita energía insuficiente.
+La sensación de calor profundo durante el disparo es **esperable y proporcional al efecto**. Un HIFU indoloro probablemente deposita energía insuficiente.
 
 ### 5.4 · Selección de transductores por profundidad y zona
 
