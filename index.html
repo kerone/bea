@@ -3869,10 +3869,17 @@ document.getElementById('quote-form').addEventListener('submit', async function(
       document.getElementById('quote-form-wrap').hidden = true;
       document.getElementById('quote-success').hidden   = false;
     } else {
+      // FormSubmit responde así la primera vez con un email no verificado
+      const msg = String(json.message || '').toLowerCase();
+      if (msg.includes('activate') || msg.includes('confirm') || msg.includes('verifi')) {
+        throw new Error('Pendiente activar el email de recepción. Revisa el inbox de precissainstitute@gmail.com y pulsa el enlace de activación de FormSubmit. Luego reintenta.');
+      }
       throw new Error(json.message || 'fail');
     }
   } catch (err) {
-    status.textContent = 'No se pudo enviar. Inténtalo de nuevo o escribe a precissainstitute@gmail.com';
+    status.textContent = err.message && err.message.length > 30
+      ? err.message
+      : 'No se pudo enviar. Inténtalo de nuevo o escribe a precissainstitute@gmail.com';
   } finally {
     submitBtn.disabled  = false;
     submitBtn.textContent = 'Enviar solicitud';
