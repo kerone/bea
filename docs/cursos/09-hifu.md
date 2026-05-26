@@ -94,27 +94,24 @@ Sesión única anual; combinable con toxina, relleno (espaciar 2-4 sem), hilos (
 
 - Embarazo y lactancia.
 - Marcapasos / desfibrilador en zona próxima.
-- **Implantes metálicos en zona de tratamiento** (osteosíntesis maxilofacial, clips, prótesis dentales amplias): reflexión y calentamiento impredecibles.
-- **Implantes faciales sólidos** (mentonianos, malares, silicona): mismo principio.
-- Cáncer cutáneo activo o premaligno en zona, cáncer activo general, quimio/radioterapia recientes.
-- Infección activa cutánea o sistémica; herida abierta, dermatosis exudativa, ulceración.
+- **Implantes metálicos en zona** (osteosíntesis maxilofacial, clips, prótesis dentales amplias): reflexión y calentamiento impredecibles.
+- **Implantes faciales sólidos** (mentonianos, malares, silicona).
+- Cáncer activo o premaligno en zona; cáncer sistémico activo; quimio/radioterapia recientes.
+- Infección activa cutánea o sistémica; herida abierta, dermatosis exudativa.
 - Isotretinoína sistémica reciente (<6 meses).
 - Coagulopatías graves no controladas.
-- Hipertiroidismo no controlado / patología tiroidea activa (no tratar cuello sobre tiroides).
-- Expectativas no realistas (paciente que espera lifting quirúrgico).
-- **Queloides** o trastornos de cicatrización con tendencia hipertrófica recurrente.
+- Hipertiroidismo no controlado o patología tiroidea activa (no tratar sobre tiroides).
+- **Queloides** o cicatrización hipertrófica recurrente.
+- Expectativas no realistas.
 
 ### Relativas
 
 - Enfermedades autoinmunes (lupus, esclerodermia, dermatomiositis).
 - Herpes simple recidivante perioral (profilaxis antiviral médica).
-- Tratamientos energéticos recientes en zona (intervalo mínimo 2-4 semanas).
-- Rellenos recientes (<2 sem); rellenos permanentes/semipermanentes: valoración específica.
-- Edad <25 años.
-- Fototipos altos (V-VI): mayor riesgo de PIH, energías conservadoras.
-- Cirugía facial previa (SMAS alterada).
+- Energéticos recientes en zona (intervalo 2-4 sem); rellenos <2 sem o permanentes (valoración caso a caso).
+- Edad <25 años. Fototipos V-VI (riesgo PIH, energías conservadoras). Cirugía facial previa (SMAS alterada).
 
-**Advertencia clave**: anamnesis activa sobre rellenos no declarados ("¿alguna vez se ha inyectado algo en la cara, aunque fuera hace años?"). El HIFU sobre relleno permanente es impredecible.
+**Advertencia**: anamnesis activa sobre rellenos no declarados. El HIFU sobre relleno permanente es impredecible.
 
 ## 5 · Protocolo de tratamiento
 
