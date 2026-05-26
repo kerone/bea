@@ -1,10 +1,65 @@
 <!DOCTYPE html>
 <!-- build: 2026-05-26-cats-v1 -->
-<html lang="es">
+<html lang="es-ES">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PRECISSA INSTITUTE — Escuela de estética avanzada</title>
+
+<!-- ═══ SEO BÁSICO ═══════════════════════════════════════════ -->
+<!-- ⚠ AL MIGRAR A precissainstitute.com: cambiar las URLs absolutas
+     en canonical, og:url, og:image, twitter:image, JSON-LD url/logo,
+     sitemap.xml y robots.txt. Buscar y reemplazar todas las apariciones
+     de kerone.github.io/bea por https://precissainstitute.com -->
+<title>PRECISSA INSTITUTE · Escuela de estética avanzada y electroestética</title>
+<meta name="description" content="Formación profesional en estética avanzada, electroestética, micropigmentación y técnicas corporales. Protocolos basados en evidencia, casos clínicos y test discriminativo. Cursos presenciales y online.">
+<meta name="keywords" content="academia estética, curso microblading, curso HIFU, electroestética, micropigmentación, dermocosmiatría, escuela estética avanzada, formación esteticistas, depilación láser curso, drenaje linfático curso">
+<meta name="author" content="PRECISSA INSTITUTE">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="googlebot" content="index, follow">
+<link rel="canonical" href="https://kerone.github.io/bea/">
+
+<!-- ═══ OPEN GRAPH (Facebook, WhatsApp, LinkedIn) ════════════ -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PRECISSA INSTITUTE">
+<meta property="og:title" content="PRECISSA INSTITUTE · Escuela de estética avanzada">
+<meta property="og:description" content="Formación profesional en estética avanzada, electroestética, micropigmentación y técnicas corporales. Protocolos basados en evidencia.">
+<meta property="og:url" content="https://kerone.github.io/bea/">
+<meta property="og:image" content="https://kerone.github.io/bea/assets/og-image.jpg">
+<meta property="og:image:width" content="1392">
+<meta property="og:image:height" content="752">
+<meta property="og:image:alt" content="PRECISSA INSTITUTE — Escuela de estética avanzada y electroestética">
+<meta property="og:locale" content="es_ES">
+
+<!-- ═══ TWITTER CARD ═════════════════════════════════════════ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PRECISSA INSTITUTE · Escuela de estética avanzada">
+<meta name="twitter:description" content="Formación profesional en estética avanzada, electroestética y micropigmentación.">
+<meta name="twitter:image" content="https://kerone.github.io/bea/assets/og-image.jpg">
+
+<!-- ═══ FAVICON & THEME ══════════════════════════════════════ -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23241D17'/%3E%3Ctext x='50' y='62' text-anchor='middle' fill='%23F2ECE3' font-family='serif' font-size='52' font-style='italic'%3EP%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#F2ECE3">
+<meta name="apple-mobile-web-app-title" content="PRECISSA">
+
+<!-- ═══ SCHEMA.ORG · EducationalOrganization ═════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "PRECISSA INSTITUTE",
+  "alternateName": "PRECISSA",
+  "url": "https://kerone.github.io/bea/",
+  "logo": "https://kerone.github.io/bea/assets/og-image.jpg",
+  "description": "Escuela profesional de estética avanzada y electroestética. Formación en micropigmentación, dermocosmiatría, técnicas corporales y aparatología médico-estética.",
+  "inLanguage": "es-ES",
+  "areaServed": {
+    "@type": "Country",
+    "name": "España"
+  },
+  "sameAs": []
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -3597,7 +3652,113 @@ function onPageEnter(pageKey) {
     renderAulaCourses();
   }
   if (pageKey === 'aula-curso') renderAulaCurso();
+  updateSeoForPage(pageKey);
 }
+
+// ─── SEO · meta tags dinámicos + JSON-LD por curso ──────
+const SEO_BASE_URL = 'https://kerone.github.io/bea/'; // cambiar al migrar a precissainstitute.com
+const SEO_DEFAULTS = {
+  title: 'PRECISSA INSTITUTE · Escuela de estética avanzada y electroestética',
+  description: 'Formación profesional en estética avanzada, electroestética, micropigmentación y técnicas corporales. Protocolos basados en evidencia, casos clínicos y test discriminativo.'
+};
+const SEO_PAGE_META = {
+  home:        { title: SEO_DEFAULTS.title, description: SEO_DEFAULTS.description },
+  cursos:      { title: 'Cursos · PRECISSA INSTITUTE', description: 'Catálogo de cursos profesionales: estética facial avanzada, electroestética, micropigmentación y técnicas corporales y de bienestar. Programas con protocolo, casos y test.' },
+  aula:        { title: 'Acceso alumnado · PRECISSA INSTITUTE', description: 'Acceso al aula privada de PRECISSA INSTITUTE para alumnado matriculado. Materia, presentación y test de cada curso.' },
+  'aula-curso':{ title: 'Mi curso · PRECISSA INSTITUTE', description: 'Aula del curso: materia, presentación y test.' },
+  leccion:     { title: 'Lección · PRECISSA INSTITUTE', description: 'Lección con slides en pantalla completa.' },
+  tienda:      { title: 'Aparatología profesional · PRECISSA INSTITUTE', description: 'Catálogo de aparatología profesional de estética y electroestética: radiofrecuencia, HIFU, IPL, láser y más.' },
+  producto:    { title: 'Aparato · PRECISSA INSTITUTE', description: 'Ficha técnica de aparatología profesional.' }
+};
+function setMeta(name, value, isProperty) {
+  const attr = isProperty ? 'property' : 'name';
+  let el = document.head.querySelector(`meta[${attr}="${name}"]`);
+  if (!el) { el = document.createElement('meta'); el.setAttribute(attr, name); document.head.appendChild(el); }
+  el.setAttribute('content', value);
+}
+function updateSeoForPage(pageKey) {
+  const meta = SEO_PAGE_META[pageKey] || SEO_PAGE_META.home;
+  let { title, description } = meta;
+  let canonical = SEO_BASE_URL;
+  // Si estamos viendo un curso (aula-curso), enriquecer con el curso actual
+  if (pageKey === 'aula-curso' && window._currentAulaCourseId) {
+    const c = (window.PRECISSA_COURSES || []).find(x => x.id === window._currentAulaCourseId);
+    if (c) {
+      title = c.title + ' · PRECISSA INSTITUTE';
+      description = c.shortDescription || c.description || description;
+      canonical = SEO_BASE_URL + '#curso/' + encodeURIComponent(c.id);
+      injectCourseJsonLd(c);
+    }
+  } else {
+    removeCourseJsonLd();
+  }
+  document.title = title;
+  setMeta('description', description, false);
+  setMeta('og:title', title, true);
+  setMeta('og:description', description, true);
+  setMeta('og:url', canonical, true);
+  setMeta('twitter:title', title, false);
+  setMeta('twitter:description', description, false);
+  // Update canonical link
+  let canonEl = document.head.querySelector('link[rel="canonical"]');
+  if (!canonEl) { canonEl = document.createElement('link'); canonEl.setAttribute('rel', 'canonical'); document.head.appendChild(canonEl); }
+  canonEl.setAttribute('href', canonical);
+}
+function injectCourseJsonLd(c) {
+  removeCourseJsonLd();
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": c.title,
+    "description": c.shortDescription || c.description || '',
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "PRECISSA INSTITUTE",
+      "url": SEO_BASE_URL
+    },
+    "inLanguage": "es-ES",
+    "url": SEO_BASE_URL + '#curso/' + encodeURIComponent(c.id)
+  };
+  if (c.level) data.educationalLevel = c.level;
+  if (c.duration) data.timeRequired = c.duration;
+  if (c.cover) data.image = SEO_BASE_URL + c.cover;
+  const s = document.createElement('script');
+  s.type = 'application/ld+json';
+  s.id = 'seo-course-jsonld';
+  s.textContent = JSON.stringify(data, null, 2);
+  document.head.appendChild(s);
+}
+function removeCourseJsonLd() {
+  const old = document.getElementById('seo-course-jsonld');
+  if (old) old.remove();
+}
+// Inyectar ItemList global de cursos para que Google descubra todos
+function injectCoursesItemListJsonLd() {
+  const list = (window.PRECISSA_COURSES || []).filter(c => c.id);
+  if (list.length === 0) return;
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Catálogo de cursos PRECISSA INSTITUTE",
+    "itemListElement": list.map((c, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "item": {
+        "@type": "Course",
+        "name": c.title,
+        "description": c.shortDescription || '',
+        "url": SEO_BASE_URL + '#curso/' + encodeURIComponent(c.id),
+        "provider": { "@type": "EducationalOrganization", "name": "PRECISSA INSTITUTE" }
+      }
+    }))
+  };
+  const s = document.createElement('script');
+  s.type = 'application/ld+json';
+  s.id = 'seo-courselist-jsonld';
+  s.textContent = JSON.stringify(data);
+  document.head.appendChild(s);
+}
+injectCoursesItemListJsonLd();
 
 // ─── CONTACTO COMERCIAL (modal + FormSubmit AJAX) ───────
 // Modo 'presupuesto': pedir precio de una máquina (auto-rellena el producto).

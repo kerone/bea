@@ -1,0 +1,16 @@
+# PRECISSA INSTITUTE · robots.txt
+# Permite indexar todo el contenido publico. La zona de aula privada
+# vive en la misma SPA (ruta hash #aula) y no se puede bloquear via
+# robots, pero su contenido real solo se sirve a usuarios logueados.
+
+User-agent: *
+Allow: /
+
+# Bloqueo de directorios tecnicos (logs / build / cache si existieran)
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /docs/cursos/  # los .md son fuente, el contenido renderizado va en /cursos
+
+# Sitemap
+# ⚠ Al migrar a precissainstitute.com: actualizar la URL siguiente
+Sitemap: https://kerone.github.io/bea/sitemap.xml
