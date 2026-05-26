@@ -1,6 +1,6 @@
 # Curso · Diseño de cejas y visajismo aplicado
 
-> El diseño es el ochenta por ciento del resultado y la depilación, apenas el veinte restante. Quien aprende a leer un rostro antes de tocarlo deja de "depilar cejas" y empieza a prestar un servicio estético de criterio, repetible y defendible. Curso íntegramente clínico y artístico, orientado a la alumna que mañana abre cabina y necesita salir de aquí con un protocolo de mapping, una tabla de correctores por forma facial y un guion para manejar la sobre-depilación sin improvisar.
+> El diseño es el ochenta por ciento del resultado y la depilación, apenas el veinte restante. Quien aprende a leer un rostro antes de tocarlo deja de "depilar cejas" y empieza a prestar un servicio estético de criterio, repetible y defendible.
 
 ---
 
@@ -12,215 +12,165 @@
 | Duración estimada | 16 h teóricas · 24 h prácticas tuteladas sobre modelo |
 | Nivel | Profesional / Iniciación avanzada |
 | Requisitos previos | Titulación en estética básica · conocimientos de depilación con cera y pinza · porfolio mínimo de cinco rostros analizados con mapping fotográfico |
-| Certificación | Sí, tras superar examen teórico, evaluación de mapping sobre rostro vivo con la regla de los tres puntos y compás áureo, y ejecución de tres diseños completos sobre modelo con seguimiento fotográfico |
-| Materiales incluidos | Compás áureo (proporción phi) · regla biométrica de cejas · mapping pencil blanco y henna marcadora de corta duración · hilo de algodón egipcio · cera de azúcar tibia y resina caliente de baja temperatura · pinzas de punta oblicua y de punta recta · navaja japonesa de retoque · kit de sérum estimulante con péptidos y aceite de ricino · calmantes con centella asiática y caléndula post-servicio |
+| Certificación | Sí, tras examen teórico, evaluación de mapping con regla de los tres puntos y compás áureo, y ejecución de tres diseños completos sobre modelo |
+| Materiales incluidos | Compás áureo (proporción phi) · regla biométrica de cejas · mapping pencil blanco y henna marcadora de corta duración · hilo de algodón egipcio · cera de azúcar tibia y resina caliente de baja temperatura · pinzas oblicua y recta · navaja japonesa de retoque · kit de sérum con péptidos y aceite de ricino · calmantes con centella asiática y caléndula |
 
 ---
 
 ## 1 · Introducción y posicionamiento clínico
 
-El diseño de cejas es la decisión que ocurre antes de tocar el pelo. Si se hace bien, la depilación posterior es casi mecánica: el rostro ya está leído, el boceto está sobre la piel, la cliente ha aprobado el dibujo y la herramienta —hilo, cera o pinza— se limita a retirar lo que está fuera del trazo. Si se hace mal, ninguna técnica rescata el resultado: una ceja perfectamente depilada en una forma incorrecta es una ceja incorrecta perfectamente depilada. Esta inversión de prioridades —el ojo antes que la mano, el mapping antes que la cera, el visajismo antes que la moda— separa el servicio premium del retoque rápido de quince minutos.
+El diseño de cejas es la decisión que ocurre antes de tocar el pelo. Si se hace bien, la depilación posterior es casi mecánica: el rostro ya está leído, el boceto está sobre la piel, la cliente ha aprobado el dibujo y la herramienta —hilo, cera o pinza— se limita a retirar lo que está fuera del trazo. Una ceja perfectamente depilada en una forma incorrecta es una ceja incorrecta perfectamente depilada.
 
-El **visajismo** es la disciplina que estudia la armonía del rostro y aplica leyes geométricas de proporción, equilibrio y compensación visual al diseño de cualquier elemento facial: corte de cabello, maquillaje, monturas de gafas, barba en el varón y ceja. La tradición francesa lo sistematizó en la segunda mitad del siglo XX a partir del análisis de las siete formas faciales clásicas y sus correcciones ópticas. En la ceja, el visajismo evita dos errores opuestos: aplicar a todas las clientas la "ceja de moda" del momento —el grosor extremo de mediados de los dos mil diez, el arco en flecha de los noventa, la ceja decolorada minimalista reciente— y replicar mecánicamente la ceja que la cliente ya lleva, perpetuando errores normalizados.
-
-Este curso se construye sobre tres premisas. Primera, **toda ceja se diseña sobre un rostro concreto**: las reglas de proporción son herramientas, no recetas. Segunda, **la asimetría natural es la norma**: los dos hemicaras nunca son idénticos y el objetivo no es la simetría matemática sino el equilibrio percibido. Tercera, **lo depilado no se devuelve en el momento**: la regeneración folicular requiere tres a seis meses, y cada pelo retirado debe estarlo por decisión, no por inercia.
-
-El curso se dirige a la profesional que ya domina la depilación —sabe sostener un hilo, calentar una cera, manejar una pinza— y necesita incorporar el criterio de diseño. Al terminar, la alumna debe poder sentar a una cliente, leer la forma de su rostro en menos de un minuto, ejecutar un mapping con regla de los tres puntos y proporción áurea en menos de cinco, justificar verbalmente cada decisión, dibujar el boceto sobre la piel, obtener aprobación y solo entonces depilar.
+El curso se construye sobre tres premisas: toda ceja se diseña sobre un rostro concreto —las reglas de proporción son herramientas, no recetas—; la asimetría natural es la norma y el objetivo es el equilibrio percibido, no la simetría matemática; y lo depilado no se devuelve en el momento, pues la regeneración folicular requiere de tres a seis meses. Al terminar, la alumna debe poder leer la forma de un rostro en menos de un minuto, ejecutar un mapping con regla de los tres puntos y proporción áurea en menos de cinco, justificar verbalmente cada decisión y obtener aprobación antes de depilar.
 
 ## 2 · Fundamentos científicos y estéticos
 
-### 2.1 · Anatomía facial y de la región superciliar
+### 2.1 · Anatomía de la región superciliar
 
-La ceja se asienta sobre el **arco superciliar** del hueso frontal, prominencia ósea más marcada en el varón y en perfiles angulosos, base estructural sobre la que descansa el diseño. La proyección del arco condiciona la altura aparente de la ceja: rostros con arco muy proyectado dan cejas que parecen "caídas" en reposo aunque anatómicamente no lo estén; rostros con arco plano dan cejas que parecen rectas aunque tengan curvatura.
+La ceja se asienta sobre el **arco superciliar** del hueso frontal. La musculatura relevante es triple: el **músculo frontal** eleva la ceja (posición basal en reposo); el **corrugador superciliar** desciende la cabeza y produce el ceño; el **orbicular del ojo** desciende la cola, descenso que se acentúa con la edad —de ahí la conveniencia de elevar ligeramente el arco en clientas maduras para contrarrestar la ptosis.
 
-Por encima se extiende la piel frontal, de espesor medio; por debajo, la piel del párpado superior, una de las más finas del organismo. La musculatura relevante es triple. El **músculo frontal** —vientre frontal del occipitofrontal— eleva la ceja y produce las arrugas horizontales: su tono explica la posición basal en reposo, que conviene observar con la cliente sentada, mirando al frente, con expresión neutra. El **músculo corrugador superciliar** desciende la cabeza de la ceja y produce el ceño fruncido: clientas con corrugador hiperactivo presentan asimetría dinámica que el diseño debe contemplar sin necesariamente compensar al milímetro. El **músculo orbicular del ojo**, en su porción superior, desciende la cola de la ceja; con la edad el descenso se acentúa y modifica el ángulo del arco —de ahí la conveniencia de elevar ligeramente el arco en clientas maduras para contrarrestar la ptosis.
+La cliente con **bótox reciente** en frontal o corrugador (<3 semanas) presenta una posición ciliar transitoria; se diseña fuera de la ventana de máximo efecto o se documenta para revisión. La inervación trigeminal (supraorbitario y supratroclear) explica la posible reactivación de **herpes simple** ante estímulos mecánicos.
 
-La cliente con **bótox reciente en frontal o corrugador** —menos de tres semanas— presenta una posición ciliar transitoria; un diseño hecho sobre esa posición envejecerá mal cuando la toxina pierda efecto a los tres o cuatro meses. Se diseña fuera de la ventana de máximo efecto, o se documenta para revisión.
+### 2.2 · Formas faciales y proporciones clave
 
-La **vascularización** depende de las arterias supraorbitaria y supratroclear, ramas de la oftálmica. La **inervación sensitiva** corre a cargo del nervio supraorbitario y supratroclear, ramas del trigémino. Esta inervación trigeminal explica la posible reactivación del **herpes simple** ante estímulos mecánicos: cera caliente o depilación agresiva en clientas con historial de herpes facial frecuente debe pactarse con cautela.
+La identificación de la forma facial se hace con la cliente sentada, cabello retirado y frente despejada, observando la relación entre cuatro medidas: anchura frontal, cigomática, mandibular y longitud total.
 
-### 2.2 · Las formas faciales clásicas
+| Forma facial | Características clave | Objetivo visajístico |
+|---|---|---|
+| **Ovalada** | Longitud ≈ 1,5 × anchura cigomática; frente ligeramente más ancha que mandíbula; transiciones suaves | Respetar; cualquier forma de ceja con buena ejecución funciona |
+| **Redonda** | Longitud ≈ anchura (1:1); pómulos prominentes; mentón redondeado | Alargar visualmente e introducir ángulos |
+| **Cuadrada** | Anchuras similares en frente, pómulo y mandíbula; mandíbula angulosa | Suavizar la mandíbula; restar protagonismo a los ángulos |
+| **Rectangular / alargada** | Anchura constante pero longitud notablemente mayor | Acortar visualmente; restar verticalidad |
+| **Triángulo invertido / corazón** | Frente ancha, mandíbula estrecha, mentón puntiagudo | Suavizar tercio superior; dar peso al inferior |
+| **Diamante** | Frente estrecha, pómulos como zona más ancha, mandíbula estrecha | Equilibrar sienes; suavizar prominencia cigomática |
+| **Pera / trapezoidal** | Frente estrecha, mandíbula ancha | Dar peso al tercio superior |
 
-El visajismo trabaja con siete formas faciales fundamentales, derivadas de la relación entre cuatro medidas: anchura frontal, cigomática (pómulos), mandibular y longitud total del rostro. La identificación se hace con la cliente sentada, cabello retirado, frente despejada.
+### 2.3 · Leyes operativas del visajismo
 
-La **forma ovalada** es la armónica de referencia. Longitud aproximadamente vez y media la anchura cigomática; frente ligeramente más ancha que la mandíbula; transiciones suaves; mentón redondeado sin ángulos. El visajismo no "corrige" un rostro ovalado: lo respeta. Cualquier forma de ceja con buena ejecución funciona; la elección depende de moda, edad y estilo personal.
-
-La **forma redonda** tiene longitud y anchura similares —relación próxima a 1:1—, pómulos prominentes, mandíbula y frente de anchura parecida, mentón redondeado. Transmite suavidad y juventud pero puede percibirse "infantil". Objetivo: **alargar visualmente** e **introducir ángulos** que rompan la circularidad.
-
-La **forma cuadrada** presenta anchura frontal, cigomática y mandibular muy similares, con mandíbula angulosa marcada. Transmite carácter y fortaleza. Objetivo: **suavizar la mandíbula** y restar protagonismo a los ángulos.
-
-La **forma rectangular o alargada** —oblonga— mantiene anchura constante en frente, pómulo y mandíbula como el cuadrado, pero con longitud notablemente mayor. Objetivo: **acortar visualmente** el rostro, restar verticalidad.
-
-La **forma triangular invertida o de corazón** tiene frente ancha, pómulos marcados y mandíbula estrecha que termina en mentón puntiagudo. Objetivo: **suavizar el tercio superior** y **dar peso al tercio inferior**.
-
-La **forma de diamante** presenta frente estrecha, pómulos como zona más ancha y mandíbula estrecha; longitud habitualmente mayor que la anchura. Objetivo: **equilibrar las sienes anchas** y suavizar la prominencia cigomática.
-
-La **forma de pera o trapezoidal** invierte el triángulo: frente estrecha, pómulos medios, mandíbula ancha. Objetivo: **dar peso al tercio superior** y restar protagonismo a la mandíbula.
-
-### 2.3 · Teoría del visajismo aplicada a la ceja
-
-Las dos leyes operativas del visajismo facial son la **ley de la compensación óptica** —para corregir una forma se introducen líneas opuestas a sus líneas dominantes— y la **ley del eje dominante** —se identifica la dirección visual que predomina en el rostro y se contrarresta con un elemento de eje contrario. En el caso de la ceja, esto se traduce en tres decisiones discretas: el **eje horizontal versus el ascendente**, la **presencia o ausencia de arco**, y la **angulosidad versus la redondez**. Un rostro con dominante circular pide ceja angulada; un rostro con dominante angular pide ceja redondeada; un rostro con dominante vertical pide ceja horizontal; un rostro con dominante horizontal pide ceja ascendente.
+Dos leyes rigen el diseño: la **ley de la compensación óptica** —para corregir una forma se introducen líneas opuestas a las dominantes— y la **ley del eje dominante** —se contrarresta la dirección visual predominante—. En la ceja se traducen en tres decisiones: eje horizontal *vs.* ascendente, presencia o ausencia de arco, y angulosidad *vs.* redondez.
 
 ### 2.4 · Asimetría natural
 
-Los dos hemicaras humanos no son idénticos. La asimetría facial es la norma estadística y procede de factores estructurales —desarrollo óseo ligeramente distinto en cada lado—, dinámicos —dominancia de masticación, hábitos de gesticulación, lado de apoyo durante el sueño— y adquiridos —cicatrices, intervenciones previas, parálisis sutiles. En la ceja, la asimetría se manifiesta como diferencia de altura entre las dos cabezas, diferencia de posición del arco, distinta densidad de pelo en cada lado o curvatura distinta de la cola. El objetivo del diseño **no es la simetría matemática** —que produciría un rostro percibido como artificial y "raro"— sino la **armonía**: las dos cejas deben verse como hermanas, no como gemelas.
-
-La pregunta operativa no es "¿están iguales?" sino "¿se equilibran?". En la práctica, se admite hasta uno o dos milímetros de diferencia de altura sin intervención, se compensa lo evidente y se documenta lo que no se compensa para que la cliente entienda que la asimetría residual es deliberada.
+Los dos hemicaras nunca son idénticos. El objetivo **no es la simetría matemática** —produce un rostro "raro"— sino la **armonía**: las dos cejas deben verse como hermanas, no como gemelas. Se admite hasta 1-2 mm de diferencia de altura sin intervención; se compensa lo evidente y se documenta lo que no.
 
 ## 3 · Indicaciones y perfil de cliente
 
-El diseño de cejas con visajismo está indicado en cualquier persona adulta que solicite cuidado o transformación de su zona superciliar y que se beneficie de un análisis previo. En la práctica, los perfiles más frecuentes en cabina son cuatro.
-
-La **clienta pre-evento** —boda, sesión fotográfica, entrevista— quiere resultado pulcro, simétrico dentro de lo posible y favorecedor en imagen fija. La consulta se centra en estilo del evento, maquillaje previsto y nivel de atrevimiento aceptable. Se ejecuta de cuarenta y ocho a setenta y dos horas antes para permitir que el eritema remita.
-
-El **cliente varón** que solicita cejas masculinas armónicas pide habitualmente reducción de densidad sin feminización, eliminación de pelos rebeldes interciliares y arreglo de la cola. El diseño masculino respeta la horizontalidad, evita el arco marcado —que feminiza inmediatamente—, mantiene grosor y conserva longitud natural; la depilación se limita a lo que está fuera de la silueta natural.
-
-La **clienta en transición desde una ceja sobre-depilada** —la fina de los noventa, la levantada de los dos mil, la decolorada reciente— necesita un proceso, no una sola sesión. La consulta establece expectativas: el pelo tarda tres a seis meses en regenerar, no todos los folículos sobreviven al daño repetido, y la cliente debe aceptar una fase intermedia en la que la ceja se ve "rara" mientras crece. El diseño se proyecta sobre el resultado a seis meses, con sérum estimulante en casa y retoques mensuales que solo retiran lo manifiestamente fuera del trazo final.
-
-La **clienta de mantenimiento periódico** acude cada tres a cinco semanas a sostener un diseño ya definido. La sesión es breve, se basa en el mapping fotografiado de la primera cita y se limita a retirar el crecimiento fuera de silueta. La tentación de "rediseñar" en cada visita es el error más común: cada rediseño no consensuado mueve el trazo milimétricamente y en seis meses la ceja ha derivado a una forma que nadie eligió.
+- **Pre-evento** (boda, sesión, entrevista): se ejecuta 48-72 h antes para permitir que el eritema remita. Se pacta estilo, maquillaje y nivel de atrevimiento.
+- **Varón** con cejas masculinas armónicas: reducción de densidad sin feminización, eliminación de interciliares y arreglo de cola. Se respeta horizontalidad, se evita el arco marcado.
+- **Clienta en transición desde sobre-depilación**: requiere proceso, no sesión única. Regeneración a 3-6 meses, sérum estimulante en casa, retoques mensuales que solo retiran lo manifiestamente fuera del trazo final.
+- **Mantenimiento periódico** (cada 3-5 semanas): sesión breve basada en el mapping fotográfico de la primera cita. La tentación de "rediseñar" en cada visita es el error más común.
 
 ## 4 · Contraindicaciones
 
-La depilación y el modelado de cejas son procedimientos de baja complejidad pero no inocuos. Las contraindicaciones absolutas y relativas se valoran antes de aplicar cera o hilo y se documentan en ficha.
+- **Dermatitis activa** en zona ciliar o frontal → posponer; en caso necesario, solo pinza selectiva.
+- **Herpes simple en brote** → posponer hasta cicatrización + 2 semanas.
+- **Historial de herpes recurrente** → evitar cera caliente; preferir hilo o pinza; valorar profilaxis médica.
+- **Infección activa** (foliculitis, impétigo) → derivar; no manipular.
+- **Alergia a colofonia, resinas o cera** → cambiar a sugaring o hilo; documentar.
+- **Isotretinoína oral** en curso o últimos 6 meses → **no cera caliente**; piel atrófica, riesgo de arrancamiento epidérmico; hilo o pinza con poca tensión.
+- **Retinoides tópicos** recientes (<7 días) en zona → suspender 7 días antes; reanudar 48 h después.
+- **Peeling químico o láser** facial reciente (<2 semanas) → posponer.
+- **Psoriasis** con placas en cejas → evitar cera; riesgo de fenómeno de Koebner.
+- **Anticoagulantes orales** → pinza cuidadosa; informar de riesgo de hematoma puntiforme.
+- **Embarazo primer trimestre** → preferir hilo o pinza por umbral de dolor.
 
-| Situación | Tipo | Conducta |
-|---|---|---|
-| **Dermatitis activa** en la zona ciliar o frontal | Absoluta temporal | Posponer hasta resolución; evitar cera; en caso de necesidad puntual, solo pinza muy selectiva sobre piel sana |
-| **Herpes simple en brote** facial activo | Absoluta temporal | Posponer hasta cicatrización completa y dos semanas adicionales |
-| **Historial de herpes facial recurrente** | Relativa | Evitar cera caliente; preferir hilo o pinza; valorar profilaxis antiviral pautada por médico si el procedimiento es ineludible |
-| **Infección activa** en la zona (foliculitis, impétigo) | Absoluta | Derivar; no manipular hasta resolución médica |
-| **Alergia conocida a colofonia, resinas o cera** | Absoluta para esa cera | Cambiar a sugaring (cera de azúcar) o a hilo; documentar |
-| **Isotretinoína oral** en curso o en los últimos seis meses | Relativa fuerte | No cera caliente bajo ningún concepto: piel atrófica, riesgo de arrancamiento epidérmico; preferir hilo o pinza con muy poca tensión; protocolo aftercare reforzado |
-| **Retinoides tópicos** en zona perioral o frontal en los últimos siete días | Relativa | Suspender producto siete días antes; reanudar cuarenta y ocho horas después |
-| **Peeling químico o láser** facial reciente (menos de dos semanas) | Absoluta temporal | Posponer hasta cumplir ventana indicada por médico tratante |
-| **Psoriasis con placas en cejas o frente** | Relativa | Evitar cera; pinza con técnica suave; advertir riesgo de fenómeno de Koebner |
-| **Descamación intensa** o piel atópica en brote | Relativa | Hidratar y posponer una semana; valorar técnica menos agresiva |
-| **Anticoagulantes orales** | Relativa | Pinza con técnica cuidadosa; evitar cera caliente; informar de mayor riesgo de hematoma puntiforme |
-| **Embarazo primer trimestre** | Relativa cultural | Sin contraindicación dermatológica, pero se prefiere hilo o pinza por umbral de dolor frecuentemente elevado |
-
-La pregunta operativa que cierra la anamnesis es siempre la misma: *"¿está tomando algún medicamento, ha tenido algún tratamiento dermatológico o estético en las últimas semanas, y tiene alergia conocida a productos depilatorios?"* Sin esa pregunta, no hay servicio.
+Pregunta operativa de cierre: *"¿está tomando algún medicamento, ha tenido algún tratamiento dermatológico o estético en las últimas semanas, y tiene alergia a productos depilatorios?"* Sin esa pregunta, no hay servicio.
 
 ## 5 · Protocolo de diseño paso a paso
 
 ### 5.1 · Análisis previo
 
-La cliente se sienta frente al espejo, idealmente con la profesional detrás o al lado. El cabello se retira por completo de la frente con una cinta o banda. Se desmaquilla la zona ciliar y se observa la ceja en reposo, con la cliente mirando al frente y con expresión neutra. La fase de análisis comprende tres operaciones discretas.
+La cliente se sienta frente al espejo, cabello retirado, zona desmaquillada, mirada al frente y expresión neutra. Tres operaciones:
 
-**Fotografía pre-servicio**. Frontal, a la altura de los ojos de la cliente, luz uniforme —preferiblemente lateral suave, nunca cenital dura, que crea sombras falsas sobre el arco—. Una foto frontal, una con leve giro a derecha y otra a izquierda. La cliente debe verlas: muchas descubren en foto asimetrías que el espejo les había ocultado durante años, y esta visualización es la herramienta más eficaz para gestionar expectativas. Las fotos quedan archivadas en ficha.
+**Fotografía pre-servicio**. Frontal a la altura de los ojos, luz uniforme lateral suave —nunca cenital dura—. Una foto frontal, una con leve giro a derecha y otra a izquierda. La cliente debe verlas: muchas descubren asimetrías que el espejo les había ocultado. Archivar en ficha.
 
-**Identificación de la forma facial**. Se observa la relación entre anchuras y longitud, y se nombra verbalmente a la cliente: "tu rostro es ovalado", "tiene rasgos de diamante". La nominación ordena las decisiones posteriores y permite justificar cada elección.
+**Identificación de la forma facial**. Se observa la relación entre anchuras y longitud y se nombra verbalmente a la cliente: "tu rostro es ovalado", "tiene rasgos de diamante". La nominación ordena las decisiones y permite justificar cada elección.
 
-**Lectura de simetría y dominancia**. Se observa cuál de los dos lados es dominante —el más expresivo, el que la cliente "gira" al hablar—. Se anota la diferencia de altura entre las cabezas, la posición de los arcos, la densidad y el patrón de crecimiento. Se identifican **irregularidades del nacimiento del pelo**: pelos aislados muy por encima o por debajo del trazo natural, zonas con menor densidad por sobre-depilación previa, pelo canoso —relevante para color de maquillaje complementario—.
+**Lectura de simetría y dominancia**. Se observa qué lado es dominante —el más expresivo, el que la cliente "gira" al hablar—. Se anota diferencia de altura entre cabezas, posición de arcos, densidad y patrón de crecimiento. Se identifican pelos aislados muy por encima o por debajo, zonas con menor densidad y pelo canoso.
 
 ### 5.2 · Mapeo: la regla de los tres puntos
 
-La regla de los tres puntos es la técnica universal de mapping y se ejecuta con regla de cejas, hilo de mapping o lápiz blanco directamente sobre la piel. Define tres puntos por ceja —seis en total— que delimitan el inicio, el arco y el final.
+Técnica universal, ejecutada con regla de cejas, hilo de mapping o lápiz blanco directamente sobre piel. Define tres puntos por ceja —seis en total—.
 
-**Punto uno: inicio de la ceja**. Línea vertical imaginaria desde el ala de la nariz —borde externo, no base— hacia arriba, perpendicular al suelo. El punto donde cruza el borde inferior de la ceja es donde debe **comenzar**. El error frecuente es iniciarla por dentro de esa línea: aspecto cansado, ojos juntos, achatamiento del tercio medio. Si hay pelo nativo por dentro, se retira; si hay vacío hasta la línea, se rellena con maquillaje, nunca se desplaza el punto.
+**Punto uno: inicio de la ceja**. Línea vertical imaginaria desde el **ala de la nariz** —borde externo, no base— hacia arriba, perpendicular al suelo. El punto donde cruza el borde inferior de la ceja es donde debe **comenzar**. Error frecuente: iniciar por dentro —aspecto cansado, ojos juntos—. Si hay pelo nativo por dentro, se retira; si hay vacío, se rellena con maquillaje, nunca se desplaza el punto.
 
-**Punto dos: arco —el punto más alto**. Línea diagonal desde el ala de la nariz, pasando por el centro del iris con la cliente mirando al frente, prolongada hasta cruzar la ceja. Donde cruza el borde superior se sitúa el **vértice del arco**. Una variante clásica sitúa el arco entre el centro y el borde externo del iris, útil en rostros pequeños y para cejas más "abiertas"; en rostros grandes o miradas almendradas, posición original. La posición del arco modula la expresión completa de la mirada.
+**Punto dos: arco —el punto más alto—**. Línea diagonal desde el ala de la nariz, pasando por el **centro del iris** con la cliente mirando al frente, prolongada hasta cruzar la ceja. Donde cruza el borde superior se sitúa el **vértice del arco**. Variante: arco entre centro y borde externo del iris, útil en rostros pequeños y cejas más "abiertas".
 
-**Punto tres: final de la ceja**. Línea diagonal desde el ala de la nariz pasando por el **ángulo externo del ojo**, prolongada hasta cruzar la ceja. Donde cruza el borde inferior, la ceja **termina**. El error es prolongar más allá: produce "ceja caída" porque cualquier prolongación queda geométricamente por debajo de la línea cabeza-arco y apaga la mirada.
+**Punto tres: final de la ceja**. Línea diagonal desde el ala de la nariz pasando por el **ángulo externo del ojo**, prolongada hasta cruzar la ceja. Donde cruza el borde inferior, la ceja **termina**. Prolongar más allá produce "ceja caída" porque cualquier prolongación queda geométricamente por debajo de la línea cabeza-arco y apaga la mirada.
 
-Adicionalmente, **regla de altura final**: la cola debe terminar a la misma altura o ligeramente por encima de la cabeza. Si queda por debajo, el rostro se percibe triste o cansado; si muy por encima, sorprendido. La línea cabeza-cola debe ser horizontal o ligeramente ascendente.
+**Regla de altura final**: la cola debe terminar a la misma altura o ligeramente por encima de la cabeza. Por debajo, rostro triste o cansado; muy por encima, sorprendido.
 
 ### 5.3 · Proporción áurea como herramienta complementaria
 
-La regla de los tres puntos resuelve la mayoría de los rostros. En **asimetrías marcadas** —posición ocular dispar, escoliosis facial leve, secuelas de parálisis— puede dar resultados desalineados porque las referencias anatómicas tampoco lo están. Se usa entonces el **compás áureo** o **compás de phi**, instrumento de tres puntas calibrado a la proporción 1:1.618 que localiza puntos armónicos a partir de referencias estables —distancia interpupilar, anchura del puente nasal—.
+La regla de los tres puntos resuelve la mayoría de los rostros. En **asimetrías marcadas** —posición ocular dispar, escoliosis facial leve, secuelas de parálisis— las referencias anatómicas tampoco están alineadas. Se usa entonces el **compás áureo** o **compás de phi**, instrumento de tres puntas calibrado a la proporción 1:1.618 que localiza puntos armónicos a partir de referencias estables.
 
-Se verifican dos relaciones críticas. Primera, la **distancia entre las dos cabezas de las cejas** debe aproximarse a la anchura del puente nasal —equivalente a un ojo en rostros proporcionados—. Segunda, la **longitud total de cada ceja** debe guardar relación phi con la distancia desde la cabeza al ángulo externo del ojo correspondiente. No sustituyen la regla de los tres puntos: la afinan.
+Se verifican dos relaciones: la **distancia entre las dos cabezas** debe aproximarse a la anchura del puente nasal —equivalente a un ojo en rostros proporcionados—; y la **longitud total de cada ceja** debe guardar relación phi con la distancia desde la cabeza al ángulo externo del ojo correspondiente. No sustituyen la regla de los tres puntos: la afinan.
 
 ### 5.4 · Boceto sobre la piel y aprobación de la cliente
 
-Identificados los seis puntos, se traza el contorno completo de cada ceja con **lápiz blanco de mapping** o, preferiblemente, con **henna marcadora de corta duración**, retirable con agua. Primero borde superior, luego inferior. Los pelos dentro del trazo **permanecen**; los de fuera, se retiran. El dibujo se completa en **las dos cejas antes de tocar ninguna**, no ceja por ceja, para comparar simetría antes de cualquier acción irreversible.
+Identificados los seis puntos, se traza el contorno completo con **lápiz blanco de mapping** o **henna marcadora de corta duración**, retirable con agua. Primero borde superior, luego inferior. Los pelos dentro del trazo **permanecen**; los de fuera, se retiran. El dibujo se completa en **las dos cejas antes de tocar ninguna**, para comparar simetría antes de cualquier acción irreversible.
 
-La cliente se incorpora y se mira al espejo. Se le pide explícitamente que apruebe: *"Esta es la forma que vamos a obtener. ¿Quieres ajustar algo —más fina, más gruesa, arco más alto, cola más corta?"* Cualquier ajuste se hace ahora, sobre el dibujo, no después sobre el pelo. Hasta que la cliente no diga sí, no se aplica cera, hilo ni pinza.
+La cliente se incorpora y se mira al espejo. Se le pide aprobación explícita: *"Esta es la forma que vamos a obtener. ¿Quieres ajustar algo —más fina, más gruesa, arco más alto, cola más corta?"* Cualquier ajuste se hace ahora, sobre el dibujo, no después sobre el pelo. Hasta que la cliente no diga sí, no se aplica cera, hilo ni pinza.
 
 ### 5.5 · Tabla de correspondencia forma facial × tipo de ceja recomendada
 
 | Forma facial | Ceja recomendada | Lógica visajística | A evitar |
 |---|---|---|---|
-| **Ovalada** | Cualquier forma con buena ejecución. Por defecto, ceja con arco suave en posición clásica | Rostro ya armónico; la ceja respeta y enmarca la mirada | Excesos de moda que rompan la armonía existente |
-| **Redonda** | **Ceja angulada con arco marcado**; cola algo prolongada y ascendente | El ángulo introduce líneas rectas que rompen la circularidad; el arco alto alarga visualmente | Ceja redonda o sin arco —enfatiza la redondez—; ceja muy fina —infantiliza más |
-| **Cuadrada** | **Ceja arqueada suave**, curva continua, sin ángulos marcados; grosor medio | La curva suaviza la angulosidad mandibular por contraste; restituye feminidad sin recargar | Ceja recta o angulada —duplica los ángulos del rostro—; ceja muy fina —deja la mandíbula sin contrapeso |
-| **Rectangular / alargada** | **Ceja recta horizontal**, sin arco pronunciado o con arco apenas insinuado | La horizontalidad rompe el eje vertical dominante y acorta visualmente | Ceja muy arqueada o ascendente —alarga aún más el rostro—; cola muy elevada |
-| **Triángulo invertido / corazón** | **Ceja redondeada**, curva suave, longitud media; cola sin prolongar | La redondez suaviza la frente ancha; la longitud equilibrada no acentúa la disparidad frente/mandíbula | Ceja angulada con arco marcado —añade dureza a una frente ya angulosa—; ceja muy larga |
-| **Diamante** | **Ceja curva suave**, ligeramente arqueada, con cuerpo bien definido y cola corta | La curvatura suave compensa la prominencia cigomática sin añadir verticalidad; el cuerpo definido da peso visual en frente estrecha | Ceja muy angulada —enfatiza pómulos—; ceja muy fina —deja la frente sin marco |
-| **Pera / trapezoidal** | **Ceja con arco elevado y final largo**; cuerpo definido | El arco alto y la cola alargada dan volumen y peso al tercio superior, contrarrestando la mandíbula ancha | Ceja fina o muy corta —no compensa la mandíbula—; ceja recta caída |
+| **Ovalada** | Cualquier forma bien ejecutada; por defecto, arco suave clásico | Rostro ya armónico; la ceja respeta y enmarca | Excesos de moda que rompan la armonía |
+| **Redonda** | **Angulada con arco marcado**; cola algo prolongada y ascendente | El ángulo rompe la circularidad; el arco alarga | Ceja redonda o sin arco; ceja muy fina |
+| **Cuadrada** | **Arqueada suave**, curva continua, sin ángulos; grosor medio | La curva suaviza la angulosidad mandibular | Ceja recta o angulada; ceja muy fina |
+| **Rectangular / alargada** | **Recta horizontal**, sin arco pronunciado | Rompe el eje vertical y acorta | Ceja muy arqueada o ascendente |
+| **Triángulo invertido / corazón** | **Redondeada**, curva suave, longitud media; cola sin prolongar | Suaviza la frente ancha | Angulada con arco marcado; muy larga |
+| **Diamante** | **Curva suave**, ligeramente arqueada, cuerpo definido, cola corta | Compensa la prominencia cigomática | Muy angulada; muy fina |
+| **Pera / trapezoidal** | **Arco elevado y final largo**; cuerpo definido | Da volumen al tercio superior | Fina o muy corta; recta caída |
 
 ### 5.6 · Ejecución: elección de técnica de depilación
 
-Una vez aprobado el boceto, se procede a la depilación de los pelos fuera del trazo. La técnica se elige por perfil de cliente, sensibilidad cutánea, densidad y dureza del pelo, e historial. Las cuatro grandes opciones operativas son las siguientes.
+**Hilo o threading**. Hilo de algodón egipcio (~60 cm) anudado en lazo; la torsión atrapa el pelo y lo arranca de raíz. Precisión submilimétrica, sin contacto químico, idóneo para pieles sensibles, post-isotretinoína moderada y embarazadas. Técnica de elección para cejas de diseño.
 
-**Hilo o threading**. Origen indio y de Oriente Medio, tradición milenaria. Hilo de algodón —preferentemente egipcio, fino y resistente— de unos sesenta centímetros, anudado en lazo, sostenido entre dos manos y la boca o entre las dos manos. La torsión atrapa el pelo y lo arranca de raíz. Ventaja: **precisión submilimétrica** —se puede retirar un pelo aislado sin tocar vecinos— y ausencia de contacto químico, idóneo para pieles sensibles, post-isotretinoína moderada y embarazadas. Curva de aprendizaje de semanas a meses. Es la técnica de elección para cejas de diseño.
+**Cera caliente de baja temperatura** (resina o azúcar a 40-45 °C). Aplicación con espátula en sentido del crecimiento, retirada con tirón seco contrario. Eficaz en zonas densas. **Contraindicada en isotretinoína reciente** por riesgo de arrancamiento epidérmico.
 
-**Cera caliente, de baja temperatura**. Resina o azúcar (sugaring) calentada a 40-45 °C. Se aplica con espátula en sentido del crecimiento y se retira con tirón seco en sentido contrario, sin banda. Arranca de raíz y es eficaz en zonas densas. Requiere control de temperatura riguroso —la quemadura es la complicación clásica— y no se aplica sobre piel exfoliada o con retinoides. **Contraindicada en isotretinoína reciente** por riesgo de arrancamiento epidérmico.
+**Sugaring** (cera de azúcar: azúcar, agua, limón). Soluble en agua, hipoalergénica, menor adherencia epidérmica. Preferente en piel sensible y atópica controlada. Cera tibia/fría en banda: rápida pero poco selectiva, no para diseño fino.
 
-**Cera tibia / fría en bandas y sugaring**. La cera de azúcar —azúcar, agua, limón— es la más fisiológica: soluble en agua, hipoalergénica, menor adherencia epidérmica que la resina. Preferente en pieles sensibles y la única recomendable en piel atópica controlada. La cera tibia o fría con banda es rápida pero poco selectiva: se reserva para zonas amplias, no para diseño fino.
+**Pinzas** (punta oblicua o recta), pelo a pelo. Técnica de **finalización** que cierra cualquiera de las anteriores. Como técnica única, indicada en retoques mensuales o pieles que no toleran cera ni hilo.
 
-**Pinzas o tweezing**. Punta oblicua o recta, pelo a pelo. Técnica de **finalización** que cierra cualquiera de las anteriores: retira pelos aislados, ajusta milimétricamente, corrige asimetrías residuales. Como técnica única, indicada en retoques mensuales o pieles que no toleran cera ni hilo.
+**Navaja japonesa**. Corta a ras, no depila la raíz. Solo retoque superficial; el pelo reaparece en horas a días.
 
-**Navaja japonesa o bisturí estético de retoque**. No depila la raíz: corta a ras. Solo retoque superficial de vello fino perioral o intercilial. El pelo reaparece en horas a días.
+### 5.6 · Casos clínicos
 
-### 5.7 · Casos prácticos
+**Caso 1 · Rostro redondo con cejas finas previas**. Clienta de 32 años, ceja heredada de los 2000: muy fina, sin arco, casi horizontal. *Análisis*: rostro redondo pide ceja angulada con arco marcado; la actual contribuye al aspecto "infantil". *Mapping*: tres puntos clásicos; arco intencionalmente alto, entre centro y borde externo del iris, para maximizar el ángulo. *Ejecución*: solo pinza —apenas hay pelo que retirar—. Sérum con péptidos y aceite de ricino nocturno 12 semanas; visitas cada 4 semanas. Maquillaje complementario con lápiz tono medio mientras crece. Resultado a 6 meses: ceja con cuerpo y arco angulado que rompe la redondez.
 
-**Caso uno: rostro redondo con cejas finas previas**. Clienta de treinta y dos años, rostro circular, pómulos altos, mentón redondeado. Ceja heredada de la moda de mediados de los dos mil: muy fina, depilada al hilo durante años, sin arco, casi horizontal. Pide "una ceja moderna que le favorezca".
+**Caso 2 · Rostro cuadrado con cejas asimétricas**. Clienta de 45 años, ceja derecha 2 mm más alta, arco derecho adelantado, cola izquierda más corta. *Análisis*: rostro cuadrado pide curva continua sin ángulos. La izquierda —más baja— es la limitante: se diseña sobre ella y la derecha se ajusta. *Mapping*: tres puntos en cada ceja, distancias anotadas; compás áureo para confirmar arco. Se baja ligeramente el arco derecho retirando del borde superior y reforzando con maquillaje el inferior; en la izquierda se prolonga ligeramente la cola. *Ejecución*: cera de azúcar en borde superior derecho, finalización con pinza. Calmante con centella, evitación de sol y sauna 24 h. Resultado: cejas equilibradas en foto, mandíbula visualmente suavizada.
 
-*Análisis*: rostro redondo pide ceja angulada con arco marcado; la ceja actual hace lo contrario y contribuye al aspecto "infantil" del que se queja. *Mapping*: tres puntos clásicos; arco intencionalmente alto, entre centro y borde externo del iris, para maximizar el ángulo. La cabeza se mantiene en posición y se planifica engrosamiento por sérum y maquillaje complementario. *Ejecución*: pinza únicamente —apenas hay pelo que retirar, tres o cuatro rebeldes por debajo del trazo—. Se prescribe sérum con péptidos y aceite de ricino, aplicación nocturna doce semanas; visitas cada cuatro semanas para acompañar crecimiento sin retirar pelos prematuramente. *Maquillaje*: lápiz o sombra de tono medio para simular la silueta mientras crece el pelo nativo. *Resultado a seis meses*: ceja con cuerpo, arco angulado, que rompe la redondez y aporta carácter.
-
-**Caso dos: rostro cuadrado con cejas asimétricas**. Clienta de cuarenta y cinco años, mandíbula marcada, anchuras frontal-cigomática-mandibular similares. Ceja derecha dos milímetros más alta que la izquierda, arco derecho más adelantado, cola izquierda más corta. Refiere sentirse "asimétrica" en fotos.
-
-*Análisis*: rostro cuadrado pide ceja arqueada suave, curva continua, sin ángulos. La asimetría se gestiona buscando equilibrio, no simetría matemática. La ceja izquierda —más baja— es la limitante: se diseña sobre ella y la derecha se ajusta a esa referencia. *Mapping*: tres puntos en cada ceja, anotando distancias; compás áureo para confirmar arco. Se baja ligeramente el arco derecho retirando pelos del borde superior y reforzando con maquillaje el inferior; en la izquierda se respeta el arco y se prolonga ligeramente la cola. *Ejecución*: cera de azúcar para densidad en borde superior derecho, finalización con pinza en ambas. *Aftercare*: calmante con centella, evitación de sol y sauna 24 horas. *Resultado*: cejas que ya no se perciben asimétricas en foto, mandíbula visualmente suavizada por la curva.
-
-**Caso tres: rostro ovalado con sobre-depilación de los noventa**. Clienta de cincuenta y dos años, rostro ovalado armónico, cejas extremadamente finas, casi sin cabeza, arco caído por años de depilación agresiva y por descenso natural por edad. Áreas no regeneradas en cabeza y cola.
-
-*Análisis*: el rostro admite casi cualquier diseño bien ejecutado; el problema es la **deuda histórica**. *Expectativas*: la regeneración total puede no ser posible —folículos agredidos durante décadas no siempre responden al sérum—; el resultado combinará pelo recuperado parcialmente y maquillaje diario. *Plan a seis meses*: sérum nocturno con péptidos, henna en cabina cada cuatro semanas para color en zona vacía mientras se observa respuesta folicular, revisión fotográfica a tres y seis meses. *Diseño proyectado*: cabeza definida, arco suave en posición clásica que compensa el descenso por edad, cola sin prolongar. *Ejecución inmediata*: ninguna depilación; aplicación de henna sobre el trazo deseado y prescripción de sérum. La cliente sale sintiendo que ha iniciado un proceso, no que "ha perdido pelo". *Resultado a seis meses*: ceja parcialmente recuperada, rejuvenecimiento visible del tercio superior.
+**Caso 3 · Rostro ovalado con sobre-depilación de los 90**. Clienta de 52 años, cejas extremadamente finas, casi sin cabeza, arco caído por años de depilación agresiva y descenso por edad. *Análisis*: el rostro admite casi cualquier diseño; el problema es la **deuda histórica**. *Expectativas*: regeneración total quizá no posible —folículos agredidos durante décadas—; el resultado combinará pelo parcial y maquillaje diario. *Plan a 6 meses*: sérum nocturno con péptidos, henna en cabina cada 4 semanas, revisión fotográfica a 3 y 6 meses. *Diseño proyectado*: cabeza definida, arco suave clásico que compensa el descenso por edad, cola sin prolongar. *Ejecución inmediata*: ninguna depilación; henna sobre el trazo deseado. La cliente sale sintiendo que ha iniciado un proceso, no que "ha perdido pelo".
 
 ## 6 · Cosmetología aplicada
 
-### 6.1 · Pre-servicio
-
-La piel se limpia con loción suave sin alcohol para retirar maquillaje y sebo que comprometan la adherencia del lápiz de mapping. Se aplica antiséptico suave —clorhexidina al 0,5 por ciento— con gasa estéril, del centro hacia fuera. Pinzas y navaja en autoclave previo o desinfección de alto nivel; hilo de un solo uso por cliente.
-
-### 6.2 · Post-servicio inmediato
-
-Tras retirar el pelo se aplica **calmante con centella asiática** —madecasósido o asiaticósido— y/o **caléndula**, antiinflamatorios y reepitelizantes con seguridad bien establecida. Se evitan alcohol y astringentes fuertes, que aumentan eritema y favorecen foliculitis. Si el eritema es marcado, compresa fría de manzanilla o gel de aloe vera puro.
-
-### 6.3 · Mantenimiento doméstico
-
-La cliente sale con **kit aftercare** o instrucciones precisas. Núcleo triple. **Sérum estimulante** con péptidos —mioxinol, complejos de biotina con péptidos biomiméticos— y **aceite de ricino** —rico en ácido ricinoleico, fortalece el tallo y mejora la resistencia del pelo existente—, aplicado con cepillo limpio cada noche. **Hidratante facial habitual** sobre la zona, evitando retinoides directos sobre la ceja. **Fotoprotección 50 diaria** sobre frente y zona ciliar: la radiación ultravioleta decolora el pelo y favorece la flacidez palpebral, que arrastra la cola de la ceja hacia abajo.
-
-### 6.4 · Maquillaje complementario
-
-La ceja diseñada se mantiene visualmente con maquillaje. Tres herramientas: **lápiz** —trazos pelo a pelo en zonas vacías, ideal para cejas finas—, **sombra o polvo** —relleno suave de silueta, da cuerpo sin trazos visibles—, **gel tintado** —fija el pelo y aporta color sutil, idóneo en cejas densas—. La elección de color sigue la armonía cromática con el cabello: en rubias, ceja uno o dos tonos más oscura; en castañas, igual o ligeramente más clara para no endurecer; en cabello negro, tono más claro y mate, evitando negro puro; en pelirrojas, cobrizos o castaño cálido; en canas, gris medio o castaño grisáceo —nunca negro—. **Subtono**: piel cálida con tonos cálidos (dorados, cobrizos); piel fría con cenizas o taupe. La henna en cabina se cubre en el curso veintidós; aquí se menciona como complemento para áreas vacías en regeneración.
+| Fase | Producto / acción |
+|---|---|
+| **Pre-servicio** | Loción suave sin alcohol para retirar sebo y maquillaje; antiséptico de clorhexidina al 0,5 % con gasa estéril, del centro hacia fuera; pinzas y navaja con desinfección de alto nivel; hilo de un solo uso |
+| **Post-inmediato** | Calmante con **centella asiática** (madecasósido / asiaticósido) y/o **caléndula**. Evitar alcohol y astringentes. Si eritema marcado: compresa fría de manzanilla o aloe vera puro |
+| **Mantenimiento doméstico** | **Sérum estimulante** (péptidos: mioxinol, biotina) + **aceite de ricino** con cepillo limpio cada noche; hidratante facial habitual; **fotoprotección 50** diaria sobre frente y zona ciliar |
+| **Maquillaje complementario** | **Lápiz** (trazos pelo a pelo en zonas vacías); **sombra/polvo** (relleno suave); **gel tintado** (fija y aporta color). Color: rubias → 1-2 tonos más oscuro; castañas → igual o ligeramente más claro; cabello negro → tono más claro y mate; pelirrojas → cobrizos; canas → gris medio, nunca negro. Subtono cálido con dorados/cobrizos; subtono frío con cenizas o taupe |
 
 ## 7 · Aftercare: instrucciones para la cliente
 
-La cliente recibe, oralmente y por escrito, las siguientes indicaciones para las cuarenta y ocho horas post-servicio.
-
-**Primeras 12 horas**: no maquillar la zona. Poros foliculares abiertos; pigmento de lápiz o sombra puede provocar foliculitis cosmética.
-
-**Primeras 24 horas**: evitar sol directo. Si la exposición es inevitable, fotoprotección 50. Evitar sauna, baño turco, hammam, deporte intenso —el sudor sobre folículo recién depilado favorece foliculitis—, piscina con cloro y agua de mar.
-
-**Primeras 48 horas**: no exfoliar, no aplicar ácidos (glicólico, salicílico, mandélico), no retinoides. Hidratar con producto suave indicado en cabina.
-
-**Indefinidamente**: sérum estimulante cada noche durante el período pactado. Fotoprotección diaria sobre frente y cejas. Acudir a revisión sin auto-depilar en el intervalo: cualquier ajuste no profesional desplaza el trazo.
-
-**Señales de aviso**: enrojecimiento >48 h, calor local, pústulas, dolor creciente, ampolla. Contactar con cabina antes de aplicar nada por iniciativa propia.
+- **Primeras 12 h**: no maquillar la zona —poros abiertos, riesgo de foliculitis cosmética—.
+- **Primeras 24 h**: evitar sol directo (FPS 50 si inevitable); evitar sauna, hammam, deporte intenso, piscina con cloro y agua de mar —el sudor favorece foliculitis—.
+- **Primeras 48 h**: no exfoliar, no ácidos (glicólico, salicílico, mandélico), no retinoides. Hidratar con producto suave.
+- **Indefinidamente**: sérum estimulante nocturno durante el período pactado; fotoprotección diaria sobre frente y cejas; **no auto-depilar** entre revisiones —cualquier ajuste desplaza el trazo—.
+- **Señales de aviso**: enrojecimiento >48 h, calor local, pústulas, dolor creciente, ampolla → contactar con cabina antes de aplicar nada.
 
 ## 8 · Manejo de complicaciones
 
-**Sobre-depilación**. La más frecuente y temida. Causas: error de diseño, exceso de tensión que arrastra pelos vecinos, ajuste más allá de lo planificado. **No hay corrección inmediata**: el pelo reaparece en tres a seis semanas si el folículo no ha sido dañado, tres a seis meses si lo ha sido, nunca si la agresión repetida lo ha llevado a regresión definitiva. Protocolo secuencial. Primero, **disculpa profesional inmediata** sin justificación defensiva; la cliente percibe la honestidad. Segundo, **rescate cosmético**: maquillaje del trazo perdido con lápiz y sombra, demostración a la cliente, propuesta de **henna en cabina** —que tiñe piel además del pelo— como solución de dos a tres semanas. Tercero, **plan de regeneración**: sérum estimulante dos veces al día durante doce semanas, revisión a las cuatro. Cuarto, **compensación**: cita gratuita o descuento, según política. Quinto, **prevención**: análisis interno del error. La sobre-depilación bien manejada conserva a la cliente; mal manejada, la pierde y genera reseña negativa con razón.
-
-**Alergia o reacción a la cera**. Eritema desproporcionado, prurito intenso, vesículas o habones durante o inmediatamente tras el servicio. Se retira la cera con aceite cosmético neutro, compresa fría y calmante con centella o aloe puro. Si es local moderada, antihistamínico oral y observación. Si afecta párpado o aparece edema palpebral, derivación médica inmediata. Se documenta marca y composición y se anota contraindicación absoluta en ficha. Próxima visita, técnica alternativa —hilo o sugaring— previa prueba en zona pequeña.
-
-**Foliculitis post-depilación**. Pápulas o pústulas a las 24-48 h. Causas: maquillaje antes de 12 h, sudoración intensa, manipulación con dedos sucios, oclusión por gafas mal limpiadas. Manejo: clorhexidina dos veces al día cinco días, no manipular, no maquillar hasta resolución. Si persiste >1 semana, derivación médica. Documentar como antecedente: indica predisposición y obliga a reforzar antisepsia.
-
-**Hematoma puntiforme** post-pinza o cera. Punto rojo o violáceo indoloro. Más frecuente con anticoagulación o pieles finas. No requiere tratamiento; remite en cuatro a siete días. Informar a la cliente para evitar alarma.
-
-**Quemadura por cera caliente**. Eritema marcado, dolor inmediato, posible vesícula. Enfriar con agua templada —no fría extrema—, aloe puro o crema con dexpantenol. Si vesícula, no perforar; vendaje protector y derivación si afectación relevante. Revisar temperatura del calentador antes del siguiente uso.
-
-**Asimetría detectada al salir**. Espejo de aumento; identificar si es real o es la asimetría natural previa que la cliente "ve" ahora con atención. Si es real y corregible, se ajusta en el momento. Si es real por exceso de depilación, se gestiona como sobre-depilación. Si es natural previa, se explica con las fotos pre-servicio.
+| Error / complicación | Corrección / conducta |
+|---|---|
+| **Sobre-depilación** (la más temida) | 1) Disculpa profesional inmediata sin defensiva. 2) Rescate cosmético: maquillaje del trazo perdido + propuesta de **henna en cabina** (2-3 semanas). 3) Plan de regeneración: sérum 2×/día durante 12 semanas, revisión a las 4. 4) Compensación: cita gratuita o descuento. 5) Análisis interno del error |
+| **Alergia / reacción a cera** (eritema desproporcionado, prurito, vesículas) | Retirar cera con aceite cosmético neutro; compresa fría; calmante con centella o aloe puro. Si afecta párpado o hay edema palpebral → derivación médica inmediata. Documentar marca y contraindicación absoluta. Próxima visita: hilo o sugaring con prueba previa |
+| **Foliculitis post-depilación** (pápulas/pústulas 24-48 h) | Clorhexidina 2×/día 5 días; no manipular, no maquillar hasta resolución. Si persiste >1 semana → derivación. Documentar como antecedente |
+| **Hematoma puntiforme** post-pinza o cera | Sin tratamiento; remite en 4-7 días. Informar a la cliente para evitar alarma |
+| **Quemadura por cera caliente** | Enfriar con agua templada (no fría extrema); aloe puro o crema con dexpantenol. Si vesícula → no perforar; vendaje protector; derivación si afectación relevante. Revisar temperatura del calentador |
+| **Asimetría detectada al salir** | Espejo de aumento; distinguir si es real o asimetría natural previa. Si real y corregible → ajustar en el momento. Si por exceso → gestionar como sobre-depilación. Si natural previa → explicar con fotos pre-servicio |
 
 ## 9 · Test de evaluación: 8 preguntas discriminativas
 
@@ -276,11 +226,11 @@ d) La cola no requiere referencia: se decide estéticamente.
 
 ## 10 · Referencias
 
-- Aceves, F. *Visagisme: l'art de mettre en valeur le visage*. Tradición francesa de visajismo aplicado al cabello y maquillaje, base teórica adaptada al diseño de cejas.
-- Marquardt, S. R. *Phi mask and golden ratio proportions in facial aesthetics*. Trabajos sobre proporción áurea aplicada al rostro humano.
-- Ricketts, R. M. *The biologic significance of the divine proportion and Fibonacci series*. American Journal of Orthodontics, 1982. Referencia clásica sobre proporciones armónicas faciales.
-- Westmore, M. G. Sistematización clásica de las siete formas faciales en la tradición del maquillaje cinematográfico, base de la clasificación operativa.
-- Reglamento (CE) n.º 1223/2009 del Parlamento Europeo y del Consejo, sobre productos cosméticos. Marco europeo aplicable a calmantes, séricos y maquillaje complementario empleados en cabina.
-- Bibliografía interna PRECISSA INSTITUTE: protocolos de mapping con regla de los tres puntos, fichas clínicas de anamnesis y consentimiento, kit aftercare estandarizado.
-- Documentación del curso 22 (Henna en cabina) para la profundización del camuflaje cromático complementario al diseño.
-- Documentación del curso 15 (Microblading de cejas) para la transición de cliente desde el diseño manual hacia la pigmentación semipermanente cuando esté indicada.
+- Aceves, F. *Visagisme: l'art de mettre en valeur le visage*. Tradición francesa de visajismo, base teórica adaptada al diseño de cejas.
+- Marquardt, S. R. *Phi mask and golden ratio proportions in facial aesthetics*.
+- Ricketts, R. M. *The biologic significance of the divine proportion and Fibonacci series*. American Journal of Orthodontics, 1982.
+- Westmore, M. G. Sistematización clásica de las siete formas faciales en la tradición del maquillaje cinematográfico.
+- Reglamento (CE) n.º 1223/2009 sobre productos cosméticos. Marco europeo aplicable a calmantes, séricos y maquillaje complementario.
+- Bibliografía interna PRECISSA INSTITUTE: protocolos de mapping con regla de los tres puntos, fichas de anamnesis y kit aftercare estandarizado.
+- Documentación del curso 22 (Henna en cabina) para camuflaje cromático complementario.
+- Documentación del curso 15 (Microblading de cejas) para transición a pigmentación semipermanente.
