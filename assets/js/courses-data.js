@@ -331,8 +331,42 @@ window.PRECISSA_COURSES = [
     shortDescription: 'HIFU: ultrasonido focalizado a 1.5/3/4.5 mm sobre SMAS. Lifting facial y corporal no quirúrgico con anatomía del nervio facial obligatoria.',
     description: 'HIFU como "lifting médico no quirúrgico" — posicionado honestamente entre radiofrecuencia/hilos y cirugía: NO sustituye al lifting cervicofacial en flacidez severa. Cubre física del ultrasonido focalizado, anatomía clínica del nervio facial con mapa de zonas prohibidas (rama temporal, marginal mandibular, periorbitario), tabla de transductores 1.5/3/4.5 mm faciales y 6/9/13 mm corporales, contraindicaciones (implantes metálicos en zona, marcapasos, embarazo), tres casos clínicos y manejo de complicaciones —especialmente parálisis facial transitoria—.',
     sourceDoc: 'docs/cursos/09-hifu.md',
-    lessons: [],
-    test: { questions: [] }
+    lessons: [
+      {
+        id: 'leccion-1',
+        title: 'HIFU · Lifting no quirúrgico',
+        duration: '~45 min · 23 diapositivas',
+        slides: 'assets/cursos/hifu/leccion-1/index.html'
+      }
+    ],
+    test: {
+      questions: [
+        { q: 'Para tratar la SMAS facial en una mejilla con buen grosor tisular, la profundidad focal más apropiada es:',
+          options: ['1,5 mm', '3,0 mm', '4,5 mm', '6,0 mm'],
+          correct: 2 },
+        { q: 'Paciente con osteosíntesis maxilofacial con placas de titanio en ángulo mandibular izquierdo solicita HIFU para línea mandibular y papada. Actitud correcta:',
+          options: ['Tratar normal · el titanio no interfiere con el ultrasonido', 'Tratar con energía reducida en la zona', 'Considerar implante metálico como contraindicación local · no tratar en zona del implante; valorar resto con consentimiento informado', 'Tratar primero el lado derecho y, si va bien, repetir'],
+          correct: 2 },
+        { q: 'La "línea de Pitanguy" (entre 0,5 cm por debajo del trago y 1,5-2 cm por encima de la cola de la ceja) corresponde a:',
+          options: ['Trayecto superficial de la rama temporal del nervio facial · zona prohibida para disparos profundos con HIFU', 'Línea ideal para colocar líneas con 4,5 mm para máximo lifting', 'Hito anatómico decorativo sin relevancia para HIFU', 'Límite anatómico de la SMAS facial'],
+          correct: 0 },
+        { q: 'Paciente embarazada de 16 semanas solicita HIFU submentoniano "porque será muy suave". Actitud correcta:',
+          options: ['Tratar con energía mínima y solo una zona', 'Esperar al segundo trimestre completo', 'No tratar en absoluto · el embarazo es contraindicación absoluta para HIFU', 'Tratar solo con consentimiento adicional'],
+          correct: 2 },
+        { q: 'El mecanismo principal por el que HIFU produce tensado facial es:',
+          options: ['Quemadura superficial del estrato córneo con descamación', 'Coagulación térmica difusa de la dermis completa', 'Generación de puntos de coagulación térmica (TCP) en planos predeterminados — especialmente SMAS — con contracción inmediata + neocolagénesis diferida', 'Cavitación adipocitaria como única vía de respuesta'],
+          correct: 2 },
+        { q: 'Paciente acude 48 h después de HIFU facial refiriendo "se le ha torcido la sonrisa" y dificultad para elevar la comisura del labio izquierdo. Actitud correcta:',
+          options: ['Tranquilizar y citar para revisión en un mes', 'Reconocer afectación probable de la rama marginal mandibular · derivar a valoración médica (neurología/maxilofacial) sin demora · documentar exhaustivamente · informar honestamente sobre recuperación en semanas-meses', 'Aplicar otra sesión de HIFU compensatoria en el lado contralateral', 'Indicar toxina botulínica en el lado sano para igualar'],
+          correct: 1 },
+        { q: 'La cronología clínica del resultado óptimo post-HIFU facial se sitúa típicamente en:',
+          options: ['24 horas tras la sesión', '2 semanas', '4-6 meses', '24 meses'],
+          correct: 2 },
+        { q: 'Sobre la diferencia entre HIFU y el lifting quirúrgico cervicofacial:',
+          options: ['HIFU es equivalente no invasivo del lifting · resultados comparables', 'HIFU induce contracción y neocolagénesis sobre la SMAS pero NO reposiciona quirúrgicamente los tejidos · en flacidez severa la indicación es cirugía, no HIFU', 'HIFU sustituye totalmente al lifting en pacientes mayores de 60 años', 'El lifting quirúrgico ha quedado obsoleto desde la aparición del HIFU'],
+          correct: 1 }
+      ]
+    }
   },
 
   // ═══════════════════════════════════════════════════════
