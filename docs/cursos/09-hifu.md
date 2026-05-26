@@ -225,29 +225,26 @@ Orientación de **líneas por hemicara/zona** (el manual del fabricante prevalec
 
 ## 7 · Aftercare: evolución y signos de alarma
 
-### Cronología clínica esperable
-
 | Momento | Hallazgos típicos |
 |---|---|
-| **Día 0** | Eritema, edema variable, sensibilidad, dolor moderado durante el procedimiento |
-| **Días 1-3** | Eritema en regresión, edema máximo en torno al 2.º día, sensibilidad prominente, posibles roncas/nódulos profundos por TCP en fase inflamatoria |
-| **Días 4-7** | Edema en regresión, sensibilidad disminuyendo, posibles hematomas leves |
-| **Semana 2** | Resolución casi completa de signos visibles |
-| **Semana 4 / Mes 1** | Sutil mejora subjetiva; objetivable con fotografía comparativa |
-| **Mes 2-3** | Mejora clínicamente apreciable (definición, menor flacidez) |
-| **Mes 4-6** | **Resultado óptimo** · pico de neocolagénesis |
+| **0-72 h** | Eritema, edema variable (máximo 2.º día), sensibilidad, posibles roncas/nódulos profundos por TCP en fase inflamatoria |
+| **7 días** | Edema en regresión, sensibilidad disminuyendo, posibles hematomas leves |
+| **14 días** | Resolución casi completa de signos visibles |
+| **30 días** | Sutil mejora subjetiva; objetivable con fotografía comparativa |
+| **Mes 2-3** | Mejora clínica apreciable (definición, menor flacidez) |
+| **Mes 4-6** | **Resultado óptimo · pico de neocolagénesis** |
 | **Mes 6-12** | Estabilización y mantenimiento |
-| **Mes 12-18** | Retorno gradual; momento de plantear sesión anual |
+| **Mes 12-18** | Retorno gradual; sesión anual |
 
 ### Signos de alarma (contactar o derivar)
 
-- Dolor severo y creciente más allá del segundo día.
-- Edema masivo, asimétrico, con dificultad para abrir el ojo o deglutir.
-- Eritema en expansión con fiebre o signos sistémicos (infección).
+- Dolor severo y creciente más allá del 2.º día.
+- Edema masivo o asimétrico; dificultad para abrir el ojo o deglutir.
+- Eritema en expansión con fiebre (infección).
 - Hematoma extenso o sangrado.
 - **Asimetría facial nueva al sonreír, cerrar ojos o elevar cejas** → valoración neurológica urgente.
 - Áreas blanco-cerúleas con dolor desproporcionado (quemadura focal).
-- Adormecimiento persistente más allá de pocos días en territorios cutáneos amplios.
+- Adormecimiento persistente en territorios cutáneos amplios.
 
 ## 8 · Manejo de complicaciones (algoritmo)
 
