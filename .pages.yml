@@ -1,0 +1,59 @@
+# Pages CMS — configuración del CMS visual
+# https://pagescms.org
+#
+# Este fichero define qué contenido es editable y cómo aparece en
+# el editor. Tu mujer (o cualquier editora) entra en:
+#   https://app.pagescms.org
+# Se loguea con su cuenta de GitHub, elige este repo (kerone/bea)
+# y verá las colecciones definidas aquí.
+
+content:
+  # ───────────────────────────────────────────────────────
+  # COLECCIÓN · Cursos (contenido de la pestaña Materia)
+  # ───────────────────────────────────────────────────────
+  - name: cursos
+    label: "Cursos · contenido"
+    description: "Materia completa de cada curso. Es lo que ve la alumna en la pestaña Materia del aula."
+    type: collection
+    path: "docs/cursos"
+    filename: "{primary}.md"
+    view:
+      fields: [name]
+    fields:
+      - name: body
+        label: "Contenido del curso"
+        description: "Encabezados, tablas, listas y texto. Puedes pegar desde Word o Google Docs."
+        type: rich-text
+        options:
+          format: markdown
+
+  # ───────────────────────────────────────────────────────
+  # ARCHIVO ÚNICO · Catálogo de cursos (metadatos)
+  # ───────────────────────────────────────────────────────
+  # Esto es JavaScript, NO markdown. Pages CMS no edita JS bien,
+  # así que de momento lo dejo solo accesible como vista de
+  # texto plano. Si necesitas tocar título, descripción o
+  # categoría de un curso, mejor pídeselo a Carlos.
+  - name: courses-data
+    label: "Catálogo de cursos (avanzado · solo lectura recomendada)"
+    description: "Fichas de los cursos: título, descripción, categoría, nivel, duración. Es código JavaScript — editar con cuidado."
+    type: file
+    path: "assets/js/courses-data.js"
+    format: code
+    fields:
+      - name: code
+        label: "Código"
+        type: code
+        options:
+          language: javascript
+
+media:
+  - name: imagenes
+    label: "Imágenes"
+    description: "Portadas de cursos, fotos del equipo, imágenes para el blog"
+    input: assets
+    output: /assets
+
+settings:
+  content:
+    merge: true  # commits van a main directo (no a una rama de PR)
