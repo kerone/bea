@@ -3108,6 +3108,17 @@ function renderPublicCourses() {
 // Cada curso puede llevar un campo `enrolledEmails: ['a@x', 'b@y']`.
 // - Sin ese campo (o vacío) → visible para cualquier alumna logueada.
 // - Con emails → solo visible si el email de la alumna está en la lista.
+//
+// Superadmins: estos emails ven SIEMPRE todos los cursos, sin importar
+// si hay Google Sheet configurada o lo que diga `enrolledEmails`.
+const PRECISSA_ADMIN_EMAILS = [
+  'carlosalbiachperez@gmail.com',
+  'beautysecrets.betty@gmail.com'
+];
+function isAdminEmail(email) {
+  if (!email) return false;
+  return PRECISSA_ADMIN_EMAILS.some(a => a.toLowerCase().trim() === email);
+}
 async function currentUserEmail() {
   if (!window.auth || !window.auth.getClient) return null;
   const client = window.auth.getClient();
@@ -3119,16 +3130,17 @@ async function currentUserEmail() {
 }
 async function canAccessCourse(course) {
   if (!course) return false;
+  const email = await currentUserEmail();
+  // 0) Superadmins: acceso total siempre.
+  if (isAdminEmail(email)) return true;
   // 1) Si hay hoja de matrículas configurada (Google Sheets), manda esa.
   //    Cada acceso requiere una fila (email, curso) en la hoja.
   if (window.enrollments && window.enrollments.isConfigured()) {
-    const email = await currentUserEmail();
     if (!email) return false;
     return await window.enrollments.canAccess(email, course.id);
   }
   // 2) Modo legacy (sin hoja): se mira el array enrolledEmails del JSON.
   if (!course.enrolledEmails || course.enrolledEmails.length === 0) return true;
-  const email = await currentUserEmail();
   if (!email) return false;
   return course.enrolledEmails.some(e => String(e).toLowerCase().trim() === email);
 }
