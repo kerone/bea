@@ -561,7 +561,8 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .section-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 48px; }
 .section-h2 { font-family: var(--serif); font-size: 44px; letter-spacing: -0.018em; line-height: 1.1; }
 .section-h2 em { font-style: italic; }
-.areas-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.areas-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+@media (max-width: 1100px) { .areas-grid { grid-template-columns: repeat(2,1fr); } }
 .area-card { border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
 .area-card-img { height: 340px; position: relative; }
 .area-roman {
@@ -859,43 +860,8 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       </div>
       <button class="btn btn-text" onclick="goTo('cursos','docencia')">Ver cursos →</button>
     </div>
-    <div class="areas-grid">
-      <div class="area-card" style="cursor:pointer" onclick="goTo('cursos','docencia')">
-        <div class="area-card-img ph ph-clay">
-          <span class="area-roman">I</span>
-          <div class="ph-label">electroestética · PRECISSA INSTITUTE</div>
-        </div>
-        <div class="area-card-body">
-          <div class="area-cat">Electroestética</div>
-          <div class="area-title">Tecnología de<br>la piel</div>
-          <p class="area-desc">Radiofrecuencia, ultrasonidos y corrientes galvánicas aplicadas con precisión clínica.</p>
-          <button class="btn btn-text">Ver itinerario →</button>
-        </div>
-      </div>
-      <div class="area-card" style="cursor:pointer">
-        <div class="area-card-img ph ph-rose">
-          <span class="area-roman">II</span>
-          <div class="ph-label">cosmetología · PRECISSA INSTITUTE</div>
-        </div>
-        <div class="area-card-body">
-          <div class="area-cat">Cosmetología</div>
-          <div class="area-title">Formulación &<br>activos</div>
-          <p class="area-desc">Cosmética de principio activo. Protocolos de formulación y lectura de ficha técnica.</p>
-          <button class="btn btn-text">Ver itinerario →</button>
-        </div>
-      </div>
-      <div class="area-card" style="cursor:pointer">
-        <div class="area-card-img ph ph-dusk">
-          <span class="area-roman">III</span>
-          <div class="ph-label">micropigmentación · PRECISSA INSTITUTE</div>
-        </div>
-        <div class="area-card-body">
-          <div class="area-cat">Micropigmentación</div>
-          <div class="area-title">Diseño &<br>pigmento</div>
-          <p class="area-desc">Técnica, color y seguridad para micropigmentación de cejas, labios y delineado.</p>
-          <button class="btn btn-text">Ver itinerario →</button>
-        </div>
-      </div>
+    <div class="areas-grid" id="areas-grid">
+      <!-- Renderizado por JS desde window.PRECISSA_CATEGORIES -->
     </div>
   </section>
 
@@ -3922,8 +3888,102 @@ function renderDrawerCategorias() {
     `<div class="drawer-subitem is-cat" onclick="goToCursosCategory('${c.id}');closeDrawer()">${escapeHtml(c.label)}</div>`
   ).join('');
 }
+
+// ─── HOME · render dinamico de Areas de especializacion ─────
+// Editorial: cada categoria tiene un titulo y descripcion mas
+// evocativos que su tagline. Aqui los mapeamos por id.
+const AREA_DISPLAY = {
+  'estetica-facial-avanzada': { ph: 'ph-rose', title: 'Piel &<br>cabina',          desc: 'Higiene profunda, peelings, antiacné, despigmentantes y rejuvenecimiento. Cosmetología avanzada y servicios de cabina facial.' },
+  'electroestetica':          { ph: 'ph-clay', title: 'Tecnología<br>de la piel',  desc: 'Radiofrecuencia, ultrasonidos focalizados, láser y luz pulsada aplicados con precisión clínica.' },
+  'micropigmentacion':        { ph: 'ph-dusk', title: 'Diseño &<br>pigmento',      desc: 'Técnica, color y seguridad para micropigmentación de cejas, labios y delineado.' },
+  'corporal-bienestar':       { ph: 'ph-sand', title: 'Cuerpo &<br>bienestar',     desc: 'Técnicas manuales y combinadas: drenaje linfático, maderoterapia y masajes reductores.' }
+};
+const AREA_ROMAN = ['I','II','III','IV','V','VI'];
+function renderAreasHome() {
+  const grid = document.getElementById('areas-grid');
+  if (!grid) return;
+  const cats = window.PRECISSA_CATEGORIES || [];
+  grid.innerHTML = cats.map((cat, i) => {
+    const d = AREA_DISPLAY[cat.id] || { ph: 'ph-sand', title: escapeHtml(cat.label), desc: escapeHtml(cat.tagline || '') };
+    return `
+      <div class="area-card" style="cursor:pointer" onclick="goToCursosCategory('${cat.id}')">
+        <div class="area-card-img ph ${d.ph}">
+          <span class="area-roman">${AREA_ROMAN[i] || ''}</span>
+          <div class="ph-label">${escapeHtml(cat.id)} · PRECISSA INSTITUTE</div>
+        </div>
+        <div class="area-card-body">
+          <div class="area-cat">${escapeHtml(cat.label)}</div>
+          <div class="area-title">${d.title}</div>
+          <p class="area-desc">${d.desc}</p>
+          <button class="btn btn-text">Ver itinerario →</button>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+// ─── Routing con persistencia de URL hash ───────────────────
+const PAGE_HASH = {
+  'home': '',
+  'cursos': '#cursos',
+  'curso': '#curso',
+  'aula': '#aula',
+  'aula-curso': '#aula-curso',
+  'leccion': '#leccion',
+  'tests': '#tests',
+  'resultado': '#resultado',
+  'tienda': '#tienda',
+  'producto': '#producto'
+};
+const HASH_PAGE = Object.fromEntries(Object.entries(PAGE_HASH).map(([k,v]) => [v, k]));
+// Sobrescribimos goTo() para que tambien actualice la URL
+const _origGoTo = goTo;
+goTo = function(pageKey, area, opts) {
+  opts = opts || {};
+  _origGoTo(pageKey, area);
+  if (!opts.skipHash) {
+    const cfg = pages[pageKey];
+    const targetHash = PAGE_HASH[pageKey] || '';
+    if (cfg && targetHash !== window.location.hash) {
+      const url = window.location.pathname + (targetHash || '');
+      try { history.replaceState(null, '', url); } catch(e) {}
+    }
+  }
+};
+function routeFromHash() {
+  const hash = window.location.hash || '';
+  // Ruta categorica: #cat/<id> → cursos + filtro
+  if (hash.startsWith('#cat/')) {
+    const catId = decodeURIComponent(hash.substring(5));
+    _origGoTo('cursos','docencia');
+    setTimeout(() => {
+      const btn = document.querySelector(`.cursos-pub-filter[data-cat="${catId}"]`);
+      if (btn) filterCursosPublic(btn, catId);
+      const target = document.getElementById('cat-' + catId);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 50);
+    return;
+  }
+  // Ruta de curso: #curso/<id> (preparado para el futuro, hoy va al detalle de aula si esta logueado)
+  if (hash.startsWith('#curso/')) {
+    const courseId = decodeURIComponent(hash.substring(7));
+    window._currentAulaCourseId = courseId;
+    _origGoTo('aula-curso','docencia');
+    return;
+  }
+  // Hash directo
+  const key = HASH_PAGE[hash];
+  if (key && pages[key]) {
+    _origGoTo(key, pages[key].area);
+    return;
+  }
+  // Sin hash o desconocido: home
+  _origGoTo('home','');
+}
+window.addEventListener('hashchange', routeFromHash);
+
 renderDrawerCategorias();
-goTo('home','');
+renderAreasHome();
+routeFromHash();
 if (window.auth && window.auth.init) window.auth.init();
 </script>
 </body>
