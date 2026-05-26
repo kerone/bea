@@ -13,298 +13,232 @@
 | Nivel | Profesional / Avanzado |
 | Requisitos previos | Titulación en estética + curso de anatomía facial aplicada o equivalente |
 | Certificación | Sí · tras superar test final y prácticas evaluadas, con declaración expresa del marco profesional en el que cada alumna ejercerá |
-| Materiales incluidos | Dispositivo en aula · consumibles para prácticas · manual descargable · algoritmo de complicaciones laminado |
+| Materiales incluidos | Dispositivo en aula · consumibles · manual descargable · algoritmo de complicaciones laminado |
 
 ---
 
 ## 1 · Introducción y posicionamiento clínico
 
-El Hyaluron Pen es, probablemente, el dispositivo más controvertido que se haya popularizado en la cabina estética en la última década. Su promesa es seductora: rellenar labios y suavizar surcos faciales sin aguja, con anestesia tópica mínima, en una sesión de cabina. Su despliegue comercial ha sido masivo —marketplaces internacionales, formaciones express de un día, redes sociales saturadas de antes-después—, y su recepción por parte de la comunidad médica ha sido inequívocamente hostil. Entender por qué este curso existe pese a esa hostilidad es la primera lección honesta que la alumna debe asimilar.
+El Hyaluron Pen es el dispositivo más controvertido que se ha popularizado en la cabina estética en la última década. Promete rellenar labios y suavizar surcos sin aguja, con anestesia tópica mínima, en una sesión. Su despliegue comercial ha sido masivo y la recepción por la comunidad médica, inequívocamente hostil. Pese a ello se sigue vendiendo libremente, se sigue formando a esteticistas en su uso y miles de pacientes se siguen sometiendo a la técnica cada semana en España. Negarlo desde la academia no protege a nadie; lo que protege es formar con rigor para que la profesional sepa identificar a quién no debe tratar, qué señal obliga a parar y cuándo derivar.
 
-La realidad regulatoria es la siguiente. La FDA estadounidense emitió en octubre de 2021 una **Safety Communication** explícita desaconsejando el uso de cualquier dispositivo sin aguja —Hyaluron Pen, Hyla-Pen, microinyectores, plumas de alta presión— para infiltrar rellenos dérmicos, describiendo lesiones graves en piel, labios y ojos. La Sociedad Española de Medicina Estética (SEME) había denunciado ya antes ante la AEMPS la comercialización de estos formatos por el riesgo que entrañan, advirtiendo de la imposibilidad de controlar la cantidad real de producto introducido y el plano de inyección, y describiendo casos de encapsulamiento y granuloma. La AEMPS, por su parte, ha reiterado de manera consistente que la infiltración de hialurónico con finalidad estética y la administración de hialuronidasa inyectable son actos sanitarios reservados a personal médico cualificado. Reino Unido, a través de organismos como Save Face, mantiene campañas activas contra la promoción del dispositivo entre personal no sanitario. La American Academy of Dermatology y la Cleveland Clinic publican alertas para consumidores en términos similares.
+La realidad regulatoria debe asimilarse desde la primera clase. La **FDA** emitió en octubre de 2021 una *Safety Communication* desaconsejando explícitamente el uso de cualquier dispositivo sin aguja para infiltrar rellenos dérmicos, describiendo lesiones graves en piel, labios y ojos. La **SEME** denunció ante la **AEMPS** la comercialización de estos dispositivos por la imposibilidad de controlar cantidad y plano de inyección, con casos de encapsulamiento y granuloma. La **AEMPS** ha reiterado que la infiltración estética de hialurónico y la administración de hialuronidasa inyectable son **actos sanitarios reservados a personal médico cualificado**. Save Face (Reino Unido), AAD y Cleveland Clinic mantienen alertas en la misma línea. PRECISSA INSTITUTE asume esta tensión sin disfrazarla: enseña la técnica con todos los detalles que la hacen menos peligrosa, y con la misma intensidad lo que el dispositivo no puede prometer, qué pacientes no son candidatas y qué señales obligan a derivación urgente. La incorporación a cabina exige valoración legal, profesional y aseguradora individualizada; en caso de duda, la posición conservadora —no aplicar, o aplicar solo bajo cobertura médica explícita— es siempre la más defendible.
 
-Por encima de toda esta posición institucional, el dispositivo se sigue vendiendo libremente, se sigue formando a esteticistas en su uso, y miles de pacientes se siguen sometiendo a la técnica cada semana en España. Ese es el contexto real. Negarlo desde la academia no protege a nadie; lo que protege es formar con rigor a la profesional que va a aplicarlo, para que sepa identificar a quién no debe tratar, qué señal de complicación la obliga a parar en mitad de la sesión, y cuándo derivar a un hospital. La opción de no formar deja el dispositivo en manos de operadoras autodidactas, formadas por proveedores comerciales con incentivo a minimizar el riesgo. Esa es la opción peor.
+## 2 · Fundamentos
 
-PRECISSA INSTITUTE asume esta tensión sin disfrazarla. Este curso enseña la técnica con todos los detalles que la hacen menos peligrosa, pero también enseña, con la misma intensidad, qué es lo que el dispositivo no puede prometer, qué pacientes no son candidatas y qué señales clínicas obligan a una derivación urgente. La alumna que termine este curso debería salir, idealmente, con menos prisa por incorporar el tratamiento a su cabina y con más criterio para decidir si lo hace, en qué condiciones y bajo qué cobertura profesional y aseguradora.
+### 2.1 · Principio físico
 
-Una nota terminológica antes de continuar. En este curso emplearemos "Hyaluron Pen" como nombre genérico de la familia de dispositivos de inyección hidroneumática sin aguja para ácido hialurónico. Existen decenas de fabricantes, calidades muy dispares y una variabilidad enorme en presiones de trabajo, ergonomía y reproducibilidad. Las afirmaciones de este curso se refieren al principio físico común; los parámetros concretos deben ajustarse al manual del fabricante del equipo que la profesional utilice.
+El Hyaluron Pen es un **inyector hidroneumático** (jet pneumatic injector) de resorte mecánico o, en versiones recientes, presión por CO₂/aire comprimido. Un émbolo comprime una cámara cargada con ácido hialurónico y lo expulsa por un orificio de calibre micrométrico (100-200 µm) a velocidades del orden de 100-200 m/s. El chorro atraviesa el estrato córneo **por presión, sin perforación con metal**, abre una microcavidad transitoria y deposita una microesfera de producto. El principio no es nuevo (vacunación masiva, insulina), pero las versiones cosméticas carecen del control de presión, sistema cerrado estéril y trazabilidad de los dispositivos médicos validados.
 
-## 2 · Fundamentos científicos
+### 2.2 · Profundidad real y debate central
 
-### 2.1 · Principio físico: el inyector hidroneumático
+La afirmación comercial es que se deposita en dermis media (2-4 mm). La literatura disponible es escasa y proviene mayoritariamente de inyectores médicos validados, no de los dispositivos cosméticos baratos. El estudio cadavérico de referencia (Seok et al., 2016) midió en mejilla:
 
-El Hyaluron Pen es, técnicamente, un **jet pneumatic injector** o inyector hidroneumático de tipo spring-loaded o resorte mecánico. Un resorte calibrado (o, en versiones más recientes, un sistema de presión por CO₂ o aire comprimido) impulsa un émbolo que comprime una cámara de fluido cargado con ácido hialurónico. El fluido es expulsado a través de un orificio de calibre micrométrico (típicamente 100-200 µm) a velocidades del orden de 100-200 m/s, generando un chorro fino que **atraviesa el estrato córneo por presión, sin perforación mecánica con metal**. La energía cinética del chorro abre una microcavidad transitoria en la piel y deposita una microesfera de producto en la zona de despresurización.
+- A **6 bares**: profundidad media **2,3 mm** (azul de metileno) y **3,5 mm** (látex); el producto alcanzaba dermis profunda y, en algunos puntos, el SMAS.
+- A **8,5 bares**: **8,9 mm** y **7,5 mm** respectivamente; llegada al músculo masetero en algunos cortes.
 
-Esta tecnología no es nueva. Los inyectores hidroneumáticos se han usado desde mediados del siglo XX en vacunación masiva y en administración de fármacos como la insulina. Las versiones cosméticas heredan el principio pero, a diferencia de los dispositivos médicos validados, suelen carecer de control de presión preciso, sistema cerrado estéril desechable y trazabilidad del producto inyectado.
-
-### 2.2 · Profundidad real alcanzada: el debate central
-
-La afirmación comercial habitual es que el dispositivo deposita el ácido hialurónico en la dermis media, a 2-4 mm de profundidad, sin sangrado ni hematoma. La literatura disponible sobre la profundidad real alcanzada por inyección hidroneumática en piel humana es **escasa, sesgada y, en su mayoría, no proviene del estudio de los dispositivos cosméticos baratos comercializados como Hyaluron Pen**, sino de inyectores de calidad médica validada como el INNOJECTOR™.
-
-El estudio cadavérico de referencia (Seok et al., *Lasers in Surgery and Medicine*, 2016) es el más citado. Empleando un inyector con velocidad de chorro de 180 m/s y un orificio de 100 µm sobre mejilla cadavérica, los autores midieron:
-
-- A **6 bares** de presión: profundidad media de infiltración de **2,3 mm** con azul de metileno y **3,5 mm** con látex. El producto alcanzaba la dermis profunda y, en algunos puntos, el SMAS (sistema musculoaponeurótico superficial).
-- A **8,5 bares**: profundidad media de **8,9 mm** con azul de metileno y **7,5 mm** con látex. El producto llegaba al músculo masetero en algunos cortes histológicos.
-
-Las implicaciones clínicas de estos datos son las que deben hacer reflexionar a la profesional:
-
-1. La profundidad **no es predecible ni uniforme**. Varía con la presión, con la composición y viscosidad del fluido, con la angulación, con el grosor cutáneo de la zona, con la edad y la hidratación. El operador no controla la profundidad con la precisión con la que una aguja graduada lo permite.
-2. A presiones razonables de trabajo, el producto puede alcanzar **planos donde discurren arterias faciales relevantes**. La idea de que el Hyaluron Pen es seguro porque "no llega a los vasos" no se sostiene físicamente.
-3. La dispersión esférica del producto en una microcavidad significa que **no se puede prever en qué dirección se extiende el bolo**, ni si una porción del mismo puede ingresar en la luz vascular si la pluma se aplica sobre un vaso superficial.
-4. Los estudios cadavéricos, además, **no replican fielmente** la situación in vivo, donde la presión de los tejidos perfundidos, la elasticidad cutánea y el tono muscular modifican la profundidad alcanzada.
-
-La conclusión académica honesta es que **no existe un consenso sólido sobre qué profundidad alcanza realmente cada dispositivo cosmético en cada paciente real, y la profesional debe operar asumiendo esa incertidumbre como dato clínico de base**.
+Implicaciones clínicas: la profundidad **no es predecible ni uniforme**; a presiones razonables el producto puede alcanzar planos con arterias faciales relevantes; la dispersión esférica impide prever la dirección del bolo; y los datos cadavéricos no replican fielmente la situación in vivo. La conclusión honesta: **no hay consenso sobre qué profundidad alcanza cada dispositivo en cada paciente real, y se opera asumiendo esa incertidumbre como dato clínico de base**.
 
 ### 2.3 · Vasculatura facial relevante
 
-Para entender por qué la oclusión vascular es una posibilidad real, conviene memorizar las arterias que la profesional puede comprometer durante una sesión de labio, surco nasogeniano o periorbicular.
+- **Arteria facial** → asciende del borde mandibular al ángulo medial del ojo, donde pasa a **arteria angular**. Emite labiales superior e inferior.
+- **Arterias labiales**: submucosa/orbicular, profundidad variable **3-7 mm**. En cerca de un tercio de pacientes cambian de plano una o dos veces; en el 58 % de inyecciones labiales el material queda en proximidad inmediata.
+- **Arteria angular ↔ dorsal nasal ↔ supratroclear/supraorbitaria ↔ oftálmica** (rama de la carótida interna): anastomosis crítica. Una embolia retrógrada en glabela, dorso nasal o surco nasogeniano puede alcanzar la arteria central de la retina y producir **ceguera súbita irreversible**.
 
-- **Arteria facial**: rama de la carótida externa. Asciende oblicuamente desde el borde mandibular hacia el ángulo medial del ojo, donde cambia de nombre a **arteria angular**. En su recorrido emite las arterias labiales superior e inferior.
-- **Arterias labiales superior e inferior**: discurren típicamente en la submucosa o en el espesor del orbicular, **a profundidades variables** que oscilan entre 3 y 7 mm. Estudios anatómicos recientes documentan que en aproximadamente un tercio de los pacientes la arteria cambia de plano una o dos veces en su recorrido hacia la línea media, y que la variabilidad entre individuos —e incluso entre hemi-labios del mismo individuo— es alta. Una serie publicada describió que en el 58 % de las inyecciones labiales el material quedaba en proximidad inmediata a las arterias labiales.
-- **Arteria angular**: continuación de la facial en la región nasal lateral. Se anastomosa con la **arteria dorsal nasal**, rama terminal de la **arteria oftálmica**, que a su vez es rama de la **carótida interna**.
-- **Arteria supratroclear y supraorbitaria**: ramas de la oftálmica que emergen por escotaduras del reborde orbitario superior y vascularizan la frente.
-- **Anastomosis crítica**: la red angular-dorsal nasal-supratroclear conecta el territorio facial externo con el territorio oftálmico interno. Una embolia retrógrada de material inyectado en surco nasogeniano, dorso nasal o glabela puede vencer la presión sistólica, llegar a la arteria oftálmica y de ahí a la arteria central de la retina o a sus ramas, produciendo **ceguera súbita irreversible**.
+Las zonas de máximo riesgo —glabela, dorso nasal, surco nasogeniano alto, periocular— son precisamente las que se ofrecen comercialmente. Con un dispositivo que no permite aspirar y que distribuye por dispersión, el margen de seguridad anatómico es menor que con aguja.
 
-Las llamadas **zonas de máximo riesgo vascular** —glabela, dorso nasal, surco nasogeniano alto, región periocular— son precisamente algunas de las que se ofrecen comercialmente con Hyaluron Pen. La densidad y superficialidad de la red anastomótica en estas áreas es la razón por la que la medicina estética desaconseja inyectar allí incluso con aguja y aspiración previa. Con un dispositivo que no permite aspirar y que distribuye el producto por dispersión, el margen de seguridad anatómico es, sencillamente, menor.
+### 2.4 · Histología y calidades de HA
 
-### 2.4 · Histología de la zona de inyección
+El depósito por chorro genera microcavidad con dispersión esférica. Respuesta tisular: inflamación aséptica inmediata, estímulo fibroblástico secundario, **encapsulamiento** si el depósito es superficial e irregular, y **reacción granulomatosa tardía** (semanas-meses), particularmente reportada en hialurónicos no reticulados o de origen incierto. La SEME ha advertido específicamente del alto riesgo de encapsulamiento y granuloma con estos dispositivos por la imposibilidad de controlar el plano. Las calidades de HA empleadas son habitualmente **no reticuladas o de baja reticulación**, de duración corta (2-4 meses) y resultado modesto comparado con un relleno médico.
 
-El depósito de producto por chorro genera, según la presión y la zona, una microcavidad en epidermis-dermis con dispersión esférica del bolo. La respuesta tisular descrita en modelos animales y en algunos estudios humanos incluye:
+## 3 · Indicaciones
 
-- **Reacción inflamatoria aséptica** inmediata (eritema, edema), proporcional al volumen depositado y a la pureza del producto.
-- **Estímulo fibroblástico secundario** mediado por la propia presencia del ácido hialurónico (efecto biomecánico y biorrevitalizante) y por el microtraumatismo de la dispersión.
-- **Encapsulamiento** del producto si el depósito es superficial y disperso de forma irregular: la matriz extracelular forma una cápsula fibrosa alrededor de las microesferas, palpable como nódulo.
-- **Reacción granulomatosa tardía** (semanas o meses): infiltrado de macrófagos y células gigantes multinucleadas tipo cuerpo extraño, descrito en literatura para todos los hialurónicos inyectables y particularmente reportado en hialurónicos no reticulados o de origen incierto. Su frecuencia con Hyaluron Pen no está cuantificada con rigor, pero la SEME ha advertido específicamente del **alto riesgo de encapsulamiento y granuloma** asociado a estos dispositivos por la imposibilidad de controlar el plano de depósito.
+Regla: **si lo que ofreces no resiste una conversación honesta con la paciente sobre lo que el dispositivo realmente hace, no lo ofrezcas**.
 
-## 3 · Indicaciones reales
+| Indicación | Evidencia | Postura clínica |
+|---|---|---|
+| Volumen labial leve, hidratación, textura | Limitada | Aceptable como tratamiento de hidratación con mejora discreta. **Nunca como sustituto de relleno con aguja** |
+| Líneas peribucales finas | Limitada | Complemento cosmecéutico, no corrector aislado |
+| Hidratación facial tipo skinbooster | Variable | Aceptable en zonas no vasculares de riesgo, con producto adecuado |
+| Surcos nasogenianos | Muy limitada | **Desaconsejar** (proximidad a la arteria angular) |
+| Ojeras / surco nasoyugal | Nula | **No ofrecer** (anatomía vascular compleja, Tyndall) |
+| Frente, glabela, dorso nasal | Contraindicado | **No ofrecer bajo ningún concepto** (riesgo de ceguera) |
+| Pómulos, mentón, ángulo mandibular | Nula | **No ofrecer** (marketing puro) |
 
-Conviene separar lo que el dispositivo puede ofrecer con honestidad clínica de lo que se vende como marketing. La regla del curso es simple: **si lo que ofreces no resiste una conversación honesta con la paciente sobre lo que el dispositivo realmente hace y deja de hacer, no lo ofrezcas**.
+La indicación con mayor demanda real es el **labio**, donde se concentran la mayoría de complicaciones documentadas. Evitar inducir expectativas de resultado equiparable al de un relleno médico con aguja.
 
-| Indicación | Evidencia | Realidad clínica | Honestidad comercial |
-|---|---|---|---|
-| **Volumen labial leve, hidratación y mejora de textura** | Limitada. Series clínicas pequeñas, sin ECA bien diseñados. | Resultado modesto, transitorio (2-4 meses), con riesgo de irregularidades palpables. Comparado con aguja/cánula en manos médicas: inferior en precisión, duración y predictibilidad. | Vender como tratamiento de hidratación labial con mejora discreta de volumen, **nunca como sustituto de relleno con aguja**. |
-| **Líneas peribucales finas (código de barras)** | Limitada. Mejora subjetiva descrita en algunos protocolos. | Mejora discreta de hidratación y textura superficial. No corrige arrugas dinámicas profundas. | Plantear como complemento de protocolo cosmecéutico, no como tratamiento corrector aislado. |
-| **Surcos nasogenianos** | Muy limitada. La profundidad y volumen necesarios para corregir un surco nasogeniano moderado-severo exceden lo que el dispositivo puede depositar de forma segura. | Resultado clínicamente irrelevante en surcos moderados-severos; riesgo vascular **alto** por la proximidad a la arteria angular. | Desaconsejar. No es zona apropiada para el dispositivo. |
-| **Hidratación facial general (mesoterapia tipo skinbooster)** | Variable. Si lo único que se busca es deposición intradérmica superficial de ácido hialurónico libre, hay alternativas más controladas (mesoterapia con aguja fina, microneedling). | El dispositivo puede usarse aquí con menos riesgo vascular, pero con menor eficiencia que una aguja 32G. | Aceptable con producto adecuado, en zonas no vasculares de riesgo. |
-| **Ojeras (surco nasoyugal, lágrima)** | Nula a desaconsejada. Zona de altísimo riesgo. | Anatomía vascular compleja, edema persistente, riesgo de Tyndall y de oclusión arterial. | **No ofrecer**. |
-| **Frente, glabela, dorso nasal** | Contraindicado por riesgo de embolia retiniana. | Riesgo de ceguera por anastomosis con territorio oftálmico. | **No ofrecer bajo ningún concepto**. |
-| **Aumento de pómulos, mentón, ángulo mandibular** | Nula. Profundidad insuficiente, producto inapropiado para volumen estructural. | Marketing puro. | **No ofrecer**. |
+## 4 · Contraindicaciones
 
-La indicación con mayor demanda real es el **labio**, y es donde la mayor parte de las complicaciones documentadas se concentra. En la conversación con la paciente, la profesional debería evitar inducir expectativas de resultado equiparable al de un relleno médico con aguja: el ácido hialurónico depositado por chorro es habitualmente no reticulado o de baja reticulación, su duración es corta, y la simetría depende de una técnica muy minuciosa que difícilmente alcanza la precisión de una infiltración con aguja calibrada.
+### 4.1 · Absolutas
 
-## 4 · Contraindicaciones y advertencias
+- Antecedente de oclusión vascular previa con cualquier filler.
+- Antecedente de embolia retiniana, ictus o fenómeno isquémico ocular.
+- Tratamiento anticoagulante o antiagregante a dosis altas sin valoración médica.
+- Trastornos hemorrágicos (hemofilia, von Willebrand, trombopenia).
+- Embarazo y lactancia.
+- Infección activa local (herpes, foliculitis, impétigo, acné inflamatorio en zona).
+- Infección sistémica activa o fiebre.
+- Enfermedad autoinmune en actividad (lupus, esclerodermia, dermatomiositis).
+- Inmunosupresión activa (corticoides, biológicos, quimioterapia, VIH no controlado).
+- Antecedente de granulomas a rellenos previos.
+- Alergia conocida al ácido hialurónico o a lidocaína (si la incluye).
+- Menores de edad.
+- Trastorno dismórfico corporal o expectativas no realistas.
 
-Las contraindicaciones del Hyaluron Pen son extensas, y no procede suavizarlas. La selección rigurosa de la paciente es la primera y principal barrera de seguridad de la técnica.
+### 4.2 · Relativas / banderas amarillas
 
-### 4.1 · Contraindicaciones absolutas
+- Isotretinoína sistémica en los últimos 6 meses.
+- Queloides o cicatrización hipertrófica.
+- Diabetes mal controlada.
+- Tabaquismo intenso (microvascularización comprometida, peor pronóstico ante oclusión).
+- Material de relleno previo en la zona.
+- Procedimientos dentales recientes/programados (<2 semanas).
+- Herpes labial recurrente: requiere profilaxis antiviral médica.
+- HTA mal controlada.
+- Rechazo o minimización del consentimiento informado.
 
-- **Antecedente de oclusión vascular previa con cualquier filler**, incluso si se resolvió.
-- **Antecedente de embolia retiniana, ictus, fenómeno isquémico ocular** o cualquier evento tromboembólico relevante.
-- **Tratamiento anticoagulante** (acenocumarol, warfarina, apixabán, rivaroxabán, dabigatrán, edoxabán, heparinas) o **antiagregante a dosis altas** sin valoración médica explícita.
-- **Trastornos hemorrágicos congénitos o adquiridos** (hemofilia, von Willebrand, trombopenias).
-- **Embarazo y lactancia**, por principio de precaución y ausencia de datos de seguridad.
-- **Infección activa local** (herpes simple, foliculitis, impétigo, lesiones acneicas inflamatorias en la zona).
-- **Infección sistémica activa** o fiebre.
-- **Enfermedad autoinmune en fase de actividad** (lupus, esclerodermia, dermatomiositis).
-- **Inmunosupresión activa** (corticoides sistémicos a dosis altas, biológicos, quimioterapia, VIH no controlado).
-- **Antecedente de granulomas previos a hialurónico u otros rellenos**.
-- **Alergia conocida al ácido hialurónico o a lidocaína** (si el producto la incluye).
-- **Pacientes menores de edad**.
-- **Historia psiquiátrica con trastorno dismórfico corporal sospechado o diagnosticado**, o expectativas no realistas tras consulta detallada.
+### 4.3 · Advertencias frente a expectativas
 
-### 4.2 · Contraindicaciones relativas y banderas amarillas
-
-- **Tratamiento con isotretinoína sistémica** en los últimos 6 meses.
-- **Antecedente de queloides o cicatrización hipertrófica**.
-- **Diabetes mal controlada**.
-- **Tabaquismo intenso**: la microvascularización está comprometida y la cicatrización es más lenta; en caso de oclusión, peor pronóstico.
-- **Procedimientos previos en la zona con otros materiales de relleno**: el riesgo de interacción, encapsulamiento y migración aumenta. El uso de Hyaluron Pen sobre una zona previamente infiltrada con material desconocido es una contraindicación práctica relativa.
-- **Tratamientos dentales recientes o programados** (<2 semanas): por riesgo de siembra bacteriana hematógena.
-- **Brote de herpes labial reciente** o antecedentes recurrentes: requiere profilaxis antiviral prescrita médicamente.
-- **Hipertensión arterial mal controlada**: aumenta el riesgo de hematoma y de propagación de un eventual émbolo.
-- **Paciente que rechaza el consentimiento informado detallado** o minimiza los riesgos comunicados.
-
-### 4.3 · Advertencias específicas frente a expectativas
-
-- El dispositivo **no es un sustituto** del relleno médico con aguja o cánula. La paciente debe saber que existe la alternativa médica, que es más predecible y duradera, y que la elige conscientemente.
-- El resultado no es comparable en volumen, simetría ni duración al de un relleno reticulado profesional.
-- Las irregularidades, asimetrías o nódulos pueden requerir tratamiento ulterior, incluyendo hialuronidasa, que **solo puede ser prescrita y administrada por personal médico cualificado** en España.
-- La paciente debe ser informada por escrito del riesgo de oclusión vascular, infección, granuloma, edema persistente, asimetría y, en zonas faciales altas, riesgo teórico de ceguera. Por mucho que la frecuencia sea baja, la gravedad obliga a documentarla.
+- El dispositivo **no sustituye** al relleno médico con aguja o cánula; la paciente debe conocer la alternativa.
+- Resultado no comparable en volumen, simetría ni duración.
+- Las irregularidades o nódulos pueden requerir **hialuronidasa**, prescripción y administración exclusivamente médica en España.
+- Riesgo de oclusión vascular, infección, granuloma, edema persistente, asimetría y —en zonas faciales altas— riesgo teórico de ceguera. Debe constar por escrito.
 
 ### 4.4 · Documentación obligatoria
 
-- **Consentimiento informado por escrito** específico para Hyaluron Pen, donde figure expresamente la advertencia institucional vigente (FDA, AEMPS, SEME), la naturaleza de la técnica, los riesgos serios y la existencia de alternativas médicas.
-- **Anamnesis estructurada** firmada por la paciente.
+- **Consentimiento informado por escrito** específico, citando advertencias de FDA, AEMPS y SEME, naturaleza de la técnica, riesgos y alternativas médicas.
+- **Anamnesis estructurada** firmada.
 - **Fotografía clínica estandarizada** pre y post.
-- **Registro del producto utilizado**: marca, lote, caducidad, número de viales. Si el producto no tiene etiquetado verificable, **no se utiliza**.
+- **Registro del producto**: marca, lote, caducidad, viales. Sin etiquetado verificable, **no se utiliza**.
 
 ## 5 · Protocolo de tratamiento
 
-### 5.1 · Consulta previa y selección de la paciente
+### 5.1 · Consulta previa y selección
 
-La consulta de valoración debe ser un acto independiente de la sesión de aplicación. Es preferible un mínimo de 48-72 horas entre la valoración y la sesión, para que la paciente repose la información y firme el consentimiento sin presión comercial.
+La valoración es acto independiente de la sesión. Mínimo **48-72 h** entre valoración y aplicación.
 
-Pasos:
-
-1. **Anamnesis detallada**: patología sistémica, medicación, alergias, antecedentes hemorrágicos y vasculares, tratamientos estéticos previos en la zona, herpes recurrente, embarazo o lactancia, expectativas explícitas.
-2. **Exploración**: simetría basal, lesiones cutáneas, signos de inflamación local, palpación de nódulos previos, valoración del flujo arterial facial (no se realiza ecografía, pero sí inspección visual y palpación).
-3. **Documentación fotográfica**: frontal, perfil derecho e izquierdo, tres cuartos. Misma luz, misma distancia, sin maquillaje.
-4. **Información clínica honesta**: explicar el dispositivo, sus limitaciones, sus alternativas médicas y sus riesgos. Mostrar el documento de la FDA y de la SEME si es necesario para que la paciente entienda la posición institucional.
-5. **Firma del consentimiento** y agenda de la sesión.
+1. **Anamnesis** detallada: patología sistémica, medicación, alergias, antecedentes hemorrágicos y vasculares, tratamientos previos en la zona, herpes recurrente, embarazo/lactancia, expectativas.
+2. **Exploración**: simetría basal, lesiones, signos inflamatorios, palpación de nódulos previos, valoración visual del flujo arterial facial.
+3. **Documentación fotográfica**: frontal, perfiles, tres cuartos. Misma luz y distancia, sin maquillaje.
+4. **Información clínica honesta** y mostrar documentos institucionales si es preciso.
+5. **Firma del consentimiento** y agenda.
 
 ### 5.2 · Preparación de la sesión
 
-- **Asepsia estricta del dispositivo**. La carga del cartucho debe hacerse con técnica estéril: superficie limpia, guantes, manos lavadas con alcohol antes de manipular. Cualquier toque accidental del émbolo o del orificio invalida la carga.
-- **Producto verificado**: vial precintado, lote y caducidad registrados. Idealmente, hialurónico de marca con marcado CE como producto sanitario, no como cosmético. **No se utiliza producto sin trazabilidad documental**.
-- **Anestesia tópica**: lidocaína-prilocaína 2,5/2,5 % o lidocaína 4-5 % en oclusión 30-45 minutos antes de la sesión. Retirar completamente antes de la antisepsia final.
-- **Antisepsia cutánea**: clorhexidina acuosa al 0,5-1 % o povidona yodada. Dos pasadas, dejar secar. Evitar alcohol como antiséptico único en zona perimucosa.
-- **Equipo de protección**: guantes estériles, mascarilla, gafas para la profesional (riesgo de salpicadura).
+- **Asepsia estricta del dispositivo**. Carga con técnica estéril: superficie limpia, guantes, manos lavadas con alcohol. Cualquier toque accidental del émbolo o del orificio invalida la carga.
+- **Producto verificado**: vial precintado, lote y caducidad registrados. Hialurónico con marcado CE como **producto sanitario**, no cosmético. Sin trazabilidad, no se utiliza.
+- **Anestesia tópica**: lidocaína-prilocaína 2,5/2,5 % o lidocaína 4-5 % en oclusión **30-45 minutos** antes. Retirar completamente antes de la antisepsia final.
+- **Antisepsia**: clorhexidina acuosa 0,5-1 % o povidona yodada, dos pasadas, dejar secar. Evitar alcohol como único antiséptico en zona perimucosa.
+- **EPI**: guantes estériles, mascarilla, gafas (riesgo de salpicadura).
 
 ### 5.3 · Técnica de aplicación
 
-- **Posicionamiento de la paciente**: semisentada, cabeza apoyada y estable. Acceso visual óptimo a la zona.
-- **Distancia y angulación**: la boquilla del dispositivo debe apoyarse **perpendicular** a la superficie cutánea, en contacto firme pero sin presionar excesivamente el tejido. La angulación oblicua dispersa el chorro y aumenta la variabilidad de la profundidad.
-- **Presión de trabajo**: ajustar a la **presión más baja** que permita ver la deposición del producto. La presión baja minimiza la profundidad alcanzada y, por tanto, el riesgo de contacto vascular. Como referencia, los dispositivos cosméticos suelen operar entre 4 y 8 bares; trabajar siempre en el extremo bajo del rango y reservar la presión alta solo para zonas de piel muy gruesa, valorando individualmente.
-- **Pulsos**: un pulso por punto, distribución en patrón ordenado, separación mínima de 5-7 mm entre puntos en el labio.
-- **Volumen por punto**: lo que el dispositivo dispense por pulso estándar, sin recargar inmediatamente sobre el mismo punto. En labio, no superar 0,5-1 ml por sesión completa. Volúmenes mayores se reparten en varias sesiones separadas al menos 2-3 semanas.
-- **Vigilancia continua durante la sesión**: observar **inmediatamente** el color de la piel tras cada pulso. Cualquier blanqueamiento que no se resuelva en segundos obliga a detener la sesión.
-- **Sangrado**: un punto de sangrado puntual no es infrecuente. Sangrado abundante, persistente o desproporcionado obliga a parar, comprimir y revaluar.
+- **Posición**: semisentada, cabeza apoyada y estable.
+- **Distancia/angulación**: boquilla **perpendicular** a la piel, contacto firme sin sobrepresionar. La angulación oblicua dispersa el chorro y aumenta la variabilidad de profundidad.
+- **Presión de trabajo**: la **más baja** que permita ver la deposición. Los dispositivos cosméticos operan entre **4 y 8 bares**; trabajar siempre en el extremo bajo, reservando la alta solo para piel muy gruesa con valoración individual.
+- **Pulsos**: un pulso por punto, patrón ordenado, **separación mínima 5-7 mm** entre puntos en el labio.
+- **Volumen por sesión**: en labio, **no superar 0,5-1 ml por sesión completa**. Volúmenes mayores se reparten en sesiones separadas **2-3 semanas**.
+- **Vigilancia continua**: observar el color tras cada pulso. Todo blanqueamiento que no se resuelva en segundos obliga a **detener**.
+- **Sangrado**: puntual aceptable; abundante, persistente o desproporcionado obliga a parar, comprimir y revaluar.
 
 ### 5.4 · Tras la sesión inmediata
 
-- Compresa fría sobre la zona durante 5-10 minutos, evitando hielo directo.
-- Inspección visual y palpación: simetría, ausencia de nódulos prominentes, perfusión cutánea normal (relleno capilar < 2 segundos en territorio tratado).
-- Documentación fotográfica post inmediata.
-- Entrega del protocolo de aftercare por escrito y de un teléfono de contacto disponible 24 horas para urgencias.
-- **No se realiza masaje intenso** sobre la zona tratada en la sesión.
+- Compresa fría 5-10 min, sin hielo directo.
+- Inspección y palpación: simetría, sin nódulos prominentes, relleno capilar < 2 s.
+- Fotografía post.
+- Entrega del aftercare por escrito y teléfono de contacto 24 h.
+- **No masaje intenso** en la sesión.
 
 ### 5.5 · Cronograma de sesiones
 
-- Sesión única o, en caso de retoque, **separación mínima de 3-4 semanas** entre sesiones para permitir la resolución del edema y la integración del producto.
-- Resultado visible inmediato parcial (volumen edematoso), resultado real estabilizado a las 2-3 semanas, duración aproximada del efecto: 2-4 meses según producto y metabolismo individual.
+- Sesión única o retoque con separación **mínima 3-4 semanas**.
+- Resultado inmediato parcial (edema), estabilizado a **2-3 semanas**, duración aproximada **2-4 meses**.
+
+### 5.6 · Casos clínicos
+
+**Caso 1 · Hidratación y volumen labial leve en paciente de 32 años.** Paciente sana, no fumadora, sin medicación, sin antecedentes de filler previo, expectativa explícita de "hidratación y un punto más de volumen". Se realiza valoración a 72 h, consentimiento firmado citando posición FDA/SEME. Sesión con HA no reticulado trazable, anestesia tópica 40 min, antisepsia con clorhexidina, presión baja del rango (4-5 bares), patrón de puntos con separación 6-7 mm, volumen total 0,7 ml. Sangrado puntual en dos puntos. Edema esperable a las 24 h, resuelto en 5 días. Revisión a las 3 semanas: resultado estable, paciente satisfecha. Duración 3 meses.
+
+**Caso 2 · Negativa razonada de tratamiento en surco nasogeniano.** Paciente de 47 años solicita corrección de surcos nasogenianos moderados-severos con Hyaluron Pen tras ver publicidad en redes. En la consulta se explica la proximidad a la arteria angular, la imposibilidad de aspirar, la profundidad insuficiente y los datos institucionales. Se ofrece informe de derivación a medicina estética para valoración con aguja/cánula. La paciente acepta y agradece la honestidad. **La derivación es parte del protocolo, no un fracaso comercial.**
+
+**Caso 3 · Sospecha de oclusión vascular durante sesión de labio.** Paciente de 28 años, segundo punto del labio superior. Tras el pulso, blanqueamiento local que no se resuelve en 30 s y dolor lancinante referido. Se detiene la sesión, se aplica calor moderado y masaje suave, se contacta con el médico de referencia (disponible telefónicamente) y se inicia traslado al centro concertado. Administración de hialuronidasa por el facultativo en menos de 60 min con protocolo de dosis alta. Resolución sin secuelas a las 48 h. El caso ilustra que **el protocolo de derivación, el médico de referencia y el algoritmo plastificado en cabina no son opcionales**.
 
 ## 6 · Cosmetología aplicada
 
-### 6.1 · Pre-tratamiento (2 semanas previas)
+| Fase | Indicaciones |
+|---|---|
+| **Pre-tratamiento (2 semanas)** | Suspender retinoides, AHA/BHA activos, vitamina C ácida, peelings. Hidratación con HA libre y ceramidas. SPF 50+. Suspender AINEs/AAS no prescritos 5-7 días. Profilaxis antiviral médica si herpes recurrente perioral |
+| **Post inmediato (7-10 días)** | HA libre tópico bajo/medio PM. Regeneradores: pantenol 5 %, centella asiática, alantoína, bisabolol. Niacinamida 4-5 % desde el 2.º día. EGF recombinante opcional. SPF mineral 50+ desde el día siguiente. Evitar maquillaje labial 24-48 h, retinoides y ácidos 7-10 días |
+| **Mantenimiento (desde semana 2)** | Reincorporación gradual de rutina. Hidratantes con HA, péptidos, antioxidantes. Fotoprotección continuada |
 
-- **Suspensión de irritantes**: retinoides, alfa- y beta-hidroxiácidos a concentraciones activas, vitamina C en concentraciones altas o pH muy bajo, peelings, dermoabrasión.
-- **Hidratación intensa** de la zona: cremas con ácido hialurónico libre de bajo peso molecular, ceramidas, glicerina.
-- **Fotoprotección SPF 50+** diaria.
-- **Suspensión de AINEs y AAS no prescritos** los 5-7 días previos para reducir riesgo hemorrágico.
-- Si hay antecedente de herpes labial recurrente y se trata zona perioral, **profilaxis antiviral prescrita por médico** (valaciclovir o aciclovir, según pauta del facultativo) 1-2 días antes y durante 5 días posteriores.
+## 7 · Aftercare
 
-### 6.2 · Cosmética post-tratamiento inmediata
+| Momento | Esperado / Acción |
+|---|---|
+| Día 0 | Edema y eritema esperables, tensión, hormigueo |
+| Día 1 | Pico de edema. Posibles hematomas puntuales. Consultar si dolor desproporcionado, blanqueamiento, pérdida de sensibilidad o cambio de color adyacente |
+| Día 2-3 | Edema en descenso. Equimosis residual. Irregularidades palpables que suelen resolver en 1-2 semanas |
+| Día 5-7 | Resultado intermedio visible |
+| Día 14-21 | Resultado estabilizado. **Cita de revisión obligatoria** |
+| Día 30-45 | Valoración de retoque, fotografía comparativa |
+| Mes 2-4 | Pérdida progresiva del efecto |
 
-Aplicación en cabina al terminar la sesión y durante los primeros 7-10 días en domicilio:
+**Recomendaciones a la paciente**:
 
-- **Ácido hialurónico libre tópico** de bajo y medio peso molecular: hidratación, sin oclusión.
-- **Regeneradores**: pantenol 5 %, madecasósido y extractos de centella asiática, alantoína, bisabolol. La evidencia post-procedimientos cutáneos respalda su uso para reducir eritema y acelerar la reepitelización.
-- **Antiinflamatorios tópicos suaves**: extractos vegetales con efecto descongestionante (manzanilla, hamamelis), niacinamida 4-5 % a partir del segundo día.
-- **Factor de crecimiento epidérmico (EGF)** recombinante: acelera la cicatrización del microtraumatismo cutáneo y mucoso.
-- **Fotoprotección mineral SPF 50+** (óxido de zinc, dióxido de titanio) desde el día siguiente, ininterrumpida durante mínimo 4 semanas.
-- **Evitar**: maquillaje labial las primeras 24-48 horas, retinoides, ácidos exfoliantes, vitamina C ácida durante 7-10 días.
+- Evitar calor directo 72 h (sauna, hammam, ejercicio intenso, sol prolongado).
+- No manipular, masajear ni morder la zona.
+- Evitar alcohol 24 h.
+- Dormir con cabeza elevada 2 noches.
+- Hidratación oral abundante.
+- Sin otros tratamientos faciales durante 7-10 días.
+- **Contactar inmediatamente** si: dolor que aumenta, blanqueamiento, moteado violáceo, pérdida o borrosidad visual, fiebre, mal estado general.
 
-### 6.3 · Cosmética de mantenimiento
-
-A partir de la semana 2:
-
-- Reincorporación gradual de la rutina habitual.
-- Mantenimiento de hidratantes con ácido hialurónico, péptidos y antioxidantes.
-- Fotoprotección continuada.
-- Si se prevé sesión de retoque, anticipar la suspensión de activos irritantes con el margen previo correspondiente.
-
-## 7 · Aftercare y seguimiento
-
-### 7.1 · Cronograma día a día
-
-- **Día 0 (sesión)**: edema y eritema esperables. Sensación de tensión y, en algunos casos, hormigueo. No alarmante.
-- **Día 1**: pico de edema. Posibles hematomas puntuales. La paciente debe consultar si nota dolor desproporcionado, blanqueamiento de zonas circundantes, pérdida de sensibilidad o cambios de color en piel adyacente.
-- **Día 2-3**: descenso progresivo del edema. Posible equimosis residual. Puede aparecer alguna irregularidad palpable que suele resolverse espontáneamente en 1-2 semanas.
-- **Día 5-7**: resultado intermedio visible. Equimosis en resolución.
-- **Día 14-21**: resultado estabilizado. Cita de revisión.
-- **Día 30-45**: revisión para valoración de necesidad de retoque, fotografía comparativa y registro.
-- **Mes 2-4**: pérdida progresiva de efecto. Discutir con la paciente continuidad del tratamiento o alternativas.
-
-### 7.2 · Recomendaciones a la paciente
-
-- Evitar **calor directo** (sauna, hammam, ejercicio intenso, exposición solar prolongada) durante las primeras 72 horas.
-- Evitar **manipulación de la zona**: no presionar, no masajear, no morder, no aplicar productos no recomendados.
-- Evitar **alcohol** las primeras 24 horas para reducir edema.
-- **Dormir con cabeza elevada** las primeras 2 noches.
-- Mantener **hidratación oral** abundante.
-- No someterse a otros tratamientos faciales (limpiezas, mascarillas profesionales, depilación) durante 7-10 días.
-- Contactar inmediatamente con el centro si aparece: dolor intenso que aumenta, cambio de color (blanqueamiento, moteado violáceo), pérdida de visión o visión borrosa, fiebre, mal estado general.
-
-### 7.3 · Masaje, sí o no
-
-El masaje intenso sobre el producto recién depositado **no se recomienda** durante la sesión ni en los días inmediatamente posteriores. Una manipulación muy suave para nivelar pequeñas irregularidades puede realizarse al final de la sesión, sin presión excesiva. La paciente no debe masajearse en domicilio salvo indicación expresa.
-
-### 7.4 · Revisión clínica
-
-Una cita de revisión a los 14-21 días es **parte del protocolo**, no opcional. Sirve para documentar el resultado, valorar irregularidades, atender dudas y detectar complicaciones tardías (granuloma incipiente, infección subaguda, asimetría progresiva).
+El masaje intenso no se recomienda; nivelación muy suave al final de la sesión, sin presión. La paciente no debe masajearse en domicilio salvo indicación expresa.
 
 ## 8 · Manejo de complicaciones
 
-Esta sección es la más importante del curso. La profesional que aplica Hyaluron Pen debe ser capaz de reconocer en segundos una complicación grave y activar la cadena de derivación sin titubeo. **La diferencia entre una recuperación íntegra y una necrosis o ceguera puede medirse en minutos.**
+Esta sección es la más importante del curso. **La diferencia entre recuperación íntegra y necrosis o ceguera puede medirse en minutos.**
 
-### 8.1 · Algoritmo ante sospecha de oclusión vascular
+### 8.1 · Algoritmo · sospecha de oclusión vascular
 
-**Signos precoces (durante o en los minutos siguientes al pulso)**:
+**Signos precoces (minutos)**: blanqueamiento inmediato que no cede a compresión/masaje (cardinal) · dolor desproporcionado, urente o lancinante · livedo reticularis (moteado violáceo) a los 15-30 min · frialdad local · relleno capilar > 3-4 s.
 
-- **Blanqueamiento inmediato** de la zona inyectada o de territorio adyacente, que no se resuelve con compresión ni masaje suave. Es el signo cardinal.
-- **Dolor desproporcionado**, descrito como urente o lancinante, que no cede con la sensación tópica.
-- **Cambio de coloración** progresivo: del blanco isquémico inicial a **moteado violáceo en patrón reticular (livedo reticularis)**, típicamente a los 15-30 minutos, signo de oclusión de la red capilar superficial.
-- **Frialdad** local al tacto.
-- **Relleno capilar prolongado** (> 3-4 segundos al presionar la piel).
+**Signos tardíos (horas-días)**: ampollas violáceas o costras oscuras (necrosis) · progresión de livedo · **síntomas oculares** (dolor, visión borrosa, pérdida visual súbita, diplopía) → **urgencia oftalmológica, traslado hospitalario inmediato** · cefalea intensa o focalidad neurológica → traslado urgente.
 
-**Signos tardíos (horas a días)**:
+**Actuación inmediata**:
 
-- Aparición de **ampollas violáceas o costras oscuras**: necrosis cutánea establecida.
-- Progresión de la livedo reticularis a otras zonas faciales.
-- Síntomas oculares (dolor ocular, visión borrosa, pérdida visual súbita, diplopía): **urgencia oftalmológica máxima, traslado inmediato a hospital**.
-- Cefalea intensa de nueva aparición, focalidad neurológica: traslado urgente.
+1. **Detener** la sesión.
+2. **Calor moderado y masaje suave** sobre la zona (vasodilatación, dispersión).
+3. **Aspirina 300 mg** oral si no hay contraindicación (consultar protocolo médico previo).
+4. **Contactar con médico de referencia o urgencias** sin demora.
+5. **Traslado hospitalario** si signos oculares, neurológicos o necrosis extensa.
+6. **Hialuronidasa**: antídoto del HA. **Prescripción y administración inyectable son acto médico exclusivo en España (AEMPS)**. La esteticista no puede aplicarla legalmente. Debe estar disponible a través del médico de referencia, en dosis altas y repetidas según protocolo.
+7. **Documentar**: hora, signos, actuación y derivación. Es documentación clínica y legal.
 
-**Actuación inmediata ante sospecha**:
-
-1. **Detener la sesión** en el momento. No completar más puntos.
-2. **Aplicar calor moderado y masaje suave** sobre la zona afectada para favorecer la vasodilatación y la dispersión del eventual émbolo.
-3. **Aspirina oral 300 mg** si no hay contraindicación conocida (consultar previamente; algunos protocolos lo incluyen, otros lo reservan al ámbito médico).
-4. **Contactar de inmediato con un médico de referencia o servicio de urgencias**. La profesional debe tener, antes de incorporar el tratamiento, un médico de medicina estética identificado y disponible para emergencias, o un protocolo de derivación hospitalaria escrito.
-5. **Traslado urgente a centro hospitalario** si hay signos de afectación ocular, neurológica o necrosis extensa.
-6. **Hialuronidasa**: es el antídoto del ácido hialurónico. **Su prescripción y administración inyectable en España son acto médico exclusivo**. La esteticista no puede aplicarla legalmente. Su uso debe ser inmediato, en dosis altas y repetidas según protocolo médico, en cuanto un médico esté presente. La AEMPS ha advertido reiteradamente sobre el uso indebido de hialuronidasa por personal no facultativo.
-7. **Documentación**: registrar hora, signos observados, actuación realizada y derivación. Esta documentación es clínica y legal.
-
-**Por qué la oclusión vascular es especialmente preocupante con Hyaluron Pen**: el dispositivo no permite aspirar antes de inyectar, no permite controlar con precisión la profundidad, dispersa el producto en una microcavidad cuya dirección no se elige, y se aplica frecuentemente en zonas (labio, periorbicular) con arterias superficiales variables. Estos cuatro factores combinados explican que las series internacionales de complicaciones reporten oclusiones tras el uso del dispositivo, aunque la incidencia exacta no está cuantificada por la ausencia de registros sistemáticos.
+El Hyaluron Pen es especialmente preocupante por cuatro factores combinados: no permite aspirar, no controla la profundidad, dispersa el producto y se aplica en zonas con arterias superficiales variables.
 
 ### 8.2 · Granulomas tardíos
 
-- **Cronología**: aparición típica entre 4 semanas y 12 meses tras la sesión.
-- **Clínica**: nódulo firme, eritematoso o no, indoloro o levemente sensible, que crece progresivamente o aparece de novo. Puede acompañarse de signos inflamatorios.
-- **Diagnóstico diferencial**: encapsulamiento (más precoz y blando), absceso, infección por micobacterias atípicas, reacción de cuerpo extraño verdadera.
-- **Actuación**: derivación a dermatología o medicina estética. El tratamiento puede incluir corticoide intralesional, hialuronidasa, antibioterapia empírica si se sospecha infección, drenaje quirúrgico o, en última instancia, exéresis. **La esteticista no maneja granulomas establecidos**: documenta, deriva y acompaña.
+Aparición típica 4 semanas-12 meses. Nódulo firme, eritematoso o no, sensible o indoloro, crecimiento progresivo. Diagnóstico diferencial: encapsulamiento (precoz, blando), absceso, micobacterias atípicas, cuerpo extraño. **Derivación** a dermatología o medicina estética; el tratamiento puede incluir corticoide intralesional, hialuronidasa, antibioterapia, drenaje o exéresis. La esteticista documenta, deriva y acompaña; no maneja granulomas establecidos.
 
 ### 8.3 · Edema persistente
 
-Edema que no se resuelve en 7-10 días o que reaparece tardíamente puede deberse a hipersensibilidad al producto, reacción tipo cuerpo extraño incipiente o componente infeccioso. Derivación médica obligada.
+Edema que no se resuelve en 7-10 días o reaparece tardíamente: hipersensibilidad, reacción de cuerpo extraño incipiente o infección. **Derivación médica obligada**.
 
 ### 8.4 · Infección
 
-- **Aguda** (24-72 horas): eritema progresivo, calor, dolor, supuración. Requiere antibioterapia sistémica prescrita por médico, eventualmente drenaje. Documentar lote del producto utilizado.
-- **Subaguda o crónica**: descartar infección por micobacterias no tuberculosas, descritas en complicaciones de procedimientos inyectables realizados con material o producto contaminado. Derivar a dermatología o infectología.
+- **Aguda** (24-72 h): eritema progresivo, calor, dolor, supuración → antibioterapia sistémica prescrita por médico, eventualmente drenaje. Documentar lote.
+- **Subaguda/crónica**: descartar micobacterias no tuberculosas. Derivar a dermatología/infectología.
 
 ### 8.5 · Irregularidades, asimetrías y nódulos no inflamatorios
 
-- Pueden requerir **hialuronidasa** para corrección. Acto médico exclusivo.
-- Documentar fotográficamente y derivar para valoración por facultativo.
-- La paciente no debe ser tratada con maniobras agresivas en cabina (masaje intensivo, agujas sin esterilidad) por riesgo de complicación añadida.
+Pueden requerir **hialuronidasa** (acto médico exclusivo). Documentar fotográficamente y derivar. No tratar en cabina con maniobras agresivas.
 
-### 8.6 · Postura ética frente al sistema de derivación
+### 8.6 · Sistema de derivación · postura ética
 
-Una profesional que va a aplicar Hyaluron Pen **debe tener un médico de referencia identificado** antes de su primera sesión. Idealmente:
+Una profesional que aplica Hyaluron Pen **debe tener antes de su primera sesión**:
 
-- Un médico de medicina estética con disponibilidad telefónica para urgencias.
-- Un protocolo escrito de derivación hospitalaria, con direcciones y servicios concretos de oftalmología y urgencias de referencia.
-- Un kit de emergencia en cabina que, sin contener fármacos de prescripción, sí incluya material para compresión, calor, oxígeno si está disponible y una hoja de algoritmo plastificada y visible.
+- Médico de medicina estética de referencia con disponibilidad telefónica.
+- Protocolo escrito de derivación hospitalaria (oftalmología y urgencias).
+- Kit de emergencia en cabina (material de compresión, calor, algoritmo plastificado).
 - Seguro de responsabilidad civil profesional que cubra explícitamente la técnica.
 
 Trabajar sin esta infraestructura es negligente.
@@ -387,38 +321,17 @@ d) Aplicarlo solo en surcos nasogenianos y glabela, donde el resultado es más v
 
 ## 10 · Referencias
 
-Las referencias se ordenan por categoría. Las fuentes regulatorias e institucionales tienen prioridad sobre la literatura científica primaria por la naturaleza preventiva del curso.
-
-### Documentos regulatorios e institucionales
-
-- **U.S. Food and Drug Administration (FDA)**. *Do Not Use Needle-Free Devices for Injection of Dermal Fillers — FDA Safety Communication*. Octubre 2021. Advertencia oficial frente a Hyaluron Pen, Hyla-Pen, microinyectores, plumas de alta presión y nebulizadores no invasivos. Reporta lesiones graves y daño permanente.
-- **Agencia Española de Medicamentos y Productos Sanitarios (AEMPS)**. Nota informativa sobre el uso correcto de la hialuronidasa. Advertencia sobre el uso indebido por personal no facultativo y sobre la confusión entre productos cosméticos y medicamentos.
-- **Sociedad Española de Medicina Estética (SEME)**. Denuncia ante la AEMPS sobre la comercialización de dispositivos a presión tipo HialuronPen, advirtiendo del riesgo de encapsulamiento, granuloma e imposibilidad de control del plano de inyección. Recomendaciones para el uso correcto de la hialuronidasa.
-- **American Academy of Dermatology (AAD)**. *Needle-free fillers: the risks you need to know about*. Comunicado dirigido al público y a profesionales.
-- **Cleveland Clinic Health Essentials**. *The Dangers of Hyaluron Pen Lip Fillers*. Comunicación divulgativa basada en posición institucional.
-- **Save Face (Reino Unido)**. Campañas de información al consumidor frente a tratamientos inyectables realizados por personal no sanitario.
-
-### Literatura científica primaria
-
-- Seok J, Hong JY, Choi SY, Park KY, Kim BJ. *Investigating skin penetration depth and shape following needle-free injection at different pressures: A cadaveric study*. *Lasers in Surgery and Medicine*, 2016. Documenta profundidades de infiltración de 2,3-3,5 mm a 6 bares y 7,5-8,9 mm a 8,5 bares en mejilla cadavérica.
-- Choi S, et al. *Hyaluronic acid injection via a pneumatic microjet device to improve forehead wrinkles*. *Journal of the European Academy of Dermatology and Venereology*, 2017.
-- Vinshtok Y, et al. *Biochemical and physical actions of hyaluronic acid delivered by intradermal jet injection route*. *Journal of Cosmetic Dermatology*, 2020.
-- Casabona G, et al. Revisión sobre necrosis y oclusión arterial tras inyección de ácido hialurónico. *Plastic and Reconstructive Surgery*, revisiones consultadas.
-- Beleznay K, Carruthers JDA, Humphrey S, Jones D. *Avoiding and treating blindness from fillers: a review of the world literature*. *Dermatologic Surgery*. Revisión de referencia sobre ceguera por filler.
-- DeLorenzi C. *Complications of injectable fillers, part 2: vascular complications*. *Aesthetic Surgery Journal*. Marco fisiopatológico y algoritmo clínico.
-- King M, Convery C, Davies E. *This month's guideline: management of hyaluronic acid filler-induced vascular occlusion*. *Journal of Clinical and Aesthetic Dermatology* (CMAC guideline).
-- Casos clínicos publicados en *Archivos de la Sociedad Española de Oftalmología* sobre oclusión de la arteria central de la retina y síndrome de isquemia ocular tras inyección facial de ácido hialurónico.
-
-### Anatomía aplicada
-
-- Cotofana S, Lachman N, et al. Trabajos sobre anatomía vascular facial y zonas de peligro en relleno facial.
-- Trabajos ecográficos sobre la variabilidad anatómica de las arterias labial superior e inferior, documentando que las arterias cambian de plano hasta en un tercio de los pacientes y que el material inyectado se localiza próximo a las labiales en más del 58 % de las infiltraciones labiales.
-
-### Hialuronidasa y manejo de complicaciones
-
-- King M, et al. *Guideline for the safe use of hyaluronidase in aesthetic medicine, including modified high-dose protocol*. *Journal of Clinical and Aesthetic Dermatology*.
-- Trabajos de revisión sobre dosificación y disponibilidad de hialuronidasa fuera del entorno hospitalario.
+- **FDA**. *Do Not Use Needle-Free Devices for Injection of Dermal Fillers — Safety Communication*. Octubre 2021.
+- **AEMPS**. Nota informativa sobre el uso correcto de la hialuronidasa y advertencia sobre uso indebido por personal no facultativo.
+- **SEME**. Denuncia ante la AEMPS sobre comercialización de dispositivos a presión tipo HialuronPen; recomendaciones sobre hialuronidasa.
+- **American Academy of Dermatology**. *Needle-free fillers: the risks you need to know about*.
+- **Save Face (Reino Unido)**. Campañas de información al consumidor.
+- Seok J, Hong JY, Choi SY, Park KY, Kim BJ. *Investigating skin penetration depth and shape following needle-free injection at different pressures: A cadaveric study*. *Lasers Surg Med*, 2016.
+- Beleznay K, Carruthers JDA, Humphrey S, Jones D. *Avoiding and treating blindness from fillers: a review of the world literature*. *Dermatol Surg*.
+- DeLorenzi C. *Complications of injectable fillers, part 2: vascular complications*. *Aesthet Surg J*.
+- King M, Convery C, Davies E. *Management of hyaluronic acid filler-induced vascular occlusion*. *J Clin Aesthet Dermatol* (CMAC guideline).
+- King M, et al. *Guideline for the safe use of hyaluronidase in aesthetic medicine, including modified high-dose protocol*. *J Clin Aesthet Dermatol*.
 
 ---
 
-**Nota final de honestidad clínica**. Este curso se ha redactado en un contexto en el que las principales autoridades sanitarias internacionales (FDA, AEMPS, SEME, AAD) desaconsejan el uso del Hyaluron Pen para infiltrar rellenos dérmicos. PRECISSA INSTITUTE asume esta realidad y forma con la convicción de que la profesional rigurosa y crítica es más segura para la paciente que la operadora autodidacta y entusiasta. La incorporación de la técnica a la cabina exige una valoración legal, profesional y aseguradora individualizada. En caso de duda, la posición conservadora —no aplicar, o aplicar solo bajo cobertura médica explícita— es siempre la más defendible.
+**Nota final de honestidad clínica**. Las principales autoridades sanitarias (FDA, AEMPS, SEME, AAD) desaconsejan el uso del Hyaluron Pen para infiltrar rellenos dérmicos. PRECISSA INSTITUTE forma con la convicción de que la profesional rigurosa y crítica es más segura para la paciente que la operadora autodidacta. La incorporación de la técnica a cabina exige valoración legal, profesional y aseguradora individualizada. En caso de duda, la posición conservadora —no aplicar, o aplicar solo bajo cobertura médica explícita— es siempre la más defendible.
