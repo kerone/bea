@@ -8,34 +8,24 @@
   "scope": "/",
   "id": "/",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
   "orientation": "any",
   "background_color": "#F2ECE3",
   "theme_color": "#F2ECE3",
   "categories": ["education", "business", "lifestyle"],
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "/assets/favicon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
       "src": "/assets/favicon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/assets/favicon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/assets/favicon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ],
   "shortcuts": [
@@ -44,14 +34,14 @@
       "short_name": "Cursos",
       "description": "Catálogo de cursos profesionales",
       "url": "/#cursos",
-      "icons": [{ "src": "/assets/favicon-192.png", "sizes": "192x192" }]
+      "icons": [{ "src": "/assets/favicon-192.png", "sizes": "192x192", "type": "image/png" }]
     },
     {
       "name": "Mi aula",
       "short_name": "Aula",
       "description": "Acceso al aula virtual del alumnado",
       "url": "/#aula",
-      "icons": [{ "src": "/assets/favicon-192.png", "sizes": "192x192" }]
+      "icons": [{ "src": "/assets/favicon-192.png", "sizes": "192x192", "type": "image/png" }]
     }
   ]
 }
