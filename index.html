@@ -301,6 +301,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   font-family: var(--serif); font-size: 24px; letter-spacing: 0.14em;
   color: var(--ink); cursor: pointer; flex-shrink: 0;
   line-height: 1; text-align: center; white-space: nowrap;
+  margin: 0 32px;
 }
 .nav-logo-sub {
   display: block;
@@ -448,6 +449,12 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   .nav-row1, .nav-row2 { display: none; }
   .nav-mobile { display: grid; }
   .tab-bar { display: block; }
+}
+/* Mobile landscape / tablets pequenas: mantener mobile nav hasta 920px
+   asi evitamos que el desktop nav se vea apretado en esos anchos */
+@media (min-width: 769px) and (max-width: 920px) {
+  .nav-row1, .nav-row2 { display: none; }
+  .nav-mobile { display: grid; }
 }
 </style>
 </head>
