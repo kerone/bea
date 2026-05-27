@@ -38,7 +38,8 @@
 <meta name="twitter:image" content="https://precissainstitute.com/assets/og-image.jpg">
 
 <!-- ═══ FAVICON & THEME ══════════════════════════════════════ -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23241D17'/%3E%3Ctext x='50' y='62' text-anchor='middle' fill='%23F2ECE3' font-family='serif' font-size='52' font-style='italic'%3EP%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon-180.png">
 <meta name="theme-color" content="#F2ECE3">
 <meta name="apple-mobile-web-app-title" content="PRECISSA">
 
@@ -646,7 +647,15 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   font-size: 42px; color: rgba(255,255,255,0.6);
   line-height: 1;
 }
-.area-card-body { padding: 22px; }
+.area-card-body { padding: 22px; position: relative; }
+.area-card-seal {
+  position: absolute; right: 18px; bottom: 18px;
+  width: 30px; height: 30px;
+  opacity: 0.32; pointer-events: none;
+  filter: saturate(0.7);
+  transition: opacity 0.3s ease;
+}
+.area-card:hover .area-card-seal { opacity: 0.55; }
 .area-cat { font-size: 11px; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px; }
 .area-title { font-family: var(--serif); font-size: 28px; letter-spacing: -0.01em; line-height: 1.15; margin-bottom: 10px; }
 .area-desc { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; margin-bottom: 18px; }
@@ -733,6 +742,17 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .newsletter { position: relative; height: 380px; overflow: hidden; }
 .newsletter-bg { width: 100%; height: 100%; }
 .newsletter-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(36,29,23,0.82) 0%, rgba(36,29,23,0.4) 100%); }
+.newsletter-watermark {
+  position: absolute; right: -80px; top: 50%;
+  width: 520px; height: 520px;
+  transform: translateY(-50%);
+  opacity: 0.10; pointer-events: none;
+  filter: brightness(1.4) contrast(0.9);
+  z-index: 1;
+}
+@media (max-width: 768px) {
+  .newsletter-watermark { width: 320px; height: 320px; right: -100px; opacity: 0.08; }
+}
 .newsletter-content {
   position: absolute; inset: 0; display: flex; flex-direction: column;
   justify-content: center; padding: 0 56px; max-width: 640px;
@@ -1008,6 +1028,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   <section class="newsletter">
     <div class="ph ph-honey newsletter-bg"></div>
     <div class="newsletter-overlay"></div>
+    <img src="assets/seal-ss-lg.webp" alt="" class="newsletter-watermark" aria-hidden="true" loading="lazy">
     <div class="newsletter-content">
       <span class="eyebrow white">· Diario PRECISSA INSTITUTE</span>
       <h2 class="newsletter-h2">Suscríbete al diario<br>de cabina. Protocolos,<br>fichas y <em>ofertas en<br>aparatología.</em></h2>
@@ -4015,6 +4036,7 @@ function renderAreasHome() {
           <div class="area-title">${escapeHtml(cat.label)}</div>
           <p class="area-desc">${escapeHtml(d.desc)}</p>
           <button class="btn btn-text">Ver itinerario →</button>
+          <img src="assets/seal-ss.webp" alt="" class="area-card-seal" aria-hidden="true" loading="lazy">
         </div>
       </div>`;
   }).join('');
