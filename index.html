@@ -325,14 +325,19 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   height: 1.5px; background: var(--accent); border-radius: 2px;
 }
 .nav-icon { font-size: 15px; color: var(--ink-soft); cursor: pointer; position: relative; }
-.nav-ig {
-  display: inline-flex; align-items: center; justify-content: center;
-  color: var(--ink-soft); text-decoration: none;
-  transition: color 0.15s, transform 0.12s;
-  padding: 6px;
+.drawer-ig {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none; color: var(--ink);
+  padding: 12px 0; border-bottom: 1px solid var(--line);
+  font-size: 15px; font-weight: 400;
+  transition: color 0.15s;
 }
-.nav-ig:hover { color: var(--accent); transform: translateY(-1px); }
-.nav-ig svg { display: block; }
+.drawer-ig:hover { color: var(--accent); }
+.drawer-ig svg { flex-shrink: 0; }
+.footer-social-ig {
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.footer-social-ig svg { flex-shrink: 0; }
 .cart-badge {
   position: absolute; top: -6px; right: -8px;
   background: var(--accent); color: #fff;
@@ -459,9 +464,6 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     </div>
     <div class="nav-logo" onclick="goTo('home','')">PRECISSA INSTITUTE<span class="nav-logo-sub">Dermocosmiatría &amp; Electroestética</span></div>
     <div class="nav-right">
-      <a href="https://www.instagram.com/precissainstitute" target="_blank" rel="noopener" class="nav-ig" aria-label="Instagram PRECISSA INSTITUTE">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.7"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
-      </a>
       <button class="btn btn-dark btn-sm acceder-btn" onclick="goTo('aula','docencia')">Acceder</button>
       <button class="btn btn-text mi-aula-btn" style="display:none;border-bottom:none;padding-bottom:0" onclick="goTo('aula','docencia')">Mi aula</button>
     </div>
@@ -480,9 +482,6 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <button class="hamburger" onclick="openDrawer()">☰</button>
     <div class="nav-logo" onclick="goTo('home','')">PRECISSA INSTITUTE<span class="nav-logo-sub">Dermocosmiatría &amp; Electroestética</span></div>
     <div class="nav-mobile-right">
-      <a href="https://www.instagram.com/precissainstitute" target="_blank" rel="noopener" class="nav-ig" aria-label="Instagram PRECISSA INSTITUTE" style="padding:4px">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.7"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
-      </a>
       <button class="btn btn-dark btn-sm acceder-btn" style="padding:8px 14px;font-size:12px" onclick="goTo('aula','docencia')">Acceder</button>
       <button class="btn btn-text mi-aula-btn" style="display:none;font-size:12px;border-bottom:none;padding-bottom:0" onclick="goTo('aula','docencia')">Mi aula</button>
     </div>
@@ -494,6 +493,10 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   <div class="drawer-overlay" onclick="closeDrawer()"></div>
   <div class="drawer-panel">
     <button class="drawer-close" onclick="closeDrawer()">✕</button>
+    <a href="https://www.instagram.com/precissainstitute" target="_blank" rel="noopener" class="drawer-ig" onclick="closeDrawer()" aria-label="Instagram PRECISSA INSTITUTE">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.7"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+      <span>Instagram</span>
+    </a>
     <div class="drawer-section">Docencia</div>
     <div class="drawer-subitem" onclick="goTo('cursos','docencia');closeDrawer()">Cursos · ver todos</div>
     <div id="drawer-cursos-cats"><!-- 4 categorías inyectadas por JS --></div>
@@ -1084,7 +1087,10 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <div class="footer-bottom">
       <span class="footer-copy">© 2026 PRECISSA INSTITUTE · Todos los derechos reservados</span>
       <div class="footer-socials">
-        <a class="footer-social" href="https://www.instagram.com/precissainstitute" target="_blank" rel="noopener">Instagram</a>
+        <a class="footer-social footer-social-ig" href="https://www.instagram.com/precissainstitute" target="_blank" rel="noopener" aria-label="Instagram PRECISSA INSTITUTE">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.7"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+          <span>Instagram</span>
+        </a>
         <span class="footer-social">YouTube</span>
         <span class="footer-social">TikTok</span>
       </div>
