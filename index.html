@@ -3952,11 +3952,14 @@ function renderDrawerCategorias() {
 // ─── HOME · render dinamico de Areas de especializacion ─────
 // Editorial: cada categoria tiene un titulo y descripcion mas
 // evocativos que su tagline. Aqui los mapeamos por id.
+// AREA_DISPLAY mantiene el placeholder de color y la descripcion editorial
+// por categoria. El titulo grande de cada area se toma directamente de
+// cat.label para que coincida con la categoria de la pagina de Cursos.
 const AREA_DISPLAY = {
-  'estetica-facial-avanzada': { ph: 'ph-rose', title: 'Piel &<br>cabina',          desc: 'Higiene profunda, peelings, antiacné, despigmentantes y rejuvenecimiento. Cosmetología avanzada y servicios de cabina facial.' },
-  'electroestetica':          { ph: 'ph-clay', title: 'Tecnología<br>de la piel',  desc: 'Radiofrecuencia, ultrasonidos focalizados, láser y luz pulsada aplicados con precisión clínica.' },
-  'micropigmentacion':        { ph: 'ph-dusk', title: 'Diseño &<br>pigmento',      desc: 'Técnica, color y seguridad para micropigmentación de cejas, labios y delineado.' },
-  'corporal-bienestar':       { ph: 'ph-sand', title: 'Cuerpo &<br>bienestar',     desc: 'Técnicas manuales y combinadas: drenaje linfático, maderoterapia y masajes reductores.' }
+  'estetica-facial-avanzada': { ph: 'ph-rose', desc: 'Higiene profunda, peelings, antiacné, despigmentantes y rejuvenecimiento. Cosmetología avanzada y servicios de cabina facial.' },
+  'electroestetica':          { ph: 'ph-clay', desc: 'Radiofrecuencia, ultrasonidos focalizados, láser y luz pulsada aplicados con precisión clínica.' },
+  'micropigmentacion':        { ph: 'ph-dusk', desc: 'Técnica, color y seguridad para micropigmentación de cejas, labios y delineado.' },
+  'corporal-bienestar':       { ph: 'ph-sand', desc: 'Técnicas manuales y combinadas: drenaje linfático, maderoterapia y masajes reductores.' }
 };
 const AREA_ROMAN = ['I','II','III','IV','V','VI'];
 function renderAreasHome() {
@@ -3964,7 +3967,7 @@ function renderAreasHome() {
   if (!grid) return;
   const cats = window.PRECISSA_CATEGORIES || [];
   grid.innerHTML = cats.map((cat, i) => {
-    const d = AREA_DISPLAY[cat.id] || { ph: 'ph-sand', title: escapeHtml(cat.label), desc: escapeHtml(cat.tagline || '') };
+    const d = AREA_DISPLAY[cat.id] || { ph: 'ph-sand', desc: cat.tagline || '' };
     return `
       <div class="area-card" style="cursor:pointer" onclick="goToCursosCategory('${cat.id}')">
         <div class="area-card-img ph ${d.ph}">
@@ -3972,9 +3975,8 @@ function renderAreasHome() {
           <div class="ph-label">${escapeHtml(cat.id)} · PRECISSA INSTITUTE</div>
         </div>
         <div class="area-card-body">
-          <div class="area-cat">${escapeHtml(cat.label)}</div>
-          <div class="area-title">${d.title}</div>
-          <p class="area-desc">${d.desc}</p>
+          <div class="area-title">${escapeHtml(cat.label)}</div>
+          <p class="area-desc">${escapeHtml(d.desc)}</p>
           <button class="btn btn-text">Ver itinerario →</button>
         </div>
       </div>`;
