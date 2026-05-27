@@ -20,7 +20,7 @@
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 a:hover { color: var(--accent-dark); }
 
@@ -71,7 +71,8 @@ ul, ol { margin: 0 0 18px 22px; }
 li { margin-bottom: 8px; color: var(--ink-soft); line-height: 1.65; }
 li strong { color: var(--ink); font-weight: 600; }
 
-.legal-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 18px 0; }
+.legal-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 18px 0; display: block; overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; }
+.legal-table thead, .legal-table tbody { display: table; width: 100%; table-layout: auto; }
 .legal-table th, .legal-table td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
 .legal-table th { font-family: var(--sans); font-weight: 600; font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--ink); background: var(--bg2); }
 .legal-table td { color: var(--ink-soft); }
