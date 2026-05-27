@@ -136,7 +136,7 @@
 /* ─── RESET ──────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 img { display: block; max-width: 100%; }
 a { text-decoration: none; color: inherit; }
 button { cursor: pointer; font-family: var(--sans); border: none; background: none; }
@@ -1323,7 +1323,8 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .ac-materia blockquote { border-left: 3px solid var(--accent); padding: 8px 18px; margin: 0 0 1em; color: var(--ink-soft); background: var(--bg2); border-radius: 0 8px 8px 0; }
 .ac-materia hr { border: none; border-top: 1px solid var(--line); margin: 2em 0; }
 .ac-materia a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
-.ac-materia table { width: 100%; border-collapse: collapse; margin: 0 0 1.4em; font-size: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.ac-materia table { width: 100%; border-collapse: collapse; margin: 0 0 1.4em; font-size: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; display: block; overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; }
+.ac-materia table thead, .ac-materia table tbody { display: table; width: 100%; table-layout: auto; }
 .ac-materia th { background: var(--bg2); text-align: left; padding: 10px 14px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 1px solid var(--line); }
 .ac-materia td { padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.5; }
 .ac-materia tr:last-child td { border-bottom: none; }
