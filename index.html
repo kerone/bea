@@ -566,12 +566,13 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 }
 .hero-left::before {
   content: ''; position: absolute;
-  bottom: -120px; right: -140px;
-  width: 520px; height: 520px;
+  bottom: -40px;
+  left: 50%; transform: translateX(-50%);
+  width: 440px; height: 440px;
   background: url('/assets/seal-ss.webp') center/contain no-repeat;
   border-radius: 50%;
-  opacity: 0.06; pointer-events: none;
-  filter: saturate(0.7);
+  opacity: 0.07; pointer-events: none;
+  filter: saturate(0.65);
   z-index: 0;
 }
 .hero-left > * { position: relative; z-index: 1; }
