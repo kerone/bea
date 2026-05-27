@@ -428,7 +428,7 @@ b) Paciente con hepatopatía activa
 c) Paciente con piel fototipo IV
 d) Paciente fumadora
 
-**5. La hiperpigmentación post-inflamatoria no es la complicación principal del vacuum, sino del Plasma Pen. ¿Cuál es la complicación más frecuente del vacuum terapia?**
+**5. La hiperpigmentación post-inflamatoria no es la complicación principal del vacuum, sino del Plasmapen. ¿Cuál es la complicación más frecuente del vacuum terapia?**
 
 a) Quemadura térmica
 b) Equimosis y hematomas

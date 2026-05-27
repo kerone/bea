@@ -1,4 +1,4 @@
-# Curso · Plasma Pen
+# Curso · Plasmapen
 
 > Sublimación epidérmica controlada con plasma frío atmosférico: indicaciones reales, riesgos honestos y protocolo profesional ajustado al marco normativo español.
 
@@ -19,7 +19,7 @@
 
 ## 1 · Introducción y posicionamiento clínico y legal
 
-El Plasma Pen sublima tejido epidérmico mediante un arco voltaico de alta frecuencia que ioniza el aire entre la punta y la piel. Bien indicado y ejecutado, ofrece resultados sólidos en blefaroplastia no quirúrgica, fibromas blandos, queratosis seborreicas y arrugas finas periorales y periorbitarias, con duración de uno a tres años. Mal ejecutado, deja cicatrices puntiformes permanentes, hipopigmentación o una PIH que en pieles oscuras puede no resolverse. La diferencia depende de tres variables: selección del paciente, parámetros técnicos y aftercare disciplinado.
+El Plasmapen sublima tejido epidérmico mediante un arco voltaico de alta frecuencia que ioniza el aire entre la punta y la piel. Bien indicado y ejecutado, ofrece resultados sólidos en blefaroplastia no quirúrgica, fibromas blandos, queratosis seborreicas y arrugas finas periorales y periorbitarias, con duración de uno a tres años. Mal ejecutado, deja cicatrices puntiformes permanentes, hipopigmentación o una PIH que en pieles oscuras puede no resolverse. La diferencia depende de tres variables: selección del paciente, parámetros técnicos y aftercare disciplinado.
 
 **Posicionamiento legal en España**: la AEMPS y la jurisprudencia del Tribunal Supremo (ratificada por la SEME) consideran que las técnicas de sublimación cutánea con arco eléctrico que producen agresión térmica controlada sobre la piel se inscriben en el ámbito de la medicina estética y, por tanto, su indicación y ejecución corresponden a personal facultativo. El Reglamento de Ejecución (UE) 2022/2346 y el RD 192/2023 refuerzan los requisitos de seguridad de estos productos del Anexo XVI. La profesional de estética puede colaborar bajo supervisión médica en el ámbito de un centro autorizado conforme al RD 1277/2003, asumir el aftercare cosmético y la cosmetología pre y post, pero no debe operar el dispositivo de forma autónoma fuera de ese marco. Este curso forma a la profesional para integrar correctamente esa colaboración y para reconocer los límites de su competencia.
 
@@ -36,7 +36,7 @@ Aunque la acción es epidérmica, el blanco terapéutico real es el **fibroblast
 
 Esta cronología justifica los **intervalos de 8-12 semanas entre sesiones**: tratar antes interrumpe la remodelación y solo añade riesgo.
 
-Frente a otras tecnologías: el láser ablativo (CO₂, Er:YAG) entrega fotones absorbidos por el agua tisular; la radiofrecuencia calienta volumétricamente; el electrocauterio conduce corriente a través del tejido. El plasma pen sublima puntualmente sin contacto eléctrico directo y depende fuertemente de la mano.
+Frente a otras tecnologías: el láser ablativo (CO₂, Er:YAG) entrega fotones absorbidos por el agua tisular; la radiofrecuencia calienta volumétricamente; el electrocauterio conduce corriente a través del tejido. El plasmapen sublima puntualmente sin contacto eléctrico directo y depende fuertemente de la mano.
 
 La piel periorbitaria (60-80 µm de epidermis) y la del cuello son particularmente finas y exigen intensidades reducidas y mayor separación entre puntos. La densidad melanocitaria del estrato basal determina el riesgo de hiperpigmentación post-inflamatoria.
 
@@ -90,7 +90,7 @@ La piel periorbitaria (60-80 µm de epidermis) y la del cuello son particularmen
 1. **Anamnesis estructurada**: enfermedades sistémicas, medicación, alergias, fototipo, antecedentes de cicatrización, herpes, embarazos.
 2. **Exploración física**: Fitzpatrick, valoración de la zona, descarte de lesiones sospechosas, fotografía estandarizada.
 3. **Información**: mecanismo, aftercare, cronograma de costras, riesgos. Mostrar fotos reales de días 1, 3, 7 y 14.
-4. **Consentimiento informado escrito**, específico para plasma pen, con mención explícita de PIH, hipopigmentación, cicatriz y necesidad de fotoprotección.
+4. **Consentimiento informado escrito**, específico para plasmapen, con mención explícita de PIH, hipopigmentación, cicatriz y necesidad de fotoprotección.
 5. **Agendado diferido**: nunca tratar el día de la valoración. Mínimo 48-72 h.
 
 ### 5.2 · Preparación de la piel
@@ -234,23 +234,23 @@ Sospecha de infección bacteriana o vírica · PIH grave o sin respuesta en 8-12
 
 ## 9 · Test de evaluación
 
-**1. ¿Cuál es la profundidad habitual de la sublimación inducida por plasma pen en condiciones normales de uso?**
+**1. ¿Cuál es la profundidad habitual de la sublimación inducida por plasmapen en condiciones normales de uso?**
 
 - a) 5-10 µm, solo estrato córneo
 - b) 40-150 µm, epidermis hasta unión dermo-epidérmica ✓
 - c) 500 µm, dermis reticular
 - d) 1-2 mm, hipodermis
 
-*Feedback*: el plasma pen es una técnica fundamentalmente epidérmica; la acción sobre el fibroblasto es indirecta, por proximidad térmica y señalización inflamatoria.
+*Feedback*: el plasmapen es una técnica fundamentalmente epidérmica; la acción sobre el fibroblasto es indirecta, por proximidad térmica y señalización inflamatoria.
 
-**2. ¿Cuál de estos es el riesgo MÁS frecuente en piel Fitzpatrick V tratada con plasma pen?**
+**2. ¿Cuál de estos es el riesgo MÁS frecuente en piel Fitzpatrick V tratada con plasmapen?**
 
 - a) Cicatriz queloidea
 - b) Infección bacteriana
 - c) Hiperpigmentación post-inflamatoria ✓
 - d) Hipopigmentación permanente
 
-*Feedback*: la PIH es la complicación más prevalente y la razón por la que muchos autores desaconsejan el plasma pen en fototipos V-VI. Las técnicas que generan más calor y coagulación son las de mayor riesgo de PIH.
+*Feedback*: la PIH es la complicación más prevalente y la razón por la que muchos autores desaconsejan el plasmapen en fototipos V-VI. Las técnicas que generan más calor y coagulación son las de mayor riesgo de PIH.
 
 **3. ¿Qué ingrediente está contraindicado las primeras 2-4 semanas post-tratamiento?**
 
@@ -261,7 +261,7 @@ Sospecha de infección bacteriana o vírica · PIH grave o sin respuesta en 8-12
 
 *Feedback*: los retinoides interfieren con la reepitelización, aumentan la irritación y elevan el riesgo de hiperpigmentación inflamatoria. Se reintroducen progresivamente a partir de la semana 4-6.
 
-**4. ¿Cuál es el intervalo mínimo recomendado entre dos sesiones de plasma pen en la misma zona?**
+**4. ¿Cuál es el intervalo mínimo recomendado entre dos sesiones de plasmapen en la misma zona?**
 
 - a) 1 semana
 - b) 3-4 semanas
@@ -286,7 +286,7 @@ Sospecha de infección bacteriana o vírica · PIH grave o sin respuesta en 8-12
 - c) Lesión pigmentada de bordes irregulares, asimétrica, de aparición reciente ✓
 - d) Paciente con dermatocalasia leve del párpado superior
 
-*Feedback*: cualquier lesión pigmentada con criterios ABCDE de sospecha exige derivación a dermatólogo antes de aplicar plasma. Tratar una lesión maligna con plasma pen retrasa el diagnóstico y puede empeorar el pronóstico.
+*Feedback*: cualquier lesión pigmentada con criterios ABCDE de sospecha exige derivación a dermatólogo antes de aplicar plasma. Tratar una lesión maligna con plasmapen retrasa el diagnóstico y puede empeorar el pronóstico.
 
 **7. Una paciente acude al día 5 post-tratamiento con eritema que se extiende más allá de la zona tratada, dolor creciente y sensación de calor local. ¿Qué procede?**
 
