@@ -380,6 +380,8 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 }
 .nav-sub-link-wrap { position: relative; }
 .nav-sub-link-wrap:hover .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+.nav-link-wrap { position: relative; display: inline-flex; align-items: center; }
+.nav-link-wrap:hover .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
 .nav-dropdown {
   position: absolute; top: 100%; left: 0; margin-top: 8px;
   background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
@@ -488,7 +490,19 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   <!-- Desktop row 1 -->
   <div class="nav-row1">
     <div class="nav-left">
-      <span class="nav-link active" onclick="goTo('home','docencia')">Docencia <span style="font-size:10px">▾</span></span>
+      <span class="nav-link-wrap">
+        <span class="nav-link active" onclick="goTo('cursos','docencia')">Docencia <span style="font-size:10px">▾</span></span>
+        <div class="nav-dropdown" id="docencia-dropdown">
+          <span class="nav-dropdown-item" onclick="goTo('cursos','docencia')">Ver todos los cursos</span>
+          <div class="nav-dropdown-sep"></div>
+          <span class="nav-dropdown-item" onclick="goToCursosCategory('estetica-facial-avanzada')">Estética facial avanzada</span>
+          <span class="nav-dropdown-item" onclick="goToCursosCategory('electroestetica')">Electroestética</span>
+          <span class="nav-dropdown-item" onclick="goToCursosCategory('micropigmentacion')">Micropigmentación</span>
+          <span class="nav-dropdown-item" onclick="goToCursosCategory('corporal-bienestar')">Corporal y bienestar</span>
+          <div class="nav-dropdown-sep"></div>
+          <span class="nav-dropdown-item" onclick="goTo('aula','docencia')">Mi aula</span>
+        </div>
+      </span>
       <span class="nav-link" onclick="goTo('tienda','aparatologia')">Aparatología</span>
       <span class="nav-link">Diario</span>
     </div>
