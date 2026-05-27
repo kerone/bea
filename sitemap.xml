@@ -11,6 +11,14 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Landing pages SEO por tratamiento + ciudad (URLs reales) -->
+  <url>
+    <loc>https://precissainstitute.com/cursos/plasmapen-valencia/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
   <url>
     <loc>https://precissainstitute.com/#cursos</loc>
     <changefreq>weekly</changefreq>
