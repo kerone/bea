@@ -562,7 +562,31 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .hero-left {
   background: var(--bg); padding: 72px 64px 72px 56px;
   display: flex; flex-direction: column; justify-content: center;
+  position: relative; overflow: hidden;
 }
+.hero-left::before {
+  content: ''; position: absolute;
+  bottom: -120px; right: -140px;
+  width: 520px; height: 520px;
+  background: url('/assets/seal-ss.webp') center/contain no-repeat;
+  border-radius: 50%;
+  opacity: 0.06; pointer-events: none;
+  filter: saturate(0.7);
+  z-index: 0;
+}
+.hero-left > * { position: relative; z-index: 1; }
+.hero-ig {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 22px;
+  font-size: 13px; font-weight: 500;
+  color: var(--ink-soft); text-decoration: none;
+  transition: color 0.15s, gap 0.15s;
+  align-self: flex-start;
+}
+.hero-ig:hover { color: var(--accent); gap: 10px; }
+.hero-ig svg { display: block; flex-shrink: 0; }
+.hero-ig .hero-ig-arrow { transition: transform 0.15s; }
+.hero-ig:hover .hero-ig-arrow { transform: translateX(2px); }
 .hero-h1 {
   font-family: var(--serif); font-size: 80px; line-height: 0.98;
   letter-spacing: -0.022em; color: var(--ink);
@@ -878,6 +902,11 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
         <button class="btn btn-dark" onclick="goTo('cursos','docencia')">Ver cursos →</button>
         <button class="btn btn-outline" onclick="goTo('tienda','aparatologia')">Aparatología</button>
       </div>
+      <a href="https://www.instagram.com/precissainstitute" target="_blank" rel="noopener" class="hero-ig" aria-label="Instagram PRECISSA INSTITUTE">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.7"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+        <span>Síguenos en Instagram</span>
+        <span class="hero-ig-arrow">→</span>
+      </a>
     </div>
     <div class="hero-right" style="position:relative;overflow:hidden;">
       <img src="assets/IMG-20260522-WA0032.jpg" alt="Editorial PRECISSA INSTITUTE"
