@@ -614,7 +614,9 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .areas-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
 @media (max-width: 1100px) { .areas-grid { grid-template-columns: repeat(2,1fr); } }
 .area-card { border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
-.area-card-img { height: 340px; position: relative; }
+.area-card-img { height: 340px; position: relative; overflow: hidden; }
+.area-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.area-card-img .area-roman { z-index: 2; text-shadow: 0 1px 8px rgba(36,29,23,0.35); }
 .area-roman {
   position: absolute; top: 16px; right: 16px;
   font-family: var(--serif); font-style: italic;
@@ -3956,7 +3958,7 @@ function renderDrawerCategorias() {
 // por categoria. El titulo grande de cada area se toma directamente de
 // cat.label para que coincida con la categoria de la pagina de Cursos.
 const AREA_DISPLAY = {
-  'estetica-facial-avanzada': { ph: 'ph-rose', desc: 'Higiene profunda, peelings, antiacné, despigmentantes y rejuvenecimiento. Cosmetología avanzada y servicios de cabina facial.' },
+  'estetica-facial-avanzada': { ph: 'ph-rose', cover: 'assets/area-facial.png',  desc: 'Higiene profunda, peelings, antiacné, despigmentantes y rejuvenecimiento. Cosmetología avanzada y servicios de cabina facial.' },
   'electroestetica':          { ph: 'ph-clay', desc: 'Radiofrecuencia, ultrasonidos focalizados, láser y luz pulsada aplicados con precisión clínica.' },
   'micropigmentacion':        { ph: 'ph-dusk', desc: 'Técnica, color y seguridad para micropigmentación de cejas, labios y delineado.' },
   'corporal-bienestar':       { ph: 'ph-sand', desc: 'Técnicas manuales y combinadas: drenaje linfático, maderoterapia y masajes reductores.' }
@@ -3968,11 +3970,15 @@ function renderAreasHome() {
   const cats = window.PRECISSA_CATEGORIES || [];
   grid.innerHTML = cats.map((cat, i) => {
     const d = AREA_DISPLAY[cat.id] || { ph: 'ph-sand', desc: cat.tagline || '' };
+    const imgPart = d.cover
+      ? `<img src="${escapeAttr(d.cover)}" alt="${escapeAttr(cat.label)}">`
+      : `<div class="ph-label">${escapeHtml(cat.id)} · PRECISSA INSTITUTE</div>`;
+    const imgClass = d.cover ? 'area-card-img' : 'area-card-img ph ' + d.ph;
     return `
       <div class="area-card" style="cursor:pointer" onclick="goToCursosCategory('${cat.id}')">
-        <div class="area-card-img ph ${d.ph}">
+        <div class="${imgClass}">
+          ${imgPart}
           <span class="area-roman">${AREA_ROMAN[i] || ''}</span>
-          <div class="ph-label">${escapeHtml(cat.id)} · PRECISSA INSTITUTE</div>
         </div>
         <div class="area-card-body">
           <div class="area-title">${escapeHtml(cat.label)}</div>
