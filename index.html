@@ -2524,7 +2524,13 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .tienda-h1 { font-family:var(--serif); font-size:42px; letter-spacing:-0.018em; margin:10px 0 8px; }
 .tienda-h1 em { font-style:italic; }
 .tienda-meta { font-size:13px; color:var(--muted); margin-bottom:28px; }
-.filter-chips { display:flex; align-items:center; gap:8px; flex-wrap:wrap; padding:0 56px 28px; border-bottom:1px solid var(--line); }
+.filter-chips {
+  display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+  padding: 14px 56px 18px;
+  border-bottom: 1px solid var(--line);
+  position: sticky; top: 108px; z-index: 30;
+  background: var(--bg);
+}
 .filter-chip { padding:7px 16px; border-radius:999px; font-size:12.5px; font-weight:500; cursor:pointer; border:1px solid var(--line-strong); color:var(--ink-soft); transition:all 0.15s; letter-spacing:0.02em; }
 .filter-chip:hover { border-color:var(--ink); color:var(--ink); }
 .filter-chip.active { background:var(--ink); color:var(--bg); border-color:var(--ink); }
@@ -2544,7 +2550,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .tienda-product-course { font-size:11px; color:var(--muted); border-top:1px solid var(--line); padding-top:10px; margin-top:10px; font-family:var(--serif); font-style:italic; }
 @media(max-width:768px){
   .tienda-header { padding:32px 20px 0; }
-  .filter-chips { padding:0 20px 20px; }
+  .filter-chips { padding: 10px 20px 14px; top: 64px; }
   .tienda-grid { grid-template-columns:1fr 1fr; padding:24px 20px 80px; gap:12px; }
   .tienda-h1 { font-size:30px; }
 }
@@ -2565,7 +2571,6 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <span class="filter-chip" onclick="filterTienda(this,'electro')">Electroestética</span>
     <span class="filter-chip" onclick="filterTienda(this,'cosme')">Cosmetología</span>
     <span class="filter-chip" onclick="filterTienda(this,'micro')">Micropigmentación</span>
-    <span class="filter-chip filter-chip-special">⊞ Filtros</span>
   </div>
   <div class="tienda-grid">
     <div class="tienda-product-card" onclick="goTo('producto','aparatologia')">
