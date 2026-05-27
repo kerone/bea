@@ -3977,14 +3977,14 @@ document.getElementById('quote-form').addEventListener('submit', async function(
       // FormSubmit responde así la primera vez con un email no verificado
       const msg = String(json.message || '').toLowerCase();
       if (msg.includes('activate') || msg.includes('confirm') || msg.includes('verifi')) {
-        throw new Error('Servicio de email pendiente de activación. Inténtalo de nuevo en unos minutos o escribe a contacto@precissainstitute.com');
+        throw new Error('Servicio de email pendiente de activación. Inténtalo de nuevo en unos minutos o escribe a precissainstitute@gmail.com');
       }
       throw new Error(json.message || 'fail');
     }
   } catch (err) {
     status.textContent = err.message && err.message.length > 30
       ? err.message
-      : 'No se pudo enviar. Inténtalo de nuevo o escribe a contacto@precissainstitute.com';
+      : 'No se pudo enviar. Inténtalo de nuevo o escribe a precissainstitute@gmail.com';
   } finally {
     submitBtn.disabled  = false;
     submitBtn.textContent = 'Enviar solicitud';
