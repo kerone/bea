@@ -43,7 +43,11 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#F2ECE3">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="PRECISSA">
 
 <!-- ═══ SCHEMA.ORG · EducationalOrganization ═════════════════ -->
@@ -4108,6 +4112,16 @@ renderDrawerCategorias();
 renderAreasHome();
 routeFromHash();
 if (window.auth && window.auth.init) window.auth.init();
+</script>
+
+<!-- Service Worker · convierte la web en PWA instalable + offline -->
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' })
+      .catch(function (err) { console.warn('[sw] registro fallo:', err); });
+  });
+}
 </script>
 </body>
 </html>
