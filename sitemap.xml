@@ -61,4 +61,9 @@
   <url><loc>https://precissainstitute.com/#curso/masaje-reductor-remodelante</loc><priority>0.7</priority></url>
   <url><loc>https://precissainstitute.com/#curso/limpieza-espalda</loc><priority>0.7</priority></url>
 
+  <!-- Paginas legales -->
+  <url><loc>https://precissainstitute.com/aviso-legal/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://precissainstitute.com/privacidad/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://precissainstitute.com/cookies/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+
 </urlset>
