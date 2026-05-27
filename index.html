@@ -357,6 +357,16 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .nav-area-label { display: none; }
 .nav-sep { display: none; }
 .nav-sub-links { display: flex; align-items: center; gap: 22px; }
+.nav-row2-ig {
+  margin-left: auto;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11.5px; font-weight: 400; color: var(--ink-soft);
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.nav-row2-ig:hover { color: var(--accent); }
+.nav-row2-ig svg { display: block; }
 .nav-sub-link {
   font-size: 11.5px; font-weight: 400; color: var(--ink-soft);
   letter-spacing: 0.02em;
@@ -483,6 +493,10 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       <span class="nav-sub-link active" onclick="goTo('cursos','docencia')">Cursos</span>
       <span class="nav-sub-link" onclick="goTo('aula','docencia')">Acceso alumnado</span>
     </div>
+    <a href="https://www.instagram.com/precissainstitute" target="_blank" rel="noopener" class="nav-row2-ig" aria-label="Instagram PRECISSA INSTITUTE">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.7"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+      <span>Instagram</span>
+    </a>
   </div>
   <!-- Mobile row -->
   <div class="nav-mobile">
@@ -544,13 +558,13 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 <div class="page active" id="page-home">
 <style>
 /* ─── HOME STYLES ─── */
-.hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 640px; }
+.hero { display: grid; grid-template-columns: 1.1fr 0.9fr; min-height: 600px; }
 .hero-left {
-  background: var(--bg); padding: 64px 56px 64px 56px;
+  background: var(--bg); padding: 72px 64px 72px 56px;
   display: flex; flex-direction: column; justify-content: center;
 }
 .hero-h1 {
-  font-family: var(--serif); font-size: 76px; line-height: 0.98;
+  font-family: var(--serif); font-size: 80px; line-height: 0.98;
   letter-spacing: -0.022em; color: var(--ink);
   margin: 18px 0 26px;
 }
