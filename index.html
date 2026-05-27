@@ -648,16 +648,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   font-size: 42px; color: rgba(255,255,255,0.6);
   line-height: 1;
 }
-.area-card-body { padding: 22px; position: relative; }
-.area-card-seal {
-  position: absolute; right: 18px; bottom: 18px;
-  width: 30px; height: 30px;
-  border-radius: 50%;
-  opacity: 0.32; pointer-events: none;
-  filter: saturate(0.7);
-  transition: opacity 0.3s ease;
-}
-.area-card:hover .area-card-seal { opacity: 0.55; }
+.area-card-body { padding: 22px; }
 .area-cat { font-size: 11px; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px; }
 .area-title { font-family: var(--serif); font-size: 28px; letter-spacing: -0.01em; line-height: 1.15; margin-bottom: 10px; }
 .area-desc { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; margin-bottom: 18px; }
@@ -4039,7 +4030,6 @@ function renderAreasHome() {
           <div class="area-title">${escapeHtml(cat.label)}</div>
           <p class="area-desc">${escapeHtml(d.desc)}</p>
           <button class="btn btn-text">Ver itinerario →</button>
-          <img src="assets/seal-ss.webp" alt="" class="area-card-seal" aria-hidden="true" loading="lazy">
         </div>
       </div>`;
   }).join('');
