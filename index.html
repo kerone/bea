@@ -4050,6 +4050,11 @@ goTo = function(pageKey, area, opts) {
 };
 function routeFromHash() {
   const hash = window.location.hash || '';
+  // Callback OAuth de Supabase (Google login): no tocar el hash, Supabase
+  // lo lee y limpia solo. Sin este bypass, el routing borraria el token.
+  if (hash.indexOf('access_token=') !== -1 || hash.indexOf('error_description=') !== -1) {
+    return;
+  }
   // Ruta categorica: #cat/<id> → cursos + filtro
   if (hash.startsWith('#cat/')) {
     const catId = decodeURIComponent(hash.substring(5));
