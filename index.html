@@ -877,6 +877,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 @media (max-width: 768px) {
   .hero { grid-template-columns: 1fr; min-height: auto; }
   .hero-left { padding: 40px 20px; order: 2; }
+  .hero-left::before { display: none; }
   .hero-h1 { font-size: 40px; }
   .hero-right { height: 520px; order: 1; }
   .diptych, .areas, .tests-section, .aparatologia-section, .testimonials, .curso-destacado { padding: 64px 20px; }
