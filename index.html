@@ -241,6 +241,29 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .part-band-I   { background: var(--accent); color: #fff; }
 .part-band-II  { background: var(--ink); color: var(--bg); }
 
+/* Filigrana / divisor con sello SS INSTITUTE */
+.part-divider {
+  display: flex; align-items: center; justify-content: center;
+  gap: 28px; padding: 64px 32px 56px;
+  max-width: 720px; margin: 0 auto;
+}
+.part-divider-line {
+  flex: 1; height: 1px; max-width: 180px;
+  background: linear-gradient(to right, transparent, var(--line-strong), transparent);
+}
+.part-divider-seal {
+  width: 78px; height: 78px;
+  opacity: 0.72;
+  transition: opacity 0.4s ease, transform 0.5s ease;
+  filter: saturate(0.85);
+}
+.part-divider-seal:hover { opacity: 1; transform: rotate(8deg); }
+@media (max-width: 768px) {
+  .part-divider { gap: 18px; padding: 44px 20px 36px; }
+  .part-divider-seal { width: 62px; height: 62px; }
+  .part-divider-line { max-width: 110px; }
+}
+
 /* ─── LESSON STATUS ──────────────────────────────────── */
 .lesson-dot {
   width: 22px; height: 22px; border-radius: 50%;
@@ -917,6 +940,13 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       <!-- Renderizado por JS desde window.PRECISSA_CATEGORIES -->
     </div>
   </section>
+
+  <!-- FILIGRANA · Divisor Parte I → Parte II -->
+  <div class="part-divider" aria-hidden="true">
+    <span class="part-divider-line"></span>
+    <img src="assets/seal-ss.webp" alt="" class="part-divider-seal" width="78" height="78" loading="lazy">
+    <span class="part-divider-line"></span>
+  </div>
 
   <!-- APARATOLOGÍA DESTACADA -->
   <section class="aparatologia-section" style="position:relative">
