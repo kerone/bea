@@ -3616,15 +3616,21 @@ async function currentUserEmail() {
 async function canAccessCourse(course) {
   if (!course) return false;
   const email = await currentUserEmail();
+  return canAccessCourseFor(email, course);
+}
+
+// Versión optimizada para loops: recibe el email ya resuelto.
+// Evita llamar a currentUserEmail() en cada iteración.
+async function canAccessCourseFor(email, course) {
+  if (!course) return false;
   // 0) Superadmins: acceso total siempre.
   if (isAdminEmail(email)) return true;
-  // 1) Si hay hoja de matrículas configurada (Google Sheets), manda esa.
-  //    Cada acceso requiere una fila (email, curso) en la hoja.
+  // 1) Si hay matrículas configuradas (Supabase/Sheet), manda esa fuente.
   if (window.enrollments && window.enrollments.isConfigured()) {
     if (!email) return false;
     return await window.enrollments.canAccess(email, course.id);
   }
-  // 2) Modo legacy (sin hoja): se mira el array enrolledEmails del JSON.
+  // 2) Modo legacy (sin matrículas): array enrolledEmails del JSON.
   if (!course.enrolledEmails || course.enrolledEmails.length === 0) return true;
   if (!email) return false;
   return course.enrolledEmails.some(e => String(e).toLowerCase().trim() === email);
@@ -3838,9 +3844,19 @@ async function renderAulaCourses() {
     grid.innerHTML = '<div class="aula-empty">Aún no hay cursos disponibles. Edita <code>assets/js/courses-data.js</code> para añadir el primero.</div>';
     return;
   }
-  const courses = [];
-  for (const c of all) {
-    if (await canAccessCourse(c)) courses.push(c);
+  // Optimización: resolvemos el email una sola vez y, si es admin, evitamos
+  // tocar enrollments. Para alumnas normales, lanzamos todas las
+  // comprobaciones en paralelo en vez de en serie.
+  const email = await currentUserEmail();
+  const admin = isAdminEmail(email);
+  let courses;
+  if (admin) {
+    courses = all.slice();
+  } else {
+    const checks = await Promise.all(
+      all.map(c => canAccessCourseFor(email, c))
+    );
+    courses = all.filter((_, i) => checks[i]);
   }
   if (courses.length === 0) {
     grid.innerHTML = '<div class="aula-empty">Aún no tienes cursos asignados. Habla con tu profesora para que te dé acceso.</div>';
