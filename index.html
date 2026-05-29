@@ -1096,7 +1096,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   <section class="testimonials">
     <div style="text-align:center;margin-bottom:8px"><span class="eyebrow">· Alumnas en activo</span></div>
     <h2 style="font-family:var(--serif);font-size:42px;letter-spacing:-0.018em;text-align:center">Quien ya está en <em>cabina.</em></h2>
-    <div class="testimonials-grid">
+    <div class="testimonials-grid" id="testimonials-grid">
       <div class="testimonial-card">
         <div class="testimonial-img" style="border-radius:8px;overflow:hidden;">
           <img src="assets/IMG-20260522-WA0032.jpg" alt="Nerea Álvarez"
@@ -2748,7 +2748,46 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .adm-course-name small { display: block; color: var(--muted); font-size: 11px; margin-top: 2px; }
 .adm-course-row input[type="date"], .adm-course-row select { padding: 7px 10px; border: 1px solid var(--line); border-radius: 6px; font-family: var(--sans); font-size: 12.5px; background: var(--surface); color: var(--ink); }
 .adm-course-row input[type="date"]:disabled, .adm-course-row select:disabled { opacity: 0.4; cursor: not-allowed; }
-.adm-modal-foot { padding: 18px 26px; border-top: 1px solid var(--line); display: flex; justify-content: flex-end; gap: 12px; }
+.adm-modal-foot { padding: 18px 26px; border-top: 1px solid var(--line); display: flex; justify-content: flex-end; align-items: center; gap: 12px; }
+.adm-danger { color: #b34b3b; }
+.adm-danger:hover { color: #8f3729; }
+
+/* Pestañas del panel admin */
+.adm-tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 26px; }
+.adm-tab { background: none; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; padding: 12px 18px; font-family: var(--sans); font-size: 13.5px; color: var(--muted); cursor: pointer; transition: color .15s, border-color .15s; }
+.adm-tab:hover { color: var(--ink); }
+.adm-tab.active { color: var(--ink); border-bottom-color: var(--accent); font-weight: 600; }
+
+/* Barra superior del panel de reseñas */
+.adm-resenas-bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 18px; }
+
+/* Lista de reseñas */
+.adm-resenas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+.adm-res-card { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; background: var(--surface); }
+.adm-res-thumb { height: 150px; }
+.adm-res-thumb img { width: 100%; height: 150px; object-fit: cover; object-position: center top; display: block; }
+.adm-res-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.adm-res-quote { font-family: var(--serif); font-style: italic; font-size: 14.5px; line-height: 1.5; color: var(--ink); }
+.adm-res-name { font-size: 12.5px; font-weight: 600; color: var(--ink); }
+.adm-res-centro { font-size: 11px; color: var(--muted); }
+.adm-res-foot { margin-top: auto; padding-top: 10px; display: flex; gap: 14px; }
+.adm-res-foot button { background: none; border: none; padding: 0; font-family: var(--sans); font-size: 12px; cursor: pointer; color: var(--accent); }
+.adm-res-foot button.adm-danger { color: #b34b3b; }
+
+/* Formulario de reseña */
+.res-form { display: flex; flex-direction: column; gap: 18px; }
+.res-field { display: flex; flex-direction: column; gap: 6px; }
+.res-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.res-label small { text-transform: none; letter-spacing: 0; font-weight: 400; }
+.res-input { width: 100%; padding: 10px 13px; border: 1px solid var(--line); border-radius: 8px; font-family: var(--sans); font-size: 14px; background: var(--bg); color: var(--ink); box-sizing: border-box; }
+.res-input:focus { outline: none; border-color: var(--ink-soft); background: var(--surface); }
+textarea.res-input { resize: vertical; line-height: 1.5; }
+.res-photo { display: flex; gap: 16px; align-items: flex-start; }
+.res-photo-preview { width: 110px; height: 110px; flex: none; border-radius: 8px; border: 1px dashed var(--line); background: var(--bg2); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.res-photo-preview span { font-size: 11px; color: var(--muted); }
+.res-photo-preview img { width: 100%; height: 100%; object-fit: cover; }
+.res-photo-actions { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
+.res-hint { font-size: 11.5px; color: var(--muted); margin: 4px 0 0; line-height: 1.4; }
 
 @media (max-width: 768px) {
   .adm-wrap { padding: 88px 20px 60px; }
@@ -2773,14 +2812,34 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     </div>
   </div>
   <div id="adm-warn-area"></div>
-  <div class="adm-search-wrap cursos-search">
-    <span class="cursos-search-icon" aria-hidden="true"></span>
-    <input type="search" id="adm-search-input" class="cursos-search-input"
-           placeholder="Buscar por email o nombre…"
-           oninput="renderAdmTable()">
+
+  <div class="adm-tabs" id="adm-tabs">
+    <button class="adm-tab active" data-tab="alumnas" onclick="switchAdmTab('alumnas')">Alumnas y accesos</button>
+    <button class="adm-tab" data-tab="resenas" onclick="switchAdmTab('resenas')">Reseñas de alumnas</button>
   </div>
-  <div id="adm-table-host">
-    <div class="adm-loader">Cargando alumnas…</div>
+
+  <!-- PANEL: ALUMNAS Y ACCESOS -->
+  <div id="adm-panel-alumnas" class="adm-panel">
+    <div class="adm-search-wrap cursos-search">
+      <span class="cursos-search-icon" aria-hidden="true"></span>
+      <input type="search" id="adm-search-input" class="cursos-search-input"
+             placeholder="Buscar por email o nombre…"
+             oninput="renderAdmTable()">
+    </div>
+    <div id="adm-table-host">
+      <div class="adm-loader">Cargando alumnas…</div>
+    </div>
+  </div>
+
+  <!-- PANEL: RESEÑAS -->
+  <div id="adm-panel-resenas" class="adm-panel" style="display:none">
+    <div class="adm-resenas-bar">
+      <p class="adm-sub" id="adm-resenas-count">&nbsp;</p>
+      <button class="btn btn-dark btn-sm" onclick="openResEditor()">+ Nueva reseña</button>
+    </div>
+    <div id="adm-resenas-host">
+      <div class="adm-loader">Cargando reseñas…</div>
+    </div>
   </div>
 </section>
 
@@ -2797,6 +2856,53 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <div class="adm-modal-foot">
       <button class="btn btn-text" onclick="closeAdmModal()">Cancelar</button>
       <button class="btn btn-dark" id="adm-save-btn" onclick="saveAdmModal()">Guardar cambios</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: añadir / editar reseña -->
+<div class="adm-modal" id="res-modal" onclick="if(event.target===this)closeResModal()">
+  <div class="adm-modal-card">
+    <div class="adm-modal-head">
+      <div>
+        <div class="adm-modal-email" id="res-modal-title">Nueva reseña</div>
+        <div class="adm-modal-name">Foto, frase, nombre y centro (opcional)</div>
+      </div>
+      <button class="adm-modal-close" onclick="closeResModal()" aria-label="Cerrar">✕</button>
+    </div>
+    <div class="adm-modal-body">
+      <div class="res-form">
+        <label class="res-field">
+          <span class="res-label">Foto</span>
+          <div class="res-photo">
+            <div class="res-photo-preview" id="res-photo-preview"><span>Sin foto</span></div>
+            <div class="res-photo-actions">
+              <input type="file" id="res-photo-input" accept="image/*" onchange="onResPhotoChange(this)" style="display:none">
+              <button type="button" class="btn btn-text btn-sm" onclick="document.getElementById('res-photo-input').click()">Elegir foto…</button>
+              <button type="button" class="btn btn-text btn-sm" id="res-photo-remove" onclick="clearResPhoto()" style="display:none">Quitar</button>
+              <p class="res-hint">Si no pones foto se usará un fondo de color, como en las tarjetas sin imagen.</p>
+            </div>
+          </div>
+        </label>
+        <label class="res-field">
+          <span class="res-label">Frase *</span>
+          <textarea id="res-quote" class="res-input" rows="3" placeholder="La frase de la alumna (sin comillas, se añaden solas)"></textarea>
+        </label>
+        <label class="res-field">
+          <span class="res-label">Nombre *</span>
+          <input type="text" id="res-name" class="res-input" placeholder="Nombre y apellido">
+        </label>
+        <label class="res-field">
+          <span class="res-label">Centro <small>(opcional)</small></span>
+          <input type="text" id="res-centro" class="res-input" placeholder="Centro Estético · Ciudad">
+        </label>
+      </div>
+    </div>
+    <div class="adm-modal-foot">
+      <button class="btn btn-text adm-danger" id="res-delete-btn" onclick="deleteResFromModal()" style="display:none">Eliminar</button>
+      <span style="flex:1"></span>
+      <button class="btn btn-text" onclick="closeResModal()">Cancelar</button>
+      <button class="btn btn-dark" id="res-save-btn" onclick="saveResModal()">Guardar</button>
     </div>
   </div>
 </div>
@@ -3019,6 +3125,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 <!-- Matrículas (qué alumna tiene acceso a qué curso) leídas de Google Sheets -->
 <script src="assets/js/enrollments.js"></script>
 <script src="assets/js/admin.js"></script>
+<script src="assets/js/testimonials.js"></script>
 <!-- Lógica de autenticación -->
 <script src="assets/js/auth.js"></script>
 <script>
@@ -3672,12 +3779,20 @@ async function openAdmin() {
     return;
   }
   const ok = await window.admin.isAdmin();
+  const tabs = document.getElementById('adm-tabs');
   if (!ok) {
+    if (tabs) tabs.style.display = 'none';
+    document.getElementById('adm-panel-resenas').style.display = 'none';
+    document.getElementById('adm-panel-alumnas').style.display = '';
     document.getElementById('adm-table-host').innerHTML =
       '<div class="adm-warn">Esta sección es solo para administradoras.</div>';
     document.getElementById('adm-sub-count').textContent = 'Sin permisos';
     return;
   }
+  // Reset de pestañas: siempre se entra por «Alumnas» y se recarga reseñas.
+  if (tabs) tabs.style.display = '';
+  _resLoaded = false;
+  switchAdmTab('alumnas');
   document.getElementById('adm-table-host').innerHTML = '<div class="adm-loader">Cargando alumnas…</div>';
   document.getElementById('adm-warn-area').innerHTML = '';
   try {
@@ -3860,6 +3975,162 @@ async function saveAdmModal() {
   } finally {
     btn.disabled = false; btn.textContent = 'Guardar cambios';
   }
+}
+
+// ─── ADMIN · RESEÑAS DE ALUMNAS ─────────────────────────
+let _resCache = [];
+let _resEditingId = null;   // null = creando; uuid = editando
+let _resPhotoUrl  = null;   // URL actual (existente o recién subida)
+let _resNewFile   = null;   // File pendiente de subir
+let _resLoaded    = false;
+
+function switchAdmTab(tab) {
+  document.querySelectorAll('.adm-tab').forEach(b =>
+    b.classList.toggle('active', b.dataset.tab === tab));
+  document.getElementById('adm-panel-alumnas').style.display = (tab === 'alumnas') ? '' : 'none';
+  document.getElementById('adm-panel-resenas').style.display = (tab === 'resenas') ? '' : 'none';
+  if (tab === 'resenas' && !_resLoaded) loadResenas();
+}
+
+async function loadResenas() {
+  const host = document.getElementById('adm-resenas-host');
+  host.innerHTML = '<div class="adm-loader">Cargando reseñas…</div>';
+  try {
+    _resCache = (await window.testimonials.list()) || [];
+    _resLoaded = true;
+    renderResenas();
+  } catch (err) {
+    console.error('[admin] loadResenas', err);
+    host.innerHTML = '<div class="adm-warn">⚠️ Error leyendo las reseñas. ¿Has ejecutado <code>supabase/testimonials.sql</code>?<br><small>' + escapeHtml(String(err && err.message || err)) + '</small></div>';
+  }
+}
+
+function renderResenas() {
+  const host  = document.getElementById('adm-resenas-host');
+  const count = document.getElementById('adm-resenas-count');
+  count.textContent = `${_resCache.length} ${_resCache.length === 1 ? 'reseña' : 'reseñas'}`;
+  if (_resCache.length === 0) {
+    host.innerHTML = '<div class="adm-no-results">Aún no hay reseñas. Pulsa «+ Nueva reseña» para crear la primera.</div>';
+    return;
+  }
+  const phs = ['ph-rose', 'ph-clay', 'ph-sand', 'ph-honey'];
+  host.innerHTML = '<div class="adm-resenas-grid">' + _resCache.map((t, i) => {
+    const thumb = t.photo_url
+      ? `<div class="adm-res-thumb"><img src="${escapeAttr(t.photo_url)}" alt="${escapeAttr(t.name)}" loading="lazy"></div>`
+      : `<div class="adm-res-thumb ph ${phs[i % phs.length]}"></div>`;
+    return `
+      <div class="adm-res-card">
+        ${thumb}
+        <div class="adm-res-body">
+          <div class="adm-res-quote">"${escapeHtml(t.quote || '')}"</div>
+          <div class="adm-res-name">${escapeHtml(t.name || '')}</div>
+          ${t.centro ? `<div class="adm-res-centro">${escapeHtml(t.centro)}</div>` : ''}
+          <div class="adm-res-foot">
+            <button onclick="openResEditor('${escapeAttr(t.id)}')">Editar</button>
+            <button class="adm-danger" onclick="deleteRes('${escapeAttr(t.id)}')">Eliminar</button>
+          </div>
+        </div>
+      </div>`;
+  }).join('') + '</div>';
+}
+
+function openResEditor(id) {
+  _resEditingId = id || null;
+  _resNewFile   = null;
+  const t = id ? _resCache.find(x => x.id === id) : null;
+  _resPhotoUrl = t ? (t.photo_url || null) : null;
+  document.getElementById('res-modal-title').textContent = id ? 'Editar reseña' : 'Nueva reseña';
+  document.getElementById('res-quote').value  = t ? (t.quote  || '') : '';
+  document.getElementById('res-name').value   = t ? (t.name   || '') : '';
+  document.getElementById('res-centro').value = t ? (t.centro || '') : '';
+  document.getElementById('res-photo-input').value = '';
+  document.getElementById('res-delete-btn').style.display = id ? '' : 'none';
+  renderResPhotoPreview();
+  document.getElementById('res-modal').classList.add('open');
+}
+
+function closeResModal() {
+  document.getElementById('res-modal').classList.remove('open');
+}
+
+function renderResPhotoPreview() {
+  const prev = document.getElementById('res-photo-preview');
+  const removeBtn = document.getElementById('res-photo-remove');
+  let src = _resPhotoUrl;
+  if (_resNewFile) src = URL.createObjectURL(_resNewFile);
+  if (src) {
+    prev.innerHTML = `<img src="${escapeAttr(src)}" alt="">`;
+    removeBtn.style.display = '';
+  } else {
+    prev.innerHTML = '<span>Sin foto</span>';
+    removeBtn.style.display = 'none';
+  }
+}
+
+function onResPhotoChange(input) {
+  const f = input.files && input.files[0];
+  if (!f) return;
+  _resNewFile = f;
+  renderResPhotoPreview();
+}
+
+function clearResPhoto() {
+  _resNewFile  = null;
+  _resPhotoUrl = null;
+  document.getElementById('res-photo-input').value = '';
+  renderResPhotoPreview();
+}
+
+async function saveResModal() {
+  const btn = document.getElementById('res-save-btn');
+  const quote  = document.getElementById('res-quote').value.trim();
+  const name   = document.getElementById('res-name').value.trim();
+  const centro = document.getElementById('res-centro').value.trim();
+  if (!quote || !name) { alert('La frase y el nombre son obligatorios.'); return; }
+  btn.disabled = true; btn.textContent = 'Guardando…';
+  try {
+    let photoUrl = _resPhotoUrl;
+    if (_resNewFile) {
+      btn.textContent = 'Subiendo foto…';
+      photoUrl = await window.testimonials.uploadPhoto(_resNewFile);
+    }
+    const fields = { quote, name, centro: centro || null, photo_url: photoUrl || null };
+    if (_resEditingId) {
+      await window.testimonials.update(_resEditingId, fields);
+    } else {
+      // nueva reseña: la colocamos al final
+      const maxOrder = _resCache.reduce((m, r) => Math.max(m, r.sort_order || 0), 0);
+      await window.testimonials.create(Object.assign(fields, { sort_order: maxOrder + 1 }));
+    }
+    closeResModal();
+    await loadResenas();
+    renderTestimonials(); // refrescar la home en vivo
+  } catch (err) {
+    console.error('[admin] saveResModal', err);
+    alert('Error guardando la reseña: ' + (err && err.message || err));
+  } finally {
+    btn.disabled = false; btn.textContent = 'Guardar';
+  }
+}
+
+async function deleteRes(id) {
+  const t = _resCache.find(x => x.id === id);
+  if (!confirm('¿Eliminar la reseña de ' + (t ? t.name : 'esta alumna') + '? No se puede deshacer.')) return;
+  try {
+    await window.testimonials.remove(id);
+    await loadResenas();
+    renderTestimonials();
+  } catch (err) {
+    console.error('[admin] deleteRes', err);
+    alert('Error eliminando la reseña: ' + (err && err.message || err));
+  }
+}
+
+function deleteResFromModal() {
+  if (!_resEditingId) return;
+  const id = _resEditingId;
+  closeResModal();
+  deleteRes(id);
 }
 
 // Mostrar/ocultar enlaces de admin en el nav según si el usuario es admin
@@ -4209,7 +4480,37 @@ function escapeHtml(s) {
 function escapeAttr(s) { return escapeHtml(s).replace(/`/g, '&#96;'); }
 
 // ─── HOOK por cambio de página ──────────────────────────
+// ─── HOME · RESEÑAS DE ALUMNAS (desde Supabase) ─────────
+// Si hay reseñas en la BD, sustituyen a las tarjetas estáticas de
+// respaldo. Si Supabase no está configurado, falla o no hay ninguna,
+// se conservan las que vienen en el HTML.
+async function renderTestimonials() {
+  if (!window.testimonials || !window.testimonials.isConfigured()) return;
+  const grid = document.getElementById('testimonials-grid');
+  if (!grid) return;
+  let data;
+  try { data = await window.testimonials.list(); }
+  catch (e) { return; }
+  if (!data || data.length === 0) return; // conservar respaldo estático
+  const phs = ['ph-rose', 'ph-clay', 'ph-sand', 'ph-honey'];
+  grid.innerHTML = data.map((t, i) => {
+    const img = t.photo_url
+      ? `<div class="testimonial-img" style="border-radius:8px;overflow:hidden;">
+           <img src="${escapeAttr(t.photo_url)}" alt="${escapeAttr(t.name)}" loading="lazy"
+                style="width:100%;height:240px;object-fit:cover;object-position:center top;display:block;"></div>`
+      : `<div class="testimonial-img ph ${phs[i % phs.length]}"></div>`;
+    return `
+      <div class="testimonial-card">
+        ${img}
+        <p class="testimonial-quote">"${escapeHtml(t.quote || '')}"</p>
+        <div class="testimonial-name">${escapeHtml(t.name || '')}</div>
+        ${t.centro ? `<div class="testimonial-centro">${escapeHtml(t.centro)}</div>` : ''}
+      </div>`;
+  }).join('');
+}
+
 function onPageEnter(pageKey) {
+  if (pageKey === 'home') renderTestimonials();
   if (pageKey === 'cursos') renderPublicCourses();
   if (pageKey === 'aula') {
     if (window.auth && window.auth.refresh) window.auth.refresh();
