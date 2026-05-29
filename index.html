@@ -510,6 +510,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <div class="nav-logo" onclick="goTo('home','')">PRECISSA INSTITUTE<span class="nav-logo-sub">Dermocosmiatría &amp; Electroestética</span></div>
     <div class="nav-right">
       <button class="btn btn-dark btn-sm acceder-btn" onclick="goTo('aula','docencia')">Acceder</button>
+      <button class="btn btn-text nav-admin-link" style="display:none;border-bottom:none;padding-bottom:0" onclick="goTo('admin','')">Administración</button>
       <button class="btn btn-text mi-aula-btn" style="display:none;border-bottom:none;padding-bottom:0" onclick="goTo('aula','docencia')">Mi aula</button>
     </div>
   </div>
@@ -520,7 +521,6 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <div class="nav-sub-links" id="nav-sub-links">
       <span class="nav-sub-link active" onclick="goTo('cursos','docencia')">Cursos</span>
       <span class="nav-sub-link" onclick="goTo('aula','docencia')">Acceso alumnado</span>
-      <span class="nav-sub-link nav-admin-link" style="display:none" onclick="goTo('admin','')">Administración</span>
     </div>
     <a href="https://www.instagram.com/precissainstitute" target="_blank" rel="noopener" class="nav-row2-ig" aria-label="Instagram PRECISSA INSTITUTE">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.7"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
@@ -3092,16 +3092,6 @@ function updateNav(pageKey, cfg) {
     }
     return link;
   }).join('');
-
-  // El enlace de Administración es estático en el HTML pero la línea de
-  // arriba reescribe #nav-sub-links en cada navegación y lo borra. Lo
-  // re-inyectamos aquí (solo en Docencia) y refrescamos su visibilidad
-  // según si la sesión es admin. Sin esto solo aparecía en el móvil.
-  if (cfg.area === 'docencia') {
-    subLinks.insertAdjacentHTML('beforeend',
-      `<span class="nav-sub-link nav-admin-link" style="display:none" onclick="goTo('admin','')">Administración</span>`);
-    if (typeof refreshAdminLinks === 'function') refreshAdminLinks();
-  }
 }
 
 function updateTabBar(area) {
