@@ -31,6 +31,22 @@ as $$
   );
 $$;
 
+-- 1b) FUNCIÓN: email (en minúsculas) de la sesión actual.
+--     Va por SECURITY DEFINER porque el rol `authenticated` NO puede
+--     leer auth.users directamente. Si una política RLS hace el SELECT
+--     a auth.users en línea, Postgres lanza "permission denied for
+--     table users". Encapsulándolo aquí, las políticas pueden usarlo
+--     sin tocar auth.users con los privilegios del usuario.
+create or replace function public.current_email()
+returns text
+language sql
+stable
+security definer
+set search_path = public, auth
+as $$
+  select lower((select email from auth.users where id = auth.uid()));
+$$;
+
 -- 2) TABLA profiles
 create table if not exists public.profiles (
   id          uuid primary key references auth.users(id) on delete cascade,
@@ -126,10 +142,7 @@ create policy profiles_update_admin on public.profiles for update
 drop policy if exists enrollments_select on public.enrollments;
 create policy enrollments_select on public.enrollments for select
   using (
-    lower(email) = lower(coalesce(
-      (select email from auth.users where id = auth.uid()),
-      ''
-    ))
+    lower(email) = coalesce(public.current_email(), '')
     or public.is_admin()
   );
 
