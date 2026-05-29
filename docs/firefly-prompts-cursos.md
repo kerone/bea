@@ -8,7 +8,7 @@
 
 ## Tips antes de generar
 
-- **Aspect ratio**: usa 3:2 horizontal (encaja con el card de los cursos)
+- **Aspect ratio**: usa 16:9 horizontal (encaja con el card de los cursos)
 - **Style / Visual intensity**: pon estilo "Photo" (no "Art"); intensidad media-alta
 - **Reference image**: si quieres mayor coherencia entre todas, sube como referencia uno de los aciertos de las 4 categorías y baja la fuerza al 30-40%
 - **Si Firefly censura algún prompt** (especialmente "plasma", "laser", "needle"): cambia el verbo por descripción más genérica ("device", "applicator", "treatment tool") y ejecuta de nuevo
@@ -28,7 +28,7 @@ daylight filtering through linen curtains, cream beige and dusty rose palette,
 soft shadows on cream cotton sheets. A single amber-glass apothecary bottle
 on a stone tray slightly out of focus in the background. Apothecary aesthetic,
 Aesop x Officine Universelle Buly mood. Documentary editorial photography,
-natural unretouched skin texture, fine film grain. 3:2 horizontal.
+natural unretouched skin texture, fine film grain. 16:9 horizontal.
 ```
 
 ### 2 · Anatomía y fisiología cutánea *(`anatomia-fisiologia-cutanea`)*
@@ -38,7 +38,7 @@ profile, capturing natural unretouched skin texture, fine peach fuzz and a
 subtle warm glow. Soft directional golden hour daylight from the left, cream
 beige and rose palette, soft natural shadows. Background a blurred linen drape
 in cream tone. Apothecary aesthetic, like a Vogue beauty close-up shot for a
-dermatology feature. Documentary photography, natural film grain. 3:2 horizontal.
+dermatology feature. Documentary photography, natural film grain. 16:9 horizontal.
 ```
 
 ### 3 · Lifting + tinte de pestañas *(`pestanas-lifting-tinte`)*
@@ -50,7 +50,7 @@ glove holding a fine micro brush at the lash line. Warm natural daylight, cream
 beige and rose palette, soft shadow on the eyelid. A small ceramic dish with
 warm amber lash tint blurred in the background. Apothecary cabin aesthetic,
 no makeup, Aesop mood. Documentary editorial photography, fine film grain.
-3:2 horizontal.
+16:9 horizontal.
 ```
 
 ### 4 · Extensiones de pestañas *(`pestanas-extensiones`)*
@@ -61,7 +61,7 @@ placing one extension onto a natural lash. A cream gauze eye pad under the
 lower lash line. Warm natural daylight, cream and beige palette, soft shadow.
 Background slightly blurred showing a row of glossy black lash fans arranged
 on a strip of cream linen. Apothecary aesthetic, calm and precise, like a
-luxury beauty editorial. Documentary photography style, fine film grain. 3:2
+luxury beauty editorial. Documentary photography style, fine film grain. 16:9
 horizontal.
 ```
 
@@ -73,7 +73,7 @@ white pencil. A small caliper-like measuring tool resting on her cheek. Three
 small pencil dots mapping the brow architecture. Warm natural daylight, cream
 beige and dusty rose palette, soft shadows, no makeup. Apothecary aesthetic,
 calm and intentional. Documentary editorial photography, natural skin texture,
-fine film grain. Composition centered on the brow area. 3:2 horizontal.
+fine film grain. Composition centered on the brow area. 16:9 horizontal.
 ```
 
 ### 6 · Laminado + henna de cejas *(`cejas-laminado-henna`)*
@@ -84,7 +84,7 @@ with a small angled brush, hairs aligned upward. A small ceramic dish with
 warm henna paste blurred in the background. Warm natural daylight, cream
 beige and warm amber palette, soft shadow. Apothecary cabin aesthetic, Aesop x
 Officine Universelle Buly mood. Documentary photography style, natural skin,
-fine film grain. 3:2 horizontal.
+fine film grain. 16:9 horizontal.
 ```
 
 ---
@@ -100,7 +100,7 @@ daylight in a soft-lit treatment cabin, cream beige and rose palette, soft
 shadows on cream cotton sheets. A single amber apothecary glass bottle and a
 stack of folded cream cotton towels on the side, slightly out of focus.
 Apothecary aesthetic, calm clinical not sterile. Documentary editorial
-photography, natural skin texture, fine film grain. 3:2 horizontal.
+photography, natural skin texture, fine film grain. 16:9 horizontal.
 ```
 
 ### 8 · Hyaluron Pen *(`hyaluron-pen`)*
@@ -111,7 +111,7 @@ refined fountain pen. Patient's eyes closed in calm, natural skin texture.
 Warm natural daylight in a treatment cabin, cream beige and rose palette,
 soft shadows on cream cotton sheets. A small amber dropper bottle on a stone
 tray, blurred in the background. Apothecary aesthetic, calm and precise.
-Documentary editorial photography, fine film grain. 3:2 horizontal.
+Documentary editorial photography, fine film grain. 16:9 horizontal.
 ```
 
 ### 9 · Dermapen · Microneedling *(`dermapen-microneedling`)*
@@ -123,7 +123,7 @@ effect. Patient's eyes closed in calm. Warm natural daylight in treatment
 cabin, cream beige and dusty rose palette, soft shadow. A small amber glass
 bottle in the background, blurred. Apothecary aesthetic, controlled and
 precise. Documentary editorial photography, natural skin texture, fine film
-grain. 3:2 horizontal.
+grain. 16:9 horizontal.
 ```
 
 ### 10 · Vacuum · Cavitación · Radiofrecuencia corporal *(`vacuum-cavitacion-radiofrecuencia`)*
@@ -135,7 +135,7 @@ Each device sleek and minimal in matte white and rose gold. Surrounded by
 neatly rolled cream cotton towels, an amber apothecary glass bottle and a
 small ceramic dish of warm massage oil. Warm natural daylight from the left,
 cream beige and clay palette, soft shadows. Apothecary aesthetic, Aesop mood.
-Documentary editorial photography, natural film grain. 3:2 horizontal.
+Documentary editorial photography, natural film grain. 16:9 horizontal.
 ```
 
 ### 11 · Diatermia *(`diatermia`)*
@@ -147,7 +147,7 @@ glow at the contact area. Patient's eyes closed in calm. Warm natural daylight,
 cream beige and rose palette, soft shadow on cream linen. A small amber
 apothecary bottle and folded cream towels blurred in the background. Apothecary
 cabin aesthetic, calm precision. Documentary editorial photography, natural
-skin texture, fine film grain. 3:2 horizontal.
+skin texture, fine film grain. 16:9 horizontal.
 ```
 
 ### 12 · IPL · Fotorejuvenecimiento *(`ipl-fotorejuvenecimiento`)*
@@ -158,7 +158,7 @@ the skin, a soft warm yellow flash glow at the contact point. Patient wearing
 protective dark goggles. Warm natural daylight, cream beige and warm amber
 palette, soft shadow on cream linen. Apothecary cabin aesthetic, controlled
 and precise. Documentary editorial photography, natural skin, fine film grain.
-3:2 horizontal.
+16:9 horizontal.
 ```
 
 ### 13 · Depilación láser *(`depilacion-laser`)*
@@ -169,7 +169,7 @@ dark goggles. A faint cool blue tint at the contact head between handle and
 skin. Warm natural daylight in a treatment cabin, cream beige and clay palette,
 soft shadow on cream linen drape. A small amber apothecary bottle blurred in
 the background. Apothecary aesthetic, calm precision. Documentary editorial
-photography, fine film grain. 3:2 horizontal.
+photography, fine film grain. 16:9 horizontal.
 ```
 
 ### 14 · Láser Q-switched Nd:YAG · Carbon Peel *(`laser-switched-yag-carbon-peel`)*
@@ -180,7 +180,7 @@ holding a sleek laser handpiece hovering near the cheek. Patient's eyes closed
 beneath protective goggles. Warm natural daylight in the cabin, cream beige
 contrasted softly with the matte black carbon mask, soft shadow. Apothecary
 aesthetic, calm precision. Documentary editorial photography, natural skin
-visible at the jawline, fine film grain. 3:2 horizontal.
+visible at the jawline, fine film grain. 16:9 horizontal.
 ```
 
 ### 15 · HIFU · Lifting facial no quirúrgico *(`hifu`)*
@@ -192,7 +192,7 @@ on the skin. Patient's eyes closed in calm. Warm natural daylight in a soft
 cabin, cream beige and rose palette, soft shadow. A small amber apothecary
 bottle and folded cotton towels blurred in the background. Apothecary cabin
 aesthetic, premium calm precision. Documentary editorial photography, natural
-skin texture, fine film grain. 3:2 horizontal.
+skin texture, fine film grain. 16:9 horizontal.
 ```
 
 ---
@@ -207,7 +207,7 @@ along the brow. Faint pencil marking dots visible across the brow architecture.
 A small ceramic dish of warm brown pigment blurred in the background. Warm
 natural daylight, cream beige and warm amber palette, soft shadow. Apothecary
 aesthetic, calm precision craft. Documentary editorial photography, natural
-skin texture, fine film grain. 3:2 horizontal.
+skin texture, fine film grain. 16:9 horizontal.
 ```
 
 ### 17 · Micropigmentación de labios *(`micropigmentacion-labios`)*
@@ -217,7 +217,7 @@ The aesthetician's gloved hand holding a fine PMU device, the cartridge tip
 gliding along the upper lip border. Lips with delicate dusty pink pigment in
 soft saturation. Warm natural daylight, cream beige and warm rose palette,
 soft shadow. Apothecary aesthetic, calm craft precision. Documentary editorial
-photography, natural skin texture, fine film grain. 3:2 horizontal.
+photography, natural skin texture, fine film grain. 16:9 horizontal.
 ```
 
 ### 18 · Neutralización de labios *(`neutralizacion-labios`)*
@@ -228,7 +228,7 @@ with a fine PMU device. A small ceramic palette with peach and warm orange
 pigments next to a tiny color wheel reference card, blurred in the background.
 Warm natural daylight, cream beige and apricot palette, soft shadow. Apothecary
 craft aesthetic, technical precision. Documentary editorial photography,
-natural skin texture, fine film grain. 3:2 horizontal.
+natural skin texture, fine film grain. 16:9 horizontal.
 ```
 
 ### 19 · Micropigmentación de eyeliner *(`micropigmentacion-eyeliner`)*
@@ -238,7 +238,7 @@ session. The aesthetician's gloved hand holding a fine PMU device running along
 the upper lash line, gently between the lashes. A small protective eye shield
 visible on the eyelid. Warm natural daylight, cream beige and soft rose palette,
 soft shadow. Apothecary aesthetic, delicate calm precision. Documentary editorial
-photography, natural skin texture, fine film grain. 3:2 horizontal.
+photography, natural skin texture, fine film grain. 16:9 horizontal.
 ```
 
 ---
@@ -254,7 +254,7 @@ in deep relaxation. Warm natural daylight through linen curtains, cream beige
 and rose palette, soft shadows on cream cotton sheets. A small amber apothecary
 bottle and a stone tray blurred in the background. Apothecary spa aesthetic,
 calm and intentional. Documentary editorial photography, natural skin, fine
-film grain. 3:2 horizontal.
+film grain. 16:9 horizontal.
 ```
 
 ### 21 · Maderoterapia *(`maderoterapia`)*
@@ -265,7 +265,7 @@ Other wooden tools — a cup, a fungus-shaped tool, a flat paddle — arranged o
 a cream linen cloth nearby. Warm natural daylight in a cabin, cream beige and
 warm clay palette, soft shadow. A small amber oil bottle on a stone tray,
 blurred. Apothecary spa aesthetic, artisanal and grounded. Documentary
-editorial photography, natural skin texture, fine film grain. 3:2 horizontal.
+editorial photography, natural skin texture, fine film grain. 16:9 horizontal.
 ```
 
 ### 22 · Masaje reductor y remodelante *(`masaje-reductor-remodelante`)*
@@ -276,7 +276,7 @@ pressure. Skin glistening with warm massage oil. Patient lying on a treatment
 bed. Warm natural daylight, cream beige and rose palette, soft shadow on
 cream linen. A small amber apothecary bottle and a stone tray blurred in the
 background. Apothecary spa aesthetic, controlled artisanal precision.
-Documentary editorial photography, natural skin, fine film grain. 3:2
+Documentary editorial photography, natural skin, fine film grain. 16:9
 horizontal.
 ```
 
@@ -289,7 +289,7 @@ daylight through linen curtains, cream beige and rose palette, soft shadows on
 cream cotton sheets. A small amber apothecary bottle and a stack of folded
 cream towels blurred in the background. Apothecary spa aesthetic, calm and
 clinical without being sterile. Documentary editorial photography, natural
-skin texture, fine film grain. 3:2 horizontal.
+skin texture, fine film grain. 16:9 horizontal.
 ```
 
 ---
