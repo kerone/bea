@@ -88,7 +88,7 @@ window.PRECISSA_COURSES = [
     eyebrow: 'Asignatura transversal · Acceso de muestra',
     level: 'Inicial',
     duration: '5 h',
-    cover: 'assets/le-petit.jpg',
+    cover: 'assets/anatomia-fisiologia-cutanea.jpg',
     shortDescription: 'Cómo funciona la piel y por qué responde como responde a cada estímulo. Asignatura transversal y demostración visual de la metodología.',
     description: 'Curso base para entender la piel como órgano: estructura, capas, anejos cutáneos, biotipos y comportamiento ante los estímulos del tratamiento. Asignatura transversal a todos los cursos faciales del catálogo. Sirve también como muestra pública del estilo de docencia PRECISSA: parallax 3D, materia densa y visualización editorial.',
     lessons: [
