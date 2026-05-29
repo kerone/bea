@@ -2717,6 +2717,9 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .adm-name  { font-size: 12px; color: var(--muted); margin-top: 2px; }
 .adm-cell-count { font-family: var(--serif); font-size: 20px; line-height: 1; }
 .adm-cell-count.zero { color: var(--muted); font-family: var(--sans); font-size: 13px; font-style: italic; }
+.adm-admin-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent-dark); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; }
+.adm-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; margin: 0 -4px; }
+.adm-table-scroll > table { min-width: 640px; }
 .adm-cell-date { font-size: 12px; color: var(--muted); }
 .adm-cell-edit { text-align: right; color: var(--accent); font-size: 13px; }
 .adm-no-results { padding: 60px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 10px; margin-top: 12px; }
@@ -3710,24 +3713,29 @@ function renderAdmTable() {
     return;
   }
   const rows = filtered.map(u => {
-    const list   = enrollsByEmail[u.email.toLowerCase()] || [];
-    const live   = list.filter(e => !admIsExpired(e.expires_at));
-    const count  = live.length;
-    const latest = list.length
+    const list    = enrollsByEmail[u.email.toLowerCase()] || [];
+    const live    = list.filter(e => !admIsExpired(e.expires_at));
+    const count   = live.length;
+    const isAdmin = isAdminEmail(u.email.toLowerCase().trim());
+    const latest  = list.length
       ? list.map(e => e.updated_at || e.expires_at || '').filter(Boolean).sort().slice(-1)[0]
       : null;
+    const accessCell = isAdmin
+      ? `<span class="adm-admin-badge" title="Acceso total como administradora">Admin</span>`
+      : `<span class="adm-cell-count ${count === 0 ? 'zero' : ''}">${count === 0 ? 'sin accesos' : count}</span>`;
     return `
       <tr class="adm-row" onclick="openAdmEditor('${escapeAttr(u.email)}')">
         <td>
           <div class="adm-email">${escapeHtml(u.email)}</div>
           ${u.full_name ? `<div class="adm-name">${escapeHtml(u.full_name)}</div>` : ''}
         </td>
-        <td><span class="adm-cell-count ${count === 0 ? 'zero' : ''}">${count === 0 ? 'sin accesos' : count}</span></td>
+        <td>${accessCell}</td>
         <td><span class="adm-cell-date">${latest ? 'Última modif. ' + admFormatDate(latest) : '—'}</span></td>
         <td class="adm-cell-edit">Editar →</td>
       </tr>`;
   }).join('');
   document.getElementById('adm-table-host').innerHTML = `
+    <div class="adm-table-scroll">
     <table class="adm-table">
       <thead><tr>
         <th>Alumna</th>
@@ -3736,7 +3744,8 @@ function renderAdmTable() {
         <th></th>
       </tr></thead>
       <tbody>${rows}</tbody>
-    </table>`;
+    </table>
+    </div>`;
 }
 
 async function openAdmEditor(email) {
