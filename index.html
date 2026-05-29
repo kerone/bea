@@ -2808,6 +2808,34 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 .adm-switch input:checked + .adm-switch-slider { background: var(--accent); }
 .adm-switch input:checked + .adm-switch-slider::before { transform: translateX(20px); }
 .adm-switch input:disabled + .adm-switch-slider { opacity: 0.5; cursor: wait; }
+.adm-curso-edit-btn { background: none; border: 1px solid var(--line); border-radius: 6px; padding: 5px 12px; font-family: var(--sans); font-size: 12px; color: var(--ink); cursor: pointer; flex: none; }
+.adm-curso-edit-btn:hover { border-color: var(--ink-soft); }
+.adm-curso-edited { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); border-radius: 999px; padding: 1px 7px; margin-left: 6px; vertical-align: middle; }
+
+/* Editor de curso */
+.ce-card { max-width: 760px; }
+.adm-subtabs { display: flex; gap: 4px; padding: 0 26px; border-bottom: 1px solid var(--line); }
+.adm-subtab { background: none; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; padding: 11px 14px; font-family: var(--sans); font-size: 13px; color: var(--muted); cursor: pointer; }
+.adm-subtab:hover { color: var(--ink); }
+.adm-subtab.active { color: var(--ink); border-bottom-color: var(--accent); font-weight: 600; }
+.ce-lesson, .ce-q { border: 1px solid var(--line); border-radius: 10px; padding: 16px; margin-bottom: 14px; }
+.ce-block-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.ce-block-num { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.ce-block-ops { display: flex; gap: 8px; }
+.ce-block-ops button { background: none; border: 1px solid var(--line); border-radius: 6px; padding: 3px 9px; font-size: 12px; cursor: pointer; color: var(--ink); }
+.ce-block-ops button.adm-danger { color: #b34b3b; border-color: #e3c4be; }
+.ce-block-ops button:disabled { opacity: 0.35; cursor: default; }
+.ce-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.ce-mini-label { font-size: 11px; color: var(--muted); display: block; margin-bottom: 4px; }
+.ce-drop { margin-top: 12px; border: 1.5px dashed var(--line); border-radius: 8px; padding: 14px; text-align: center; transition: border-color .15s, background .15s; }
+.ce-drop.drag { border-color: var(--accent); background: var(--accent-soft); }
+.ce-drop-status { font-size: 12px; color: var(--muted); margin-top: 8px; word-break: break-all; }
+.ce-drop-status.ok { color: #3f8a52; }
+.ce-opt-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.ce-opt-row input[type="radio"] { width: 16px; height: 16px; accent-color: var(--accent); flex: none; }
+.ce-opt-row .res-input { flex: 1; }
+.ce-opt-row button { background: none; border: none; color: #b34b3b; font-size: 16px; cursor: pointer; padding: 0 4px; line-height: 1; }
+.ce-correct-hint { font-size: 11px; color: var(--muted); margin: 2px 0 10px; }
 
 @media (max-width: 768px) {
   .adm-wrap { padding: 88px 20px 60px; }
@@ -2933,6 +2961,66 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
       <span style="flex:1"></span>
       <button class="btn btn-text" onclick="closeResModal()">Cancelar</button>
       <button class="btn btn-dark" id="res-save-btn" onclick="saveResModal()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: editar curso (metadatos / lecciones / test) -->
+<div class="adm-modal" id="ce-modal" onclick="if(event.target===this)closeCourseEditor()">
+  <div class="adm-modal-card ce-card">
+    <div class="adm-modal-head">
+      <div>
+        <div class="adm-modal-email" id="ce-title">Editar curso</div>
+        <div class="adm-modal-name" id="ce-subtitle"></div>
+      </div>
+      <button class="adm-modal-close" onclick="closeCourseEditor()" aria-label="Cerrar">✕</button>
+    </div>
+    <div class="adm-subtabs">
+      <button class="adm-subtab active" data-cetab="datos" onclick="switchCeTab('datos')">Datos</button>
+      <button class="adm-subtab" data-cetab="lecciones" onclick="switchCeTab('lecciones')">Lecciones</button>
+      <button class="adm-subtab" data-cetab="test" onclick="switchCeTab('test')">Test</button>
+    </div>
+    <div class="adm-modal-body">
+      <!-- DATOS -->
+      <div id="ce-panel-datos" class="ce-panel">
+        <div class="res-form">
+          <label class="res-field">
+            <span class="res-label">Portada</span>
+            <div class="res-photo">
+              <div class="res-photo-preview" id="ce-cover-preview"><span>Sin portada</span></div>
+              <div class="res-photo-actions">
+                <input type="file" id="ce-cover-input" accept="image/*" onchange="onCeCoverChange(this)" style="display:none">
+                <button type="button" class="btn btn-text btn-sm" onclick="document.getElementById('ce-cover-input').click()">Elegir imagen…</button>
+                <button type="button" class="btn btn-text btn-sm" id="ce-cover-remove" onclick="clearCeCover()" style="display:none">Quitar</button>
+                <p class="res-hint">Si la quitas se usará la portada definida en courses-data.js.</p>
+              </div>
+            </div>
+          </label>
+          <label class="res-field"><span class="res-label">Título</span><input type="text" id="ce-title-in" class="res-input"></label>
+          <label class="res-field"><span class="res-label">Eyebrow <small>(etiqueta superior)</small></span><input type="text" id="ce-eyebrow" class="res-input"></label>
+          <label class="res-field"><span class="res-label">Nivel</span><input type="text" id="ce-level" class="res-input"></label>
+          <label class="res-field"><span class="res-label">Duración</span><input type="text" id="ce-duration" class="res-input"></label>
+          <label class="res-field"><span class="res-label">Categoría</span><select id="ce-category" class="res-input"></select></label>
+          <label class="res-field"><span class="res-label">Descripción corta</span><textarea id="ce-short" class="res-input" rows="2"></textarea></label>
+          <label class="res-field"><span class="res-label">Descripción larga</span><textarea id="ce-desc" class="res-input" rows="5"></textarea></label>
+        </div>
+      </div>
+      <!-- LECCIONES -->
+      <div id="ce-panel-lecciones" class="ce-panel" style="display:none">
+        <div id="ce-lessons-list"></div>
+        <button class="btn btn-text btn-sm" onclick="ceAddLesson()">+ Añadir lección</button>
+      </div>
+      <!-- TEST -->
+      <div id="ce-panel-test" class="ce-panel" style="display:none">
+        <div id="ce-test-list"></div>
+        <button class="btn btn-text btn-sm" onclick="ceAddQuestion()">+ Añadir pregunta</button>
+      </div>
+    </div>
+    <div class="adm-modal-foot">
+      <button class="btn btn-text adm-danger" onclick="resetCourseFromEditor()">Restablecer a courses-data.js</button>
+      <span style="flex:1"></span>
+      <button class="btn btn-text" onclick="closeCourseEditor()">Cancelar</button>
+      <button class="btn btn-dark" id="ce-save-btn" onclick="saveCourseEditor()">Guardar</button>
     </div>
   </div>
 </div>
@@ -3157,6 +3245,7 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 <script src="assets/js/admin.js"></script>
 <script src="assets/js/testimonials.js"></script>
 <script src="assets/js/course-visibility.js"></script>
+<script src="assets/js/course-content.js"></script>
 <!-- Lógica de autenticación -->
 <script src="assets/js/auth.js"></script>
 <script>
@@ -3602,8 +3691,33 @@ document.querySelectorAll('.producto-thumb').forEach(thumb => {
 })();
 
 // ─── DOCENCIA · DATOS DE CURSOS ─────────────────────────
-function getCourses() {
+// Cursos "crudos" definidos en courses-data.js, sin overrides del panel.
+function getRawCourses() {
   return (window.PRECISSA_COURSES && Array.isArray(window.PRECISSA_COURSES)) ? window.PRECISSA_COURSES : [];
+}
+function getRawCourse(id) {
+  return getRawCourses().find(c => c.id === id) || null;
+}
+// Aplica el override de un curso sobre su versión por defecto: los
+// metadatos de texto/portada se fusionan campo a campo (los que no estén
+// en el override conservan el valor del JS); lessons y test, si vienen en
+// el override, reemplazan al array por defecto.
+function mergeCourseOverride(course, ov) {
+  if (!ov) return course;
+  const out = Object.assign({}, course);
+  ['title', 'eyebrow', 'level', 'duration', 'shortDescription', 'description', 'category', 'cover']
+    .forEach(k => { if (ov[k] != null && ov[k] !== '') out[k] = ov[k]; });
+  if (Array.isArray(ov.lessons)) out.lessons = ov.lessons;
+  if (ov.test && Array.isArray(ov.test.questions)) out.test = ov.test;
+  return out;
+}
+// Cursos con los overrides del panel aplicados (lo que ve toda la web:
+// catálogo, home y aula).
+function getCourses() {
+  const raw = getRawCourses();
+  const map = (window.courseContent && window.courseContent.getMap) ? window.courseContent.getMap() : null;
+  if (!map) return raw;
+  return raw.map(c => mergeCourseOverride(c, map[c.id]));
 }
 // Cursos visibles en el catálogo público (excluye los desactivados desde
 // el panel admin). El aula y la gestión de matrículas usan getCourses()
@@ -4185,7 +4299,10 @@ async function loadCursosAdmin() {
   const host = document.getElementById('adm-cursos-host');
   host.innerHTML = '<div class="adm-loader">Cargando cursos…</div>';
   try {
-    if (window.courseVisibility) await window.courseVisibility.load();
+    const tasks = [];
+    if (window.courseVisibility) tasks.push(window.courseVisibility.load());
+    if (window.courseContent)    tasks.push(window.courseContent.load());
+    await Promise.all(tasks);
     _cursLoaded = true;
     renderCursosAdmin();
   } catch (err) {
@@ -4229,11 +4346,13 @@ function renderCursosAdmin() {
 function courseVisibilityRow(c) {
   const hidden  = window.courseVisibility ? window.courseVisibility.isHidden(c.id) : false;
   const checked = hidden ? '' : 'checked';
+  const edited = window.courseContent && window.courseContent.getOverride && window.courseContent.getOverride(c.id);
   return `
     <div class="adm-curso-row" data-course="${escapeAttr(c.id)}">
       <div class="adm-curso-info">
-        <div class="adm-curso-title">${escapeHtml(c.title || c.id)}<small>${escapeHtml(c.id)}</small></div>
+        <div class="adm-curso-title">${escapeHtml(c.title || c.id)}${edited ? ' <span class="adm-curso-edited" title="Tiene cambios guardados desde el panel">editado</span>' : ''}<small>${escapeHtml(c.id)}</small></div>
       </div>
+      <button class="adm-curso-edit-btn" onclick="openCourseEditor('${escapeAttr(c.id)}')">Editar</button>
       <span class="adm-curso-state ${hidden ? 'off' : 'on'}">${hidden ? 'Oculto' : 'Visible'}</span>
       <label class="adm-switch">
         <input type="checkbox" ${checked} onchange="toggleCourseVisibility('${escapeAttr(c.id)}', this)">
@@ -4261,6 +4380,274 @@ async function toggleCourseVisibility(courseId, cb) {
     alert('No se pudo cambiar la visibilidad: ' + (err && err.message || err));
   } finally {
     cb.disabled = false;
+  }
+}
+
+// ─── ADMIN · EDITOR DE CURSO (metadatos / lecciones / test) ──────
+let _ceCourseId  = null;
+let _ceLessons   = [];
+let _ceTest      = [];
+let _ceLessonsDirty = false;
+let _ceTestDirty    = false;
+let _ceCoverNewFile = null;
+let _ceCoverCleared = false;
+let _ceCoverUrl     = null;   // portada efectiva actual
+
+function clone(x) { try { return JSON.parse(JSON.stringify(x)); } catch (e) { return x; } }
+
+function openCourseEditor(id) {
+  const course = getCourses().find(c => c.id === id);
+  const raw    = getRawCourse(id);
+  if (!course) { alert('Curso no encontrado.'); return; }
+  _ceCourseId = id;
+  document.getElementById('ce-title').textContent = 'Editar curso';
+  document.getElementById('ce-subtitle').textContent = (course.title || id) + ' · ' + id;
+
+  // Datos
+  document.getElementById('ce-title-in').value = course.title || '';
+  document.getElementById('ce-eyebrow').value  = course.eyebrow || '';
+  document.getElementById('ce-level').value    = course.level || '';
+  document.getElementById('ce-duration').value = course.duration || '';
+  document.getElementById('ce-short').value    = course.shortDescription || '';
+  document.getElementById('ce-desc').value     = course.description || '';
+  // Categoría
+  const cats = getCategories();
+  document.getElementById('ce-category').innerHTML = cats.map(c =>
+    `<option value="${escapeAttr(c.id)}" ${c.id === course.category ? 'selected' : ''}>${escapeHtml(c.label)}</option>`
+  ).join('');
+  // Portada
+  _ceCoverNewFile = null; _ceCoverCleared = false;
+  _ceCoverUrl = course.cover || null;
+  document.getElementById('ce-cover-input').value = '';
+  renderCeCoverPreview();
+
+  // Lecciones y test (copia profunda para no mutar los originales)
+  _ceLessons = clone(course.lessons || []);
+  _ceTest    = clone((course.test && course.test.questions) || []);
+  _ceLessonsDirty = false; _ceTestDirty = false;
+  renderCeLessons();
+  renderCeTest();
+
+  switchCeTab('datos');
+  document.getElementById('ce-modal').classList.add('open');
+}
+
+function closeCourseEditor() {
+  document.getElementById('ce-modal').classList.remove('open');
+}
+
+function switchCeTab(tab) {
+  document.querySelectorAll('.adm-subtab').forEach(b => b.classList.toggle('active', b.dataset.cetab === tab));
+  document.getElementById('ce-panel-datos').style.display     = (tab === 'datos')     ? '' : 'none';
+  document.getElementById('ce-panel-lecciones').style.display = (tab === 'lecciones') ? '' : 'none';
+  document.getElementById('ce-panel-test').style.display      = (tab === 'test')      ? '' : 'none';
+}
+
+// — Portada —
+function renderCeCoverPreview() {
+  const prev = document.getElementById('ce-cover-preview');
+  const rm   = document.getElementById('ce-cover-remove');
+  let src = _ceCoverUrl;
+  if (_ceCoverNewFile) src = URL.createObjectURL(_ceCoverNewFile);
+  if (src) { prev.innerHTML = `<img src="${escapeAttr(src)}" alt="">`; rm.style.display = ''; }
+  else     { prev.innerHTML = '<span>Sin portada</span>'; rm.style.display = 'none'; }
+}
+function onCeCoverChange(input) {
+  const f = input.files && input.files[0];
+  if (!f) return;
+  _ceCoverNewFile = f; _ceCoverCleared = false;
+  renderCeCoverPreview();
+}
+function clearCeCover() {
+  _ceCoverNewFile = null; _ceCoverCleared = true; _ceCoverUrl = null;
+  document.getElementById('ce-cover-input').value = '';
+  renderCeCoverPreview();
+}
+
+// — Lecciones —
+function renderCeLessons() {
+  const host = document.getElementById('ce-lessons-list');
+  if (_ceLessons.length === 0) {
+    host.innerHTML = '<p class="res-hint" style="margin-bottom:12px">Este curso no tiene lecciones. Añade una con el botón de abajo.</p>';
+    return;
+  }
+  host.innerHTML = _ceLessons.map((l, i) => {
+    const status = l._newFile ? ('Pendiente de subir: ' + l._newFile.name)
+                              : (l.slides ? l.slides : 'Sin slide asignado');
+    const statusCls = l._newFile ? 'ok' : '';
+    return `
+      <div class="ce-lesson">
+        <div class="ce-block-head">
+          <span class="ce-block-num">Lección ${i + 1}</span>
+          <div class="ce-block-ops">
+            <button onclick="ceMoveLesson(${i},-1)" ${i === 0 ? 'disabled' : ''}>↑</button>
+            <button onclick="ceMoveLesson(${i},1)" ${i === _ceLessons.length - 1 ? 'disabled' : ''}>↓</button>
+            <button class="adm-danger" onclick="ceRemoveLesson(${i})">Eliminar</button>
+          </div>
+        </div>
+        <div class="ce-row2">
+          <div><span class="ce-mini-label">Título</span><input type="text" class="res-input" value="${escapeAttr(l.title || '')}" oninput="ceLessonField(${i},'title',this.value)"></div>
+          <div><span class="ce-mini-label">Duración</span><input type="text" class="res-input" value="${escapeAttr(l.duration || '')}" oninput="ceLessonField(${i},'duration',this.value)"></div>
+        </div>
+        <div class="ce-drop" ondragover="ceLessonDragOver(event,this)" ondragleave="ceLessonDragLeave(this)" ondrop="ceLessonDrop(event,${i},this)">
+          <span class="res-hint">Arrastra aquí el HTML del slide o</span>
+          <button type="button" class="btn btn-text btn-sm" onclick="document.getElementById('ce-lfile-${i}').click()">elegir archivo…</button>
+          <input type="file" id="ce-lfile-${i}" accept=".html,text/html" style="display:none" onchange="ceLessonFileChange(this,${i})">
+          <div class="ce-drop-status ${statusCls}" id="ce-lstatus-${i}">${escapeHtml(status)}</div>
+        </div>
+      </div>`;
+  }).join('');
+}
+function ceLessonField(i, key, val) { _ceLessons[i][key] = val; _ceLessonsDirty = true; }
+function ceMoveLesson(i, dir) {
+  const j = i + dir;
+  if (j < 0 || j >= _ceLessons.length) return;
+  const t = _ceLessons[i]; _ceLessons[i] = _ceLessons[j]; _ceLessons[j] = t;
+  _ceLessonsDirty = true; renderCeLessons();
+}
+function ceRemoveLesson(i) { _ceLessons.splice(i, 1); _ceLessonsDirty = true; renderCeLessons(); }
+function ceAddLesson() { _ceLessons.push({ id: '', title: '', duration: '', slides: '' }); _ceLessonsDirty = true; renderCeLessons(); }
+function ceLessonDragOver(e, el) { e.preventDefault(); el.classList.add('drag'); }
+function ceLessonDragLeave(el) { el.classList.remove('drag'); }
+function ceLessonDrop(e, i, el) {
+  e.preventDefault(); el.classList.remove('drag');
+  const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+  ceLessonSetFile(i, f);
+}
+function ceLessonFileChange(input, i) { ceLessonSetFile(i, input.files && input.files[0]); }
+function ceLessonSetFile(i, f) {
+  if (!f) return;
+  const isHtml = /\.html?$/i.test(f.name) || f.type === 'text/html';
+  if (!isHtml) { alert('El slide debe ser un archivo HTML.'); return; }
+  _ceLessons[i]._newFile = f;
+  _ceLessonsDirty = true;
+  const st = document.getElementById('ce-lstatus-' + i);
+  if (st) { st.textContent = 'Pendiente de subir: ' + f.name; st.classList.add('ok'); }
+}
+
+// — Test —
+function renderCeTest() {
+  const host = document.getElementById('ce-test-list');
+  if (_ceTest.length === 0) {
+    host.innerHTML = '<p class="res-hint" style="margin-bottom:12px">Este curso no tiene test. Añade una pregunta con el botón de abajo.</p>';
+    return;
+  }
+  host.innerHTML = _ceTest.map((q, i) => {
+    const opts = (q.options || []).map((opt, j) => `
+      <div class="ce-opt-row">
+        <input type="radio" name="ce-correct-${i}" ${q.correct === j ? 'checked' : ''} onchange="ceSetCorrect(${i},${j})" title="Marcar como correcta">
+        <input type="text" class="res-input" value="${escapeAttr(opt || '')}" oninput="ceOptionField(${i},${j},this.value)">
+        <button onclick="ceRemoveOption(${i},${j})" title="Quitar opción">✕</button>
+      </div>`).join('');
+    return `
+      <div class="ce-q">
+        <div class="ce-block-head">
+          <span class="ce-block-num">Pregunta ${i + 1}</span>
+          <div class="ce-block-ops">
+            <button class="adm-danger" onclick="ceRemoveQuestion(${i})">Eliminar</button>
+          </div>
+        </div>
+        <textarea class="res-input" rows="2" placeholder="Enunciado de la pregunta" oninput="ceQField(${i},'q',this.value)">${escapeHtml(q.q || '')}</textarea>
+        <p class="ce-correct-hint">Marca el círculo de la respuesta correcta.</p>
+        ${opts}
+        <button type="button" class="btn btn-text btn-sm" onclick="ceAddOption(${i})">+ Añadir opción</button>
+      </div>`;
+  }).join('');
+}
+function ceQField(i, key, val) { _ceTest[i][key] = val; _ceTestDirty = true; }
+function ceOptionField(i, j, val) { _ceTest[i].options[j] = val; _ceTestDirty = true; }
+function ceSetCorrect(i, j) { _ceTest[i].correct = j; _ceTestDirty = true; }
+function ceAddOption(i) { (_ceTest[i].options = _ceTest[i].options || []).push(''); _ceTestDirty = true; renderCeTest(); }
+function ceRemoveOption(i, j) {
+  _ceTest[i].options.splice(j, 1);
+  if (_ceTest[i].correct >= _ceTest[i].options.length) _ceTest[i].correct = 0;
+  _ceTestDirty = true; renderCeTest();
+}
+function ceRemoveQuestion(i) { _ceTest.splice(i, 1); _ceTestDirty = true; renderCeTest(); }
+function ceAddQuestion() { _ceTest.push({ q: '', options: ['', ''], correct: 0 }); _ceTestDirty = true; renderCeTest(); }
+
+// — Guardar / restablecer —
+async function saveCourseEditor() {
+  if (!_ceCourseId) return;
+  const id  = _ceCourseId;
+  const raw = getRawCourse(id) || {};
+  const btn = document.getElementById('ce-save-btn');
+  btn.disabled = true; btn.textContent = 'Guardando…';
+  try {
+    const fields = {};
+    // Metadatos: diff contra el valor por defecto (igual/vacío → null).
+    const diff = (formVal, defVal) => {
+      const a = String(formVal == null ? '' : formVal).trim();
+      const b = String(defVal == null ? '' : defVal).trim();
+      return (a === '' || a === b) ? null : a;
+    };
+    fields.title            = diff(document.getElementById('ce-title-in').value, raw.title);
+    fields.eyebrow          = diff(document.getElementById('ce-eyebrow').value, raw.eyebrow);
+    fields.level            = diff(document.getElementById('ce-level').value, raw.level);
+    fields.duration         = diff(document.getElementById('ce-duration').value, raw.duration);
+    fields.shortDescription = diff(document.getElementById('ce-short').value, raw.shortDescription);
+    fields.description      = diff(document.getElementById('ce-desc').value, raw.description);
+    fields.category         = diff(document.getElementById('ce-category').value, raw.category);
+
+    // Portada
+    if (_ceCoverNewFile) {
+      btn.textContent = 'Subiendo portada…';
+      fields.cover = await window.courseContent.uploadCover(_ceCoverNewFile);
+    } else if (_ceCoverCleared) {
+      fields.cover = null;
+    } else {
+      fields.cover = (!_ceCoverUrl || _ceCoverUrl === raw.cover) ? null : _ceCoverUrl;
+    }
+
+    // Lecciones (solo si se tocaron): subir HTML pendientes y construir array.
+    if (_ceLessonsDirty) {
+      const lessons = [];
+      for (let i = 0; i < _ceLessons.length; i++) {
+        const l = _ceLessons[i];
+        const lid = (l.id && String(l.id).trim()) ? l.id : ('leccion-' + (i + 1));
+        let slides = l.slides || '';
+        if (l._newFile) {
+          btn.textContent = 'Subiendo slide ' + (i + 1) + '…';
+          slides = await window.courseContent.uploadSlide(id, lid, l._newFile);
+        }
+        lessons.push({ id: lid, title: l.title || '', duration: l.duration || '', slides: slides });
+      }
+      fields.lessons = lessons;
+    }
+
+    // Test (solo si se tocó)
+    if (_ceTestDirty) {
+      fields.test = { questions: _ceTest.map(q => ({
+        q: q.q || '',
+        options: (q.options || []).map(o => o || ''),
+        correct: Number.isInteger(q.correct) ? q.correct : 0
+      })) };
+    }
+
+    btn.textContent = 'Guardando…';
+    await window.courseContent.save(id, fields);
+    closeCourseEditor();
+    await loadCursosAdmin();   // recarga overrides + re-render lista
+    renderPublicCourses();     // refrescar catálogo en vivo
+  } catch (err) {
+    console.error('[admin] saveCourseEditor', err);
+    alert('Error guardando el curso: ' + (err && err.message || err));
+  } finally {
+    btn.disabled = false; btn.textContent = 'Guardar';
+  }
+}
+
+async function resetCourseFromEditor() {
+  if (!_ceCourseId) return;
+  if (!confirm('¿Restablecer este curso a los valores de courses-data.js? Se perderán los cambios guardados desde el panel (datos, lecciones y test).')) return;
+  try {
+    await window.courseContent.reset(_ceCourseId);
+    closeCourseEditor();
+    await loadCursosAdmin();
+    renderPublicCourses();
+  } catch (err) {
+    console.error('[admin] resetCourseFromEditor', err);
+    alert('Error al restablecer: ' + (err && err.message || err));
   }
 }
 
@@ -5040,9 +5427,12 @@ renderAreasHome();
 routeFromHash();
 if (window.auth && window.auth.init) window.auth.init();
 
-// Cargar la visibilidad de cursos y refrescar el catálogo cuando llegue.
+// Cargar visibilidad y overrides de cursos; refrescar el catálogo al llegar.
 if (window.courseVisibility && window.courseVisibility.isConfigured()) {
   window.courseVisibility.load().then(() => { renderPublicCourses(); }).catch(() => {});
+}
+if (window.courseContent && window.courseContent.isConfigured()) {
+  window.courseContent.load().then(() => { renderPublicCourses(); }).catch(() => {});
 }
 </script>
 
