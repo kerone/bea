@@ -2789,6 +2789,26 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 .res-photo-actions { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
 .res-hint { font-size: 11.5px; color: var(--muted); margin: 4px 0 0; line-height: 1.4; }
 
+/* Lista de cursos (visibilidad) */
+.adm-cursos-cat { margin-bottom: 26px; }
+.adm-cursos-cat-title { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 600; padding-bottom: 8px; border-bottom: 1px solid var(--line); margin-bottom: 4px; }
+.adm-curso-row { display: flex; align-items: center; gap: 16px; padding: 13px 4px; border-bottom: 1px dashed var(--line); }
+.adm-curso-row:last-child { border-bottom: none; }
+.adm-curso-info { flex: 1; min-width: 0; }
+.adm-curso-title { font-size: 14px; color: var(--ink); line-height: 1.3; }
+.adm-curso-title small { display: block; color: var(--muted); font-size: 11px; margin-top: 2px; }
+.adm-curso-state { font-size: 11.5px; color: var(--muted); min-width: 64px; text-align: right; }
+.adm-curso-state.on { color: #3f8a52; }
+.adm-curso-state.off { color: #b34b3b; }
+/* Interruptor */
+.adm-switch { position: relative; display: inline-block; width: 44px; height: 24px; flex: none; }
+.adm-switch input { opacity: 0; width: 0; height: 0; }
+.adm-switch-slider { position: absolute; cursor: pointer; inset: 0; background: #c9bfb2; border-radius: 999px; transition: background .18s; }
+.adm-switch-slider::before { content: ""; position: absolute; height: 18px; width: 18px; left: 3px; top: 3px; background: #fff; border-radius: 50%; transition: transform .18s; box-shadow: 0 1px 3px rgba(0,0,0,0.25); }
+.adm-switch input:checked + .adm-switch-slider { background: var(--accent); }
+.adm-switch input:checked + .adm-switch-slider::before { transform: translateX(20px); }
+.adm-switch input:disabled + .adm-switch-slider { opacity: 0.5; cursor: wait; }
+
 @media (max-width: 768px) {
   .adm-wrap { padding: 88px 20px 60px; }
   .adm-h1 { font-size: 30px; }
@@ -2816,6 +2836,7 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
   <div class="adm-tabs" id="adm-tabs">
     <button class="adm-tab active" data-tab="alumnas" onclick="switchAdmTab('alumnas')">Alumnas y accesos</button>
     <button class="adm-tab" data-tab="resenas" onclick="switchAdmTab('resenas')">Reseñas de alumnas</button>
+    <button class="adm-tab" data-tab="cursos" onclick="switchAdmTab('cursos')">Cursos en la web</button>
   </div>
 
   <!-- PANEL: ALUMNAS Y ACCESOS -->
@@ -2839,6 +2860,15 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
     </div>
     <div id="adm-resenas-host">
       <div class="adm-loader">Cargando reseñas…</div>
+    </div>
+  </div>
+
+  <!-- PANEL: CURSOS EN LA WEB -->
+  <div id="adm-panel-cursos" class="adm-panel" style="display:none">
+    <p class="adm-sub" style="margin-bottom:6px">Activa o desactiva qué cursos aparecen en el catálogo público.</p>
+    <p class="res-hint" style="margin-bottom:18px">Desactivar un curso solo lo quita del catálogo y la home. Las alumnas ya matriculadas siguen accediendo a él en su aula.</p>
+    <div id="adm-cursos-host">
+      <div class="adm-loader">Cargando cursos…</div>
     </div>
   </div>
 </section>
@@ -3126,6 +3156,7 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 <script src="assets/js/enrollments.js"></script>
 <script src="assets/js/admin.js"></script>
 <script src="assets/js/testimonials.js"></script>
+<script src="assets/js/course-visibility.js"></script>
 <!-- Lógica de autenticación -->
 <script src="assets/js/auth.js"></script>
 <script>
@@ -3574,6 +3605,16 @@ document.querySelectorAll('.producto-thumb').forEach(thumb => {
 function getCourses() {
   return (window.PRECISSA_COURSES && Array.isArray(window.PRECISSA_COURSES)) ? window.PRECISSA_COURSES : [];
 }
+// Cursos visibles en el catálogo público (excluye los desactivados desde
+// el panel admin). El aula y la gestión de matrículas usan getCourses()
+// directamente, así que las alumnas matriculadas conservan el acceso.
+function getPublicCourses() {
+  const all = getCourses();
+  const hidden = (window.courseVisibility && window.courseVisibility.getHiddenSet)
+    ? window.courseVisibility.getHiddenSet() : null;
+  if (!hidden || hidden.size === 0) return all;
+  return all.filter(c => !hidden.has(c.id));
+}
 
 // ─── CURSOS PÚBLICO (listado agrupado por categoría) ────
 function getCategories() {
@@ -3661,7 +3702,7 @@ function renderPublicCourses() {
   const grid = document.getElementById('cursos-pub-grid');
   if (!grid) return;
   renderPublicCourseFilters();
-  const courses = getCourses();
+  const courses = getPublicCourses();
   if (courses.length === 0) {
     grid.innerHTML = '<div class="cursos-pub-empty">Aún no hay cursos publicados. Edita <code>assets/js/courses-data.js</code> para añadir el primero.</div>';
     return;
@@ -3783,15 +3824,17 @@ async function openAdmin() {
   if (!ok) {
     if (tabs) tabs.style.display = 'none';
     document.getElementById('adm-panel-resenas').style.display = 'none';
+    document.getElementById('adm-panel-cursos').style.display = 'none';
     document.getElementById('adm-panel-alumnas').style.display = '';
     document.getElementById('adm-table-host').innerHTML =
       '<div class="adm-warn">Esta sección es solo para administradoras.</div>';
     document.getElementById('adm-sub-count').textContent = 'Sin permisos';
     return;
   }
-  // Reset de pestañas: siempre se entra por «Alumnas» y se recarga reseñas.
+  // Reset de pestañas: siempre se entra por «Alumnas» y se recargan los datos.
   if (tabs) tabs.style.display = '';
   _resLoaded = false;
+  _cursLoaded = false;
   switchAdmTab('alumnas');
   document.getElementById('adm-table-host').innerHTML = '<div class="adm-loader">Cargando alumnas…</div>';
   document.getElementById('adm-warn-area').innerHTML = '';
@@ -3989,7 +4032,9 @@ function switchAdmTab(tab) {
     b.classList.toggle('active', b.dataset.tab === tab));
   document.getElementById('adm-panel-alumnas').style.display = (tab === 'alumnas') ? '' : 'none';
   document.getElementById('adm-panel-resenas').style.display = (tab === 'resenas') ? '' : 'none';
-  if (tab === 'resenas' && !_resLoaded) loadResenas();
+  document.getElementById('adm-panel-cursos').style.display  = (tab === 'cursos')  ? '' : 'none';
+  if (tab === 'resenas' && !_resLoaded)  loadResenas();
+  if (tab === 'cursos'  && !_cursLoaded) loadCursosAdmin();
 }
 
 async function loadResenas() {
@@ -4131,6 +4176,92 @@ function deleteResFromModal() {
   const id = _resEditingId;
   closeResModal();
   deleteRes(id);
+}
+
+// ─── ADMIN · VISIBILIDAD DE CURSOS EN LA WEB ────────────
+let _cursLoaded = false;
+
+async function loadCursosAdmin() {
+  const host = document.getElementById('adm-cursos-host');
+  host.innerHTML = '<div class="adm-loader">Cargando cursos…</div>';
+  try {
+    if (window.courseVisibility) await window.courseVisibility.load();
+    _cursLoaded = true;
+    renderCursosAdmin();
+  } catch (err) {
+    console.error('[admin] loadCursosAdmin', err);
+    host.innerHTML = '<div class="adm-warn">⚠️ Error leyendo la visibilidad de cursos. ¿Has ejecutado <code>supabase/course-visibility.sql</code>?<br><small>' + escapeHtml(String(err && err.message || err)) + '</small></div>';
+  }
+}
+
+function renderCursosAdmin() {
+  const host = document.getElementById('adm-cursos-host');
+  const courses = getCourses();
+  if (courses.length === 0) {
+    host.innerHTML = '<div class="adm-no-results">No hay cursos definidos en courses-data.js.</div>';
+    return;
+  }
+  const cats = getCategories();
+  const catLabel = {};
+  cats.forEach(c => { catLabel[c.id] = c.label; });
+  // Orden por categorías definidas; los sin categoría conocida, al final.
+  const order = cats.map(c => c.id);
+  const groups = {};
+  courses.forEach(c => {
+    const k = (order.indexOf(c.category) !== -1) ? c.category : '_otros';
+    (groups[k] = groups[k] || []).push(c);
+  });
+  const keys = order.filter(k => groups[k]);
+  if (groups._otros) keys.push('_otros');
+
+  host.innerHTML = keys.map(k => {
+    const label = (k === '_otros') ? 'Otros' : (catLabel[k] || k);
+    const rows = groups[k]
+      .slice().sort((a, b) => (a.title || '').localeCompare(b.title || ''))
+      .map(courseVisibilityRow).join('');
+    return `<div class="adm-cursos-cat">
+      <div class="adm-cursos-cat-title">${escapeHtml(label)}</div>
+      ${rows}
+    </div>`;
+  }).join('');
+}
+
+function courseVisibilityRow(c) {
+  const hidden  = window.courseVisibility ? window.courseVisibility.isHidden(c.id) : false;
+  const checked = hidden ? '' : 'checked';
+  return `
+    <div class="adm-curso-row" data-course="${escapeAttr(c.id)}">
+      <div class="adm-curso-info">
+        <div class="adm-curso-title">${escapeHtml(c.title || c.id)}<small>${escapeHtml(c.id)}</small></div>
+      </div>
+      <span class="adm-curso-state ${hidden ? 'off' : 'on'}">${hidden ? 'Oculto' : 'Visible'}</span>
+      <label class="adm-switch">
+        <input type="checkbox" ${checked} onchange="toggleCourseVisibility('${escapeAttr(c.id)}', this)">
+        <span class="adm-switch-slider"></span>
+      </label>
+    </div>`;
+}
+
+async function toggleCourseVisibility(courseId, cb) {
+  const hidden = !cb.checked;               // sin marcar = oculto
+  const row    = cb.closest('.adm-curso-row');
+  const state  = row ? row.querySelector('.adm-curso-state') : null;
+  cb.disabled = true;
+  try {
+    await window.courseVisibility.setHidden(courseId, hidden);
+    if (state) {
+      state.textContent = hidden ? 'Oculto' : 'Visible';
+      state.classList.toggle('off', hidden);
+      state.classList.toggle('on', !hidden);
+    }
+    renderPublicCourses(); // refrescar el catálogo público en vivo
+  } catch (err) {
+    console.error('[admin] toggleCourseVisibility', err);
+    cb.checked = !cb.checked; // revertir
+    alert('No se pudo cambiar la visibilidad: ' + (err && err.message || err));
+  } finally {
+    cb.disabled = false;
+  }
 }
 
 // Mostrar/ocultar enlaces de admin en el nav según si el usuario es admin
@@ -4908,6 +5039,11 @@ renderDrawerCategorias();
 renderAreasHome();
 routeFromHash();
 if (window.auth && window.auth.init) window.auth.init();
+
+// Cargar la visibilidad de cursos y refrescar el catálogo cuando llegue.
+if (window.courseVisibility && window.courseVisibility.isConfigured()) {
+  window.courseVisibility.load().then(() => { renderPublicCourses(); }).catch(() => {});
+}
 </script>
 
 <!-- Service Worker · convierte la web en PWA instalable + offline -->
