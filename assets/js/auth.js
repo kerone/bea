@@ -62,6 +62,10 @@
     showConfigWarning();
     const loginSection = $('aula-login-section');
     const listSection = $('aula-list-section');
+    // Notifica a quien dependa del estado de admin (panel admin, etc.)
+    if (typeof window.refreshAdminLinks === 'function') {
+      window.refreshAdminLinks().catch(() => {});
+    }
     if (!client) {
       show(loginSection, true);
       show(listSection, false);

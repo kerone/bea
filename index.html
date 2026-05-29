@@ -520,6 +520,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <div class="nav-sub-links" id="nav-sub-links">
       <span class="nav-sub-link active" onclick="goTo('cursos','docencia')">Cursos</span>
       <span class="nav-sub-link" onclick="goTo('aula','docencia')">Acceso alumnado</span>
+      <span class="nav-sub-link nav-admin-link" style="display:none" onclick="goTo('admin','')">Administración</span>
     </div>
     <a href="https://www.instagram.com/precissainstitute" target="_blank" rel="noopener" class="nav-row2-ig" aria-label="Instagram PRECISSA INSTITUTE">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.7"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
@@ -555,6 +556,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <div class="drawer-subitem" onclick="closeDrawer();openDemoForm()">Demos</div>
     <div class="drawer-section">Más</div>
     <div class="drawer-item">Diario</div>
+    <div class="drawer-item nav-admin-link" style="display:none" onclick="goTo('admin','');closeDrawer()">Administración</div>
     <div class="drawer-item" style="margin-top:16px">
       <button class="btn btn-dark acceder-btn" style="width:100%;justify-content:center" onclick="goTo('aula','docencia');closeDrawer()">Acceder</button>
       <button class="btn btn-dark mi-aula-btn" style="display:none;width:100%;justify-content:center" onclick="goTo('aula','docencia');closeDrawer()">Mi aula</button>
@@ -2695,6 +2697,105 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 </div>
 
 <!-- ═══════════════════════════════════════════════════════
+     PAGE: ADMIN · gestión de alumnas y matrículas
+════════════════════════════════════════════════════════ -->
+<div class="page" id="page-admin">
+<style>
+.adm-wrap { padding: 148px 56px 80px; max-width: 1480px; margin: 0 auto; }
+.adm-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+.adm-h1 { font-family: var(--serif); font-size: 40px; line-height: 1.1; letter-spacing: -0.02em; }
+.adm-h1 em { font-style: italic; color: var(--accent); }
+.adm-sub { font-size: 13px; color: var(--muted); margin-top: 6px; }
+.adm-search-wrap { margin-bottom: 18px; }
+
+.adm-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.adm-table th { text-align: left; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 600; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+.adm-table td { padding: 14px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.adm-row { cursor: pointer; transition: background 0.12s; }
+.adm-row:hover { background: var(--bg2); }
+.adm-email { font-weight: 500; color: var(--ink); }
+.adm-name  { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.adm-cell-count { font-family: var(--serif); font-size: 20px; line-height: 1; }
+.adm-cell-count.zero { color: var(--muted); font-family: var(--sans); font-size: 13px; font-style: italic; }
+.adm-cell-date { font-size: 12px; color: var(--muted); }
+.adm-cell-edit { text-align: right; color: var(--accent); font-size: 13px; }
+.adm-no-results { padding: 60px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 10px; margin-top: 12px; }
+
+.adm-loader { padding: 80px 24px; text-align: center; color: var(--muted); font-style: italic; }
+.adm-warn { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 16px 20px; border-radius: 4px; margin: 24px 0; font-size: 14px; color: var(--ink); }
+.adm-warn code { background: rgba(36,29,23,0.08); padding: 1px 6px; border-radius: 3px; font-size: 12.5px; }
+
+.adm-modal { display: none; position: fixed; inset: 0; background: rgba(36,29,23,0.55); backdrop-filter: blur(4px); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
+.adm-modal.open { display: flex; }
+.adm-modal-card { background: var(--surface); border-radius: 14px; max-width: 640px; width: 100%; max-height: 88vh; display: flex; flex-direction: column; box-shadow: 0 20px 60px rgba(36,29,23,0.3); }
+.adm-modal-head { padding: 22px 26px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.adm-modal-email { font-family: var(--serif); font-size: 22px; line-height: 1.2; color: var(--ink); }
+.adm-modal-name  { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.adm-modal-close { font-size: 22px; color: var(--muted); cursor: pointer; padding: 0 6px; line-height: 1; background: none; border: none; }
+.adm-modal-close:hover { color: var(--ink); }
+.adm-modal-body { flex: 1; overflow-y: auto; padding: 14px 26px; }
+.adm-course-row { display: grid; grid-template-columns: 22px 1fr 160px 130px; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px dashed var(--line); }
+.adm-course-row:last-child { border-bottom: none; }
+.adm-course-row input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; accent-color: var(--accent); }
+.adm-course-name { font-size: 14px; color: var(--ink); line-height: 1.3; }
+.adm-course-name small { display: block; color: var(--muted); font-size: 11px; margin-top: 2px; }
+.adm-course-row input[type="date"], .adm-course-row select { padding: 7px 10px; border: 1px solid var(--line); border-radius: 6px; font-family: var(--sans); font-size: 12.5px; background: var(--surface); color: var(--ink); }
+.adm-course-row input[type="date"]:disabled, .adm-course-row select:disabled { opacity: 0.4; cursor: not-allowed; }
+.adm-modal-foot { padding: 18px 26px; border-top: 1px solid var(--line); display: flex; justify-content: flex-end; gap: 12px; }
+
+@media (max-width: 768px) {
+  .adm-wrap { padding: 88px 20px 60px; }
+  .adm-h1 { font-size: 30px; }
+  .adm-table th:nth-child(3), .adm-table td:nth-child(3) { display: none; }
+  .adm-modal-card { max-height: 94vh; }
+  .adm-course-row { grid-template-columns: 22px 1fr; row-gap: 6px; }
+  .adm-course-row input[type="date"], .adm-course-row select { grid-column: 2 / 3; width: 100%; }
+}
+</style>
+<section class="adm-wrap">
+  <div class="page-bc">
+    <span onclick="goTo('home','')">Inicio</span>
+    <span class="page-bc-sep">›</span>
+    <span class="page-bc-current">Administración</span>
+  </div>
+  <div class="adm-head">
+    <div>
+      <span class="eyebrow accent">· Panel admin</span>
+      <h1 class="adm-h1">Alumnas y <em>accesos</em></h1>
+      <p class="adm-sub" id="adm-sub-count">Cargando…</p>
+    </div>
+  </div>
+  <div id="adm-warn-area"></div>
+  <div class="adm-search-wrap cursos-search">
+    <span class="cursos-search-icon" aria-hidden="true"></span>
+    <input type="search" id="adm-search-input" class="cursos-search-input"
+           placeholder="Buscar por email o nombre…"
+           oninput="renderAdmTable()">
+  </div>
+  <div id="adm-table-host">
+    <div class="adm-loader">Cargando alumnas…</div>
+  </div>
+</section>
+
+<div class="adm-modal" id="adm-modal" onclick="if(event.target===this)closeAdmModal()">
+  <div class="adm-modal-card">
+    <div class="adm-modal-head">
+      <div>
+        <div class="adm-modal-email" id="adm-modal-email"></div>
+        <div class="adm-modal-name" id="adm-modal-name"></div>
+      </div>
+      <button class="adm-modal-close" onclick="closeAdmModal()" aria-label="Cerrar">✕</button>
+    </div>
+    <div class="adm-modal-body" id="adm-modal-body"></div>
+    <div class="adm-modal-foot">
+      <button class="btn btn-text" onclick="closeAdmModal()">Cancelar</button>
+      <button class="btn btn-dark" id="adm-save-btn" onclick="saveAdmModal()">Guardar cambios</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
      MODAL: PEDIR PRESUPUESTO
 ════════════════════════════════════════════════════════ -->
 <style>
@@ -2910,6 +3011,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 <script src="assets/js/courses-data.js"></script>
 <!-- Matrículas (qué alumna tiene acceso a qué curso) leídas de Google Sheets -->
 <script src="assets/js/enrollments.js"></script>
+<script src="assets/js/admin.js"></script>
 <!-- Lógica de autenticación -->
 <script src="assets/js/auth.js"></script>
 <script>
@@ -2935,6 +3037,7 @@ const pages = {
   'resultado':  { el: 'page-resultado',  area: 'docencia',   areaLabel: 'Docencia',      subActive: 'aula' },
   'tienda':     { el: 'page-tienda',     area: 'aparatologia', areaLabel: 'Aparatología', subActive: 'tienda' },
   'producto':   { el: 'page-producto',   area: 'aparatologia', areaLabel: 'Aparatología', subActive: 'tienda' },
+  'admin':      { el: 'page-admin',      area: '',           areaLabel: '',              subActive: null },
 };
 
 function goTo(pageKey, area) {
@@ -3527,6 +3630,205 @@ async function canAccessCourse(course) {
   return course.enrolledEmails.some(e => String(e).toLowerCase().trim() === email);
 }
 
+// ─── ADMIN · panel de matrículas ───────────────────────
+let _admUsersCache    = [];   // [{id, email, full_name, created_at}, ...]
+let _admEnrollsCache  = [];   // [{email, course_id, expires_at, updated_at}, ...]
+let _admModalEmail    = '';
+
+function admDefaultExpiry() {
+  // Por defecto: 1 año desde hoy (yyyy-mm-dd)
+  const d = new Date();
+  d.setFullYear(d.getFullYear() + 1);
+  return d.toISOString().slice(0, 10);
+}
+function admIsExpired(iso) {
+  if (!iso) return false;
+  return new Date(iso).getTime() <= Date.now();
+}
+function admFormatDate(iso) {
+  if (!iso) return '—';
+  try { return new Date(iso).toLocaleDateString('es-ES', { day:'2-digit', month:'short', year:'numeric' }); }
+  catch (e) { return iso; }
+}
+
+async function openAdmin() {
+  // Routing ya nos ha traído. Verifica permisos y carga datos.
+  if (!window.admin) {
+    document.getElementById('adm-table-host').innerHTML =
+      '<div class="adm-warn">No se ha cargado admin.js. Revisa la consola.</div>';
+    return;
+  }
+  const ok = await window.admin.isAdmin();
+  if (!ok) {
+    document.getElementById('adm-table-host').innerHTML =
+      '<div class="adm-warn">Esta sección es solo para administradoras.</div>';
+    document.getElementById('adm-sub-count').textContent = 'Sin permisos';
+    return;
+  }
+  document.getElementById('adm-table-host').innerHTML = '<div class="adm-loader">Cargando alumnas…</div>';
+  document.getElementById('adm-warn-area').innerHTML = '';
+  try {
+    const [users, enrolls] = await Promise.all([
+      window.admin.listAllUsers(),
+      window.admin.listAllEnrollments()
+    ]);
+    _admUsersCache   = users || [];
+    _admEnrollsCache = enrolls || [];
+    document.getElementById('adm-sub-count').textContent =
+      `${_admUsersCache.length} ${_admUsersCache.length === 1 ? 'alumna registrada' : 'alumnas registradas'}`;
+    renderAdmTable();
+  } catch (err) {
+    console.error('[admin] error cargando', err);
+    document.getElementById('adm-warn-area').innerHTML =
+      '<div class="adm-warn">⚠️ Error leyendo de Supabase. Comprueba que has ejecutado <code>supabase/setup.sql</code> y que tu email está en la lista de admins. <br><small>' + escapeHtml(String(err && err.message || err)) + '</small></div>';
+    document.getElementById('adm-table-host').innerHTML = '';
+  }
+}
+
+function renderAdmTable() {
+  const q = (document.getElementById('adm-search-input').value || '').toLowerCase().trim();
+  const enrollsByEmail = {};
+  _admEnrollsCache.forEach(en => {
+    const k = (en.email || '').toLowerCase();
+    if (!enrollsByEmail[k]) enrollsByEmail[k] = [];
+    enrollsByEmail[k].push(en);
+  });
+  const filtered = _admUsersCache.filter(u => {
+    if (!q) return true;
+    const hay = (u.email + ' ' + (u.full_name || '')).toLowerCase();
+    return hay.includes(q);
+  });
+  if (filtered.length === 0) {
+    document.getElementById('adm-table-host').innerHTML =
+      '<div class="adm-no-results">No se encontraron alumnas con ese filtro.</div>';
+    return;
+  }
+  const rows = filtered.map(u => {
+    const list   = enrollsByEmail[u.email.toLowerCase()] || [];
+    const live   = list.filter(e => !admIsExpired(e.expires_at));
+    const count  = live.length;
+    const latest = list.length
+      ? list.map(e => e.updated_at || e.expires_at || '').filter(Boolean).sort().slice(-1)[0]
+      : null;
+    return `
+      <tr class="adm-row" onclick="openAdmEditor('${escapeAttr(u.email)}')">
+        <td>
+          <div class="adm-email">${escapeHtml(u.email)}</div>
+          ${u.full_name ? `<div class="adm-name">${escapeHtml(u.full_name)}</div>` : ''}
+        </td>
+        <td><span class="adm-cell-count ${count === 0 ? 'zero' : ''}">${count === 0 ? 'sin accesos' : count}</span></td>
+        <td><span class="adm-cell-date">${latest ? 'Última modif. ' + admFormatDate(latest) : '—'}</span></td>
+        <td class="adm-cell-edit">Editar →</td>
+      </tr>`;
+  }).join('');
+  document.getElementById('adm-table-host').innerHTML = `
+    <table class="adm-table">
+      <thead><tr>
+        <th>Alumna</th>
+        <th>Accesos activos</th>
+        <th>Actividad</th>
+        <th></th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+
+async function openAdmEditor(email) {
+  _admModalEmail = email;
+  document.getElementById('adm-modal-email').textContent = email;
+  const profile = _admUsersCache.find(u => u.email === email);
+  document.getElementById('adm-modal-name').textContent = (profile && profile.full_name) ? profile.full_name : '';
+  document.getElementById('adm-modal-body').innerHTML = '<div class="adm-loader">Cargando…</div>';
+  document.getElementById('adm-modal').classList.add('open');
+
+  const enrolls = await window.admin.listEnrollmentsForEmail(email);
+  const enrollMap = {};
+  enrolls.forEach(en => { enrollMap[en.course_id] = en; });
+
+  const courses = (window.PRECISSA_COURSES || []).slice()
+    .sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+
+  const rows = courses.map(c => {
+    const en       = enrollMap[c.id];
+    const has      = Boolean(en);
+    const isPerm   = has && !en.expires_at;
+    const dateVal  = has && en.expires_at ? en.expires_at.slice(0, 10) : admDefaultExpiry();
+    return `
+      <div class="adm-course-row" data-course="${escapeAttr(c.id)}">
+        <input type="checkbox" ${has ? 'checked' : ''} onchange="onAdmCheckChange(this)">
+        <div class="adm-course-name">
+          ${escapeHtml(c.title)}
+          <small>${escapeHtml(c.id)}</small>
+        </div>
+        <input type="date" value="${dateVal}" ${(has && !isPerm) ? '' : 'disabled'}>
+        <select onchange="onAdmModeChange(this)" ${has ? '' : 'disabled'}>
+          <option value="fecha" ${has && !isPerm ? 'selected' : ''}>Caduca el…</option>
+          <option value="sin"   ${isPerm ? 'selected' : ''}>Sin caducidad</option>
+        </select>
+      </div>`;
+  }).join('');
+  document.getElementById('adm-modal-body').innerHTML = rows;
+}
+
+function onAdmCheckChange(cb) {
+  const row    = cb.closest('.adm-course-row');
+  const date   = row.querySelector('input[type="date"]');
+  const mode   = row.querySelector('select');
+  mode.disabled = !cb.checked;
+  date.disabled = !cb.checked || mode.value === 'sin';
+}
+function onAdmModeChange(sel) {
+  const row  = sel.closest('.adm-course-row');
+  const date = row.querySelector('input[type="date"]');
+  date.disabled = sel.value === 'sin';
+}
+
+function closeAdmModal() {
+  document.getElementById('adm-modal').classList.remove('open');
+  _admModalEmail = '';
+}
+
+async function saveAdmModal() {
+  if (!_admModalEmail) return;
+  const btn = document.getElementById('adm-save-btn');
+  btn.disabled = true; btn.textContent = 'Guardando…';
+  try {
+    const rows = document.querySelectorAll('#adm-modal-body .adm-course-row');
+    for (const row of rows) {
+      const courseId = row.dataset.course;
+      const cb       = row.querySelector('input[type="checkbox"]');
+      const dateIn   = row.querySelector('input[type="date"]');
+      const modeSel  = row.querySelector('select');
+      if (cb.checked) {
+        let expiresAt = null;
+        if (modeSel.value === 'fecha' && dateIn.value) {
+          // Caduca al final del día elegido (23:59:59)
+          expiresAt = new Date(dateIn.value + 'T23:59:59').toISOString();
+        }
+        await window.admin.upsertEnrollment(_admModalEmail, courseId, expiresAt);
+      } else {
+        await window.admin.deleteEnrollment(_admModalEmail, courseId);
+      }
+    }
+    closeAdmModal();
+    if (window.enrollments) window.enrollments.invalidate();
+    openAdmin(); // refrescar tabla
+  } catch (err) {
+    console.error('[admin] save', err);
+    alert('Error guardando: ' + (err && err.message || err));
+  } finally {
+    btn.disabled = false; btn.textContent = 'Guardar cambios';
+  }
+}
+
+// Mostrar/ocultar enlaces de admin en el nav según si el usuario es admin
+async function refreshAdminLinks() {
+  const ok = window.admin ? await window.admin.isAdmin() : false;
+  document.querySelectorAll('.nav-admin-link').forEach(el => {
+    el.style.display = ok ? '' : 'none';
+  });
+}
+
 // ─── AULA · LISTADO PRIVADO ─────────────────────────────
 async function renderAulaCourses() {
   const grid = document.getElementById('aula-courses-grid');
@@ -3863,6 +4165,7 @@ function onPageEnter(pageKey) {
     renderAulaCourses();
   }
   if (pageKey === 'aula-curso') renderAulaCurso();
+  if (pageKey === 'admin') openAdmin();
   updateSeoForPage(pageKey);
 }
 
@@ -4194,7 +4497,8 @@ const PAGE_HASH = {
   'tests': '#tests',
   'resultado': '#resultado',
   'tienda': '#tienda',
-  'producto': '#producto'
+  'producto': '#producto',
+  'admin': '#admin'
 };
 const HASH_PAGE = Object.fromEntries(Object.entries(PAGE_HASH).map(([k,v]) => [v, k]));
 // Sobrescribimos goTo() para que tambien actualice la URL
