@@ -3092,6 +3092,16 @@ function updateNav(pageKey, cfg) {
     }
     return link;
   }).join('');
+
+  // El enlace de Administración es estático en el HTML pero la línea de
+  // arriba reescribe #nav-sub-links en cada navegación y lo borra. Lo
+  // re-inyectamos aquí (solo en Docencia) y refrescamos su visibilidad
+  // según si la sesión es admin. Sin esto solo aparecía en el móvil.
+  if (cfg.area === 'docencia') {
+    subLinks.insertAdjacentHTML('beforeend',
+      `<span class="nav-sub-link nav-admin-link" style="display:none" onclick="goTo('admin','')">Administración</span>`);
+    if (typeof refreshAdminLinks === 'function') refreshAdminLinks();
+  }
 }
 
 function updateTabBar(area) {
