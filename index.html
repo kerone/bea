@@ -1075,21 +1075,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       </div>
       <button class="btn btn-text" onclick="goTo('tienda','aparatologia')">Ver catálogo →</button>
     </div>
-    <div class="products-grid">
-      <div class="product-card" onclick="goTo('producto','aparatologia')">
-        <div class="product-img ph ph-clay"><span class="product-learn-chip">Aprende a usarlo</span></div>
-        <div class="product-body">
-          <span class="chip chip-accent" style="margin-bottom:8px">Electroestética</span>
-          <div class="product-name">PRECISSA INSTITUTE RF-200</div>
-          <p class="product-desc">Radiofrecuencia facial tripolar con sensor de impedancia en tiempo real.</p>
-          <div class="product-price-row">
-            <span class="product-price serif">Consultar precio</span>
-            <span style="font-size:18px;color:var(--muted)">→</span>
-          </div>
-          <div class="product-footer">aprende con · <em>Radiofrecuencia facial profesional</em></div>
-        </div>
-      </div>
-    </div>
+    <div class="products-grid" id="home-products-grid"></div>
   </section>
 
   <!-- TESTIMONIOS -->
@@ -2569,24 +2555,8 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <h1 class="tienda-h1">El equipo que <em>se enseña</em><br>en PRECISSA INSTITUTE.</h1>
     <p class="tienda-meta">Ordenado por relevancia</p>
   </div>
-  <div class="filter-chips">
-    <span class="filter-chip active" onclick="filterTienda(this,'todas')">Todas</span>
-    <span class="filter-chip" onclick="filterTienda(this,'electro')">Electroestética</span>
-    <span class="filter-chip" onclick="filterTienda(this,'cosme')">Cosmetología</span>
-    <span class="filter-chip" onclick="filterTienda(this,'micro')">Micropigmentación</span>
-  </div>
-  <div class="tienda-grid">
-    <div class="tienda-product-card" onclick="goTo('producto','aparatologia')">
-      <div class="tienda-product-img ph ph-clay"><span class="product-learn-chip">Aprende a usarlo</span></div>
-      <div class="tienda-product-body">
-        <span class="chip chip-accent" style="margin-bottom:6px">Electroestética</span>
-        <div class="tienda-product-name">PRECISSA INSTITUTE RF-200</div>
-        <p class="tienda-product-desc">RF tripolar con sensor de impedancia en tiempo real.</p>
-        <div class="tienda-product-bottom"><span class="tienda-product-price serif">Consultar precio</span><span style="color:var(--muted)">→</span></div>
-        <div class="tienda-product-course">aprende con · <em>Radiofrecuencia facial profesional</em></div>
-      </div>
-    </div>
-  </div>
+  <div class="filter-chips" id="tienda-filter-chips"></div>
+  <div class="tienda-grid" id="tienda-grid"></div>
 </div>
 </div>
 
@@ -2636,62 +2606,9 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 }
 </style>
 <div class="page-wrap">
-  <div class="producto-layout">
-    <div>
-      <div class="producto-breadcrumb">
-        <span onclick="goTo('home','')">Inicio</span> ›
-        <span onclick="goTo('tienda','aparatologia')">Aparatología</span> ›
-        <span>Electroestética</span> ›
-        <span style="color:var(--ink)">PRECISSA INSTITUTE RF-200</span>
-      </div>
-      <div class="producto-gallery-main ph ph-clay">
-        <div class="ph-label">PRECISSA INSTITUTE RF-200 · tripolar · 2026</div>
-      </div>
-      <div class="producto-thumbs">
-        <div class="producto-thumb active ph ph-clay"></div>
-        <div class="producto-thumb ph ph-stone"></div>
-        <div class="producto-thumb ph ph-sand"></div>
-        <div class="producto-thumb ph ph-honey"></div>
-      </div>
-    </div>
-    <div class="producto-right">
-      <div class="producto-eyebrow-row">
-        <span class="eyebrow">PRECISSA INSTITUTE · Electroestética facial</span>
-      </div>
-      <h1 class="producto-h1">RF-200 <em>Tripolar</em></h1>
-      <p class="producto-desc">Radiofrecuencia tripolar con sensor de impedancia en tiempo real. Control preciso de temperatura en dermis para tratamientos de lifting y remodelación facial.</p>
-      <div class="producto-precio-row">
-        <span class="producto-precio serif">Precio <em>bajo consulta</em></span>
-      </div>
-      <div class="producto-precio-nota">Envío peninsular incluido · Garantía 3 años · Formación incluida</div>
-      <div class="producto-ctas">
-        <button class="btn btn-clay" onclick="openQuoteForm('PRECISSA INSTITUTE RF-200 Tripolar')">Pedir presupuesto</button>
-        <button class="btn btn-outline" onclick="openDemoForm('PRECISSA INSTITUTE RF-200 Tripolar')">Solicitar demo</button>
-      </div>
-      <!-- Bloque aprende -->
-      <div class="producto-aprende" onclick="goTo('cursos','docencia')">
-        <div class="producto-aprende-img ph ph-stone"></div>
-        <div>
-          <div class="producto-aprende-eyebrow">· Aprende a usarlo</div>
-          <div class="producto-aprende-title">Radiofrecuencia facial <em>profesional</em></div>
-          <div class="producto-aprende-dur">5 h · 14 lecciones · incluye en la compra →</div>
-        </div>
-      </div>
-      <!-- Especificaciones -->
-      <div class="producto-specs">
-        <div class="producto-specs-title serif">Especificaciones</div>
-        <div class="specs-grid">
-          <div class="spec-key">Frecuencia</div><div class="spec-val">1 – 3 MHz</div>
-          <div class="spec-key">Configuración</div><div class="spec-val">Tripolar</div>
-          <div class="spec-key">Potencia máx.</div><div class="spec-val">50 W</div>
-          <div class="spec-key">Sensor</div><div class="spec-val">Impedancia en tiempo real</div>
-          <div class="spec-key">Cabezales</div><div class="spec-val">3 (facial, contorno, body)</div>
-          <div class="spec-key">Pantalla</div><div class="spec-val">Táctil 5" TFT</div>
-          <div class="spec-key">Garantía</div><div class="spec-val">3 años</div>
-          <div class="spec-key">Peso</div><div class="spec-val">4,2 kg</div>
-        </div>
-      </div>
-    </div>
+  <div class="producto-layout" id="producto-layout">
+    <div id="producto-left"></div>
+    <div class="producto-right" id="producto-right"></div>
   </div>
 </div>
 </div>
@@ -2865,6 +2782,7 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
     <button class="adm-tab active" data-tab="alumnas" onclick="switchAdmTab('alumnas')">Alumnas y accesos</button>
     <button class="adm-tab" data-tab="resenas" onclick="switchAdmTab('resenas')">Reseñas de alumnas</button>
     <button class="adm-tab" data-tab="cursos" onclick="switchAdmTab('cursos')">Cursos en la web</button>
+    <button class="adm-tab" data-tab="aparatologia" onclick="switchAdmTab('aparatologia')">Aparatología</button>
   </div>
 
   <!-- PANEL: ALUMNAS Y ACCESOS -->
@@ -2897,6 +2815,17 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
     <p class="res-hint" style="margin-bottom:18px">Desactivar un curso solo lo quita del catálogo y la home. Las alumnas ya matriculadas siguen accediendo a él en su aula.</p>
     <div id="adm-cursos-host">
       <div class="adm-loader">Cargando cursos…</div>
+    </div>
+  </div>
+
+  <!-- PANEL: APARATOLOGÍA (tienda) -->
+  <div id="adm-panel-aparatologia" class="adm-panel" style="display:none">
+    <div class="adm-resenas-bar">
+      <p class="adm-sub" style="margin:0">Da de alta y edita los equipos que se muestran en la tienda. Cada equipo tiene su ficha con fotos y tabla de características.</p>
+      <button class="btn btn-dark btn-sm" onclick="openProductEditor(null)">+ Nuevo equipo</button>
+    </div>
+    <div id="adm-aparatologia-host">
+      <div class="adm-loader">Cargando equipos…</div>
     </div>
   </div>
 </section>
@@ -3021,6 +2950,78 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
       <span style="flex:1"></span>
       <button class="btn btn-text" onclick="closeCourseEditor()">Cancelar</button>
       <button class="btn btn-dark" id="ce-save-btn" onclick="saveCourseEditor()">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: editor de equipo (aparatología) -->
+<style>
+.pe-gallery { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px; }
+.pe-thumb { position:relative; width:96px; height:72px; border-radius:6px; overflow:hidden; border:2px solid var(--line); background:var(--bg2); }
+.pe-thumb.main { border-color:var(--accent); }
+.pe-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+.pe-thumb-tag { position:absolute; top:3px; left:3px; font-size:9px; background:var(--accent); color:#fff; padding:1px 5px; border-radius:4px; letter-spacing:.04em; z-index:1; }
+.pe-thumb-ops { position:absolute; bottom:0; left:0; right:0; display:flex; justify-content:space-between; background:rgba(36,29,23,.62); }
+.pe-thumb-ops button { flex:1; border:0; background:transparent; color:#fff; font-size:11px; padding:3px 0; cursor:pointer; }
+.pe-thumb-ops button:hover { background:rgba(0,0,0,.3); }
+.pe-spec-row { display:flex; gap:8px; align-items:center; margin-bottom:8px; }
+.pe-spec-row .res-input { flex:1; }
+.pe-spec-row .pe-spec-k { flex:0 0 38%; }
+.pe-spec-row > button { flex:0 0 auto; border:1px solid var(--line-strong); background:var(--bg); border-radius:6px; width:34px; height:38px; cursor:pointer; color:var(--muted); }
+.pe-spec-row > button:hover { color:var(--accent); border-color:var(--accent); }
+.pe-hidden-label { display:flex; align-items:center; gap:8px; font-size:13px; color:var(--ink-soft); cursor:pointer; }
+</style>
+<div class="adm-modal" id="pe-modal" onclick="if(event.target===this)closeProductEditor()">
+  <div class="adm-modal-card ce-card">
+    <div class="adm-modal-head">
+      <div>
+        <div class="adm-modal-email" id="pe-title">Nuevo equipo</div>
+        <div class="adm-modal-name" id="pe-subtitle"></div>
+      </div>
+      <button class="adm-modal-close" onclick="closeProductEditor()" aria-label="Cerrar">✕</button>
+    </div>
+    <div class="adm-subtabs">
+      <button class="adm-subtab active" data-petab="datos" onclick="switchPeTab('datos')">Datos</button>
+      <button class="adm-subtab" data-petab="fotos" onclick="switchPeTab('fotos')">Fotos</button>
+      <button class="adm-subtab" data-petab="specs" onclick="switchPeTab('specs')">Características</button>
+    </div>
+    <div class="adm-modal-body">
+      <!-- DATOS -->
+      <div id="pe-panel-datos" class="ce-panel">
+        <div class="res-form">
+          <label class="res-field"><span class="res-label">Nombre *</span><input type="text" id="pe-name" class="res-input" placeholder="PRECISSA INSTITUTE RF-200"></label>
+          <label class="res-field"><span class="res-label">Categoría</span><select id="pe-category" class="res-input"></select></label>
+          <label class="res-field"><span class="res-label">Eyebrow <small>(etiqueta superior de la ficha)</small></span><input type="text" id="pe-eyebrow" class="res-input" placeholder="PRECISSA INSTITUTE · Electroestética facial"></label>
+          <label class="res-field"><span class="res-label">Precio</span><input type="text" id="pe-price" class="res-input" placeholder="Consultar precio / 3.200 €"></label>
+          <label class="res-field"><span class="res-label">Nota de precio</span><input type="text" id="pe-pricenote" class="res-input" placeholder="Envío incluido · Garantía 3 años · Formación incluida"></label>
+          <label class="res-field"><span class="res-label">Descripción corta <small>(tarjeta del catálogo)</small></span><textarea id="pe-short" class="res-input" rows="2"></textarea></label>
+          <label class="res-field"><span class="res-label">Descripción larga <small>(ficha)</small></span><textarea id="pe-desc" class="res-input" rows="4"></textarea></label>
+          <label class="res-field"><span class="res-label">Curso relacionado <small>(opcional · «aprende a usarlo»)</small></span><select id="pe-course" class="res-input"></select></label>
+          <label class="res-field"><span class="pe-hidden-label"><input type="checkbox" id="pe-hidden"> Ocultar de la tienda pública</span></label>
+        </div>
+      </div>
+      <!-- FOTOS -->
+      <div id="pe-panel-fotos" class="ce-panel" style="display:none">
+        <p class="res-hint" style="margin-bottom:12px">La primera foto es la principal de la ficha. Arrastra varias imágenes; puedes marcar otra como principal (★) o quitarlas (✕).</p>
+        <div class="pe-gallery" id="pe-gallery"></div>
+        <div class="ce-drop" ondragover="peGalleryDragOver(event,this)" ondragleave="peGalleryDragLeave(this)" ondrop="peGalleryDrop(event,this)">
+          <span class="res-hint">Arrastra aquí las fotos o</span>
+          <button type="button" class="btn btn-text btn-sm" onclick="document.getElementById('pe-img-input').click()">elegir imágenes…</button>
+          <input type="file" id="pe-img-input" accept="image/*" multiple style="display:none" onchange="peGalleryFileChange(this)">
+        </div>
+      </div>
+      <!-- CARACTERÍSTICAS -->
+      <div id="pe-panel-specs" class="ce-panel" style="display:none">
+        <p class="res-hint" style="margin-bottom:12px">Cada fila es una característica: su nombre y su valor. Añade o quita las que necesites — cada máquina lleva las suyas.</p>
+        <div id="pe-specs-list"></div>
+        <button class="btn btn-text btn-sm" onclick="peAddSpec()">+ Añadir característica</button>
+      </div>
+    </div>
+    <div class="adm-modal-foot">
+      <button class="btn btn-text adm-danger" id="pe-delete-btn" onclick="deleteProductFromEditor()" style="display:none">Eliminar equipo</button>
+      <span style="flex:1"></span>
+      <button class="btn btn-text" onclick="closeProductEditor()">Cancelar</button>
+      <button class="btn btn-dark" id="pe-save-btn" onclick="saveProductEditor()">Guardar</button>
     </div>
   </div>
 </div>
@@ -3246,6 +3247,8 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 <script src="assets/js/testimonials.js"></script>
 <script src="assets/js/course-visibility.js"></script>
 <script src="assets/js/course-content.js"></script>
+<script src="assets/js/products-data.js"></script>
+<script src="assets/js/product-content.js"></script>
 <!-- Lógica de autenticación -->
 <script src="assets/js/auth.js"></script>
 <script>
@@ -3381,13 +3384,18 @@ function toggleModulo(header) {
 
 // ─── FILTER TIENDA ─────────────────────────────────────
 function filterTienda(chip, cat) {
-  chip.closest('.filter-chips').querySelectorAll('.filter-chip:not(.filter-chip-special)')
-    .forEach(c => c.classList.remove('active'));
-  chip.classList.add('active');
-  const grid = document.querySelector('.tienda-grid');
+  _tiendaFilter = cat;
+  const cont = chip.closest('.filter-chips');
+  if (cont) {
+    cont.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+  }
+  const grid = document.getElementById('tienda-grid');
   if (grid) {
     grid.style.opacity = '0.4';
-    setTimeout(() => { grid.style.opacity = '1'; }, 200);
+    setTimeout(() => { renderTienda(); grid.style.opacity = '1'; }, 150);
+  } else {
+    renderTienda();
   }
 }
 
@@ -4147,8 +4155,10 @@ function switchAdmTab(tab) {
   document.getElementById('adm-panel-alumnas').style.display = (tab === 'alumnas') ? '' : 'none';
   document.getElementById('adm-panel-resenas').style.display = (tab === 'resenas') ? '' : 'none';
   document.getElementById('adm-panel-cursos').style.display  = (tab === 'cursos')  ? '' : 'none';
+  document.getElementById('adm-panel-aparatologia').style.display = (tab === 'aparatologia') ? '' : 'none';
   if (tab === 'resenas' && !_resLoaded)  loadResenas();
   if (tab === 'cursos'  && !_cursLoaded) loadCursosAdmin();
+  if (tab === 'aparatologia' && !_aparLoaded) loadAparatologiaAdmin();
 }
 
 async function loadResenas() {
@@ -4651,6 +4661,383 @@ async function resetCourseFromEditor() {
   }
 }
 
+// ═══════════════════════════════════════════════════════
+//  TIENDA / APARATOLOGÍA · catálogo data-driven
+// ═══════════════════════════════════════════════════════
+function getRawProducts()       { return (window.PRECISSA_PRODUCTS && Array.isArray(window.PRECISSA_PRODUCTS)) ? window.PRECISSA_PRODUCTS : []; }
+function getProductCategories() { return (window.PRECISSA_PRODUCT_CATEGORIES && Array.isArray(window.PRECISSA_PRODUCT_CATEGORIES)) ? window.PRECISSA_PRODUCT_CATEGORIES : []; }
+function productCatLabel(id)    { const c = getProductCategories().find(k => k.id === id); return c ? c.label : ''; }
+
+// Productos = base del JS + lo creado/editado en la BD (la BD manda por id;
+// los equipos nuevos se añaden al final).
+function getProducts() {
+  const defaults = getRawProducts();
+  const db = (window.productContent && window.productContent.getList) ? window.productContent.getList() : null;
+  if (!db) return defaults.map(p => Object.assign({}, p));
+  const byId = {}; db.forEach(r => { byId[r.id] = r; });
+  const out = []; const seen = {};
+  defaults.forEach(d => {
+    const r = byId[d.id];
+    if (r) { seen[d.id] = true; if (!r.deleted) out.push(r); }
+    else out.push(Object.assign({}, d));
+  });
+  db.forEach(r => { if (!seen[r.id] && !r.deleted) out.push(r); });
+  return out;
+}
+function getPublicProducts() { return getProducts().filter(p => !p.hidden); }
+function getProductById(id)  { return getProducts().find(p => p.id === id) || null; }
+
+function productImgHtml(p, cls, extra) {
+  const url = (p.images && p.images[0]) ? p.images[0] : '';
+  if (url) return `<div class="${cls}" style="background-image:url('${escapeAttr(url)}');background-size:cover;background-position:center">${extra || ''}</div>`;
+  return `<div class="${cls} ph ph-clay">${extra || ''}</div>`;
+}
+
+let _tiendaFilter = 'todas';
+function renderTienda() {
+  const grid = document.getElementById('tienda-grid');
+  if (!grid) return;
+  const chips = document.getElementById('tienda-filter-chips');
+  const cats = getProductCategories();
+  if (chips) {
+    chips.innerHTML = [`<span class="filter-chip${_tiendaFilter === 'todas' ? ' active' : ''}" onclick="filterTienda(this,'todas')">Todas</span>`]
+      .concat(cats.map(c => `<span class="filter-chip${_tiendaFilter === c.id ? ' active' : ''}" onclick="filterTienda(this,'${escapeAttr(c.id)}')">${escapeHtml(c.label)}</span>`)).join('');
+  }
+  const list = getPublicProducts().filter(p => _tiendaFilter === 'todas' || p.category === _tiendaFilter);
+  if (list.length === 0) { grid.innerHTML = '<div class="adm-no-results" style="grid-column:1/-1">No hay equipos en esta categoría.</div>'; return; }
+  grid.innerHTML = list.map(productCardPublic).join('');
+}
+function productCardPublic(p) {
+  const learn = p.relatedCourseLabel ? `<div class="tienda-product-course">aprende con · <em>${escapeHtml(p.relatedCourseLabel)}</em></div>` : '';
+  const chip  = p.relatedCourseLabel ? '<span class="product-learn-chip">Aprende a usarlo</span>' : '';
+  return `
+    <div class="tienda-product-card" onclick="goToProducto('${escapeAttr(p.id)}')">
+      ${productImgHtml(p, 'tienda-product-img', chip)}
+      <div class="tienda-product-body">
+        ${p.category ? `<span class="chip chip-accent" style="margin-bottom:6px">${escapeHtml(productCatLabel(p.category))}</span>` : ''}
+        <div class="tienda-product-name">${escapeHtml(p.name)}</div>
+        <p class="tienda-product-desc">${escapeHtml(p.shortDescription || '')}</p>
+        <div class="tienda-product-bottom"><span class="tienda-product-price serif">${escapeHtml(p.price || 'Consultar precio')}</span><span style="color:var(--muted)">→</span></div>
+        ${learn}
+      </div>
+    </div>`;
+}
+
+function goToProducto(id) { window._currentProductId = id; goTo('producto', 'aparatologia'); }
+
+function renderProducto(id) {
+  const left  = document.getElementById('producto-left');
+  const right = document.getElementById('producto-right');
+  if (!left || !right) return;
+  const p = getProductById(id) || getPublicProducts()[0] || getProducts()[0];
+  if (!p) { left.innerHTML = ''; right.innerHTML = '<p class="res-hint">No hay equipos disponibles.</p>'; return; }
+  window._currentProductId = p.id;
+  const imgs = (p.images && p.images.length) ? p.images : [];
+  const mainStyle = imgs[0] ? `style="background-image:url('${escapeAttr(imgs[0])}');background-size:cover;background-position:center"` : '';
+  const mainCls = imgs[0] ? 'producto-gallery-main' : 'producto-gallery-main ph ph-clay';
+  const thumbs = imgs.length > 1
+    ? `<div class="producto-thumbs">${imgs.map((u, i) => `<div class="producto-thumb${i === 0 ? ' active' : ''}" style="background-image:url('${escapeAttr(u)}');background-size:cover;background-position:center" onclick="productoSetMain(this,'${escapeAttr(u)}')"></div>`).join('')}</div>`
+    : '';
+  left.innerHTML = `
+    <div class="producto-breadcrumb">
+      <span onclick="goTo('home','')">Inicio</span> ›
+      <span onclick="goTo('tienda','aparatologia')">Aparatología</span> ›
+      ${p.category ? `<span onclick="goTo('tienda','aparatologia')">${escapeHtml(productCatLabel(p.category))}</span> ›` : ''}
+      <span style="color:var(--ink)">${escapeHtml(p.name)}</span>
+    </div>
+    <div class="${mainCls}" id="producto-main-img" ${mainStyle}>${imgs[0] ? '' : `<div class="ph-label">${escapeHtml(p.name)}</div>`}</div>
+    ${thumbs}`;
+  const specs = (p.specs || []).filter(s => (s.k || s.v));
+  const specsHtml = specs.length ? `
+    <div class="producto-specs">
+      <div class="producto-specs-title serif">Especificaciones</div>
+      <div class="specs-grid">
+        ${specs.map(s => `<div class="spec-key">${escapeHtml(s.k || '')}</div><div class="spec-val">${escapeHtml(s.v || '')}</div>`).join('')}
+      </div>
+    </div>` : '';
+  const aprende = p.relatedCourseLabel ? `
+    <div class="producto-aprende" onclick="goTo('cursos','docencia')">
+      <div class="producto-aprende-img ph ph-stone"></div>
+      <div>
+        <div class="producto-aprende-eyebrow">· Aprende a usarlo</div>
+        <div class="producto-aprende-title">${escapeHtml(p.relatedCourseLabel)}</div>
+        <div class="producto-aprende-dur">Formación incluida en la compra →</div>
+      </div>
+    </div>` : '';
+  right.innerHTML = `
+    <div class="producto-eyebrow-row"><span class="eyebrow">${escapeHtml(p.eyebrow || productCatLabel(p.category) || 'PRECISSA INSTITUTE')}</span></div>
+    <h1 class="producto-h1">${escapeHtml(p.name)}</h1>
+    <p class="producto-desc">${escapeHtml(p.description || p.shortDescription || '')}</p>
+    <div class="producto-precio-row"><span class="producto-precio serif">${escapeHtml(p.price || 'Consultar precio')}</span></div>
+    ${p.priceNote ? `<div class="producto-precio-nota">${escapeHtml(p.priceNote)}</div>` : '<div style="margin-bottom:18px"></div>'}
+    <div class="producto-ctas">
+      <button class="btn btn-clay" onclick="openQuoteForm('${escapeAttr(p.name)}')">Pedir presupuesto</button>
+      <button class="btn btn-outline" onclick="openDemoForm('${escapeAttr(p.name)}')">Solicitar demo</button>
+    </div>
+    ${aprende}
+    ${specsHtml}`;
+}
+function productoSetMain(thumb, url) {
+  const main = document.getElementById('producto-main-img');
+  if (main) {
+    main.classList.remove('ph', 'ph-clay');
+    main.style.backgroundImage = `url('${url}')`;
+    main.style.backgroundSize = 'cover';
+    main.style.backgroundPosition = 'center';
+    main.innerHTML = '';
+  }
+  const cont = thumb.closest('.producto-thumbs');
+  if (cont) cont.querySelectorAll('.producto-thumb').forEach(t => t.classList.remove('active'));
+  thumb.classList.add('active');
+}
+
+function renderFeaturedProducts() {
+  const grid = document.getElementById('home-products-grid');
+  if (!grid) return;
+  const list = getPublicProducts().slice(0, 3);
+  if (list.length === 0) { grid.innerHTML = ''; return; }
+  grid.innerHTML = list.map(p => `
+    <div class="product-card" onclick="goToProducto('${escapeAttr(p.id)}')">
+      ${productImgHtml(p, 'product-img', p.relatedCourseLabel ? '<span class="product-learn-chip">Aprende a usarlo</span>' : '')}
+      <div class="product-body">
+        ${p.category ? `<span class="chip chip-accent" style="margin-bottom:8px">${escapeHtml(productCatLabel(p.category))}</span>` : ''}
+        <div class="product-name">${escapeHtml(p.name)}</div>
+        <p class="product-desc">${escapeHtml(p.shortDescription || '')}</p>
+        <div class="product-price-row">
+          <span class="product-price serif">${escapeHtml(p.price || 'Consultar precio')}</span>
+          <span style="font-size:18px;color:var(--muted)">→</span>
+        </div>
+        ${p.relatedCourseLabel ? `<div class="product-footer">aprende con · <em>${escapeHtml(p.relatedCourseLabel)}</em></div>` : ''}
+      </div>
+    </div>`).join('');
+}
+
+// ═══════════════════════════════════════════════════════
+//  ADMIN · APARATOLOGÍA (alta / edición / borrado de equipos)
+// ═══════════════════════════════════════════════════════
+let _aparLoaded = false;
+async function loadAparatologiaAdmin() {
+  const host = document.getElementById('adm-aparatologia-host');
+  host.innerHTML = '<div class="adm-loader">Cargando equipos…</div>';
+  try {
+    if (window.productContent) await window.productContent.load();
+    _aparLoaded = true;
+    renderAparatologiaAdmin();
+  } catch (err) {
+    console.error('[admin] loadAparatologiaAdmin', err);
+    host.innerHTML = '<div class="adm-warn">⚠️ Error leyendo la tienda. ¿Has ejecutado <code>supabase/products.sql</code>?<br><small>' + escapeHtml(String(err && err.message || err)) + '</small></div>';
+  }
+}
+function renderAparatologiaAdmin() {
+  const host = document.getElementById('adm-aparatologia-host');
+  if (!host) return;
+  const list = getProducts();
+  if (list.length === 0) { host.innerHTML = '<div class="adm-no-results">No hay equipos. Crea el primero con «+ Nuevo equipo».</div>'; return; }
+  host.innerHTML = list.map(productAdminRow).join('');
+}
+function productAdminRow(p) {
+  const edited = window.productContent && window.productContent.getById && window.productContent.getById(p.id);
+  return `
+    <div class="adm-curso-row" data-product="${escapeAttr(p.id)}">
+      <div class="adm-curso-info">
+        <div class="adm-curso-title">${escapeHtml(p.name || p.id)}${edited ? ' <span class="adm-curso-edited" title="Tiene cambios guardados desde el panel">editado</span>' : ''}<small>${escapeHtml(productCatLabel(p.category) || p.id)}</small></div>
+      </div>
+      <button class="adm-curso-edit-btn" onclick="openProductEditor('${escapeAttr(p.id)}')">Editar</button>
+      <span class="adm-curso-state ${p.hidden ? 'off' : 'on'}">${p.hidden ? 'Oculto' : 'Visible'}</span>
+      <label class="adm-switch">
+        <input type="checkbox" ${p.hidden ? '' : 'checked'} onchange="toggleProductVisible('${escapeAttr(p.id)}', this)">
+        <span class="adm-switch-slider"></span>
+      </label>
+    </div>`;
+}
+async function toggleProductVisible(id, cb) {
+  const p = getProductById(id);
+  if (!p) return;
+  cb.disabled = true;
+  try {
+    await window.productContent.save(Object.assign({}, p, { hidden: !cb.checked }));
+    renderAparatologiaAdmin(); renderTienda(); renderFeaturedProducts();
+  } catch (err) {
+    console.error('[admin] toggleProductVisible', err);
+    cb.checked = !cb.checked;
+    alert('No se pudo cambiar la visibilidad: ' + (err && err.message || err));
+  } finally { cb.disabled = false; }
+}
+
+// — Editor de equipo —
+let _peId = null;
+let _peImages = [];   // [{url} | {file}]
+let _peSpecs = [];    // [{k,v}]
+let _peIsNew = false;
+
+function slugify(s) {
+  return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40);
+}
+
+function openProductEditor(id) {
+  const cats = getProductCategories();
+  const isNew = !id;
+  _peIsNew = isNew;
+  const p = isNew
+    ? { id: '', name: '', category: (cats[0] && cats[0].id) || '', eyebrow: '', shortDescription: '', description: '', price: '', priceNote: '', relatedCourseId: '', relatedCourseLabel: '', images: [], specs: [], hidden: false }
+    : getProductById(id);
+  if (!p) { alert('Equipo no encontrado.'); return; }
+  _peId = isNew ? '' : p.id;
+  document.getElementById('pe-title').textContent = isNew ? 'Nuevo equipo' : 'Editar equipo';
+  document.getElementById('pe-subtitle').textContent = isNew ? 'Rellena los datos y guarda' : (p.name + ' · ' + p.id);
+  document.getElementById('pe-name').value      = p.name || '';
+  document.getElementById('pe-eyebrow').value   = p.eyebrow || '';
+  document.getElementById('pe-price').value     = p.price || '';
+  document.getElementById('pe-pricenote').value = p.priceNote || '';
+  document.getElementById('pe-short').value     = p.shortDescription || '';
+  document.getElementById('pe-desc').value      = p.description || '';
+  document.getElementById('pe-hidden').checked  = !!p.hidden;
+  document.getElementById('pe-category').innerHTML = cats.map(c => `<option value="${escapeAttr(c.id)}" ${c.id === p.category ? 'selected' : ''}>${escapeHtml(c.label)}</option>`).join('');
+  const courses = (typeof getCourses === 'function') ? getCourses() : [];
+  document.getElementById('pe-course').innerHTML = '<option value="">— Sin curso —</option>' +
+    courses.map(c => `<option value="${escapeAttr(c.id)}" ${c.id === p.relatedCourseId ? 'selected' : ''}>${escapeHtml(c.title || c.id)}</option>`).join('');
+  _peImages = (p.images || []).map(u => ({ url: u }));
+  _peSpecs  = clone(p.specs || []);
+  renderPeGallery();
+  renderPeSpecs();
+  // Botón eliminar/restablecer
+  const delBtn = document.getElementById('pe-delete-btn');
+  if (isNew) {
+    delBtn.style.display = 'none';
+  } else {
+    const isDefault   = getRawProducts().some(d => d.id === p.id);
+    const hasOverride = window.productContent && window.productContent.getById && window.productContent.getById(p.id);
+    if (isDefault) {
+      delBtn.style.display = hasOverride ? '' : 'none';
+      delBtn.textContent = 'Restablecer a la versión base';
+    } else {
+      delBtn.style.display = '';
+      delBtn.textContent = 'Eliminar equipo';
+    }
+  }
+  switchPeTab('datos');
+  document.getElementById('pe-modal').classList.add('open');
+}
+function closeProductEditor() { document.getElementById('pe-modal').classList.remove('open'); }
+function switchPeTab(tab) {
+  document.querySelectorAll('.adm-subtab[data-petab]').forEach(b => b.classList.toggle('active', b.dataset.petab === tab));
+  document.getElementById('pe-panel-datos').style.display = (tab === 'datos') ? '' : 'none';
+  document.getElementById('pe-panel-fotos').style.display = (tab === 'fotos') ? '' : 'none';
+  document.getElementById('pe-panel-specs').style.display = (tab === 'specs') ? '' : 'none';
+}
+
+// — Galería de fotos —
+function renderPeGallery() {
+  const host = document.getElementById('pe-gallery');
+  if (_peImages.length === 0) { host.innerHTML = ''; return; }
+  host.innerHTML = _peImages.map((im, i) => {
+    const src = im.url ? im.url : (im.file ? URL.createObjectURL(im.file) : '');
+    return `
+      <div class="pe-thumb${i === 0 ? ' main' : ''}">
+        ${i === 0 ? '<span class="pe-thumb-tag">Principal</span>' : ''}
+        <img src="${escapeAttr(src)}" alt="">
+        <div class="pe-thumb-ops">
+          ${i > 0 ? `<button title="Hacer principal" onclick="peImgMain(${i})">★</button>` : ''}
+          <button title="Quitar" onclick="peImgRemove(${i})">✕</button>
+        </div>
+      </div>`;
+  }).join('');
+}
+function peImgMain(i)   { const t = _peImages.splice(i, 1)[0]; _peImages.unshift(t); renderPeGallery(); }
+function peImgRemove(i) { _peImages.splice(i, 1); renderPeGallery(); }
+function peGalleryAddFiles(files) {
+  const arr = Array.from(files || []).filter(f => /^image\//.test(f.type) || /\.(jpe?g|png|webp|gif|avif)$/i.test(f.name));
+  if (arr.length === 0) return;
+  arr.forEach(f => _peImages.push({ file: f }));
+  renderPeGallery();
+}
+function peGalleryFileChange(input) { peGalleryAddFiles(input.files); input.value = ''; }
+function peGalleryDragOver(e, el)  { e.preventDefault(); el.classList.add('drag'); }
+function peGalleryDragLeave(el)    { el.classList.remove('drag'); }
+function peGalleryDrop(e, el)      { e.preventDefault(); el.classList.remove('drag'); peGalleryAddFiles(e.dataTransfer && e.dataTransfer.files); }
+
+// — Características (filas clave-valor) —
+function renderPeSpecs() {
+  const host = document.getElementById('pe-specs-list');
+  if (_peSpecs.length === 0) { host.innerHTML = '<p class="res-hint" style="margin-bottom:12px">Sin características. Añade la primera abajo.</p>'; return; }
+  host.innerHTML = _peSpecs.map((s, i) => `
+    <div class="pe-spec-row">
+      <input type="text" class="res-input pe-spec-k" placeholder="Característica" value="${escapeAttr(s.k || '')}" oninput="peSpecField(${i},'k',this.value)">
+      <input type="text" class="res-input" placeholder="Valor" value="${escapeAttr(s.v || '')}" oninput="peSpecField(${i},'v',this.value)">
+      <button title="Quitar" onclick="peRemoveSpec(${i})">✕</button>
+    </div>`).join('');
+}
+function peSpecField(i, key, val) { _peSpecs[i][key] = val; }
+function peAddSpec()    { _peSpecs.push({ k: '', v: '' }); renderPeSpecs(); }
+function peRemoveSpec(i){ _peSpecs.splice(i, 1); renderPeSpecs(); }
+
+// — Guardar / eliminar —
+async function saveProductEditor() {
+  const btn  = document.getElementById('pe-save-btn');
+  const name = document.getElementById('pe-name').value.trim();
+  if (!name) { alert('El nombre del equipo es obligatorio.'); switchPeTab('datos'); return; }
+  let id = _peId;
+  if (_peIsNew) {
+    id = slugify(name) || ('equipo-' + Date.now().toString(36));
+    if (getProducts().some(p => p.id === id)) id = id + '-' + Date.now().toString(36).slice(-4);
+  }
+  btn.disabled = true; btn.textContent = 'Guardando…';
+  try {
+    const images = [];
+    for (let i = 0; i < _peImages.length; i++) {
+      const im = _peImages[i];
+      if (im.url) { images.push(im.url); }
+      else if (im.file) { btn.textContent = 'Subiendo foto ' + (i + 1) + '…'; images.push(await window.productContent.uploadImage(im.file, id)); }
+    }
+    const relId     = document.getElementById('pe-course').value || '';
+    const relCourse = relId ? getCourses().find(c => c.id === relId) : null;
+    let relLabel = '';
+    if (relCourse) relLabel = relCourse.title || '';
+    else if (!_peIsNew) { const cur = getProductById(_peId); relLabel = cur ? (cur.relatedCourseLabel || '') : ''; }
+    const record = {
+      id: id,
+      name: name,
+      category: document.getElementById('pe-category').value || '',
+      eyebrow: document.getElementById('pe-eyebrow').value.trim(),
+      shortDescription: document.getElementById('pe-short').value.trim(),
+      description: document.getElementById('pe-desc').value.trim(),
+      price: document.getElementById('pe-price').value.trim(),
+      priceNote: document.getElementById('pe-pricenote').value.trim(),
+      relatedCourseId: relId,
+      relatedCourseLabel: relLabel,
+      images: images,
+      specs: _peSpecs.filter(s => (s.k || '').trim() || (s.v || '').trim()),
+      hidden: document.getElementById('pe-hidden').checked
+    };
+    btn.textContent = 'Guardando…';
+    await window.productContent.save(record);
+    closeProductEditor();
+    renderAparatologiaAdmin(); renderTienda(); renderFeaturedProducts();
+  } catch (err) {
+    console.error('[admin] saveProductEditor', err);
+    alert('Error guardando el equipo: ' + (err && err.message || err));
+  } finally { btn.disabled = false; btn.textContent = 'Guardar'; }
+}
+
+async function deleteProductFromEditor() {
+  if (!_peId) return;
+  const isDefault = getRawProducts().some(d => d.id === _peId);
+  const msg = isDefault
+    ? '¿Restablecer este equipo a su versión base? Se perderán los cambios guardados desde el panel.'
+    : '¿Eliminar este equipo de la tienda? No se puede deshacer.';
+  if (!confirm(msg)) return;
+  const btn = document.getElementById('pe-delete-btn'); btn.disabled = true;
+  try {
+    await window.productContent.remove(_peId);
+    closeProductEditor();
+    renderAparatologiaAdmin(); renderTienda(); renderFeaturedProducts();
+  } catch (err) {
+    console.error('[admin] deleteProductFromEditor', err);
+    alert('Error al eliminar: ' + (err && err.message || err));
+  } finally { btn.disabled = false; }
+}
+
 // Mostrar/ocultar enlaces de admin en el nav según si el usuario es admin
 async function refreshAdminLinks() {
   const ok = window.admin ? await window.admin.isAdmin() : false;
@@ -5028,8 +5415,10 @@ async function renderTestimonials() {
 }
 
 function onPageEnter(pageKey) {
-  if (pageKey === 'home') renderTestimonials();
+  if (pageKey === 'home') { renderTestimonials(); renderFeaturedProducts(); }
   if (pageKey === 'cursos') renderPublicCourses();
+  if (pageKey === 'tienda') renderTienda();
+  if (pageKey === 'producto') renderProducto(window._currentProductId);
   if (pageKey === 'aula') {
     if (window.auth && window.auth.refresh) window.auth.refresh();
     renderAulaCourses();
@@ -5433,6 +5822,14 @@ if (window.courseVisibility && window.courseVisibility.isConfigured()) {
 }
 if (window.courseContent && window.courseContent.isConfigured()) {
   window.courseContent.load().then(() => { renderPublicCourses(); }).catch(() => {});
+}
+// Cargar la tienda de aparatología; refrescar catálogo, ficha y home.
+if (window.productContent && window.productContent.isConfigured()) {
+  window.productContent.load().then(() => {
+    renderTienda();
+    renderFeaturedProducts();
+    if (window._currentProductId) renderProducto(window._currentProductId);
+  }).catch(() => {});
 }
 </script>
 
