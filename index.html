@@ -2822,6 +2822,12 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
       </div>
       <button class="btn btn-dark btn-sm" onclick="openCourseEditor(null)">+ Nuevo curso</button>
     </div>
+    <div class="cursos-search" style="margin-bottom:20px">
+      <span class="cursos-search-icon" aria-hidden="true"></span>
+      <input type="search" id="adm-cursos-search" class="cursos-search-input"
+             placeholder="Buscar curso por título o categoría…"
+             oninput="renderCursosAdmin()">
+    </div>
     <div id="adm-cursos-host">
       <div class="adm-loader">Cargando cursos…</div>
     </div>
@@ -4043,7 +4049,7 @@ function renderAdmTable() {
         </td>
         <td>${accessCell}</td>
         <td><span class="adm-cell-date">${latest ? 'Última modif. ' + admFormatDate(latest) : '—'}</span></td>
-        <td class="adm-cell-edit">Editar →</td>
+        <td class="adm-cell-edit"><button class="adm-curso-edit-btn" onclick="event.stopPropagation();openAdmEditor('${escapeAttr(u.email)}')">Editar</button></td>
       </tr>`;
   }).join('');
   document.getElementById('adm-table-host').innerHTML = `
@@ -4351,14 +4357,26 @@ async function loadCursosAdmin() {
 
 function renderCursosAdmin() {
   const host = document.getElementById('adm-cursos-host');
-  const courses = getCourses();
+  let courses = getCourses();
   if (courses.length === 0) {
-    host.innerHTML = '<div class="adm-no-results">No hay cursos definidos en courses-data.js.</div>';
+    host.innerHTML = '<div class="adm-no-results">Aún no hay cursos. Crea el primero con «+ Nuevo curso».</div>';
     return;
   }
   const cats = getCategories();
   const catLabel = {};
   cats.forEach(c => { catLabel[c.id] = c.label; });
+  // Filtro de búsqueda (título, id o categoría)
+  const searchEl = document.getElementById('adm-cursos-search');
+  const q = searchEl ? normalizeSearch(searchEl.value) : '';
+  if (q) {
+    courses = courses.filter(c => normalizeSearch(
+      [c.title, c.id, catLabel[c.category] || c.category, c.eyebrow].filter(Boolean).join(' ')
+    ).includes(q));
+    if (courses.length === 0) {
+      host.innerHTML = '<div class="adm-no-results">No se encontraron cursos con ese filtro.</div>';
+      return;
+    }
+  }
   // Orden por categorías definidas; los sin categoría conocida, al final.
   const order = cats.map(c => c.id);
   const groups = {};
