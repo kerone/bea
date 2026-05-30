@@ -2811,8 +2811,13 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 
   <!-- PANEL: CURSOS EN LA WEB -->
   <div id="adm-panel-cursos" class="adm-panel" style="display:none">
-    <p class="adm-sub" style="margin-bottom:6px">Activa o desactiva qué cursos aparecen en el catálogo público.</p>
-    <p class="res-hint" style="margin-bottom:18px">Desactivar un curso solo lo quita del catálogo y la home. Las alumnas ya matriculadas siguen accediendo a él en su aula.</p>
+    <div class="adm-resenas-bar">
+      <div>
+        <p class="adm-sub" style="margin-bottom:6px">Crea, edita y publica los cursos. El switch los muestra u oculta del catálogo.</p>
+        <p class="res-hint" style="margin:0">Ocultar un curso solo lo quita del catálogo y la home; las alumnas ya matriculadas siguen accediendo en su aula. Eliminar (desde «Editar») lo quita por completo.</p>
+      </div>
+      <button class="btn btn-dark btn-sm" onclick="openCourseEditor(null)">+ Nuevo curso</button>
+    </div>
     <div id="adm-cursos-host">
       <div class="adm-loader">Cargando cursos…</div>
     </div>
@@ -2932,6 +2937,7 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
           <label class="res-field"><span class="res-label">Categoría</span><select id="ce-category" class="res-input"></select></label>
           <label class="res-field"><span class="res-label">Descripción corta</span><textarea id="ce-short" class="res-input" rows="2"></textarea></label>
           <label class="res-field"><span class="res-label">Descripción larga</span><textarea id="ce-desc" class="res-input" rows="5"></textarea></label>
+          <label class="res-field"><span class="res-label">Materia <small>(enlace al .md de la materia extensa)</small></span><input type="text" id="ce-source" class="res-input" placeholder="docs/cursos/14-higiene-facial-profunda.md"></label>
         </div>
       </div>
       <!-- LECCIONES -->
@@ -2946,7 +2952,7 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
       </div>
     </div>
     <div class="adm-modal-foot">
-      <button class="btn btn-text adm-danger" onclick="resetCourseFromEditor()">Restablecer a courses-data.js</button>
+      <button class="btn btn-text adm-danger" id="ce-delete-btn" onclick="deleteCourseFromEditor()" style="display:none">Eliminar curso</button>
       <span style="flex:1"></span>
       <button class="btn btn-text" onclick="closeCourseEditor()">Cancelar</button>
       <button class="btn btn-dark" id="ce-save-btn" onclick="saveCourseEditor()">Guardar</button>
@@ -3713,7 +3719,7 @@ function getRawCourse(id) {
 function mergeCourseOverride(course, ov) {
   if (!ov) return course;
   const out = Object.assign({}, course);
-  ['title', 'eyebrow', 'level', 'duration', 'shortDescription', 'description', 'category', 'cover']
+  ['title', 'eyebrow', 'level', 'duration', 'shortDescription', 'description', 'category', 'cover', 'sourceDoc']
     .forEach(k => { if (ov[k] != null && ov[k] !== '') out[k] = ov[k]; });
   if (Array.isArray(ov.lessons)) out.lessons = ov.lessons;
   if (ov.test && Array.isArray(ov.test.questions)) out.test = ov.test;
@@ -3724,8 +3730,25 @@ function mergeCourseOverride(course, ov) {
 function getCourses() {
   const raw = getRawCourses();
   const map = (window.courseContent && window.courseContent.getMap) ? window.courseContent.getMap() : null;
-  if (!map) return raw;
-  return raw.map(c => mergeCourseOverride(c, map[c.id]));
+  if (!map) return raw.map(c => Object.assign({}, c));
+  const out = [];
+  const seen = {};
+  // Cursos de base (courses-data.js) con sus overrides; los marcados como
+  // eliminados desde el panel se omiten por completo.
+  raw.forEach(c => {
+    seen[c.id] = true;
+    const ov = map[c.id];
+    if (ov && ov.deleted) return;
+    out.push(mergeCourseOverride(c, ov));
+  });
+  // Cursos creados desde el panel (no existen en courses-data.js).
+  Object.keys(map).forEach(id => {
+    if (seen[id]) return;
+    const ov = map[id];
+    if (!ov || ov.deleted) return;
+    out.push(mergeCourseOverride({ id: id, lessons: [], test: { questions: [] } }, ov));
+  });
+  return out;
 }
 // Cursos visibles en el catálogo público (excluye los desactivados desde
 // el panel admin). El aula y la gestión de matrículas usan getCourses()
@@ -3957,6 +3980,7 @@ async function openAdmin() {
   if (tabs) tabs.style.display = '';
   _resLoaded = false;
   _cursLoaded = false;
+  _aparLoaded = false;
   switchAdmTab('alumnas');
   document.getElementById('adm-table-host').innerHTML = '<div class="adm-loader">Cargando alumnas…</div>';
   document.getElementById('adm-warn-area').innerHTML = '';
@@ -4395,6 +4419,7 @@ async function toggleCourseVisibility(courseId, cb) {
 
 // ─── ADMIN · EDITOR DE CURSO (metadatos / lecciones / test) ──────
 let _ceCourseId  = null;
+let _ceIsNew     = false;
 let _ceLessons   = [];
 let _ceTest      = [];
 let _ceLessonsDirty = false;
@@ -4406,12 +4431,16 @@ let _ceCoverUrl     = null;   // portada efectiva actual
 function clone(x) { try { return JSON.parse(JSON.stringify(x)); } catch (e) { return x; } }
 
 function openCourseEditor(id) {
-  const course = getCourses().find(c => c.id === id);
-  const raw    = getRawCourse(id);
+  const isNew = !id;
+  const cats  = getCategories();
+  const course = isNew
+    ? { id: '', title: '', eyebrow: '', level: '', duration: '', shortDescription: '', description: '', category: (cats[0] && cats[0].id) || '', cover: '', sourceDoc: '', lessons: [], test: { questions: [] } }
+    : getCourses().find(c => c.id === id);
   if (!course) { alert('Curso no encontrado.'); return; }
-  _ceCourseId = id;
-  document.getElementById('ce-title').textContent = 'Editar curso';
-  document.getElementById('ce-subtitle').textContent = (course.title || id) + ' · ' + id;
+  _ceCourseId = isNew ? '' : id;
+  _ceIsNew    = isNew;
+  document.getElementById('ce-title').textContent = isNew ? 'Nuevo curso' : 'Editar curso';
+  document.getElementById('ce-subtitle').textContent = isNew ? 'Rellena los datos y guarda' : ((course.title || id) + ' · ' + id);
 
   // Datos
   document.getElementById('ce-title-in').value = course.title || '';
@@ -4420,11 +4449,15 @@ function openCourseEditor(id) {
   document.getElementById('ce-duration').value = course.duration || '';
   document.getElementById('ce-short').value    = course.shortDescription || '';
   document.getElementById('ce-desc').value     = course.description || '';
+  document.getElementById('ce-source').value   = course.sourceDoc || '';
   // Categoría
-  const cats = getCategories();
   document.getElementById('ce-category').innerHTML = cats.map(c =>
     `<option value="${escapeAttr(c.id)}" ${c.id === course.category ? 'selected' : ''}>${escapeHtml(c.label)}</option>`
   ).join('');
+  // Botón eliminar: solo en cursos existentes
+  const delBtn = document.getElementById('ce-delete-btn');
+  delBtn.style.display = isNew ? 'none' : '';
+  delBtn.textContent   = 'Eliminar curso';
   // Portada
   _ceCoverNewFile = null; _ceCoverCleared = false;
   _ceCoverUrl = course.cover || null;
@@ -4578,13 +4611,19 @@ function ceAddQuestion() { _ceTest.push({ q: '', options: ['', ''], correct: 0 }
 
 // — Guardar / restablecer —
 async function saveCourseEditor() {
-  if (!_ceCourseId) return;
-  const id  = _ceCourseId;
-  const raw = getRawCourse(id) || {};
   const btn = document.getElementById('ce-save-btn');
+  const titleVal = document.getElementById('ce-title-in').value.trim();
+  if (!titleVal) { alert('El título del curso es obligatorio.'); switchCeTab('datos'); return; }
+  let id = _ceCourseId;
+  if (_ceIsNew) {
+    id = slugify(titleVal) || ('curso-' + Date.now().toString(36));
+    if (getCourses().some(c => c.id === id)) id = id + '-' + Date.now().toString(36).slice(-4);
+  }
+  const raw = _ceIsNew ? {} : (getRawCourse(id) || {});
   btn.disabled = true; btn.textContent = 'Guardando…';
   try {
     const fields = {};
+    if (_ceIsNew) fields.deleted = false;
     // Metadatos: diff contra el valor por defecto (igual/vacío → null).
     const diff = (formVal, defVal) => {
       const a = String(formVal == null ? '' : formVal).trim();
@@ -4598,6 +4637,7 @@ async function saveCourseEditor() {
     fields.shortDescription = diff(document.getElementById('ce-short').value, raw.shortDescription);
     fields.description      = diff(document.getElementById('ce-desc').value, raw.description);
     fields.category         = diff(document.getElementById('ce-category').value, raw.category);
+    fields.sourceDoc        = diff(document.getElementById('ce-source').value, raw.sourceDoc);
 
     // Portada
     if (_ceCoverNewFile) {
@@ -4647,18 +4687,28 @@ async function saveCourseEditor() {
   }
 }
 
-async function resetCourseFromEditor() {
+async function deleteCourseFromEditor() {
   if (!_ceCourseId) return;
-  if (!confirm('¿Restablecer este curso a los valores de courses-data.js? Se perderán los cambios guardados desde el panel (datos, lecciones y test).')) return;
+  const id = _ceCourseId;
+  const isSeed = !!getRawCourse(id);   // viene de courses-data.js
+  if (!confirm('¿Eliminar este curso? Desaparecerá del catálogo, de la home y del aula (también para las alumnas matriculadas). Esta acción no se puede deshacer desde el panel.')) return;
+  const btn = document.getElementById('ce-delete-btn'); btn.disabled = true;
   try {
-    await window.courseContent.reset(_ceCourseId);
+    if (isSeed) {
+      // Curso de base: lo marcamos como eliminado (tombstone) para que no
+      // reaparezca desde courses-data.js.
+      await window.courseContent.save(id, { deleted: true });
+    } else {
+      // Curso creado desde el panel: se borra de verdad.
+      await window.courseContent.reset(id);
+    }
     closeCourseEditor();
     await loadCursosAdmin();
     renderPublicCourses();
   } catch (err) {
-    console.error('[admin] resetCourseFromEditor', err);
-    alert('Error al restablecer: ' + (err && err.message || err));
-  }
+    console.error('[admin] deleteCourseFromEditor', err);
+    alert('Error al eliminar: ' + (err && err.message || err));
+  } finally { btn.disabled = false; }
 }
 
 // ═══════════════════════════════════════════════════════
@@ -5177,7 +5227,7 @@ function renderAulaCurso() {
   if (!course) {
     document.getElementById('ac-title').textContent = 'Sin cursos disponibles';
     document.getElementById('ac-desc').textContent = '';
-    document.getElementById('ac-materia-host').innerHTML = '<div class="ac-materia-empty">Añade un curso en <code>assets/js/courses-data.js</code>.</div>';
+    document.getElementById('ac-materia-host').innerHTML = '<div class="ac-materia-empty">Crea un curso desde <strong>Administración → Cursos</strong>.</div>';
     return;
   }
   document.getElementById('ac-bc-title').textContent = course.title;
@@ -5219,7 +5269,7 @@ async function renderAulaMateria(course) {
   const host = document.getElementById('ac-materia-host');
   if (!host) return;
   if (!course.sourceDoc) {
-    host.innerHTML = '<div class="ac-materia-empty">Este curso aún no tiene materia integrada. Añade <code>sourceDoc</code> al curso en <code>courses-data.js</code> apuntando a su .md.</div>';
+    host.innerHTML = '<div class="ac-materia-empty">Este curso aún no tiene materia. Añade el enlace al .md desde <strong>Administración → Cursos → Editar → Materia</strong>.</div>';
     return;
   }
   host.innerHTML = '<div class="ac-materia-loading">Cargando materia…</div>';

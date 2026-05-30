@@ -23,10 +23,17 @@ create table if not exists public.course_overrides (
   description        text,
   category           text,
   cover              text,
+  source_doc         text,
   lessons            jsonb,
   test               jsonb,
+  deleted            boolean not null default false,
   updated_at         timestamptz not null default now()
 );
+
+-- Para despliegues que ya tenían la tabla creada antes de añadir
+-- la gestión completa de cursos (enlace de materia + borrado).
+alter table public.course_overrides add column if not exists source_doc text;
+alter table public.course_overrides add column if not exists deleted boolean not null default false;
 
 -- Mantener updated_at fresco (la función ya existe desde setup.sql).
 create or replace function public.set_updated_at()

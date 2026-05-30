@@ -36,8 +36,10 @@
     if (r.description       != null) o.description      = r.description;
     if (r.category          != null) o.category         = r.category;
     if (r.cover             != null) o.cover            = r.cover;
+    if (r.source_doc        != null) o.sourceDoc        = r.source_doc;
     if (r.lessons           != null) o.lessons          = r.lessons;
     if (r.test              != null) o.test             = r.test;
+    o.deleted = !!r.deleted;
     return o;
   }
 
@@ -69,7 +71,8 @@
     const map = {
       title: 'title', eyebrow: 'eyebrow', level: 'level', duration: 'duration',
       shortDescription: 'short_description', description: 'description',
-      category: 'category', cover: 'cover', lessons: 'lessons', test: 'test'
+      category: 'category', cover: 'cover', sourceDoc: 'source_doc',
+      lessons: 'lessons', test: 'test', deleted: 'deleted'
     };
     Object.keys(map).forEach(k => {
       if (Object.prototype.hasOwnProperty.call(fields, k)) payload[map[k]] = fields[k];
