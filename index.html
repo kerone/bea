@@ -2674,6 +2674,10 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .adm-tab { background: none; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; padding: 12px 18px; font-family: var(--sans); font-size: 13.5px; color: var(--muted); cursor: pointer; transition: color .15s, border-color .15s; }
 .adm-tab:hover { color: var(--ink); }
 .adm-tab.active { color: var(--ink); border-bottom-color: var(--accent); font-weight: 600; }
+@media (max-width: 640px) {
+  .adm-tabs { gap: 0; justify-content: center; }
+  .adm-tab { flex: 1 1 0; min-width: 0; padding: 11px 4px; font-size: 12.5px; text-align: center; white-space: normal; line-height: 1.2; }
+}
 
 /* Barra superior del panel de reseñas */
 .adm-resenas-bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 18px; }
