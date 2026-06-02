@@ -2947,7 +2947,17 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
           <label class="res-field"><span class="res-label">Categoría</span><select id="ce-category" class="res-input"></select></label>
           <label class="res-field"><span class="res-label">Descripción corta</span><textarea id="ce-short" class="res-input" rows="2"></textarea></label>
           <label class="res-field"><span class="res-label">Descripción larga</span><textarea id="ce-desc" class="res-input" rows="5"></textarea></label>
-          <label class="res-field"><span class="res-label">Materia <small>(enlace al .md de la materia extensa)</small></span><input type="text" id="ce-source" class="res-input" placeholder="docs/cursos/14-higiene-facial-profunda.md"></label>
+          <label class="res-field">
+            <span class="res-label">Materia <small>(documento .md · contenido protegido)</small></span>
+            <div class="ce-drop" ondragover="ceMateriaDragOver(event,this)" ondragleave="ceMateriaDragLeave(this)" ondrop="ceMateriaDrop(event,this)">
+              <span class="res-hint">Arrastra aquí el .md de la materia o</span>
+              <button type="button" class="btn btn-text btn-sm" onclick="document.getElementById('ce-materia-input').click()">elegir archivo…</button>
+              <input type="file" id="ce-materia-input" accept=".md,.markdown,text/markdown,text/plain" style="display:none" onchange="ceMateriaFileChange(this)">
+              <div class="ce-drop-status" id="ce-materia-status"></div>
+            </div>
+            <input type="hidden" id="ce-source">
+            <p class="res-hint" style="margin-top:8px">La materia se guarda en almacenamiento privado: solo la pueden abrir las alumnas matriculadas en este curso.</p>
+          </label>
         </div>
       </div>
       <!-- LECCIONES -->
@@ -4449,6 +4459,7 @@ let _ceTestDirty    = false;
 let _ceCoverNewFile = null;
 let _ceCoverCleared = false;
 let _ceCoverUrl     = null;   // portada efectiva actual
+let _ceMateriaNewFile = null; // .md de materia pendiente de subir
 
 function clone(x) { try { return JSON.parse(JSON.stringify(x)); } catch (e) { return x; } }
 
@@ -4472,6 +4483,9 @@ function openCourseEditor(id) {
   document.getElementById('ce-short').value    = course.shortDescription || '';
   document.getElementById('ce-desc').value     = course.description || '';
   document.getElementById('ce-source').value   = course.sourceDoc || '';
+  // Materia (archivo .md privado): mostramos su estado actual
+  _ceMateriaNewFile = null;
+  renderCeMateriaStatus(course.sourceDoc);
   // Categoría
   document.getElementById('ce-category').innerHTML = cats.map(c =>
     `<option value="${escapeAttr(c.id)}" ${c.id === course.category ? 'selected' : ''}>${escapeHtml(c.label)}</option>`
@@ -4529,6 +4543,37 @@ function clearCeCover() {
   renderCeCoverPreview();
 }
 
+// — Materia (.md privado) —
+function renderCeMateriaStatus(currentRef) {
+  const st = document.getElementById('ce-materia-status');
+  if (!st) return;
+  if (_ceMateriaNewFile) {
+    st.textContent = 'Pendiente de subir: ' + _ceMateriaNewFile.name;
+    st.classList.add('ok');
+  } else if (currentRef) {
+    const isPriv = window.courseContent && window.courseContent.isPrivateRef && window.courseContent.isPrivateRef(currentRef);
+    st.textContent = isPriv ? 'Materia protegida cargada ✓' : ('Materia actual: ' + currentRef);
+    st.classList.remove('ok');
+  } else {
+    st.textContent = 'Sin materia asignada.';
+    st.classList.remove('ok');
+  }
+}
+function ceMateriaSetFile(f) {
+  if (!f) return;
+  const ok = /\.(md|markdown|txt)$/i.test(f.name) || f.type === 'text/markdown' || f.type === 'text/plain';
+  if (!ok) { alert('La materia debe ser un archivo .md (Markdown).'); return; }
+  _ceMateriaNewFile = f;
+  renderCeMateriaStatus(document.getElementById('ce-source').value);
+}
+function ceMateriaFileChange(input) { ceMateriaSetFile(input.files && input.files[0]); }
+function ceMateriaDragOver(e, el) { e.preventDefault(); el.classList.add('drag'); }
+function ceMateriaDragLeave(el)   { el.classList.remove('drag'); }
+function ceMateriaDrop(e, el) {
+  e.preventDefault(); el.classList.remove('drag');
+  ceMateriaSetFile(e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]);
+}
+
 // — Lecciones —
 function renderCeLessons() {
   const host = document.getElementById('ce-lessons-list');
@@ -4537,8 +4582,9 @@ function renderCeLessons() {
     return;
   }
   host.innerHTML = _ceLessons.map((l, i) => {
+    const isPrivSlide = window.courseContent && window.courseContent.isPrivateRef && window.courseContent.isPrivateRef(l.slides);
     const status = l._newFile ? ('Pendiente de subir: ' + l._newFile.name)
-                              : (l.slides ? l.slides : 'Sin slide asignado');
+                              : (isPrivSlide ? 'Slide protegido cargado ✓' : (l.slides ? l.slides : 'Sin slide asignado'));
     const statusCls = l._newFile ? 'ok' : '';
     return `
       <div class="ce-lesson">
@@ -4659,7 +4705,16 @@ async function saveCourseEditor() {
     fields.shortDescription = diff(document.getElementById('ce-short').value, raw.shortDescription);
     fields.description      = diff(document.getElementById('ce-desc').value, raw.description);
     fields.category         = diff(document.getElementById('ce-category').value, raw.category);
-    fields.sourceDoc        = diff(document.getElementById('ce-source').value, raw.sourceDoc);
+
+    // Materia (.md): si se sube un archivo nuevo, va al bucket privado y se
+    // guarda su referencia 'private:'. Si no, se conserva la referencia
+    // actual (vía diff contra el default, igual que el resto de metadatos).
+    if (_ceMateriaNewFile) {
+      btn.textContent = 'Subiendo materia…';
+      fields.sourceDoc = await window.courseContent.uploadMateriaPrivate(id, _ceMateriaNewFile);
+    } else {
+      fields.sourceDoc = diff(document.getElementById('ce-source').value, raw.sourceDoc);
+    }
 
     // Portada
     if (_ceCoverNewFile) {
@@ -4680,7 +4735,7 @@ async function saveCourseEditor() {
         let slides = l.slides || '';
         if (l._newFile) {
           btn.textContent = 'Subiendo slide ' + (i + 1) + '…';
-          slides = await window.courseContent.uploadSlide(id, lid, l._newFile);
+          slides = await window.courseContent.uploadSlidePrivate(id, lid, l._newFile);
         }
         lessons.push({ id: lid, title: l.title || '', duration: l.duration || '', slides: slides });
       }
@@ -5296,7 +5351,8 @@ async function renderAulaMateria(course) {
   }
   host.innerHTML = '<div class="ac-materia-loading">Cargando materia…</div>';
   try {
-    const res = await fetch(course.sourceDoc, { cache: 'no-cache' });
+    const url = await resolveContentUrl(course.sourceDoc);
+    const res = await fetch(url, { cache: 'no-cache' });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const md = await res.text();
     const lib = await loadMarkdownLib();
@@ -5307,8 +5363,20 @@ async function renderAulaMateria(course) {
   }
 }
 
+// Resuelve una referencia de contenido a una URL cargable. Si es privada
+// (bucket course-private) pide un enlace firmado temporal (solo válido si
+// hay matrícula/admin); si es pública, la devuelve tal cual.
+async function resolveContentUrl(ref) {
+  try {
+    if (window.courseContent && window.courseContent.signedUrl) {
+      return await window.courseContent.signedUrl(ref, 3600);
+    }
+  } catch (e) { console.warn('[aula] no se pudo firmar el contenido', e); }
+  return ref;
+}
+
 // ─── AULA · PRESENTACIÓN (slide decks inline + fullscreen) ──
-function renderAulaPresentacion(course) {
+async function renderAulaPresentacion(course) {
   const host = document.getElementById('ac-pres-host');
   if (!host) return;
   const lessons = (course.lessons || []).filter(l => l.slides && l.slides !== 'leccion-integrada');
@@ -5321,6 +5389,7 @@ function renderAulaPresentacion(course) {
         `<button class="ac-pres-lesson${i === 0 ? ' active' : ''}" data-li="${i}" onclick="aulaPresLoad(${i})">${escapeHtml(l.title)}</button>`
       ).join('')}</div>`
     : `<div class="ac-pres-picker"><span style="font-size:13px;color:var(--ink-soft);padding:8px 0">${escapeHtml(lessons[0].title)}</span></div>`;
+  const firstUrl = await resolveContentUrl(lessons[0].slides);
   host.innerHTML = `
     <div class="ac-pres-toolbar">
       ${picker}
@@ -5329,17 +5398,17 @@ function renderAulaPresentacion(course) {
       </button>
     </div>
     <div class="ac-pres-frame-wrap" id="ac-pres-frame-wrap">
-      <iframe class="ac-pres-frame" id="ac-pres-frame" src="${escapeAttr(lessons[0].slides)}" title="${escapeAttr(lessons[0].title)}" allowfullscreen></iframe>
+      <iframe class="ac-pres-frame" id="ac-pres-frame" src="${escapeAttr(firstUrl)}" title="${escapeAttr(lessons[0].title)}" allowfullscreen></iframe>
     </div>
   `;
   window._aulaPresLessons = lessons;
 }
-function aulaPresLoad(idx) {
+async function aulaPresLoad(idx) {
   const lessons = window._aulaPresLessons || [];
   if (!lessons[idx]) return;
   document.querySelectorAll('#ac-pres-host .ac-pres-lesson').forEach(b => b.classList.toggle('active', Number(b.dataset.li) === idx));
   const f = document.getElementById('ac-pres-frame');
-  if (f) { f.src = lessons[idx].slides; f.title = lessons[idx].title; }
+  if (f) { f.src = await resolveContentUrl(lessons[idx].slides); f.title = lessons[idx].title; }
 }
 function aulaPresFullscreen() {
   const wrap = document.getElementById('ac-pres-frame-wrap');
@@ -5367,12 +5436,12 @@ function aulaPresFullscreen() {
   }
 }
 
-function openAulaSlides(courseId, lessonIdx) {
+async function openAulaSlides(courseId, lessonIdx) {
   const course = getCourses().find(c => c.id === courseId);
   if (!course || !course.lessons || !course.lessons[lessonIdx]) return;
   const lesson = course.lessons[lessonIdx];
   if (!lesson.slides) {
-    alert('Esta lección aún no tiene slides asociados. Sube un index.html a la carpeta del curso y enlázalo en courses-data.js.');
+    alert('Esta lección aún no tiene slides asociados.');
     return;
   }
   // Caso especial: usar la lección visual integrada (parallax 3D)
@@ -5381,7 +5450,7 @@ function openAulaSlides(courseId, lessonIdx) {
     return;
   }
   document.getElementById('ac-slides-title').textContent = course.title + ' · ' + lesson.title;
-  document.getElementById('ac-slides-frame').src = lesson.slides;
+  document.getElementById('ac-slides-frame').src = await resolveContentUrl(lesson.slides);
   document.getElementById('ac-slides-modal').classList.add('open');
   document.body.style.overflow = 'hidden';
 }

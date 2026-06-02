@@ -115,8 +115,54 @@
     return _upload(path, file, 'text/html');
   }
 
+  // ─── CONTENIDO PRIVADO (bucket course-private, RLS por matrícula) ──
+  // Las rutas dentro del bucket empiezan por el course_id (la RLS lo usa
+  // para comprobar la matrícula). Guardamos una referencia con prefijo
+  // 'private:<bucketPath>' para distinguirla de las URLs públicas
+  // antiguas; el aula la resuelve a un enlace firmado temporal.
+  const PRIVATE_BUCKET = 'course-private';
+  const PRIVATE_PREFIX = 'private:';
+
+  function isPrivateRef(ref) { return typeof ref === 'string' && ref.indexOf(PRIVATE_PREFIX) === 0; }
+  function privatePath(ref)  { return isPrivateRef(ref) ? ref.slice(PRIVATE_PREFIX.length) : null; }
+
+  async function _uploadPrivate(path, file, contentType) {
+    const c = client();
+    if (!c) throw new Error('Supabase no inicializado.');
+    if (!file) throw new Error('No hay archivo.');
+    const { error } = await c.storage.from(PRIVATE_BUCKET).upload(path, file, {
+      cacheControl: '3600', upsert: true, contentType: contentType || file.type || undefined
+    });
+    if (error) throw error;
+    return PRIVATE_PREFIX + path;
+  }
+
+  async function uploadMateriaPrivate(courseId, file) {
+    const path = safe(courseId) + '/materia-' + Date.now() + '.md';
+    return _uploadPrivate(path, file, 'text/markdown');
+  }
+
+  async function uploadSlidePrivate(courseId, lessonId, file) {
+    const path = safe(courseId) + '/slides/' + safe(lessonId) + '-' + Date.now() + '.html';
+    return _uploadPrivate(path, file, 'text/html');
+  }
+
+  // Devuelve una URL utilizable para fetch/iframe:
+  //   · ref privada  → enlace firmado temporal (solo si hay matrícula/admin)
+  //   · ref pública  → la propia ref (URL o ruta de repo), sin cambios
+  async function signedUrl(ref, expiresInSec) {
+    if (!isPrivateRef(ref)) return ref;
+    const c = client();
+    if (!c) throw new Error('Supabase no inicializado.');
+    const { data, error } = await c.storage.from(PRIVATE_BUCKET)
+      .createSignedUrl(privatePath(ref), expiresInSec || 3600);
+    if (error) throw error;
+    return data.signedUrl;
+  }
+
   window.courseContent = {
     isConfigured, load, getMap, getOverride, isLoaded,
+    isPrivateRef, signedUrl, uploadMateriaPrivate, uploadSlidePrivate,
     save, reset, uploadCover, uploadSlide
   };
 })();
