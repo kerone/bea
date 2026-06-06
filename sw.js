@@ -5,7 +5,7 @@
  * y FormSubmit (datos dinamicos, no se cachean).
  * ============================================================= */
 
-const CACHE_VERSION = 'v24';
+const CACHE_VERSION = 'v25';
 const CACHE_NAME = 'precissa-' + CACHE_VERSION;
 
 // Assets criticos pre-cacheados en install (la primera visita ya
@@ -13,6 +13,7 @@ const CACHE_NAME = 'precissa-' + CACHE_VERSION;
 const PRECACHE_URLS = [
   '/',
   '/manifest.webmanifest',
+  '/favicon.ico',
   '/assets/favicon-32.png',
   '/assets/favicon-180.png',
   '/assets/favicon-192.png',
