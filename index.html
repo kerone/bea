@@ -2960,7 +2960,7 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
             <div style="margin-top:10px">
               <button type="button" class="btn btn-text btn-sm" id="ce-materia-edit-btn" onclick="ceMateriaToggleEdit()">✎ Editar texto de la materia</button>
               <div id="ce-materia-editor" style="display:none;margin-top:10px">
-                <textarea id="ce-materia-text" class="res-input" rows="16" spellcheck="true" style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.5" placeholder="Cargando…"></textarea>
+                <textarea id="ce-materia-text" class="res-input" rows="16" spellcheck="true" style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.5" placeholder="Este curso aún no tiene materia. Escribe aquí (Markdown) o sube un .md arriba."></textarea>
                 <p class="res-hint" style="margin-top:6px">Edita el texto y pulsa Guardar (abajo). Útil para corregir palabras sueltas sin volver a subir el archivo. El formato es Markdown (## títulos, **negrita**, tablas con |…).</p>
               </div>
             </div>
@@ -4609,12 +4609,13 @@ async function ceMateriaToggleEdit() {
         ta.value = await _ceMateriaNewFile.text();
         _ceMateriaTextLoaded = true;
       } else if (ref) {
-        ta.value = 'Cargando…'; ta.disabled = true;
+        ta.value = ''; ta.disabled = true;
+        btn.textContent = '⏳ Cargando materia…';
         try {
           ta.value = await window.courseContent.fetchMateriaText(ref);
         } catch (e) {
           ta.value = ''; alert('No se pudo cargar la materia para editar: ' + (e && e.message || e));
-        } finally { ta.disabled = false; _ceMateriaTextLoaded = true; }
+        } finally { ta.disabled = false; _ceMateriaTextLoaded = true; btn.textContent = '▴ Ocultar editor de texto'; }
       } else {
         ta.value = ''; _ceMateriaTextLoaded = true;
       }
