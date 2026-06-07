@@ -154,7 +154,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:16p
 <div class="deck">
   <header class="deck-top">
     <span class="deck-top-eyebrow">PRECISSA · Maderoterapia · Corporal</span>
-    <span class="deck-top-counter"><span id="cur">01</span> <span style="color:var(--line-strong)">/</span> <span id="tot">19</span></span>
+    <span class="deck-top-counter"><span id="cur">01</span> <span style="color:var(--line-strong)">/</span> <span id="tot">18</span></span>
   </header>
 
   <main class="deck-stage" id="stage">
@@ -486,16 +486,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:16p
       </div>
     </section>
 
-    <!-- 18 · TEST -->
-    <section class="slide">
-      <div class="slide-inner">
-        <div class="slide-eyebrow">Test discriminativo · 8 preguntas</div>
-        <h2 class="slide-h2">Evaluación.</h2>
-        <div class="quiz" id="quiz"><!-- Inyectado por JS --></div>
-      </div>
-    </section>
-
-    <!-- 19 · placeholder -->
+    <!-- placeholder -->
 
     <!-- 20 · CIERRE -->
     <section class="slide slide--closing">
@@ -570,58 +561,6 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:16p
   });
   go(0);
 
-  const questions=[
-    { q:'Clienta que quiere tratar fibrosis tras una lipo de hace 4 semanas, cicatriz cerrada y sin signos de inflamación. ¿Qué haces?',
-      opts:['Empiezo protocolo normal con rodillo cubano','Protocolo suave de drenaje y modelado','Espero a que pasen al menos 6 semanas y trabajo con autorización del cirujano','Solo trabajo facial mientras tanto'], c:2 },
-    { q:'Pieza más indicada para calentar al empezar, en piernas:',
-      opts:['Rodillo dentado','Rodillo cubano','Rodillo liso','Copa anticelulitis'], c:2 },
-    { q:'Para modelar y dar efecto "elevación" en glúteo, la herramienta más característica es:',
-      opts:['Tabla guitarra','Copa sueca grande','Palillos chinos','Hongo'], c:1 },
-    { q:'Embarazada de 16 semanas que quiere tratarse la retención de líquidos en las piernas. ¿Qué procede?',
-      opts:['Protocolo completo, abdomen incluido','Solo piernas, maniobras suaves de drenaje, sin abdomen ni lumbar, con criterio prudente y permiso de su médico','Contraindicar absolutamente cualquier maderoterapia en el embarazo','Solo maderoterapia facial'], c:1 },
-    { q:'Primera sesión en cara externa de muslo: a las tres pasadas de rodillo dentado salen muchos puntitos rojos y rojez intensa. ¿Qué haces?',
-      opts:['Sigo, los puntitos son la respuesta que busco','Dejo el rodillo dentado, bajo presión, paso a herramienta más suave, termino la sesión y reviso la entrevista','Le digo que no puede volver a hacerse maderoterapia nunca','Le pongo capsaicina para tapar la rojez'], c:1 },
-    { q:'Orden correcto de las fases:',
-      opts:['Reducir → calentar → drenar → modelar → tonificar → cerrar','Calentar → modelar → drenar → reducir → cerrar → tonificar','Calentar → drenar → modelar → reducir → tonificar → drenaje de cierre','Drenar → calentar → reducir → modelar → tonificar → cerrar'], c:2 },
-    { q:'Sobre lo que de verdad consigue la maderoterapia, lo más correcto es:',
-      opts:['Está demostrado que reduce la grasa de forma cuantificada','Mejora el aspecto, drena y afina el contorno, y la clienta nota mejoría; pero no derrite grasa ni elimina la celulitis de forma permanente','Destruye las células grasas por presión','Es una técnica milenaria de eficacia probada'], c:1 },
-    { q:'Clienta que toma anticoagulante por una trombosis de hace dos años y quiere maderoterapia para la celulitis. ¿Qué haces?',
-      opts:['Protocolo normal','Protocolo suave y consentimiento verbal','Es contraindicación: pido valoración médica y consentimiento escrito; en la mayoría de casos, no la trato','Solo zonas sin vasos'], c:2 }
-  ];
-  const quizEl=document.getElementById('quiz');
-  const userAns={};
-  quizEl.innerHTML=questions.map((q,qi)=>`
-    <div class="quiz-q" data-qi="${qi}">
-      <div class="quiz-q-num">Pregunta ${qi+1} / ${questions.length}</div>
-      <div class="quiz-q-text">${q.q}</div>
-      <div class="quiz-opts">
-        ${q.opts.map((o,oi)=>`<div class="quiz-opt" data-oi="${oi}"><span class="quiz-opt-letter">${String.fromCharCode(97+oi)}</span><span>${o}</span></div>`).join('')}
-      </div>
-    </div>
-  `).join('') + `<button class="quiz-submit" id="quiz-submit">Corregir test</button><div id="quiz-score"></div>`;
-  quizEl.querySelectorAll('.quiz-opt').forEach(opt=>{
-    opt.addEventListener('click',()=>{
-      const qi=+opt.closest('.quiz-q').dataset.qi;const oi=+opt.dataset.oi;
-      userAns[qi]=oi;
-      opt.parentElement.querySelectorAll('.quiz-opt').forEach(o=>o.classList.remove('selected'));
-      opt.classList.add('selected');
-    });
-  });
-  document.getElementById('quiz-submit').addEventListener('click',()=>{
-    let ok=0;
-    questions.forEach((q,qi)=>{
-      const correct=q.c;const chosen=userAns[qi];
-      const qNode=quizEl.querySelector(`.quiz-q[data-qi="${qi}"]`);
-      qNode.querySelectorAll('.quiz-opt').forEach(opt=>{
-        const oi=+opt.dataset.oi;opt.classList.remove('selected');
-        if(oi===correct)opt.classList.add('correct');
-        if(chosen===oi&&chosen!==correct)opt.classList.add('wrong');
-      });
-      if(chosen===correct)ok++;
-    });
-    document.getElementById('quiz-score').className='quiz-score';
-    document.getElementById('quiz-score').textContent=`Resultado · ${ok} / ${questions.length} ${ok===questions.length?'· perfecto':(ok>=6?'· aprobado':'· revisa el material')}`;
-  });
 })();
 </script>
 </body>
