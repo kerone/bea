@@ -1,6 +1,6 @@
 # Curso · Neutralización de labios — corrección cromática previa o sobre micropigmentación existente
 
-> Subespecialidad técnica dentro de la micropigmentación labial dedicada a corregir el subtono dominante —melánico, vascular o iatrogénico— antes o por encima del pigmento de color. La neutralización no embellece; cancela. Curso avanzado dirigido a profesionales que ya dominan el *lip blush* y necesitan resolver labios oscuros nativos, labios fríos o trabajos previos virados al azul, violeta o gris.
+> Técnica para cancelar el subtono dominante del labio —oscuro de nacimiento, frío o virado al azul/violeta por un trabajo previo— antes de darle color. La neutralización no embellece: cancela. Curso avanzado para profesionales que ya dominan el lip blush y necesitan resolver labios morenos, fríos o trabajos anteriores que se han ido al azul, violeta o gris.
 
 ---
 
@@ -11,256 +11,256 @@
 | Modalidad | Presencial + aula virtual |
 | Duración estimada | 18 h teóricas · 24 h prácticas |
 | Nivel | Profesional / Avanzado |
-| Requisitos previos | Titulación en estética + módulo de micropigmentación labial superado + portfolio mínimo de 30 *lip blush* realizados |
-| Certificación | Sí · tras test final, prácticas evaluadas sobre modelo y supuestos clínicos |
+| Requisitos previos | Titulación en estética + módulo de micropigmentación labial superado + portfolio mínimo de 30 lip blush |
+| Certificación | Sí · tras test final, prácticas sobre modelo y supuestos clínicos |
 | Materiales incluidos | Set de correctores cálidos (peach, light orange, salmon/coral, brick) · pigmentos de color final · agujas de un solo uso · anestésicos tópicos · consumibles · fichas de consentimiento y diagnóstico cromático |
 
 ---
 
-## 1 · Introducción y posicionamiento clínico
+## 1 · Qué es y por qué importa
 
-La neutralización labial es una subespecialidad cromática que cancela el subtono dominante del labio antes de cualquier intento de embellecimiento, para que el color superpuesto se exprese correctamente. La jerarquía es estricta: **primero neutralizar, después colorear**. La mayoría de virajes al azul-violeta-gris a uno-tres años no son fallo del pigmento, sino la suma previsible de química del pigmento (rosas y rojos cool envejecen fríos), profundidad excesiva de deposición y subtono labial no neutralizado.
+La neutralización labial cancela el subtono que domina el labio antes de intentar darle color, para que el color que pongas encima se exprese bien. El orden es estricto: **primero neutralizar, después colorear**. La mayoría de los labios que viran al azul-violeta-gris al cabo de uno a tres años no son culpa del pigmento, sino la suma de tres cosas previsibles: la química del pigmento (los rosas y rojos fríos envejecen aún más fríos), una deposición demasiado profunda y un subtono del labio que nadie neutralizó.
 
-Tres premisas operativas deben verbalizarse con el paciente antes de la primera pasada: la neutralización **no blanquea** (no aclara la melanina intrínseca del labio, cancela el subtono frío que distorsiona el pigmento); requiere **más sesiones que la micropigmentación virgen** (3 en escenario favorable, 4-5 en complejos); y exige aceptar un intermedio cálido intenso ("naranja-salmón") de 1-2 semanas tras cada sesión de corrector. Reconocer cuándo derivar a **láser Q-switched 1064 nm** —antes de sumar más pigmento sobre un sustrato saturado— es la decisión clínica más difícil y la más honesta.
+Tres cosas que tienes que decirle a la clienta antes de la primera pasada:
 
-## 2 · Fundamentos científicos
+- La neutralización **no blanquea**. No aclara la melanina propia del labio; lo que hace es cancelar el subtono frío que distorsiona el color.
+- Necesita **más sesiones que un labio virgen**: 3 en el caso favorable, 4-5 en los complicados.
+- Hay que aceptar un **intermedio cálido intenso** ("naranja-salmón") de 1-2 semanas tras cada sesión de corrector.
 
-### 2.1 · Anatomía labial relevante
+Y la decisión más difícil y más honesta del curso: saber cuándo **derivar a láser Q-switched 1064 nm** en lugar de seguir metiendo pigmento sobre un labio ya saturado.
 
-- **Epidermis muy fina** con córneo escaso en bermellón: translucidez y sensibilidad al pigmento.
-- **Plexo vascular subepitelial denso**: aporta rosa-rojo natural y, en pieles frías, componente violáceo fisiológico.
-- **Melanocitos variables**, mayores en fototipos IV-VI: sustrato de hiperpigmentación melánica, postinflamatoria, por fricción o tabaco.
-- **Línea cutaneomucosa**: límite intocable del dibujo; cruzarla deja pigmento visible permanente sobre piel facial.
+## 2 · Lo que tienes que entender
 
-### 2.2 · Círculo cromático y pares complementarios
+### 2.1 · Anatomía del labio que aquí importa
 
-La neutralización descansa sobre la **complementariedad sustractiva**: dos colores opuestos en el círculo cromático, superpuestos, se cancelan ópticamente.
+- **Epidermis muy fina** en el bermellón: el labio es translúcido y sensible al pigmento.
+- **Red de capilares densa** justo debajo: da el rosa-rojo natural y, en pieles frías, un componente violáceo de base.
+- **Melanocitos variables**, más abundantes en fototipos IV-VI: son el origen de los labios oscuros, las manchas postinflamatorias, las de fricción o por tabaco.
+- **Línea cutáneo-mucosa** (el borde del bermellón): el límite que no se cruza. Pasarse deja pigmento visible para siempre sobre la piel de la cara.
 
-| Subtono a cancelar | Complementario | Familia de corrector |
+### 2.2 · El círculo cromático y los pares que se cancelan
+
+La neutralización se basa en algo simple: **dos colores opuestos en el círculo cromático, superpuestos, se cancelan ópticamente**.
+
+| Subtono a cancelar | Su opuesto | Familia de corrector |
 |---|---|---|
-| **Azul** (cool, amoratado-azulado) | Naranja | Orange, light orange, bright orange |
+| **Azul** (frío, amoratado) | Naranja | Orange, light orange, bright orange |
 | **Violeta** (azul + rojo) | Amarillo-naranja | Peach, golden peach, warm beige |
-| **Verde** (raro; pigmentos antiguos) | Rojo | Brick, terracotta, warm red |
-| **Gris** (fríos sin dominante clara) | Cálido genérico | Salmon, coral warm, peach |
+| **Verde** (raro, pigmentos antiguos) | Rojo | Brick, terracotta, warm red |
+| **Gris** (frío sin dominante clara) | Cálido genérico | Salmon, coral warm, peach |
 | **Marrón frío** (post-herpético, post-traumático) | Naranja-coral | Coral, warm salmon, brick |
 
-Clave: el corrector **cancela**, no tiñe. El objetivo de la sesión 1 no es un labio del color del corrector, sino un labio **ópticamente neutro tras cicatrizar**, listo para el color final.
+La clave: el corrector **cancela, no tiñe**. El objetivo de la sesión 1 no es un labio del color del corrector, sino un labio **ópticamente neutro una vez cicatriza**, listo para el color final.
 
-### 2.3 · Química del viraje labial
+### 2.3 · Por qué vira el color del labio
 
-- **Composición**: los pigmentos orgánicos cálidos (lakes, azoicos, quinacridonas) se degradan antes que los minerales fríos (óxidos de hierro, dióxido de titanio) → la lectura visual se desplaza al azul-violeta.
-- **Profundidad**: por dispersión de Tyndall, a mayor profundidad mayor componente azul visible. Implantar profundo "para durar" es la causa raíz del viraje frío.
-- **UV acumulada**: degrada selectivamente cálidos. Sin fotoprotección labial, el viraje acelera.
-- **Pigmento de partida cool** (rosas fríos, magentas 2010-2017): vira al frío de forma casi universal.
+- **Composición**: los pigmentos cálidos orgánicos se degradan antes que los fríos minerales, así que con el tiempo la lectura visual se va al azul-violeta.
+- **Profundidad**: cuanto más profundo metes el pigmento, más azul se ve (es el mismo efecto óptico por el que un vaso bajo la piel se ve azulado). Implantar profundo "para que dure" es la causa raíz del viraje frío.
+- **Sol acumulado**: degrada antes los cálidos. Sin fotoprotección labial, el viraje se acelera.
+- **Pigmento de partida frío** (rosas fríos, magentas de hace años): vira al frío casi siempre.
 
-Consecuencia: **en labio, los pigmentos cálidos envejecen mejor que los fríos**. La selección de color final debe primar familias cálidas (corales suaves, nudes cálidos, rosa-rojos warm).
+Conclusión: **en el labio, los pigmentos cálidos envejecen mejor que los fríos**. Para el color final, prioriza familias cálidas (corales suaves, nudes cálidos, rosa-rojos cálidos).
 
-### 2.4 · Familias de correctores comerciales
+### 2.4 · Las familias de correctores
 
-| Familia | Cancela | Indicación preferente |
+| Familia | Cancela | Cuándo |
 |---|---|---|
-| **Light / bright orange** | Azul franco, gris-azulado | Viraje azul claro de trabajo previo |
+| **Light / bright orange** | Azul franco, gris-azulado | Trabajo previo virado azul claro |
 | **Peach / golden peach** | Violeta, gris-violeta, azul moderado | Labio violáceo fototipo III-V |
-| **Salmon / warm coral** | Gris neutro, frío difuso | Labio cool sin viraje claro, labios apagados |
+| **Salmon / warm coral** | Gris neutro, frío difuso | Labio frío sin viraje claro, labios apagados |
 | **Brick / terracotta** | Marrón frío, post-herpes residual | Fototipo V-VI, labios muy oscuros |
-| **Warm beige / lip warmer** | Subtonos sutiles | Refinamiento 2ª-3ª sesión |
+| **Warm beige / lip warmer** | Subtonos sutiles | Afinar en la 2ª-3ª sesión |
 | **Amarillo (uso restringido)** | Violeta puro intenso | Casi siempre en mezcla |
 
-Peach y light orange **no son intercambiables**: cancelan dianas distintas. Lote, registro y ficha técnica deben archivarse en historia clínica.
+Peach y light orange **no son intercambiables**: cancelan cosas distintas. Lote, registro y ficha técnica van archivados en la historia clínica.
 
-### 2.5 · Profundidad de deposición
+### 2.5 · A qué profundidad se trabaja
 
-Aguja en **dermis papilar superficial, 0,8-1,2 mm**. La sobreprofundidad añade frío óptico, satura la dermis y desplaza el resultado al azul que pretendíamos cancelar. Endpoint: implantación visible homogénea, sin sangrado activo, linfa serosa clara, sin surcos. La neutralización exige mayor densidad de pasadas que el lip blush virgen porque el objetivo es **saturar uniformemente** la superficie, no dibujar.
+Aguja en la **dermis papilar superficial, 0,8-1,2 mm**. Pasarse de profundidad añade frío óptico, satura la dermis y empuja el resultado precisamente hacia el azul que querías cancelar. ¿Cuándo paras? Cuando ves la implantación homogénea, sin sangrado activo, con linfa serosa clara y sin surcos. La neutralización pide más pasadas que un lip blush virgen porque aquí el objetivo es **saturar la superficie de forma uniforme**, no dibujar.
 
 ## 3 · Indicaciones
 
-| Indicación | Subtono esperable | Corrector de elección | Sesiones totales |
+| Indicación | Subtono que esperas | Corrector de elección | Sesiones totales |
 |---|---|---|---|
-| Labio nativo oscuro fototipo IV-V | Marrón cálido a violáceo | Peach o salmon; brick si muy oscuro | 3-4 |
-| Labio nativo muy oscuro fototipo V-VI | Marrón violáceo casi negro | Brick + peach combinados | 4-5 |
-| Labio nativo frío/violáceo fototipo II-III | Violeta suave a gris-violáceo | Peach o golden peach | 2-3 |
-| Labio en fumador crónico | Marrón grisáceo irregular | Salmon + corrección puntual | 3-4 |
+| Labio oscuro de nacimiento, fototipo IV-V | Marrón cálido a violáceo | Peach o salmon; brick si muy oscuro | 3-4 |
+| Labio muy oscuro, fototipo V-VI | Marrón violáceo casi negro | Brick + peach combinados | 4-5 |
+| Labio frío/violáceo, fototipo II-III | Violeta suave a gris-violáceo | Peach o golden peach | 2-3 |
+| Labio de fumador crónico | Marrón grisáceo irregular | Salmon + corrección puntual | 3-4 |
 | Trabajo previo virado azul (>1 año) | Azul a azul-violeta uniforme | Light / bright orange | 3-4 |
-| Trabajo previo virado violeta | Violeta puro o lilac | Peach o golden peach | 3 |
+| Trabajo previo virado violeta | Violeta puro o lila | Peach o golden peach | 3 |
 | Trabajo previo virado gris | Gris neutro a gris-rosado | Salmon o warm coral | 2-3 |
 | Trabajo previo muy saturado | Azul/violeta intenso, líneas visibles | Valorar Q-switched previo | 5-6 (o derivación) |
 | Hipopigmentación post-herpética | Zonas blanquecinas asimétricas | Peach o salmon focalizado + profilaxis antiviral | 3-4 |
-| Melasma extra-facial labial | Marrón violáceo en mancha | Cautela: derivación dermatológica previa | 4-5, alto riesgo recidiva |
+| Melasma del labio | Marrón violáceo en mancha | Cautela: derivación dermatológica previa | 4-5, alto riesgo de que vuelva |
 
-**Criterios de buena indicación**: comprende que la técnica no blanquea; acepta cronograma de 3-5 sesiones cada 6-8 semanas; acepta el intermedio cálido intenso; sin contraindicaciones absolutas; firma consentimiento que incluye la posible derivación a Q-switched.
+**Buena indicación**: la clienta entiende que esto no blanquea; acepta el cronograma de 3-5 sesiones cada 6-8 semanas; acepta el intermedio cálido; sin contraindicaciones absolutas; firma un consentimiento que incluye la posible derivación a Q-switched.
 
 ## 4 · Contraindicaciones
 
 **Absolutas:**
 
 - Embarazo y lactancia.
-- Herpes labial activo (posponer hasta resolución completa).
-- Antecedente de herpes labial recurrente **sin profilaxis antiviral** peri-procedimiento (valaciclovir/aciclovir según pauta médica, 24-48 h antes y 5-7 días después).
+- Herpes labial activo (posponer hasta que cure del todo).
+- Antecedente de herpes labial de repetición **sin profilaxis antiviral** (valaciclovir/aciclovir según pauta médica, 24-48 h antes y 5-7 días después).
 - Isotretinoína oral en los 6 meses previos.
-- Anticoagulación/antiagregación no suspendible (consensuar con médico tratante; nunca suspender por iniciativa propia).
-- Alergia conocida a pigmento o anestésico tópico.
+- Anticoagulación/antiagregación que no se puede suspender (consensuar con su médico; nunca la suspendas tú).
+- Alergia conocida al pigmento o al anestésico tópico.
 - Antecedente de queloide o cicatriz hipertrófica facial.
-- Enfermedades autoinmunes con afectación mucocutánea activa (lupus, liquen plano, pénfigo, penfigoide).
+- Enfermedades autoinmunes con afectación de piel/mucosa activa (lupus, liquen plano, pénfigo, penfigoide).
 - Inmunosupresión farmacológica sin autorización médica.
 - Diabetes descompensada.
-- Trastorno dismórfico corporal o expectativas claramente irreales.
+- Trastorno dismórfico o expectativas claramente irreales.
 
-**Relativas (posponer o adaptar):** dermatitis perioral/queilitis activa, infección odontológica próxima, quimio-/radioterapia recientes, micropigmentación previa <6 meses, Q-switched <8 semanas.
+**Relativas (posponer o adaptar):** dermatitis perioral o queilitis activa, infección dental cercana, quimio o radioterapia recientes, micropigmentación previa de menos de 6 meses, Q-switched de menos de 8 semanas.
 
 **Banderas rojas en consulta:**
 
-- "Quiero el labio rosa palo" en fototipo V-VI con labio marrón violáceo → explicar el rango realista; si no acepta, no iniciar.
-- Trabajo previo muy saturado violeta-azul → explicar la posible derivación previa a Q-switched.
-- "En dos sesiones, ¿no?" → corregir activamente; mínimo 3, habitual 4-5 en trabajo previo.
+- "Quiero el labio rosa palo" en un fototipo V-VI con labio marrón violáceo → explica el rango realista; si no lo acepta, no empieces.
+- Trabajo previo muy saturado violeta-azul → explica la posible derivación previa a Q-switched.
+- "En dos sesiones, ¿no?" → corrige de entrada: mínimo 3, habitualmente 4-5 sobre trabajo previo.
 
-**La advertencia central debe quedar firmada**: la neutralización requiere más sesiones que la micropigmentación virgen y **NO blanquea**. El objetivo es armonía cromática, no aclaramiento.
+**Esto tiene que quedar firmado**: la neutralización requiere más sesiones que un labio virgen y **NO blanquea**. El objetivo es armonía de color, no aclarar.
 
 ## 5 · Protocolo de tratamiento
 
 ### 5.1 · Diagnóstico cromático
 
-El diagnóstico cromático es la fase más infravalorada y la que más determina el éxito. Se realiza siempre **en consulta presencial, con luz controlada y ojo entrenado**, y se documenta fotográficamente.
+El diagnóstico de color es la fase más infravalorada y la que más decide el éxito. Se hace siempre **en consulta presencial, con luz controlada y ojo entrenado**, y se documenta con fotos.
 
-**Condiciones de iluminación**
+**Iluminación:**
 
-- **Luz natural difusa** (cerca de ventana, sin sol directo) como referencia primaria. Es la luz bajo la cual el paciente se verá la mayor parte del tiempo.
-- **Luz blanca neutra (5000-5500 K)** estandarizada en cabina, idealmente con cabezal LED de alta CRI (>95) para evitar desplazamientos cromáticos artefactuales.
-- **Contraste con luz cálida (3000 K)** para identificar dominantes frías ocultas: un labio que bajo luz cálida sigue mostrando matiz violáceo tiene subtono violeta intrínseco.
-- **Evitar luz fluorescente fría** estándar: virará todos los tonos al verde-azul y producirá falsos positivos de "labio frío".
+- **Luz natural difusa** (cerca de una ventana, sin sol directo) como referencia principal. Es la luz bajo la que la clienta se verá la mayor parte del tiempo.
+- **Luz blanca neutra (5000-5500 K)** estandarizada en cabina, mejor con LED de alta fidelidad de color para que no te engañe el tono.
+- **Contraste con luz cálida (3000 K)** para detectar dominantes frías escondidas: un labio que bajo luz cálida sigue mostrando matiz violáceo tiene subtono violeta de verdad.
+- **Evita la luz fluorescente fría** estándar: tira todo al verde-azul y te da falsos "labios fríos".
 
-**Herramientas auxiliares**
+**Herramientas:**
 
-- **Espátula o tarjeta blanca de referencia** apoyada en piel perilabial: por contraste, evidencia el subtono labial frente al estándar blanco.
-- **Tarjeta de referencia cromática profesional** (anillo o paleta tipo Pantone-cosmético) si está disponible.
-- **Fotografía estandarizada** con cámara o móvil de buena gama, en RAW si es posible, sin filtros, balance de blancos manual fijo. Tres tomas: frontal, perfil derecho, perfil izquierdo. Repetir antes de cada sesión para documentar evolución.
-- **Limpieza previa del labio** con suero fisiológico y secado: cualquier resto cosmético altera la lectura.
+- **Tarjeta blanca** apoyada en la piel de alrededor: por contraste, te evidencia el subtono del labio.
+- **Tarjeta de referencia de color** profesional, si la tienes.
+- **Fotografía estandarizada** con cámara o móvil bueno, en RAW si puedes, sin filtros y con balance de blancos fijo. Tres tomas: frontal y los dos perfiles. Se repite antes de cada sesión para documentar la evolución.
+- **Limpia el labio** con suero fisiológico y sécalo antes: cualquier resto cosmético altera la lectura.
 
-**Identificación del subtono dominante**
+**Identificar el subtono dominante.** Preguntas que te haces mirando el labio limpio:
 
-Preguntas-guía que la profesional se hace observando el labio limpio:
+1. ¿Veo dominante **azul** (frío puro, amoratado)? → corrector naranja.
+2. ¿Veo dominante **violeta** (azul + rojo, lila-vinoso)? → corrector peach.
+3. ¿Veo dominante **gris** (apagado, plomizo, sin dominante clara)? → corrector salmon.
+4. ¿Veo dominante **marrón frío** (chocolate apagado, post-herpes)? → corrector brick + peach.
+5. ¿Veo **manchas heterogéneas** (zonas con dominantes distintas)? → mapeo por zonas con correctores combinados.
 
-1. ¿Veo dominante **azul** (cool puro, "amoratado-azulado")? → corrector naranja.
-2. ¿Veo dominante **violeta** (azul + rojo, "lila-vinoso")? → corrector peach.
-3. ¿Veo dominante **gris** (sin dominante clara, apagado, plomizo)? → corrector salmon.
-4. ¿Veo dominante **marrón frío** (chocolate apagado, postherpético)? → corrector brick + peach.
-5. ¿Veo **manchas heterogéneas** (zonas distintas con dominantes distintas)? → mapping por zonas con correctores combinados.
+El diagnóstico se anota por escrito en la ficha: subtono, corrector elegido, mezcla si la hay, profundidad orientativa y foto adjunta. No es un trámite: es la trazabilidad de tu razonamiento.
 
-El diagnóstico se documenta por escrito en la ficha: subtono, corrector elegido, mezcla si aplica, profundidad orientativa, fotografía adjunta. No es un trámite: es la trazabilidad del razonamiento clínico que justifica cada decisión.
+### 5.2 · Sesión a sesión
 
-### 5.2 · Ejecución por sesiones
-
-El protocolo tipo de neutralización completa abarca **tres sesiones** en escenario favorable (labio nativo moderadamente oscuro, trabajo previo suavemente virado) y **cuatro o cinco** en escenarios complejos. La separación entre sesiones es de **6 a 8 semanas**, tiempo necesario para que el pigmento implantado decante a su tono cicatrizado final y para que la profesional pueda diagnosticar sobre sustrato estable, no sobre tejido inflamado.
+El protocolo tipo abarca **tres sesiones** en escenario favorable (labio moderadamente oscuro, trabajo previo poco virado) y **cuatro o cinco** en los complicados. Entre sesiones, **6 a 8 semanas**: el tiempo que necesita el pigmento para asentarse a su tono final y que tú puedas diagnosticar sobre tejido estable, no inflamado.
 
 #### Sesión 1 · Corrector primario
 
-**Objetivo**: cancelar el subtono dominante. **No se busca color final, no se busca embellecimiento**.
+**Objetivo: cancelar el subtono dominante. No se busca color final ni embellecer.**
 
-Pasos operativos:
+1. Limpieza y desmaquillado con suero fisiológico y antiséptico suave.
+2. Mapeo del contorno con lápiz cosmético, respetando la línea cutáneo-mucosa; aquí el mapeo puede ser más laxo que en un lip blush porque la prioridad es la superficie entera, no la forma.
+3. Anestésico tópico (lidocaína al 5 % o lidocaína-prilocaína), 20-30 min en oclusión.
+4. Retirar el anestésico y, si hace falta sobre piel ya abierta, segundo anestésico tópico (lidocaína al 4 % con epinefrina, según marca), respetando las dosis máximas.
+5. Selección del corrector según el diagnóstico documentado.
+6. Pasadas de saturación uniforme por todo el labio, profundidad 0,8-1,2 mm. ¿Cuándo paras? Implantación homogénea, sin sangrado activo, con la tonalidad correctora bien intensa.
+7. Foto final.
+8. Bálsamo regenerador (pantenol + ceramidas + aceite reparador).
+9. Entrega del aftercare por escrito y de viva voz, con el aviso claro: "tu labio se va a ver muy cálido, casi anaranjado, los primeros 7-14 días. Es lo esperado y es necesario para que la siguiente sesión funcione."
+10. Cita a 6-8 semanas para reevaluar.
 
-1. Limpieza y desmaquillado labial con suero fisiológico y solución antiséptica suave.
-2. Mapping con lápiz cosmético del contorno labial respetando línea cutaneomucosa; en neutralización, el mapping puede ser más laxo que en *lip blush* porque la prioridad es la superficie completa, no la forma.
-3. Anestésico tópico (lidocaína 5% o lidocaína-prilocaína), 20-30 minutos en oclusión.
-4. Limpieza del anestésico y aplicación de segundo anestésico tópico transmucoso si es necesario sobre piel ya abierta (lidocaína 4% con epinefrina, según marca y registro), respetando dosis máximas.
-5. Selección del corrector según diagnóstico cromático documentado.
-6. Pasadas de saturación uniforme sobre toda la superficie labial, profundidad 0,8-1,2 mm, velocidad y presión adaptadas a la zona. Endpoint: implantación visible homogénea, sin sangrado activo, con tonalidad correctora intensa.
-7. Fotografía final inmediata.
-8. Aplicación de bálsamo regenerador (pantenol + ceramidas + aceite reparador).
-9. Entrega escrita y verbal del aftercare (sección 7) y aviso explícito: "tu labio se verá muy cálido, casi anaranjado, durante los primeros 7-14 días. Esto es esperado y necesario para que la siguiente sesión funcione."
-10. Cita a 6-8 semanas para reevaluación.
+#### Sesión 2 · Evaluar y decidir el color
 
-#### Sesión 2 · Evaluación + decisión cromática
+A las 6-8 semanas el labio ha cicatrizado y el corrector se ha asentado. Reevalúas con el mismo protocolo de diagnóstico. Tres escenarios:
 
-A las 6-8 semanas, el labio ha cicatrizado y el corrector ha decantado a su tono estable. La profesional reevalúa con el mismo protocolo de diagnóstico cromático de la sesión inicial.
+- **Labio bien neutralizado** (cálido suave, sin dominantes frías): aplicas el **color final** (un lip blush en el tono elegido dentro del rango realista para ese labio). La técnica es la de un lip blush normal, con la ventaja de un labio ya preparado.
+- **Labio con dominante fría residual** (el subtono persiste): aplicas **refuerzo de corrector**, el mismo de la sesión 1 o uno adyacente (si fue peach y queda violeta, refuerzas con peach o pruebas peach + light orange en mezcla). El color final pasa a la sesión 3.
+- **Labio demasiado cálido** (anaranjado evidente): raro con buena técnica; si pasa, espera más (se asentará) o aplica color final con dominante rosa-coral que armonice.
 
-Escenarios:
-
-- **Labio óptimamente neutralizado** (cálido suave, sin dominantes frías visibles): se procede a la aplicación del **pigmento de color final** (lip blush en el tono elegido por la paciente dentro del rango realista para ese sustrato). La técnica es la de un *lip blush* estándar, con la ventaja de un sustrato ya preparado.
-- **Labio aún con dominante fría residual** (subtono persiste): se aplica **refuerzo de corrector**, idealmente el mismo de la sesión 1 o uno adyacente (si en sesión 1 fue peach y persiste violeta, se puede reforzar con peach o probar con peach + light orange en mezcla). El color final se pospone a sesión 3.
-- **Labio cálido en exceso** (anaranjado evidente): infrecuente con buena técnica; si ocurre, esperar más tiempo (decantará) o aplicar pigmento de color final con dominante rosa-coral que armonice.
-
-La decisión clínica se documenta y se comunica al paciente.
+La decisión se documenta y se le comunica a la clienta.
 
 #### Sesión 3 · Color final o retoque
 
-- Si en sesión 2 se aplicó corrector adicional, en sesión 3 (otras 6-8 semanas después) se aplica el **color final**.
-- Si en sesión 2 se aplicó color final, en sesión 3 se realiza el **retoque de refinamiento** (densidad, uniformidad, intensidad), ajustando los puntos donde la retención fue irregular.
+- Si en la sesión 2 metiste corrector extra, en la 3 (otras 6-8 semanas) aplicas el **color final**.
+- Si en la sesión 2 ya aplicaste color final, en la 3 haces el **retoque de afinado** (densidad, uniformidad, intensidad) ajustando donde la retención fue irregular.
 
-En escenarios complejos (labio nativo muy oscuro, trabajo previo muy saturado), pueden ser necesarias 4-5 sesiones totales. La regla operativa: **mejor una sesión más que una sesión "forzada" con expectativa de resolver todo de golpe**. La sobresaturación es muy difícil de revertir; la subsaturación se corrige fácilmente con una sesión adicional.
+En casos complicados (labio muy oscuro, trabajo previo muy saturado) pueden hacer falta 4-5 sesiones. Regla práctica: **mejor una sesión más que una sesión forzada queriendo resolverlo todo de golpe**. La sobresaturación cuesta mucho de revertir; la subsaturación se corrige fácil con una sesión más.
 
 ### 5.3 · Casos clínicos
 
-#### Caso 1 · Labio nativo oscuro fototipo IV
+#### Caso 1 · Labio oscuro de nacimiento, fototipo IV
 
-Mujer, 38 años, ascendencia mediterránea-magrebí. Labio nativo marrón cálido-violáceo, sin tratamiento previo, solicita "labio rosado más vivo". *Diagnóstico*: dominante marrón violáceo en bermellón superior y comisuras; inferior central más claro. *Plan firmado*: tres sesiones; **no se busca aclarar**, sino armonizar para color final coral cálido nude. *Sesión 1*: **peach** con refuerzo de **brick** en comisuras, saturación uniforme; a 6 semanas, subtono violáceo cancelado al 80%. *Sesión 2*: refuerzo leve de peach en comisuras + **coral nude warm** como color final. *Sesión 3* (retoque a 8 sem): refinamiento en bermellón inferior central. *Resultado*: labio armónico cálido coral-nude, mantenimiento previsto a 18-24 meses.
+Mujer de 38 años, ascendencia mediterránea-magrebí. Labio marrón cálido-violáceo, sin trabajo previo, pide "labio rosado más vivo". *Diagnóstico*: dominante marrón violáceo en el bermellón superior y las comisuras; el centro inferior más claro. *Plan firmado*: tres sesiones; **no se busca aclarar**, sino armonizar para un color final coral cálido nude. *Sesión 1*: **peach** con refuerzo de **brick** en comisuras, saturación uniforme; a las 6 semanas, el violáceo cancelado al 80 %. *Sesión 2*: refuerzo leve de peach en comisuras + **coral nude cálido** como color final. *Sesión 3* (retoque a las 8 sem): afinado del centro inferior. *Resultado*: labio armónico coral-nude, mantenimiento previsto a 18-24 meses.
 
 #### Caso 2 · Trabajo previo virado azul a los 3 años
 
-Mujer, 51 años, fototipo III. Pigmento *pink cool* hace 3 años en otro centro, aspecto actual azul-violeta uniforme intenso en bermellón central, con líneas de contorno aún visibles. *Diagnóstico*: viraje azul franco, saturación moderada-alta, deposición profunda probable. *Opciones firmadas*: (A) 3-4 sesiones de corrector con limitación de líneas residuales; (B) derivación previa a Q-switched 1064 nm + neutralización suave + color final (6-12 meses). Elige A.
+Mujer de 51 años, fototipo III. Pigmento rosa frío hace 3 años en otro centro; aspecto actual azul-violeta uniforme intenso en el centro, con líneas de contorno aún visibles. *Diagnóstico*: viraje azul franco, saturación media-alta, deposición probablemente profunda. *Opciones firmadas*: (A) 3-4 sesiones de corrector asumiendo que las líneas residuales se atenúan pero no desaparecen del todo; (B) derivación previa a Q-switched 1064 nm + neutralización suave + color final (6-12 meses). Elige A.
 
-*Sesión 1*: **light orange** en toda la superficie; a 6 semanas, dominante azul cancelada al 70%, persisten zonas violáceas y líneas tenues. *Sesión 2*: light orange focalizado + transición a **peach** general; a 8 sem, labio cálido neutro, líneas atenuadas. *Sesión 3*: **coral nude warm** como color final + refuerzo en líneas para integrarlas. *Sesión 4* (retoque): refinamiento estable. *Nota docente*: si tras sesión 2 la dominante hubiera persistido >50%, la indicación honesta habría sido la derivación a Q-switched aunque la paciente ya hubiese aceptado la vía A.
+*Sesión 1*: **light orange** por toda la superficie; a las 6 semanas, azul cancelado al 70 %, quedan zonas violáceas y líneas tenues. *Sesión 2*: light orange focalizado + transición a **peach** general; a las 8 sem, labio cálido neutro y líneas atenuadas. *Sesión 3*: **coral nude cálido** como color final + refuerzo en las líneas para integrarlas. *Sesión 4* (retoque): afinado estable. *Nota docente*: si tras la sesión 2 la dominante hubiera persistido más del 50 %, lo honesto habría sido derivar a Q-switched aunque la clienta hubiese elegido la vía A.
 
-#### Caso 3 · Virage cyan corregido en fototipo V
+#### Caso 3 · Viraje cian corregido en fototipo V
 
-Mujer, 42 años, fototipo V, labio nativo muy oscuro con trabajo previo virado **cyan-violeta** intenso, líneas visibles. *Diagnóstico*: doble problema —melanina nativa profunda + viraje cyan iatrogénico. *Plan firmado* (5 sesiones): empezar por neutralizar el cyan superior, después la melanina de fondo.
+Mujer de 42 años, fototipo V, labio muy oscuro con trabajo previo virado **cian-violeta** intenso y líneas visibles. *Diagnóstico*: doble problema —melanina propia profunda + viraje cian del trabajo anterior. *Plan firmado* (5 sesiones): primero el cian de arriba, después la melanina de fondo.
 
-*Sesión 1*: **bright orange** (corrector saturado para azul franco) en superficie general. A 6 sem: cyan cancelado en 60%, emerge dominante violácea de fondo. *Sesión 2*: **peach + brick** combinados en mezcla 70/30 para abordar violeta + marrón profundo. A 8 sem: labio neutro cálido, sin dominantes frías. *Sesión 3*: **peach** ligero de refuerzo en comisuras + valoración. *Sesión 4*: **coral warm nude** como color final, técnica de pasada ligera para no sobresaturar el sustrato ya cargado. *Sesión 5* (retoque): refinamiento. *Resultado*: armonía cromática lograda; advertencia documentada de que la durabilidad puede ser menor por número de capas y se reevaluará a 12 meses. *Nota docente*: el cyan corregido en fototipo alto exige siempre planificación a 5 sesiones; intentarlo en 3 satura.
+*Sesión 1*: **bright orange** (corrector fuerte para azul franco) por toda la superficie. A las 6 sem: cian cancelado al 60 %, emerge la dominante violácea de fondo. *Sesión 2*: **peach + brick** en mezcla 70/30 para el violeta + marrón profundo. A las 8 sem: labio neutro cálido, sin dominantes frías. *Sesión 3*: **peach** ligero de refuerzo en comisuras + valoración. *Sesión 4*: **coral cálido nude** como color final, con pasada ligera para no sobresaturar el labio ya cargado. *Sesión 5* (retoque): afinado. *Resultado*: armonía lograda; queda documentado que la durabilidad puede ser menor por el número de capas y se reevaluará a los 12 meses. *Nota docente*: un cian corregido en fototipo alto pide siempre planificar a 5 sesiones; intentarlo en 3 satura.
 
 ## 6 · Cosmetología aplicada
 
 | Fase | Activos clave | Pauta |
 |---|---|---|
-| **Preparación 2 sem antes** | Pantenol, ácido hialurónico BPM, ceramidas, péptidos (Matrixyl, copper), aceites no comedogénicos (jojoba, escualano), SPF 30-50 | 2×/día; exfoliación enzimática 1-2×/sem hasta 3-5 días antes |
-| **Suspender pre-procedimiento** | Retinoides (7-14 d), ácidos glicólico >10% / salicílico >2% (5-7 d), vitamina C alta (3-5 d), fragancias irritantes | — |
-| **Aftercare inmediato (0-7 d)** | Bálsamo con pantenol + alantoína + bisabolol + ceramidas | 4-6×/día primeras 72 h; luego 2-3×/día |
-| **Aftercare tardío (7-14 d)** | Hialurónico tópico, reintroducción de SPF 50 | Diario |
+| **Preparación 2 sem antes** | Pantenol, ácido hialurónico, ceramidas, péptidos, aceites no comedogénicos (jojoba, escualano), SPF 30-50 | 2×/día; exfoliación enzimática 1-2×/sem hasta 3-5 días antes |
+| **Suspender antes** | Retinoides (7-14 d), ácidos glicólico >10 % / salicílico >2 % (5-7 d), vitamina C alta (3-5 d), fragancias irritantes | — |
+| **Aftercare inmediato (0-7 d)** | Bálsamo con pantenol + alantoína + bisabolol + ceramidas | 4-6×/día las primeras 72 h; luego 2-3×/día |
+| **Aftercare tardío (7-14 d)** | Hialurónico tópico, reintroducir SPF 50 | Diario |
 | **Mantenimiento** | Bálsamo reparador, sérum con péptidos, hialurónico, SPF 50 obligado, mascarilla nocturna semanal | Diario / semanal |
 
-Suspender activos potentes perilabiales 3-4 semanas post-procedimiento. La fotoprotección labial diaria es **parte del tratamiento**, no opcional: condiciona la durabilidad real del color final.
+Suspende los activos potentes alrededor del labio 3-4 semanas después. La fotoprotección labial diaria es **parte del tratamiento**, no opcional: condiciona cuánto te dura el color final.
 
 ## 7 · Aftercare y seguimiento
 
 | Tiempo | Aspecto esperado | Indicaciones clave |
 |---|---|---|
-| **Día 0** | Tonalidad muy intensa (corrector naranja-salmón / color rojo-coral), edema leve, posible petequia | Bálsamo regenerador en consulta |
-| **Día 1-3 (72 h críticas)** | Intensidad cromática máxima, leve edema | No mojar (más allá de higiene), no picante / cítrico / muy caliente / alcohol, no sol / sauna / piscina / mar, no ejercicio intenso 48 h, no besos, no manipular costras. Bálsamo 4-6×/día con bastoncillo. Beber con pajita 48-72 h |
-| **Día 4-7** | Descamación fina, aspecto "moteado" transitorio | Mantener bálsamo, no arrancar costras |
-| **Día 7-14** | Costra caída; color 30-50% más claro que día 0. En sesión de corrector: aspecto cálido evidente esperado | Reintroducir SPF 50 labial diario |
-| **Día 14-42** | Decantación a tonalidad final | Evaluación cromática solo válida ≥6 semanas |
-| **Sesión siguiente** | — | **6-8 semanas**; nunca antes de 6 sem |
+| **Día 0** | Tonalidad muy intensa (naranja-salmón del corrector, o rojo-coral del color), edema leve, posible petequia | Bálsamo regenerador en consulta |
+| **Día 1-3 (72 h críticas)** | Color máximo, leve edema | No mojar (más allá de la higiene), no picante / cítrico / muy caliente / alcohol, no sol / sauna / piscina / mar, no ejercicio intenso 48 h, no besos, no tocar las costras. Bálsamo 4-6×/día con bastoncillo. Beber con pajita 48-72 h |
+| **Día 4-7** | Descamación fina, aspecto moteado transitorio | Mantener bálsamo, no arrancar costras |
+| **Día 7-14** | Costra caída; color 30-50 % más claro que el día 0. En sesión de corrector, el aspecto cálido es esperado | Reintroducir SPF 50 labial diario |
+| **Día 14-42** | El color se asienta a su tono final | La valoración cromática solo vale a ≥6 semanas |
+| **Sesión siguiente** | — | **6-8 semanas**; nunca antes de 6 |
 
-**Signos de alarma (consulta inmediata)**: dolor creciente desde día 2, eritema con calor local, secreción purulenta, vesículas (sospecha herpes), fiebre, edema desproporcionado mantenido >72 h.
+**Señales de alarma (consulta inmediata)**: dolor que sube desde el día 2, rojez con calor local, supuración, vesículas (sospecha de herpes), fiebre, edema desproporcionado que se mantiene más de 72 h.
 
 ## 8 · Manejo de complicaciones
 
-### Algoritmo cromático
+### Problemas de color
 
-- **Aspecto "naranja" a 7-14 días** → no es complicación técnica, es expectativa: recordar plan firmado, mostrar fotos del intermedio, **no añadir pigmento** por presión emocional.
-- **Neutralización insuficiente a 6 sem** (dominante fría residual) → refuerzo de corrector mismo o familia adyacente en sesión 2; aplazar color final a sesión 3.
-- **Virage cyan / azul residual** → corrector **light/bright orange** (azul puro) o **peach** (violeta). Si tras 3 sesiones el cyan persiste → derivación a Q-switched 1064 nm.
-- **Sobresaturación cálida (labio anaranjado)** → 1) esperar 8-10 sem (decantará); 2) color final rosa-coral para "absorber" el exceso; 3) Q-switched en casos extremos.
-- **Nueva dominante por diagnóstico erróneo** (ej. peach sobre azul puro → gris-naranja) → rediagnóstico, aplicar el corrector correcto en sesión 2.
+- **Aspecto "naranja" a los 7-14 días** → no es complicación, es lo esperado: recuerda el plan firmado, enseña fotos del intermedio y **no añadas pigmento** por presión emocional.
+- **Neutralización insuficiente a las 6 sem** (queda dominante fría) → refuerzo de corrector, el mismo o de familia adyacente, en la sesión 2; el color final pasa a la 3.
+- **Viraje cian / azul residual** → corrector **light/bright orange** (para azul puro) o **peach** (para violeta). Si tras 3 sesiones el cian persiste → derivar a Q-switched 1064 nm.
+- **Demasiado cálido (labio anaranjado)** → 1) esperar 8-10 sem (se asentará); 2) color final rosa-coral para "absorber" el exceso; 3) Q-switched en casos extremos.
+- **Nueva dominante por diagnóstico erróneo** (ej. peach sobre azul puro → gris-naranja) → rediagnosticar y aplicar el corrector correcto en la sesión 2.
 
-### Algoritmo de infección y reacción
+### Infección y reacción
 
-- **Reactivación herpética** (vesículas dolorosas a 24-72 h) → derivación médica para **valaciclovir/aciclovir oral**, suspender bálsamo, documentar lote. Próxima sesión: profilaxis antiviral **obligatoria** sin excepciones.
-- **Hipersensibilidad al pigmento** (eritema, edema, prurito, vesículas o granuloma tardío) → derivación dermatológica, corticoide según indicación, documentar lote, reportar a fabricante y cosmetovigilancia.
-- **Infección bacteriana** (eritema con calor, dolor creciente, pus desde día 2-3) → derivación médica para antibioterapia, cultivo si accesible.
-- **Pigmento migrado / líneas borrosas** → revisar profundidad y presión, no repetir en sesiones siguientes.
+- **Brote de herpes** (vesículas dolorosas a las 24-72 h) → derivación médica para **valaciclovir/aciclovir oral**, suspender el bálsamo, documentar el lote. Próxima sesión: profilaxis antiviral **obligatoria**, sin excepciones.
+- **Alergia al pigmento** (rojez, edema, picor, vesículas o granuloma tardío) → derivación dermatológica, corticoide según indicación, documentar el lote y reportar a fabricante y cosmetovigilancia.
+- **Infección bacteriana** (rojez con calor, dolor creciente, pus desde el día 2-3) → derivación médica para antibiótico, cultivo si es accesible.
+- **Pigmento migrado / líneas borrosas** → revisa profundidad y presión, no repitas en las siguientes sesiones.
 
-### Criterios de derivación
+### Cuándo derivar
 
-- **3 sesiones de corrector sin progreso significativo** → Q-switched 1064 nm para fragmentación previa.
+- **3 sesiones de corrector sin avance claro** → Q-switched 1064 nm para fragmentar antes.
 - **Granuloma, reacción tardía, lesión persistente** → dermatología.
-- **Herpes recurrente sin profilaxis posible** → posponer.
-- **Cualquier lesión nueva no preexistente** → médico antes de continuar.
+- **Herpes de repetición sin profilaxis posible** → posponer.
+- **Cualquier lesión nueva que no estaba antes** → médico antes de seguir.
 
-La derivación no es fracaso: es reconocer el límite técnico de la cabina frente a competencias médicas.
+Derivar no es fracasar: es reconocer el límite de la cabina frente a lo que es competencia médica.
 
 ## 9 · Test de evaluación
 
-Para superar el módulo es necesario responder correctamente al menos 6 de las 8 preguntas siguientes.
+Para superar el módulo hay que acertar al menos 6 de 8.
 
-**1. En teoría del color aplicada a pigmentos de PMU labial, el complementario que cancela un subtono azul es:**
+**1. El complementario que cancela un subtono azul es:**
 a) Amarillo
 b) Naranja
 c) Verde
@@ -272,55 +272,53 @@ b) Rojo
 c) Amarillo
 d) Azul
 
-**3. Una paciente fototipo V con labio nativo marrón violáceo solicita "labio rosa palo". La actuación profesional correcta es:**
-a) Aceptar la solicitud literalmente y planificar tres sesiones de corrector + color rosa frío
-b) Explicar honestamente que la neutralización no blanquea y que el resultado realista será un cálido natural; no iniciar si la paciente no acepta
-c) Realizar una sesión de prueba con rosa frío para "ver qué pasa"
-d) Derivar directamente al dermatólogo sin más
+**3. Una clienta fototipo V con labio marrón violáceo pide "labio rosa palo". Lo correcto es:**
+a) Aceptar la petición literal y planificar tres sesiones de corrector + rosa frío
+b) Explicar con honestidad que la neutralización no blanquea y que el resultado realista será un cálido natural; no empezar si no lo acepta
+c) Hacer una sesión de prueba con rosa frío "a ver qué pasa"
+d) Derivar al dermatólogo sin más
 
-**4. El número típico de sesiones para una neutralización completa sobre trabajo previo virado azul es:**
+**4. El número típico de sesiones para neutralizar un trabajo previo virado azul es:**
 a) 1 sesión
-b) 2 sesiones (igual que micropigmentación virgen)
+b) 2 sesiones (igual que un labio virgen)
 c) 3 sesiones (corrector + color + retoque); 4-5 en casos saturados
 d) 6-8 sesiones siempre
 
-**5. En la primera sesión de neutralización con corrector, el objetivo principal es:**
-a) Aplicar el color final lo más parecido posible al deseado por la paciente
-b) Cancelar el subtono dominante; no buscar embellecimiento aún
-c) Aclarar la pigmentación melánica intrínseca del labio
+**5. En la primera sesión de neutralización, el objetivo principal es:**
+a) Aplicar el color final lo más parecido posible al que quiere la clienta
+b) Cancelar el subtono dominante; no buscar embellecer aún
+c) Aclarar la melanina propia del labio
 d) Dibujar el contorno definitivo
 
-**6. Una paciente con antecedente de herpes labial recurrente (3-4 brotes/año) solicita neutralización. La actuación correcta es:**
-a) Realizar el procedimiento sin más, dado que no hay lesión activa hoy
-b) Contraindicar el tratamiento de por vida
-c) Derivar al médico para profilaxis antiviral peri-procedimiento (valaciclovir/aciclovir según pauta) y solo proceder con esa cobertura; si la paciente rechaza la profilaxis, contraindicar
-d) Aplicar antiviral tópico en la cabina por iniciativa propia
+**6. Una clienta con herpes labial de repetición (3-4 brotes/año) pide neutralización. Lo correcto es:**
+a) Hacerlo sin más, ya que hoy no hay lesión activa
+b) Contraindicarlo de por vida
+c) Derivar al médico para profilaxis antiviral peri-procedimiento y solo proceder con esa cobertura; si rechaza la profilaxis, contraindicar
+d) Aplicar antiviral tópico en cabina por tu cuenta
 
 **7. Sobre el diagnóstico cromático del subtono labial:**
-a) Se hace de memoria, en cualquier luz, sin documentación
-b) Se realiza en consulta presencial con luz neutra (5000-5500 K), tarjeta de referencia blanca, comparación con luz cálida y fotografía estandarizada, documentando el subtono y el corrector elegido en la ficha
-c) Se delega en el paciente, que decide el color directamente del catálogo
-d) Se basa exclusivamente en la fototipia, sin valorar el labio
+a) Se hace de memoria, en cualquier luz, sin documentar
+b) Se hace en consulta con luz neutra (5000-5500 K), tarjeta blanca de referencia, contraste con luz cálida y foto estandarizada, anotando subtono y corrector en la ficha
+c) Lo decide la clienta, eligiendo del catálogo
+d) Se basa solo en el fototipo, sin mirar el labio
 
-**8. Una paciente acude con trabajo previo de micropigmentación labial muy saturado, virado azul-violeta intenso, con líneas de contorno aún muy visibles. Tras dos sesiones de corrector el avance es mínimo. La actuación profesional correcta es:**
-a) Sumar más corrector sesión tras sesión hasta cubrirlo
-b) Subir la profundidad de aguja para "alcanzar mejor" el pigmento antiguo
+**8. Una clienta tiene un trabajo previo muy saturado, virado azul-violeta intenso, con líneas de contorno muy visibles. Tras dos sesiones de corrector el avance es mínimo. Lo correcto es:**
+a) Meter más corrector sesión tras sesión hasta taparlo
+b) Subir la profundidad de la aguja para "alcanzar mejor" el pigmento antiguo
 c) Cambiar el corrector a un color al azar
-d) Derivar a centro médico con láser Q-switched 1064 nm para fragmentación previa, y retomar la neutralización suave una vez aclarado el sustrato
+d) Derivar a centro médico con láser Q-switched 1064 nm para fragmentar antes, y retomar la neutralización suave una vez aclarado el labio
 
-**Respuestas correctas**: 1b, 2c, 3b, 4c, 5b, 6c, 7b, 8d.
+**Respuestas:** 1-b · 2-c · 3-b · 4-c · 5-b · 6-c · 7-b · 8-d.
 
-## 10 · Referencias
+## 10 · Para saber más
 
-- **Perma Blend / Tina Davies** · Documentación técnica de modifiers y correctores labiales.
-- **World Famous Ink** · Línea de pigmentos correctores cosméticos.
-- **Brovi (Bro Vincent)** · Pigmentos labiales y modificadores.
-- **Evenflo Colours by Lulu Siciliano** · Corrección por capas con neutralización previa.
-- **Society of Permanent Cosmetic Professionals (SPCP)** · Estándares profesionales de PMU.
-- **DermNet NZ** · Pigmentación labial, melasma extra-facial, reacciones a tatuajes.
-- **Journal of Cosmetic Dermatology** · Revisiones sobre cosmetic tattooing y manejo cromático.
-- **Anderson & Parrish · Selective photothermolysis** (1983): base del Q-switched para criterios de derivación.
-- **Reglamento (CE) 1223/2009** · Marco europeo de productos cosméticos.
-- **Reglamento (UE) 2020/2081 (REACH)** · Restricción de sustancias en tintas de tatuaje y maquillaje permanente.
+La neutralización se sostiene en dos cosas: el diagnóstico de color bien hecho y la honestidad sobre el número de sesiones y sobre lo que la técnica puede y no puede prometer. No blanquea, y a veces lo correcto es derivar a láser antes de seguir cargando pigmento.
 
-La profesional mantiene formación continua, revisa fichas técnicas y lotes, documenta cada sesión con rigor fotográfico y consensúa con dermatología cualquier cuadro que exceda el plano cromático. La honestidad sobre número de sesiones y sobre lo que la técnica puede y no puede prometer es la herramienta más importante del curso.
+- Perma Blend / Tina Davies · Documentación técnica de modifiers y correctores labiales.
+- Society of Permanent Cosmetic Professionals (SPCP) · Estándares profesionales de PMU.
+- DermNet NZ · Pigmentación labial, melasma extrafacial, reacciones a tatuajes.
+- Journal of Cosmetic Dermatology · Revisiones sobre cosmetic tattooing y manejo del color.
+- Anderson & Parrish · *Selective photothermolysis* (1983): base del Q-switched para los criterios de derivación.
+- Reglamento (UE) 2020/2081 (REACH) · Restricción de sustancias en tintas de tatuaje y maquillaje permanente.
+
+*Material docente PRECISSA INSTITUTE. La profilaxis antiviral, la prescripción y la derivación a láser se coordinan siempre con un facultativo.*

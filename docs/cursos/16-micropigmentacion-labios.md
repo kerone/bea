@@ -1,6 +1,6 @@
 # Curso · Micropigmentación de labios (lip blush, full lips, lip liner)
 
-> Curso avanzado de pigmentación labial en sustrato normopigmentado. Se aborda el diseño visajístico del arco de Cupido, el diseño volumétrico del bermellón y la elección cromática natural en sus tres expresiones técnicas más solicitadas: **full lip blush, aquarelle y lip line**.
+> Pigmentación del labio sano para redibujar el perfil, equilibrar el arco de Cupido y dar color natural al bermellón. Lo haces en sus tres versiones más pedidas —full lip blush, aquarelle y lip line— eligiendo el pigmento por cómo va a quedar dentro de un año, no por cómo se ve en la bandeja. Aquí aprendes el diseño previo, la profundidad correcta en mucosa y a manejar el herpes, que es la complicación que más arruina resultados.
 
 ---
 
@@ -11,157 +11,162 @@
 | Modalidad | Presencial + aula virtual |
 | Duración | 18 h teóricas · 30 h prácticas tuteladas |
 | Nivel | Profesional / Avanzado |
-| Requisitos previos | Estética avanzada · micropigmentación de cejas · fototipos y cicatrización dérmica |
+| Requisitos previos | Estética avanzada · micropigmentación de cejas · nociones de fototipos y cicatrización |
 | Certificación | Sí · test final + prácticas evaluadas + discusión de casos |
-| Materiales | Dermógrafo digital · agujas estériles (3R, 5R, 7R, magnum, slope) · pigmentos REACH labiales (warm, neutro, cool, correctores) · anestésico tópico · balm post · lápiz biométrico |
+| Materiales | Dermógrafo digital · agujas estériles (3R, 5R, 7R, magnum, slope) · pigmentos REACH labiales (cálidos, neutros, fríos, correctores) · anestésico tópico · balm post · lápiz biométrico |
 
 ---
 
-## 1 · Introducción y posicionamiento clínico
+## 1 · Qué es y por qué es exigente
 
-La micropigmentación labial es, junto con cejas, la técnica más demandada y a la vez la más exigente: **mucosa especializada** de retención impredecible, **subtono endógeno** que condiciona el resultado, **reservorio del HSV-1** reactivable con el microtrauma de la aguja y un componente estético delicado donde la sobreampliación del perfil produce el peor resultado de toda la PMU facial.
+La micropigmentación de labios es, junto con cejas, la técnica más demandada y a la vez una de las más complicadas. Y lo es por cuatro motivos concretos:
 
-El curso prescribe trabajo **exclusivamente con dermógrafo digital** —el microblading manual está contraindicado en mucosa— y aborda labios normopigmentados en tres expresiones: **full lip blush**, **aquarelle lips** y **lip line**. La neutralización de labios hiperpigmentados o melanóticos no es objeto de este curso.
+- Trabajas sobre **mucosa** (el bermellón, ese tejido fino y húmedo del labio), que retiene el pigmento de forma menos previsible que la piel normal.
+- Cada labio tiene su **subtono propio** —rosa, violáceo, marrón— y ese fondo condiciona el color final.
+- El labio es un **reservorio del herpes** (el virus duerme ahí y el pinchazo de la aguja lo despierta).
+- Y es la zona de la cara donde un perfil mal ampliado da el peor resultado de toda la micropigmentación facial.
 
-## 2 · Fundamentos científicos
+En este curso trabajamos **solo con dermógrafo digital** —el microblading manual no se usa en mucosa— y sobre labios de color normal, en tres versiones: **full lip blush**, **aquarelle lips** y **lip line**. La neutralización de labios oscuros o virados es otro curso.
 
-### 2.1 · Anatomía del bermellón y líneas de transición
+## 2 · Qué tienes que entender de la piel del labio
 
-El labio se organiza en tres zonas histológicas:
+### 2.1 · Anatomía del bermellón y la línea del perfil
 
-- **Piel labial** cutánea externa: epidermis queratinizada con anejos hasta el vermellion border.
-- **Bermellón**: epitelio escamoso estratificado no queratinizado, sin anejos, con papilas dérmicas finas altamente vascularizadas. El color rojo es óptico por transparencia capilar. **Es la zona de trabajo.**
-- **Mucosa labial interna**: epitelio no queratinizado bañado en saliva. **No se pigmenta.**
+El labio tiene tres zonas y solo trabajas en una:
 
-El **vermellion border** (línea de transición piel-bermellón) coincide con la *white roll*, engrosamiento epitelial pálido que sirve de referencia óptica al perfilado.
+- **Piel del labio** (la parte externa, cutánea): piel normal con vello hasta el borde del bermellón.
+- **Bermellón**: el rojo del labio. Es epitelio fino, sin glándulas, muy vascularizado; el color rojo se ve por transparencia de los capilares. **Esta es tu zona de trabajo.**
+- **Mucosa interna**: la parte húmeda de dentro, bañada en saliva. **Aquí no se pigmenta nunca.**
 
-**Anatomía de superficie a mapear**: arco de Cupido (doble curva con dos vértices o puntos de Glogau-Klein y valle central, principal determinante visual); tubérculo central; filtrum y crestas filtrales; comisuras (zona de riesgo de asimetría); borde inferior continuo más grueso y simétrico. La **proporción áurea** sitúa el labio inferior en 1:1,6 respecto al superior; su inversión produce el efecto "pico de pato" indeseable.
+El **borde del bermellón** (la línea donde el labio se encuentra con la piel) coincide con la *white roll*, un reborde pálido que te sirve de guía para perfilar.
 
-### 2.2 · Vascularización, glándulas e inervación
+Lo que tienes que mapear: el **arco de Cupido** (la doble curva con sus dos picos y el valle central, lo que más se ve), el tubérculo central, el filtrum y sus crestas, las comisuras (donde más fácil se va la simetría) y el borde inferior, más grueso y continuo. La proporción natural deja el labio inferior algo más voluminoso que el superior; si lo inviertes, sale el efecto "pico de pato".
 
-Las **arterias labiales superior e inferior** (ramas de la facial) discurren en plano submucoso. La trama capilar superficial deriva de ramos perforantes verticales que se rompen con facilidad ante el microtrauma: sangrado puntiforme escaso es fisiológico; sangrado franco indica profundidad incorrecta y diluye el pigmento por arrastre hemático.
+### 2.2 · Riego, glándulas y sensibilidad
 
-Las **glándulas labiales menores** se concentran en la mucosa interna; el bermellón **carece de anejos** —de ahí su sequedad fisiológica y la necesidad de hidratación constante pre/post.
+Las **arterias labiales** (superior e inferior) van por debajo, en plano profundo. La red de capilares de la superficie se rompe con facilidad: un sangrado puntiforme escaso es normal y esperable; un **sangrado franco rojo vivo significa que vas demasiado profunda** y, además, esa sangre arrastra y diluye el pigmento que acabas de depositar.
 
-Inervación trigeminal: **infraorbitario (V2)** para labio superior, **mentoniano (V3)** para labio inferior. El bloqueo nervioso es acto médico no autorizado a la profesional de estética, que trabaja con **lidocaína tópica 4-5 %**.
+El bermellón **no tiene glándulas**, por eso está seco por naturaleza y necesita hidratación constante antes y después.
 
-### 2.3 · Reservorio viral, pigmentos y REACH
+La sensibilidad la dan dos nervios: el **infraorbitario** para el labio superior y el **mentoniano** para el inferior. El bloqueo de esos nervios es acto médico y tú no lo haces: trabajas con **lidocaína tópica al 4-5 %**.
 
-El **HSV-1** infecta a más del 60-70 % de la población adulta y permanece latente en los ganglios trigeminales; el microtrauma de la aguja es estímulo reactivante consistente y documentado. La antisepsia peri-sesión se realiza con clorhexidina 0,12 % o povidona iodada.
+### 2.3 · Herpes, pigmentos y REACH
 
-Los pigmentos PMU labiales combinan óxidos de hierro inorgánicos y orgánicos azoicos no carcinógenos. El **viraje cromático crónico** hacia tonos fríos a los 12-18 meses resulta de tres mecanismos: degradación preferente de moléculas cálidas, interacción óptica con la trama vascular subyacente y encapsulación macrofágica selectiva. **Regla operativa**: se elige el pigmento por su comportamiento a 12-18 meses, no por su apariencia en bandeja. Ante la duda, **siempre cálido**.
+La mayoría de la población adulta lleva el **herpes labial (HSV-1)** dormido. El pinchazo de la aguja es uno de los estímulos que lo reactivan, esto está bien documentado. La antisepsia durante la sesión se hace con clorhexidina al 0,12 % o povidona yodada.
 
-Marco normativo: **Reglamento (UE) 2020/2081** (modificación Anexo XVII REACH) restringe más de 4.000 sustancias en pigmentos PMU desde enero de 2022. Trabajar exclusivamente con pigmentos REACH-conformes y trazabilidad documentada (marca, lote, caducidad, certificado).
+Sobre los pigmentos: con el tiempo, el color del labio tiende a **virar a tonos fríos** (más violáceos) hacia los 12-18 meses. Pasa porque las moléculas cálidas se degradan antes y porque el fondo vascular del labio empuja al frío. La consecuencia práctica es clave: **elige el pigmento pensando en cómo quedará dentro de un año, no en cómo se ve recién aplicado**. Y ante la duda, **siempre cálido**.
 
-### 2.4 · Cicatrización en mucosa labial
+Normativa: el **Reglamento (UE) 2020/2081** restringe miles de sustancias en pigmentos de micropigmentación desde 2022. Trabaja solo con pigmentos conformes a REACH y guarda la trazabilidad (marca, lote, caducidad, certificado).
 
-La mucosa reepiteliza en 4-7 días, pero el recambio epitelial cada 7-14 días explica una **pérdida cromática del 30-60 %** en primera sesión (frente al 20-40 % de cejas). El **retoque a 4-6 semanas es obligatorio**, no opcional: forma parte del protocolo, no es rectificación. Quien promete una sola sesión miente o trabaja mal.
+### 2.4 · Cómo cicatriza el labio (y por qué el retoque es obligatorio)
 
-## 3 · Indicaciones y selección de técnica
+La mucosa se cierra en 4-7 días, pero el epitelio se renueva muy rápido, así que en la primera sesión **se pierde entre el 30 y el 60 % del color** (en cejas se pierde menos, un 20-40 %). Por eso el **retoque a las 4-6 semanas no es opcional ni es "arreglar un fallo": es parte del tratamiento**. Quien promete labios perfectos en una sola sesión, o miente o trabaja mal.
 
-Perfil ideal: labio sano, expectativas realistas (labio mejorado natural, no maquillaje permanente), compromiso con aftercare y con el retoque a 4-6 semanas.
+## 3 · Indicaciones y elección de técnica
 
-**Indicaciones (sustrato normopigmentado):**
+Clienta ideal: labio sano, expectativas realistas (un labio mejorado y natural, no maquillaje permanente), dispuesta a cumplir el aftercare y a venir al retoque.
 
-- **Falta de definición del perfil**: vermellion border difuminado por edad o pérdida del arco de Cupido.
-- **Asimetría leve**: hemilabios con grosor o trazado discretamente diferentes.
-- **Palidez labial**: subtono rosa pálido a intensificar manteniendo naturalidad.
-- **Post-relleno con fading**: HA con volumen conservado pero color perdido (respetar 4-6 semanas entre relleno y PMU).
+**Para qué sirve (sobre labio de color normal):**
 
-**Técnicas operativas:**
+- **Perfil poco definido**: el borde del bermellón se ha difuminado con la edad o se ha perdido el arco de Cupido.
+- **Asimetría leve**: un lado del labio algo más fino o con trazado distinto.
+- **Labio pálido**: subtono rosa apagado que se quiere intensificar sin perder naturalidad.
+- **Labio con relleno antiguo que ha perdido color**: tiene volumen pero el tono se ha ido (espera 4-6 semanas entre el relleno y la micropigmentación).
 
-| Técnica | Definición | Indicación | Saturación |
+**Las tres técnicas:**
+
+| Técnica | Qué es | Cuándo | Saturación |
 |---|---|---|---|
-| **Lip line** | Pigmentación del contorno con o sin difuminado interior discreto | Bermellón satisfactorio, solo redefinir perfil | Mínima |
-| **Full lip blush** | Difuminado velado uniforme sobre todo el bermellón con perfilado integrado | Intensificación del color natural | Suave-media |
-| **Aquarelle lips** | Gradiente con centro más saturado y bordes degradados, efecto acuarela | Efecto luminoso juvenil | Media |
+| **Lip line** | Solo el contorno, con difuminado interior mínimo o ninguno | El bermellón está bien, solo hay que redibujar el perfil | Mínima |
+| **Full lip blush** | Difuminado uniforme y velado por todo el bermellón, con perfil integrado | Intensificar el color natural | Suave-media |
+| **Aquarelle lips** | Centro más saturado y bordes degradados, efecto acuarela | Efecto luminoso y juvenil | Media |
 
-El **lip blush** representa el 70-80 % de las solicitudes. La **aquarelle** exige control milimétrico del difuminado.
+El **lip blush** es el 70-80 % de lo que te van a pedir. La **aquarelle** es la más difícil: exige controlar el difuminado al milímetro.
 
-**Expectativas a aclarar**: la PMU **no aumenta volumen** (derivar a HA si se busca volumen); duración real **2-5 años**; mostrar siempre fotos de **resultado curado a 6-8 semanas**, nunca de sesión recién terminada.
+👉 Aclara siempre estas tres cosas: la micropigmentación **no da volumen** (si quiere volumen, deriva a relleno con ácido hialurónico); dura de verdad **2-5 años**; y enseña fotos del **resultado curado a las 6-8 semanas**, nunca de una sesión recién terminada.
 
 ## 4 · Contraindicaciones y banderas rojas
 
-### 4.1 · Contraindicaciones absolutas
+### 4.1 · Absolutas (no tratar)
 
-- **Herpes labial activo o vesícula peribucal**: aplazar hasta resolución completa + 2 semanas.
-- **Antecedente de herpes labial recurrente sin profilaxis antiviral prescrita**: la sesión sin profilaxis es **negligencia** (ver 4.2).
-- **Embarazo y lactancia**: aplazar por principio de precaución.
-- **Isotretinoína oral** en los 6 meses previos: riesgo de cicatrización anómala y queloide.
-- **Queloides conocidos** o antecedente queloideo peribucal.
-- **Alergia documentada a pigmentos PMU previos**.
-- **Enfermedades autoinmunes cutáneas activas** (lupus discoide, liquen plano labial, pénfigo, vitíligo en zona).
-- **Diabetes mal controlada** (HbA1c > 8 %), trastornos de coagulación, anticoagulación oral sin valoración médica.
-- **Infección activa local**, inmunodepresión severa, bisfosfonatos endovenosos.
+- **Herpes labial activo o cualquier vesícula alrededor de la boca**: aplaza hasta que cure del todo + 2 semanas.
+- **Antecedente de herpes labial de repetición sin profilaxis antiviral prescrita**: tratar sin profilaxis es negligencia (ver 4.2).
+- **Embarazo y lactancia**: aplazar por precaución.
+- **Isotretinoína oral** (Roacutan) en los 6 meses previos: riesgo de mala cicatrización y queloide.
+- **Queloides** conocidos o antecedente queloideo alrededor de la boca.
+- **Alergia documentada** a pigmentos de micropigmentación.
+- **Enfermedades autoinmunes de la piel activas** en la zona (lupus discoide, liquen plano labial, pénfigo, vitíligo).
+- **Diabetes mal controlada**, trastornos de coagulación o anticoagulación oral sin valoración médica.
+- **Infección local activa**, inmunodepresión severa, bisfosfonatos endovenosos.
 
-### 4.2 · Profilaxis antiviral en historial herpético (obligatoria)
+### 4.2 · Profilaxis antiviral si hay historial de herpes (obligatoria)
 
-> El microtrauma de la aguja sobre el labio es estímulo reactivante conocido del HSV-1. La reactivación arruina el resultado: pérdida focal de pigmento, cicatriz, retoque adicional.
+> El pinchazo de la aguja sobre el labio despierta el herpes. Y un brote arruina el trabajo: el pigmento se va a trozos, puede dejar cicatriz y obliga a un retoque extra.
 
-**Pauta profiláctica estándar** (acto médico, prescrita por médico):
+**Pauta habitual** (la prescribe el médico, no tú):
 
-- **Valaciclovir 500 mg/12 h** vía oral, iniciado **48 h antes** del procedimiento y mantenido **24-48 h post**, con pauta habitual extendida a **5-7 días totales**.
-- Alternativa: **aciclovir 400 mg/8-12 h** durante 5-7 días, iniciando 48 h antes.
+- **Valaciclovir 500 mg cada 12 h** por vía oral, empezando **48 h antes** y manteniéndolo **24-48 h después**, con pauta extendida hasta 5-7 días en total.
+- Alternativa: **aciclovir 400 mg cada 8-12 h** durante 5-7 días, empezando 48 h antes.
 
-La profesional **no prescribe**: informa, deriva al médico y **exige justificante de la pauta antes de la sesión**. Sin prescripción, no se procede.
+Tú **no prescribes**: informas, derivas al médico y **exiges ver el justificante de la pauta antes de la sesión**. Sin prescripción, no se trata.
 
-### 4.3 · Contraindicaciones relativas
+### 4.3 · Relativas (con precaución)
 
-- Labio fisurado o descamativo: aplazar 1-2 semanas con hidratación intensiva.
-- Tabaquismo intenso: reducir 48 h pre y post.
-- Retinoides o exfoliantes labiales: suspender 2 semanas antes y 4 después.
-- Tratamientos energéticos faciales recientes (láser, IPL, peeling) en 30 días previos.
-- Rellenos labiales con HA: respetar 4-6 semanas entre relleno y micropigmentación.
+- Labio agrietado o descamado: aplaza 1-2 semanas e hidrata a fondo.
+- Tabaquismo intenso: reducir 48 h antes y después.
+- Retinoides o exfoliantes en el labio: suspender 2 semanas antes y 4 después.
+- Tratamientos faciales recientes con energía (láser, IPL, peeling) en los 30 días previos.
+- Relleno labial con ácido hialurónico: respeta 4-6 semanas entre relleno y micropigmentación.
 
 ### 4.4 · Banderas rojas
 
-Expectativas desmesuradas de volumen o cambio radical; lesión sospechosa de queilitis actínica, leucoplasia o melánica de bordes irregulares (**derivar a dermatólogo**); reacciones adversas previas a tatuajes; negativa a aportar historial o firmar consentimiento.
+Expectativas desmesuradas de volumen o de cambio radical; cualquier lesión sospechosa en el labio (queilitis actínica, leucoplasia, mancha de bordes irregulares) → **derivar al dermatólogo**; reacciones previas a tatuajes; negativa a dar el historial o a firmar el consentimiento.
 
 ## 5 · Protocolo de tratamiento
 
-### 5.1 · Diseño del cupido y del bermellón
+### 5.1 · Diseño del arco de Cupido y del bermellón
 
-El **mapa biométrico** —dibujo previo con lápiz biométrico graso sobre labio limpio antes de anestesia y dermógrafo— es el momento técnico más crítico de la sesión. **El resultado depende más del mapa que de la mano.**
+El **mapa biométrico** —el dibujo previo con lápiz graso sobre el labio limpio, antes de la anestesia y del dermógrafo— es el momento más importante de toda la sesión. **El resultado depende más del mapa que de tu pulso.**
 
-**Puntos biométricos a marcar:**
+**Puntos que tienes que marcar:**
 
-- **P1 y P2**: vértices del arco de Cupido (puntos de Glogau-Klein), coincidentes verticalmente con la prolongación de las crestas filtrales.
-- **P3**: vértice inferior central del arco (valle).
-- **P4 y P5**: comisuras labiales, en la línea medio-pupilar.
-- **P6**: punto central inferior del labio inferior.
-- **Línea perimetral** continua respetando el vermellion border (white roll).
+- **P1 y P2**: los dos picos del arco de Cupido, alineados verticalmente con las crestas del filtrum.
+- **P3**: el valle central, el punto bajo entre los dos picos.
+- **P4 y P5**: las comisuras, en la línea que baja desde la pupila.
+- **P6**: el centro del borde inferior.
+- **Línea de contorno** continua, respetando el borde del bermellón (la white roll).
 
-**Comprobaciones obligatorias antes de aprobar el diseño:**
+**Antes de aprobar el diseño, comprueba:**
 
-- Simetría especular entre hemilabios (regla milimétrica o plantilla).
-- Proporción 1:1,6 entre labio superior y labio inferior.
-- Equidistancia entre crestas filtrales y vértices del arco.
-- Continuidad armónica del trazado en comisuras (sin "rabos").
-- **Aprobación expresa de la paciente con espejo en mano**, documentada por firma o fotografía. Una vez iniciado el dermógrafo no hay vuelta atrás.
+- Simetría entre los dos lados (con regla milimétrica o plantilla).
+- Que el labio inferior quede algo más voluminoso que el superior.
+- Que la distancia de las crestas del filtrum a los picos del arco sea igual a ambos lados.
+- Que las comisuras cierren con armonía, sin "rabitos".
+- **Aprobación expresa de la clienta con el espejo en la mano**, documentada por firma o foto. Una vez arrancas con el dermógrafo, no hay marcha atrás.
 
-**Sobre ampliación del perfil:**
+**Cuánto puedes ampliar el perfil:**
 
-- **Hasta 0,5-1 mm fuera del vermellion**: aceptable, imperceptible, útil para redefinir perfil borrado.
-- **1-2 mm**: límite máximo del buen criterio.
-- **Más de 2 mm**: **rechazado**. Produce labio dibujado con halo retenido irregularmente sobre piel cutánea. Si la paciente busca volumen, derivar a relleno con HA.
+- **Hasta 0,5-1 mm fuera del bermellón**: aceptable, no se nota, útil para redibujar un perfil borrado.
+- **1-2 mm**: el máximo del buen criterio.
+- **Más de 2 mm**: **no se hace**. Deja un labio "dibujado" con un halo de pigmento mal retenido sobre la piel. Si busca volumen, deriva a relleno con ácido hialurónico.
 
-### 5.2 · Elección cromática por subtono natural
+### 5.2 · Elegir el color según el subtono natural
 
-| Subtono labial natural | Pigmento de elección |
+| Subtono natural del labio | Pigmento de elección |
 |---|---|
-| **Rosa pálido neutro** (FP I-II): labio claro casi translúcido | Coral suave o peach claro |
-| **Rosa intenso natural** (FP II-III): labio rosado bien pigmentado | Coral medio o salmón |
-| **Rosa con fondo violáceo** (trama vascular visible) | Base peach-naranja + color final coral o terracota |
-| **Marrón rosado** (FP III-IV): sustrato marrón claro con matiz rosa | Terracota o ladrillo suave |
-| **Labio post-relleno con HA** (esperar 4-6 sem) | Cálido habitual según subtono base |
+| **Rosa pálido neutro** (fototipo I-II): labio claro casi translúcido | Coral suave o peach claro |
+| **Rosa intenso natural** (fototipo II-III): labio bien rosado | Coral medio o salmón |
+| **Rosa con fondo violáceo** (capilares visibles) | Base peach-naranja + color final coral o terracota |
+| **Marrón rosado** (fototipo III-IV): fondo marrón claro con matiz rosa | Terracota o ladrillo suave |
+| **Labio con relleno reciente** (espera 4-6 semanas) | Cálido habitual según el subtono base |
 
-**Regla no negociable**: ante la duda, **siempre cálido**. El cálido vira a neutro; el frío vira a violeta indeseable. Esta regla es independiente de la moda estética.
+**Regla no negociable: ante la duda, siempre cálido.** El cálido vira a neutro; el frío vira a violeta, que es lo que no queremos. Esto es independiente de la moda.
 
 ### 5.3 · Técnica blush y aquarelle
 
-**Materiales**: dermógrafo digital con cartuchos estériles desechables; agujas según fase (tabla); pigmentos REACH-conformes verificados; lidocaína 4-5 % tópica; clorhexidina 0,12 % o povidona 10 %; gasas, bastoncillos, vaselina cosmética; lámpara LED ≥ 5500 K; cámara estandarizada.
+**Material**: dermógrafo digital con cartuchos estériles desechables; agujas según la fase (tabla); pigmentos REACH verificados; lidocaína al 4-5 %; clorhexidina al 0,12 % o povidona al 10 %; gasas, bastoncillos, vaselina cosmética; lámpara LED ≥ 5500 K; cámara estandarizada.
 
-**Configuración de aguja por objetivo:**
+**Aguja según el objetivo:**
 
 | Objetivo | Aguja | Profundidad | Velocidad |
 |---|---|---|---|
@@ -170,159 +175,149 @@ El **mapa biométrico** —dibujo previo con lápiz biométrico graso sobre labi
 | Relleno por sectores | 5R / 7R | 0,6-0,8 mm | ~110-130 Hz |
 | Lip blush / aquarelle (difuminado) | Magnum 5M-7M o nano slope | 0,5-0,7 mm | ~120-140 Hz |
 
-**Profundidad dérmica superficial: 0,6-1,0 mm** (unión epitelio-corion superficial). Criterios operativos:
+**Profundidad de trabajo: 0,6-1,0 mm** (la unión del epitelio con el tejido de debajo). Cómo saber si vas bien:
 
-- **Sangrado puntiforme rosáceo escaso**: profundidad correcta.
-- **Sangrado franco rojo brillante**: demasiado profundo, retirar la mano y reducir presión.
-- **Pigmento que se desliza sin penetrar**: demasiado superficial, ajustar.
+- **Sangrado puntiforme rosáceo y escaso**: profundidad correcta.
+- **Sangrado franco rojo brillante**: estás demasiado profunda, levanta la mano y baja la presión.
+- **El pigmento resbala y no entra**: estás demasiado superficial, ajusta.
 
-**Capas**: 3-5 pasadas progresivas por sector, intercaladas con limpieza con suero fisiológico y reposo de 60 s entre capas. Saturación intra-sesión deliberadamente algo más intensa que la deseada (asumiendo pérdida del 30-60 % en cicatrización), pero **sin sobrecarga visible**.
+**Capas**: 3-5 pasadas progresivas por sector, limpiando con suero fisiológico entre ellas y dejando reposar 60 s entre capa y capa. Satura un punto por encima de lo que quieres dejar (porque se va a perder un 30-60 % al cicatrizar), pero **sin sobrecargar a la vista**.
 
-**Secuencia operativa:**
+**Orden de trabajo:**
 
 1. Limpieza con clorhexidina.
-2. Anestesia tópica con lidocaína 4-5 % bajo film 20-25 min.
-3. Aprobación final del diseño en espejo.
-4. **Perfilado inicial** con round liner, una sola pasada de baja saturación, empezando por labio inferior central y avanzando hacia comisuras y arco de Cupido.
-5. **Relleno por sectores**: dividir cada hemilabio en medial-central-lateral y trabajar capa a capa con la aguja de relleno o magnum según técnica blush/aquarelle.
-6. **Refuerzo del perfilado** una vez completado el relleno, **suavizando la transición** entre perfil y relleno para evitar la línea fría (efecto labio pintado).
-7. **Trabajo final del arco de Cupido y comisuras** con aguja fina, máxima exigencia de simetría.
-8. Limpieza final con suero, balm regenerador inmediato.
-9. Valoración cromática con luz LED calibrada y fotografía estandarizada.
-10. Entrega del kit de aftercare con instrucciones escritas.
+2. Anestesia tópica con lidocaína al 4-5 % bajo film, 20-25 min.
+3. Aprobación final del diseño en el espejo.
+4. **Perfilado inicial** con round liner, una sola pasada suave, empezando por el centro del labio inferior hacia las comisuras y el arco.
+5. **Relleno por sectores**: divide cada lado en medial-central-lateral y trabaja capa a capa con la aguja de relleno o el magnum según la técnica.
+6. **Refuerzo del perfil** una vez relleno el labio, **suavizando la transición** entre contorno y relleno para que no quede una línea fría (el efecto labio pintado).
+7. **Trabajo final del arco de Cupido y las comisuras** con aguja fina, donde más cuidas la simetría.
+8. Limpieza final con suero y balm regenerador.
+9. Valoración del color con luz LED y fotografía estandarizada.
+10. Entrega del kit de aftercare con instrucciones por escrito.
 
-**Aquarelle**: misma secuencia, pero con difuminado central más saturado y bordes notablemente más velados (gradiente luminoso). Exige magnum y control fino de la presión de pedal.
+**Aquarelle**: el mismo orden, pero con el centro más saturado y los bordes mucho más velados (degradado luminoso). Pide magnum y mucho control del pedal.
 
 Duración total: **2-3 horas** (anestesia incluida).
 
-### 5.4 · Retoque a 4-6 semanas
+### 5.4 · Retoque a las 4-6 semanas
 
-El retoque programado entre **4 y 6 semanas** (idealmente 6-8 si la cicatrización ha sido lenta) corrige la pérdida cromática del 30-60 % inherente a la primera sesión y ajusta zonas con retención asimétrica, refuerzo de perfil y simetrización fina. **Forma parte del protocolo**, no es opcional. En pacientes con historial herpético, **se repite la profilaxis antiviral** con la misma pauta.
+El retoque programado entre **4 y 6 semanas** (mejor 6-8 si la cicatrización ha ido lenta) recupera el color perdido en la primera sesión y ajusta las zonas que han retenido de forma desigual, refuerza el perfil y afina la simetría. **Es parte del protocolo, no es opcional.** En clientas con historial de herpes, **se repite la profilaxis antiviral** con la misma pauta.
 
-### 5.6 · Casos clínicos
+### 5.5 · Casos clínicos
 
-**Caso 1 · Lip blush natural en FP III.** Mujer de 38 años, labio bien proporcionado con palidez progresiva y discreta pérdida del arco de Cupido. Sin historial herpético, no fumadora.
+**Caso 1 · Lip blush natural, fototipo III.** Mujer de 38 años, labio bien proporcionado pero apagado y con el arco de Cupido algo perdido. Sin historial de herpes, no fumadora. → **Lip blush con perfil discreto**, subtono rosa-marrón claro, **coral medio**, ampliación ≤ 0,5 mm. Sesión de 2,5 h con 3 capas progresivas y refuerzo del arco. Retoque a las 6 semanas ajustando simetría. A las 12 semanas, labio más definido y luminoso. Mantenimiento previsto a los 24-30 meses.
 
-*Análisis*: **lip blush con perfilado discreto**, subtono rosa-marrón claro, **coral medio**, ampliación ≤ 0,5 mm. Sesión 2,5 h con 3 capas progresivas y refuerzo del arco. Retoque a 6 semanas con ajuste de simetría. A 12 semanas labio visiblemente más definido y luminoso. Mantenimiento previsto a 24-30 meses.
+**Caso 2 · Aquarelle, fototipo II.** Mujer de 28 años, labio claro de subtono rosa pálido neutro, sin capilares marcados. Quiere efecto luminoso juvenil sin contorno marcado. Sin historial de herpes. → **Aquarelle** con **peach claro** central y difuminado degradado, lip line muy suave o ausente. Magnum 5M, profundidad 0,5-0,7 mm, 4 capas centrales y 2 perimetrales muy veladas. A las 6 semanas, centro luminoso y bordes con transición natural, sin línea visible. Retoque suave para igualar.
 
-**Caso 2 · Aquarelle en FP II.** Mujer de 28 años, labio claro con subtono rosa pálido neutro sin trama vascular destacable. Solicita efecto luminoso juvenil sin contorno marcado. Sin historial herpético.
-
-*Análisis*: **aquarelle**, **peach claro** central con difuminado degradado, lip line muy suave o ausente. Magnum 5M, profundidad 0,5-0,7 mm, 4 capas centrales y 2 perimetrales muy veladas. A 6 semanas, centro labial luminoso y bordes con transición natural sin línea visible. Retoque suave para igualar.
-
-**Caso 3 · Asimetría corregida con lip blush.** Mujer de 34 años, FP III, asimetría leve del arco de Cupido (vértice derecho 1,5 mm más bajo) y comisura izquierda discretamente descendida. Sin historial herpético.
-
-*Análisis*: **lip blush con perfilado correctivo de simetrización** en **terracota suave**. Consulta previa con simulación en lápiz biométrico y fotografía del diseño aprobado. Perfilado que eleva 1,5 mm el vértice derecho (dentro del margen 1-2 mm) y engrosa sutilmente el hemilabio inferior izquierdo. A 8 semanas, simetría percibida mejorada. Se explicita que la asimetría estructural solo se corregiría con relleno o cirugía: la PMU ajusta percepción, no estructura.
+**Caso 3 · Asimetría corregida con lip blush.** Mujer de 34 años, fototipo III, con el arco de Cupido algo descompensado (el pico derecho 1,5 mm más bajo) y la comisura izquierda un pelín caída. Sin historial de herpes. → **Lip blush con perfil correctivo** en **terracota suave**. Antes, simulación con lápiz biométrico y foto del diseño aprobado. El perfil sube 1,5 mm el pico derecho (dentro del margen de 1-2 mm) y engrosa un poco el lado izquierdo inferior. A las 8 semanas, mejora la simetría percibida. Le explicas que la asimetría de estructura solo se corregiría con relleno o cirugía: la micropigmentación ajusta la percepción, no la estructura.
 
 ## 6 · Cosmetología aplicada
 
-| Fase | Producto / activo | Función |
+| Fase | Producto / activo | Para qué |
 |---|---|---|
-| **Pre-sesión (2 sem)** | Balm con karité, escualano, pantenol 4-6 aplicaciones/día | Hidratación intensiva |
-| **Pre-sesión (1 sem)** | Suspensión de exfoliantes, retinoides labiales y AHA | Preparar sustrato |
-| **48 h pre** | Suspender alcohol, cafeína, AAS, ibuprofeno (si no crónicos) | Reducir sangrado |
-| **48 h pre (con historial herpético)** | Valaciclovir 500 mg/12 h por prescripción médica | Profilaxis HSV-1 |
-| **Post inmediato (kit)** | Balm con pantenol 4-5 %, bisabolol 0,5-1 %, karité, vitamina E; sin perfume ni alcohol | Regeneración epitelial |
+| **Pre-sesión (2 sem)** | Balm con karité, escualano, pantenol 4-6 veces/día | Hidratar a fondo |
+| **Pre-sesión (1 sem)** | Suspender exfoliantes, retinoides labiales y AHA | Preparar el labio |
+| **48 h antes** | Suspender alcohol, cafeína, aspirina, ibuprofeno (si no son crónicos) | Reducir el sangrado |
+| **48 h antes (con historial de herpes)** | Valaciclovir 500 mg/12 h por prescripción médica | Profilaxis del herpes |
+| **Post inmediato (kit)** | Balm con pantenol 4-5 %, bisabolol, karité, vitamina E; sin perfume ni alcohol | Regenerar el epitelio |
 | **Limpieza días 1-7** | Suero fisiológico estéril monodosis + bastoncillos | Antisepsia suave |
-| **Mantenimiento (sem 3+)** | Balm hidratante diario + **SPF labial ≥ 30 permanente** | Fotoprotección antiviraje |
-| **Mantenimiento** | Ácido hialurónico cosmético en sérum + péptidos labiales | Calidad estructural |
+| **Mantenimiento (sem 3+)** | Balm hidratante diario + **SPF labial ≥ 30 permanente** | Frenar el viraje del color |
+| **Mantenimiento** | Ácido hialurónico cosmético en sérum + péptidos | Calidad del labio |
 
 ## 7 · Aftercare
 
-| Periodo | Indicaciones clave | Restricciones |
+| Periodo | Indicaciones clave | Lo que no se hace |
 |---|---|---|
-| **Día 0** | Balm inmediato post-sesión; hielo en gasa 10-15 min/h si molestia; dormir boca arriba | No mojar, no maquillar, no besar, no comidas calientes ni picantes |
-| **Días 1-3** | Suero fisiológico 4-6 veces/día + balm en capa fina con bastoncillo | No agua corriente directa, no picantes, no cítricos, no alcohol, no deporte intenso, no besos profundos |
-| **Días 4-7** | **Fase de descamación: NO arrancar costras** (cada costra arrastra pigmento) | Mantener restricciones; jabón neutro y enjuague rápido permitido |
-| **Días 8-14** | Cicatrización macroscópica completa; color pálido transitorio (color resurfacing) | No piscina, mar, sauna, sol directo. Iniciar SPF labial 30+ |
-| **Sem 3-6** | Asentamiento del color final; valoración real del resultado | Mantener hidratación y fotoprotección |
-| **Sem 4-6** | Sesión de **retoque programada** | Repetir profilaxis si historial herpético |
+| **Día 0** | Balm justo después; hielo en gasa 10-15 min/h si molesta; dormir boca arriba | No mojar, no maquillar, no besar, no comidas calientes ni picantes |
+| **Días 1-3** | Suero fisiológico 4-6 veces/día + balm en capa fina con bastoncillo | No agua directa, no picantes ni cítricos, no alcohol, no deporte intenso, no besos profundos |
+| **Días 4-7** | **Fase de descamación: NO arrancar las costras** (cada costra se lleva pigmento) | Mantener las restricciones; jabón neutro y enjuague rápido sí |
+| **Días 8-14** | Cicatrización ya cerrada por fuera; el color se ve pálido de forma transitoria | No piscina, mar, sauna, sol directo. Empezar con SPF labial 30+ |
+| **Sem 3-6** | El color final se asienta; ya se valora el resultado real | Mantener hidratación y fotoprotección |
+| **Sem 4-6** | **Retoque programado** | Repetir profilaxis si hay historial de herpes |
 
-**Signos de alarma a comunicar inmediatamente:**
+**Señales de alarma que hay que comunicar de inmediato:**
 
-- **Pródromo herpético** (quemazón, hormigueo focal entre día 1-5) → contactar consulta sin demora.
-- **Vesículas agrupadas en racimo** con eritema unilateral → derivación médica urgente.
-- Dolor desproporcionado, exudación purulenta, eritema expansivo o fiebre → posible infección bacteriana.
+- **Aviso de herpes** (quemazón u hormigueo en un punto entre el día 1 y el 5) → contactar con la consulta sin demora.
+- **Vesículas agrupadas en racimo** con rojez en un solo lado → derivación médica urgente.
+- Dolor desproporcionado, supuración, rojez que se extiende o fiebre → posible infección bacteriana.
 
-**Prohibidos durante la cicatrización**: cosméticos con alcohol o perfume; vaselinas industriales no PMU; antibióticos tópicos sin prescripción; corticoides tópicos; aceites esenciales puros; AHA, BHA, retinol.
+**Prohibidos durante la cicatrización**: cosméticos con alcohol o perfume; vaselinas industriales no aptas; antibióticos tópicos sin prescripción; corticoides tópicos; aceites esenciales puros; AHA, BHA, retinol.
 
 ## 8 · Manejo de complicaciones
 
-**Algoritmo operativo:**
-
-| Complicación | Identificación | Conducta |
+| Complicación | Cómo la reconoces | Qué haces |
 |---|---|---|
-| **Brote herpético post** | Pródromo (día 1-5) + vesículas agrupadas en racimo + eritema unilateral + dolor desproporcionado | **Suspender retoque + derivar a médico** para valaciclovir 1 g/8 h × 7 días o equivalente; antisepsia con suero fisiológico; no aplicar balm graso sobre vesícula activa; documentar; retoque diferido ≥ 4 semanas tras resolución, **con profilaxis obligatoria** |
-| **Infección bacteriana** | Dolor desproporcionado día 2-3, eritema expansivo, exudación purulenta, edema, fiebre | **Tópico ATB + derivación médica**; cultivo si purulencia franca; retoque diferido 4-6 semanas tras resolución |
-| **Virage cyan / viraje azulado** | A 8-16 semanas: tono violáceo, azulado o grisáceo en lugar del cálido esperado | **Correctores cálidos**: pigmento corrector naranja o peach en retoque a 6-8 sem; en viraje generalizado, sesión específica de base naranja + reaplicación cálida; casos extremos → derivación láser Nd:YAG / picosegundo |
-| **Asimetría residual o retención irregular** | Áreas focales menos saturadas, aspecto moteado | Refuerzo focal en retoque a 6-8 semanas hasta igualar |
-| **Línea fría perimetral** | Contraste visible perfil/relleno tipo labio pintado | Difuminado de transición en retoque, reforzando relleno central |
-| **Granuloma a pigmento** | Pápula/nódulo eritematoso persistente semanas-meses post | **Derivación a dermatólogo** (corticoide intralesional, valorar biopsia); suspender retoques |
-| **Alergia a pigmento** | Eritema, prurito, edema o vesículas dispersas, curso prolongado | **Derivación a dermatólogo/alergólogo**: pruebas epicutáneas; sintomático con antihistamínicos o corticoides según prescripción |
-| **Hipopigmentación post-costra** | Zona focal sin pigmento donde se arrancó costra | Retoque focal a las 8 semanas; reforzar educación de la paciente |
+| **Brote de herpes** | Aviso (día 1-5) + vesículas en racimo + rojez en un lado + dolor desproporcionado | **Suspender el retoque y derivar al médico** (valaciclovir 1 g/8 h × 7 días o equivalente); antisepsia con suero; no poner balm graso sobre la vesícula; documentar; retoque diferido ≥ 4 semanas tras la resolución, **con profilaxis obligatoria** |
+| **Infección bacteriana** | Dolor desproporcionado día 2-3, rojez que se extiende, supuración, edema, fiebre | **Antibiótico tópico + derivación médica**; cultivo si hay pus; retoque diferido 4-6 semanas tras curar |
+| **Viraje azulado** | A las 8-16 semanas: tono violáceo, azulado o grisáceo en vez del cálido esperado | **Correctores cálidos** (naranja o peach) en el retoque a 6-8 sem; si el viraje es general, sesión específica con base naranja + reaplicación cálida; casos extremos → derivar a láser Nd:YAG o picosegundo |
+| **Asimetría o retención irregular** | Zonas con menos color, aspecto moteado | Refuerzo focal en el retoque a 6-8 semanas hasta igualar |
+| **Línea fría en el contorno** | Contraste visible entre perfil y relleno, efecto labio pintado | Difuminar la transición en el retoque, reforzando el relleno central |
+| **Granuloma al pigmento** | Bultito o nódulo rojo que persiste semanas-meses | **Derivar al dermatólogo** (corticoide intralesional, valorar biopsia); suspender retoques |
+| **Alergia al pigmento** | Rojez, picor, edema o vesículas dispersas, de curso largo | **Derivar a dermatólogo/alergólogo** para pruebas; tratamiento sintomático según prescripción |
+| **Zona sin color por costra arrancada** | Punto sin pigmento donde se levantó una costra | Retoque focal a las 8 semanas; reforzar la educación de la clienta |
 
 ## 9 · Test de autoevaluación
 
-1. **Una paciente con historial de tres brotes de herpes labial en el último año acude para micropigmentación de labios. ¿Cuál es la conducta correcta?**
-   - a) Realizar la sesión sin profilaxis, advirtiendo que existe riesgo de brote.
-   - b) Aplicar aciclovir tópico durante la sesión y prescribir paracetamol post.
-   - c) **Derivar al médico para prescripción de valaciclovir oral, iniciado 48 h antes de la sesión y mantenido al menos hasta 24-48 h después, y no realizar la sesión sin la prescripción aportada.**
-   - d) Contraindicar definitivamente la técnica.
+**1. Una clienta con tres brotes de herpes labial en el último año pide micropigmentación de labios. ¿Qué haces?**
+- a) La sesión sin profilaxis, avisando del riesgo.
+- b) Aciclovir tópico durante la sesión y paracetamol después.
+- c) Derivar al médico para que prescriba valaciclovir oral, empezando 48 h antes y manteniéndolo hasta 24-48 h después, y no tratar sin la prescripción en mano.
+- d) Contraindicar la técnica para siempre.
 
-2. **Una paciente quiere un labio "rosa frío" tipo "nude rosado de Instagram". Su labio natural es rosa-violáceo con trama vascular visible. ¿Qué pigmento eliges?**
-   - a) Un rosa frío puro, para satisfacer la petición estética.
-   - b) Un magenta saturado para garantizar saturación.
-   - c) **Una base naranja-coral correctora seguida de un color cálido tipo coral o terracota suave, explicando que el rosa frío viraría inevitablemente hacia violeta a los 12 meses.**
-   - d) Un pigmento marrón oscuro para "anclar" el color.
+**2. Una clienta quiere un "rosa frío nude de Instagram". Su labio natural es rosa-violáceo con capilares visibles. ¿Qué pigmento eliges?**
+- a) Un rosa frío puro, para darle lo que pide.
+- b) Un magenta saturado.
+- c) Una base naranja-coral correctora seguida de un color cálido tipo coral o terracota, explicándole que el rosa frío viraría a violeta en un año.
+- d) Un marrón oscuro para "anclar" el color.
 
-3. **¿Cuál es la arteria principal que vasculariza el labio inferior?**
-   - a) Arteria oftálmica.
-   - b) **Arteria labial inferior, rama de la arteria facial (a su vez rama de la carótida externa).**
-   - c) Arteria temporal superficial.
-   - d) Arteria infraorbitaria.
+**3. ¿Cuál es la arteria principal que riega el labio inferior?**
+- a) Arteria oftálmica.
+- b) Arteria labial inferior, rama de la arteria facial.
+- c) Arteria temporal superficial.
+- d) Arteria infraorbitaria.
 
-4. **¿Por qué la profundidad excesiva del dermógrafo en mucosa labial arruina la retención del pigmento?**
-   - a) Porque produce dolor desproporcionado al paciente.
-   - b) **Porque alcanza el plexo capilar profundo, produce sangrado franco que arrastra y diluye el pigmento depositado, y deposita el color en un plano demasiado profundo donde se ve a través de mayor espesor tisular con sesgo a longitudes de onda azuladas.**
-   - c) Porque las agujas se desgastan más rápido.
-   - d) Porque desencadena la reactivación herpética.
+**4. ¿Por qué ir demasiado profunda en el labio arruina la retención del pigmento?**
+- a) Porque duele más.
+- b) Porque llega a los capilares profundos, provoca sangrado franco que arrastra y diluye el pigmento, y deja el color en un plano demasiado hondo donde se ve azulado a través del tejido.
+- c) Porque las agujas se desgastan antes.
+- d) Porque desencadena el herpes.
 
-5. **¿Cuál de las siguientes situaciones es una contraindicación ABSOLUTA para micropigmentación labial?**
-   - a) Menstruación en curso.
-   - b) Tabaquismo moderado.
-   - c) Ortodoncia con brackets.
-   - d) **Tratamiento con isotretinoína oral en los 6 meses previos.**
+**5. ¿Cuál de estas es una contraindicación ABSOLUTA?**
+- a) Tener la regla.
+- b) Tabaquismo moderado.
+- c) Llevar brackets.
+- d) Estar con isotretinoína oral en los 6 meses previos.
 
-6. **Un paciente regresa al cuarto día post-sesión con vesículas agrupadas en racimo en hemilabio superior derecho, eritema y dolor. No había historial herpético previo conocido. ¿Cuál es la conducta correcta?**
-   - a) Aplicar más balm regenerador para acelerar la cicatrización.
-   - b) **Derivación inmediata al médico para inicio de tratamiento antiviral oral terapéutico (valaciclovir 1 g/8 h o equivalente), suspensión de toda manipulación de la zona, antisepsia con suero fisiológico y documentación; el retoque se diferirá al menos 4 semanas tras la resolución completa y se realizará bajo profilaxis antiviral.**
-   - c) Realizar un retoque inmediato para "cubrir" la zona afectada.
-   - d) Aplicar corticoide tópico potente.
+**6. Una clienta vuelve al cuarto día con vesículas en racimo en el labio superior derecho, rojez y dolor. No tenía historial de herpes conocido. ¿Qué haces?**
+- a) Más balm regenerador para acelerar la cicatrización.
+- b) Derivación inmediata al médico para antiviral oral (valaciclovir 1 g/8 h o equivalente), no manipular la zona, antisepsia con suero y documentar; el retoque se difiere ≥ 4 semanas tras curar y con profilaxis.
+- c) Un retoque inmediato para "cubrir" la zona.
+- d) Corticoide tópico potente.
 
-7. **¿Cuál es la profundidad orientativa correcta de trabajo del dermógrafo en mucosa labial para micropigmentación?**
-   - a) 1,5-2 mm.
-   - b) **0,5-0,8 mm (unión epitelio-corion superficial).**
-   - c) 0,1 mm (superficial al epitelio).
-   - d) 2-3 mm (dermis profunda).
+**7. ¿Cuál es la profundidad correcta de trabajo en el labio?**
+- a) 1,5-2 mm.
+- b) 0,5-0,8 mm (la unión del epitelio con el tejido superficial de debajo).
+- c) 0,1 mm (solo en la superficie del epitelio).
+- d) 2-3 mm (dermis profunda).
 
-8. **Respecto al aftercare en las primeras 72 horas post-sesión, ¿cuál de las siguientes recomendaciones NO es correcta?**
-   - a) Limpieza con suero fisiológico 4-6 veces al día.
-   - b) Aplicación de balm regenerador con bastoncillo estéril en capa fina.
-   - c) **Aplicación de retinol labial nocturno para acelerar la regeneración celular.**
-   - d) Restricción de comidas picantes, calientes, ácidas y alcohol.
+**8. Sobre el aftercare en las primeras 72 horas, ¿cuál NO es correcta?**
+- a) Limpiar con suero fisiológico 4-6 veces al día.
+- b) Aplicar balm regenerador con bastoncillo estéril en capa fina.
+- c) Aplicar retinol labial por la noche para acelerar la regeneración.
+- d) Evitar comidas picantes, calientes, ácidas y alcohol.
 
-**Clave de respuestas**: 1c, 2c, 3b, 4b, 5d, 6b, 7b, 8c.
+**Respuestas:** 1-c · 2-c · 3-b · 4-b · 5-d · 6-b · 7-b · 8-c.
 
-## 10 · Referencias
+## 10 · Para saber más
 
-1. Reglamento (UE) 2020/2081 de la Comisión, modificación Anexo XVII REACH ((CE) 1907/2006) sobre sustancias en tintas de tatuaje y maquillajes permanentes. DOUE L 423, 17.12.2020.
-2. ECHA · Documentación técnica sobre restricción de tintas de tatuaje y PMU bajo REACH.
-3. Standring S. *Gray's Anatomy: The Anatomical Basis of Clinical Practice*. Elsevier. Capítulos de anatomía facial y mucosa oral.
-4. StatPearls (NCBI Bookshelf) · *Anatomy, Head and Neck, Lips* y *Anatomy, Head and Neck: Labial Artery*.
-5. Pessa JE, Rohrich RJ. *Facial Topography: Clinical Anatomy of the Face*. CRC Press.
-6. Guidelines internacionales de manejo de HSV-1 en procedimientos cosméticos faciales y peri-orales (*Journal of Clinical and Aesthetic Dermatology* y equivalentes).
-7. Literatura sobre eficacia de valaciclovir como profilaxis previa a procedimientos cosméticos labiales.
-8. Documentación técnica de fabricantes europeos de pigmentos PMU REACH-conformes (fichas de seguridad y certificados de conformidad de lote).
-9. Bibliografía científica sobre fotodegradación de pigmentos cosméticos y comportamiento óptico en mucosa.
-10. Sociedades europeas de PMU y dermopigmentación · guías técnicas actualizadas y recomendaciones de buena praxis.
+La micropigmentación de labios da resultados preciosos cuando se hace con criterio, pero castiga el descuido: el diseño previo, la profundidad correcta en mucosa, elegir el pigmento por cómo envejece y el manejo del herpes son los cuatro pilares. El retoque a las 4-6 semanas es parte del trabajo, no un extra.
 
-> *Nota docente*: el curso prioriza criterio clínico y honestidad técnica. La profesional debe mantener formación continuada por consulta directa de la literatura primaria y de las guías de asociaciones europeas, y conservar trazabilidad REACH actualizada de los pigmentos empleados en cabina.
+- Reglamento (UE) 2020/2081, modificación del Anexo XVII de REACH sobre tintas de tatuaje y maquillaje permanente.
+- ECHA · Documentación técnica sobre la restricción de tintas de tatuaje y PMU bajo REACH.
+- Standring S. *Gray's Anatomy*. Capítulos de anatomía facial y mucosa oral.
+- StatPearls (NCBI) · *Anatomy, Head and Neck, Lips* y *Labial Artery*.
+- Guías internacionales de manejo del HSV-1 en procedimientos cosméticos peri-orales.
+- Documentación técnica de fabricantes europeos de pigmentos REACH-conformes (fichas de seguridad y certificados de lote).
+
+*Material docente PRECISSA INSTITUTE. La profilaxis antiviral, la prescripción y cualquier procedimiento con sangre se coordinan siempre con un facultativo.*

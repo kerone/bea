@@ -1,6 +1,6 @@
 # Curso · Láser Q-switched Nd:YAG + Peeling de Carbón Activo (Hollywood Peel)
 
-> Tecnología fotomecánica de pulsos ultracortos aplicada al rejuvenecimiento cutáneo, reducción del poro y mejora de manchas superficiales mediante cromóforo artificial. Fundamentos, indicaciones, protocolo operativo y manejo de complicaciones, con honestidad clínica sobre los límites de la técnica.
+> Láser de pulsos ultracortos que usa el carbón activo como "diana" para microexfoliar la piel, afinar el poro y mejorar la luminosidad. Aquí aprendes a aplicar el carbón en su punto, a leer el final del tratamiento por el color de la piel y a manejar la seguridad ocular, que es el punto donde más accidentes evitables se producen.
 
 ---
 
@@ -12,201 +12,182 @@
 | Duración estimada | 18 h teóricas · 22 h prácticas |
 | Nivel | Profesional / Avanzado |
 | Requisitos previos | Titulación en estética + módulo de seguridad láser y radiación óptica |
-| Certificación | Sí · tras superar test final y prácticas evaluadas |
-| Materiales incluidos | Equipo Q-switched Nd:YAG en aula · suspensión de carbón activo · gafas de protección 1064/532 nm · consumibles |
+| Certificación | Sí · tras el test final y prácticas evaluadas |
+| Material incluido | Equipo Q-switched Nd:YAG en aula · suspensión de carbón activo · gafas de protección 1064/532 nm · consumibles · apuntes |
 
 ---
 
-## 1 · Introducción y posicionamiento clínico
+## 1 · Qué es y por qué funciona
 
-El Carbon Peel —comercialmente Hollywood Peel, China Doll o Spectra Peel— no es un peeling químico en sentido estricto, sino una aplicación creativa del Nd:YAG Q-switched utilizando el carbón activo como cromóforo exógeno. Aplicada en capa fina sobre la piel, la suspensión penetra el infundíbulo folicular y, al recibir el pulso láser, se vaporiza produciendo un efecto fotoacústico de microexfoliación, desobstrucción del poro y bioestimulación dérmica leve. El resultado, visible desde la primera sesión, es lo que la industria denomina "glow".
+El Carbon Peel —que en el mercado verás como Hollywood Peel, China Doll o Spectra Peel— no es un peeling químico de verdad. Es una forma ingeniosa de usar el láser Nd:YAG Q-switched aprovechando el **carbón activo como cromóforo** (la sustancia que absorbe la luz del láser y la convierte en efecto). Aplicas el carbón en capa fina, penetra dentro del poro y, al recibir el pulso del láser, se vaporiza con un pequeño "estallido" que arrastra células muertas, sebo y restos del folículo. El resultado, ese "glow" que pide la clienta, se ve desde la primera sesión.
 
-El curso parte de dos premisas honestas. La primera, que el Carbon Peel ofrece mejora estética acumulativa y de bajo riesgo, pero no sustituye al peeling químico medio, al láser fraccional ni a la radiofrecuencia: su nicho es el mantenimiento en pieles seborreicas y la luminosidad cutánea. La segunda, que el Nd:YAG a 1064 nm es invisible al ojo humano y un destello a la córnea o retina puede causar lesión irreversible en milisegundos; las gafas IPL **no sirven**, cada longitud de onda exige su filtro óptico densitométrico específico. La siniestralidad ocular en cabinas no formadas sigue siendo el incidente más prevenible del sector.
+Quiero que empieces con dos ideas claras y honestas:
 
-## 2 · Fundamentos científicos
+- **Es una técnica de mantenimiento, no de transformación.** Da mejora estética que se acumula y con riesgo bajo, pero no sustituye a un peeling químico medio, a un láser fraccional ni a la radiofrecuencia. Su sitio es la piel seborreica, el poro visible y la luminosidad. Prometer más es engañar.
+- **El Nd:YAG a 1064 nm es invisible y peligroso para el ojo.** Un destello en la córnea o la retina puede dejar una lesión irreversible en milisegundos. Las **gafas de IPL no sirven**: cada longitud de onda necesita su filtro específico. El accidente ocular en cabinas mal formadas sigue siendo el incidente más prevenible del sector, y vamos a darle a esto la atención que merece.
 
-### 2.1 · Fototermólisis selectiva y efecto fotoacústico
+## 2 · Qué ocurre en la piel
 
-La fototermólisis selectiva (Anderson y Parrish, 1983) exige dos condiciones para destruir una diana cutánea sin dañar el tejido vecino: que la longitud de onda sea absorbida preferentemente por el cromóforo, y que la duración del pulso sea **igual o inferior al tiempo de relajación térmica (TRT)** de dicho cromóforo. Cuanto más pequeño el cromóforo, más corto el pulso necesario.
+### Cómo el láser "rompe" el carbón
 
-Las partículas de carbón activo aplicadas en la piel son sub-micrónicas, con TRT en el rango de **nanosegundos**. El láser Q-switched —mediante un modulador de cavidad— libera la energía en un pulso de **5-20 nanosegundos**, con potencias pico de megavatios. A esa escala temporal el carbón no solo se calienta: la expansión térmica abrupta genera una **onda de presión acústica** que fragmenta la partícula y arrastra el material adyacente (queratinocitos descamados, sebo, restos foliculares). No es una quemadura: es una rotura mecánica.
+El principio que manejas se llama **fototermólisis selectiva**: para destruir una diana sin dañar lo de alrededor, la luz tiene que ser absorbida sobre todo por esa diana y el pulso tiene que ser muy corto, tan corto como el tiempo que tarda esa diana en enfriarse. Cuanto más pequeña es la partícula, más breve tiene que ser el pulso.
 
-### 2.2 · Q-switched vs pulso largo
+Las partículas de carbón son diminutas y se enfrían en **nanosegundos** (milmillonésimas de segundo). El láser Q-switched dispara su energía en un pulso de **5 a 20 nanosegundos**, con una potencia altísima concentrada en ese instante. A esa velocidad el carbón no se calienta sin más: se expande de golpe y genera una **onda de presión** que fragmenta la partícula y se lleva por delante lo que tiene pegado (queratinocitos descamados, sebo, restos foliculares). No es una quemadura, es una rotura mecánica.
 
-| Característica | Q-switched (ns) | Pulso largo (ms) |
+### Las dos formas de pulso
+
+| | Q-switched (nanosegundos) | Pulso largo (milisegundos) |
 |---|---|---|
 | Duración del pulso | 5-20 nanosegundos | 1-50 milisegundos |
-| Mecanismo dominante | Fotoacústico (fragmentación mecánica) | Fototérmico (calentamiento sostenido) |
-| Aplicación en Carbon Peel | Pasada principal: vaporiza el carbón | Pasada de "asentamiento": bioestimulación térmica leve |
-| Riesgo en piel pigmentada | Bajo a 1064 nm con parámetros correctos | Mayor riesgo de quemadura epidérmica |
+| Cómo actúa | Fragmenta el carbón mecánicamente | Calienta de forma sostenida |
+| Para qué se usa en Carbon Peel | Pasada principal: vaporiza el carbón | Pasada de "asentamiento": calorcito que bioestimula |
+| Riesgo en piel pigmentada | Bajo a 1064 nm con buenos parámetros | Mayor riesgo de quemar la epidermis |
 
-Muchos equipos modernos permiten combinar ambos modos en la misma sesión.
+Muchos equipos modernos combinan los dos modos en la misma sesión.
 
-### 2.3 · 1064 nm vs 532 nm
+### Por qué trabajamos a 1064 nm
 
-| Longitud de onda | Medio | Cromóforo diana | Uso en Carbon Peel |
-|---|---|---|---|
-| **1064 nm** | Nd:YAG nativo (IR cercano) | Carbón, melanina profunda | **Modalidad estándar.** Penetración mayor, mayor seguridad en fototipos altos |
-| **532 nm** | Nd:YAG doblado en KTP (verde) | Hemoglobina, melanina superficial | Auxiliar para lentigos asociados; no recomendado en fototipos IV-VI |
+| Longitud de onda | Diana que busca | Uso en Carbon Peel |
+|---|---|---|
+| **1064 nm** (infrarrojo) | Carbón, melanina profunda | **El estándar.** Penetra más y es más segura en fototipos altos |
+| **532 nm** (verde) | Hemoglobina, melanina superficial | Auxiliar para alguna mancha asociada; no recomendable en fototipos IV-VI |
 
-El curso se centra en **Nd:YAG 1064 nm Q-switched**, configuración estándar del Hollywood Peel.
+El curso se centra en **Nd:YAG 1064 nm Q-switched**, que es la configuración del Hollywood Peel.
 
-### 2.4 · Parámetros físicos a manejar
+### Los parámetros que vas a tocar
 
-- **Longitud de onda (λ)**: fijada por el cabezal (1064 nativo, 532 doblado por KTP).
-- **Duración de pulso (τ)**: ns en Q-switched, ms en pulso largo. Algunos equipos permiten conmutar.
-- **Fluencia (J/cm²)**: energía por superficie. Variable principal de modulación. Empezar bajo y subir hasta endpoint.
-- **Spot size (mm)**: a igual fluencia, spots mayores penetran más; menores depositan más densidad de potencia local.
-- **Frecuencia (Hz)**: pulsos/segundo. Permite velocidad sin solapar pulsos.
+- **Longitud de onda:** la fija el cabezal (1064 nativo, 532 si el equipo la dobla).
+- **Duración del pulso:** nanosegundos en Q-switched, milisegundos en pulso largo. Algunos equipos conmutan.
+- **Fluencia (energía por superficie, en J/cm²):** es la variable que más vas a ajustar. Empieza baja y sube hasta el punto final.
+- **Tamaño del disparo (spot, en mm):** a igual fluencia, un spot grande penetra más; uno pequeño concentra más energía en cada punto.
+- **Frecuencia (Hz):** disparos por segundo. Te da velocidad sin solapar los pulsos.
 
 ## 3 · Indicaciones
 
-| Indicación | Evidencia | Sesiones habituales |
+| Indicación | ¿Va bien? | Sesiones habituales |
 |---|---|---|
-| **Piel seborreica con poros visibles** | Sólida (clínica acumulada) | 4-6, cada 2-3 semanas |
-| **Acné comedoniano leve-moderado no inflamatorio activo** | Moderada | 4-6 |
-| **Textura irregular leve, falta de luminosidad ("glow")** | Moderada | 4-6 + mantenimiento |
-| **Mantenimiento post-tratamientos médico-estéticos** | Moderada | Mensual/bimensual |
-| **Melanosis solar superficial leve** | Moderada (como efecto colateral, no objetivo principal) | 4-6 |
-| **Hiperqueratosis folicular leve** (tronco superior, brazos) | Moderada | 4-6 |
-| **Melasma** | **Controvertida** — riesgo de empeoramiento y de hipopigmentación moteada. **No recomendado sin supervisión médica.** | — |
+| **Piel seborreica con poros visibles** | Sí (experiencia clínica sólida) | 4-6, cada 2-3 semanas |
+| **Acné comedoniano leve-moderado** (sin lesiones inflamadas activas) | Moderado | 4-6 |
+| **Textura irregular leve y falta de luminosidad** | Moderado | 4-6 + mantenimiento |
+| **Mantenimiento tras tratamientos médico-estéticos** | Moderado | Mensual / bimensual |
+| **Manchas solares superficiales leves** | Moderado (como efecto colateral, no como objetivo) | 4-6 |
+| **Aspereza folicular leve** (parte alta de tronco, brazos) | Moderado | 4-6 |
+| **Melasma** | **Controvertido** — puede empeorar y dejar la piel manchada de forma irregular. **No lo trates sin supervisión médica.** | — |
 
-**El Carbon Peel NO resuelve**: acné nodulo-quístico activo, cicatrices atróficas profundas, rosácea, melasma establecido, flacidez moderada-severa, arrugas dinámicas.
+**El Carbon Peel NO resuelve:** acné nódulo-quístico activo, cicatrices atróficas profundas, rosácea, melasma establecido, flacidez moderada-severa ni arrugas de expresión.
 
 ### 3.1 · Parámetros orientativos por fototipo (Carbon Peel 1064 nm Q-switched)
 
 | Fototipo | Fluencia (J/cm²) | Spot (mm) | Notas |
 |---|---|---|---|
 | I-II | 2,5-3,5 | 6-8 | Buena tolerancia |
-| III | 2,2-3,2 | 6-8 | Cuidado con bronceado activo |
-| IV | 1,8-2,8 | 7-8 | Riesgo PIH; test patch recomendado |
-| V | 1,6-2,4 | 8 | Spot grande, refrigeración óptima; consentimiento PIH |
-| VI | 1,5-2,2 | 8 | Solo profesional experimentado; test patch obligatorio |
+| III | 2,2-3,2 | 6-8 | Cuidado si viene bronceada |
+| IV | 1,8-2,8 | 7-8 | Riesgo de mancha; haz prueba previa |
+| V | 1,6-2,4 | 8 | Spot grande, buena refrigeración, consentimiento sobre la mancha |
+| VI | 1,5-2,2 | 8 | Solo con experiencia; prueba previa obligatoria |
 
-Cifras orientativas: validar siempre contra manual del fabricante y endpoint clínico. **Empezar bajo y subir gradualmente**, nunca al revés.
+Son cifras de referencia: contrasta siempre con el manual de tu equipo y con lo que veas en la piel. **Empieza bajo y sube poco a poco**, nunca al revés.
 
-### 3.2 · Expectativas realistas
+### 3.2 · Qué prometer
 
-Mejora visible desde la primera sesión, acumulativa a lo largo de 4-6 sesiones y dependiente de mantenimiento y disciplina cosmética domiciliaria. Sin sesiones de refuerzo, el efecto se desvanece en semanas. Documentar fotográficamente con luz estandarizada para que paciente y operador valoren la evolución objetivamente.
+Mejora desde la primera sesión, que se acumula a lo largo de 4-6 sesiones y que depende del mantenimiento y de la disciplina cosmética en casa. Sin sesiones de refuerzo, el efecto se va en semanas. Haz **foto con luz estandarizada** para que la clienta y tú valoréis la evolución de forma objetiva.
 
 ## 4 · Contraindicaciones
 
-### 4.1 · Absolutas
+### 4.1 · Absolutas (no tratar)
 
-- **Embarazo y lactancia** (principio de precaución).
-- **Isotretinoína sistémica en los últimos 6 meses**.
+- **Embarazo y lactancia** (por precaución).
+- **Isotretinoína oral** (Roacutan) en los últimos 6 meses.
 - **Infección activa** en la zona (herpes, foliculitis, impétigo).
 - **Lesiones cutáneas malignas o sospechosas** en la zona a tratar.
-- **Patología fotosensible activa** (lupus cutáneo, porfirias).
-- **Alergia conocida al carbón vegetal o a los componentes de la suspensión** (rara pero descrita).
-- **Marcapasos o desfibrilador implantable**: consultar especificaciones del fabricante; en duda, no tratar.
-- **Lentes de contacto puestas durante la sesión** (deben retirarse).
+- **Enfermedad fotosensible activa** (lupus cutáneo, porfirias).
+- **Alergia conocida al carbón vegetal** o a los componentes de la suspensión (rara, pero descrita).
+- **Marcapasos o desfibrilador:** consulta las especificaciones del fabricante; en la duda, no tratar.
+- **Lentes de contacto puestas durante la sesión:** hay que retirarlas siempre.
 
-### 4.2 · Relativas
+### 4.2 · Relativas (con precaución)
 
-- **Fototipos IV-VI**: cautela. Fluencias reducidas, spot grande, refrigeración rigurosa, consentimiento específico sobre riesgo PIH e hipopigmentación.
-- **Fototipo III bronceado activo**: posponer 4-6 semanas tras la última exposición significativa.
-- **Antecedente de herpes labial recurrente** (tratamiento perioral): profilaxis antiviral pautada por médico.
-- **Anticoagulación**: aumenta riesgo de petequias.
-- **Vitíligo activo**: riesgo de fenómeno de Koebner.
-- **Fotosensibilizantes sistémicos** (tetraciclinas, amiodarona, hipérico): valorar suspensión consensuada con médico.
-- **Diabetes mal controlada**: cicatrización ralentizada.
+- **Fototipos IV-VI:** fluencias reducidas, spot grande, refrigeración rigurosa y consentimiento específico sobre el riesgo de mancha (hiperpigmentación post-inflamatoria) e hipopigmentación.
+- **Fototipo III bronceado:** posponer 4-6 semanas tras la última exposición fuerte.
+- **Antecedente de herpes labial de repetición** (si tratas la zona perioral): profilaxis antiviral pautada por su médico.
+- **Anticoagulación:** más riesgo de petequias (puntitos rojos por microsangrado).
+- **Vitíligo activo:** riesgo de que la lesión aparezca donde traumatizas la piel.
+- **Medicamentos que sensibilizan al sol** (tetraciclinas, amiodarona, hipérico): valorar con su médico si se suspenden.
+- **Diabetes mal controlada:** cicatriza peor.
 
 ## 5 · Protocolo de tratamiento
 
 ### 5.1 · Consulta y selección
 
-Anamnesis estándar de seguridad láser: fototipo, antecedentes, medicación, contraindicaciones. Verificar ausencia de lentes de contacto, retirada total de maquillaje y filtros solares. Documentación fotográfica con luz estandarizada (frontal y oblicua). Consentimiento informado con mención al eritema transitorio, posible descamación leve a las 24-72 h, ausencia de downtime y resultado acumulativo a lo largo de 4-6 sesiones.
+Haz la entrevista de seguridad láser de siempre: fototipo, antecedentes, medicación, contraindicaciones. Comprueba que no lleva lentillas y que retira por completo maquillaje y fotoprotector. **Foto con luz estandarizada** (de frente y oblicua). El consentimiento debe mencionar el eritema pasajero, la posible descamación leve a las 24-72 h, que no hay baja social y que el resultado se construye a lo largo de 4-6 sesiones.
 
 ### 5.2 · Preparación previa
 
 - Sin retinoides tópicos las 48-72 h previas.
-- Sin exfoliación química o física los 7 días previos.
-- Limpieza profunda al inicio de la sesión; eliminación total de maquillaje, sebo y filtros solares residuales.
-- **NO aplicar anestesia tópica**: el Carbon Peel es bien tolerado, la anestesia interfiere con la adherencia del carbón.
+- Sin exfoliación química ni física los 7 días previos.
+- Limpieza profunda al empezar: fuera maquillaje, sebo y restos de fotoprotector.
+- **NO apliques anestesia tópica:** el Carbon Peel se tolera bien y la anestesia estorba a la adherencia del carbón.
 - Retirar lentes de contacto.
 
 ### 5.3 · Aplicación del carbón activo
 
-1. **Limpieza profunda** con limpiador suave o solución micelar. Secar cuidadosamente.
-2. **Aplicación de la suspensión de carbón activo** con pincel plano o espátula, en **capa fina y homogénea**, cubriendo toda la zona a tratar (frente, mejillas, mentón, nariz; espalda alta o pecho si la indicación es seborrea torácica). Evitar contorno inmediato de ojos y comisura labial.
-3. **Secado del carbón**: **8-12 minutos** al aire o con ventilador frío suave. El carbón debe quedar **mate, no brillante**. Si está húmedo, el efecto fotoacústico se distribuye mal y aumenta el riesgo de quemadura.
-4. **Verificación**: la película debe ser uniforme, sin acúmulos ni zonas vacías. Retocar si es necesario.
+1. **Limpieza profunda** con limpiador suave o solución micelar. Seca con cuidado.
+2. **Aplica la suspensión de carbón** con pincel plano o espátula, en **capa fina y uniforme**, cubriendo toda la zona (frente, mejillas, mentón, nariz; espalda alta o pecho si tratas seborrea del tronco). Evita el contorno inmediato de los ojos y la comisura de los labios.
+3. **Deja secar el carbón 8-12 minutos** al aire o con ventilador frío suave. Debe quedar **mate, no brillante**. Si está húmedo, el efecto se reparte mal y aumenta el riesgo de quemadura.
+4. **Comprueba** que la película es uniforme, sin grumos ni huecos. Retoca si hace falta.
 
 ### 5.4 · Protección ocular y EPI obligatorios
 
-- **Gafas específicas para 1064 nm con densidad óptica (OD) certificada**, para paciente y operador. **Las gafas IPL no sirven.**
-- Verificar gafas sin arañazos ni filtraciones antes de cada sesión.
-- En tratamientos periorbitarios: protección ocular interna metálica (córneo-escleral) por personal médico cualificado.
-- **Mascarilla FFP2 mínimo** para el operador: el "plume" generado al vaporizar el carbón debe evacuarse con sistema de aspiración.
-- Espejos y superficies reflectantes fuera del campo de tiro.
-- No disparar nunca con gafas mal colocadas, retiradas momentáneamente o de tercera persona en sala.
+- **Gafas específicas para 1064 nm con densidad óptica (OD) certificada**, para la clienta y para ti. **Las gafas de IPL no valen.**
+- Revisa que las gafas no tengan arañazos ni fugas antes de cada sesión.
+- En tratamientos alrededor del ojo: protección ocular interna metálica (córneo-escleral), y esto lo coloca personal médico cualificado.
+- **Mascarilla FFP2 como mínimo** para ti: el humo que sale al vaporizar el carbón (el "plume") debe evacuarse con aspiración.
+- Espejos y superficies reflectantes fuera de la línea de tiro.
+- No dispares nunca con las gafas mal puestas, retiradas un momento, o con una tercera persona sin protección en la sala.
 
 ### 5.5 · Parámetros láser y técnica de barrido
 
-**Primera pasada — "calentamiento"** (asentamiento del carbón y bioestimulación térmica leve):
+**Primera pasada — "calentamiento"** (asienta el carbón y da bioestimulación térmica leve):
 
 - Modo: Nd:YAG **pulso largo** o Q-switched a baja fluencia.
 - Fluencia: **1-2 J/cm²**.
-- Spot: **6-8 mm** (grande para mayor penetración y menor densidad local).
+- Spot: **6-8 mm** (grande, para penetrar más y concentrar menos en cada punto).
 - Frecuencia: **5-10 Hz**.
-- Una pasada completa sobre toda la zona carbonada, en barrido continuo sin solapar pulsos.
+- Una pasada completa sobre toda la zona con carbón, en barrido continuo sin solapar pulsos.
 
-**Segunda pasada — "fotomecánica"** (vaporización del carbón, efecto fotoacústico principal):
+**Segunda pasada — "fotomecánica"** (vaporiza el carbón, es el efecto principal):
 
 - Modo: **Nd:YAG Q-switched 1064 nm**.
 - Fluencia: **1,6-3,5 J/cm²** según fototipo y zona (ver tabla 3.1).
 - Spot: **6-8 mm**.
 - Frecuencia: **5-10 Hz**.
-- **Pasadas cruzadas** (horizontal y vertical) hasta vaporizar el carbón uniformemente. Pieza de mano perpendicular a la piel, distancia constante. **Pulsos contiguos, no solapados.**
-- **Endpoint clínico**: vaporización homogénea del carbón, eritema leve uniforme. **Eritema parcheado, petequias densas, ampollas o quemadura amarillenta indican fluencia excesiva** — reducir inmediatamente.
+- **Pasadas cruzadas** (horizontal y vertical) hasta vaporizar el carbón de forma uniforme. Pieza de mano perpendicular a la piel y a distancia constante. **Pulsos contiguos, no solapados.**
+- **El punto final lo marca la piel:** carbón vaporizado por completo y eritema leve uniforme. **Eritema a parches, petequias densas, ampollas o quemadura amarillenta = te has pasado de fluencia.** Reduce de inmediato.
 
-**Refrigeración**: durante el procedimiento, refrigeración por aire o pieza de zafiro si el equipo la incorpora. Inmediatamente después: pack frío 5-10 minutos.
+**Refrigeración:** durante el procedimiento, aire frío o pieza de zafiro si tu equipo la lleva. Justo después: pack frío 5-10 minutos.
 
-**Tiempos totales aproximados**: aplicación 5 min, secado 8-12 min, primera pasada 3-5 min, segunda pasada 5-8 min, limpieza y post 5-10 min. **Total: 30-45 minutos por sesión facial.**
+**Tiempos aproximados:** aplicación 5 min, secado 8-12 min, primera pasada 3-5 min, segunda pasada 5-8 min, limpieza y post 5-10 min. **Total: 30-45 minutos por sesión facial.**
 
-### 5.6 · Casos clínicos
+### 5.6 · Tres casos clínicos
 
-#### Caso 1 — Piel seborreica con acné comedoniano
+**Caso 1 · Piel seborreica con acné comedoniano.** Hombre de 26 años, fototipo IV, piel seborreica con poros visibles en la zona T, comedones cerrados y abiertos en frente y nariz, sin lesiones inflamadas activas. Ya usó ácido salicílico y retinoides tópicos con mejora parcial. → 5 sesiones cada 2 semanas y mantenimiento mensual después. Sesión 1: pulso largo a 1,5 J/cm² y luego Q-switched 1064 nm a 2,5 J/cm² con spot de 7 mm. Eritema leve homogéneo, sin descamación apreciable. Aftercare con serum de ácido hialurónico y SPF 50+. *A los 7 días:* poros más limpios, comedones aclarados, luminosidad evidente. Tras la quinta sesión, mejora que se ve en las fotos. Se pauta mantenimiento mensual y BHA 2% en casa de forma progresiva. *Lo que enseña:* el Carbon Peel brilla en este perfil. Resultado desde la primera sesión, acumulativo y sin baja social; la cosmética activa en casa lo potencia y lo mantiene.
 
-Hombre de 26 años, fototipo IV, piel seborreica con poros visibles en zona T, comedones cerrados y abiertos en frente y nariz, sin lesiones inflamatorias activas. Refiere uso previo de ácido salicílico y retinoides tópicos con mejora parcial.
+**Caso 2 · Mantenimiento en piel madura con manchas solares superficiales.** Mujer de 52 años, fototipo III, piel mixta con poros visibles en la zona T, manchas solares leves en mejillas y poca luminosidad. Sin contraindicaciones. → 4 sesiones cada 3 semanas. Q-switched 1064 nm a 3 J/cm² con spot de 7 mm, precedido de pulso largo a 2 J/cm². Aftercare estándar y refuerzo de fotoprotección. *Evolución:* mejora clara de la luminosidad desde la primera sesión; las manchas aclaran de forma leve pero perceptible tras la cuarta. La clienta lo integra en su mantenimiento trimestral. *Lo que enseña:* las manchas solares superficiales responden como efecto colateral, no como objetivo principal. Ajustar bien las expectativas evita decepciones.
 
-Plan: serie de 5 sesiones cada 2 semanas, mantenimiento mensual posterior. Sesión 1: pulso largo 1,5 J/cm², luego Q-switched 1064 nm a 2,5 J/cm² spot 7 mm. Eritema leve homogéneo, sin descamación significativa. Aftercare con sérum de ácido hialurónico y SPF 50+.
-
-A los 7 días: poros visiblemente más limpios, comedones aclarados, luminosidad evidente. Tras la quinta sesión: mejora objetivable fotográficamente. Se pauta mantenimiento mensual e introducción de BHA 2% domiciliaria en pauta progresiva.
-
-**Lecciones**: el Carbon Peel es excelente en este perfil. Resultado visible desde la primera sesión, acumulativo y sin downtime. La integración con cosmética activa domiciliaria potencia y mantiene el resultado.
-
-#### Caso 2 — Mantenimiento estético en piel madura con melanosis solar superficial
-
-Mujer de 52 años, fototipo III, piel mixta con poros visibles en zona T, melanosis solar leve en mejillas y discreta falta de luminosidad. Sin contraindicaciones.
-
-Plan: serie de 4 sesiones cada 3 semanas. Q-switched 1064 nm 3 J/cm² spot 7 mm precedido de pulso largo 2 J/cm². Aftercare estándar; se refuerza fotoprotección rigurosa.
-
-Evolución: mejora notable de la luminosidad desde la primera sesión; aclaramiento leve pero perceptible de las melanosis tras la cuarta sesión. La paciente integra el tratamiento en su rutina trimestral de mantenimiento.
-
-**Lecciones**: la melanosis solar superficial responde como efecto colateral del Carbon Peel, no como objetivo principal. La honestidad al fijar expectativas evita decepciones.
-
-#### Caso 3 — Test patch en fototipo V
-
-Mujer de 38 años, fototipo V, demanda mejora de poros y "glow". Consentimiento informado específico sobre riesgo de PIH e hipopigmentación.
-
-Test patch en zona retroauricular: Q-switched 1064 nm 1,8 J/cm² spot 8 mm sobre carbón seco. A las 3 semanas: sin PIH, sin hipopigmentación, leve mejora textural. Se procede a sesión completa con la misma fluencia.
-
-**Lecciones**: en fototipos V-VI el test patch precoz minimiza el riesgo y construye confianza. Nunca subir la fluencia entre sesiones sin haber pasado al menos dos sesiones con la fluencia previa sin incidencias.
+**Caso 3 · Prueba previa en fototipo V.** Mujer de 38 años, fototipo V, pide mejorar poros y "glow". Consentimiento específico sobre riesgo de mancha e hipopigmentación. → Prueba en zona retroauricular: Q-switched 1064 nm a 1,8 J/cm² con spot de 8 mm sobre carbón seco. A las 3 semanas: sin mancha, sin hipopigmentación, leve mejora de textura. Se hace la sesión completa con esa misma fluencia. *Lo que enseña:* en fototipos V-VI la prueba previa minimiza el riesgo y da confianza. Nunca subas la fluencia entre sesiones sin haber pasado al menos dos sesiones con la anterior sin incidencias.
 
 ## 6 · Cosmetología aplicada
 
-### 6.1 · El carbón activo como cromóforo
+### 6.1 · El carbón activo como diana
 
-El carbón activo utilizado en Carbon Peel es carbón vegetal finamente molido (partículas sub-micrónicas) suspendido en un vehículo (aceite mineral, glicerina o agua según fabricante). Sus dos propiedades clave:
+El carbón del Carbon Peel es carbón vegetal molido muy fino (partículas diminutas) suspendido en un vehículo (aceite mineral, glicerina o agua, según fabricante). Dos propiedades clave:
 
-1. **Absorción óptica amplia** en visible e infrarrojo cercano, incluido 1064 nm.
-2. **Capacidad adsorbente**: penetra en el ostium folicular captando lípidos, queratinocitos descamados y biofilm bacteriano superficial.
+1. **Absorbe mucha luz**, también la del 1064 nm.
+2. **Es adsorbente:** se mete en la boca del poro y capta grasa, células descamadas y la película bacteriana superficial.
 
-### 6.2 · Activos cosméticos pre y post sesión
+### 6.2 · Activos antes y después de la sesión
 
-| Activo | Pre (48-72 h previas) | Post inmediato (0-48 h) | Post (>48 h) |
+| Activo | Antes (48-72 h) | Inmediato (0-48 h) | Después (>48 h) |
 |---|---|---|---|
 | Ácido hialurónico | Sí | Sí | Sí |
 | Pantenol, centella, cica | Sí | Sí | Sí |
@@ -218,126 +199,111 @@ El carbón activo utilizado en Carbon Peel es carbón vegetal finamente molido (
 
 ## 7 · Aftercare
 
-### 7.1 · Cronología post Carbon Peel
+### 7.1 · Cómo evoluciona la piel
 
-| Momento | Hallazgos clínicos | Indicaciones al cliente |
+| Momento | Qué se ve | Qué indicar |
 |---|---|---|
-| **Inmediato (0-1 h)** | Eritema leve homogéneo, sensación de calor que cede en 30-60 min | Sérum hidratante + SPF 50+; reposo del rostro |
-| **12-24 h** | Posible eritema residual muy leve | Maquillaje suave permitido; SPF 50+ obligatorio |
-| **24-72 h** | Descamación fina muy leve (especialmente perinasal/mentón) | Hidratación abundante; sin frotar |
-| **48-72 h** | Piel restablecida, "glow" visible, sin marcas | Reintroducción gradual de activos (retinoides, AHA/BHA, vitamina C) |
-| **1-2 semanas** | Resultado estable; preparar siguiente sesión | Mantener fotoprotección y cosmética activa diaria |
+| **Inmediato (0-1 h)** | Eritema leve homogéneo, calor que cede en 30-60 min | Serum hidratante + SPF 50+; reposo del rostro |
+| **12-24 h** | Quizá eritema residual muy leve | Maquillaje suave permitido; SPF 50+ obligatorio |
+| **24-72 h** | Descamación fina muy leve (sobre todo zona perinasal y mentón) | Hidratación abundante; sin frotar |
+| **48-72 h** | Piel restablecida, "glow" visible, sin marcas | Reintroducir poco a poco los activos (retinoides, AHA/BHA, vitamina C) |
+| **1-2 semanas** | Resultado estable; preparar la siguiente sesión | Mantener fotoprotección y cosmética activa diaria |
 
-### 7.2 · Instrucciones generales al cliente
+### 7.2 · Instrucciones para la clienta
 
-- Fotoprotección SPF 50+ obligatoria desde el momento posterior a la sesión.
-- Hidratación abundante con cosmética suave 48 h.
-- Reintroducción gradual de retinoides, AHA/BHA y vitamina C a partir de 48-72 h según tolerancia.
-- Evitar exposición solar directa, sauna y piscina 48 h.
-- Mantenimiento del resultado: hidratación y fotoprotección continuas; cosmética activa diaria.
-- Contactar la cabina ante eritema prolongado más de 48 h, descamación intensa o cualquier reacción inesperada.
+- Fotoprotección SPF 50+ obligatoria desde justo después de la sesión.
+- Hidratación abundante con cosmética suave durante 48 h.
+- Reintroducir retinoides, AHA/BHA y vitamina C a partir de 48-72 h según tolerancia.
+- Evitar sol directo, sauna y piscina 48 h.
+- Mantener el resultado con hidratación, fotoprotección y cosmética activa diaria.
+- Que contacte con la cabina si el eritema dura más de 48 h, si hay descamación intensa o cualquier reacción inesperada.
 
 ## 8 · Manejo de complicaciones
 
-### 8.1 · Algoritmo general
+### 8.1 · Cuadro general
 
-| Complicación | Detección | Manejo inicial | Derivación |
+| Complicación | Cuándo se ve | Qué hacer | Cuándo derivar |
 |---|---|---|---|
-| **Eritema prolongado >24 h** | Persistencia clínica | Hidratación, calmantes tópicos (centella, pantenol), fotoprotección estricta | Si persiste >7 días o se acompaña de edema |
-| **Descamación intensa** | Visible a las 24-72 h | Hidratación intensiva, suspender activos cosméticos hasta normalización | Raro |
-| **PIH leve (fototipos IV-VI)** | Mancha post-inflamatoria a las 2-6 semanas | Despigmentantes tópicos (niacinamida, ácido azelaico) pautados por médico; fotoprotección rigurosa | Si no aclara en 3-6 meses |
-| **Hipopigmentación** | Generalmente transitoria (semanas-meses) | Observación, camuflaje cosmético | Si persiste >6 meses |
-| **Reacción al carbón (rara)** | Eritema desproporcionado, prurito, urticaria local | Suspender, no repetir; antihistamínico oral si pautado por médico | Si reacción sistémica |
-| **Quemadura epidérmica (carbón húmedo o fluencia excesiva)** | Ampolla, costra, dolor | Antisepsia, pomada cicatrizante (pantenol/cicalfate), no exfoliar | Si signos de infección |
-| **Reactivación de herpes simple** | Vesículas periorales/peribucales en 24-72 h | Suspender tratamiento, valoración médica para antiviral oral | Médico tratante |
-| **Lesión ocular accidental** | Dolor ocular, visión borrosa, fotopsias | **Cese inmediato del tratamiento** | **Urgencias oftalmológicas inmediatas** |
+| **Eritema prolongado (>24 h)** | Persiste | Hidratación, calmantes (centella, pantenol), fotoprotección estricta | Si dura >7 días o se acompaña de edema |
+| **Descamación intensa** | A las 24-72 h | Hidratación intensiva, suspender activos hasta normalizar | Raro |
+| **Mancha (hiperpigmentación), fototipos IV-VI** | A las 2-6 semanas | Despigmentantes (niacinamida, ácido azelaico) pautados por médico; fotoprotección rigurosa | Si no aclara en 3-6 meses |
+| **Hipopigmentación** | Suele ser pasajera (semanas-meses) | Observar, camuflaje cosmético | Si persiste >6 meses |
+| **Reacción al carbón** (rara) | Eritema desproporcionado, picor, habones | Suspender, no repetir; antihistamínico oral si lo pauta el médico | Si la reacción es general |
+| **Quemadura epidérmica** (carbón húmedo o exceso de fluencia) | Ampolla, costra, dolor | Antisepsia, pomada cicatrizante (pantenol/cicalfate), no exfoliar | Si hay signos de infección |
+| **Reactivación de herpes** | Vesículas alrededor de la boca en 24-72 h | Suspender, derivar para antiviral oral | A su médico |
+| **Lesión ocular accidental** | Dolor ocular, visión borrosa, destellos | **Parar el tratamiento de inmediato** | **Urgencias de oftalmología ya** |
 
 ### 8.2 · Prevención de la lesión ocular
 
-La complicación más grave y la más prevenible:
+Es la complicación más grave y, a la vez, la más evitable:
 
-- Gafas específicas para 1064 nm con OD certificada, sin arañazos ni filtraciones, para operador **y** paciente.
-- Las gafas IPL **no son adecuadas** para Q-switched.
-- Verificar protección antes de cada sesión.
-- En tratamientos periorbitarios: protección ocular interna metálica por personal médico cualificado.
-- Espejos y superficies reflectantes fuera del campo de tiro.
+- Gafas específicas para 1064 nm con OD certificada, sin arañazos ni fugas, para ti **y** para la clienta.
+- Las gafas de IPL **no sirven** para Q-switched.
+- Comprueba la protección antes de cada sesión.
+- Alrededor del ojo: protección ocular interna metálica, colocada por personal médico.
+- Espejos y superficies reflectantes fuera de la línea de tiro.
 - Ante sospecha de exposición: derivación urgente a oftalmología.
 
-## 9 · Test de evaluación
-
-Selecciona la respuesta correcta. Test discriminativo de 8 preguntas, una opción correcta por enunciado.
+## 9 · Test de evaluación (8 preguntas)
 
 **1.** El mecanismo principal del Carbon Peel es:
+- a) Quemadura controlada del estrato córneo con el calor del láser.
+- b) Reacción química del carbón con las proteínas de la superficie.
+- c) El efecto fotoacústico del Nd:YAG Q-switched sobre el carbón aplicado, que actúa como diana y genera microexplosiones que exfolian y bioestimulan.
+- d) La adsorción del sebo por el carbón, sin necesidad del láser.
 
-- a) Quemadura controlada del estrato córneo con calor del láser.
-- b) Reacción química del carbón con las proteínas de superficie.
-- c) Efecto fotoacústico del Nd:YAG Q-switched sobre el carbón aplicado, que actúa como cromóforo artificial generando microexplosiones que exfolian y bioestimulan.
-- d) Adsorción del sebo por el carbón activo, sin necesidad del láser.
-
-**2.** Según el principio de fototermólisis selectiva aplicado al Carbon Peel, la duración del pulso láser debe ser:
-
-- a) Mayor que el tiempo de relajación térmica del cromóforo, para garantizar calentamiento sostenido.
-- b) Igual o inferior al tiempo de relajación térmica del cromóforo, en el rango de nanosegundos para partículas de carbón.
-- c) Indiferente, siempre que la fluencia sea suficiente.
+**2.** Según la fototermólisis selectiva aplicada al Carbon Peel, la duración del pulso láser debe ser:
+- a) Mayor que el tiempo de enfriamiento de la diana, para calentar de forma sostenida.
+- b) Igual o inferior al tiempo de enfriamiento de la diana, en el rango de nanosegundos para el carbón.
+- c) Indiferente, si la fluencia es suficiente.
 - d) En el rango de milisegundos, como en los láseres de pulso largo.
 
-**3.** Respecto a la protección ocular durante el tratamiento con Nd:YAG Q-switched 1064 nm:
+**3.** Sobre la protección ocular con Nd:YAG Q-switched 1064 nm:
+- a) Las gafas de IPL bastan porque cubren un espectro amplio.
+- b) Solo la necesita el operador, no la clienta.
+- c) Hacen falta gafas específicas para 1064 nm con densidad óptica certificada, para operador y clienta; las de IPL no valen.
+- d) Para tratamientos faciales bastan unas gafas de sol oscuras.
 
-- a) Las gafas de IPL son suficientes porque cubren un espectro amplio.
-- b) Solo es necesaria para el operador, no para el paciente.
-- c) Se requieren gafas específicas para 1064 nm con densidad óptica certificada, tanto para operador como para paciente; las gafas IPL no son válidas.
-- d) Para tratamientos faciales basta con gafas de sol oscuras.
-
-**4.** El tiempo de secado del carbón activo antes de aplicar el láser debe ser aproximadamente:
-
-- a) Inmediato, en cuanto se aplica.
+**4.** El tiempo de secado del carbón antes de disparar el láser es aproximadamente:
+- a) Inmediato, nada más aplicarlo.
 - b) 1-2 minutos.
-- c) 8-12 minutos hasta que el carbón quede mate, no brillante.
+- c) 8-12 minutos, hasta que el carbón quede mate, no brillante.
 - d) 30 minutos o más.
 
-**5.** Una de las siguientes es una **contraindicación absoluta** para el Carbon Peel:
-
-- a) Fototipo III
-- b) Isotretinoína sistémica en los últimos 6 meses
-- c) Acné comedoniano sin componente inflamatorio
-- d) Piel seborreica
+**5.** ¿Cuál es una **contraindicación absoluta** del Carbon Peel?
+- a) Fototipo III.
+- b) Isotretinoína oral en los últimos 6 meses.
+- c) Acné comedoniano sin componente inflamatorio.
+- d) Piel seborreica.
 
 **6.** El intervalo recomendado entre sesiones de Carbon Peel es:
+- a) 24-48 horas.
+- b) 1 semana.
+- c) 2-3 semanas.
+- d) 3 meses.
 
-- a) 24-48 horas
-- b) 1 semana
-- c) 2-3 semanas
-- d) 3 meses
+**7.** Para la pasada principal en un fototipo III, los parámetros orientativos en Nd:YAG Q-switched 1064 nm son:
+- a) 8 J/cm², spot 3 mm.
+- b) 2,2-3,2 J/cm², spot 6-8 mm.
+- c) 10 J/cm², spot 2 mm.
+- d) 0,5 J/cm², spot 10 mm.
 
-**7.** Para la pasada principal del Carbon Peel en un paciente fototipo III, los parámetros orientativos en Nd:YAG Q-switched 1064 nm son:
-
-- a) 8 J/cm², spot 3 mm
-- b) 2,2-3,2 J/cm², spot 6-8 mm
-- c) 10 J/cm², spot 2 mm
-- d) 0,5 J/cm², spot 10 mm
-
-**8.** Ante un eritema parcheado, petequias densas o ampollas durante la segunda pasada de Carbon Peel, la actitud correcta es:
-
-- a) Continuar igual, son hallazgos normales.
-- b) Aumentar la fluencia para "terminar el trabajo".
-- c) Reconocerlo como signo de fluencia excesiva, reducir inmediatamente y revisar técnica (carbón húmedo, pulsos solapados).
+**8.** Ante eritema a parches, petequias densas o ampollas durante la segunda pasada, lo correcto es:
+- a) Seguir igual, son hallazgos normales.
+- b) Subir la fluencia para "terminar el trabajo".
+- c) Reconocerlo como exceso de fluencia, reducir de inmediato y revisar la técnica (carbón húmedo, pulsos solapados).
 - d) Aplicar más carbón sobre la zona afectada.
 
-**Respuestas**: 1-c · 2-b · 3-c · 4-c · 5-b · 6-c · 7-b · 8-c
+**Respuestas:** 1-c · 2-b · 3-c · 4-c · 5-b · 6-c · 7-b · 8-c.
 
-## 10 · Referencias
+## 10 · Para saber más
 
-- Anderson RR, Parrish JA. Selective photothermolysis: precise microsurgery by selective absorption of pulsed radiation. *Science*. 1983;220(4596):524-527.
-- Roberts WE. Skin type classification systems old and new. *Dermatologic Clinics*. 2009;27(4):529-533.
-- Negishi K, Akita H, Tanaka S, et al. Comparative study of treatment efficacy and the incidence of post-inflammatory hyperpigmentation with picosecond and Q-switched lasers. *Lasers in Surgery and Medicine*. 2018.
-- Roh MR, Chung HJ, Chung KY. Effects of various parameters of the 1064 nm Nd:YAG laser for the treatment of melasma. *Annals of Dermatology*. 2009.
-- Goldberg DJ. Laser treatment of pigmented lesions. *Dermatologic Clinics*. 1997;15(3):397-407.
-- Tanzi EL, Lupton JR, Alster TS. Lasers in dermatology: four decades of progress. *Journal of the American Academy of Dermatology*. 2003;49(1):1-31.
-- Carbon laser peel: technical review. *Journal of Cosmetic and Laser Therapy* (revisión PMC 7588164, 2020).
-- American Society for Laser Medicine and Surgery (ASLMS). Guidelines on laser safety in clinical practice. Disponible en aslms.org.
-- British Association of Dermatologists (BAD). Patient information on laser treatments.
-- American Academy of Dermatology (AAD). Position statement on laser and light therapies.
+El Carbon Peel es una técnica de mantenimiento rentable y de bajo riesgo cuando se usa con honestidad: piel seborreica, poro y luminosidad. Lo que separa un buen resultado de un susto es siempre lo mismo: empezar con poca fluencia y subir despacio, dejar el carbón en su punto (mate, no húmedo), pasadas no solapadas y, por encima de todo, protección ocular impecable.
 
----
+- Anderson RR, Parrish JA. *Selective photothermolysis*. Science. 1983.
+- Negishi K et al. *Comparative study of efficacy and post-inflammatory hyperpigmentation with picosecond and Q-switched lasers*. Lasers Surg Med. 2018.
+- Roh MR et al. *Effects of the 1064 nm Nd:YAG laser for the treatment of melasma*. Ann Dermatol. 2009.
+- *Carbon laser peel: technical review*. J Cosmet Laser Ther. 2020.
+- American Society for Laser Medicine and Surgery (ASLMS). *Guidelines on laser safety in clinical practice*.
 
-> **Aviso clínico**: este curso es material formativo para profesionales de la estética avanzada. No sustituye juicio clínico individualizado ni habilita por sí mismo para la práctica autónoma en contextos donde la normativa exige titulación médica. La aplicación de Q-switched debe realizarse en el marco legal y profesional correspondiente a cada comunidad autónoma y centro.
+*Material docente PRECISSA INSTITUTE. La aplicación de Q-switched se realiza siempre en el marco legal y profesional de cada centro, y se coordina con un facultativo cuando la normativa lo exige.*
