@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRECISSA INSTITUTE · Laminado de cejas y henna</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5EDE3; --bg2:#EDE2D2; --surface:#FFFFFF;
+  --ink:#241D17; --ink-soft:#5C4E42; --muted:#8C7B6D;
+  --accent:#B66E3A; --accent-dark:#8A4F25; --accent-soft:#D9A876;
+  --line:#E0D4C2; --line-strong:#C9B89E;
+  --danger:#A83D2C; --warn:#C68B2F; --ok:#5C7A4E;
+  --serif:'Instrument Serif',serif; --sans:'Manrope',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;overflow:hidden;}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;}
+
+/* ─── DECK SHELL ─────────────────────────────────────── */
+.deck{position:fixed;inset:0;display:flex;flex-direction:column;}
+.deck-top{display:flex;justify-content:space-between;align-items:center;padding:18px 32px;border-bottom:1px solid var(--line);background:var(--bg);}
+.deck-top-eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;}
+.deck-top-counter{font-family:var(--serif);font-size:18px;color:var(--ink-soft);font-feature-settings:"tnum";}
+.deck-stage{flex:1;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.deck-stage-inner{position:relative;width:1280px;height:720px;transform-origin:center center;flex-shrink:0;background:var(--bg);}
+.deck-bottom{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;border-top:1px solid var(--line);background:var(--bg);}
+.deck-progress{flex:1;display:flex;gap:4px;justify-content:center;padding:0 24px;flex-wrap:wrap;}
+.deck-dot{width:24px;height:3px;background:var(--line-strong);border-radius:2px;cursor:pointer;transition:background .2s;}
+.deck-dot.active{background:var(--accent);}
+.deck-dot:hover{background:var(--ink-soft);}
+.deck-nav{display:flex;gap:8px;}
+.deck-btn{width:40px;height:40px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;transition:border-color .15s,background .15s;}
+.deck-btn:hover{border-color:var(--accent);background:var(--bg2);}
+.deck-btn:disabled{opacity:.35;cursor:not-allowed;}
+
+/* ─── SLIDE ──────────────────────────────────────────── */
+.slide{position:absolute;inset:0;padding:56px 96px;display:flex;flex-direction:column;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s ease;overflow:hidden;}
+.slide.active{opacity:1;pointer-events:auto;}
+.slide-inner{width:100%;max-width:1100px;margin:0 auto;}
+.slide-eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:18px;}
+.slide-h1{font-family:var(--serif);font-size:64px;line-height:1.02;letter-spacing:-0.02em;margin-bottom:18px;}
+.slide-h1 em{font-style:italic;color:var(--accent);}
+.slide-h2{font-family:var(--serif);font-size:44px;line-height:1.05;letter-spacing:-0.015em;margin-bottom:24px;}
+.slide-h2 em{font-style:italic;color:var(--accent);}
+.slide-lead{font-size:20px;line-height:1.55;color:var(--ink-soft);max-width:780px;margin-bottom:18px;}
+.slide-body{font-size:16px;line-height:1.7;color:var(--ink);max-width:820px;}
+.slide-body p+p{margin-top:14px;}
+.slide-meta{font-size:13px;color:var(--muted);letter-spacing:.04em;}
+
+/* ─── SLIDE TYPES ────────────────────────────────────── */
+.slide--cover{background:linear-gradient(135deg,var(--bg) 0%,var(--bg2) 100%);}
+.slide--cover .slide-h1{font-size:96px;line-height:.95;margin-bottom:24px;}
+.slide--cover .slide-lead{font-size:22px;color:var(--ink);max-width:680px;}
+.slide-cover-meta{margin-top:48px;padding-top:28px;border-top:1px solid var(--line-strong);display:flex;gap:48px;flex-wrap:wrap;}
+.slide-cover-meta-item{display:flex;flex-direction:column;gap:4px;}
+.slide-cover-meta-k{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+.slide-cover-meta-v{font-family:var(--serif);font-size:24px;color:var(--ink);}
+
+.slide--section .slide-h1{font-size:80px;}
+.slide--section .slide-eyebrow{font-size:13px;letter-spacing:.32em;}
+
+.bullets{list-style:none;margin-top:18px;}
+.bullets li{padding:14px 0;border-bottom:1px solid var(--line);font-size:17px;line-height:1.55;display:flex;gap:18px;align-items:baseline;}
+.bullets li:last-child{border-bottom:0;}
+.bullets li::before{content:counter(b,decimal-leading-zero);counter-increment:b;font-family:var(--serif);font-size:18px;font-style:italic;color:var(--accent);min-width:32px;}
+.bullets{counter-reset:b;}
+.bullets--plain li::before{content:"·";font-size:24px;color:var(--accent);font-style:normal;min-width:18px;}
+
+.tbl{width:100%;border-collapse:collapse;font-size:14px;margin-top:14px;background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden;}
+.tbl th{background:var(--bg2);color:var(--ink);text-align:left;padding:14px 18px;font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--line);}
+.tbl td{padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5;}
+.tbl tr:last-child td{border-bottom:0;}
+.tbl tr:hover td{background:var(--bg);}
+.tbl strong{color:var(--accent-dark);}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:24px;}
+.two-col h3{font-family:var(--serif);font-size:24px;margin-bottom:12px;}
+.two-col h3.warn{color:var(--danger);}
+.two-col h3.ok{color:var(--ok);}
+.two-col ul{list-style:none;}
+.two-col li{padding:8px 0;font-size:14.5px;line-height:1.5;color:var(--ink-soft);border-bottom:1px dashed var(--line);}
+
+.callout{margin-top:24px;padding:24px 28px;border-left:4px solid var(--accent);background:var(--surface);border-radius:0 8px 8px 0;}
+.callout--danger{border-color:var(--danger);background:#FBF1EE;}
+.callout--warn{border-color:var(--warn);background:#FBF6E9;}
+.callout strong{display:block;font-family:var(--serif);font-size:20px;margin-bottom:6px;font-style:italic;}
+.callout.callout--danger strong{color:var(--danger);}
+.callout.callout--warn strong{color:var(--warn);}
+.callout p{font-size:14.5px;line-height:1.6;color:var(--ink-soft);}
+
+.case{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+.case-head{background:var(--bg2);padding:16px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px;}
+.case-head-num{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;}
+.case-head-title{font-family:var(--serif);font-size:24px;font-style:italic;}
+.case-body{padding:22px 26px;}
+.case-row{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px;line-height:1.55;}
+.case-row:last-child{border-bottom:0;}
+.case-row dt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;padding-top:2px;}
+.case-row dd{color:var(--ink);}
+
+.timeline{margin-top:18px;display:flex;flex-direction:column;gap:0;}
+.timeline-row{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:14px 0;border-bottom:1px solid var(--line);}
+.timeline-row:last-child{border-bottom:0;}
+.timeline-when{font-family:var(--serif);font-size:20px;font-style:italic;color:var(--accent);}
+.timeline-what{font-size:14.5px;line-height:1.6;color:var(--ink);}
+
+.takeaways{counter-reset:t;margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.takeaway{counter-increment:t;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 24px;display:flex;gap:18px;align-items:flex-start;}
+.takeaway::before{content:counter(t,decimal-leading-zero);font-family:var(--serif);font-size:32px;font-style:italic;color:var(--accent);line-height:1;flex-shrink:0;}
+.takeaway-text{font-size:14.5px;line-height:1.55;}
+.takeaway-text strong{display:block;font-family:var(--serif);font-size:18px;font-style:italic;margin-bottom:4px;color:var(--ink);}
+
+/* TEST */
+.quiz{margin-top:14px;}
+.quiz-q{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 26px;margin-bottom:14px;}
+.quiz-q-num{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:8px;}
+.quiz-q-text{font-family:var(--serif);font-size:21px;line-height:1.3;margin-bottom:16px;}
+.quiz-opts{display:flex;flex-direction:column;gap:8px;}
+.quiz-opt{padding:12px 16px;border:1px solid var(--line);border-radius:8px;cursor:pointer;font-size:14.5px;line-height:1.45;transition:border-color .15s,background .15s;display:flex;gap:12px;align-items:flex-start;}
+.quiz-opt:hover{border-color:var(--accent-soft);background:var(--bg);}
+.quiz-opt-letter{font-family:var(--serif);font-style:italic;color:var(--accent);font-size:18px;min-width:18px;}
+.quiz-opt.selected{border-color:var(--accent);background:var(--bg2);}
+.quiz-opt.correct{border-color:var(--ok);background:#F0F4EC;}
+.quiz-opt.wrong{border-color:var(--danger);background:#FBF1EE;}
+.quiz-submit{margin-top:18px;padding:14px 28px;background:var(--ink);color:var(--bg);border:0;border-radius:999px;font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;letter-spacing:.04em;}
+.quiz-submit:hover{background:var(--accent-dark);}
+.quiz-score{margin-top:18px;padding:18px 24px;background:var(--bg2);border-radius:10px;font-family:var(--serif);font-size:22px;font-style:italic;}
+
+/* CLOSING */
+.slide--closing{text-align:center;align-items:center;}
+.slide--closing .slide-inner{text-align:center;}
+.slide--closing .slide-h2{font-size:56px;margin-bottom:20px;}
+.slide--closing .slide-lead{margin:0 auto 28px;}
+.refs{margin-top:24px;font-size:12px;color:var(--muted);text-align:left;max-width:760px;margin-left:auto;margin-right:auto;line-height:1.6;}
+.refs strong{color:var(--ink-soft);}
+
+/* Chrome (top bar + bottom nav) sigue siendo responsive porque NO se escala */
+@media (max-width:780px){
+  .deck-top,.deck-bottom{padding:10px 14px;}
+  .deck-top-eyebrow{font-size:9px;letter-spacing:.18em;}
+  .deck-top-counter{font-size:14px;}
+  .deck-btn{width:36px;height:36px;font-size:16px;}
+  .deck-progress{padding:0 10px;}
+  .deck-dot{width:18px;}
+}
+</style>
+</head>
+</head>
+<body>
+<div class="deck">
+  <header class="deck-top">
+    <span class="deck-top-eyebrow">PRECISSA · Laminado y henna · Estética Facial Avanzada</span>
+    <span class="deck-top-counter"><span id="cur">01</span> <span style="color:var(--line-strong)">/</span> <span id="tot">20</span></span>
+  </header>
+
+  <main class="deck-stage" id="stage">
+    <div class="deck-stage-inner" id="stage-inner">
+
+    <!-- 01 · COVER -->
+    <section class="slide slide--cover active">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Curso 22 · Profesional · 36 horas</div>
+        <h1 class="slide-h1">Laminado<br><em>y henna</em></h1>
+        <p class="slide-lead">Reestructurar el pelo y pigmentarlo: ceja poblada, peinada y definida durante semanas, con seguridad química, cromática y dermatológica.</p>
+        <div class="slide-cover-meta">
+          <div class="slide-cover-meta-item"><span class="slide-cover-meta-k">Nivel</span><span class="slide-cover-meta-v">Profesional</span></div>
+          <div class="slide-cover-meta-item"><span class="slide-cover-meta-k">Duración</span><span class="slide-cover-meta-v">12 h teoría + 24 h práctica</span></div>
+          <div class="slide-cover-meta-item"><span class="slide-cover-meta-k">Modalidad</span><span class="slide-cover-meta-v">Presencial + aula virtual</span></div>
+          <div class="slide-cover-meta-item"><span class="slide-cover-meta-k">Categoría</span><span class="slide-cover-meta-v">Estética Facial Avanzada</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 · QUÉ SON -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">De qué van</div>
+        <h2 class="slide-h2">Reestructurar <em>y pigmentar.</em></h2>
+        <p class="slide-lead">El <strong>laminado</strong> reordena los enlaces de la queratina para dejar el pelo hacia arriba (efecto brushed-up, 4-6 sem). La <strong>henna</strong> pigmenta pelo y piel a la vez (1-2 sem en piel, 4-8 en pelo): la alternativa natural a la micropigmentación.</p>
+        <ul class="bullets bullets--plain">
+          <li><strong>Las dos son químicamente activas</strong> · no son un cosmético inofensivo; mal hechas, queman o sensibilizan</li>
+          <li><strong>El patch test no es opcional</strong> · obligatorio en clienta nueva y al cambiar de marca o de lote</li>
+          <li><strong>La henna negra con PPD está absolutamente prohibida</strong> · no se usa, no se enseña, no se acepta</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 03 · LA CEJA POR DENTRO -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Fundamentos · biología</div>
+        <h2 class="slide-h2">La ceja <em>por dentro.</em></h2>
+        <ul class="bullets bullets--plain">
+          <li><strong>250-500 pelos terminales cortos</strong> · folículo oblicuo; el laminado redirige la dirección natural, no se la inventa</li>
+          <li><strong>Ciclo del pelo</strong> · crecimiento 30-45 días, transición 2-3 sem, reposo 100-120 días (~4 meses)</li>
+          <li><strong>Por eso dura 4-6 semanas</strong> · cuando el pelo se renueva, se acabó el efecto del laminado</li>
+        </ul>
+        <div class="callout callout--warn">
+          <strong>El párpado quema con facilidad</strong>
+          <p>La piel del párpado superior es muy fina. La lifting cream del laminado sobre el párpado quema con facilidad: no la dejes tocar esa zona.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · QUÍMICA DEL LAMINADO -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Fundamentos · química del laminado</div>
+        <h2 class="slide-h2">Romper, fijar, <em>rehidratar.</em></h2>
+        <ul class="bullets">
+          <li><strong>Paso 1 · lifting cream (reductor)</strong> · tioglicolato de amonio 4-8%, pH 8,5-9,5. Rompe los enlaces disulfuro y deja el pelo blando para aceptar la nueva posición</li>
+          <li><strong>Paso 2 · neutralizador (oxidante)</strong> · agua oxigenada 1,5-3% o bromato sódico. Cierra los puentes en la nueva posición. Tiempo igual o algo mayor que el paso 1</li>
+          <li><strong>Paso 3 · queratina</strong> · con aminoácidos y aceites (argán, jojoba, ricino). Rehidrata el pelo. No te lo saltes</li>
+        </ul>
+        <p class="slide-meta" style="margin-top:12px">La queratina se mantiene rígida por los enlaces disulfuro (uniones azufre-azufre). Todo el laminado consiste en romperlos y volver a cerrarlos en otra dirección.</p>
+      </div>
+    </section>
+
+    <!-- 05 · QUÍMICA DE LA HENNA -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Fundamentos · química de la henna</div>
+        <h2 class="slide-h2">La lawsona <em>tiñe de verdad.</em></h2>
+        <p class="slide-lead">La <strong>lawsona</strong> (pigmento activo de la <em>Lawsonia inermis</em>) se une de forma estable a la queratina del pelo y a las células de la piel: es una tinción química real, que dura hasta que esa proteína se renueva.</p>
+        <ul class="bullets bullets--plain">
+          <li><strong>Color natural naranja-cobrizo</strong> · las hennas profesionales añaden óxidos de hierro, índigo y taninos para marrones, fríos, taupe</li>
+          <li><strong>Henna vs tinte oxidativo</strong> · la henna pigmenta pelo Y piel; el tinte (toluendiamina + peróxido), solo el pelo</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 06 · HENNA NEGRA / PPD -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">La línea roja</div>
+        <h2 class="slide-h2">Henna negra: <em>nunca.</em></h2>
+        <div class="callout callout--danger">
+          <strong>PPD al 10-40%: prohibición taxativa</strong>
+          <p>La "henna negra" adulterada lleva parafenilendiamina. Provoca alergia tipo IV con dermatitis y ampollas, y deja una sensibilización cruzada permanente con tintes capilares, sulfonamidas, anestésicos tipo éster y filtros con PABA.</p>
+        </div>
+        <p class="slide-lead" style="margin-top:18px">En cejas está prohibida: concentración fuera del límite europeo, la zona del ojo absorbe al máximo y el daño es irreversible.</p>
+        <p class="slide-meta">En este curso no se utiliza, no se enseña y no se acepta.</p>
+      </div>
+    </section>
+
+    <!-- 07 · TABLA COMPARATIVA -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Tres técnicas de un vistazo</div>
+        <h2 class="slide-h2">Cada una, <em>su química.</em></h2>
+        <table class="tbl">
+          <thead><tr><th></th><th>Laminado</th><th>Henna</th><th>Tinte oxidativo</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Activo</strong></td><td>Tioglicolato + peróxido</td><td>Lawsona + modificadores</td><td>Toluendiamina + peróxido</td></tr>
+            <tr><td><strong>Pigmenta pelo / piel</strong></td><td>No / No</td><td>Sí / Sí (1-2 sem)</td><td>Sí / No</td></tr>
+            <tr><td><strong>¿Reestructura?</strong></td><td>Sí</td><td>No</td><td>No</td></tr>
+            <tr><td><strong>Duración en pelo</strong></td><td>4-6 sem</td><td>4-8 sem</td><td>4-6 sem</td></tr>
+            <tr><td><strong>Sesión</strong></td><td>45-60 min</td><td>30-45 min</td><td>15-25 min</td></tr>
+            <tr><td><strong>Riesgo principal</strong></td><td>Quemadura química</td><td>Sensibilización</td><td>Sensibilización</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 08 · INDICACIONES -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Para quién sí</div>
+        <h2 class="slide-h2">Indicaciones <em>por técnica.</em></h2>
+        <table class="tbl">
+          <thead><tr><th>Opción</th><th>Cuándo</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Solo laminado</strong></td><td>Cejas pobladas pero despeinadas; cejas planas que buscan volumen vertical (+1-2 mm)</td></tr>
+            <tr><td><strong>Solo henna</strong></td><td>Cejas claras con densidad; zonas despobladas (sobre-depilación, alopecia estable, post-quimio); alternativa o prueba de tono previa a la micropigmentación</td></tr>
+            <tr><td><strong>Combinado</strong></td><td>Ceja despeinada y poco poblada; el paso 1 del laminado mejora la captación del color</td></tr>
+            <tr><td><strong>Post-microblading</strong></td><td>Desvanecido, entre retoques (henna con precauciones)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 09 · CONTRAINDICACIONES -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Cuándo NO tratar</div>
+        <h2 class="slide-h2">Esto va <em>en serio.</em></h2>
+        <div class="two-col">
+          <div>
+            <h3 class="warn">Comunes a ambas</h3>
+            <ul>
+              <li>Dermatitis, eccema o psoriasis en la ceja</li>
+              <li>Herpes activo; foliculitis o infección local</li>
+              <li>Heridas o erosiones en la zona</li>
+              <li>Cirugía ocular reciente; bótox &lt;14 días</li>
+              <li>Isotretinoína oral (en curso o &lt;6 meses)</li>
+              <li>Quimio/radio activa; peeling facial &lt;14 días</li>
+              <li>Embarazo y lactancia (criterio conservador)</li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="color:var(--warn)">Específicas</h3>
+            <ul>
+              <li><strong>Laminado:</strong> alergia al tioglicolato o patch test +</li>
+              <li><strong>Laminado:</strong> pelo muy fino (riesgo de rotura)</li>
+              <li><strong>Laminado:</strong> microblading &lt;4 semanas</li>
+              <li><strong>Henna:</strong> alergia a lawsona/índigo o patch +</li>
+              <li><strong>Henna:</strong> antecedente de reacción a henna negra</li>
+              <li><strong>Henna:</strong> microblading &lt;4-6 semanas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 · PATCH TEST -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">No es negociable</div>
+        <h2 class="slide-h2">El patch test <em>obligatorio.</em></h2>
+        <ul class="bullets">
+          <li><strong>Dónde</strong> · pliegue detrás de la oreja o cara interna del antebrazo</li>
+          <li><strong>Cuánto</strong> · 5 min (laminado) o 15 min (henna); retira con agua y jabón suave</li>
+          <li><strong>Lectura</strong> · evalúa a las 24, 48 y 72 h</li>
+          <li><strong>Si es positivo</strong> · eritema, picor, ampollas o edema = contraindicación absoluta de esa formulación; documéntalo y entrega indicación por escrito</li>
+        </ul>
+        <p class="slide-meta" style="margin-top:12px">Obligatorio en clienta nueva y siempre que cambies de marca o de lote.</p>
+      </div>
+    </section>
+
+    <!-- 11 · SECCIÓN · PROTOCOLO -->
+    <section class="slide slide--section">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Parte II</div>
+        <h1 class="slide-h1">El protocolo,<br><em>paso a paso.</em></h1>
+      </div>
+    </section>
+
+    <!-- 12 · PROTOCOLO LAMINADO -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Laminado · 45-60 min</div>
+        <h2 class="slide-h2">Las fases del <em>laminado.</em></h2>
+        <ul class="bullets bullets--plain">
+          <li><strong>Limpieza sin aceites</strong> · cualquier resto graso impide que el pelo se adhiera</li>
+          <li><strong>Pegamento + cepillado enérgico</strong> · fija cada pelo hacia arriba; aquí se decide el resultado</li>
+          <li><strong>Paso 1 · tioglicolato</strong> · capa fina, 8-12 min según grosor; que no toque el párpado. Retira en seco</li>
+          <li><strong>Paso 2 · neutralizador</strong> · mismo patrón, tiempo igual o algo mayor. Retira en seco</li>
+          <li><strong>Paso 3 · queratina</strong> · con generosidad, masaje suave, no la retires. Limpieza, peinado y depilación residual</li>
+        </ul>
+        <div class="callout callout--danger">
+          <strong>Cronometra siempre</strong>
+          <p>El tiempo de los pasos 1 y 2 separa un buen laminado de una quemadura química. Usa un temporizador independiente, no calcules a ojo. En primeriza, pelo fino o piel sensible, extremo bajo del rango.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13 · PROTOCOLO HENNA -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Henna · 30-45 min</div>
+        <h2 class="slide-h2">Las fases de la <em>henna.</em></h2>
+        <ul class="bullets bullets--plain">
+          <li><strong>Anamnesis y elección del tono</strong> · según subtono de piel, cabello y fototipo; patch test verificado</li>
+          <li><strong>Limpieza sin aceites</strong> · un resto graso da tinción a manchas</li>
+          <li><strong>Mapeo</strong> · marca contorno, zonas a rellenar, inicio, arco y cola; es lo que distingue a una profesional formada</li>
+          <li><strong>Aplicar con pincel angulado</strong> · cubriendo pelo y piel; empieza por la cola (más exposición), termina por la cabeza</li>
+          <li><strong>Dejar actuar 10-25 min</strong> · más tiempo = más oscuro en piel; en la primera, extremo bajo</li>
+        </ul>
+        <div class="callout callout--danger">
+          <strong>Retirada en SECO</strong>
+          <p>Con bastoncillo seco, sin frotar, sin agua; sella con jojoba. El error de principiante más común: el agua arrastra la lawsona antes de que la unión con la piel se estabilice.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14 · COMBINADO -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Lo mejor de cada una</div>
+        <h2 class="slide-h2">Combinado: laminado <em>+ henna.</em></h2>
+        <p class="slide-lead">Orden correcto: <strong>primero el laminado, después la henna</strong>, metiéndola entre los pasos 9 y 11 del laminado. El paso 1 abre la cutícula y mejora la captación del color; si sellaras con queratina antes, el color no entraría.</p>
+        <ul class="bullets">
+          <li>Pasos 1-9 del laminado completos</li>
+          <li>Henna con pincel según el diseño, <strong>tiempo reducido a 5-10 min</strong> (cutícula abierta capta más rápido)</li>
+          <li>Retirar la henna con bastoncillo seco</li>
+          <li>Queratina con suavidad; limpieza final con gasa apenas húmeda y peinado</li>
+        </ul>
+        <p class="slide-meta" style="margin-top:10px">Duración total: 55-70 min.</p>
+      </div>
+    </section>
+
+    <!-- 15 · CASO 1 -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Caso clínico 1</div>
+        <h2 class="slide-h2">Pobladas pero despeinadas <em>· 28 años.</em></h2>
+        <div class="case">
+          <div class="case-head">
+            <span class="case-head-num">Caso 01 · Combinado</span>
+            <span class="case-head-title">Fototipo III, subtono neutro-cálido</span>
+          </div>
+          <div class="case-body">
+            <dl class="case-row"><dt>Punto de partida</dt><dd>Cejas pobladas pero despeinadas y claras; sin contraindicaciones; patch test negativo a las 48 h.</dd></dl>
+            <dl class="case-row"><dt>Plan</dt><dd>Laminado + henna marrón medio. Paso 1 10 min (pelo medio), paso 2 igual, henna marrón medio 8 min, queratina abundante.</dd></dl>
+            <dl class="case-row"><dt>A las 24 h</dt><dd>Ceja peinada y pigmentada, efecto "maquillado".</dd></dl>
+            <dl class="case-row"><dt>A los 21 días</dt><dd>El tono de la piel se ha desvanecido en parte; el pelo mantiene color y dirección. Próxima sesión a las 6 semanas.</dd></dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 16 · CASO 2 -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Caso clínico 2</div>
+        <h2 class="slide-h2">Sobre-depiladas de siempre <em>· 45 años.</em></h2>
+        <div class="case">
+          <div class="case-head">
+            <span class="case-head-num">Caso 02 · Henna sola</span>
+            <span class="case-head-title">Rechaza el microblading; fototipo II, subtono frío</span>
+          </div>
+          <div class="case-body">
+            <dl class="case-row"><dt>Punto de partida</dt><dd>Cabeza casi inexistente, cuerpo fino, cola apenas perceptible; cabello castaño con canas. Patch test negativo.</dd></dl>
+            <dl class="case-row"><dt>Plan</dt><dd>Henna sola, marrón frío. Mapeo cuidadoso (cabeza más ancha, cuerpo definido, cola hasta el punto biométrico). Pincel angulado sobre las zonas vacías; actuar 18 min; retirar en seco; sellar con jojoba.</dd></dl>
+            <dl class="case-row"><dt>Evolución</dt><dd>A las 24 h, "cejas maquilladas permanentes"; a los 10 días se desvanece el tono de la piel; a las 3 semanas, piel basal con pigmento en los pelos.</dd></dl>
+            <dl class="case-row"><dt>Seguimiento</dt><dd>Próxima sesión a las 4 semanas, con opción de combinado después.</dd></dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 17 · AFTERCARE -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Qué decirle para casa</div>
+        <h2 class="slide-h2">El cuidado <em>posterior.</em></h2>
+        <div class="timeline">
+          <div class="timeline-row"><div class="timeline-when">12 h</div><div class="timeline-what">Henna: no mojar. Laminado: no mojar ni maquillar (poros abiertos).</div></div>
+          <div class="timeline-row"><div class="timeline-when">24 h</div><div class="timeline-what">No maquillaje en la zona.</div></div>
+          <div class="timeline-row"><div class="timeline-when">48 h</div><div class="timeline-what">Nada de sauna, baño turco ni sudoración; no frotar.</div></div>
+          <div class="timeline-row"><div class="timeline-when">5-7 días</div><div class="timeline-what">Henna: jojoba 1×/día, no exfoliar, nada con aceite. Laminado: queratina por la noche y cepillado diario.</div></div>
+          <div class="timeline-row"><div class="timeline-when">Diario</div><div class="timeline-what">Fotoprotección que incluya las cejas (el sol degrada la lawsona).</div></div>
+        </div>
+        <p class="slide-meta" style="margin-top:10px">La henna puede manchar ropa o almohada las primeras 12-24 h. En el combinado, aplica el aftercare más restrictivo de los dos.</p>
+      </div>
+    </section>
+
+    <!-- 18 · COMPLICACIONES -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Cuando algo se tuerce</div>
+        <h2 class="slide-h2">Detectar, parar, <em>derivar.</em></h2>
+        <table class="tbl">
+          <thead><tr><th>Signo</th><th>Qué haces</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Quemazón/ampollas tras el paso 1</strong></td><td>Suspender, lavar con suero o agua fría, centella + pantenol 5%, frío local; derivar si ampollas, dolor fuerte o párpado afectado. Documenta lote y tiempo</td></tr>
+            <tr><td><strong>Eritema/picor 24-72 h tras henna</strong></td><td>Alergia tipo IV: retirar en seco, lavar frío, compresas + centella; derivar al médico; contraindicación permanente; avisar de la sensibilización cruzada</td></tr>
+            <tr><td><strong>Tinción de piel excesiva</strong></td><td>Agua micelar en las primeras horas; ácido láctico 5% desde el día 5; próxima vez −5 min o un tono más claro</td></tr>
+            <tr><td><strong>Pelo quebradizo tras laminado</strong></td><td>Queratina 2×/día 14 días, ricino de noche, no repetir en 6-8 semanas, reducir tiempos</td></tr>
+            <tr><td><strong>Asimetría tras laminado</strong></td><td>Corregir antes del paso 2; ya neutralizado, esperar a la renovación del pelo; retoque a las 4 semanas</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 19 · TAKEAWAYS -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Resumen</div>
+        <h2 class="slide-h2">Lo que <em>no se olvida.</em></h2>
+        <div class="takeaways">
+          <div class="takeaway"><div class="takeaway-text"><strong>Química activa.</strong>Laminado y henna no son cosmética inofensiva: mal hechas, queman o sensibilizan.</div></div>
+          <div class="takeaway"><div class="takeaway-text"><strong>Cronometra el laminado.</strong>Los pasos 1 y 2 con temporizador independiente; en duda, extremo bajo del rango.</div></div>
+          <div class="takeaway"><div class="takeaway-text"><strong>Henna en seco.</strong>Retira con bastoncillo seco, sin agua; el agua arrastra la lawsona aún no fijada.</div></div>
+          <div class="takeaway"><div class="takeaway-text"><strong>Patch test siempre.</strong>Clienta nueva o cambio de marca/lote; lectura a las 24, 48 y 72 h.</div></div>
+          <div class="takeaway"><div class="takeaway-text"><strong>Henna negra, jamás.</strong>El PPD sensibiliza de por vida y está fuera del límite europeo en cejas.</div></div>
+          <div class="takeaway"><div class="takeaway-text"><strong>Combinado: laminado y luego henna.</strong>La cutícula abierta capta color; reduce la henna a 5-10 min.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 20 · CIERRE -->
+    <section class="slide slide--closing">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Fin de la lección</div>
+        <h2 class="slide-h2">Laminado y henna · <em>con seguridad.</em></h2>
+        <p class="slide-lead">Has cubierto la química de ambas técnicas, las indicaciones y contraindicaciones, el patch test, los protocolos de laminado, henna y combinado, dos casos clínicos, el aftercare y el manejo de complicaciones.</p>
+        <p class="slide-meta">El éxito se decide en lo de siempre: cronometrar los pasos, retirar la henna en seco, hacer el patch test sin excepciones y no acercarte jamás a la henna negra con PPD.</p>
+        <div class="refs">
+          <strong>Referencias seleccionadas ·</strong> Reglamento (CE) 1223/2009 sobre productos cosméticos (tioglicolatos, peróxido de hidrógeno, colorantes oxidativos) · ECHA (perfil toxicológico de los tioglicolatos en cosmética) · Sociedad Europea de Dermatitis de Contacto (consenso sobre PPD, patch test y sensibilización) · Lawsonia inermis (mecanismo de la lawsona y modificadores cromáticos) · Documentación técnica de fabricantes europeos de brow lamination y brow henna · Guías de buena praxis en estética avanzada (patch test, consentimiento, trazabilidad).
+        </div>
+      </div>
+    </section>
+
+    </div><!-- /deck-stage-inner -->
+  </main>
+
+  <footer class="deck-bottom">
+    <button class="deck-btn" id="prev" aria-label="Anterior">←</button>
+    <div class="deck-progress" id="dots"></div>
+    <button class="deck-btn" id="next" aria-label="Siguiente">→</button>
+  </footer>
+</div>
+
+<script>
+(function(){
+  const stage=document.getElementById('stage');
+  const stageInner=document.getElementById('stage-inner');
+  function fitDeck(){
+    if(!stage||!stageInner)return;
+    const w=stage.clientWidth;const h=stage.clientHeight;
+    if(w<=0||h<=0)return;
+    const scale=Math.min(w/1280,h/720);
+    stageInner.style.transform='scale('+scale+')';
+  }
+  window.addEventListener('resize',fitDeck);
+  window.addEventListener('orientationchange',()=>setTimeout(fitDeck,100));
+  document.addEventListener('fullscreenchange',()=>setTimeout(fitDeck,50));
+  if(window.ResizeObserver){try{new ResizeObserver(fitDeck).observe(stage);}catch(e){}}
+  setTimeout(fitDeck,0);setTimeout(fitDeck,150);
+
+  const slides=document.querySelectorAll('.slide');
+  const dotsHost=document.getElementById('dots');
+  const prevBtn=document.getElementById('prev');
+  const nextBtn=document.getElementById('next');
+  const curEl=document.getElementById('cur');
+  const totEl=document.getElementById('tot');
+  let i=0;
+  totEl.textContent=String(slides.length).padStart(2,'0');
+  slides.forEach((s,idx)=>{
+    const d=document.createElement('div');
+    d.className='deck-dot'+(idx===0?' active':'');
+    d.onclick=()=>go(idx);
+    dotsHost.appendChild(d);
+  });
+  function go(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,idx)=>s.classList.toggle('active',idx===i));
+    dotsHost.querySelectorAll('.deck-dot').forEach((d,idx)=>d.classList.toggle('active',idx===i));
+    curEl.textContent=String(i+1).padStart(2,'0');
+    prevBtn.disabled=(i===0);
+    nextBtn.disabled=(i===slides.length-1);
+    const active=slides[i];if(active)active.scrollTop=0;
+  }
+  prevBtn.onclick=()=>go(i-1);
+  nextBtn.onclick=()=>go(i+1);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' ')go(i+1);
+    if(e.key==='ArrowLeft'||e.key==='PageUp')go(i-1);
+    if(e.key==='Home')go(0);
+    if(e.key==='End')go(slides.length-1);
+  });
+  go(0);
+
+})();
+</script>
+</body>
+</html>
