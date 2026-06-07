@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRECISSA INSTITUTE · IPL Fotorejuvenecimiento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5EDE3; --bg2:#EDE2D2; --surface:#FFFFFF;
+  --ink:#241D17; --ink-soft:#5C4E42; --muted:#8C7B6D;
+  --accent:#B66E3A; --accent-dark:#8A4F25; --accent-soft:#D9A876;
+  --line:#E0D4C2; --line-strong:#C9B89E;
+  --danger:#A83D2C; --warn:#C68B2F; --ok:#5C7A4E;
+  --serif:'Instrument Serif',serif; --sans:'Manrope',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;overflow:hidden;}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;}
+
+/* ─── DECK SHELL ─────────────────────────────────────── */
+.deck{position:fixed;inset:0;display:flex;flex-direction:column;}
+.deck-top{display:flex;justify-content:space-between;align-items:center;padding:18px 32px;border-bottom:1px solid var(--line);background:var(--bg);}
+.deck-top-eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;}
+.deck-top-counter{font-family:var(--serif);font-size:18px;color:var(--ink-soft);font-feature-settings:"tnum";}
+.deck-stage{flex:1;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.deck-stage-inner{position:relative;width:1280px;height:720px;transform-origin:center center;flex-shrink:0;background:var(--bg);}
+.deck-bottom{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;border-top:1px solid var(--line);background:var(--bg);}
+.deck-progress{flex:1;display:flex;gap:4px;justify-content:center;padding:0 24px;flex-wrap:wrap;}
+.deck-dot{width:24px;height:3px;background:var(--line-strong);border-radius:2px;cursor:pointer;transition:background .2s;}
+.deck-dot.active{background:var(--accent);}
+.deck-dot:hover{background:var(--ink-soft);}
+.deck-nav{display:flex;gap:8px;}
+.deck-btn{width:40px;height:40px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;transition:border-color .15s,background .15s;}
+.deck-btn:hover{border-color:var(--accent);background:var(--bg2);}
+.deck-btn:disabled{opacity:.35;cursor:not-allowed;}
+
+/* ─── SLIDE ──────────────────────────────────────────── */
+.slide{position:absolute;inset:0;padding:56px 96px;display:flex;flex-direction:column;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s ease;overflow:hidden;}
+.slide.active{opacity:1;pointer-events:auto;}
+.slide-inner{width:100%;max-width:1100px;margin:0 auto;}
+.slide-eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:18px;}
+.slide-h1{font-family:var(--serif);font-size:64px;line-height:1.02;letter-spacing:-0.02em;margin-bottom:18px;}
+.slide-h1 em{font-style:italic;color:var(--accent);}
+.slide-h2{font-family:var(--serif);font-size:44px;line-height:1.05;letter-spacing:-0.015em;margin-bottom:24px;}
+.slide-h2 em{font-style:italic;color:var(--accent);}
+.slide-lead{font-size:20px;line-height:1.55;color:var(--ink-soft);max-width:780px;margin-bottom:18px;}
+.slide-body{font-size:16px;line-height:1.7;color:var(--ink);max-width:820px;}
+.slide-body p+p{margin-top:14px;}
+.slide-meta{font-size:13px;color:var(--muted);letter-spacing:.04em;}
+
+/* ─── SLIDE TYPES ────────────────────────────────────── */
+.slide--cover{background:linear-gradient(135deg,var(--bg) 0%,var(--bg2) 100%);}
+.slide--cover .slide-h1{font-size:96px;line-height:.95;margin-bottom:24px;}
+.slide--cover .slide-lead{font-size:22px;color:var(--ink);max-width:680px;}
+.slide-cover-meta{margin-top:48px;padding-top:28px;border-top:1px solid var(--line-strong);display:flex;gap:48px;flex-wrap:wrap;}
+.slide-cover-meta-item{display:flex;flex-direction:column;gap:4px;}
+.slide-cover-meta-k{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+.slide-cover-meta-v{font-family:var(--serif);font-size:24px;color:var(--ink);}
+
+.slide--section .slide-h1{font-size:80px;}
+.slide--section .slide-eyebrow{font-size:13px;letter-spacing:.32em;}
+
+.bullets{list-style:none;margin-top:18px;}
+.bullets li{padding:14px 0;border-bottom:1px solid var(--line);font-size:17px;line-height:1.55;display:flex;gap:18px;align-items:baseline;}
+.bullets li:last-child{border-bottom:0;}
+.bullets li::before{content:counter(b,decimal-leading-zero);counter-increment:b;font-family:var(--serif);font-size:18px;font-style:italic;color:var(--accent);min-width:32px;}
+.bullets{counter-reset:b;}
+.bullets--plain li::before{content:"·";font-size:24px;color:var(--accent);font-style:normal;min-width:18px;}
+
+.tbl{width:100%;border-collapse:collapse;font-size:14px;margin-top:14px;background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden;}
+.tbl th{background:var(--bg2);color:var(--ink);text-align:left;padding:14px 18px;font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--line);}
+.tbl td{padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5;}
+.tbl tr:last-child td{border-bottom:0;}
+.tbl tr:hover td{background:var(--bg);}
+.tbl strong{color:var(--accent-dark);}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:24px;}
+.two-col h3{font-family:var(--serif);font-size:24px;margin-bottom:12px;}
+.two-col h3.warn{color:var(--danger);}
+.two-col h3.ok{color:var(--ok);}
+.two-col ul{list-style:none;}
+.two-col li{padding:8px 0;font-size:14.5px;line-height:1.5;color:var(--ink-soft);border-bottom:1px dashed var(--line);}
+
+.callout{margin-top:24px;padding:24px 28px;border-left:4px solid var(--accent);background:var(--surface);border-radius:0 8px 8px 0;}
+.callout--danger{border-color:var(--danger);background:#FBF1EE;}
+.callout--warn{border-color:var(--warn);background:#FBF6E9;}
+.callout strong{display:block;font-family:var(--serif);font-size:20px;margin-bottom:6px;font-style:italic;}
+.callout.callout--danger strong{color:var(--danger);}
+.callout.callout--warn strong{color:var(--warn);}
+.callout p{font-size:14.5px;line-height:1.6;color:var(--ink-soft);}
+
+.case{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+.case-head{background:var(--bg2);padding:16px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px;}
+.case-head-num{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;}
+.case-head-title{font-family:var(--serif);font-size:24px;font-style:italic;}
+.case-body{padding:22px 26px;}
+.case-row{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px;line-height:1.55;}
+.case-row:last-child{border-bottom:0;}
+.case-row dt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;padding-top:2px;}
+.case-row dd{color:var(--ink);}
+
+.timeline{margin-top:18px;display:flex;flex-direction:column;gap:0;}
+.timeline-row{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:14px 0;border-bottom:1px solid var(--line);}
+.timeline-row:last-child{border-bottom:0;}
+.timeline-when{font-family:var(--serif);font-size:20px;font-style:italic;color:var(--accent);}
+.timeline-what{font-size:14.5px;line-height:1.6;color:var(--ink);}
+
+.takeaways{counter-reset:t;margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.takeaway{counter-increment:t;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 24px;display:flex;gap:18px;align-items:flex-start;}
+.takeaway::before{content:counter(t,decimal-leading-zero);font-family:var(--serif);font-size:32px;font-style:italic;color:var(--accent);line-height:1;flex-shrink:0;}
+.takeaway-text{font-size:14.5px;line-height:1.55;}
+.takeaway-text strong{display:block;font-family:var(--serif);font-size:18px;font-style:italic;margin-bottom:4px;color:var(--ink);}
+
+/* TEST */
+.quiz{margin-top:14px;}
+.quiz-q{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 26px;margin-bottom:14px;}
+.quiz-q-num{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:8px;}
+.quiz-q-text{font-family:var(--serif);font-size:21px;line-height:1.3;margin-bottom:16px;}
+.quiz-opts{display:flex;flex-direction:column;gap:8px;}
+.quiz-opt{padding:12px 16px;border:1px solid var(--line);border-radius:8px;cursor:pointer;font-size:14.5px;line-height:1.45;transition:border-color .15s,background .15s;display:flex;gap:12px;align-items:flex-start;}
+.quiz-opt:hover{border-color:var(--accent-soft);background:var(--bg);}
+.quiz-opt-letter{font-family:var(--serif);font-style:italic;color:var(--accent);font-size:18px;min-width:18px;}
+.quiz-opt.selected{border-color:var(--accent);background:var(--bg2);}
+.quiz-opt.correct{border-color:var(--ok);background:#F0F4EC;}
+.quiz-opt.wrong{border-color:var(--danger);background:#FBF1EE;}
+.quiz-submit{margin-top:18px;padding:14px 28px;background:var(--ink);color:var(--bg);border:0;border-radius:999px;font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;letter-spacing:.04em;}
+.quiz-submit:hover{background:var(--accent-dark);}
+.quiz-score{margin-top:18px;padding:18px 24px;background:var(--bg2);border-radius:10px;font-family:var(--serif);font-size:22px;font-style:italic;}
+
+/* CLOSING */
+.slide--closing{text-align:center;align-items:center;}
+.slide--closing .slide-inner{text-align:center;}
+.slide--closing .slide-h2{font-size:56px;margin-bottom:20px;}
+.slide--closing .slide-lead{margin:0 auto 28px;}
+.refs{margin-top:24px;font-size:12px;color:var(--muted);text-align:left;max-width:760px;margin-left:auto;margin-right:auto;line-height:1.6;}
+.refs strong{color:var(--ink-soft);}
+
+/* Chrome (top bar + bottom nav) sigue siendo responsive porque NO se escala */
+@media (max-width:780px){
+  .deck-top,.deck-bottom{padding:10px 14px;}
+  .deck-top-eyebrow{font-size:9px;letter-spacing:.18em;}
+  .deck-top-counter{font-size:14px;}
+  .deck-btn{width:36px;height:36px;font-size:16px;}
+  .deck-progress{padding:0 10px;}
+  .deck-dot{width:18px;}
+}
+</style>
+</head>
+</head>
+<body>
+<div class="deck">
+  <header class="deck-top">
+    <span class="deck-top-eyebrow">PRECISSA · IPL · Electroestética</span>
+    <span class="deck-top-counter"><span id="cur">01</span> <span style="color:var(--line-strong)">/</span> <span id="tot">16</span></span>
+  </header>
+
+  <main class="deck-stage" id="stage">
+    <div class="deck-stage-inner" id="stage-inner">
+
+    <!-- 01 · COVER -->
+    <section class="slide slide--cover active">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Curso 06 · Profesional / Avanzado · 56 horas</div>
+        <h1 class="slide-h1">IPL ·<br><em>fotorejuvenecimiento</em></h1>
+        <p class="slide-lead">Luz pulsada intensa para manchas solares, rojez y vasos finos. Menos agresiva que un láser, pero la línea entre el fotofacial luminoso y la quemadura con mancha es fina.</p>
+        <div class="slide-cover-meta">
+          <div class="slide-cover-meta-item"><span class="slide-cover-meta-k">Nivel</span><span class="slide-cover-meta-v">Prof. / Avanzado</span></div>
+          <div class="slide-cover-meta-item"><span class="slide-cover-meta-k">Duración</span><span class="slide-cover-meta-v">26 h + 30 h</span></div>
+          <div class="slide-cover-meta-item"><span class="slide-cover-meta-k">Modalidad</span><span class="slide-cover-meta-v">Presencial + aula virtual</span></div>
+          <div class="slide-cover-meta-item"><span class="slide-cover-meta-k">Categoría</span><span class="slide-cover-meta-v">Electroestética</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 · POSICIONAMIENTO -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">De qué va esto</div>
+        <h2 class="slide-h2">La IPL <em>no es un láser.</em></h2>
+        <p class="slide-lead">Emite luz de muchas longitudes de onda a la vez (policromática), no concentrada ni dirigida. Su sitio es el fotoenvejecimiento leve-moderado, las manchas solares en piel clara y la rosácea de rojez y vasos. Es moduladora, no curativa.</p>
+        <div class="two-col">
+          <div>
+            <h3 class="ok">La IPL SÍ</h3>
+            <ul>
+              <li>Aclara manchas solares en piel clara</li>
+              <li>Reduce rojez difusa y vasos finos</li>
+              <li>Uniforma la piel y el fotoenvejecimiento leve</li>
+              <li>Modula la rosácea con rojez y vasos</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="warn">La IPL NO</h3>
+            <ul>
+              <li>No es un láser ni se dosifica como tal</li>
+              <li>No trata melasma (lo empeora)</li>
+              <li>No borra arrugas de gesto ni curte la flacidez</li>
+              <li>No cura la rosácea</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · FUNDAMENTOS -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Cómo funciona</div>
+        <h2 class="slide-h2">Fototermólisis <em>selectiva.</em></h2>
+        <ul class="bullets bullets--plain">
+          <li><strong>El cromóforo absorbe</strong> · una estructura que capta luz de un color concreto retiene el calor sin dañar lo de alrededor</li>
+          <li><strong>Tres condiciones</strong> · longitud de onda adecuada + pulso corto + energía suficiente</li>
+          <li><strong>Espectro ancho filtrado</strong> · la IPL gana versatilidad, pierde precisión frente al láser</li>
+          <li><strong>Sus dianas</strong> · melanina de la mancha y hemoglobina del vaso (418/542/577 nm)</li>
+        </ul>
+        <div class="callout">
+          <strong>Versátil, no quirúrgica</strong>
+          <p>Un láser específico (PDL 595 o KTP 532 nm) trata un vaso con más precisión; la IPL es la polivalente. Tratarla como un láser lleva a sobredosis de energía.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · FILTROS -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">La pieza clave del equipo</div>
+        <h2 class="slide-h2">Los <em>filtros.</em></h2>
+        <table class="tbl">
+          <thead><tr><th>Filtro (nm)</th><th>Qué trata</th><th>Fototipos</th></tr></thead>
+          <tbody>
+            <tr><td><strong>515</strong></td><td>Pecas, manchas superficiales, rojez fina</td><td>I-II</td></tr>
+            <tr><td><strong>530-560</strong></td><td>Fotorejuvenecimiento, manchas, vasos finos</td><td>I-III</td></tr>
+            <tr><td><strong>590</strong></td><td>Manchas en FT III, rosácea (mixto)</td><td>II-IV</td></tr>
+            <tr><td><strong>640</strong></td><td>Vasos profundos, vello en piel clara</td><td>III-IV</td></tr>
+            <tr><td><strong>695-755</strong></td><td>Melanina folicular profunda, vello</td><td>IV-V (prudencia)</td></tr>
+          </tbody>
+        </table>
+        <p class="slide-meta" style="margin-top:14px">Regla: a mayor número de filtro, menos absorbe la melanina superficial. Ante la duda, en piel oscura elige el filtro más alto y baja la energía.</p>
+      </div>
+    </section>
+
+    <!-- 05 · INDICACIONES -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Para qué sí</div>
+        <h2 class="slide-h2">Indicaciones y <em>resultado real.</em></h2>
+        <table class="tbl">
+          <thead><tr><th>Indicación</th><th>Resultado realista</th><th>Sesiones</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Manchas solares (lentigos)</strong></td><td>Indicación pigmentaria reina; aclara 50-100% en FT I-III</td><td>1-3</td></tr>
+            <tr><td><strong>Pecas</strong></td><td>Responden muy bien</td><td>1-2</td></tr>
+            <tr><td><strong>Fotorejuvenecimiento global</strong></td><td>Pigmento y rojez mejoran desde la 2.ª-3.ª sesión</td><td>4-6</td></tr>
+            <tr><td><strong>Rosácea (rojez + vasos)</strong></td><td>Coagula vasos, baja rojez; no cura</td><td>4-7 + mant.</td></tr>
+          </tbody>
+        </table>
+        <div class="callout callout--warn">
+          <strong>Las arrugas no son su terreno</strong>
+          <p>Sobre arrugas de gesto no hace nada y sobre las finas, poco. Hay algo de colágeno nuevo entre el 3.er y el 6.º mes, menor que con láser fraccionado o RF con microagujas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 · DIAGNÓSTICO DIFERENCIAL -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">La decisión más importante del curso</div>
+        <h2 class="slide-h2">¿Mancha tratable <em>o melasma?</em></h2>
+        <ul class="bullets bullets--plain">
+          <li><strong>Lentigo (sí)</strong> · marrón uniforme, bordes nítidos, en zonas de mucho sol</li>
+          <li><strong>Melasma (NO)</strong> · pigmentación hormonal, simétrica, en pómulos/frente/labio, empeora con sol y calor</li>
+          <li><strong>Lunares (nevus)</strong> · no son indicación; tratarlos enmascara su evolución → valoración dermatológica</li>
+          <li><strong>Lesión atípica</strong> · asimetría, bordes irregulares, varios colores, &gt;6 mm o que cambió → deriva ya</li>
+        </ul>
+        <div class="callout callout--danger">
+          <strong>El melasma es contraindicación</strong>
+          <p>La IPL activa los melanocitos y puede dejar una mancha post-inflamatoria a veces permanente. Ante la duda, no se trata: se deriva.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 · CONTRAINDICACIONES -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Cuándo NO tratar</div>
+        <h2 class="slide-h2">Esto va <em>en serio.</em></h2>
+        <div class="two-col">
+          <div>
+            <h3 class="warn">No tratar nunca</h3>
+            <ul>
+              <li>Fototipo V-VI y bronceado reciente (4-6 sem)</li>
+              <li>Melasma; lesiones pigmentadas atípicas</li>
+              <li>Embarazo y lactancia</li>
+              <li>Isotretinoína oral (suspender 6 meses)</li>
+              <li>Lupus, porfirias, urticaria solar</li>
+              <li>Infección activa (herpes, foliculitis)</li>
+              <li>Cáncer de piel activo sin alta</li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="color:var(--warn)">Con precaución</h3>
+            <ul>
+              <li>Fototipo IV: filtros altos, energía baja, test patch</li>
+              <li>Fármacos fotosensibilizantes (tetraciclinas, tiazidas)</li>
+              <li>Antecedente de mancha post-inflamatoria</li>
+              <li>Queloides, diabetes mal controlada</li>
+              <li>Vitíligo activo; tatuaje en la zona (local)</li>
+              <li>Marcapasos (valoración previa)</li>
+              <li>Herpes de repetición: profilaxis antiviral</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 · SECCIÓN · PROTOCOLO -->
+    <section class="slide slide--section">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Parte II</div>
+        <h1 class="slide-h1">El protocolo,<br><em>paso a paso.</em></h1>
+      </div>
+    </section>
+
+    <!-- 09 · CONSULTA Y TEST PATCH -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">La sesión más importante</div>
+        <h2 class="slide-h2">Selección y <em>test patch.</em></h2>
+        <ul class="bullets">
+          <li><strong>Entrevista dirigida</strong> · melanoma, melasma, herpes, queloides, fotosensibilidad, embarazo, medicación, sol reciente</li>
+          <li><strong>Exploración</strong> · luz de Wood o dermatoscopio, mapa fotográfico, fototipo Fitzpatrick, componente vascular</li>
+          <li><strong>Diagnóstico diferencial documentado</strong> · descartar melasma y lesiones atípicas; deriva ante cualquier duda</li>
+          <li><strong>Objetivos realistas y consentimiento por escrito</strong> · qué se trata, qué no, sesiones, aftercare</li>
+          <li><strong>Test patch obligatorio</strong> · 2-3 pulsos delante de la oreja, revisión a 48 h; en FT IV alarga a 7-14 días</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 10 · PARÁMETROS -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Ajustar por fototipo</div>
+        <h2 class="slide-h2">Fotorejuvenecimiento <em>facial.</em></h2>
+        <table class="tbl">
+          <thead><tr><th>Parámetro</th><th>FT I-II</th><th>FT III</th><th>FT IV</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Filtro</strong></td><td>515-560 nm</td><td>560-590 nm</td><td>590-640 nm</td></tr>
+            <tr><td><strong>Fluencia (J/cm²)</strong></td><td>15-22</td><td>13-18</td><td>11-15</td></tr>
+            <tr><td><strong>Modo de pulso</strong></td><td>Doble o triple</td><td>Triple</td><td>Triple</td></tr>
+            <tr><td><strong>Duración total</strong></td><td>8-15 ms</td><td>12-20 ms</td><td>15-25 ms</td></tr>
+            <tr><td><strong>Sesiones / intervalo</strong></td><td>4-5 · 3-4 sem</td><td>4-6 · 4 sem</td><td>5-6 · 4-6 sem</td></tr>
+          </tbody>
+        </table>
+        <p class="slide-meta" style="margin-top:12px">Pulsos cortos (3-5 ms) para vasos y manchas pequeñas; largos en fototipos altos. A mayor fototipo, más energía baja, más pulso fraccionado y más enfriamiento.</p>
+      </div>
+    </section>
+
+    <!-- 11 · TÉCNICA Y PUNTO FINAL -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Cómo leer el disparo</div>
+        <h2 class="slide-h2">El punto final <em>correcto.</em></h2>
+        <ul class="bullets bullets--plain">
+          <li><strong>Manchas</strong> · oscurecimiento inmediato, aspecto de "café molido"</li>
+          <li><strong>Vasos / rojez</strong> · el vaso blanquea un instante, ligero enrojecimiento alrededor</li>
+          <li><strong>Global</strong> · enrojecimiento rosado uniforme, calor soportable, sin ampollas ni tono gris</li>
+        </ul>
+        <div class="callout callout--danger">
+          <strong>Para si ves esto</strong>
+          <p>Blanqueamiento gris de la epidermis, ampolla, dolor intenso desproporcionado u olor a quemado. Enfría a fondo, valora y reajusta o suspende la sesión.</p>
+        </div>
+        <p class="slide-meta" style="margin-top:12px">Disparos contiguos con solape del 10-15% en zonas planas, mínimo en curvas. Recorrido sistemático por cuadrantes.</p>
+      </div>
+    </section>
+
+    <!-- 12 · PROTECCIÓN OCULAR -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">La medida más infravalorada</div>
+        <h2 class="slide-h2">Protección ocular: <em>no es opcional.</em></h2>
+        <ul class="bullets">
+          <li><strong>Clienta Y profesional</strong> llevan gafas en todos los disparos, siempre</li>
+          <li><strong>Las gafas deben corresponder al rango del equipo concreto</strong> · unas de láser 1064 nm no protegen de la IPL</li>
+          <li><strong>Nunca dispares dentro del reborde del ojo</strong> sin protector metálico intraocular: la luz atraviesa el párpado y daña retina e iris</li>
+          <li><strong>Revisa las gafas en cada sesión</strong> · rayas, golpes o filtros agrietados las invalidan</li>
+        </ul>
+        <div class="callout callout--warn">
+          <strong>La mayor fuente de accidentes documentados</strong>
+          <p>Una reacción ocular (dolor, fotofobia, visión borrosa) es urgencia oftalmológica el mismo día: las lesiones de retina e iris pueden ser irreversibles.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13 · CASOS CLÍNICOS -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Casos clínicos</div>
+        <h2 class="slide-h2">Tres perfiles <em>reales.</em></h2>
+        <div class="case">
+          <div class="case-head">
+            <span class="case-head-num">Caso 01 · Mancha solar · FT II</span>
+            <span class="case-head-title">Lentigo en dorso nasal, 47 años</span>
+          </div>
+          <div class="case-body">
+            <dl class="case-row"><dt>Plan</dt><dd>2 sesiones IPL focal, filtro 515 nm, 20 J/cm², single 3 ms, cada 4 sem. Test patch 48 h antes.</dd></dl>
+            <dl class="case-row"><dt>Evolución</dt><dd>Oscurecimiento inmediato, microcostra al día 4, caída al día 10; aclaramiento del 85% a las 4 sem.</dd></dl>
+            <dl class="case-row"><dt>Resultado</dt><dd>Aclaramiento casi completo a 3 meses. Mantenimiento: SPF 50+ diario, revisión anual.</dd></dl>
+          </div>
+        </div>
+        <p class="slide-meta" style="margin-top:10px">Caso 02 · rosácea FT II: 5 sesiones, filtro 560 nm, doble 4+4 ms; mantiene metronidazol; mantenimiento de por vida. · Caso 03 · fotorejuvenecimiento global FT III: filtro 590 nm, triple 18 ms; pigmento y vasos mejoran, las arrugas finas no (informado en consulta).</p>
+      </div>
+    </section>
+
+    <!-- 14 · AFTERCARE -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Qué decirle para casa</div>
+        <h2 class="slide-h2">El día a día <em>tras el disparo.</em></h2>
+        <div class="timeline">
+          <div class="timeline-row"><div class="timeline-when">Día 0</div><div class="timeline-what">Enrojecimiento rosado, calor, "café molido". Compresas frías; sin maquillaje, sauna, deporte ni ducha caliente.</div></div>
+          <div class="timeline-row"><div class="timeline-when">Días 2-3</div><div class="timeline-what">Baja el enrojecimiento; pigmento oscuro. Regenerador y SPF 50+ mineral.</div></div>
+          <div class="timeline-row"><div class="timeline-when">Días 4-7</div><div class="timeline-what">Microcostra fina ("papel de fumar"). <strong>No manipular.</strong> Maquillaje suave si la barrera está íntegra.</div></div>
+          <div class="timeline-row"><div class="timeline-when">Días 7-14</div><div class="timeline-what">Caída espontánea (4-6 sem en cuerpo); piel rosada debajo. Reintroducir cosmética habitual.</div></div>
+          <div class="timeline-row"><div class="timeline-when">Mantenim.</div><div class="timeline-what">SPF 50+ indefinido, despigmentante y antioxidantes; refuerzo según indicación.</div></div>
+        </div>
+        <p class="slide-meta" style="margin-top:10px">SPF 50+ desde la consulta es la medida cosmética más importante del protocolo.</p>
+      </div>
+    </section>
+
+    <!-- 15 · COMPLICACIONES -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Cuando algo se tuerce</div>
+        <h2 class="slide-h2">Detectar, enfriar, <em>derivar.</em></h2>
+        <table class="tbl">
+          <thead><tr><th>Qué aparece</th><th>Qué hago</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Ampolla / costra profunda</strong></td><td>No pinchar; cura oclusiva, antibiótico tópico preventivo; derivar si es extensa; suspender IPL en la zona</td></tr>
+            <tr><td><strong>Quemadura de la epidermis</strong></td><td>Frío intensivo 20 min (no hielo directo); reparadora; fotografiar; derivar</td></tr>
+            <tr><td><strong>Mancha post-inflamatoria</strong></td><td>Despigmentantes; SPF 50+ estricto; suspender; reevaluar el diagnóstico</td></tr>
+            <tr><td><strong>Empeoramiento del melasma</strong></td><td>Suspender IPL definitivamente; derivar; fotoprotección estricta</td></tr>
+            <tr><td><strong>Reacción ocular</strong></td><td>Urgencias oftalmológicas el mismo día; puede ser irreversible</td></tr>
+          </tbody>
+        </table>
+        <p class="slide-meta" style="margin-top:12px">Algoritmo: identificar pronto → enfriar y proteger → derivar si excede la cabina → revisar el incidente y ajustar el protocolo.</p>
+      </div>
+    </section>
+
+    <!-- 16 · CIERRE -->
+    <section class="slide slide--closing">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Fin de la lección</div>
+        <h2 class="slide-h2">IPL · <em>con criterio.</em></h2>
+        <p class="slide-lead">Has cubierto qué es la IPL frente al láser, los filtros, las indicaciones reales, el diagnóstico diferencial mancha-melasma, los parámetros por fototipo, el test patch, la protección ocular, tres casos y el manejo de complicaciones.</p>
+        <p class="slide-meta">Las cifras de energía e intervalos son orientativas: la decisión clínica en cabina es siempre tuya. Ante mancha sospechosa o melasma, deriva antes de tratar.</p>
+        <div class="refs">
+          <strong>Referencias seleccionadas ·</strong> Anderson RR, Parrish JA (Selective photothermolysis, Science 1983) · Babilas P et al. (Intense pulsed light: a review, Lasers Surg Med 2010) · Goldberg DJ (Current trends in IPL, J Clin Aesthet Dermatol 2012) · StatPearls NCBI (IPL Therapy; Rosacea) · Wilkin J et al. (Standard classification of rosacea, JAAD 2002) · Wat H et al. (Application of IPL in dermatologic disease, Dermatol Surg 2014).
+        </div>
+      </div>
+    </section>
+
+    </div><!-- /deck-stage-inner -->
+  </main>
+
+  <footer class="deck-bottom">
+    <button class="deck-btn" id="prev" aria-label="Anterior">←</button>
+    <div class="deck-progress" id="dots"></div>
+    <button class="deck-btn" id="next" aria-label="Siguiente">→</button>
+  </footer>
+</div>
+
+<script>
+(function(){
+  const stage=document.getElementById('stage');
+  const stageInner=document.getElementById('stage-inner');
+  function fitDeck(){
+    if(!stage||!stageInner)return;
+    const w=stage.clientWidth;const h=stage.clientHeight;
+    if(w<=0||h<=0)return;
+    const scale=Math.min(w/1280,h/720);
+    stageInner.style.transform='scale('+scale+')';
+  }
+  window.addEventListener('resize',fitDeck);
+  window.addEventListener('orientationchange',()=>setTimeout(fitDeck,100));
+  document.addEventListener('fullscreenchange',()=>setTimeout(fitDeck,50));
+  if(window.ResizeObserver){try{new ResizeObserver(fitDeck).observe(stage);}catch(e){}}
+  setTimeout(fitDeck,0);setTimeout(fitDeck,150);
+
+  const slides=document.querySelectorAll('.slide');
+  const dotsHost=document.getElementById('dots');
+  const prevBtn=document.getElementById('prev');
+  const nextBtn=document.getElementById('next');
+  const curEl=document.getElementById('cur');
+  const totEl=document.getElementById('tot');
+  let i=0;
+  totEl.textContent=String(slides.length).padStart(2,'0');
+  slides.forEach((s,idx)=>{
+    const d=document.createElement('div');
+    d.className='deck-dot'+(idx===0?' active':'');
+    d.onclick=()=>go(idx);
+    dotsHost.appendChild(d);
+  });
+  function go(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,idx)=>s.classList.toggle('active',idx===i));
+    dotsHost.querySelectorAll('.deck-dot').forEach((d,idx)=>d.classList.toggle('active',idx===i));
+    curEl.textContent=String(i+1).padStart(2,'0');
+    prevBtn.disabled=(i===0);
+    nextBtn.disabled=(i===slides.length-1);
+    const active=slides[i];if(active)active.scrollTop=0;
+  }
+  prevBtn.onclick=()=>go(i-1);
+  nextBtn.onclick=()=>go(i+1);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' ')go(i+1);
+    if(e.key==='ArrowLeft'||e.key==='PageUp')go(i-1);
+    if(e.key==='Home')go(0);
+    if(e.key==='End')go(slides.length-1);
+  });
+  go(0);
+
+})();
+</script>
+</body>
+</html>
