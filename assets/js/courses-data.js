@@ -459,7 +459,9 @@ window.PRECISSA_COURSES = [
     shortDescription: 'Masaje corporal con instrumentos de madera (rodillo cubano, copa sueca, hongo, tabla guitarra). Origen colombiano.',
     description: 'Técnica de masaje con auge reciente y claridad sobre evidencia. Cubre instrumental completo (rodillo cubano, copa sueca, hongo, tabla guitarra, paleta tonificadora, rodillo dentado, copa anti-celulitis) con función específica por instrumento, anatomía del tejido adiposo subcutáneo y celulitis, secuencia (calentamiento → drenaje → modelado → reducción → tonificación → enfriamiento), contraindicaciones (embarazo abdomen, varices severas) y manejo de hematomas frecuentes.',
     sourceDoc: 'docs/cursos/11-maderoterapia.md',
-    lessons: [],
+    lessons: [
+      { id: 'leccion-1', title: 'Maderoterapia · Presentación completa', duration: '50 min', slides: 'assets/cursos/maderoterapia/leccion-1/index.html' }
+    ],
     test: { questions: [] }
   },
   {
