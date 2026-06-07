@@ -142,6 +142,22 @@
     return _uploadPrivate(path, file, 'text/markdown');
   }
 
+  // Sube texto de materia (string) como un .md nuevo y devuelve su ref.
+  async function saveMateriaText(courseId, text) {
+    const blob = new Blob([String(text == null ? '' : text)], { type: 'text/markdown' });
+    const path = safe(courseId) + '/materia-' + Date.now() + '.md';
+    return _uploadPrivate(path, blob, 'text/markdown');
+  }
+
+  // Descarga el TEXTO de una materia (privada o pública) para editarla.
+  async function fetchMateriaText(ref) {
+    if (!ref) return '';
+    const url = await signedUrl(ref, 600);
+    const res = await fetch(url, { cache: 'no-cache' });
+    if (!res.ok) throw new Error('No se pudo leer la materia (HTTP ' + res.status + ').');
+    return await res.text();
+  }
+
   async function uploadSlidePrivate(courseId, lessonId, file) {
     const path = safe(courseId) + '/slides/' + safe(lessonId) + '-' + Date.now() + '.html';
     return _uploadPrivate(path, file, 'text/html');
@@ -163,6 +179,7 @@
   window.courseContent = {
     isConfigured, load, getMap, getOverride, isLoaded,
     isPrivateRef, signedUrl, uploadMateriaPrivate, uploadSlidePrivate,
+    saveMateriaText, fetchMateriaText,
     save, reset, uploadCover, uploadSlide
   };
 })();

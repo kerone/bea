@@ -2957,6 +2957,13 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
               <div class="ce-drop-status" id="ce-materia-status"></div>
             </div>
             <input type="hidden" id="ce-source">
+            <div style="margin-top:10px">
+              <button type="button" class="btn btn-text btn-sm" id="ce-materia-edit-btn" onclick="ceMateriaToggleEdit()">✎ Editar texto de la materia</button>
+              <div id="ce-materia-editor" style="display:none;margin-top:10px">
+                <textarea id="ce-materia-text" class="res-input" rows="16" spellcheck="true" style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.5" placeholder="Cargando…"></textarea>
+                <p class="res-hint" style="margin-top:6px">Edita el texto y pulsa Guardar (abajo). Útil para corregir palabras sueltas sin volver a subir el archivo. El formato es Markdown (## títulos, **negrita**, tablas con |…).</p>
+              </div>
+            </div>
             <p class="res-hint" style="margin-top:8px">La materia se guarda en almacenamiento privado: solo la pueden abrir las alumnas matriculadas en este curso.</p>
           </label>
         </div>
@@ -4461,6 +4468,8 @@ let _ceCoverNewFile = null;
 let _ceCoverCleared = false;
 let _ceCoverUrl     = null;   // portada efectiva actual
 let _ceMateriaNewFile = null; // .md de materia pendiente de subir
+let _ceMateriaTextDirty = false;  // se ha editado el texto en el textarea
+let _ceMateriaTextLoaded = false; // el textarea ya cargó el contenido
 
 function clone(x) { try { return JSON.parse(JSON.stringify(x)); } catch (e) { return x; } }
 
@@ -4486,6 +4495,7 @@ function openCourseEditor(id) {
   document.getElementById('ce-source').value   = course.sourceDoc || '';
   // Materia (archivo .md privado): mostramos su estado actual
   _ceMateriaNewFile = null;
+  ceMateriaResetEditor();
   renderCeMateriaStatus(course.sourceDoc);
   // Categoría
   document.getElementById('ce-category').innerHTML = cats.map(c =>
@@ -4573,6 +4583,47 @@ function ceMateriaDragLeave(el)   { el.classList.remove('drag'); }
 function ceMateriaDrop(e, el) {
   e.preventDefault(); el.classList.remove('drag');
   ceMateriaSetFile(e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]);
+}
+
+// — Edición de la materia como texto plano (para retocar palabras sueltas) —
+function ceMateriaResetEditor() {
+  _ceMateriaTextDirty = false;
+  _ceMateriaTextLoaded = false;
+  const ed = document.getElementById('ce-materia-editor');
+  const ta = document.getElementById('ce-materia-text');
+  const btn = document.getElementById('ce-materia-edit-btn');
+  if (ed) ed.style.display = 'none';
+  if (ta) ta.value = '';
+  if (btn) btn.textContent = '✎ Editar texto de la materia';
+}
+async function ceMateriaToggleEdit() {
+  const ed  = document.getElementById('ce-materia-editor');
+  const ta  = document.getElementById('ce-materia-text');
+  const btn = document.getElementById('ce-materia-edit-btn');
+  if (ed.style.display === 'none') {
+    ed.style.display = '';
+    btn.textContent = '▴ Ocultar editor de texto';
+    if (!_ceMateriaTextLoaded) {
+      const ref = document.getElementById('ce-source').value;
+      if (_ceMateriaNewFile) {
+        ta.value = await _ceMateriaNewFile.text();
+        _ceMateriaTextLoaded = true;
+      } else if (ref) {
+        ta.value = 'Cargando…'; ta.disabled = true;
+        try {
+          ta.value = await window.courseContent.fetchMateriaText(ref);
+        } catch (e) {
+          ta.value = ''; alert('No se pudo cargar la materia para editar: ' + (e && e.message || e));
+        } finally { ta.disabled = false; _ceMateriaTextLoaded = true; }
+      } else {
+        ta.value = ''; _ceMateriaTextLoaded = true;
+      }
+      ta.oninput = function () { _ceMateriaTextDirty = true; };
+    }
+  } else {
+    ed.style.display = 'none';
+    btn.textContent = '✎ Editar texto de la materia';
+  }
 }
 
 // — Lecciones —
@@ -4707,10 +4758,13 @@ async function saveCourseEditor() {
     fields.description      = diff(document.getElementById('ce-desc').value, raw.description);
     fields.category         = diff(document.getElementById('ce-category').value, raw.category);
 
-    // Materia (.md): si se sube un archivo nuevo, va al bucket privado y se
-    // guarda su referencia 'private:'. Si no, se conserva la referencia
-    // actual (vía diff contra el default, igual que el resto de metadatos).
-    if (_ceMateriaNewFile) {
+    // Materia (.md): prioridad → (1) texto editado a mano, (2) archivo
+    // subido, (3) conservar la referencia actual. El texto y el archivo van
+    // al bucket privado y se guarda su referencia 'private:'.
+    if (_ceMateriaTextDirty) {
+      btn.textContent = 'Guardando materia…';
+      fields.sourceDoc = await window.courseContent.saveMateriaText(id, document.getElementById('ce-materia-text').value);
+    } else if (_ceMateriaNewFile) {
       btn.textContent = 'Subiendo materia…';
       fields.sourceDoc = await window.courseContent.uploadMateriaPrivate(id, _ceMateriaNewFile);
     } else {
