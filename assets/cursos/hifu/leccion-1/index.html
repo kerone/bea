@@ -153,7 +153,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:16p
 <div class="deck">
   <header class="deck-top">
     <span class="deck-top-eyebrow">PRECISSA · HIFU · Electroestética</span>
-    <span class="deck-top-counter"><span id="cur">01</span> <span style="color:var(--line-strong)">/</span> <span id="tot">24</span></span>
+    <span class="deck-top-counter"><span id="cur">01</span> <span style="color:var(--line-strong)">/</span> <span id="tot">22</span></span>
   </header>
 
   <main class="deck-stage" id="stage">
@@ -569,18 +569,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:16p
       </div>
     </section>
 
-    <!-- 22 · TEST -->
-    <section class="slide">
-      <div class="slide-inner">
-        <div class="slide-eyebrow">Test discriminativo · 8 preguntas</div>
-        <h2 class="slide-h2">Evaluación.</h2>
-        <div class="quiz" id="quiz">
-          <!-- Inyectado por JS -->
-        </div>
-      </div>
-    </section>
-
-    <!-- 23 · TEST CONTINUACIÓN (placeholder, será llenada por JS) -->
+    <!-- (test movido a su sección) -->
 
     <!-- 24 · CIERRE -->
     <section class="slide slide--closing">
@@ -664,62 +653,6 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:16p
   });
   go(0);
 
-  // ─── QUIZ ──────────────────────────────────────────
-  const questions=[
-    { q:'Para tratar la SMAS facial en una mejilla con buen grosor tisular, la profundidad focal más apropiada es:',
-      opts:['1,5 mm','3,0 mm','4,5 mm','6,0 mm'], c:2 },
-    { q:'Paciente con osteosíntesis maxilofacial con placas de titanio en ángulo mandibular izquierdo, solicita HIFU para línea mandibular y papada:',
-      opts:['Tratar normal · el titanio no interfiere','Tratar con energía reducida en la zona','Considerar implante metálico como contraindicación local · no tratar en zona del implante','Tratar primero el lado derecho y, si va bien, repetir'], c:2 },
-    { q:'La "línea de Pitanguy" entre un punto 0,5 cm por debajo del trago y 1,5-2 cm por encima de la cola de la ceja corresponde a:',
-      opts:['Trayecto superficial de la rama temporal del nervio facial · zona prohibida','Línea ideal para colocar líneas con 4,5 mm','Hito anatómico sin relevancia para HIFU','Límite anatómico de la SMAS facial'], c:0 },
-    { q:'Paciente embarazada de 16 semanas solicita HIFU submentoniano "porque será muy suave". La actitud correcta es:',
-      opts:['Tratar con energía mínima','Esperar al segundo trimestre completo','No tratar · embarazo es contraindicación absoluta','Tratar solo con consentimiento adicional'], c:2 },
-    { q:'El mecanismo principal por el que HIFU produce tensado facial es:',
-      opts:['Quemadura superficial del estrato córneo','Coagulación térmica difusa de la dermis completa','Generación de TCP en planos predeterminados (SMAS) · contracción inmediata + neocolagénesis diferida','Cavitación adipocitaria como única vía'], c:2 },
-    { q:'Paciente acude a las 48h refiriendo "se le ha torcido la sonrisa" tras una sesión de HIFU facial:',
-      opts:['Tranquilizar y citar para revisión en un mes','Reconocer afectación probable de la rama marginal mandibular · derivar a valoración médica sin demora · documentar · informar honestamente','Aplicar HIFU compensatorio en el lado contralateral','Indicar toxina botulínica en el lado sano para igualar'], c:1 },
-    { q:'La cronología del resultado óptimo post-HIFU facial se sitúa típicamente en:',
-      opts:['24 horas','2 semanas','4-6 meses','24 meses'], c:2 },
-    { q:'Sobre la diferencia entre HIFU y lifting quirúrgico cervicofacial:',
-      opts:['HIFU es equivalente no invasivo del lifting · resultados comparables','HIFU induce contracción y neocolagénesis sobre SMAS pero NO reposiciona tejidos · en flacidez severa la indicación es cirugía','HIFU sustituye totalmente al lifting en >60a','El lifting quirúrgico ha quedado obsoleto'], c:1 }
-  ];
-  const quizEl=document.getElementById('quiz');
-  const userAns={};
-  quizEl.innerHTML=questions.map((q,qi)=>`
-    <div class="quiz-q" data-qi="${qi}">
-      <div class="quiz-q-num">Pregunta ${qi+1} / ${questions.length}</div>
-      <div class="quiz-q-text">${q.q}</div>
-      <div class="quiz-opts">
-        ${q.opts.map((o,oi)=>`<div class="quiz-opt" data-oi="${oi}"><span class="quiz-opt-letter">${String.fromCharCode(97+oi)}</span><span>${o}</span></div>`).join('')}
-      </div>
-    </div>
-  `).join('') + `<button class="quiz-submit" id="quiz-submit">Corregir test</button><div id="quiz-score"></div>`;
-  quizEl.querySelectorAll('.quiz-opt').forEach(opt=>{
-    opt.addEventListener('click',()=>{
-      const qi=+opt.closest('.quiz-q').dataset.qi;
-      const oi=+opt.dataset.oi;
-      userAns[qi]=oi;
-      opt.parentElement.querySelectorAll('.quiz-opt').forEach(o=>o.classList.remove('selected'));
-      opt.classList.add('selected');
-    });
-  });
-  document.getElementById('quiz-submit').addEventListener('click',()=>{
-    let ok=0;
-    questions.forEach((q,qi)=>{
-      const correct=q.c;
-      const chosen=userAns[qi];
-      const qNode=quizEl.querySelector(`.quiz-q[data-qi="${qi}"]`);
-      qNode.querySelectorAll('.quiz-opt').forEach(opt=>{
-        const oi=+opt.dataset.oi;
-        opt.classList.remove('selected');
-        if(oi===correct)opt.classList.add('correct');
-        if(chosen===oi&&chosen!==correct)opt.classList.add('wrong');
-      });
-      if(chosen===correct)ok++;
-    });
-    document.getElementById('quiz-score').className='quiz-score';
-    document.getElementById('quiz-score').textContent=`Resultado · ${ok} / ${questions.length} ${ok===questions.length?'· perfecto':(ok>=6?'· aprobado':'· revisa el material')}`;
-  });
 })();
 </script>
 </body>

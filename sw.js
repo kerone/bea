@@ -5,7 +5,7 @@
  * y FormSubmit (datos dinamicos, no se cachean).
  * ============================================================= */
 
-const CACHE_VERSION = 'v28';
+const CACHE_VERSION = 'v29';
 const CACHE_NAME = 'precissa-' + CACHE_VERSION;
 
 // Assets criticos pre-cacheados en install (la primera visita ya

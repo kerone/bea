@@ -78,7 +78,9 @@ window.PRECISSA_COURSES = [
     shortDescription: 'Grado completo en higiene facial profunda. Cinco módulos: activos, peelings, antiacné, despigmentantes y rejuvenecimiento facial avanzado.',
     description: 'El grado bandera de PRECISSA en estética facial. Cubre la asignatura transversal PIEL y cinco módulos clínicos: dermocosmética y principios activos (vitamina C, niacinamida, péptidos, retinoides, AHA/BHA); peelings químicos por profundidad (superficiales, medios y derivación de profundos); tratamientos antiacné con el límite estética/dermatología bien dibujado; tratamientos despigmentantes con diagnóstico diferencial entre melasma, PIH, lentigos y nevus; y rejuvenecimiento facial avanzado por décadas. Cierra con tres casos clínicos integrados que combinan varios módulos y test final discriminativo.',
     sourceDoc: 'docs/cursos/14-higiene-facial-profunda.md',
-    lessons: [],
+    lessons: [
+      { id: 'leccion-1', title: 'Higiene Facial Profunda · Presentación', duration: '45 min', slides: 'assets/cursos/higiene-facial-profunda/leccion-1/index.html' }
+    ],
     test: { questions: [] }
   },
   {
@@ -124,7 +126,9 @@ window.PRECISSA_COURSES = [
     shortDescription: 'Curvado permanente de pestañas naturales combinado con tinte profesional. Uno de los servicios más rentables de la cabina de cejas y pestañas.',
     description: 'Lifting de pestañas con química redox controlada (tioglicolato + neutralizador + queratina) y tinte específico para pestañas. Cubre ciclo folicular, selección de pad por morfología (S/M/L/XL), tiempos por tipo de pelo (pestaña asiática, rubia, gruesa), aftercare estricto y manejo de complicaciones (quemadura química, irritación ocular, alergia al tinte). Resultado: 6-8 semanas. Sin extensiones.',
     sourceDoc: 'docs/cursos/19-pestanas-lifting-tinte.md',
-    lessons: [],
+    lessons: [
+      { id: 'leccion-1', title: 'Lifting + tinte de pestañas · Presentación', duration: '45 min', slides: 'assets/cursos/pestanas-lifting-tinte/leccion-1/index.html' }
+    ],
     test: { questions: [] }
   },
   {
@@ -138,7 +142,9 @@ window.PRECISSA_COURSES = [
     shortDescription: 'Pelo a pelo, volumen ruso 2D-6D, mega-volumen e híbrido. Mapping por forma de ojo. Aviso clínico sobre alergia al cianoacrilato.',
     description: 'Formación técnica de cabina premium. Cubre las cuatro técnicas (clásica, volumen ruso, mega-volumen, híbrido), química del cianoacrilato y sus condiciones de fragüe, biomecánica del peso sobre la pestaña natural, mapping por morfología ocular (almendrado, redondo, caído, asiático monolid, ojos juntos/separados), aftercare estricto y manejo de complicaciones — sobre todo alergia al adhesivo, stickies y alopecia traccional.',
     sourceDoc: 'docs/cursos/20-pestanas-extensiones.md',
-    lessons: [],
+    lessons: [
+      { id: 'leccion-1', title: 'Extensiones de pestañas · Presentación', duration: '45 min', slides: 'assets/cursos/pestanas-extensiones/leccion-1/index.html' }
+    ],
     test: { questions: [] }
   },
   {
@@ -152,7 +158,9 @@ window.PRECISSA_COURSES = [
     shortDescription: 'Análisis facial, regla de los 3 puntos, proporción áurea, ceja correctora por forma de rostro. Cinco técnicas físicas de modelado.',
     description: 'El curso que convierte la "depilación de cejas" en consulta estética premium. Cubre formas faciales clásicas (ovalada, redonda, cuadrada, rectangular, triángulo invertido, diamante, pera) con su tipo de ceja correctora; regla de los 3 puntos para mapeo universal; golden ratio para asimetrías; cinco técnicas de modelado (hilo, cera caliente, sugaring, pinzas, navaja). Casos prácticos sobre sobre-depilación de los 90s, cejas asimétricas y rostros cuadrados.',
     sourceDoc: 'docs/cursos/21-cejas-diseno-visajismo.md',
-    lessons: [],
+    lessons: [
+      { id: 'leccion-1', title: 'Diseño de cejas · Visajismo aplicado · Presentación', duration: '45 min', slides: 'assets/cursos/cejas-diseno-visajismo/leccion-1/index.html' }
+    ],
     test: { questions: [] }
   },
   {
@@ -166,7 +174,9 @@ window.PRECISSA_COURSES = [
     shortDescription: 'Brow lamination + henna de cejas. Efecto "Instagram brows" natural y duradero. Alternativa no permanente a la micropigmentación.',
     description: 'Servicio de cabina muy demandado. Cubre laminado (química del tioglicolato, doce fases del protocolo, tiempos por tipo de pelo, riesgo de quemadura química) y henna profesional con lawsona (pigmenta pelo y piel, alternativa natural a la micropigmentación, advertencia taxativa sobre la henna negra con PPD). Protocolo combinado laminado + henna + diseño. Manejo de cinco complicaciones.',
     sourceDoc: 'docs/cursos/22-cejas-laminado-henna.md',
-    lessons: [],
+    lessons: [
+      { id: 'leccion-1', title: 'Laminado + henna de cejas · Presentación', duration: '45 min', slides: 'assets/cursos/cejas-laminado-henna/leccion-1/index.html' }
+    ],
     test: { questions: [] }
   },
 
@@ -233,7 +243,9 @@ window.PRECISSA_COURSES = [
     shortDescription: 'Inyección de ácido hialurónico sin aguja mediante presión hidráulica. Indicaciones realistas y advertencias clínicas honestas.',
     description: 'Técnica polémica que requiere formación rigurosa. Cubre fundamentos físicos de la presión hidráulica, profundidad de deposición real, evidencia disponible y sus límites, marco regulatorio en la UE (categoría aparatológica vs acto sanitario), indicaciones cosméticas legítimas y las que NO deben hacerse desde estética (rellenos profundos faciales, surcos nasogenianos, ojeras). Manejo de complicaciones —granuloma, embolia accidental, asimetría— y derivación.',
     sourceDoc: 'docs/cursos/02-hyaluron-pen.md',
-    lessons: [],
+    lessons: [
+      { id: 'leccion-1', title: 'Hyaluron Pen · Presentación', duration: '45 min', slides: 'assets/cursos/hyaluron-pen/leccion-1/index.html' }
+    ],
     test: { questions: [] }
   },
   {
@@ -247,7 +259,9 @@ window.PRECISSA_COURSES = [
     shortDescription: 'Microagujas motorizadas para inducción de colágeno: cicatrices, textura, poros, rejuvenecimiento. Profundidad por zona e indicación.',
     description: 'Microneedling con dermógrafo motorizado. Cubre fisiología de la inducción de colágeno por trauma controlado, profundidad por zona y objetivo (0.25 mm cosmético, 0.5-1 mm rejuvenecimiento, 1.5-2.5 mm cicatrices), asepsia rigurosa y materiales single-use, fototipos altos con cautela, combinación con activos topical (NUNCA vitamina C alta o retinoides el día del tratamiento), aftercare estricto y manejo de complicaciones (PIH, granuloma por penetración de cosméticos no aptos, infección).',
     sourceDoc: 'docs/cursos/03-dermapen-microneedling.md',
-    lessons: [],
+    lessons: [
+      { id: 'leccion-1', title: 'Dermapen · Microneedling profesional · Presentación', duration: '45 min', slides: 'assets/cursos/dermapen-microneedling/leccion-1/index.html' }
+    ],
     test: { questions: [] }
   },
   {
@@ -261,7 +275,9 @@ window.PRECISSA_COURSES = [
     shortDescription: 'Tres tecnologías combinadas en un mismo protocolo corporal: drenaje mecánico (vacuum), cavitación ultrasónica y radiofrecuencia.',
     description: 'El trío aparatológico más demandado en cabinas corporales. Cubre fundamentos físicos de cada tecnología (presión negativa controlada en vacuum, cavitación inercial ultrasónica para adipocitos, calentamiento dérmico por RF), protocolos combinados por objetivo (adiposidad localizada, celulitis, flacidez corporal), contraindicaciones (marcapasos, embarazo, próximamente cardiovascular), parámetros por equipo y manejo de complicaciones (hematomas, quemaduras superficiales, dolor desproporcionado).',
     sourceDoc: 'docs/cursos/04-vacuum-cavitacion-radiofrecuencia.md',
-    lessons: [],
+    lessons: [
+      { id: 'leccion-1', title: 'Vacuum · Cavitación · Radiofrecuencia corporal · Presentación', duration: '45 min', slides: 'assets/cursos/vacuum-cavitacion-radiofrecuencia/leccion-1/index.html' }
+    ],
     test: { questions: [] }
   },
   {
@@ -289,7 +305,9 @@ window.PRECISSA_COURSES = [
     shortDescription: 'Luz pulsada intensa para fotoenvejecimiento, lesiones vasculares y fotodepilación. Filtros, ventana terapéutica y selección por fototipo.',
     description: 'IPL no es láser pero exige rigor equivalente. Cubre fundamentos de luz policromática pulsada, filtros (515, 530, 560, 590, 640 nm), ventana terapéutica por cromóforo (melanina, hemoglobina, agua), selección por fototipo Fitzpatrick (NUNCA IV-VI sin máxima precaución), protocolo para fotoenvejecimiento (lentigos, eritema difuso), telangiectasias y rosácea (derivación de fondo), fotodepilación (por qué falla en pelo claro y piel oscura), riesgos críticos (quemadura, hipopigmentación, paradójica reactivación pilosa) y manejo.',
     sourceDoc: 'docs/cursos/06-ipl-fotorejuvenecimiento.md',
-    lessons: [],
+    lessons: [
+      { id: 'leccion-1', title: 'IPL · Fotorejuvenecimiento y fotodepilación · Presentación', duration: '45 min', slides: 'assets/cursos/ipl-fotorejuvenecimiento/leccion-1/index.html' }
+    ],
     test: { questions: [] }
   },
   {
@@ -303,7 +321,9 @@ window.PRECISSA_COURSES = [
     shortDescription: 'Las tres longitudes de onda profesionales (diodo 810 nm, alejandrita 755 nm, Nd:YAG 1064 nm) y su selección por fototipo y zona.',
     description: 'Depilación láser de cabina profesional. Cubre fundamentos de absorción selectiva por melanina, anatomía del folículo y fases anágena-catágena-telógena (CRÍTICO: solo afecta anágenas), las tres longitudes de onda con sus ventajas e indicaciones (diodo polivalente, alejandrita rápido para fototipos bajos, Nd:YAG seguro para fototipos altos), test patch obligatorio, contraindicaciones (embarazo, tatuajes, melanoma previo, isotretinoína reciente), manejo de complicaciones y mantenimiento.',
     sourceDoc: 'docs/cursos/07-depilacion-laser.md',
-    lessons: [],
+    lessons: [
+      { id: 'leccion-1', title: 'Depilación láser · Presentación', duration: '45 min', slides: 'assets/cursos/depilacion-laser/leccion-1/index.html' }
+    ],
     test: { questions: [] }
   },
   {
@@ -317,7 +337,9 @@ window.PRECISSA_COURSES = [
     shortDescription: 'Eliminación de tatuajes, lentigos pigmentados y peeling de carbón activado. Pulsos nanosegundo, fotofragmentación selectiva.',
     description: 'Láser Q-switched Nd:YAG con pulsos en nanosegundos. Cubre principio de fotofragmentación selectiva (rotura mecánica del pigmento sin daño térmico), eliminación de tatuajes por escalas Kirby-Desai (color, profundidad, antigüedad), tratamiento de lentigos solares y melasma con cautela, carbon peel (peeling con carbón activado activado por láser, efecto exfoliante + foto-rejuvenecedor + bactericida). Riesgos (hipopigmentación, viraje paradójico de tintas).',
     sourceDoc: 'docs/cursos/08-laser-switched-yag-carbon-peel.md',
-    lessons: [],
+    lessons: [
+      { id: 'leccion-1', title: 'Láser Q-switched Nd:YAG · Carbon Peel · Presentación', duration: '45 min', slides: 'assets/cursos/laser-switched-yag-carbon-peel/leccion-1/index.html' }
+    ],
     test: { questions: [] }
   },
   {
@@ -384,7 +406,9 @@ window.PRECISSA_COURSES = [
     shortDescription: 'Pigmentación manual de cejas con cuchilla. Diseño visajístico, golden ratio, técnica pelo a pelo y normativa REACH de pigmentos.',
     description: 'Microblading como técnica de diseño + ejecución: el resultado depende 50% del diseño, 50% de la técnica. Cubre anatomía de la ceja, dermis papilar como blanco, química de pigmentos y viraje cromático, normativa REACH 2020/2081 de pigmentos para PMU, selección de blade (configuración U/S/curve), regla de los 3 puntos + golden ratio para mapping, ejecución por sectores con casos clínicos sobre cejas escasas simétricas, asimétricas y con cicatriz post-depilación severa.',
     sourceDoc: 'docs/cursos/15-microblading-cejas.md',
-    lessons: [],
+    lessons: [
+      { id: 'leccion-1', title: 'Microblading de cejas · Presentación', duration: '45 min', slides: 'assets/cursos/microblading-cejas/leccion-1/index.html' }
+    ],
     test: { questions: [] }
   },
   {
@@ -398,7 +422,9 @@ window.PRECISSA_COURSES = [
     shortDescription: 'Lip blush, full lips y lip liner profesional. Anatomía del bermellón, profilaxis herpética obligatoria y neutralización cromática.',
     description: 'La técnica de PMU más solicitada tras cejas, con la particularidad de trabajar sobre mucosa. Cubre anatomía del labio (mucosa, bermellón, inervación V2/V3, vascularización), química y viraje cromático específico del labio (los pinks viran a violeta — usar tonos cálidos), profilaxis antiviral OBLIGATORIA con valaciclovir en pacientes con historial herpético, tres técnicas (lip blush difuminado, full lips saturado, lip liner perfilado), aftercare estricto y manejo de reactivación herpética, viraje y línea defectuosa.',
     sourceDoc: 'docs/cursos/16-micropigmentacion-labios.md',
-    lessons: [],
+    lessons: [
+      { id: 'leccion-1', title: 'Micropigmentación de labios · Presentación', duration: '45 min', slides: 'assets/cursos/micropigmentacion-labios/leccion-1/index.html' }
+    ],
     test: { questions: [] }
   },
   {
@@ -412,7 +438,9 @@ window.PRECISSA_COURSES = [
     shortDescription: 'Corrección cromática de labios oscuros nativos y trabajos previos virados a azul/violeta. Teoría del color en PMU aplicada.',
     description: 'Subespecialidad técnica para profesional avanzada de PMU labial. Cubre teoría del color en pigmentos (círculo cromático, complementarios cancelan: naranja→azul, amarillo→violeta), química del viraje labial, diagnóstico cromático bajo luz natural y cálida-fría, protocolo de 3 sesiones (sesión 1 corrector peach/orange, sesión 2 evaluación + color final, sesión 3 retoque), gestión de expectativas (NO blanquea, neutraliza), y derivación a láser Q-switched cuando es necesario.',
     sourceDoc: 'docs/cursos/17-neutralizacion-labios.md',
-    lessons: [],
+    lessons: [
+      { id: 'leccion-1', title: 'Neutralización de labios · Presentación', duration: '45 min', slides: 'assets/cursos/neutralizacion-labios/leccion-1/index.html' }
+    ],
     test: { questions: [] }
   },
   {
@@ -426,7 +454,9 @@ window.PRECISSA_COURSES = [
     shortDescription: 'Lash enhancement entre pestañas, eyeliner clásico y winged. Anatomía periorbital, REACH, protocolo seguro junto al ojo.',
     description: 'Técnica delicada por la proximidad ocular. Cubre lash enhancement (efecto pestañas más densas, sin línea visible), eyeliner clásico y con winged, anatomía del borde libre del párpado y línea gris (zona de Meibomio, NO pigmentar), pigmentos ferrosos negros y marrones (REACH restringe coloreados), selección de color por subtono de cabello/piel, técnica con protector ocular interno, eyeliner inferior desaconsejado y manejo de complicaciones (inflamación, difusión perioral, derivación oftalmológica).',
     sourceDoc: 'docs/cursos/18-micropigmentacion-eyeliner.md',
-    lessons: [],
+    lessons: [
+      { id: 'leccion-1', title: 'Micropigmentación de eyeliner · Presentación', duration: '45 min', slides: 'assets/cursos/micropigmentacion-eyeliner/leccion-1/index.html' }
+    ],
     test: { questions: [] }
   },
 
@@ -445,7 +475,9 @@ window.PRECISSA_COURSES = [
     shortDescription: 'Técnica con base anatómica precisa, no "masaje suave" genérico. Métodos Vodder y Leduc con honestidad clínica.',
     description: 'Drenaje linfático con rigor anatómico. Cubre la red linfática completa (capilares iniciales, colectores con linfangiones, ganglios, watersheds, conducto torácico), fisiología del transporte linfático activo, métodos Vodder (1932) y Leduc con sus maniobras propias, indicaciones estéticas con expectativas realistas (post-quirúrgico estético, post-aparatología, retención de líquidos, celulitis edematosa, ojeras vasculares), protocolos facial 30-45 min y corporal 60-90 min, contraindicaciones absolutas (TVP, IC descompensada).',
     sourceDoc: 'docs/cursos/10-drenaje-linfatico.md',
-    lessons: [],
+    lessons: [
+      { id: 'leccion-1', title: 'Drenaje linfático manual · Presentación', duration: '45 min', slides: 'assets/cursos/drenaje-linfatico/leccion-1/index.html' }
+    ],
     test: { questions: [] }
   },
   {
@@ -475,7 +507,9 @@ window.PRECISSA_COURSES = [
     shortDescription: 'Dos protocolos distintos: reductor (reducir adiposidad y celulitis) y remodelante (redefinir contorno, drenar, tonificar).',
     description: 'Diferenciación clara entre reductor (presiones medio-altas, técnicas de movilización tisular) y remodelante (técnicas combinadas, modelado de contorno). Cubre anatomía del tejido adiposo subcutáneo, septos fibrosos y celulitis, maniobras técnicas (amasamiento profundo, palper-rouler, percusión, vaciado vascular), protocolos por objetivo, contraindicaciones, manejo de hematomas y honestidad sobre la limitada eficacia del masaje aislado (necesita combinarse con dieta, ejercicio y aparatología).',
     sourceDoc: 'docs/cursos/12-masaje-reductor-remodelante.md',
-    lessons: [],
+    lessons: [
+      { id: 'leccion-1', title: 'Masaje reductor y remodelante · Presentación', duration: '45 min', slides: 'assets/cursos/masaje-reductor-remodelante/leccion-1/index.html' }
+    ],
     test: { questions: [] }
   },
   {
@@ -489,7 +523,9 @@ window.PRECISSA_COURSES = [
     shortDescription: 'Protocolo dermatológico de higiene profunda en zona dorsal. Acné corporal, foliculitis crónica y mantenimiento.',
     description: 'Traslación del protocolo de higiene facial profunda a la zona dorsal, con criterio dermatológico. Cubre especificidad anatómica del triángulo seborreico (estrato córneo grueso, alta densidad sebácea), protocolo en 8 fases (doble limpieza, Vapozono, exfoliación BHA, extracción aséptica, alta frecuencia, mascarilla, sérum, oil-free + SPF), límite estética/derivación dermatológica (acné nódulo-quístico → derma) y casos prácticos (acné comedoniano en adolescente, foliculitis crónica en deportista).',
     sourceDoc: 'docs/cursos/13-limpieza-espalda.md',
-    lessons: [],
+    lessons: [
+      { id: 'leccion-1', title: 'Limpieza de espalda profunda · Presentación', duration: '45 min', slides: 'assets/cursos/limpieza-espalda/leccion-1/index.html' }
+    ],
     test: { questions: [] }
   }
 ];
