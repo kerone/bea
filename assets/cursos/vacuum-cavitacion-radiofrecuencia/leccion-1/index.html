@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRECISSA INSTITUTE · Vacuum · Cavitación · Radiofrecuencia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5EDE3; --bg2:#EDE2D2; --surface:#FFFFFF;
+  --ink:#241D17; --ink-soft:#5C4E42; --muted:#8C7B6D;
+  --accent:#B66E3A; --accent-dark:#8A4F25; --accent-soft:#D9A876;
+  --line:#E0D4C2; --line-strong:#C9B89E;
+  --danger:#A83D2C; --warn:#C68B2F; --ok:#5C7A4E;
+  --serif:'Instrument Serif',serif; --sans:'Manrope',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;overflow:hidden;}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;}
+
+/* ─── DECK SHELL ─────────────────────────────────────── */
+.deck{position:fixed;inset:0;display:flex;flex-direction:column;}
+.deck-top{display:flex;justify-content:space-between;align-items:center;padding:18px 32px;border-bottom:1px solid var(--line);background:var(--bg);}
+.deck-top-eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;}
+.deck-top-counter{font-family:var(--serif);font-size:18px;color:var(--ink-soft);font-feature-settings:"tnum";}
+.deck-stage{flex:1;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.deck-stage-inner{position:relative;width:1280px;height:720px;transform-origin:center center;flex-shrink:0;background:var(--bg);}
+.deck-bottom{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;border-top:1px solid var(--line);background:var(--bg);}
+.deck-progress{flex:1;display:flex;gap:4px;justify-content:center;padding:0 24px;flex-wrap:wrap;}
+.deck-dot{width:24px;height:3px;background:var(--line-strong);border-radius:2px;cursor:pointer;transition:background .2s;}
+.deck-dot.active{background:var(--accent);}
+.deck-dot:hover{background:var(--ink-soft);}
+.deck-nav{display:flex;gap:8px;}
+.deck-btn{width:40px;height:40px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;transition:border-color .15s,background .15s;}
+.deck-btn:hover{border-color:var(--accent);background:var(--bg2);}
+.deck-btn:disabled{opacity:.35;cursor:not-allowed;}
+
+/* ─── SLIDE ──────────────────────────────────────────── */
+.slide{position:absolute;inset:0;padding:56px 96px;display:flex;flex-direction:column;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s ease;overflow:hidden;}
+.slide.active{opacity:1;pointer-events:auto;}
+.slide-inner{width:100%;max-width:1100px;margin:0 auto;}
+.slide-eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:18px;}
+.slide-h1{font-family:var(--serif);font-size:64px;line-height:1.02;letter-spacing:-0.02em;margin-bottom:18px;}
+.slide-h1 em{font-style:italic;color:var(--accent);}
+.slide-h2{font-family:var(--serif);font-size:44px;line-height:1.05;letter-spacing:-0.015em;margin-bottom:24px;}
+.slide-h2 em{font-style:italic;color:var(--accent);}
+.slide-lead{font-size:20px;line-height:1.55;color:var(--ink-soft);max-width:780px;margin-bottom:18px;}
+.slide-body{font-size:16px;line-height:1.7;color:var(--ink);max-width:820px;}
+.slide-body p+p{margin-top:14px;}
+.slide-meta{font-size:13px;color:var(--muted);letter-spacing:.04em;}
+
+/* ─── SLIDE TYPES ────────────────────────────────────── */
+.slide--cover{background:linear-gradient(135deg,var(--bg) 0%,var(--bg2) 100%);}
+.slide--cover .slide-h1{font-size:96px;line-height:.95;margin-bottom:24px;}
+.slide--cover .slide-lead{font-size:22px;color:var(--ink);max-width:680px;}
+.slide-cover-meta{margin-top:48px;padding-top:28px;border-top:1px solid var(--line-strong);display:flex;gap:48px;flex-wrap:wrap;}
+.slide-cover-meta-item{display:flex;flex-direction:column;gap:4px;}
+.slide-cover-meta-k{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+.slide-cover-meta-v{font-family:var(--serif);font-size:24px;color:var(--ink);}
+
+.slide--section .slide-h1{font-size:80px;}
+.slide--section .slide-eyebrow{font-size:13px;letter-spacing:.32em;}
+
+.bullets{list-style:none;margin-top:18px;}
+.bullets li{padding:14px 0;border-bottom:1px solid var(--line);font-size:17px;line-height:1.55;display:flex;gap:18px;align-items:baseline;}
+.bullets li:last-child{border-bottom:0;}
+.bullets li::before{content:counter(b,decimal-leading-zero);counter-increment:b;font-family:var(--serif);font-size:18px;font-style:italic;color:var(--accent);min-width:32px;}
+.bullets{counter-reset:b;}
+.bullets--plain li::before{content:"·";font-size:24px;color:var(--accent);font-style:normal;min-width:18px;}
+
+.tbl{width:100%;border-collapse:collapse;font-size:14px;margin-top:14px;background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden;}
+.tbl th{background:var(--bg2);color:var(--ink);text-align:left;padding:14px 18px;font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--line);}
+.tbl td{padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5;}
+.tbl tr:last-child td{border-bottom:0;}
+.tbl tr:hover td{background:var(--bg);}
+.tbl strong{color:var(--accent-dark);}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:24px;}
+.two-col h3{font-family:var(--serif);font-size:24px;margin-bottom:12px;}
+.two-col h3.warn{color:var(--danger);}
+.two-col h3.ok{color:var(--ok);}
+.two-col ul{list-style:none;}
+.two-col li{padding:8px 0;font-size:14.5px;line-height:1.5;color:var(--ink-soft);border-bottom:1px dashed var(--line);}
+
+.callout{margin-top:24px;padding:24px 28px;border-left:4px solid var(--accent);background:var(--surface);border-radius:0 8px 8px 0;}
+.callout--danger{border-color:var(--danger);background:#FBF1EE;}
+.callout--warn{border-color:var(--warn);background:#FBF6E9;}
+.callout strong{display:block;font-family:var(--serif);font-size:20px;margin-bottom:6px;font-style:italic;}
+.callout.callout--danger strong{color:var(--danger);}
+.callout.callout--warn strong{color:var(--warn);}
+.callout p{font-size:14.5px;line-height:1.6;color:var(--ink-soft);}
+
+.case{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+.case-head{background:var(--bg2);padding:16px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px;}
+.case-head-num{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;}
+.case-head-title{font-family:var(--serif);font-size:24px;font-style:italic;}
+.case-body{padding:22px 26px;}
+.case-row{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px;line-height:1.55;}
+.case-row:last-child{border-bottom:0;}
+.case-row dt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;padding-top:2px;}
+.case-row dd{color:var(--ink);}
+
+.timeline{margin-top:18px;display:flex;flex-direction:column;gap:0;}
+.timeline-row{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:14px 0;border-bottom:1px solid var(--line);}
+.timeline-row:last-child{border-bottom:0;}
+.timeline-when{font-family:var(--serif);font-size:20px;font-style:italic;color:var(--accent);}
+.timeline-what{font-size:14.5px;line-height:1.6;color:var(--ink);}
+
+.takeaways{counter-reset:t;margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.takeaway{counter-increment:t;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 24px;display:flex;gap:18px;align-items:flex-start;}
+.takeaway::before{content:counter(t,decimal-leading-zero);font-family:var(--serif);font-size:32px;font-style:italic;color:var(--accent);line-height:1;flex-shrink:0;}
+.takeaway-text{font-size:14.5px;line-height:1.55;}
+.takeaway-text strong{display:block;font-family:var(--serif);font-size:18px;font-style:italic;margin-bottom:4px;color:var(--ink);}
+
+/* TEST */
+.quiz{margin-top:14px;}
+.quiz-q{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 26px;margin-bottom:14px;}
+.quiz-q-num{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:8px;}
+.quiz-q-text{font-family:var(--serif);font-size:21px;line-height:1.3;margin-bottom:16px;}
+.quiz-opts{display:flex;flex-direction:column;gap:8px;}
+.quiz-opt{padding:12px 16px;border:1px solid var(--line);border-radius:8px;cursor:pointer;font-size:14.5px;line-height:1.45;transition:border-color .15s,background .15s;display:flex;gap:12px;align-items:flex-start;}
+.quiz-opt:hover{border-color:var(--accent-soft);background:var(--bg);}
+.quiz-opt-letter{font-family:var(--serif);font-style:italic;color:var(--accent);font-size:18px;min-width:18px;}
+.quiz-opt.selected{border-color:var(--accent);background:var(--bg2);}
+.quiz-opt.correct{border-color:var(--ok);background:#F0F4EC;}
+.quiz-opt.wrong{border-color:var(--danger);background:#FBF1EE;}
+.quiz-submit{margin-top:18px;padding:14px 28px;background:var(--ink);color:var(--bg);border:0;border-radius:999px;font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;letter-spacing:.04em;}
+.quiz-submit:hover{background:var(--accent-dark);}
+.quiz-score{margin-top:18px;padding:18px 24px;background:var(--bg2);border-radius:10px;font-family:var(--serif);font-size:22px;font-style:italic;}
+
+/* CLOSING */
+.slide--closing{text-align:center;align-items:center;}
+.slide--closing .slide-inner{text-align:center;}
+.slide--closing .slide-h2{font-size:56px;margin-bottom:20px;}
+.slide--closing .slide-lead{margin:0 auto 28px;}
+.refs{margin-top:24px;font-size:12px;color:var(--muted);text-align:left;max-width:760px;margin-left:auto;margin-right:auto;line-height:1.6;}
+.refs strong{color:var(--ink-soft);}
+
+/* Chrome (top bar + bottom nav) sigue siendo responsive porque NO se escala */
+@media (max-width:780px){
+  .deck-top,.deck-bottom{padding:10px 14px;}
+  .deck-top-eyebrow{font-size:9px;letter-spacing:.18em;}
+  .deck-top-counter{font-size:14px;}
+  .deck-btn{width:36px;height:36px;font-size:16px;}
+  .deck-progress{padding:0 10px;}
+  .deck-dot{width:18px;}
+}
+</style>
+</head>
+<body>
+<div class="deck">
+  <header class="deck-top">
+    <span class="deck-top-eyebrow">PRECISSA · Vacuum · Cavitación · RF · Electroestética</span>
+    <span class="deck-top-counter"><span id="cur">01</span> <span style="color:var(--line-strong)">/</span> <span id="tot">18</span></span>
+  </header>
+
+  <main class="deck-stage" id="stage">
+    <div class="deck-stage-inner" id="stage-inner">
+
+    <!-- 01 · COVER -->
+    <section class="slide slide--cover active">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Curso · Profesional / Avanzado · 70 h</div>
+        <h1 class="slide-h1">Vacuum · cavitación<br><em>· radiofrecuencia</em></h1>
+        <p class="slide-lead">Las tres tecnologías estrella del modelado corporal sin cirugía. Aquí aprendes a secuenciarlas, a ajustar parámetros con seguridad y a prometer solo lo que dan de verdad.</p>
+        <div class="slide-cover-meta">
+          <div class="slide-cover-meta-item"><span class="slide-cover-meta-k">Nivel</span><span class="slide-cover-meta-v">Avanzado</span></div>
+          <div class="slide-cover-meta-item"><span class="slide-cover-meta-k">Duración</span><span class="slide-cover-meta-v">30 h + 40 h prácticas</span></div>
+          <div class="slide-cover-meta-item"><span class="slide-cover-meta-k">Modalidad</span><span class="slide-cover-meta-v">Presencial + aula virtual</span></div>
+          <div class="slide-cover-meta-item"><span class="slide-cover-meta-k">Categoría</span><span class="slide-cover-meta-v">Electroestética</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 · POSICIONAMIENTO -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Para qué sirven de verdad</div>
+        <h2 class="slide-h2">Tres herramientas que <em>se complementan.</em></h2>
+        <p class="slide-lead">La promesa del escaparate es exagerada si la tomas al pie de la letra, y alcanzable si combinas con cabeza. Ninguna sustituye a las otras dos.</p>
+        <ul class="bullets bullets--plain">
+          <li><strong>Vacuum</strong> · trabaja la mecánica del tejido: drena, despega, moviliza</li>
+          <li><strong>Cavitación</strong> · trabaja sobre el adipocito, rompiendo su membrana</li>
+          <li><strong>Radiofrecuencia</strong> · trabaja la calidad de la piel: calienta, tensa, estimula colágeno</li>
+          <li><strong>Ninguna adelgaza</strong> · son modelado y calidad de piel, no pérdida de peso. Si quiere adelgazar, deriva a nutrición</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 03 · ANATOMÍA -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">La anatomía que importa</div>
+        <h2 class="slide-h2">Cada tecnología, <em>su nivel.</em></h2>
+        <ul class="bullets bullets--plain">
+          <li><strong>Dermis</strong> (1-4 mm) · fibroblastos y red linfática inicial · blanco de la RF y, por estímulo mecánico, de la vacuum</li>
+          <li><strong>Hipodermis</strong> · adipocitos en lobulillos con tabiques perpendiculares (base de la celulitis) · blanco de la cavitación y la RF profunda</li>
+          <li><strong>Fascia muscular</strong> · no se trata directamente</li>
+          <li><strong>Circulación linfática</strong> · todo lo que movilices sale por ahí: es la vía de eliminación obligada</li>
+        </ul>
+        <div class="callout">
+          <strong>El adipocito y el hígado</strong>
+          <p>La cavitación rompe la membrana del adipocito; la grasa pasa al espacio entre células, de ahí a la linfa y se metaboliza en el hígado. Por eso se exige un perfil metabólico sano antes de tratar.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · COMPARATIVA -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Las tres, en una tabla</div>
+        <h2 class="slide-h2">Qué hace <em>y qué no.</em></h2>
+        <table class="tbl">
+          <thead><tr><th></th><th>Vacuum</th><th>Cavitación</th><th>Radiofrecuencia</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Qué es</strong></td><td>Mecánica (succión)</td><td>Ultrasonido baja frecuencia</td><td>Corriente alta frecuencia (térmica)</td></tr>
+            <tr><td><strong>Profundidad</strong></td><td>5-15 mm</td><td>15-30 mm</td><td>2-20 mm</td></tr>
+            <tr><td><strong>Punto fuerte</strong></td><td>Drenaje, fibrosis, celulitis con líquido</td><td>Grasa localizada</td><td>Flacidez</td></tr>
+            <tr><td><strong>Lo que NO puede</strong></td><td>Reducir grasa sola</td><td>Tratar obesidad o grasa visceral</td><td>Sustituir un lifting quirúrgico</td></tr>
+            <tr><td><strong>Riesgo principal</strong></td><td>Moratones</td><td>Sobrecarga del hígado</td><td>Quemaduras</td></tr>
+            <tr><td><strong>Sesiones típicas</strong></td><td>10-20</td><td>6-12</td><td>6-10</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 05 · INDICACIONES -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Qué tecnología manda</div>
+        <h2 class="slide-h2">Combinaciones <em>según el caso.</em></h2>
+        <table class="tbl">
+          <thead><tr><th>Indicación</th><th>Combinación óptima</th><th>Respaldo</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Celulitis grado I</strong></td><td>Vacuum + RF</td><td>Bueno</td></tr>
+            <tr><td><strong>Celulitis con líquido (edematosa)</strong></td><td>Vacuum (principal) + RF suave</td><td>Bueno</td></tr>
+            <tr><td><strong>Celulitis grasa</strong></td><td>Las tres</td><td>Moderado</td></tr>
+            <tr><td><strong>Grasa localizada (peso normal)</strong></td><td>Las tres, cavitación principal</td><td>Bueno</td></tr>
+            <tr><td><strong>Flacidez facial leve-moderada</strong></td><td>RF facial ± vacuum</td><td>Bueno</td></tr>
+            <tr><td><strong>Fibrosis tras liposucción</strong></td><td>Las tres con cronograma</td><td>Bueno</td></tr>
+            <tr><td><strong>Pérdida de peso / obesidad</strong></td><td>Sin indicación</td><td>—</td></tr>
+          </tbody>
+        </table>
+        <p class="slide-meta" style="margin-top:10px">Regla del curso: si la clienta busca perder peso, se deriva a nutrición y medicina deportiva.</p>
+      </div>
+    </section>
+
+    <!-- 06 · CONTRAINDICACIONES COMUNES -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Cuándo NO tratar · comunes</div>
+        <h2 class="slide-h2">La seguridad es <em>transversal.</em></h2>
+        <div class="two-col">
+          <div>
+            <h3 class="warn">No tratar (comunes a las tres)</h3>
+            <ul>
+              <li>Embarazo y lactancia</li>
+              <li>Cáncer activo sin alta médica</li>
+              <li>Infección activa o herida en la zona</li>
+              <li>Inmunosupresión grave</li>
+              <li>Coagulación no controlada</li>
+              <li>Menores sin indicación médica</li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="color:var(--warn)">Banderas rojas en consulta</h3>
+            <ul>
+              <li>Pide "perder muchos kilos"</li>
+              <li>IMC &gt;30 que busca cavitación para adelgazar</li>
+              <li>Cirugía bariátrica o lipo reciente sin cierre</li>
+              <li>Trastorno alimentario activo o reciente</li>
+              <li>Expectativas desproporcionadas</li>
+              <li>Niega entregar analítica si sospechas alteración</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 · CONTRAINDICACIONES ESPECÍFICAS -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Cuándo NO tratar · específicas</div>
+        <h2 class="slide-h2">Cada tecnología, <em>sus límites.</em></h2>
+        <table class="tbl">
+          <thead><tr><th>Tecnología</th><th>Contraindicaciones clave</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Vacuum</strong></td><td>Fragilidad capilar, púrpura senil, varices voluminosas, antecedente de TVP, linfedema sin valoración, hernias no contenidas, cirugía/lipo reciente</td></tr>
+            <tr><td><strong>Cavitación</strong></td><td>Marcapasos (absoluta), enfermedad hepática activa (absoluta), colesterol/triglicéridos altos sin controlar, insuficiencia renal, prótesis y salientes óseos en la zona, tiroides, gónadas</td></tr>
+            <tr><td><strong>Radiofrecuencia</strong></td><td>Marcapasos o dispositivo implantado (absoluta), prótesis metálicas, tiroides, TVP, tatuajes muy pigmentados, sensibilidad disminuida, rellenos &lt;2-4 sem, bótox &lt;7-10 días</td></tr>
+          </tbody>
+        </table>
+        <p class="slide-meta" style="margin-top:10px">La cavitación exige analítica reciente (lípidos, hígado, riñón). La RF, control estricto de la temperatura y retirar metales.</p>
+      </div>
+    </section>
+
+    <!-- 08 · SECCIÓN · PROTOCOLO -->
+    <section class="slide slide--section">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Parte II</div>
+        <h1 class="slide-h1">El protocolo,<br><em>tecnología a tecnología.</em></h1>
+      </div>
+    </section>
+
+    <!-- 09 · CONSULTA + NÜRNBERGER -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Consulta inicial común</div>
+        <h2 class="slide-h2">Confirmar, descartar, <em>planificar.</em></h2>
+        <ul class="bullets bullets--plain">
+          <li><strong>Entrevista, exploración y fotografía</strong> · IMC, perímetros, pliegue, fibrosis, varices, integridad de la piel</li>
+          <li><strong>Analítica reciente</strong> (sobre todo para cavitación) · perfil lipídico, hepático, función renal y glucemia</li>
+          <li><strong>Plan por escrito y consentimiento</strong> por cada tecnología; no tratar el mismo día de la valoración (48-72 h)</li>
+        </ul>
+        <table class="tbl">
+          <thead><tr><th>Grado (Nürnberger-Müller)</th><th>Signos</th><th>Preferente</th></tr></thead>
+          <tbody>
+            <tr><td><strong>I</strong></td><td>Piel de naranja solo al pellizcar</td><td>Vacuum + RF</td></tr>
+            <tr><td><strong>II</strong></td><td>Visible de pie</td><td>Vacuum + RF, valorar cavitación si hay grasa</td></tr>
+            <tr><td><strong>III</strong></td><td>Acolchada en reposo, nódulos dolorosos</td><td>Combinada con expectativas realistas; valorar derivación</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 10 · VACUUM Y CAVITACIÓN -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Vacuum y cavitación</div>
+        <h2 class="slide-h2">Mecánica <em>y ultrasonido.</em></h2>
+        <ul class="bullets bullets--plain">
+          <li><strong>Vacuum</strong> · crema deslizante (no agua sola); trazos largos hacia el ganglio más cercano, <strong>nunca quieta</strong> (ahí salen los moratones). Sesión 40-60 min, 15-20 sesiones</li>
+          <li><strong>Cavitación</strong> · gel acuoso específico; 30-40 kHz, movimiento continuo, contacto pleno; <strong>evita salientes óseos, tiroides y gónadas</strong>. 15-20 min/zona, 6-12 sesiones</li>
+        </ul>
+        <div class="callout callout--warn">
+          <strong>El intervalo de la cavitación no se salta</strong>
+          <p>Nunca dos sesiones en menos de 72 h: el hígado necesita tiempo para metabolizar la grasa liberada. Y drenaje obligatorio (vacuum, presoterapia o manual) en el momento o en las 24-48 h siguientes; sin él, parte de lo liberado se reabsorbe.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 · RADIOFRECUENCIA -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Radiofrecuencia</div>
+        <h2 class="slide-h2">Calor controlado, <em>colágeno nuevo.</em></h2>
+        <ul class="bullets bullets--plain">
+          <li><strong>Gel conductor específico de RF</strong> (con electrolitos) · capa abundante; no lo confundas con el gel de IPL/láser</li>
+          <li><strong>Cabezal en movimiento continuo</strong>, circular o en ocho; al llegar a la temperatura objetivo, mantenla 3-8 min por subzona</li>
+          <li><strong>Habla con la clienta todo el rato</strong> · calor agradable, nunca dolor; si refiere "punto caliente", retira, inspecciona y enfría</li>
+          <li><strong>Retira metales</strong> y, en monopolar, coloca la placa de retorno bien adherida</li>
+        </ul>
+        <div class="callout callout--danger">
+          <strong>El termómetro infrarrojo es imprescindible</strong>
+          <p>Mide cada 30-60 s. La piel no debe pasar de 42-43 ºC sostenidos (riesgo de quemadura). Por debajo de 39-40 ºC no se alcanza el umbral para fabricar colágeno. Repón el gel: gel seco = pérdida de conductividad = arco eléctrico.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 · PROTOCOLO COMBINADO -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">El orden lo es todo</div>
+        <h2 class="slide-h2">Cavitación, vacuum, <em>radiofrecuencia.</em></h2>
+        <ul class="bullets">
+          <li><strong>Cavitación primero</strong> · es la que libera la grasa del adipocito al espacio entre células. La fase que "rompe"</li>
+          <li><strong>Vacuum / drenaje después</strong> · para llevar a la linfa lo recién liberado; sin este paso, el rendimiento cae</li>
+          <li><strong>Radiofrecuencia al final</strong> · sobre tejido ya movilizado y vascularizado; el calor elimina lo que queda y se trabaja la firmeza</li>
+        </ul>
+        <div class="callout callout--warn">
+          <strong>No inviertas el orden</strong>
+          <p>RF primero deja un tejido caliente y vasodilatado que absorbe peor la cavitación y dificulta el drenaje. Sesión combinada de 90-120 min; ciclo de 12 semanas con cavitación en semanas alternas para respetar el metabolismo de la grasa.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13 · CASO 1 -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Caso clínico 1</div>
+        <h2 class="slide-h2">Celulitis grado II grasa <em>· 34 años.</em></h2>
+        <div class="case">
+          <div class="case-head">
+            <span class="case-head-num">Caso 01 · Muslos posteriores</span>
+            <span class="case-head-title">IMC 24,5, analítica normal, expectativa realista</span>
+          </div>
+          <div class="case-body">
+            <dl class="case-row"><dt>Plan</dt><dd>Ciclo de 12 semanas combinado: cavitación 5 sesiones a 40 kHz/50 W/20 min; vacuum tras cavitación + cadenas inguinales; RF multipolar 20 min/muslo a 41-42 ºC.</dd></dl>
+            <dl class="case-row"><dt>En casa</dt><dd>Cafeína 5% + escina 2 veces/día, hidratación 2 L, actividad 3 días/semana. Foto y perimetría en semanas 0, 6 y 12.</dd></dl>
+            <dl class="case-row"><dt>Resultado</dt><dd>Mejora de la piel de naranja, reducción de 1-3 cm de perímetro, mejor tono. <strong>No</strong> desaparición total ni pérdida de peso. Mantenimiento mensual.</dd></dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14 · CASO 2 -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Caso clínico 2</div>
+        <h2 class="slide-h2">Flacidez facial leve <em>· 52 años.</em></h2>
+        <div class="case">
+          <div class="case-head">
+            <span class="case-head-num">Caso 02 · Óvalo y mentón</span>
+            <span class="case-head-title">Perimenopausia, no quiere cirugía ni infiltraciones</span>
+          </div>
+          <div class="case-body">
+            <dl class="case-row"><dt>Plan</dt><dd>Ciclo facial de 10 semanas con RF tripolar principal: limpieza + vacuum facial 10 min (intensidad muy baja) + RF tripolar 25 min a 40-42 ºC en óvalo, mentón y cuello. <strong>Sin cavitación</strong> (no hay indicación).</dd></dl>
+            <dl class="case-row"><dt>Cosmética</dt><dd>Péptidos tensores + hialurónico + niacinamida; retinol 0,3% nocturno desde la 2ª sesión; fotoprotección obligatoria.</dd></dl>
+            <dl class="case-row"><dt>Resultado</dt><dd>Firmeza desde la 4ª-5ª sesión, óptima a los 3 meses. <strong>No</strong> un lifting ni desaparición de papada estructural.</dd></dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 15 · CASO 3 -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Caso clínico 3</div>
+        <h2 class="slide-h2">Fibrosis tras liposucción <em>· 41 años.</em></h2>
+        <div class="case">
+          <div class="case-head">
+            <span class="case-head-num">Caso 03 · Abdomen y flancos</span>
+            <span class="case-head-title">Lipo hace 8 semanas, el cirujano autoriza</span>
+          </div>
+          <div class="case-body">
+            <dl class="case-row"><dt>Plan</dt><dd>8 semanas centradas en vacuum + RF capacitiva-resistiva. <strong>Cavitación no indicada</strong> (no hay grasa residual y el tejido está en remodelación).</dd></dl>
+            <dl class="case-row"><dt>Pauta</dt><dd>Sesiones 1-4: vacuum para fibrosis (movimientos transversales) + RF bajo umbral térmico, 2/semana. Sesiones 5-8: RF térmica a 40-41 ºC, 1/semana.</dd></dl>
+            <dl class="case-row"><dt>Resultado</dt><dd>Ablandamiento progresivo, los planos vuelven a deslizar, baja el relieve nodular. La fibrosis no desaparece del todo, pero deja de notarse.</dd></dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 16 · AFTERCARE -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">El aftercare es parte del tratamiento</div>
+        <h2 class="slide-h2">Sin él, el rendimiento <em>baja mucho.</em></h2>
+        <div class="timeline">
+          <div class="timeline-row"><div class="timeline-when">Agua</div><div class="timeline-what"><strong>Mínimo 2 L/día</strong> durante el ciclo; 2,5-3 L el día de cavitación y el siguiente. Menos diuréticos y alcohol.</div></div>
+          <div class="timeline-row"><div class="timeline-when">Cardio</div><div class="timeline-what">Aeróbico moderado 30-45 min en las 12-24 h tras la cavitación; si no hay gasto, la grasa vuelve a almacenarse.</div></div>
+          <div class="timeline-row"><div class="timeline-when">Dieta</div><div class="timeline-what">Mediterránea, sin exceso de grasas ni azúcares 24-48 h tras la cavitación. Más proteína para el colágeno.</div></div>
+          <div class="timeline-row"><div class="timeline-when">Drenaje</div><div class="timeline-what">Complementario entre sesiones; automasaje hacia el ganglio.</div></div>
+          <div class="timeline-row"><div class="timeline-when">Evita</div><div class="timeline-what">Sauna y calor 24 h tras la RF; sol sin protección; depilación con cera o láser 48 h antes y después.</div></div>
+          <div class="timeline-row"><div class="timeline-when">Sigue</div><div class="timeline-what">Foto y perimetría en semana 0, mitad y final. Reevaluación al mes y a los 3 meses (la RF madura a los 3 meses).</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 17 · COMPLICACIONES -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Cuando algo se tuerce</div>
+        <h2 class="slide-h2">Identificar, enfriar, <em>derivar.</em></h2>
+        <table class="tbl">
+          <thead><tr><th>Complicación</th><th>Manejo</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Moratones (vacuum)</strong></td><td>Bajar intensidad, descansar la zona 7-14 días, frío 24 h y calor desde el día 3, árnica/heparinoide</td></tr>
+            <tr><td><strong>Quemadura RF grado I (rojez)</strong></td><td>Calmante + frío, seguir con parámetros más bajos. Prevenir con termómetro, gel abundante, movimiento</td></tr>
+            <tr><td><strong>Quemadura RF con ampolla</strong></td><td>No romperla, apósito no adherente, sulfadiazina argéntica, valoración médica</td></tr>
+            <tr><td><strong>Sobrecarga de grasa (cavitación)</strong></td><td>Suspender, hidratar, dieta baja en grasa; derivar si cefalea o náusea &gt;48 h. Prevenir con analítica e intervalos</td></tr>
+            <tr><td><strong>Sobreestimulación de la piel</strong></td><td>Frío intermitente, calmante, espaciar la siguiente. Ajustar al fototipo</td></tr>
+          </tbody>
+        </table>
+        <p class="slide-meta" style="margin-top:10px">Algoritmo: identificar → enfriar/retirar estímulo → valorar gravedad → tratar → documentar → comunicar con transparencia → derivar si hay ampolla, lesión profunda o síntoma general.</p>
+      </div>
+    </section>
+
+    <!-- 18 · CIERRE -->
+    <section class="slide slide--closing">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Fin de la lección</div>
+        <h2 class="slide-h2">Modelado corporal · <em>con criterio.</em></h2>
+        <p class="slide-lead">Has cubierto la física de las tres tecnologías, la anatomía, las indicaciones combinadas, las contraindicaciones, los protocolos individuales, el orden combinado, tres casos clínicos, el aftercare y las complicaciones.</p>
+        <p class="slide-meta">Ninguna adelgaza, la integración marca la diferencia y la seguridad es transversal. Cuando la literatura no respalda una promesa comercial, no la formules.</p>
+        <div class="refs">
+          <strong>Referencias seleccionadas ·</strong> LPG Medical (Endermologie: evidence of fibroblast stimulation) · MDPI Applied Sciences (Endermologie as a Complementary Therapy, 2025) · PMC (Effects of Ultracavitation and Radiofrequency on Abdominal Adiposity) · Aesthetic Surgery Journal Open Forum (Efficacy of Ultrasound for Localized Fat Treatment, RCT) · Nürnberger F, Müller G (So-called cellulite: an invented disease, 1978) · SEME (Etiopatogenia y diagnóstico de la celulitis, PEFE).
+        </div>
+      </div>
+    </section>
+
+    </div><!-- /deck-stage-inner -->
+  </main>
+
+  <footer class="deck-bottom">
+    <button class="deck-btn" id="prev" aria-label="Anterior">←</button>
+    <div class="deck-progress" id="dots"></div>
+    <button class="deck-btn" id="next" aria-label="Siguiente">→</button>
+  </footer>
+</div>
+
+<script>
+(function(){
+  const stage=document.getElementById('stage');
+  const stageInner=document.getElementById('stage-inner');
+  function fitDeck(){
+    if(!stage||!stageInner)return;
+    const w=stage.clientWidth;const h=stage.clientHeight;
+    if(w<=0||h<=0)return;
+    const scale=Math.min(w/1280,h/720);
+    stageInner.style.transform='scale('+scale+')';
+  }
+  window.addEventListener('resize',fitDeck);
+  window.addEventListener('orientationchange',()=>setTimeout(fitDeck,100));
+  document.addEventListener('fullscreenchange',()=>setTimeout(fitDeck,50));
+  if(window.ResizeObserver){try{new ResizeObserver(fitDeck).observe(stage);}catch(e){}}
+  setTimeout(fitDeck,0);setTimeout(fitDeck,150);
+
+  const slides=document.querySelectorAll('.slide');
+  const dotsHost=document.getElementById('dots');
+  const prevBtn=document.getElementById('prev');
+  const nextBtn=document.getElementById('next');
+  const curEl=document.getElementById('cur');
+  const totEl=document.getElementById('tot');
+  let i=0;
+  totEl.textContent=String(slides.length).padStart(2,'0');
+  slides.forEach((s,idx)=>{
+    const d=document.createElement('div');
+    d.className='deck-dot'+(idx===0?' active':'');
+    d.onclick=()=>go(idx);
+    dotsHost.appendChild(d);
+  });
+  function go(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,idx)=>s.classList.toggle('active',idx===i));
+    dotsHost.querySelectorAll('.deck-dot').forEach((d,idx)=>d.classList.toggle('active',idx===i));
+    curEl.textContent=String(i+1).padStart(2,'0');
+    prevBtn.disabled=(i===0);
+    nextBtn.disabled=(i===slides.length-1);
+    const active=slides[i];if(active)active.scrollTop=0;
+  }
+  prevBtn.onclick=()=>go(i-1);
+  nextBtn.onclick=()=>go(i+1);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' ')go(i+1);
+    if(e.key==='ArrowLeft'||e.key==='PageUp')go(i-1);
+    if(e.key==='Home')go(0);
+    if(e.key==='End')go(slides.length-1);
+  });
+  go(0);
+
+})();
+</script>
+</body>
+</html>

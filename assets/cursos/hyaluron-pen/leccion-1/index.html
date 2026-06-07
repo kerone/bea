@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRECISSA INSTITUTE · Hyaluron Pen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5EDE3; --bg2:#EDE2D2; --surface:#FFFFFF;
+  --ink:#241D17; --ink-soft:#5C4E42; --muted:#8C7B6D;
+  --accent:#B66E3A; --accent-dark:#8A4F25; --accent-soft:#D9A876;
+  --line:#E0D4C2; --line-strong:#C9B89E;
+  --danger:#A83D2C; --warn:#C68B2F; --ok:#5C7A4E;
+  --serif:'Instrument Serif',serif; --sans:'Manrope',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;overflow:hidden;}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;}
+
+/* ─── DECK SHELL ─────────────────────────────────────── */
+.deck{position:fixed;inset:0;display:flex;flex-direction:column;}
+.deck-top{display:flex;justify-content:space-between;align-items:center;padding:18px 32px;border-bottom:1px solid var(--line);background:var(--bg);}
+.deck-top-eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;}
+.deck-top-counter{font-family:var(--serif);font-size:18px;color:var(--ink-soft);font-feature-settings:"tnum";}
+.deck-stage{flex:1;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.deck-stage-inner{position:relative;width:1280px;height:720px;transform-origin:center center;flex-shrink:0;background:var(--bg);}
+.deck-bottom{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;border-top:1px solid var(--line);background:var(--bg);}
+.deck-progress{flex:1;display:flex;gap:4px;justify-content:center;padding:0 24px;flex-wrap:wrap;}
+.deck-dot{width:24px;height:3px;background:var(--line-strong);border-radius:2px;cursor:pointer;transition:background .2s;}
+.deck-dot.active{background:var(--accent);}
+.deck-dot:hover{background:var(--ink-soft);}
+.deck-nav{display:flex;gap:8px;}
+.deck-btn{width:40px;height:40px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;transition:border-color .15s,background .15s;}
+.deck-btn:hover{border-color:var(--accent);background:var(--bg2);}
+.deck-btn:disabled{opacity:.35;cursor:not-allowed;}
+
+/* ─── SLIDE ──────────────────────────────────────────── */
+.slide{position:absolute;inset:0;padding:56px 96px;display:flex;flex-direction:column;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s ease;overflow:hidden;}
+.slide.active{opacity:1;pointer-events:auto;}
+.slide-inner{width:100%;max-width:1100px;margin:0 auto;}
+.slide-eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:18px;}
+.slide-h1{font-family:var(--serif);font-size:64px;line-height:1.02;letter-spacing:-0.02em;margin-bottom:18px;}
+.slide-h1 em{font-style:italic;color:var(--accent);}
+.slide-h2{font-family:var(--serif);font-size:44px;line-height:1.05;letter-spacing:-0.015em;margin-bottom:24px;}
+.slide-h2 em{font-style:italic;color:var(--accent);}
+.slide-lead{font-size:20px;line-height:1.55;color:var(--ink-soft);max-width:780px;margin-bottom:18px;}
+.slide-body{font-size:16px;line-height:1.7;color:var(--ink);max-width:820px;}
+.slide-body p+p{margin-top:14px;}
+.slide-meta{font-size:13px;color:var(--muted);letter-spacing:.04em;}
+
+/* ─── SLIDE TYPES ────────────────────────────────────── */
+.slide--cover{background:linear-gradient(135deg,var(--bg) 0%,var(--bg2) 100%);}
+.slide--cover .slide-h1{font-size:96px;line-height:.95;margin-bottom:24px;}
+.slide--cover .slide-lead{font-size:22px;color:var(--ink);max-width:680px;}
+.slide-cover-meta{margin-top:48px;padding-top:28px;border-top:1px solid var(--line-strong);display:flex;gap:48px;flex-wrap:wrap;}
+.slide-cover-meta-item{display:flex;flex-direction:column;gap:4px;}
+.slide-cover-meta-k{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+.slide-cover-meta-v{font-family:var(--serif);font-size:24px;color:var(--ink);}
+
+.slide--section .slide-h1{font-size:80px;}
+.slide--section .slide-eyebrow{font-size:13px;letter-spacing:.32em;}
+
+.bullets{list-style:none;margin-top:18px;}
+.bullets li{padding:14px 0;border-bottom:1px solid var(--line);font-size:17px;line-height:1.55;display:flex;gap:18px;align-items:baseline;}
+.bullets li:last-child{border-bottom:0;}
+.bullets li::before{content:counter(b,decimal-leading-zero);counter-increment:b;font-family:var(--serif);font-size:18px;font-style:italic;color:var(--accent);min-width:32px;}
+.bullets{counter-reset:b;}
+.bullets--plain li::before{content:"·";font-size:24px;color:var(--accent);font-style:normal;min-width:18px;}
+
+.tbl{width:100%;border-collapse:collapse;font-size:14px;margin-top:14px;background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden;}
+.tbl th{background:var(--bg2);color:var(--ink);text-align:left;padding:14px 18px;font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--line);}
+.tbl td{padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5;}
+.tbl tr:last-child td{border-bottom:0;}
+.tbl tr:hover td{background:var(--bg);}
+.tbl strong{color:var(--accent-dark);}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:24px;}
+.two-col h3{font-family:var(--serif);font-size:24px;margin-bottom:12px;}
+.two-col h3.warn{color:var(--danger);}
+.two-col h3.ok{color:var(--ok);}
+.two-col ul{list-style:none;}
+.two-col li{padding:8px 0;font-size:14.5px;line-height:1.5;color:var(--ink-soft);border-bottom:1px dashed var(--line);}
+
+.callout{margin-top:24px;padding:24px 28px;border-left:4px solid var(--accent);background:var(--surface);border-radius:0 8px 8px 0;}
+.callout--danger{border-color:var(--danger);background:#FBF1EE;}
+.callout--warn{border-color:var(--warn);background:#FBF6E9;}
+.callout strong{display:block;font-family:var(--serif);font-size:20px;margin-bottom:6px;font-style:italic;}
+.callout.callout--danger strong{color:var(--danger);}
+.callout.callout--warn strong{color:var(--warn);}
+.callout p{font-size:14.5px;line-height:1.6;color:var(--ink-soft);}
+
+.case{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+.case-head{background:var(--bg2);padding:16px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px;}
+.case-head-num{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;}
+.case-head-title{font-family:var(--serif);font-size:24px;font-style:italic;}
+.case-body{padding:22px 26px;}
+.case-row{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px;line-height:1.55;}
+.case-row:last-child{border-bottom:0;}
+.case-row dt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;padding-top:2px;}
+.case-row dd{color:var(--ink);}
+
+.timeline{margin-top:18px;display:flex;flex-direction:column;gap:0;}
+.timeline-row{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:14px 0;border-bottom:1px solid var(--line);}
+.timeline-row:last-child{border-bottom:0;}
+.timeline-when{font-family:var(--serif);font-size:20px;font-style:italic;color:var(--accent);}
+.timeline-what{font-size:14.5px;line-height:1.6;color:var(--ink);}
+
+.takeaways{counter-reset:t;margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.takeaway{counter-increment:t;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 24px;display:flex;gap:18px;align-items:flex-start;}
+.takeaway::before{content:counter(t,decimal-leading-zero);font-family:var(--serif);font-size:32px;font-style:italic;color:var(--accent);line-height:1;flex-shrink:0;}
+.takeaway-text{font-size:14.5px;line-height:1.55;}
+.takeaway-text strong{display:block;font-family:var(--serif);font-size:18px;font-style:italic;margin-bottom:4px;color:var(--ink);}
+
+/* TEST */
+.quiz{margin-top:14px;}
+.quiz-q{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 26px;margin-bottom:14px;}
+.quiz-q-num{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:8px;}
+.quiz-q-text{font-family:var(--serif);font-size:21px;line-height:1.3;margin-bottom:16px;}
+.quiz-opts{display:flex;flex-direction:column;gap:8px;}
+.quiz-opt{padding:12px 16px;border:1px solid var(--line);border-radius:8px;cursor:pointer;font-size:14.5px;line-height:1.45;transition:border-color .15s,background .15s;display:flex;gap:12px;align-items:flex-start;}
+.quiz-opt:hover{border-color:var(--accent-soft);background:var(--bg);}
+.quiz-opt-letter{font-family:var(--serif);font-style:italic;color:var(--accent);font-size:18px;min-width:18px;}
+.quiz-opt.selected{border-color:var(--accent);background:var(--bg2);}
+.quiz-opt.correct{border-color:var(--ok);background:#F0F4EC;}
+.quiz-opt.wrong{border-color:var(--danger);background:#FBF1EE;}
+.quiz-submit{margin-top:18px;padding:14px 28px;background:var(--ink);color:var(--bg);border:0;border-radius:999px;font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;letter-spacing:.04em;}
+.quiz-submit:hover{background:var(--accent-dark);}
+.quiz-score{margin-top:18px;padding:18px 24px;background:var(--bg2);border-radius:10px;font-family:var(--serif);font-size:22px;font-style:italic;}
+
+/* CLOSING */
+.slide--closing{text-align:center;align-items:center;}
+.slide--closing .slide-inner{text-align:center;}
+.slide--closing .slide-h2{font-size:56px;margin-bottom:20px;}
+.slide--closing .slide-lead{margin:0 auto 28px;}
+.refs{margin-top:24px;font-size:12px;color:var(--muted);text-align:left;max-width:760px;margin-left:auto;margin-right:auto;line-height:1.6;}
+.refs strong{color:var(--ink-soft);}
+
+/* Chrome (top bar + bottom nav) sigue siendo responsive porque NO se escala */
+@media (max-width:780px){
+  .deck-top,.deck-bottom{padding:10px 14px;}
+  .deck-top-eyebrow{font-size:9px;letter-spacing:.18em;}
+  .deck-top-counter{font-size:14px;}
+  .deck-btn{width:36px;height:36px;font-size:16px;}
+  .deck-progress{padding:0 10px;}
+  .deck-dot{width:18px;}
+}
+</style>
+</head>
+<body>
+<div class="deck">
+  <header class="deck-top">
+    <span class="deck-top-eyebrow">PRECISSA · Hyaluron Pen · Electroestética</span>
+    <span class="deck-top-counter"><span id="cur">01</span> <span style="color:var(--line-strong)">/</span> <span id="tot">17</span></span>
+  </header>
+
+  <main class="deck-stage" id="stage">
+    <div class="deck-stage-inner" id="stage-inner">
+
+    <!-- 01 · COVER -->
+    <section class="slide slide--cover active">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Curso · Profesional / Avanzado · 32 h</div>
+        <h1 class="slide-h1">Hyaluron<br><em>Pen</em></h1>
+        <p class="slide-lead">Pluma que empuja ácido hialurónico a presión, sin aguja, para labios y arrugas. El dispositivo más polémico que ha entrado en cabina. Aquí aprendes la anatomía del riesgo.</p>
+        <div class="slide-cover-meta">
+          <div class="slide-cover-meta-item"><span class="slide-cover-meta-k">Nivel</span><span class="slide-cover-meta-v">Avanzado</span></div>
+          <div class="slide-cover-meta-item"><span class="slide-cover-meta-k">Duración</span><span class="slide-cover-meta-v">14 h + 18 h prácticas</span></div>
+          <div class="slide-cover-meta-item"><span class="slide-cover-meta-k">Modalidad</span><span class="slide-cover-meta-v">Presencial + aula virtual</span></div>
+          <div class="slide-cover-meta-item"><span class="slide-cover-meta-k">Categoría</span><span class="slide-cover-meta-v">Electroestética</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 · DÓNDE PISAS -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Dónde estás pisando</div>
+        <h2 class="slide-h2">La realidad legal, <em>desde el día uno.</em></h2>
+        <p class="slide-lead">La comunidad médica rechaza este dispositivo. Negar que existe no protege a nadie; lo que protege es formarte con rigor para saber a quién no tocar y cuándo derivar.</p>
+        <ul class="bullets bullets--plain">
+          <li><strong>FDA (2021)</strong> · desaconseja cualquier dispositivo sin aguja para infiltrar rellenos, tras describir lesiones graves en piel, labios y ojos</li>
+          <li><strong>SEME</strong> · lo denunció ante la AEMPS: no controla cantidad ni plano, con casos de encapsulamiento y granuloma</li>
+          <li><strong>AEMPS</strong> · infiltrar hialurónico e inyectar hialuronidasa son actos sanitarios reservados a personal médico</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 03 · CÓMO FUNCIONA -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">El principio físico</div>
+        <h2 class="slide-h2">Un inyector <em>a presión.</em></h2>
+        <p class="slide-lead">Un muelle (o aire comprimido) empuja una cámara de ácido hialurónico y lo expulsa por un orificio finísimo a gran velocidad. El chorro atraviesa la piel por presión, sin metal, abre una microcavidad y deposita el producto.</p>
+        <div class="callout callout--warn">
+          <strong>La profundidad no es predecible</strong>
+          <p>En piel de cadáver: a 6 bares el producto llega a dermis profunda; a 8,5 bares alcanza el músculo en algunos cortes. Cambia de un punto a otro, puede llegar a planos con arterias importantes y el chorro se dispersa en esfera. Trabajas asumiendo esa incertidumbre como un dato.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · ANATOMÍA DEL RIESGO -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Las arterias que te importan</div>
+        <h2 class="slide-h2">Por qué puede causar <em>ceguera.</em></h2>
+        <ul class="bullets bullets--plain">
+          <li><strong>Arteria facial → angular</strong> · sube hacia el ángulo interno del ojo; de ella salen las arterias labiales</li>
+          <li><strong>Arterias labiales</strong> · van por dentro del labio a 3-7 mm, cambian de plano según la persona; el material queda muy cerca</li>
+          <li><strong>Conexión con la oftálmica</strong> · producto a presión en glabela, nariz o nasogeniano puede viajar a la retina → <em>ceguera súbita e irreversible</em></li>
+        </ul>
+        <div class="callout callout--danger">
+          <strong>La paradoja comercial</strong>
+          <p>Las zonas que más se ofrecen —entrecejo, nariz, nasogeniano alto, contorno del ojo— son las de máximo riesgo. Sin poder aspirar y dispersando el producto, tienes menos margen que con aguja.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · INDICACIONES -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Para qué sí, para qué no</div>
+        <h2 class="slide-h2">Si no aguanta una conversación honesta, <em>no lo ofrezcas.</em></h2>
+        <table class="tbl">
+          <thead><tr><th>Indicación</th><th>Respaldo</th><th>Postura</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Volumen labial leve, hidratación</strong></td><td>Limitado</td><td>Aceptable como hidratación con mejora discreta. Nunca sustituye al relleno con aguja</td></tr>
+            <tr><td><strong>Líneas finas peribucales</strong></td><td>Limitado</td><td>Complemento cosmético, no corrector</td></tr>
+            <tr><td><strong>Hidratación tipo skinbooster</strong></td><td>Variable</td><td>Aceptable en zonas sin riesgo vascular</td></tr>
+            <tr><td><strong>Surcos nasogenianos</strong></td><td>Muy limitado</td><td>Desaconsejar (cerca de la angular)</td></tr>
+            <tr><td><strong>Frente, entrecejo, dorso nasal</strong></td><td>Contraindicado</td><td>No ofrecer bajo ningún concepto (ceguera)</td></tr>
+          </tbody>
+        </table>
+        <p class="slide-meta" style="margin-top:12px">La indicación que más te pedirán es el labio, y es donde se concentran la mayoría de complicaciones documentadas.</p>
+      </div>
+    </section>
+
+    <!-- 06 · CONTRAINDICACIONES -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Cuándo NO tratar</div>
+        <h2 class="slide-h2">Absolutas y <em>banderas amarillas.</em></h2>
+        <div class="two-col">
+          <div>
+            <h3 class="warn">Absolutas (no tratar)</h3>
+            <ul>
+              <li>Oclusión vascular o embolia retiniana previa</li>
+              <li>Anticoagulación alta, trastornos de coagulación</li>
+              <li>Embarazo y lactancia</li>
+              <li>Infección activa en la zona o general</li>
+              <li>Autoinmune en brote, inmunosupresión</li>
+              <li>Granulomas con rellenos previos</li>
+              <li>Menores de edad, dismorfia corporal</li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="color:var(--warn)">Relativas (precaución)</h3>
+            <ul>
+              <li>Isotretinoína oral &lt;6 meses</li>
+              <li>Queloides o mala cicatrización</li>
+              <li>Diabetes mal controlada, fumadora intensa</li>
+              <li>Relleno previo en la zona</li>
+              <li>Tratamientos dentales &lt;2 semanas</li>
+              <li>Herpes de repetición (profilaxis médica)</li>
+              <li>Clienta que minimiza el consentimiento</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 · DOCUMENTACIÓN -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Lo que debe constar por escrito</div>
+        <h2 class="slide-h2">Documentación <em>obligatoria.</em></h2>
+        <ul class="bullets bullets--plain">
+          <li><strong>Consentimiento informado específico</strong> · citando FDA, AEMPS y SEME, la técnica, sus riesgos y las alternativas médicas</li>
+          <li><strong>Anamnesis firmada</strong> · entrevista clínica estructurada</li>
+          <li><strong>Fotografía estandarizada</strong> · antes y después</li>
+          <li><strong>Registro del producto</strong> · marca, lote, caducidad. Sin etiquetado verificable, no se usa</li>
+        </ul>
+        <div class="callout callout--warn">
+          <strong>La clienta debe saber antes</strong>
+          <p>El aparato no sustituye al relleno médico; el resultado no es comparable en volumen ni duración; corregir irregularidades puede exigir hialuronidasa (solo médico); hay riesgo de oclusión, infección, granuloma y, en zonas altas, de ceguera.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 · SECCIÓN · PROTOCOLO -->
+    <section class="slide slide--section">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Parte II</div>
+        <h1 class="slide-h1">El protocolo,<br><em>con red de seguridad.</em></h1>
+      </div>
+    </section>
+
+    <!-- 09 · CONSULTA Y PREPARACIÓN -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Consulta previa y preparación</div>
+        <h2 class="slide-h2">Valorar, <em>y luego aplicar.</em></h2>
+        <ul class="bullets bullets--plain">
+          <li><strong>Deja 48-72 h</strong> entre valorar y aplicar · la valoración es un acto aparte</li>
+          <li><strong>Entrevista + exploración + fotografía</strong> · de frente, perfiles y tres cuartos, sin maquillaje</li>
+          <li><strong>Asepsia estricta del dispositivo</strong> · carga con técnica estéril; si tocas el émbolo, la carga ya no vale</li>
+          <li><strong>Producto verificado</strong> · marcado CE como producto sanitario, no cosmético; sin trazabilidad, no se usa</li>
+          <li><strong>Anestesia tópica</strong> 30-45 min, retirada antes de la antisepsia · clorhexidina o povidona, dos pasadas</li>
+          <li><strong>Protección</strong> · guantes estériles, mascarilla y gafas (puede salpicar)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 10 · TÉCNICA -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Técnica de aplicación</div>
+        <h2 class="slide-h2">Presión baja, <em>vigilancia continua.</em></h2>
+        <ul class="bullets">
+          <li><strong>Boquilla perpendicular</strong> a la piel, contacto firme sin apretar de más; inclinarla dispersa el chorro</li>
+          <li><strong>La presión más baja</strong> que te deje ver que el producto entra (rango 4-8 bares; trabaja en el extremo bajo)</li>
+          <li><strong>Un pulso por punto</strong>, en patrón ordenado, con 5-7 mm de separación en el labio</li>
+          <li><strong>No superes 0,5-1 ml</strong> en toda la sesión de labio; si necesitas más, reparte en sesiones a 2-3 semanas</li>
+          <li><strong>Mira el color tras cada pulso</strong> · cualquier blanqueamiento que no se resuelva en segundos te obliga a parar</li>
+        </ul>
+        <p class="slide-meta" style="margin-top:10px">Tras la sesión: compresa fría, revisión de simetría y relleno capilar &lt;2 s, foto final, aftercare por escrito y teléfono de contacto 24 h. Nada de masaje intenso.</p>
+      </div>
+    </section>
+
+    <!-- 11 · CASO 1 -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Caso clínico 1</div>
+        <h2 class="slide-h2">Volumen labial leve <em>· 32 años.</em></h2>
+        <div class="case">
+          <div class="case-head">
+            <span class="case-head-num">Caso 01 · Labio</span>
+            <span class="case-head-title">Sana, no fumadora, sin relleno previo</span>
+          </div>
+          <div class="case-body">
+            <dl class="case-row"><dt>Petición</dt><dd>"Hidratación y un punto más de volumen". Valoración a 72 h, consentimiento citando FDA y SEME.</dd></dl>
+            <dl class="case-row"><dt>Sesión</dt><dd>Hialurónico no reticulado y trazable, anestesia 40 min, clorhexidina, presión baja (4-5 bares), puntos a 6-7 mm, total 0,7 ml.</dd></dl>
+            <dl class="case-row"><dt>Evolución</dt><dd>Sangrado puntual, hinchazón a 24 h resuelta en 5 días. Revisión a 3 semanas: estable. Duración 3 meses.</dd></dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 · CASO 2 -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Caso clínico 2</div>
+        <h2 class="slide-h2">Decir que no, <em>con argumentos.</em></h2>
+        <div class="case">
+          <div class="case-head">
+            <span class="case-head-num">Caso 02 · Surco nasogeniano</span>
+            <span class="case-head-title">Pide corregir surcos tras ver publicidad · 47 años</span>
+          </div>
+          <div class="case-body">
+            <dl class="case-row"><dt>Explicas</dt><dd>La cercanía a la arteria angular, que el aparato no permite aspirar, que la profundidad es insuficiente. Le muestras los datos institucionales.</dd></dl>
+            <dl class="case-row"><dt>Ofreces</dt><dd>Informe de derivación a medicina estética para valorar aguja o cánula.</dd></dl>
+            <dl class="case-row"><dt>Resultado</dt><dd>Acepta y agradece la honestidad. <strong>Derivar es parte del protocolo, no un fracaso comercial.</strong></dd></dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13 · CASO 3 -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Caso clínico 3</div>
+        <h2 class="slide-h2">Sospecha de oclusión <em>· en plena sesión.</em></h2>
+        <div class="case">
+          <div class="case-head">
+            <span class="case-head-num">Caso 03 · Urgencia</span>
+            <span class="case-head-title">Labio superior, segundo punto · 28 años</span>
+          </div>
+          <div class="case-body">
+            <dl class="case-row"><dt>Señal</dt><dd>Tras el pulso, blanqueamiento local que no se resuelve en 30 s y dolor intenso y punzante.</dd></dl>
+            <dl class="case-row"><dt>Actúas</dt><dd>Detienes la sesión, calor moderado y masaje suave, contactas con el médico de referencia (por teléfono) e inicias el traslado al centro concertado.</dd></dl>
+            <dl class="case-row"><dt>Resolución</dt><dd>El médico administra hialuronidasa en &lt;60 min, dosis alta. Sin secuelas a las 48 h.</dd></dl>
+            <dl class="case-row"><dt>Lección</dt><dd>El protocolo de derivación, el médico de referencia y el algoritmo plastificado <strong>no son opcionales</strong>.</dd></dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14 · ALGORITMO OCLUSIÓN -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">La sección más importante</div>
+        <h2 class="slide-h2">Oclusión vascular: <em>se mide en minutos.</em></h2>
+        <div class="callout callout--danger">
+          <strong>Signos precoces</strong>
+          <p>Blanqueamiento que no cede al comprimir (signo clave) · dolor desproporcionado, quemante · moteado violáceo a los 15-30 min · frialdad local · relleno capilar &gt;3-4 s. Síntomas oculares (visión borrosa, pérdida de visión) → urgencia hospitalaria inmediata.</p>
+        </div>
+        <ul class="bullets">
+          <li><strong>Detener</strong> la sesión de inmediato</li>
+          <li><strong>Calor moderado y masaje suave</strong> sobre la zona (favorece la dispersión)</li>
+          <li><strong>Aspirina 300 mg</strong> oral si no hay contraindicación (según protocolo médico)</li>
+          <li><strong>Contactar con el médico de referencia o urgencias</strong> sin demora; traslado si hay signos oculares</li>
+          <li><strong>Hialuronidasa</strong> · antídoto, pero acto médico exclusivo en España; debe estar disponible vía médico de referencia</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 15 · OTRAS COMPLICACIONES -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Más complicaciones</div>
+        <h2 class="slide-h2">Documenta, deriva, <em>acompaña.</em></h2>
+        <table class="tbl">
+          <thead><tr><th>Complicación</th><th>Qué hago</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Granuloma tardío</strong> (4 sem-12 meses)</td><td>Nódulo firme que crece poco a poco. Deriva; tratamiento médico (corticoide, hialuronidasa, drenaje). No lo manejas en cabina</td></tr>
+            <tr><td><strong>Hinchazón persistente</strong> (&gt;7-10 días)</td><td>Hipersensibilidad, reacción de cuerpo extraño o infección. Derivación médica obligatoria</td></tr>
+            <tr><td><strong>Infección aguda</strong> (24-72 h)</td><td>Enrojecimiento que avanza, calor, supuración → antibiótico médico. Anota el lote</td></tr>
+            <tr><td><strong>Irregularidades y nódulos</strong></td><td>Pueden necesitar hialuronidasa (acto médico). Foto y deriva, sin maniobras agresivas</td></tr>
+          </tbody>
+        </table>
+        <p class="slide-meta" style="margin-top:12px">Antes de tu primera sesión: médico de referencia localizable, protocolo de derivación hospitalaria, kit de emergencia y seguro que cubra esta técnica. Sin esto, es negligente.</p>
+      </div>
+    </section>
+
+    <!-- 16 · TAKEAWAYS -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Resumen</div>
+        <h2 class="slide-h2">Lo que <em>no se olvida.</em></h2>
+        <div class="takeaways">
+          <div class="takeaway"><div class="takeaway-text"><strong>Conoce el marco legal.</strong>FDA, SEME y AEMPS lo desaconsejan. Infiltrar e inyectar hialuronidasa son actos médicos.</div></div>
+          <div class="takeaway"><div class="takeaway-text"><strong>La profundidad no se controla.</strong>No aspira, dispersa el producto y llega a planos con arterias.</div></div>
+          <div class="takeaway"><div class="takeaway-text"><strong>Zonas altas, jamás.</strong>Entrecejo, nariz y contorno del ojo: riesgo de ceguera.</div></div>
+          <div class="takeaway"><div class="takeaway-text"><strong>Presión baja, foto y consentimiento.</strong>Mira el color tras cada pulso; cualquier blanqueo, paras.</div></div>
+          <div class="takeaway"><div class="takeaway-text"><strong>Oclusión: minutos.</strong>Calor, masaje, aspirina, médico de referencia, hialuronidasa.</div></div>
+          <div class="takeaway"><div class="takeaway-text"><strong>Ante la duda, no aplicar.</strong>La postura conservadora es siempre la más defendible.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 17 · CIERRE -->
+    <section class="slide slide--closing">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Fin de la lección</div>
+        <h2 class="slide-h2">Hyaluron Pen · <em>con red de seguridad.</em></h2>
+        <p class="slide-lead">Has cubierto el marco legal, el principio físico, la anatomía del riesgo, las indicaciones honestas, las contraindicaciones, el protocolo, tres casos y el algoritmo de oclusión vascular.</p>
+        <p class="slide-meta">Una profesional rigurosa y crítica es más segura que una operadora autodidacta. Ante la duda, no aplicar es la opción más defendible.</p>
+        <div class="refs">
+          <strong>Referencias seleccionadas ·</strong> FDA (Do Not Use Needle-Free Devices for Injection of Dermal Fillers, Safety Communication, 2021) · AEMPS (Nota sobre el uso correcto de la hialuronidasa) · SEME (Denuncia ante la AEMPS sobre dispositivos a presión) · Seok J et al. (Skin penetration depth following needle-free injection, Lasers Surg Med 2016) · Beleznay K et al. (Avoiding and treating blindness from fillers, Dermatol Surg) · King M et al. (Safe use of hyaluronidase, modified high-dose protocol, J Clin Aesthet Dermatol).
+        </div>
+      </div>
+    </section>
+
+    </div><!-- /deck-stage-inner -->
+  </main>
+
+  <footer class="deck-bottom">
+    <button class="deck-btn" id="prev" aria-label="Anterior">←</button>
+    <div class="deck-progress" id="dots"></div>
+    <button class="deck-btn" id="next" aria-label="Siguiente">→</button>
+  </footer>
+</div>
+
+<script>
+(function(){
+  const stage=document.getElementById('stage');
+  const stageInner=document.getElementById('stage-inner');
+  function fitDeck(){
+    if(!stage||!stageInner)return;
+    const w=stage.clientWidth;const h=stage.clientHeight;
+    if(w<=0||h<=0)return;
+    const scale=Math.min(w/1280,h/720);
+    stageInner.style.transform='scale('+scale+')';
+  }
+  window.addEventListener('resize',fitDeck);
+  window.addEventListener('orientationchange',()=>setTimeout(fitDeck,100));
+  document.addEventListener('fullscreenchange',()=>setTimeout(fitDeck,50));
+  if(window.ResizeObserver){try{new ResizeObserver(fitDeck).observe(stage);}catch(e){}}
+  setTimeout(fitDeck,0);setTimeout(fitDeck,150);
+
+  const slides=document.querySelectorAll('.slide');
+  const dotsHost=document.getElementById('dots');
+  const prevBtn=document.getElementById('prev');
+  const nextBtn=document.getElementById('next');
+  const curEl=document.getElementById('cur');
+  const totEl=document.getElementById('tot');
+  let i=0;
+  totEl.textContent=String(slides.length).padStart(2,'0');
+  slides.forEach((s,idx)=>{
+    const d=document.createElement('div');
+    d.className='deck-dot'+(idx===0?' active':'');
+    d.onclick=()=>go(idx);
+    dotsHost.appendChild(d);
+  });
+  function go(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,idx)=>s.classList.toggle('active',idx===i));
+    dotsHost.querySelectorAll('.deck-dot').forEach((d,idx)=>d.classList.toggle('active',idx===i));
+    curEl.textContent=String(i+1).padStart(2,'0');
+    prevBtn.disabled=(i===0);
+    nextBtn.disabled=(i===slides.length-1);
+    const active=slides[i];if(active)active.scrollTop=0;
+  }
+  prevBtn.onclick=()=>go(i-1);
+  nextBtn.onclick=()=>go(i+1);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' ')go(i+1);
+    if(e.key==='ArrowLeft'||e.key==='PageUp')go(i-1);
+    if(e.key==='Home')go(0);
+    if(e.key==='End')go(slides.length-1);
+  });
+  go(0);
+
+})();
+</script>
+</body>
+</html>

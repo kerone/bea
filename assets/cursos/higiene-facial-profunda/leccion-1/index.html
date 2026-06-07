@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRECISSA INSTITUTE · Higiene Facial Profunda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5EDE3; --bg2:#EDE2D2; --surface:#FFFFFF;
+  --ink:#241D17; --ink-soft:#5C4E42; --muted:#8C7B6D;
+  --accent:#B66E3A; --accent-dark:#8A4F25; --accent-soft:#D9A876;
+  --line:#E0D4C2; --line-strong:#C9B89E;
+  --danger:#A83D2C; --warn:#C68B2F; --ok:#5C7A4E;
+  --serif:'Instrument Serif',serif; --sans:'Manrope',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;overflow:hidden;}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;}
+
+/* ─── DECK SHELL ─────────────────────────────────────── */
+.deck{position:fixed;inset:0;display:flex;flex-direction:column;}
+.deck-top{display:flex;justify-content:space-between;align-items:center;padding:18px 32px;border-bottom:1px solid var(--line);background:var(--bg);}
+.deck-top-eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;}
+.deck-top-counter{font-family:var(--serif);font-size:18px;color:var(--ink-soft);font-feature-settings:"tnum";}
+.deck-stage{flex:1;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.deck-stage-inner{position:relative;width:1280px;height:720px;transform-origin:center center;flex-shrink:0;background:var(--bg);}
+.deck-bottom{display:flex;justify-content:space-between;align-items:center;padding:16px 32px;border-top:1px solid var(--line);background:var(--bg);}
+.deck-progress{flex:1;display:flex;gap:4px;justify-content:center;padding:0 24px;flex-wrap:wrap;}
+.deck-dot{width:24px;height:3px;background:var(--line-strong);border-radius:2px;cursor:pointer;transition:background .2s;}
+.deck-dot.active{background:var(--accent);}
+.deck-dot:hover{background:var(--ink-soft);}
+.deck-nav{display:flex;gap:8px;}
+.deck-btn{width:40px;height:40px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;transition:border-color .15s,background .15s;}
+.deck-btn:hover{border-color:var(--accent);background:var(--bg2);}
+.deck-btn:disabled{opacity:.35;cursor:not-allowed;}
+
+/* ─── SLIDE ──────────────────────────────────────────── */
+.slide{position:absolute;inset:0;padding:56px 96px;display:flex;flex-direction:column;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s ease;overflow:hidden;}
+.slide.active{opacity:1;pointer-events:auto;}
+.slide-inner{width:100%;max-width:1100px;margin:0 auto;}
+.slide-eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:18px;}
+.slide-h1{font-family:var(--serif);font-size:64px;line-height:1.02;letter-spacing:-0.02em;margin-bottom:18px;}
+.slide-h1 em{font-style:italic;color:var(--accent);}
+.slide-h2{font-family:var(--serif);font-size:44px;line-height:1.05;letter-spacing:-0.015em;margin-bottom:24px;}
+.slide-h2 em{font-style:italic;color:var(--accent);}
+.slide-lead{font-size:20px;line-height:1.55;color:var(--ink-soft);max-width:780px;margin-bottom:18px;}
+.slide-body{font-size:16px;line-height:1.7;color:var(--ink);max-width:820px;}
+.slide-body p+p{margin-top:14px;}
+.slide-meta{font-size:13px;color:var(--muted);letter-spacing:.04em;}
+
+/* ─── SLIDE TYPES ────────────────────────────────────── */
+.slide--cover{background:linear-gradient(135deg,var(--bg) 0%,var(--bg2) 100%);}
+.slide--cover .slide-h1{font-size:96px;line-height:.95;margin-bottom:24px;}
+.slide--cover .slide-lead{font-size:22px;color:var(--ink);max-width:680px;}
+.slide-cover-meta{margin-top:48px;padding-top:28px;border-top:1px solid var(--line-strong);display:flex;gap:48px;flex-wrap:wrap;}
+.slide-cover-meta-item{display:flex;flex-direction:column;gap:4px;}
+.slide-cover-meta-k{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+.slide-cover-meta-v{font-family:var(--serif);font-size:24px;color:var(--ink);}
+
+.slide--section .slide-h1{font-size:80px;}
+.slide--section .slide-eyebrow{font-size:13px;letter-spacing:.32em;}
+
+.bullets{list-style:none;margin-top:18px;}
+.bullets li{padding:14px 0;border-bottom:1px solid var(--line);font-size:17px;line-height:1.55;display:flex;gap:18px;align-items:baseline;}
+.bullets li:last-child{border-bottom:0;}
+.bullets li::before{content:counter(b,decimal-leading-zero);counter-increment:b;font-family:var(--serif);font-size:18px;font-style:italic;color:var(--accent);min-width:32px;}
+.bullets{counter-reset:b;}
+.bullets--plain li::before{content:"·";font-size:24px;color:var(--accent);font-style:normal;min-width:18px;}
+
+.tbl{width:100%;border-collapse:collapse;font-size:14px;margin-top:14px;background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden;}
+.tbl th{background:var(--bg2);color:var(--ink);text-align:left;padding:14px 18px;font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--line);}
+.tbl td{padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.5;}
+.tbl tr:last-child td{border-bottom:0;}
+.tbl tr:hover td{background:var(--bg);}
+.tbl strong{color:var(--accent-dark);}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:24px;}
+.two-col h3{font-family:var(--serif);font-size:24px;margin-bottom:12px;}
+.two-col h3.warn{color:var(--danger);}
+.two-col h3.ok{color:var(--ok);}
+.two-col ul{list-style:none;}
+.two-col li{padding:8px 0;font-size:14.5px;line-height:1.5;color:var(--ink-soft);border-bottom:1px dashed var(--line);}
+
+.callout{margin-top:24px;padding:24px 28px;border-left:4px solid var(--accent);background:var(--surface);border-radius:0 8px 8px 0;}
+.callout--danger{border-color:var(--danger);background:#FBF1EE;}
+.callout--warn{border-color:var(--warn);background:#FBF6E9;}
+.callout strong{display:block;font-family:var(--serif);font-size:20px;margin-bottom:6px;font-style:italic;}
+.callout.callout--danger strong{color:var(--danger);}
+.callout.callout--warn strong{color:var(--warn);}
+.callout p{font-size:14.5px;line-height:1.6;color:var(--ink-soft);}
+
+.case{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+.case-head{background:var(--bg2);padding:16px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px;}
+.case-head-num{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;}
+.case-head-title{font-family:var(--serif);font-size:24px;font-style:italic;}
+.case-body{padding:22px 26px;}
+.case-row{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px;line-height:1.55;}
+.case-row:last-child{border-bottom:0;}
+.case-row dt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;padding-top:2px;}
+.case-row dd{color:var(--ink);}
+
+.timeline{margin-top:18px;display:flex;flex-direction:column;gap:0;}
+.timeline-row{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:14px 0;border-bottom:1px solid var(--line);}
+.timeline-row:last-child{border-bottom:0;}
+.timeline-when{font-family:var(--serif);font-size:20px;font-style:italic;color:var(--accent);}
+.timeline-what{font-size:14.5px;line-height:1.6;color:var(--ink);}
+
+.takeaways{counter-reset:t;margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.takeaway{counter-increment:t;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 24px;display:flex;gap:18px;align-items:flex-start;}
+.takeaway::before{content:counter(t,decimal-leading-zero);font-family:var(--serif);font-size:32px;font-style:italic;color:var(--accent);line-height:1;flex-shrink:0;}
+.takeaway-text{font-size:14.5px;line-height:1.55;}
+.takeaway-text strong{display:block;font-family:var(--serif);font-size:18px;font-style:italic;margin-bottom:4px;color:var(--ink);}
+
+/* TEST */
+.quiz{margin-top:14px;}
+.quiz-q{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 26px;margin-bottom:14px;}
+.quiz-q-num{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:8px;}
+.quiz-q-text{font-family:var(--serif);font-size:21px;line-height:1.3;margin-bottom:16px;}
+.quiz-opts{display:flex;flex-direction:column;gap:8px;}
+.quiz-opt{padding:12px 16px;border:1px solid var(--line);border-radius:8px;cursor:pointer;font-size:14.5px;line-height:1.45;transition:border-color .15s,background .15s;display:flex;gap:12px;align-items:flex-start;}
+.quiz-opt:hover{border-color:var(--accent-soft);background:var(--bg);}
+.quiz-opt-letter{font-family:var(--serif);font-style:italic;color:var(--accent);font-size:18px;min-width:18px;}
+.quiz-opt.selected{border-color:var(--accent);background:var(--bg2);}
+.quiz-opt.correct{border-color:var(--ok);background:#F0F4EC;}
+.quiz-opt.wrong{border-color:var(--danger);background:#FBF1EE;}
+.quiz-submit{margin-top:18px;padding:14px 28px;background:var(--ink);color:var(--bg);border:0;border-radius:999px;font-family:var(--sans);font-size:14px;font-weight:600;cursor:pointer;letter-spacing:.04em;}
+.quiz-submit:hover{background:var(--accent-dark);}
+.quiz-score{margin-top:18px;padding:18px 24px;background:var(--bg2);border-radius:10px;font-family:var(--serif);font-size:22px;font-style:italic;}
+
+/* CLOSING */
+.slide--closing{text-align:center;align-items:center;}
+.slide--closing .slide-inner{text-align:center;}
+.slide--closing .slide-h2{font-size:56px;margin-bottom:20px;}
+.slide--closing .slide-lead{margin:0 auto 28px;}
+.refs{margin-top:24px;font-size:12px;color:var(--muted);text-align:left;max-width:760px;margin-left:auto;margin-right:auto;line-height:1.6;}
+.refs strong{color:var(--ink-soft);}
+
+/* Chrome (top bar + bottom nav) sigue siendo responsive porque NO se escala */
+@media (max-width:780px){
+  .deck-top,.deck-bottom{padding:10px 14px;}
+  .deck-top-eyebrow{font-size:9px;letter-spacing:.18em;}
+  .deck-top-counter{font-size:14px;}
+  .deck-btn{width:36px;height:36px;font-size:16px;}
+  .deck-progress{padding:0 10px;}
+  .deck-dot{width:18px;}
+}
+</style>
+</head>
+<body>
+<div class="deck">
+  <header class="deck-top">
+    <span class="deck-top-eyebrow">PRECISSA · Higiene Facial Profunda · Estética Facial Avanzada</span>
+    <span class="deck-top-counter"><span id="cur">01</span> <span style="color:var(--line-strong)">/</span> <span id="tot">16</span></span>
+  </header>
+
+  <main class="deck-stage" id="stage">
+    <div class="deck-stage-inner" id="stage-inner">
+
+    <!-- 01 · COVER -->
+    <section class="slide slide--cover active">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Curso fundacional · Profesional · 50 h</div>
+        <h1 class="slide-h1">Higiene facial<br><em>profunda</em></h1>
+        <p class="slide-lead">El protocolo fundacional de la cabina facial: la HFP clásica hecha con criterio clínico, asepsia rigurosa y una extracción que no deja marca.</p>
+        <div class="slide-cover-meta">
+          <div class="slide-cover-meta-item"><span class="slide-cover-meta-k">Nivel</span><span class="slide-cover-meta-v">Profesional</span></div>
+          <div class="slide-cover-meta-item"><span class="slide-cover-meta-k">Duración</span><span class="slide-cover-meta-v">20 h + 30 h prácticas</span></div>
+          <div class="slide-cover-meta-item"><span class="slide-cover-meta-k">Modalidad</span><span class="slide-cover-meta-v">Presencial + aula virtual</span></div>
+          <div class="slide-cover-meta-item"><span class="slide-cover-meta-k">Categoría</span><span class="slide-cover-meta-v">Estética Facial Avanzada</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 · POSICIONAMIENTO -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">De qué va esto</div>
+        <h2 class="slide-h2">El tratamiento más reproducible, <em>y el peor ejecutado.</em></h2>
+        <p class="slide-lead">La HFP es el cimiento de la cabina facial. Bien hecha resuelve el motivo de consulta más frecuente y fideliza. Mal hecha deja marcas y clientas que no vuelven.</p>
+        <div class="two-col">
+          <div>
+            <h3 class="ok">Bien hecha</h3>
+            <ul>
+              <li>Limpieza correcta, vapor justo</li>
+              <li>Extracción atraumática, sin marca</li>
+              <li>Mascarilla adecuada y fotoprotección</li>
+              <li>Resultado visible al momento</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="warn">Mal hecha</h3>
+            <ul>
+              <li>Extracción con las uñas</li>
+              <li>Presión excesiva, falta de asepsia</li>
+              <li>Vapor sobre piel inflamada</li>
+              <li>Marcas, foliculitis, clientas perdidas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · FUNDAMENTOS -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Qué pasa en la piel</div>
+        <h2 class="slide-h2">Capa córnea y <em>unidad pilosebácea.</em></h2>
+        <ul class="bullets bullets--plain">
+          <li><strong>La epidermis se renueva cada 28 días</strong> · se alarga a 40-50 a partir de los 40</li>
+          <li><strong>El manto hidrolipídico</strong> (pH 4,7-5,5) y los lípidos intercelulares forman la barrera</li>
+          <li><strong>La glándula de sebo</strong> vierte al folículo; si la descamación se altera, aparece el microcomedón</li>
+          <li><strong>El comedón se forma por cuatro cosas</strong> · folículo taponado, más sebo, <em>C. acnes</em> e inflamación</li>
+        </ul>
+        <div class="callout">
+          <strong>Hasta dónde llega la HFP</strong>
+          <p>Actúa sobre las dos primeras causas: limpiar, exfoliar y extraer. Cuando mandan la bacteria y la inflamación, el caso pasa del plano estético al dermatológico.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · TIPOS DE COMEDÓN -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Reconocer la lesión</div>
+        <h2 class="slide-h2">Qué extraer <em>y qué no.</em></h2>
+        <table class="tbl">
+          <thead><tr><th>Lesión</th><th>Cómo se ve</th><th>Qué hago</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Comedón abierto</strong></td><td>Tapón oscuro en el orificio (sebo y melanina oxidados, no suciedad)</td><td>Extracción atraumática por presión paralela o asa</td></tr>
+            <tr><td><strong>Comedón cerrado</strong></td><td>Pápula blanquecina 1-2 mm, sin orificio visible</td><td>Madurar; microincisión 30G si procede, extraer con cuidado</td></tr>
+            <tr><td><strong>Pápula inflamatoria</strong></td><td>Lesión roja, dura, sin pus</td><td><strong>No se extrae</strong>; tratar la inflamación</td></tr>
+            <tr><td><strong>Pústula superficial</strong></td><td>Lesión con pus</td><td>Solo si está madura y superficial; mejor no manipular</td></tr>
+          </tbody>
+        </table>
+        <p class="slide-meta" style="margin-top:12px">Extraer una pápula o una pústula profunda como si fueran un comedón es mala praxis: dispersa el folículo y predispone a la cicatriz.</p>
+      </div>
+    </section>
+
+    <!-- 05 · INDICACIONES -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Para quién sí</div>
+        <h2 class="slide-h2">Cuándo la HFP <em>es la sesión.</em></h2>
+        <ul class="bullets bullets--plain">
+          <li><strong>Acné de comedones leve (Grado I)</strong> · predominio de abiertos y cerrados, poca inflamación</li>
+          <li><strong>Congestión y piel apagada</strong> · renueva la textura y devuelve luz al momento</li>
+          <li><strong>Piel mixta o grasa con poro dilatado</strong> · control del sebo, mantenimiento mensual</li>
+          <li><strong>Mantenimiento programado</strong> · sin patología activa, cada 4-6 semanas</li>
+          <li><strong>Preparar la piel</strong> antes de cosmética activa, peelings o microneedling</li>
+          <li><strong>Primera consulta facial</strong> · la sesión natural de presentación y lectura de la piel</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 06 · CONTRAINDICACIONES -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Cuándo NO tratar</div>
+        <h2 class="slide-h2">Deriva, <em>no improvises.</em></h2>
+        <div class="two-col">
+          <div>
+            <h3 class="warn">Deriva a dermatología</h3>
+            <ul>
+              <li>Acné inflamatorio Grado III-IV</li>
+              <li>Rosácea en brote</li>
+              <li>Lesión pigmentada sospechosa (ABCDE)</li>
+              <li>Dermatitis, eccema o herpes activo</li>
+              <li>Infección local (foliculitis, impétigo)</li>
+              <li>Isotretinoína oral &lt;6 meses</li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="color:var(--warn)">Con precaución</h3>
+            <ul>
+              <li>Quemadura solar reciente</li>
+              <li>Telangiectasias extensas, cuperosis severa</li>
+              <li>Embarazo (cuidado con salicílico y retinoides)</li>
+              <li>Expectativa irreal o piel manipulada</li>
+              <li>Piel muy sensibilizada o agredida</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 · SECCIÓN · PROTOCOLO -->
+    <section class="slide slide--section">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Parte II</div>
+        <h1 class="slide-h1">El protocolo,<br><em>siete pasos.</em></h1>
+      </div>
+    </section>
+
+    <!-- 08 · ASEPSIA Y PASOS 1-3 -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Limpieza · exfoliación · vapor</div>
+        <h2 class="slide-h2">Preparar la piel <em>para abrir.</em></h2>
+        <ul class="bullets">
+          <li><strong>Doble limpieza</strong> (5-7 min) · oleosa para retirar maquillaje y sebo; gel suave sin sulfatos según tipo de piel</li>
+          <li><strong>Exfoliación química</strong> (3-5 min) · enzimática en sensibles, AHA suave en textura áspera, BHA en piel grasa con comedones</li>
+          <li><strong>Vapor 10 minutos exactos</strong> · reblandece el tapón; más tiempo deshidrata y sensibiliza</li>
+        </ul>
+        <div class="callout callout--warn">
+          <strong>Asepsia que no se negocia</strong>
+          <p>Lavado quirúrgico de manos, guantes de nitrilo, asa y pinzas esterilizadas en autoclave (o de un solo uso), gasas estériles, clorhexidina acuosa 0,5-1% y papel desechable renovado con cada clienta.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 · EXTRACCIÓN -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">El paso que más distingue</div>
+        <h2 class="slide-h2">Extracción <em>atraumática.</em></h2>
+        <ul class="bullets">
+          <li><strong>Solo comedones maduros</strong> · nunca lesiones inflamatorias, profundas, dolorosas o duras</li>
+          <li><strong>Presión paralela a la piel</strong>, no perpendicular · los índices flanquean y empujan hacia los lados</li>
+          <li><strong>Nunca con las uñas</strong> · pulpejo envuelto en gasa o extremo plano del asa</li>
+          <li><strong>Si no sale con presión moderada, se deja</strong> · forzar rompe el folículo y deja marca</li>
+          <li><strong>Tiempo máximo 15-20 min</strong> (25 en piel muy congestionada) · más, edema y foliculitis</li>
+          <li><strong>Antisepsia inmediata</strong> tras cada zona y al terminar</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 10 · ALTA FRECUENCIA, MASCARILLA, CIERRE -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Cerrar la sesión</div>
+        <h2 class="slide-h2">Calmar, sellar <em>y proteger.</em></h2>
+        <ul class="bullets bullets--plain">
+          <li><strong>Alta frecuencia</strong> (3-5 min) · bactericida por ozono, secante, vasoconstrictor reactivo y calmante de las microlesiones</li>
+          <li><strong>Mascarilla</strong> (10-15 min) · calmante si hay enrojecimiento, arcilla en mixta-grasa, hidratante o alginato tras extracción intensa</li>
+          <li><strong>Cierre</strong> · sérum reparador (niacinamida, centella, pantenol) e hidratante adecuado</li>
+        </ul>
+        <div class="callout callout--danger">
+          <strong>Fotoprotección SPF 50+ obligada</strong>
+          <p>Antes de salir de cabina, aunque sea invierno o aunque la clienta no vaya a exponerse al sol enseguida. La alta frecuencia está contraindicada en marcapasos, embarazo, prótesis metálicas faciales y epilepsia.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 · CASO 1 -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Caso clínico 1</div>
+        <h2 class="slide-h2">Mantenimiento en piel mixta <em>· 32 años.</em></h2>
+        <div class="case">
+          <div class="case-head">
+            <span class="case-head-num">Caso 01 · Cabina rentable</span>
+            <span class="case-head-title">Sin patología activa, viene cada 4-5 semanas</span>
+          </div>
+          <div class="case-body">
+            <dl class="case-row"><dt>Protocolo</dt><dd>Exfoliación química suave (mandélico 10%), vapor estándar 10 min, extracción selectiva y breve (5-10 min, comedones abiertos en aletas y mentón).</dd></dl>
+            <dl class="case-row"><dt>Cierre</dt><dd>Alta frecuencia, mascarilla de arcilla con niacinamida, sérum de niacinamida y fotoprotección.</dd></dl>
+            <dl class="case-row"><dt>Evolución</dt><dd>HFP mensual estable durante años, sin complicaciones, luminosidad inmediata y poro afinado de forma progresiva.</dd></dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 · CASO 2 -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Caso clínico 2</div>
+        <h2 class="slide-h2">Acné de comedones leve <em>· 19 años.</em></h2>
+        <div class="case">
+          <div class="case-head">
+            <span class="case-head-num">Caso 02 · Grado I</span>
+            <span class="case-head-title">Cerrados peribucales, abiertos en zona T · primera HFP</span>
+          </div>
+          <div class="case-body">
+            <dl class="case-row"><dt>Protocolo</dt><dd>Exfoliación con salicílico 1-2%, vapor 10 min, extracción más larga (15-20 min) con presión paralela rigurosa y microincisión 30G en cerrados maduros, alta frecuencia 5 min, mascarilla de arcilla con zinc.</dd></dl>
+            <dl class="case-row"><dt>En casa</dt><dd>Limpiador con salicílico 1%, niacinamida 5% de día, adapaleno 0,1% (OTC) de noche, introducción progresiva.</dd></dl>
+            <dl class="case-row"><dt>Plan</dt><dd>Serie de 4-6 sesiones cada dos semanas, no una sesión única. Revisión a 4 semanas.</dd></dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13 · COSMÉTICA -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Cosmetología aplicada</div>
+        <h2 class="slide-h2">Qué usar <em>en cada paso.</em></h2>
+        <table class="tbl">
+          <thead><tr><th>Categoría</th><th>Activos</th><th>Para qué</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Exfoliantes químicos</strong></td><td>AHA suaves, BHA (salicílico 0,5-2%), PHA</td><td>Renovar y deshacer comedones; BHA en piel grasa</td></tr>
+            <tr><td><strong>Sérums reparadores</strong></td><td>Niacinamida 4-5%, centella, pantenol, ceramidas</td><td>Tras la HFP y mantenimiento</td></tr>
+            <tr><td><strong>Mascarillas de arcilla</strong></td><td>Caolín, bentonita con zinc o niacinamida</td><td>Piel mixta-grasa; sin dejar secar del todo</td></tr>
+            <tr><td><strong>Mascarillas calmantes</strong></td><td>Bisabolol, avena coloidal, centella, pantenol</td><td>Tras la extracción, piel sensible</td></tr>
+            <tr><td><strong>Fotoprotección</strong></td><td>SPF 50+ UVA alta, oil-free o con color</td><td>Obligada al terminar y a diario</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 14 · AFTERCARE -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Qué decirle para casa</div>
+        <h2 class="slide-h2">Las primeras <em>48-72 horas.</em></h2>
+        <div class="timeline">
+          <div class="timeline-row"><div class="timeline-when">24 h</div><div class="timeline-what"><strong>Sin maquillaje</strong> sobre piel recién extraída, para evitar foliculitis.</div></div>
+          <div class="timeline-row"><div class="timeline-when">48 h</div><div class="timeline-what">Sin sol directo: piel sensibilizada y vasodilatada, riesgo de mancha post-inflamatoria.</div></div>
+          <div class="timeline-row"><div class="timeline-when">SPF 50+</div><div class="timeline-what">Estricta desde el primer día, también en interior si hay ventanas.</div></div>
+          <div class="timeline-row"><div class="timeline-when">No tocar</div><div class="timeline-what">Nada de apretar, exfoliantes, cepillos, sauna ni hammam en 48 h.</div></div>
+          <div class="timeline-row"><div class="timeline-when">Activos</div><div class="timeline-what">Sin retinol ni AHA/BHA fuertes 48-72 h. Reintroducción progresiva.</div></div>
+          <div class="timeline-row"><div class="timeline-when">Vigila</div><div class="timeline-what">Enrojecimiento leve 24-48 h es normal; si dura más o salen pústulas, que contacte.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 15 · COMPLICACIONES -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Cuando algo se tuerce</div>
+        <h2 class="slide-h2">Detectar, parar, <em>derivar.</em></h2>
+        <table class="tbl">
+          <thead><tr><th>Complicación</th><th>Qué hago</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Foliculitis tras la extracción</strong></td><td>Antiséptico tópico; si es extensa, antibiótico tópico o deriva. Nada de nueva HFP hasta que cure</td></tr>
+            <tr><td><strong>Marca o cicatriz puntiforme</strong></td><td>No extraigas más en esa zona. Deriva si la cicatriz ya está establecida</td></tr>
+            <tr><td><strong>Brote tras el vapor</strong></td><td>Suspende el vapor, refuerza la pauta antiinflamatoria; si persiste, valora derivar</td></tr>
+            <tr><td><strong>Hiperpigmentación post-inflamatoria</strong></td><td>Despigmentantes suaves, SPF 50+ con color, plazo de 3-6 meses; deriva si no resuelve</td></tr>
+            <tr><td><strong>Herpes reactivado</strong></td><td>Deriva para aciclovir; profilaxis 24 h antes en las siguientes sesiones</td></tr>
+          </tbody>
+        </table>
+        <p class="slide-meta" style="margin-top:12px">La regla: documentar (foto, fecha, productos), informar con honestidad, no manipular más y, ante la duda, derivar a dermatología.</p>
+      </div>
+    </section>
+
+    <!-- 16 · CIERRE -->
+    <section class="slide slide--closing">
+      <div class="slide-inner">
+        <div class="slide-eyebrow">Fin de la lección</div>
+        <h2 class="slide-h2">Higiene facial profunda · <em>con criterio.</em></h2>
+        <p class="slide-lead">Has cubierto los fundamentos, los tipos de comedón, las indicaciones, las contraindicaciones, los siete pasos del protocolo, la extracción atraumática, dos casos de cabina, la cosmética, el aftercare y las complicaciones.</p>
+        <p class="slide-meta">Todo se reduce a lo mismo: asepsia rigurosa, presión paralela sin uñas, vapor controlado y fotoprotección obligada. Ante la duda, deriva.</p>
+        <div class="refs">
+          <strong>Referencias seleccionadas ·</strong> Zaenglein AL et al. (Guidelines of care for acne vulgaris, JAAD 2016) · Draelos ZD (Cosmetic Dermatology: Products and Procedures, Wiley-Blackwell) · Baumann L (Cosmetic Dermatology: Principles and Practice, McGraw-Hill) · Fitzpatrick TB (Sun-reactive skin types I-VI, Arch Dermatol 1988) · Tan JKL, Bhate K (Epidemiology of acne, Br J Dermatol 2015) · Goodman GJ (Management of post-acne scarring, Am J Clin Dermatol 2000).
+        </div>
+      </div>
+    </section>
+
+    </div><!-- /deck-stage-inner -->
+  </main>
+
+  <footer class="deck-bottom">
+    <button class="deck-btn" id="prev" aria-label="Anterior">←</button>
+    <div class="deck-progress" id="dots"></div>
+    <button class="deck-btn" id="next" aria-label="Siguiente">→</button>
+  </footer>
+</div>
+
+<script>
+(function(){
+  const stage=document.getElementById('stage');
+  const stageInner=document.getElementById('stage-inner');
+  function fitDeck(){
+    if(!stage||!stageInner)return;
+    const w=stage.clientWidth;const h=stage.clientHeight;
+    if(w<=0||h<=0)return;
+    const scale=Math.min(w/1280,h/720);
+    stageInner.style.transform='scale('+scale+')';
+  }
+  window.addEventListener('resize',fitDeck);
+  window.addEventListener('orientationchange',()=>setTimeout(fitDeck,100));
+  document.addEventListener('fullscreenchange',()=>setTimeout(fitDeck,50));
+  if(window.ResizeObserver){try{new ResizeObserver(fitDeck).observe(stage);}catch(e){}}
+  setTimeout(fitDeck,0);setTimeout(fitDeck,150);
+
+  const slides=document.querySelectorAll('.slide');
+  const dotsHost=document.getElementById('dots');
+  const prevBtn=document.getElementById('prev');
+  const nextBtn=document.getElementById('next');
+  const curEl=document.getElementById('cur');
+  const totEl=document.getElementById('tot');
+  let i=0;
+  totEl.textContent=String(slides.length).padStart(2,'0');
+  slides.forEach((s,idx)=>{
+    const d=document.createElement('div');
+    d.className='deck-dot'+(idx===0?' active':'');
+    d.onclick=()=>go(idx);
+    dotsHost.appendChild(d);
+  });
+  function go(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,idx)=>s.classList.toggle('active',idx===i));
+    dotsHost.querySelectorAll('.deck-dot').forEach((d,idx)=>d.classList.toggle('active',idx===i));
+    curEl.textContent=String(i+1).padStart(2,'0');
+    prevBtn.disabled=(i===0);
+    nextBtn.disabled=(i===slides.length-1);
+    const active=slides[i];if(active)active.scrollTop=0;
+  }
+  prevBtn.onclick=()=>go(i-1);
+  nextBtn.onclick=()=>go(i+1);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' ')go(i+1);
+    if(e.key==='ArrowLeft'||e.key==='PageUp')go(i-1);
+    if(e.key==='Home')go(0);
+    if(e.key==='End')go(slides.length-1);
+  });
+  go(0);
+
+})();
+</script>
+</body>
+</html>
