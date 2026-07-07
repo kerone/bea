@@ -134,7 +134,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* ─── TOKENS ─────────────────────────────────────────── */
 :root {
@@ -958,6 +958,7 @@ a.footer-nap-line:hover { color: var(--bg); }
     </div>
     <div class="hero-right" style="position:relative;overflow:hidden;">
       <img src="assets/IMG-20260522-WA0032.jpg" alt="Editorial PRECISSA INSTITUTE"
+        width="1392" height="752" fetchpriority="high"
         style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
       <div class="ph-label">editorial PRECISSA INSTITUTE · primavera 2026</div>
     </div>
@@ -1014,7 +1015,7 @@ a.footer-nap-line:hover { color: var(--bg); }
   <section class="profesora">
     <div class="profesora-grid">
       <div class="profesora-img-wrap">
-        <img class="profesora-img" src="assets/profesora.jpg" alt="Profesora de PRECISSA INSTITUTE">
+        <img class="profesora-img" src="assets/profesora.jpg" alt="Profesora de PRECISSA INSTITUTE" loading="lazy">
       </div>
       <div class="profesora-content">
         <span class="eyebrow accent">Beatriz Navarro</span>
@@ -1104,7 +1105,8 @@ a.footer-nap-line:hover { color: var(--bg); }
     <div class="testimonials-grid" id="testimonials-grid">
       <div class="testimonial-card">
         <div class="testimonial-img" style="border-radius:8px;overflow:hidden;">
-          <img src="assets/IMG-20260522-WA0032.jpg" alt="Nerea Álvarez"
+          <img src="assets/IMG-20260522-WA0032.jpg" alt="Editorial PRECISSA INSTITUTE"
+            width="1392" height="752" loading="lazy"
             style="width:100%;height:240px;object-fit:cover;object-position:center top;display:block;filter:grayscale(100%);">
         </div>
         <p class="testimonial-quote">"PRECISSA INSTITUTE me dio el lenguaje para explicar lo que ya hacía. Ahora mis clientas confían en el protocolo, no sólo en mí."</p>
@@ -1657,7 +1659,7 @@ a.footer-nap-line:hover { color: var(--bg); }
     </div>
     <div class="precio-card">
       <div class="precio-card-img" style="height:240px;background:var(--soft);position:relative;overflow:hidden;">
-        <img src="assets/le-petit.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;">
+        <img src="assets/le-petit.jpg" alt="" width="800" height="1200" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;">
         <div class="precio-card-play" style="background:rgba(36,29,23,0.18);">
           <div class="precio-card-play-btn" onclick="goTo('leccion','docencia')">▶</div>
         </div>
@@ -3293,7 +3295,9 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
      JAVASCRIPT
 ════════════════════════════════════════════════════════ -->
 <!-- Supabase SDK (auth + DB). Lectura: https://supabase.com/docs/reference/javascript -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- Versión fijada: con el rango @2, el CDN podía servir una versión nueva
+     sin aviso (riesgo de cadena de suministro y de roturas silenciosas). -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4"></script>
 <!-- Configuración propia: pega tu URL + anon key aquí -->
 <script src="assets/js/supabase-config.js"></script>
 <!-- Datos editables de los cursos -->
@@ -3845,7 +3849,7 @@ function renderCourseCardPublic(c) {
   return `
     <article class="cursos-pub-card" id="curso-card-${escapeAttr(c.id)}" data-search="${escapeAttr(searchAttr)}">
       <div class="cursos-pub-card-cover">
-        ${c.cover ? `<img src="${c.cover}" alt="">` : `<div class="cursos-pub-card-cover-fallback">${escapeHtml(c.title)}</div>`}
+        ${c.cover ? `<img src="${c.cover}" alt="" loading="lazy">` : `<div class="cursos-pub-card-cover-fallback">${escapeHtml(c.title)}</div>`}
       </div>
       <div class="cursos-pub-card-body">
         ${c.eyebrow ? `<div class="cursos-pub-card-eyebrow">${escapeHtml(c.eyebrow)}</div>` : ''}
@@ -5307,7 +5311,7 @@ async function renderAulaCourses() {
   const renderAulaCard = (c) => `
     <article class="aula-course-card" data-search="${escapeAttr(buildCourseSearchText(c))}" onclick="openAulaCurso('${escapeJs(c.id)}')">
       <div class="aula-course-card-cover">
-        ${c.cover ? `<img src="${c.cover}" alt="">` : ''}
+        ${c.cover ? `<img src="${c.cover}" alt="" loading="lazy">` : ''}
       </div>
       <div class="aula-course-card-body">
         <div class="aula-course-card-title">${escapeHtml(c.title)}</div>
@@ -5444,7 +5448,7 @@ async function loadMarkdownLib() {
   if (window.marked) return window.marked;
   return new Promise((resolve, reject) => {
     const s = document.createElement('script');
-    s.src = 'https://cdn.jsdelivr.net/npm/marked@12/marked.min.js';
+    s.src = 'https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js'; // versión fijada
     s.onload = () => {
       if (window.marked && window.marked.setOptions) {
         window.marked.setOptions({ gfm: true, breaks: false });
@@ -5994,7 +5998,7 @@ function renderAreasHome() {
   grid.innerHTML = cats.map((cat, i) => {
     const d = AREA_DISPLAY[cat.id] || { ph: 'ph-sand', desc: cat.tagline || '' };
     const imgPart = d.cover
-      ? `<img src="${escapeAttr(d.cover)}" alt="${escapeAttr(cat.label)}">`
+      ? `<img src="${escapeAttr(d.cover)}" alt="${escapeAttr(cat.label)}" loading="lazy">`
       : `<div class="ph-label">${escapeHtml(cat.id)} · PRECISSA INSTITUTE</div>`;
     const imgClass = d.cover ? 'area-card-img' : 'area-card-img ph ' + d.ph;
     return `

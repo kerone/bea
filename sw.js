@@ -1,27 +1,28 @@
 /* =============================================================
  * PRECISSA INSTITUTE · Service Worker
- * Estrategia: network-first para HTML (siempre fresco), cache-first
- * para assets estaticos (rapido y offline). Bypass total a Supabase
- * y FormSubmit (datos dinamicos, no se cachean).
+ * Estrategia:
+ *   · HTML → network-first (siempre fresco; caché solo como fallback offline)
+ *   · JS/CSS same-origin y jsdelivr → stale-while-revalidate (rápido, y el
+ *     deploy llega en la siguiente visita aunque nadie suba CACHE_VERSION)
+ *   · resto de estáticos (imágenes, fuentes) → cache-first
+ * Bypass total a Supabase y FormSubmit (datos dinámicos, no se cachean).
  * ============================================================= */
 
-const CACHE_VERSION = 'v29';
+const CACHE_VERSION = 'v30';
 const CACHE_NAME = 'precissa-' + CACHE_VERSION;
 
-// Assets criticos pre-cacheados en install (la primera visita ya
-// queda offline-ready). El resto se cachea on-demand.
+// Assets críticos pre-cacheados en install (la primera visita ya queda
+// offline-ready). Solo lo pequeño e imprescindible: los favicons grandes
+// (512/maskable, ~430 KB) los pide el instalador PWA cuando toca y se
+// cachean on-demand; precachearlos competía con la carga inicial en móvil.
 const PRECACHE_URLS = [
   '/',
+  '/cursos/',
+  '/cursos/plasmapen-valencia/',
+  '/cursos/electroestetica-valencia/',
   '/manifest.webmanifest',
-  '/favicon.ico',
   '/assets/favicon-32.png',
-  '/assets/favicon-180.png',
-  '/assets/favicon-192.png',
-  '/assets/favicon-512.png',
-  '/assets/favicon-192-maskable.png',
-  '/assets/favicon-512-maskable.png',
   '/assets/seal-ss.webp',
-  '/assets/seal-ss-lg.webp',
   '/assets/legal.css',
   '/assets/legal.js'
 ];
@@ -64,13 +65,17 @@ self.addEventListener('fetch', (event) => {
 
   const isSameOrigin = url.origin === self.location.origin;
   const isFontCdn = url.hostname === 'fonts.googleapis.com' || url.hostname === 'fonts.gstatic.com';
-  if (!isSameOrigin && !isFontCdn) return;
+  // jsdelivr sirve supabase-js y marked: sin él en caché, la materia de los
+  // cursos no funciona offline aunque el resto de la PWA sí.
+  const isJsdelivr = url.hostname === 'cdn.jsdelivr.net';
+  if (!isSameOrigin && !isFontCdn && !isJsdelivr) return;
 
   const accept = req.headers.get('accept') || '';
   const isHtml = req.mode === 'navigate' || accept.includes('text/html');
 
   if (isHtml) {
-    // Network-first para HTML: contenido siempre fresco si hay red
+    // Network-first para HTML: contenido siempre fresco si hay red.
+    // Fallback offline: la propia página si se visitó, o la home.
     event.respondWith(
       fetch(req).then((resp) => {
         const copy = resp.clone();
@@ -83,7 +88,29 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Cache-first para todo lo demas: rapido y offline
+  const isCode = /\.(js|css)($|\?)/.test(url.pathname) || isJsdelivr;
+
+  if (isCode) {
+    // Stale-while-revalidate para JS/CSS: se responde al instante desde
+    // caché pero SIEMPRE se revalida en segundo plano. Antes era
+    // cache-first puro y un deploy que cambiara un JS era invisible para
+    // visitantes recurrentes hasta subir CACHE_VERSION a mano.
+    event.respondWith(
+      caches.match(req).then((cached) => {
+        const refresh = fetch(req).then((resp) => {
+          if (resp && resp.ok && (resp.type === 'basic' || resp.type === 'cors')) {
+            const copy = resp.clone();
+            caches.open(CACHE_NAME).then((c) => c.put(req, copy)).catch(() => null);
+          }
+          return resp;
+        }).catch(() => cached);
+        return cached || refresh;
+      })
+    );
+    return;
+  }
+
+  // Cache-first para el resto (imágenes, fuentes): rápido y offline
   event.respondWith(
     caches.match(req).then((cached) => {
       if (cached) return cached;
