@@ -9,7 +9,7 @@
   --soft:         #E5D9C5;
   --ink:          #241D17;
   --ink-soft:     #544A40;
-  --muted:        #8A8073;
+  --muted:        #726A5D; /* antes #8A8073: 3,3:1 sobre --bg, por debajo de WCAG AA (4,5:1) */
   --accent:       #A86B4E;
   --accent-dark:  #7E4C36;
   --accent-soft:  #ECDDD0;

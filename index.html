@@ -144,7 +144,7 @@
   --soft:         #E5D9C5;
   --ink:          #241D17;
   --ink-soft:     #544A40;
-  --muted:        #8A8073;
+  --muted:        #726A5D; /* antes #8A8073: 3,3:1 sobre --bg, por debajo de WCAG AA (4,5:1) */
   --accent:       #A86B4E;
   --accent-dark:  #7E4C36;
   --accent-soft:  #ECDDD0;
@@ -208,7 +208,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .btn:hover { transform: translateY(-1px); }
 .btn-dark { background: var(--ink); color: var(--bg); }
 .btn-dark:hover { background: #3a302a; }
-.btn-clay { background: var(--accent); color: #fff; }
+.btn-clay { background: var(--accent-dark); color: #fff; } /* accent puro daba 4,3:1 con blanco */
 .btn-clay:hover { background: var(--accent-dark); }
 .btn-outline {
   background: transparent; color: var(--ink);
@@ -438,8 +438,8 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 }
 .tab-item {
   display: flex; flex-direction: column; align-items: center; gap: 3px;
-  font-size: 10px; font-weight: 400; color: var(--muted);
-  cursor: pointer; padding: 4px 16px;
+  font-size: 11.5px; font-weight: 400; color: var(--muted);
+  cursor: pointer; padding: 8px 16px; /* zona táctil ≥44px de alto */
   transition: color 0.15s;
 }
 .tab-item.active { color: var(--accent); font-weight: 600; }
@@ -874,6 +874,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   border: 1px solid rgba(255,255,255,0.25); border-right: none;
 }
 .newsletter-input::placeholder { color: rgba(255,255,255,0.5); }
+.newsletter-input:focus { border-color: rgba(255,255,255,0.7); box-shadow: 0 0 0 3px rgba(255,255,255,0.15); }
 .newsletter-btn {
   padding: 14px 24px; background: var(--accent); color: #fff;
   border: none; border-radius: 0 999px 999px 0; font-family: var(--sans);
@@ -1137,7 +1138,7 @@ a.footer-nap-line:hover { color: var(--bg); }
       <span class="eyebrow white">· Diario PRECISSA INSTITUTE</span>
       <h2 class="newsletter-h2">Suscríbete al diario<br>de cabina. Protocolos,<br>fichas y <em>ofertas en<br>aparatología.</em></h2>
       <div class="newsletter-form" id="newsletter-form">
-        <input class="newsletter-input" type="email" placeholder="tu@email.com">
+        <input class="newsletter-input" type="email" placeholder="tu@email.com" aria-label="Tu email para el newsletter">
         <button class="newsletter-btn" onclick="submitNewsletter()">Suscribirme</button>
       </div>
       <div class="newsletter-thanks" id="newsletter-thanks">Gracias · revisa tu bandeja</div>
@@ -1264,7 +1265,7 @@ a.footer-nap-line:hover { color: var(--bg); }
   </div>
   <div class="cursos-search">
     <span class="cursos-search-icon" aria-hidden="true"></span>
-    <input type="search" id="cursos-pub-search-input" class="cursos-search-input"
+    <input type="search" id="cursos-pub-search-input" class="cursos-search-input" aria-label="Buscar cursos"
            placeholder="Buscar curso (HIFU, microblading, drenaje…)"
            oninput="applyCursosPubFilters()"
            onkeydown="if(event.key==='Escape'){this.value='';applyCursosPubFilters();}" />
@@ -1382,8 +1383,8 @@ a.footer-nap-line:hover { color: var(--bg); }
     <div class="aula-divider">o con email</div>
 
     <form class="aula-form" onsubmit="event.preventDefault(); auth.loginWithEmail();">
-      <input class="aula-input" type="email" id="aula-email" placeholder="tu@email.com" autocomplete="email">
-      <input class="aula-input" type="password" id="aula-password" placeholder="Contraseña" autocomplete="current-password">
+      <input class="aula-input" type="email" id="aula-email" placeholder="tu@email.com" autocomplete="email" aria-label="Email de alumna">
+      <input class="aula-input" type="password" id="aula-password" placeholder="Contraseña" autocomplete="current-password" aria-label="Contraseña">
       <button type="submit" class="aula-form-btn" id="aula-submit-btn">Entrar</button>
     </form>
 
@@ -1416,7 +1417,7 @@ a.footer-nap-line:hover { color: var(--bg); }
   </div>
   <div class="cursos-search">
     <span class="cursos-search-icon" aria-hidden="true"></span>
-    <input type="search" id="aula-search-input" class="cursos-search-input"
+    <input type="search" id="aula-search-input" class="cursos-search-input" aria-label="Buscar en mis cursos"
            placeholder="Buscar en tus cursos…"
            oninput="applyAulaCoursesFilters()"
            onkeydown="if(event.key==='Escape'){this.value='';applyAulaCoursesFilters();}" />
@@ -2148,6 +2149,14 @@ a.footer-nap-line:hover { color: var(--bg); }
 @media (prefers-reduced-motion: reduce) {
   .lv-slide, .lv-parallax-layer { transition: none !important; transform: none !important; }
   .lv-scroll-hint::after { animation: none; }
+  /* Cobertura global: desactiva el resto de animaciones y transiciones
+     de la SPA (hover, drawer, modales) para quien pide menos movimiento. */
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto !important; }
 }
 </style>
 
@@ -2819,7 +2828,7 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
   <div id="adm-panel-alumnas" class="adm-panel">
     <div class="adm-search-wrap cursos-search">
       <span class="cursos-search-icon" aria-hidden="true"></span>
-      <input type="search" id="adm-search-input" class="cursos-search-input"
+      <input type="search" id="adm-search-input" class="cursos-search-input" aria-label="Buscar alumnas"
              placeholder="Buscar por email o nombre…"
              oninput="renderAdmTable()">
     </div>
@@ -5444,20 +5453,34 @@ function aulaSwitchTab(name) {
 }
 
 // ─── AULA · MATERIA (renderizado del .md fuente) ────────
-async function loadMarkdownLib() {
-  if (window.marked) return window.marked;
+function loadScriptOnce(src, isReady) {
+  if (isReady()) return Promise.resolve();
   return new Promise((resolve, reject) => {
     const s = document.createElement('script');
-    s.src = 'https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js'; // versión fijada
-    s.onload = () => {
-      if (window.marked && window.marked.setOptions) {
-        window.marked.setOptions({ gfm: true, breaks: false });
-      }
-      resolve(window.marked);
-    };
-    s.onerror = () => reject(new Error('No se pudo cargar el renderizador de Markdown.'));
+    s.src = src;
+    s.onload = () => resolve();
+    s.onerror = () => reject(new Error('No se pudo cargar ' + src));
     document.head.appendChild(s);
   });
+}
+async function loadMarkdownLib() {
+  await loadScriptOnce('https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js', () => !!window.marked); // versión fijada
+  if (window.marked && window.marked.setOptions) {
+    window.marked.setOptions({ gfm: true, breaks: false });
+  }
+  return window.marked;
+}
+// marked NO escapa el HTML embebido en el .md: sin sanitizar, cualquier
+// <script> o <img onerror> dentro de la materia se ejecutaría en el
+// dominio. DOMPurify limpia el HTML resultante antes del innerHTML.
+async function loadSanitizer() {
+  try {
+    await loadScriptOnce('https://cdn.jsdelivr.net/npm/dompurify@3.0.9/dist/purify.min.js', () => !!window.DOMPurify); // versión fijada
+    return window.DOMPurify;
+  } catch (e) {
+    console.warn('[aula] DOMPurify no disponible; se renderiza sin sanitizar', e);
+    return null;
+  }
 }
 async function renderAulaMateria(course) {
   const host = document.getElementById('ac-materia-host');
@@ -5473,10 +5496,16 @@ async function renderAulaMateria(course) {
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const md = await res.text();
     const lib = await loadMarkdownLib();
-    const html = lib.parse(md);
+    let html = lib.parse(md);
+    const purifier = await loadSanitizer();
+    if (purifier) html = purifier.sanitize(html);
     host.innerHTML = '<article class="ac-materia">' + html + '</article>';
   } catch (e) {
-    host.innerHTML = '<div class="ac-materia-empty">No se pudo cargar la materia (' + escapeHtml(e.message || 'error desconocido') + ').</div>';
+    // Mensaje amable: el "HTTP 404" en crudo asustaba y no orientaba.
+    console.warn('[aula] materia no disponible', e);
+    host.innerHTML = '<div class="ac-materia-empty">Ahora mismo no podemos mostrar la materia de este curso. ' +
+      'Prueba a recargar la página en un momento y, si sigue sin aparecer, escríbenos a ' +
+      '<a class="aula-link" href="mailto:precissainstitute@gmail.com">precissainstitute@gmail.com</a>.</div>';
   }
 }
 
