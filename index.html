@@ -3341,14 +3341,16 @@ function goTo(pageKey, area) {
   document.getElementById(cfg.el).classList.add('active');
   window.scrollTo(0,0);
   updateNav(pageKey, cfg);
-  updateTabBar(cfg.area);
+  updateTabBar(cfg.area, pageKey);
   if (typeof onPageEnter === 'function') onPageEnter(pageKey);
 }
 
 function updateNav(pageKey, cfg) {
+  // Orden real de .nav-link: [0]=Inicio, [1]=Docencia, [2]=Aparatología, [3]=Diario
   document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-  if (cfg.area === 'docencia') document.querySelectorAll('.nav-link')[0].classList.add('active');
-  if (cfg.area === 'aparatologia') document.querySelectorAll('.nav-link')[1].classList.add('active');
+  if (!cfg.area) document.querySelectorAll('.nav-link')[0].classList.add('active');
+  if (cfg.area === 'docencia') document.querySelectorAll('.nav-link')[1].classList.add('active');
+  if (cfg.area === 'aparatologia') document.querySelectorAll('.nav-link')[2].classList.add('active');
 
   const row2 = document.getElementById('nav-row2');
   const label = document.getElementById('nav-area-label');
@@ -3360,19 +3362,20 @@ function updateNav(pageKey, cfg) {
   const items = SUBLINKS[cfg.area] || [];
   subLinks.innerHTML = items.map(it => {
     const isActive = it.page && it.page === cfg.subActive;
+    const href = it.page === 'cursos' ? '/cursos/' : (it.page ? ('/' + (PAGE_HASH[it.page] || '')) : '/');
     const onclick = it.page
-      ? `onclick="goTo('${it.page}','${cfg.area}')"`
-      : (it.action ? `onclick="${it.action}"` : '');
-    const link = `<span class="nav-sub-link${isActive ? ' active' : ''}" ${onclick}>${it.label}</span>`;
+      ? `onclick="goTo('${it.page}','${cfg.area}');return false"`
+      : (it.action ? `onclick="${it.action};return false"` : '');
+    const link = `<a class="nav-sub-link${isActive ? ' active' : ''}" href="${href}" ${onclick}>${it.label}</a>`;
     // Si es Cursos, le añadimos un dropdown con las 4 categorías
     if (it.page === 'cursos') {
       const cats = (window.PRECISSA_CATEGORIES || []);
       if (cats.length === 0) return link;
       const dropdownItems = [
-        `<span class="nav-dropdown-item" onclick="goTo('cursos','docencia')">Ver todos los cursos</span>`,
+        `<a class="nav-dropdown-item" href="/cursos/" onclick="goTo('cursos','docencia');return false">Ver todos los cursos</a>`,
         `<div class="nav-dropdown-sep"></div>`,
         ...cats.map(c =>
-          `<span class="nav-dropdown-item" onclick="goToCursosCategory('${c.id}')">${escapeHtml(c.label)}<span class="nav-dropdown-item-tagline">${escapeHtml(c.tagline || '')}</span></span>`
+          `<a class="nav-dropdown-item" href="/#cat/${c.id}" onclick="goToCursosCategory('${c.id}');return false">${escapeHtml(c.label)}<span class="nav-dropdown-item-tagline">${escapeHtml(c.tagline || '')}</span></a>`
         )
       ].join('');
       return `<span class="nav-sub-link-wrap">${link}<div class="nav-dropdown">${dropdownItems}</div></span>`;
@@ -3381,11 +3384,16 @@ function updateNav(pageKey, cfg) {
   }).join('');
 }
 
-function updateTabBar(area) {
-  document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
-  if (!area) document.querySelectorAll('.tab-item')[0].classList.add('active');
-  else if (area === 'docencia') document.querySelectorAll('.tab-item')[1].classList.add('active');
-  else if (area === 'aparatologia') document.querySelectorAll('.tab-item')[2].classList.add('active');
+function updateTabBar(area, pageKey) {
+  const tabs = document.querySelectorAll('.tab-item');
+  tabs.forEach(t => t.classList.remove('active'));
+  // Las páginas del aula viven en el área 'docencia', pero su pestaña
+  // en móvil es "Yo" (índice 3), no "Docencia".
+  const aulaPages = ['aula', 'aula-curso', 'leccion', 'tests', 'resultado'];
+  if (pageKey && aulaPages.indexOf(pageKey) !== -1) { tabs[3].classList.add('active'); return; }
+  if (!area) tabs[0].classList.add('active');
+  else if (area === 'docencia') tabs[1].classList.add('active');
+  else if (area === 'aparatologia') tabs[2].classList.add('active');
 }
 
 // ─── STICKY NAV ────────────────────────────────────────
@@ -3504,7 +3512,10 @@ async function submitNewsletter() {
       await fetch(BREVO_FORM_URL, { method:'POST', body:data, mode:'no-cors' });
     } else {
       // Fallback: enviar al inbox via FormSubmit con asunto distinguible.
-      await fetch(QUOTE_ENDPOINT, {
+      // FormSubmit responde {success:"true"} — sin validar la respuesta, un
+      // 4xx/5xx o el estado "email pendiente de activar" mostraría el
+      // "gracias" y la suscripción se perdería en silencio.
+      const res = await fetch(QUOTE_ENDPOINT, {
         method:  'POST',
         headers: { 'Content-Type':'application/json', 'Accept':'application/json' },
         body:    JSON.stringify({
@@ -3514,6 +3525,9 @@ async function submitNewsletter() {
           _template: 'table'
         })
       });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const json = await res.json().catch(() => ({}));
+      if (json.success !== 'true' && json.success !== true) throw new Error('FormSubmit rechazó el envío');
     }
     form.style.display   = 'none';
     thanks.style.display = 'block';
@@ -3829,7 +3843,7 @@ function buildCourseSearchText(c) {
 function renderCourseCardPublic(c) {
   const searchAttr = buildCourseSearchText(c);
   return `
-    <article class="cursos-pub-card" data-search="${escapeAttr(searchAttr)}">
+    <article class="cursos-pub-card" id="curso-card-${escapeAttr(c.id)}" data-search="${escapeAttr(searchAttr)}">
       <div class="cursos-pub-card-cover">
         ${c.cover ? `<img src="${c.cover}" alt="">` : `<div class="cursos-pub-card-cover-fallback">${escapeHtml(c.title)}</div>`}
       </div>
@@ -3841,7 +3855,7 @@ function renderCourseCardPublic(c) {
           ${c.duration ? `<span>${escapeHtml(c.duration)}</span>` : ''}
           ${c.level ? `<span>${escapeHtml(c.level)}</span>` : ''}
         </div>
-        <button class="cursos-pub-card-cta" onclick="openCursoInfoForm('${escapeAttr(c.title)}')">Solicitar información</button>
+        <button class="cursos-pub-card-cta" onclick="openCursoInfoForm('${escapeJs(c.title)}')">Solicitar información</button>
       </div>
     </article>`;
 }
@@ -3951,6 +3965,9 @@ const PRECISSA_ADMIN_EMAILS = [
   'beautysecrets.betty@gmail.com',
   'precissainstitute@gmail.com'
 ];
+// Exponerla en window: admin.js la lee como fuente única (un const no
+// crea propiedad en window por sí solo).
+window.PRECISSA_ADMIN_EMAILS = PRECISSA_ADMIN_EMAILS;
 function isAdminEmail(email) {
   if (!email) return false;
   return PRECISSA_ADMIN_EMAILS.some(a => a.toLowerCase().trim() === email);
@@ -4083,14 +4100,14 @@ function renderAdmTable() {
       ? `<span class="adm-admin-badge" title="Acceso total como administradora">Admin</span>`
       : `<span class="adm-cell-count ${count === 0 ? 'zero' : ''}">${count === 0 ? 'sin accesos' : count}</span>`;
     return `
-      <tr class="adm-row" onclick="openAdmEditor('${escapeAttr(u.email)}')">
+      <tr class="adm-row" onclick="openAdmEditor('${escapeJs(u.email)}')">
         <td>
           <div class="adm-email">${escapeHtml(u.email)}</div>
           ${u.full_name ? `<div class="adm-name">${escapeHtml(u.full_name)}</div>` : ''}
         </td>
         <td>${accessCell}</td>
         <td><span class="adm-cell-date">${latest ? 'Última modif. ' + admFormatDate(latest) : '—'}</span></td>
-        <td class="adm-cell-edit"><button class="adm-curso-edit-btn" onclick="event.stopPropagation();openAdmEditor('${escapeAttr(u.email)}')">Editar</button></td>
+        <td class="adm-cell-edit"><button class="adm-curso-edit-btn" onclick="event.stopPropagation();openAdmEditor('${escapeJs(u.email)}')">Editar</button></td>
       </tr>`;
   }).join('');
   document.getElementById('adm-table-host').innerHTML = `
@@ -4270,8 +4287,8 @@ function renderResenas() {
           <div class="adm-res-name">${escapeHtml(t.name || '')}</div>
           ${t.centro ? `<div class="adm-res-centro">${escapeHtml(t.centro)}</div>` : ''}
           <div class="adm-res-foot">
-            <button onclick="openResEditor('${escapeAttr(t.id)}')">Editar</button>
-            <button class="adm-danger" onclick="deleteRes('${escapeAttr(t.id)}')">Eliminar</button>
+            <button onclick="openResEditor('${escapeJs(t.id)}')">Editar</button>
+            <button class="adm-danger" onclick="deleteRes('${escapeJs(t.id)}')">Eliminar</button>
           </div>
         </div>
       </div>`;
@@ -4449,7 +4466,7 @@ function courseVisibilityRow(c) {
       <div class="adm-curso-info">
         <div class="adm-curso-title">${escapeHtml(c.title || c.id)}${edited ? ' <span class="adm-curso-edited" title="Tiene cambios guardados desde el panel">editado</span>' : ''}<small>${escapeHtml(c.id)}</small></div>
       </div>
-      <button class="adm-curso-edit-btn" onclick="openCourseEditor('${escapeAttr(c.id)}')">Editar</button>
+      <button class="adm-curso-edit-btn" onclick="openCourseEditor('${escapeJs(c.id)}')">Editar</button>
       <span class="adm-curso-state ${hidden ? 'off' : 'on'}">${hidden ? 'Oculto' : 'Visible'}</span>
       <label class="adm-switch">
         <input type="checkbox" ${checked} onchange="toggleCourseVisibility('${escapeAttr(c.id)}', this)">
@@ -4907,7 +4924,7 @@ function renderTienda() {
   const cats = getProductCategories();
   if (chips) {
     chips.innerHTML = [`<span class="filter-chip${_tiendaFilter === 'todas' ? ' active' : ''}" onclick="filterTienda(this,'todas')">Todas</span>`]
-      .concat(cats.map(c => `<span class="filter-chip${_tiendaFilter === c.id ? ' active' : ''}" onclick="filterTienda(this,'${escapeAttr(c.id)}')">${escapeHtml(c.label)}</span>`)).join('');
+      .concat(cats.map(c => `<span class="filter-chip${_tiendaFilter === c.id ? ' active' : ''}" onclick="filterTienda(this,'${escapeJs(c.id)}')">${escapeHtml(c.label)}</span>`)).join('');
   }
   const list = getPublicProducts().filter(p => _tiendaFilter === 'todas' || p.category === _tiendaFilter);
   if (list.length === 0) { grid.innerHTML = '<div class="adm-no-results" style="grid-column:1/-1">No hay equipos en esta categoría.</div>'; return; }
@@ -4917,7 +4934,7 @@ function productCardPublic(p) {
   const learn = p.relatedCourseLabel ? `<div class="tienda-product-course">aprende con · <em>${escapeHtml(p.relatedCourseLabel)}</em></div>` : '';
   const chip  = p.relatedCourseLabel ? '<span class="product-learn-chip">Aprende a usarlo</span>' : '';
   return `
-    <div class="tienda-product-card" onclick="goToProducto('${escapeAttr(p.id)}')">
+    <div class="tienda-product-card" onclick="goToProducto('${escapeJs(p.id)}')">
       ${productImgHtml(p, 'tienda-product-img', chip)}
       <div class="tienda-product-body">
         ${p.category ? `<span class="chip chip-accent" style="margin-bottom:6px">${escapeHtml(productCatLabel(p.category))}</span>` : ''}
@@ -4942,7 +4959,7 @@ function renderProducto(id) {
   const mainStyle = imgs[0] ? `style="background-image:url('${escapeAttr(imgs[0])}');background-size:cover;background-position:center"` : '';
   const mainCls = imgs[0] ? 'producto-gallery-main' : 'producto-gallery-main ph ph-clay';
   const thumbs = imgs.length > 1
-    ? `<div class="producto-thumbs">${imgs.map((u, i) => `<div class="producto-thumb${i === 0 ? ' active' : ''}" style="background-image:url('${escapeAttr(u)}');background-size:cover;background-position:center" onclick="productoSetMain(this,'${escapeAttr(u)}')"></div>`).join('')}</div>`
+    ? `<div class="producto-thumbs">${imgs.map((u, i) => `<div class="producto-thumb${i === 0 ? ' active' : ''}" style="background-image:url('${escapeAttr(u)}');background-size:cover;background-position:center" onclick="productoSetMain(this,'${escapeJs(u)}')"></div>`).join('')}</div>`
     : '';
   left.innerHTML = `
     <div class="producto-breadcrumb">
@@ -4977,8 +4994,8 @@ function renderProducto(id) {
     <div class="producto-precio-row"><span class="producto-precio serif">${escapeHtml(p.price || 'Consultar precio')}</span></div>
     ${p.priceNote ? `<div class="producto-precio-nota">${escapeHtml(p.priceNote)}</div>` : '<div style="margin-bottom:18px"></div>'}
     <div class="producto-ctas">
-      <button class="btn btn-clay" onclick="openQuoteForm('${escapeAttr(p.name)}')">Pedir presupuesto</button>
-      <button class="btn btn-outline" onclick="openDemoForm('${escapeAttr(p.name)}')">Solicitar demo</button>
+      <button class="btn btn-clay" onclick="openQuoteForm('${escapeJs(p.name)}')">Pedir presupuesto</button>
+      <button class="btn btn-outline" onclick="openDemoForm('${escapeJs(p.name)}')">Solicitar demo</button>
     </div>
     ${aprende}
     ${specsHtml}`;
@@ -5003,7 +5020,7 @@ function renderFeaturedProducts() {
   const list = getPublicProducts().slice(0, 3);
   if (list.length === 0) { grid.innerHTML = ''; return; }
   grid.innerHTML = list.map(p => `
-    <div class="product-card" onclick="goToProducto('${escapeAttr(p.id)}')">
+    <div class="product-card" onclick="goToProducto('${escapeJs(p.id)}')">
       ${productImgHtml(p, 'product-img', p.relatedCourseLabel ? '<span class="product-learn-chip">Aprende a usarlo</span>' : '')}
       <div class="product-body">
         ${p.category ? `<span class="chip chip-accent" style="margin-bottom:8px">${escapeHtml(productCatLabel(p.category))}</span>` : ''}
@@ -5048,7 +5065,7 @@ function productAdminRow(p) {
       <div class="adm-curso-info">
         <div class="adm-curso-title">${escapeHtml(p.name || p.id)}${edited ? ' <span class="adm-curso-edited" title="Tiene cambios guardados desde el panel">editado</span>' : ''}<small>${escapeHtml(productCatLabel(p.category) || p.id)}</small></div>
       </div>
-      <button class="adm-curso-edit-btn" onclick="openProductEditor('${escapeAttr(p.id)}')">Editar</button>
+      <button class="adm-curso-edit-btn" onclick="openProductEditor('${escapeJs(p.id)}')">Editar</button>
       <span class="adm-curso-state ${p.hidden ? 'off' : 'on'}">${p.hidden ? 'Oculto' : 'Visible'}</span>
       <label class="adm-switch">
         <input type="checkbox" ${p.hidden ? '' : 'checked'} onchange="toggleProductVisible('${escapeAttr(p.id)}', this)">
@@ -5276,11 +5293,19 @@ async function renderAulaCourses() {
     courses = all.filter((_, i) => checks[i]);
   }
   if (courses.length === 0) {
+    // Distinguir "sin matrícula" de "no se pudo comprobar" (fallo de red
+    // o de Supabase): antes ambos casos mostraban el mismo mensaje y una
+    // alumna matriculada veía "no tienes cursos" por un fallo puntual.
+    if (window.enrollments && window.enrollments.hadError && window.enrollments.hadError()) {
+      grid.innerHTML = '<div class="aula-empty">No hemos podido comprobar tu matrícula (fallo de conexión). ' +
+        '<a class="aula-link" href="/#aula" onclick="window.enrollments.invalidate();renderAulaCourses();return false">Reintentar</a></div>';
+      return;
+    }
     grid.innerHTML = '<div class="aula-empty">Aún no tienes cursos asignados. Habla con tu profesora para que te dé acceso.</div>';
     return;
   }
   const renderAulaCard = (c) => `
-    <article class="aula-course-card" data-search="${escapeAttr(buildCourseSearchText(c))}" onclick="openAulaCurso('${escapeAttr(c.id)}')">
+    <article class="aula-course-card" data-search="${escapeAttr(buildCourseSearchText(c))}" onclick="openAulaCurso('${escapeJs(c.id)}')">
       <div class="aula-course-card-cover">
         ${c.cover ? `<img src="${c.cover}" alt="">` : ''}
       </div>
@@ -5365,7 +5390,11 @@ function applyAulaCoursesFilters() {
 }
 
 // ─── AULA · DETALLE DEL CURSO ──────────────────────────
-let _currentAulaCourseId = null;
+// Única fuente de verdad del curso abierto: window._currentAulaCourseId.
+// (Antes convivían un `let` léxico y la propiedad de window: el router
+// escribía en una y el render leía la otra, y todo deep-link #curso/<id>
+// abría el primer curso del catálogo.)
+window._currentAulaCourseId = null;
 async function openAulaCurso(courseId) {
   const course = getCourses().find(c => c.id === courseId);
   if (!course) return;
@@ -5373,13 +5402,18 @@ async function openAulaCurso(courseId) {
     alert('No tienes acceso a este curso. Habla con tu profesora.');
     return;
   }
-  _currentAulaCourseId = courseId;
+  window._currentAulaCourseId = courseId;
   goTo('aula-curso','docencia');
 }
 
 function renderAulaCurso() {
   const courses = getCourses();
-  const course = courses.find(c => c.id === _currentAulaCourseId) || courses[0];
+  const course = courses.find(c => c.id === window._currentAulaCourseId) || courses[0];
+  if (course) {
+    Promise.resolve(canAccessCourse(course)).then(ok => {
+      if (!ok) goTo('aula','docencia');
+    });
+  }
   if (!course) {
     document.getElementById('ac-title').textContent = 'Sin cursos disponibles';
     document.getElementById('ac-desc').textContent = '';
@@ -5603,6 +5637,11 @@ function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 function escapeAttr(s) { return escapeHtml(s).replace(/`/g, '&#96;'); }
+// Para strings JS dentro de onclick="fn('...')": el navegador des-escapa las
+// entidades HTML del atributo ANTES de parsear el JS, así que escapeAttr no
+// protege — un apóstrofe en un título rompería el handler. Aquí se escapa
+// para el parser de JS (\' \\) y después para el atributo HTML.
+function escapeJs(s) { return escapeAttr(String(s ?? '').replace(/\\/g, '\\\\').replace(/'/g, "\\'")); }
 
 // ─── HOOK por cambio de página ──────────────────────────
 // ─── HOME · RESEÑAS DE ALUMNAS (desde Supabase) ─────────
@@ -5795,6 +5834,14 @@ function openContactForm(mode, opts) {
     productSelect.disabled = false;
     productSelect.required = true;
     priceHidden.value      = '';
+    // Opciones desde el catálogo real (incluye equipos creados en el panel);
+    // el HTML estático se quedaba desincronizado y la preselección fallaba.
+    const machines = (typeof getPublicProducts === 'function' ? getPublicProducts() : []);
+    productSelect.innerHTML = [
+      '<option value="">— Selecciona una opción —</option>',
+      ...machines.map(p => `<option value="${escapeAttr(p.name)}">${escapeHtml(p.name)}</option>`),
+      '<option value="Asesoramiento general">Aún no lo sé · quiero asesoramiento</option>'
+    ].join('');
     // Si nos pasan una máquina, la pre-seleccionamos en el dropdown.
     const preselect = opts.productName || '';
     const hasOption = preselect && Array.from(productSelect.options).some(o => o.value === preselect);
@@ -5980,17 +6027,24 @@ const PAGE_HASH = {
   'admin': '#admin'
 };
 const HASH_PAGE = Object.fromEntries(Object.entries(PAGE_HASH).map(([k,v]) => [v, k]));
-// Sobrescribimos goTo() para que tambien actualice la URL
+// Sobrescribimos goTo() para que tambien actualice la URL.
+// pushState (no replaceState) para que el botón atrás/adelante navegue
+// dentro de la SPA en vez de sacar al usuario del sitio.
 const _origGoTo = goTo;
 goTo = function(pageKey, area, opts) {
   opts = opts || {};
   _origGoTo(pageKey, area);
   if (!opts.skipHash) {
     const cfg = pages[pageKey];
-    const targetHash = PAGE_HASH[pageKey] || '';
+    let targetHash = PAGE_HASH[pageKey] || '';
+    // El curso abierto viaja en el hash: recargar o compartir #curso/<id>
+    // vuelve al mismo curso (antes se perdía y caía al primero).
+    if (pageKey === 'aula-curso' && window._currentAulaCourseId) {
+      targetHash = '#curso/' + window._currentAulaCourseId;
+    }
     if (cfg && targetHash !== window.location.hash) {
       const url = window.location.pathname + (targetHash || '');
-      try { history.replaceState(null, '', url); } catch(e) {}
+      try { history.pushState(null, '', url); } catch(e) {}
     }
   }
 };
@@ -6013,11 +6067,24 @@ function routeFromHash() {
     }, 50);
     return;
   }
-  // Ruta de curso: #curso/<id> (preparado para el futuro, hoy va al detalle de aula si esta logueado)
+  // Ruta de curso: #curso/<id>. Con matrícula abre el aula del curso;
+  // sin ella lleva al catálogo público desplazado hasta su ficha.
   if (hash.startsWith('#curso/')) {
     const courseId = decodeURIComponent(hash.substring(7));
-    window._currentAulaCourseId = courseId;
-    _origGoTo('aula-curso','docencia');
+    const course = getCourses().find(c => c.id === courseId);
+    if (!course) { _origGoTo('home',''); return; }
+    Promise.resolve(canAccessCourse(course)).then(ok => {
+      if (ok) {
+        window._currentAulaCourseId = courseId;
+        _origGoTo('aula-curso','docencia');
+      } else {
+        _origGoTo('cursos','docencia');
+        setTimeout(() => {
+          const el = document.getElementById('curso-card-' + courseId);
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 80);
+      }
+    });
     return;
   }
   // Hash directo
@@ -6029,7 +6096,10 @@ function routeFromHash() {
   // Sin hash o desconocido: home
   _origGoTo('home','');
 }
-window.addEventListener('hashchange', routeFromHash);
+// popstate cubre atrás/adelante con pushState Y los cambios manuales de
+// hash (que también lo disparan); escuchar además hashchange duplicaría
+// el render en cada navegación del historial.
+window.addEventListener('popstate', routeFromHash);
 
 renderDrawerCategorias();
 renderAreasHome();

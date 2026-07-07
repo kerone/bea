@@ -15,13 +15,19 @@
     return window.auth.getClient();
   }
 
-  // Lista de admins (sincroniza con PRECISSA_ADMIN_EMAILS de index.html
-  // y con la función public.is_admin() del SQL).
-  const ADMIN_EMAILS = [
+  // Fuente única de la lista de admins: window.PRECISSA_ADMIN_EMAILS,
+  // definida en index.html (sincroniza con public.is_admin() del SQL).
+  // Se lee en tiempo de llamada porque este archivo carga antes que el
+  // script inline que la define; el fallback solo cubre usos fuera de
+  // index.html.
+  const ADMIN_EMAILS_FALLBACK = [
     'carlosalbiachperez@gmail.com',
     'beautysecrets.betty@gmail.com',
     'precissainstitute@gmail.com'
   ];
+  function adminEmails() {
+    return window.PRECISSA_ADMIN_EMAILS || ADMIN_EMAILS_FALLBACK;
+  }
 
   async function currentEmail() {
     const c = client();
@@ -34,7 +40,7 @@
 
   async function isAdmin() {
     const e = await currentEmail();
-    return e ? ADMIN_EMAILS.includes(e) : false;
+    return e ? adminEmails().includes(e) : false;
   }
 
   // ─── PROFILES ─────────────────────────────────────────────
