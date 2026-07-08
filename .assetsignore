@@ -1,0 +1,17 @@
+# Qué NO se publica como archivo del sitio (Worker assets).
+# Todo lo listado aquí queda fuera del deploy de Cloudflare.
+
+# Internos del repositorio
+.git
+.github
+.gitignore
+.assetsignore
+wrangler.jsonc
+CNAME
+
+# Infraestructura y scripts (SQL, migraciones): nada que servir
+supabase
+
+# Materia fuente en Markdown: contenido de pago. Se sirve SOLO vía
+# bucket privado de Supabase con matrícula; nunca como archivo público.
+docs

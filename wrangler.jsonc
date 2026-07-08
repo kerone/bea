@@ -1,0 +1,23 @@
+// =============================================================
+// PRECISSA INSTITUTE · Configuración del Worker de Cloudflare
+// -------------------------------------------------------------
+// El dominio precissainstitute.com se sirve desde el Worker
+// "precissainstitute" (Cloudflare → Workers & Pages), que publica
+// este repositorio como sitio estático en cada push.
+// Sin este archivo, el build de Cloudflare falla con
+// "Missing entry-point to Worker script or to assets directory".
+//
+// Qué se publica y qué no, lo decide .assetsignore (junto a este
+// archivo): .git, supabase/, docs/ y demás carpetas internas NO
+// se sirven como archivos públicos.
+// =============================================================
+{
+  "name": "precissainstitute",
+  "compatibility_date": "2026-07-07",
+  "assets": {
+    // La raíz del repo ES la web (index.html, cursos/, assets/, ...)
+    "directory": ".",
+    // Rutas inexistentes → /404.html (nuestra página 404 con marca)
+    "not_found_handling": "404-page"
+  }
+}
