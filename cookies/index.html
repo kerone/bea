@@ -95,6 +95,7 @@
 
   <h2>4. Otras tecnologías que no son cookies pero conviene mencionar</h2>
   <p>El sitio carga <strong>tipografías de Google Fonts</strong> (Instrument Serif y Manrope) desde los servidores de Google. Esto no instala cookies, pero implica que tu dirección IP es procesada por Google únicamente para servirte las fuentes. Esta práctica está cubierta por la <strong>excepción técnica</strong> de la LSSI-CE para mostrar correctamente la web.</p>
+  <p>Para medir las visitas usamos <strong>Cloudflare Web Analytics</strong>, un sistema de analítica <strong>sin cookies y sin identificadores</strong>: cuenta páginas vistas de forma agregada, no rastrea a la persona ni crea perfiles, por lo que no requiere banner de consentimiento.</p>
   <p>Por el mismo motivo técnico, el sitio carga dos librerías de código desde el CDN <strong>jsDelivr</strong> (el cliente de Supabase para el aula y el renderizador de la materia), y los formularios de contacto se envían a través de <strong>FormSubmit</strong>. Ambos servicios reciben tu dirección IP al prestar su función, no instalan cookies de seguimiento y no se usan para perfilado. Encontrarás el detalle de proveedores en la <a href="/privacidad/">Política de Privacidad</a>.</p>
   <p>También utilizamos <strong>almacenamiento local del navegador (localStorage)</strong> para guardar tu progreso formativo dentro del aula y, técnicamente, los tokens de sesión que entrega Supabase. Esto no son cookies en sentido estricto pero está sujeto a la misma normativa. Su finalidad es exclusivamente funcional.</p>
 
@@ -130,5 +131,7 @@
 </footer>
 
 <script src="/assets/legal.js" defer></script>
+<!-- Cloudflare Web Analytics (sin cookies: no requiere banner de consentimiento) -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d31ab6472923428fbacbe8d737b4f8d4"}'></script>
 </body>
 </html>
