@@ -66,6 +66,11 @@
     if (typeof window.refreshAdminLinks === 'function') {
       window.refreshAdminLinks().catch(() => {});
     }
+    // Las cards del catálogo público cambian su CTA según matrícula
+    // ("Entrar al curso" vs "Solicitar información").
+    if (typeof window.decoratePublicCourseCards === 'function') {
+      Promise.resolve(window.decoratePublicCourseCards()).catch(() => {});
+    }
     if (!client) {
       show(loginSection, true);
       show(listSection, false);
