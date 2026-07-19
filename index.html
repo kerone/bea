@@ -897,7 +897,8 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 }
 .footer-bio { font-size: 13px; color: rgba(242,236,227,0.55); line-height: 1.6; max-width: 240px; }
 .footer-nap { font-style: normal; margin-top: 18px; }
-.footer-nap-line { display: block; font-size: 13px; color: rgba(242,236,227,0.7); line-height: 1.55; margin-bottom: 6px; text-decoration: none; transition: color 0.15s; }
+.footer-nap-line { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: rgba(242,236,227,0.7); line-height: 1.55; margin-bottom: 8px; text-decoration: none; transition: color 0.15s; }
+.footer-nap-line svg { flex-shrink: 0; margin-top: 3px; opacity: 0.65; }
 a.footer-nap-line:hover { color: var(--bg); }
 .footer-nap-hours { color: rgba(242,236,227,0.45); }
 .footer-col-title { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: rgba(242,236,227,0.45); margin-bottom: 16px; }
@@ -1153,11 +1154,11 @@ a.footer-nap-line:hover { color: var(--bg); }
         <div class="footer-logo">PRECISSA INSTITUTE<span class="footer-logo-sub">Dermocosmiatría &amp; Electroestética</span></div>
         <p class="footer-bio">Escuela de estética avanzada y tienda de aparatología profesional. Formación rigurosa para las mejores especialistas de España.</p>
         <address class="footer-nap">
-          <a class="footer-nap-line" href="https://maps.app.goo.gl/RfxWU2e8j4qnrgg5A" target="_blank" rel="noopener">C/ de la República de la Costa d'Ivori<br>46017 València · Valencia</a>
-          <a class="footer-nap-line" href="tel:+34601056706">601 05 67 06</a>
-          <span class="footer-nap-line footer-nap-hours">Lunes a viernes · 9:30–14:00</span>
-          <a class="footer-nap-line" href="https://www.google.com/maps/dir/?api=1&destination=Precissa%20Institute%2C%20C%2F%20de%20la%20Rep%C3%BAblica%20de%20la%20Costa%20d%27Ivori%2C%2046017%20Val%C3%A8ncia" target="_blank" rel="noopener">Cómo llegar →</a>
-          <a class="footer-nap-line" href="https://maps.app.goo.gl/RfxWU2e8j4qnrgg5A" target="_blank" rel="noopener">Nuestras reseñas en Google →</a>
+          <a class="footer-nap-line" href="https://maps.app.goo.gl/RfxWU2e8j4qnrgg5A" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>C/ de la República de la Costa d'Ivori · 46017 València</span></a>
+          <a class="footer-nap-line" href="tel:+34601056706"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>601 05 67 06</span></a>
+          <span class="footer-nap-line footer-nap-hours"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Lunes a viernes · 9:30–14:00</span></span>
+          <a class="footer-nap-line" href="https://www.google.com/maps/dir/?api=1&destination=Precissa%20Institute%2C%20C%2F%20de%20la%20Rep%C3%BAblica%20de%20la%20Costa%20d%27Ivori%2C%2046017%20Val%C3%A8ncia" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg><span>Cómo llegar</span></a>
+          <a class="footer-nap-line" href="https://maps.app.goo.gl/RfxWU2e8j4qnrgg5A" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>Reseñas en Google</span></a>
         </address>
       </div>
       <div>
