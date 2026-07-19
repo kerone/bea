@@ -5584,7 +5584,6 @@ async function renderAulaPresentacion(course) {
         `<button class="ac-pres-lesson${i === 0 ? ' active' : ''}" data-li="${i}" onclick="aulaPresLoad(${i})">${escapeHtml(l.title)}</button>`
       ).join('')}</div>`
     : `<div class="ac-pres-picker"><span style="font-size:13px;color:var(--ink-soft);padding:8px 0">${escapeHtml(lessons[0].title)}</span></div>`;
-  const firstUrl = await resolveContentUrl(lessons[0].slides);
   host.innerHTML = `
     <div class="ac-pres-toolbar">
       ${picker}
@@ -5593,17 +5592,42 @@ async function renderAulaPresentacion(course) {
       </button>
     </div>
     <div class="ac-pres-frame-wrap" id="ac-pres-frame-wrap">
-      <iframe class="ac-pres-frame" id="ac-pres-frame" src="${escapeAttr(firstUrl)}" title="${escapeAttr(lessons[0].title)}" allowfullscreen></iframe>
+      <iframe class="ac-pres-frame" id="ac-pres-frame" title="${escapeAttr(lessons[0].title)}" allowfullscreen></iframe>
     </div>
   `;
   window._aulaPresLessons = lessons;
+  aulaPresSetFrame(document.getElementById('ac-pres-frame'), lessons[0].slides)
+    .catch(() => {
+      const wrap = document.getElementById('ac-pres-frame-wrap');
+      if (wrap) wrap.innerHTML = '<div class="ac-pres-empty">Ahora mismo no podemos cargar la presentación. Recarga la página en un momento y, si sigue igual, escríbenos.</div>';
+    });
+}
+
+// Carga un deck en el iframe. Los archivos del bucket privado llegan con
+// content-type de texto plano: si se cargan por src, el navegador enseña el
+// código fuente en crudo (y con acentos rotos). Se descargan con el enlace
+// firmado y se inyectan como documento (srcdoc), decodificando SIEMPRE como
+// UTF-8 — así el render no depende de los metadatos del bucket.
+async function aulaPresSetFrame(iframe, slidesRef) {
+  if (!iframe) return;
+  const url = await resolveContentUrl(slidesRef);
+  if (String(slidesRef).startsWith('private:')) {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const html = new TextDecoder('utf-8').decode(await res.arrayBuffer());
+    iframe.removeAttribute('src');
+    iframe.srcdoc = html;
+  } else {
+    iframe.removeAttribute('srcdoc');
+    iframe.src = url;
+  }
 }
 async function aulaPresLoad(idx) {
   const lessons = window._aulaPresLessons || [];
   if (!lessons[idx]) return;
   document.querySelectorAll('#ac-pres-host .ac-pres-lesson').forEach(b => b.classList.toggle('active', Number(b.dataset.li) === idx));
   const f = document.getElementById('ac-pres-frame');
-  if (f) { f.src = await resolveContentUrl(lessons[idx].slides); f.title = lessons[idx].title; }
+  if (f) { f.title = lessons[idx].title; await aulaPresSetFrame(f, lessons[idx].slides).catch(() => {}); }
 }
 function aulaPresFullscreen() {
   const wrap = document.getElementById('ac-pres-frame-wrap');
@@ -5621,13 +5645,20 @@ function aulaPresFullscreen() {
       if (screen.orientation && screen.orientation.lock) {
         screen.orientation.lock('landscape').catch(() => {});
       }
-    }).catch(() => {
-      const f = document.getElementById('ac-pres-frame');
-      if (f && f.src) window.open(f.src, '_blank');
-    });
+    }).catch(aulaPresOpenTab);
   } else {
-    const f = document.getElementById('ac-pres-frame');
-    if (f && f.src) window.open(f.src, '_blank');
+    aulaPresOpenTab();
+  }
+}
+// Fallback sin fullscreen nativo (iOS): abrir el deck en pestaña nueva.
+// Con decks privados no hay src (van por srcdoc): se vuelca el documento.
+function aulaPresOpenTab() {
+  const f = document.getElementById('ac-pres-frame');
+  if (!f) return;
+  if (f.src) { window.open(f.src, '_blank'); return; }
+  if (f.srcdoc) {
+    const w = window.open('', '_blank');
+    if (w) { w.document.write(f.srcdoc); w.document.close(); }
   }
 }
 
