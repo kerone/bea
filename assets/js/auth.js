@@ -71,6 +71,13 @@
     if (typeof window.decoratePublicCourseCards === 'function') {
       Promise.resolve(window.decoratePublicCourseCards()).catch(() => {});
     }
+    // Si la alumna hace login estando YA en la página del aula, el grid de
+    // cursos se renderizó sin sesión ("Aún no tienes cursos asignados") y
+    // nadie lo volvía a pintar: re-renderizar al cambiar el estado de auth.
+    const aulaPage = document.getElementById('page-aula');
+    if (aulaPage && aulaPage.classList.contains('active') && typeof window.renderAulaCourses === 'function') {
+      Promise.resolve(window.renderAulaCourses()).catch(() => {});
+    }
     if (!client) {
       show(loginSection, true);
       show(listSection, false);
@@ -179,6 +186,9 @@
           // Llega aquí cuando la usuaria pulsa el enlace del email de recuperación.
           promptNewPassword();
         }
+        // Al cambiar la sesión (login/logout/cambio de cuenta), la caché de
+        // matrículas del usuario anterior deja de valer.
+        if (window.enrollments && window.enrollments.invalidate) window.enrollments.invalidate();
         refresh();
       });
     }

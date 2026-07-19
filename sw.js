@@ -8,7 +8,7 @@
  * Bypass total a Supabase y FormSubmit (datos dinámicos, no se cachean).
  * ============================================================= */
 
-const CACHE_VERSION = 'v30';
+const CACHE_VERSION = 'v31';
 const CACHE_NAME = 'precissa-' + CACHE_VERSION;
 
 // Assets críticos pre-cacheados en install (la primera visita ya queda
@@ -20,6 +20,10 @@ const PRECACHE_URLS = [
   '/cursos/',
   '/cursos/plasmapen-valencia/',
   '/cursos/electroestetica-valencia/',
+  '/cursos/microblading-valencia/',
+  '/cursos/hifu-valencia/',
+  '/cursos/depilacion-laser-valencia/',
+  '/cursos/micropigmentacion-valencia/',
   '/manifest.webmanifest',
   '/assets/favicon-32.png',
   '/assets/seal-ss.webp',
@@ -30,7 +34,7 @@ const PRECACHE_URLS = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(PRECACHE_URLS).catch(() => null))
+      .then((cache) => Promise.allSettled(PRECACHE_URLS.map((u) => cache.add(u))))
       .then(() => self.skipWaiting())
   );
 });
@@ -103,7 +107,7 @@ self.addEventListener('fetch', (event) => {
             caches.open(CACHE_NAME).then((c) => c.put(req, copy)).catch(() => null);
           }
           return resp;
-        }).catch(() => cached);
+        }).catch(() => cached || Response.error());
         return cached || refresh;
       })
     );
@@ -120,7 +124,7 @@ self.addEventListener('fetch', (event) => {
           caches.open(CACHE_NAME).then((c) => c.put(req, copy)).catch(() => null);
         }
         return resp;
-      }).catch(() => cached);
+      }).catch(() => cached || Response.error());
     })
   );
 });
