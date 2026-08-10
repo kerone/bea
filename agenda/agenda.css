@@ -298,3 +298,66 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: 21px; letter-spacin
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
+
+/* ─── Flujo del día: llegada, cabina, firma ────────────────── */
+.acciones-hoy {
+  background: var(--bg2); border-radius: var(--radius);
+  padding: 14px; margin-bottom: 16px;
+}
+.acciones-hoy p { font-size: 13px; color: var(--ink-soft); margin-bottom: 10px; }
+.acciones-hoy .fila { display: flex; gap: 9px; flex-wrap: wrap; }
+.acciones-hoy .btn { flex: 1; min-width: 140px; }
+
+.badge-en_curso { background: #E7EEF5; color: #2F5573; }
+.cita.estado-en_curso { border-color: var(--accent); border-width: 1.5px; }
+.cita.estado-en_curso .cita-bar { background: #3D6E99; }
+
+/* Texto del consentimiento */
+.consent-texto {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 10px; padding: 16px; max-height: 34vh; overflow-y: auto;
+  font-size: 14px; line-height: 1.6; white-space: pre-wrap;
+  color: var(--ink-soft); margin-bottom: 14px;
+  -webkit-overflow-scrolling: touch;
+}
+.consent-texto strong { color: var(--ink); }
+
+/* Zona de firma */
+.firma-wrap {
+  position: relative; background: var(--surface);
+  border: 2px dashed var(--line-strong); border-radius: 10px;
+  overflow: hidden; touch-action: none;
+}
+.firma-wrap.firmado { border-style: solid; border-color: var(--accent); }
+#firma-canvas { display: block; width: 100%; height: 190px; cursor: crosshair; }
+.firma-hint {
+  position: absolute; inset: 0; display: flex; align-items: center;
+  justify-content: center; pointer-events: none; color: var(--muted);
+  font-size: 14px; text-align: center; padding: 12px;
+}
+.firma-wrap.firmado .firma-hint { display: none; }
+.firma-linea {
+  position: absolute; left: 8%; right: 8%; bottom: 34px;
+  height: 1px; background: var(--line-strong); pointer-events: none;
+}
+
+.check-linea {
+  display: flex; gap: 9px; align-items: flex-start;
+  font-size: 13.5px; color: var(--ink-soft); margin: 12px 0; line-height: 1.5;
+}
+.check-linea input { margin-top: 3px; width: 18px; height: 18px; flex-shrink: 0; }
+
+/* Estadísticas de la ficha */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 10px; }
+.stat {
+  background: var(--bg2); border-radius: 10px; padding: 12px; text-align: center;
+}
+.stat b { display: block; font-family: var(--serif); font-size: 25px; line-height: 1.1; }
+.stat span { font-size: 11.5px; color: var(--muted); }
+.stat.alerta-faltas { background: #F7E7D6; }
+.stat.alerta-faltas b { color: #8A5A17; }
+
+.firma-img {
+  max-width: 100%; background: #fff; border: 1px solid var(--line);
+  border-radius: 8px; padding: 8px; margin-top: 10px;
+}

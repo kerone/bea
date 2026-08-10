@@ -167,3 +167,41 @@ Y usa `/desplegar`, que hace exactamente eso antes de commitear.
 - Cuando algo dependa de ella (paneles de Google, Supabase, Cloudflare), dale
   **pasos numerados y exactos**, incluido dónde pinchar.
 - Prefiere ver el resultado desplegado y comprobarlo ella misma.
+
+---
+
+## 12. Agenda interna (`/agenda/`)
+
+Aplicación privada de gestión: fichas de clientas, citas, histórico de
+tratamientos y consentimientos firmados. **No se enlaza desde la web
+pública, no está en el sitemap y está bloqueada en robots.txt.**
+
+- **La URL oculta NO es la protección.** Lo que protege es el login de
+  Supabase + RLS restringida a `is_admin()`. La pantalla de acceso es
+  deliberadamente neutra: no dice qué hay detrás (no dar pistas).
+- Esquema: `supabase/agenda.sql` y `supabase/agenda-consentimientos.sql`.
+- Tablas: `clientas`, `tratamientos`, `citas`,
+  `consentimiento_plantillas`, `consentimientos_firmados`.
+- Bucket privado `consentimientos` para las imágenes de firma.
+
+**Flujo de una cita** (importante, se diseñó con la propietaria):
+`programada` → *Ha llegado* (firma el consentimiento) → `en_curso` →
+*Finalizar* → `completada`. O bien → *No se presentó* → `no_asistio`,
+que alimenta el porcentaje de faltas de su ficha.
+
+**Reglas que no se deben romper:**
+- Los consentimientos guardan **copia literal del texto firmado**, no una
+  referencia a la plantilla. Si la plantilla se edita después, la firma
+  seguiría probando qué se firmó. Editar el texto sube la versión.
+- Las citas guardan **nombre y precio del tratamiento en el momento**: el
+  histórico no cambia aunque se edite el catálogo.
+- El enlace de "añadir a mi calendario" que se envía por WhatsApp
+  (`/agenda/cita/`) solo lleva **fecha y duración** en la URL: nunca el
+  nombre de la clienta ni el tratamiento.
+- `agenda.css` y `agenda.js` van **versionados** (`?v=N`) en el HTML. Al
+  cambiarlos, sube la versión: si no, el service worker puede servir HTML
+  nuevo con JavaScript viejo y los botones dejan de responder.
+
+**Datos de salud**: el campo `contraindicaciones` de `clientas` es
+categoría especial del RGPD (art. 9). La política de privacidad actual
+cubre alumnado y newsletter, **no clientas de cabina**: falta ampliarla.

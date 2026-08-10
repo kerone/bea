@@ -30,7 +30,9 @@
     tratamientos: [],
     citas: [],
     clientaAbierta: null,
-    filtro: ''
+    filtro: '',
+    plantillas: [],
+    ajustesTab: 'tratamientos'
   };
 
   // ─── Utilidades ──────────────────────────────────────────
@@ -158,8 +160,16 @@
 
   // ─── Carga de datos ──────────────────────────────────────
   async function cargarTodo() {
-    await Promise.all([cargarClientas(), cargarTratamientos()]);
+    await Promise.all([cargarClientas(), cargarTratamientos(), cargarPlantillas()]);
     await cargarCitas();
+  }
+  async function cargarPlantillas() {
+    const { data, error } = await db.from('consentimiento_plantillas')
+      .select('*').order('nombre');
+    // Si aún no se ha ejecutado agenda-consentimientos.sql, la app sigue
+    // funcionando sin la parte de firmas.
+    if (error) { state.plantillas = []; return; }
+    state.plantillas = data || [];
   }
   async function cargarClientas() {
     const { data, error } = await db.from('clientas').select('*').order('nombre');
@@ -283,7 +293,10 @@
   }
 
   function etiquetaEstado(e) {
-    return { programada: 'Programada', completada: 'Completada', cancelada: 'Cancelada', no_asistio: 'No asistió' }[e] || e;
+    return {
+      programada: 'Programada', en_curso: 'En cabina', completada: 'Completada',
+      cancelada: 'Cancelada', no_asistio: 'No se presentó'
+    }[e] || e;
   }
 
   function enlazarCitas() {
@@ -344,6 +357,19 @@
     const gastado = historico.filter(x => x.estado === 'completada')
       .reduce((s, x) => s + (Number(x.precio) || 0), 0);
 
+    // Consentimientos firmados de esta clienta, indexados por cita
+    const { data: firmas } = await db.from('consentimientos_firmados')
+      .select('id, cita_id, titulo, firmado_at').eq('clienta_id', c.id);
+    const firmaDe = {};
+    (firmas || []).forEach(x => { firmaDe[x.cita_id] = x; });
+
+    // Porcentaje de faltas: solo cuentan las citas que ya pasaron y se
+    // cerraron de una forma u otra. Las canceladas con aviso no penalizan.
+    const cerradas = historico.filter(x => ['completada', 'no_asistio'].includes(x.estado));
+    const faltas = cerradas.filter(x => x.estado === 'no_asistio').length;
+    const pctFaltas = cerradas.length ? Math.round(faltas * 100 / cerradas.length) : 0;
+    const faltasPreocupan = faltas >= 2 && pctFaltas >= 25;
+
     $('ficha-body').innerHTML = `
       <div class="view-head">
         <div>
@@ -373,6 +399,20 @@
       </div>
 
       <div class="card">
+        <h2>Resumen</h2>
+        <div class="stats">
+          <div class="stat"><b>${historico.length}</b><span>citas totales</span></div>
+          <div class="stat"><b>${historico.filter(x => x.estado === 'completada').length}</b><span>completadas</span></div>
+          <div class="stat${faltasPreocupan ? ' alerta-faltas' : ''}"><b>${faltas}</b><span>sin presentarse</span></div>
+          <div class="stat${faltasPreocupan ? ' alerta-faltas' : ''}"><b>${pctFaltas}%</b><span>de faltas</span></div>
+          ${gastado > 0 ? `<div class="stat"><b style="font-size:19px">${fmtPrecio(gastado)}</b><span>facturado</span></div>` : ''}
+        </div>
+        ${faltasPreocupan ? `<p style="font-size:13px;color:#8A5A17;margin-top:12px">
+          Ha faltado sin avisar ${faltas} de ${cerradas.length} veces. Quizá convenga confirmarle la cita el día antes o pedir señal.
+        </p>` : ''}
+      </div>
+
+      <div class="card">
         <h2>Histórico de tratamientos</h2>
         <p style="font-size:13px;color:var(--muted);margin-bottom:12px">
           ${historico.length} cita${historico.length === 1 ? '' : 's'}${gastado > 0 ? ` · ${fmtPrecio(gastado)} facturado` : ''}
@@ -389,6 +429,7 @@
               <div class="cita-meta">
                 ${h.precio ? fmtPrecio(h.precio) + ' · ' : ''}
                 <span class="badge badge-${h.estado}">${etiquetaEstado(h.estado)}</span>
+                ${firmaDe[h.id] ? ` · <a href="#" data-firma="${firmaDe[h.id].id}" style="color:var(--accent-dark);text-decoration:underline">consentimiento firmado</a>` : ''}
               </div>
             </div>
           </div>`).join('')
@@ -398,10 +439,16 @@
     $('editar-cli').addEventListener('click', () => modalClienta(c));
     $('cita-para-cli').addEventListener('click', () => modalCita(null, c.id));
     enlazarCitas();
+    document.querySelectorAll('[data-firma]').forEach(el =>
+      el.addEventListener('click', (ev) => {
+        ev.preventDefault(); ev.stopPropagation();   // no abrir también la cita
+        verConsentimiento(el.dataset.firma);
+      }));
   }
 
   // ─── TRATAMIENTOS ────────────────────────────────────────
   function renderAjustes() {
+    if (state.ajustesTab === 'consentimientos') return renderPlantillas();
     $('ajustes-body').innerHTML = state.tratamientos.length
       ? state.tratamientos.map(t => `
         <div class="row" data-trat="${t.id}">
@@ -416,7 +463,84 @@
       el.addEventListener('click', () =>
         modalTratamiento(state.tratamientos.find(t => t.id === el.dataset.trat))));
   }
-  $('nuevo-trat-btn').addEventListener('click', () => modalTratamiento(null));
+  $('nuevo-trat-btn').addEventListener('click', () =>
+    state.ajustesTab === 'consentimientos' ? modalPlantilla(null) : modalTratamiento(null));
+
+  document.querySelectorAll('#ajustes-seg button').forEach(b =>
+    b.addEventListener('click', () => {
+      state.ajustesTab = b.dataset.tab;
+      document.querySelectorAll('#ajustes-seg button').forEach(x =>
+        x.classList.toggle('active', x === b));
+      $('ajustes-ayuda').textContent = state.ajustesTab === 'tratamientos'
+        ? 'Tu catálogo para agendar rápido: al elegir un tratamiento se rellenan solos la duración y el precio.'
+        : 'Los documentos que firman tus clientas en la tablet. Asocia cada uno a su tratamiento desde la pestaña anterior.';
+      renderAjustes();
+    }));
+
+  function renderPlantillas() {
+    $('ajustes-body').innerHTML = state.plantillas.length
+      ? state.plantillas.map(p => `
+        <div class="row" data-plant="${p.id}">
+          <div class="avatar" style="border-radius:8px">📄</div>
+          <div class="row-body">
+            <b>${esc(p.nombre)}</b>
+            <span>versión ${p.version}${p.activa ? '' : ' · inactiva'} · ${p.texto.length} caracteres</span>
+          </div>
+        </div>`).join('')
+      : `<div class="empty">
+           Aún no hay consentimientos.<br>
+           Ejecuta <code>supabase/agenda-consentimientos.sql</code> para crear las plantillas iniciales.
+         </div>`;
+    document.querySelectorAll('[data-plant]').forEach(el =>
+      el.addEventListener('click', () =>
+        modalPlantilla(state.plantillas.find(p => p.id === el.dataset.plant))));
+  }
+
+  function modalPlantilla(p) {
+    const esNueva = !p;
+    abrirModal(esNueva ? 'Nuevo consentimiento' : 'Editar consentimiento', `
+      <div class="field">
+        <label for="p-nombre">Nombre del documento *</label>
+        <input id="p-nombre" value="${esc(p ? p.nombre : '')}" placeholder="Ej. Depilación láser">
+      </div>
+      <div class="field">
+        <label for="p-texto">Texto que leerá y firmará la clienta *</label>
+        <textarea id="p-texto" rows="14" style="min-height:280px;font-size:14px">${esc(p ? p.texto : '')}</textarea>
+      </div>
+      <div class="field">
+        <label for="p-activa">Estado</label>
+        <select id="p-activa">
+          <option value="1"${!p || p.activa ? ' selected' : ''}>Activo</option>
+          <option value="0"${p && !p.activa ? ' selected' : ''}>Inactivo</option>
+        </select>
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:6px">
+        Al editar el texto sube la versión. Los consentimientos ya firmados
+        conservan su texto original: nunca cambian.
+      </p>
+      <div class="modal-actions">
+        <button class="btn btn-dark" id="p-guardar">Guardar</button>
+      </div>`);
+
+    $('p-guardar').addEventListener('click', async () => {
+      const nombre = $('p-nombre').value.trim();
+      const texto = $('p-texto').value.trim();
+      if (!nombre || !texto) return toast('Faltan el nombre o el texto');
+      const cambioTexto = p && texto !== p.texto;
+      const payload = {
+        nombre, texto,
+        activa: $('p-activa').value === '1',
+        version: esNueva ? 1 : (p.version + (cambioTexto ? 1 : 0))
+      };
+      const q = esNueva
+        ? db.from('consentimiento_plantillas').insert(payload)
+        : db.from('consentimiento_plantillas').update(payload).eq('id', p.id);
+      const { error } = await q;
+      if (error) { toast('No se pudo guardar'); return; }
+      cerrarModal(); await cargarPlantillas(); render();
+      toast(cambioTexto ? `Guardado · ahora es la versión ${payload.version}` : 'Guardado');
+    });
+  }
 
   // ─── MODAL ───────────────────────────────────────────────
   function abrirModal(titulo, html) {
@@ -445,7 +569,30 @@
     const fecha = cita ? inputFecha(new Date(cita.inicio)) : inputFecha(state.fecha);
     const hora = cita ? inputHora(cita.inicio) : '10:00';
 
-    abrirModal(esNueva ? 'Nueva cita' : 'Cita', `
+    // Acciones del día: solo tienen sentido cuando la cita ya toca.
+    // Marcar la llegada de una cita de la semana que viene sería un error.
+    const yaToca = cita && new Date(cita.inicio) <= new Date(Date.now() + 3600000);
+    let acciones = '';
+    if (cita && cita.estado === 'programada' && yaToca) {
+      acciones = `
+        <div class="acciones-hoy">
+          <p><strong>¿Ha venido la clienta?</strong></p>
+          <div class="fila">
+            <button class="btn btn-dark" id="a-llego">Ha llegado</button>
+            <button class="btn btn-outline" id="a-noasistio">No se presentó</button>
+          </div>
+        </div>`;
+    } else if (cita && cita.estado === 'en_curso') {
+      acciones = `
+        <div class="acciones-hoy">
+          <p><strong>En cabina ahora mismo.</strong> Al terminar, revisa el precio y las notas y ciérrala.</p>
+          <div class="fila">
+            <button class="btn btn-dark" id="a-finalizar">Finalizar tratamiento</button>
+          </div>
+        </div>`;
+    }
+
+    abrirModal(esNueva ? 'Nueva cita' : 'Cita', acciones + `
       <div class="field">
         <label for="f-clienta">Clienta *</label>
         <select id="f-clienta" required>
@@ -521,6 +668,10 @@
       render();
       toast(esNueva ? 'Cita creada' : 'Cita actualizada');
     });
+
+    if ($('a-llego')) $('a-llego').addEventListener('click', () => iniciarTratamiento(cita));
+    if ($('a-noasistio')) $('a-noasistio').addEventListener('click', () => marcarNoAsistio(cita));
+    if ($('a-finalizar')) $('a-finalizar').addEventListener('click', () => finalizarTratamiento(cita));
 
     if (!esNueva) {
       $('f-wa').addEventListener('click', () => enviarWhatsApp(cita));
@@ -605,6 +756,14 @@
         <div class="field"><label for="t-dur">Duración (min)</label><input id="t-dur" type="number" min="5" step="5" value="${t ? t.duracion_min : 60}"></div>
         <div class="field"><label for="t-precio">Precio (€)</label><input id="t-precio" type="number" min="0" step="0.01" value="${t && t.precio !== null ? t.precio : ''}"></div>
       </div>
+      <div class="field">
+        <label for="t-consent">Consentimiento que se firma</label>
+        <select id="t-consent">
+          <option value="">— Ninguno —</option>
+          ${state.plantillas.filter(p => p.activa).map(p =>
+            `<option value="${p.id}"${t && t.consentimiento_id === p.id ? ' selected' : ''}>${esc(p.nombre)}</option>`).join('')}
+        </select>
+      </div>
       <div class="field-row">
         <div class="field"><label for="t-color">Color</label><input id="t-color" type="color" value="${t ? t.color : '#A86B4E'}" style="height:44px;padding:4px"></div>
         <div class="field"><label for="t-activo">Estado</label>
@@ -627,7 +786,8 @@
         duracion_min: Number($('t-dur').value) || 60,
         precio: $('t-precio').value === '' ? null : Number($('t-precio').value),
         color: $('t-color').value,
-        activo: $('t-activo').value === '1'
+        activo: $('t-activo').value === '1',
+        consentimiento_id: $('t-consent').value || null
       };
       const q = esNuevo
         ? db.from('tratamientos').insert(payload)
@@ -645,6 +805,205 @@
         cerrarModal(); await cargarTratamientos(); render(); toast('Eliminado');
       });
     }
+  }
+
+  // ─── Flujo del día: llegada → cabina → cierre ────────────
+  async function cambiarEstado(cita, estado) {
+    const { error } = await db.from('citas').update({ estado }).eq('id', cita.id);
+    if (error) { toast('No se pudo actualizar'); return false; }
+    await cargarCitas();
+    return true;
+  }
+
+  async function marcarNoAsistio(cita) {
+    if (!(await cambiarEstado(cita, 'no_asistio'))) return;
+    cerrarModal(); render();
+    toast('Marcada como no presentada');
+  }
+
+  async function finalizarTratamiento(cita) {
+    if (!(await cambiarEstado(cita, 'completada'))) return;
+    cerrarModal(); render();
+    toast('Tratamiento finalizado');
+  }
+
+  /** La clienta ha llegado: si su tratamiento tiene consentimiento, se firma ahora. */
+  async function iniciarTratamiento(cita) {
+    const trat = state.tratamientos.find(t => t.id === cita.tratamiento_id);
+    const plantilla = trat && trat.consentimiento_id
+      ? state.plantillas.find(p => p.id === trat.consentimiento_id)
+      : null;
+
+    // ¿Ya firmó para esta cita? No se pide dos veces.
+    const { data: previo } = await db.from('consentimientos_firmados')
+      .select('id').eq('cita_id', cita.id).maybeSingle();
+
+    if (previo || !state.plantillas.length) {
+      if (!(await cambiarEstado(cita, 'en_curso'))) return;
+      cerrarModal(); render();
+      toast(previo ? 'Ya tenía el consentimiento firmado' : 'Tratamiento iniciado');
+      return;
+    }
+    modalConsentimiento(cita, plantilla);
+  }
+
+  // ─── Consentimiento informado con firma ──────────────────
+  function modalConsentimiento(cita, plantillaPre) {
+    const cl = clientaDe(cita.clienta_id);
+    const opciones = state.plantillas.filter(p => p.activa);
+    const sel = plantillaPre || opciones[0];
+
+    abrirModal('Consentimiento informado', `
+      <div class="field">
+        <label for="k-plantilla">Documento a firmar</label>
+        <select id="k-plantilla">
+          ${opciones.map(p => `<option value="${p.id}"${sel && p.id === sel.id ? ' selected' : ''}>${esc(p.nombre)}</option>`).join('')}
+        </select>
+      </div>
+      <p style="font-size:12.5px;color:var(--muted);margin-bottom:8px">
+        Dale la tablet a la clienta para que lo lea y firme.
+      </p>
+      <div class="consent-texto" id="k-texto"></div>
+      <div class="field">
+        <label for="k-nombre">Nombre y apellidos de quien firma *</label>
+        <input id="k-nombre" value="${esc(cl ? nombreCompleto(cl) : '')}">
+      </div>
+      <label class="check-linea">
+        <input type="checkbox" id="k-fotos">
+        <span>Autorizo que se tomen fotografías del tratamiento con fines de seguimiento clínico
+        (opcional; marcarla no autoriza su publicación).</span>
+      </label>
+      <div class="field">
+        <label>Firma</label>
+        <div class="firma-wrap" id="k-wrap">
+          <canvas id="firma-canvas"></canvas>
+          <div class="firma-linea"></div>
+          <div class="firma-hint">Firma aquí con el dedo o el lápiz</div>
+        </div>
+        <button class="btn btn-ghost btn-sm" id="k-limpiar" style="margin-top:6px">Borrar firma</button>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-dark" id="k-firmar">Firmar y empezar</button>
+        <button class="btn btn-outline" id="k-saltar">Empezar sin firmar</button>
+      </div>`);
+
+    const pintarTexto = () => {
+      const p = state.plantillas.find(x => x.id === $('k-plantilla').value);
+      $('k-texto').textContent = p ? p.texto : '';
+    };
+    $('k-plantilla').addEventListener('change', pintarTexto);
+    pintarTexto();
+
+    // ── Lienzo de firma ──
+    const canvas = $('firma-canvas');
+    const wrap = $('k-wrap');
+    const ctx = canvas.getContext('2d');
+    let pintando = false, hayFirma = false;
+
+    function ajustar() {
+      const r = canvas.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = r.width * dpr;
+      canvas.height = r.height * dpr;
+      ctx.scale(dpr, dpr);
+      ctx.lineWidth = 2.2;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.strokeStyle = '#241D17';
+    }
+    setTimeout(ajustar, 30);
+
+    const punto = (e) => {
+      const r = canvas.getBoundingClientRect();
+      return { x: e.clientX - r.left, y: e.clientY - r.top };
+    };
+    canvas.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
+      pintando = true; hayFirma = true;
+      wrap.classList.add('firmado');
+      const p = punto(e); ctx.beginPath(); ctx.moveTo(p.x, p.y);
+      canvas.setPointerCapture(e.pointerId);
+    });
+    canvas.addEventListener('pointermove', (e) => {
+      if (!pintando) return;
+      e.preventDefault();
+      const p = punto(e); ctx.lineTo(p.x, p.y); ctx.stroke();
+    });
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach(ev =>
+      canvas.addEventListener(ev, () => { pintando = false; }));
+
+    $('k-limpiar').addEventListener('click', () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      hayFirma = false; wrap.classList.remove('firmado');
+    });
+
+    // ── Guardar ──
+    $('k-firmar').addEventListener('click', async () => {
+      const nombre = $('k-nombre').value.trim();
+      if (!nombre) return toast('Falta el nombre de quien firma');
+      if (!hayFirma) return toast('Falta la firma');
+
+      const p = state.plantillas.find(x => x.id === $('k-plantilla').value);
+      const btn = $('k-firmar'); btn.disabled = true; btn.textContent = 'Guardando…';
+
+      const blob = await new Promise(res => canvas.toBlob(res, 'image/png'));
+      const ruta = `${cita.clienta_id}/${cita.id}-${Date.now()}.png`;
+      const { error: eUp } = await db.storage.from('consentimientos')
+        .upload(ruta, blob, { contentType: 'image/png', upsert: false });
+      if (eUp) {
+        btn.disabled = false; btn.textContent = 'Firmar y empezar';
+        toast('No se pudo guardar la firma: ' + eUp.message);
+        return;
+      }
+
+      const { error } = await db.from('consentimientos_firmados').insert({
+        cita_id: cita.id,
+        clienta_id: cita.clienta_id,
+        plantilla_id: p ? p.id : null,
+        titulo: p ? p.nombre : 'Consentimiento',
+        texto_firmado: p ? p.texto : '',   // copia literal de lo firmado
+        version: p ? p.version : null,
+        firma_path: ruta,
+        firmante_nombre: nombre,
+        acepta_fotos: $('k-fotos').checked
+      });
+      if (error) {
+        btn.disabled = false; btn.textContent = 'Firmar y empezar';
+        toast('No se pudo registrar: ' + error.message);
+        return;
+      }
+      await cambiarEstado(cita, 'en_curso');
+      cerrarModal(); render();
+      toast('Consentimiento firmado · tratamiento iniciado');
+    });
+
+    $('k-saltar').addEventListener('click', async () => {
+      if (!confirm('¿Empezar sin consentimiento firmado?\n\nQuedará registrado que esta sesión no tiene consentimiento.')) return;
+      if (!(await cambiarEstado(cita, 'en_curso'))) return;
+      cerrarModal(); render(); toast('Tratamiento iniciado sin firma');
+    });
+  }
+
+  /** Muestra un consentimiento ya firmado (texto + imagen de la firma). */
+  async function verConsentimiento(id) {
+    const { data: c, error } = await db.from('consentimientos_firmados')
+      .select('*').eq('id', id).single();
+    if (error || !c) return toast('No se pudo abrir el consentimiento');
+
+    let img = '';
+    if (c.firma_path) {
+      const { data: s } = await db.storage.from('consentimientos')
+        .createSignedUrl(c.firma_path, 300);
+      if (s) img = `<img class="firma-img" src="${s.signedUrl}" alt="Firma de ${esc(c.firmante_nombre)}">`;
+    }
+    abrirModal('Consentimiento firmado', `
+      <p style="font-size:13px;color:var(--muted);margin-bottom:10px">
+        <strong>${esc(c.titulo)}</strong><br>
+        Firmado por ${esc(c.firmante_nombre)} el ${fmtFechaCorta(c.firmado_at)} a las ${fmtHora(c.firmado_at)}
+        ${c.acepta_fotos ? '<br>Autorizó fotografías de seguimiento' : ''}
+      </p>
+      <div class="consent-texto" style="max-height:44vh">${esc(c.texto_firmado)}</div>
+      ${img}`);
   }
 
   // ─── Confirmación por WhatsApp con "añadir a mi calendario" ──
@@ -684,6 +1043,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v2');
+  console.info('[agenda] v3');
   comprobarSesion();
 })();
