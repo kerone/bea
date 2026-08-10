@@ -797,3 +797,10 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: 21px; letter-spacin
   cursor: pointer;
 }
 .horario-quitar:hover { color: var(--danger); border-color: var(--danger); }
+
+/* Búsqueda de huecos en los próximos días (cabecera de cada día) */
+.fhuecos-dia {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--muted);
+  margin: 10px 0 6px; padding-top: 8px; border-top: 1px dashed var(--line);
+}

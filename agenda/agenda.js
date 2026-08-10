@@ -1816,30 +1816,95 @@
       if (error) { box.hidden = true; return; }
       const h = horarioDe(d0.getDay());
       box.hidden = false;
+      // "Más días": presente en todas las variantes del recuadro
+      const masDias = `<div style="margin-top:6px"><button type="button" class="btn btn-ghost btn-sm" id="fh-mas">Buscar hueco en los próximos días</button></div><div id="fh-lista"></div>`;
+      const pieMas = () => {
+        if ($('fh-mas')) $('fh-mas').addEventListener('click', ampliarHuecos);
+      };
       if (!h.activo) {
-        box.innerHTML = '<span class="fhuecos-nota">Según tu horario, ese día está cerrado (puedes agendar igualmente).</span>';
+        box.innerHTML = '<span class="fhuecos-nota">Según tu horario, ese día está cerrado (puedes agendar igualmente).</span>' + masDias;
+        pieMas();
         return;
       }
-      const ocupantes = (data || [])
-        .filter(c => ESTADOS_QUE_OCUPAN.includes(c.estado) && (esNueva || c.id !== cita.id))
-        .map(c => {
-          const ini = minutosDe(c.inicio);
-          return { ini, fin: Math.min(ini + (c.duracion_min || 60), 24 * 60) };
-        });
-      const libres = huecosDe(ocupantes, h).filter(x => x.fin - x.ini >= dur);
+      const libres = huecosLibresDe(d0, data || [], dur);
       if (!libres.length) {
-        box.innerHTML = `<span class="fhuecos-nota">Ese día no queda hueco de ${dur} min dentro de tu horario.</span>`;
+        box.innerHTML = `<span class="fhuecos-nota">Ese día no queda hueco de ${dur} min dentro de tu horario.</span>` + masDias;
+        pieMas();
         return;
       }
       box.innerHTML = '<span class="fhuecos-tit">Huecos libres · toca uno para usar su hora:</span>' +
         libres.map(x =>
-          `<button type="button" class="fhueco" data-hueco="${minAHora(x.ini)}">${minAHora(x.ini)}–${minAHora(x.fin)}</button>`).join('');
+          `<button type="button" class="fhueco" data-hueco="${minAHora(x.ini)}">${minAHora(x.ini)}–${minAHora(x.fin)}</button>`).join('') +
+        masDias;
       box.querySelectorAll('[data-hueco]').forEach(b =>
         b.addEventListener('click', () => {
           $('f-hora').value = b.dataset.hueco;
           quitarAviso();
         }));
+      pieMas();
     }
+
+    /** Huecos de UN día que aguantan la duración pedida. Si el día es
+     *  hoy, lo ya pasado de hora no se ofrece. */
+    function huecosLibresDe(dia, citasDia, dur) {
+      const h = horarioDe(dia.getDay());
+      if (!h.activo) return [];
+      const ocupantes = citasDia
+        .filter(c => ESTADOS_QUE_OCUPAN.includes(c.estado)
+          && (esNueva || c.id !== cita.id)
+          && mismaFecha(new Date(c.inicio), dia))
+        .map(c => {
+          const ini = minutosDe(c.inicio);
+          return { ini, fin: Math.min(ini + (c.duracion_min || 60), 24 * 60) };
+        });
+      const ahora = new Date();
+      if (mismaFecha(dia, ahora)) {
+        // Redondeado al cuarto de hora siguiente, para no proponer "ya"
+        ocupantes.push({ ini: 0, fin: Math.ceil((ahora.getHours() * 60 + ahora.getMinutes()) / 15) * 15 });
+      }
+      return huecosDe(ocupantes, h).filter(x => x.fin - x.ini >= dur);
+    }
+
+    /** La semana de un vistazo: huecos de los próximos 14 días que
+     *  aguantan la duración. Un toque fija fecha y hora a la vez. */
+    async function ampliarHuecos() {
+      const dur = Math.round(Number($('f-dur').value)) || 60;
+      const base = $('f-fecha').value ? new Date(aISO($('f-fecha').value, '00:00')) : hoy();
+      const desde = base < hoy() ? hoy() : base;
+      const btn = $('fh-mas');
+      if (btn) { btn.disabled = true; btn.textContent = 'Buscando…'; }
+      const { data, error } = await db.from('citas')
+        .select('id, inicio, duracion_min, estado')
+        .gte('inicio', desde.toISOString()).lt('inicio', addDias(desde, 14).toISOString());
+      if (error) {
+        if (btn) { btn.disabled = false; btn.textContent = 'Buscar hueco en los próximos días'; }
+        toast('No se han podido consultar los próximos días');
+        return;
+      }
+      let html = '', diasCon = 0;
+      for (let i = 0; i < 14 && diasCon < 6; i++) {
+        const dia = addDias(desde, i);
+        const libres = huecosLibresDe(dia, data || [], dur);
+        if (!libres.length) continue;
+        diasCon++;
+        html += `<div class="fhuecos-dia">${DIAS[dia.getDay()]} ${dia.getDate()} · ${fmtFechaCorta(dia)}</div>` +
+          libres.slice(0, 4).map(x =>
+            `<button type="button" class="fhueco" data-fdia="${inputFecha(dia)}" data-fhora="${minAHora(x.ini)}">${minAHora(x.ini)}–${minAHora(x.fin)}</button>`).join('');
+      }
+      const cont = $('fh-lista');
+      if (!cont) return;
+      cont.innerHTML = html
+        || `<span class="fhuecos-nota">Sin huecos de ${dur} min en los próximos 14 días. Prueba con otra duración.</span>`;
+      cont.querySelectorAll('[data-fdia]').forEach(b =>
+        b.addEventListener('click', () => {
+          $('f-fecha').value = b.dataset.fdia;
+          $('f-hora').value = b.dataset.fhora;
+          quitarAviso();
+          pintarHuecos(); // repinta con el día recién elegido
+        }));
+      if (btn) btn.remove();
+    }
+
     $('f-fecha').addEventListener('input', pintarHuecos);
     $('f-dur').addEventListener('input', pintarHuecos);
     pintarHuecos();
@@ -3095,6 +3160,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v26');
+  console.info('[agenda] v27');
   comprobarSesion();
 })();
