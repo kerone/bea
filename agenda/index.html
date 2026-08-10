@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="agenda.css?v=20">
+<link rel="stylesheet" href="agenda.css?v=21">
 </head>
 <body>
 
@@ -80,6 +80,10 @@
       <button class="btn btn-ghost btn-sm" id="logout-btn">Salir</button>
     </div>
   </header>
+
+  <!-- Barra "en cabina": visible en TODAS las vistas mientras haya un
+       tratamiento sin finalizar. No bloquea nada: recuerda. -->
+  <div id="encabina" hidden></div>
 
   <main>
     <!-- ── AGENDA ── -->
@@ -178,7 +182,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4"></script>
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
 <script src="/assets/js/supabase-config.js"></script>
-<script src="agenda.js?v=20"></script>
+<script src="agenda.js?v=21"></script>
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {

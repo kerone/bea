@@ -720,3 +720,29 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: 21px; letter-spacin
   background: #E9EFE4; border: 1px solid rgba(92,122,78,0.35); color: #3E5434;
 }
 .ultima-sesion--bono b { color: #3E5434; }
+
+/* Barra "en cabina": tratamientos sin finalizar, siempre a la vista */
+#encabina {
+  max-width: 1100px; margin: 14px auto -6px;
+  padding: 0 16px; display: flex; flex-direction: column; gap: 8px;
+}
+.cabina-item {
+  display: flex; align-items: center; gap: 11px; width: 100%;
+  text-align: left; background: var(--ink); color: var(--bg);
+  border: 0; border-radius: 12px; padding: 13px 16px;
+  cursor: pointer; font-family: var(--sans); font-size: 13.5px;
+  transition: background 0.15s;
+}
+.cabina-item:hover { background: var(--accent-dark); }
+.cabina-item i {
+  width: 9px; height: 9px; border-radius: 50%; background: #9BC788;
+  flex-shrink: 0; animation: espera 1.6s ease-in-out infinite;
+}
+.cabina-item span { flex: 1; min-width: 0; }
+.cabina-item em {
+  font-style: normal; font-weight: 700; font-size: 12.5px; white-space: nowrap;
+  text-decoration: underline; text-underline-offset: 2px;
+}
+/* De un día anterior: se quedó sin cerrar, tono de alerta */
+.cabina-olvidada { background: #7A3B2E; }
+.cabina-olvidada i { background: #F0B429; }

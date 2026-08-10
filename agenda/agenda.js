@@ -234,6 +234,34 @@
     state.citasError = false;
     state.citas = data || [];
     actualizarCampana(); // sin await: el globito no frena el pintado
+    pintarEnCabina();    // ídem: la barra de tratamientos sin finalizar
+  }
+
+  /** Barra fija con TODOS los tratamientos en cabina, de cualquier día:
+   *  imposible dejar una sesión sin finalizar sin darse cuenta. No
+   *  bloquea: la agenda sigue libre para consultar o modificar citas. */
+  async function pintarEnCabina() {
+    const cont = $('encabina');
+    if (!cont) return;
+    const { data, error } = await db.from('citas')
+      .select('id, clienta_id, tratamiento, inicio')
+      .eq('estado', 'en_curso').order('inicio');
+    if (error) return; // sin conexión: la barra se queda como estaba
+    const lista = data || [];
+    if (!lista.length) { cont.hidden = true; cont.innerHTML = ''; return; }
+    cont.hidden = false;
+    cont.innerHTML = lista.map(c => {
+      const olvidada = !mismaFecha(new Date(c.inicio), hoy());
+      const cl = clientaDe(c.clienta_id);
+      return `<button type="button" class="cabina-item${olvidada ? ' cabina-olvidada' : ''}" data-cabina="${c.id}">
+        <i></i>
+        <span><b>${esc(cl ? nombreCompleto(cl) : '—')}</b> · ${esc(c.tratamiento || 'sin tratamiento')} ·
+          en cabina desde las ${fmtHora(c.inicio)}${olvidada ? ` del ${fmtFechaCorta(c.inicio)} · SIN FINALIZAR` : ''}</span>
+        <em>Abrir</em>
+      </button>`;
+    }).join('');
+    cont.querySelectorAll('[data-cabina]').forEach(b =>
+      b.addEventListener('click', () => abrirCita(b.dataset.cabina)));
   }
   const clientaDe = (id) => state.clientas.find(c => c.id === id);
   const clienteNombre = (id) => { const c = clientaDe(id); return c ? nombreCompleto(c) : 'otro cliente'; };
@@ -2813,6 +2841,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v20');
+  console.info('[agenda] v21');
   comprobarSesion();
 })();
