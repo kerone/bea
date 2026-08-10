@@ -1826,15 +1826,17 @@
         pieMas();
         return;
       }
-      const libres = huecosLibresDe(d0, data || [], dur);
-      if (!libres.length) {
+      const props = propuestasDe(huecosLibresDe(d0, data || [], dur), dur);
+      if (!props.length) {
         box.innerHTML = `<span class="fhuecos-nota">Ese día no queda hueco de ${dur} min dentro de tu horario.</span>` + masDias;
         pieMas();
         return;
       }
+      const visibles = props.slice(0, 12);
       box.innerHTML = '<span class="fhuecos-tit">Huecos libres · toca uno para usar su hora:</span>' +
-        libres.map(x =>
+        visibles.map(x =>
           `<button type="button" class="fhueco" data-hueco="${minAHora(x.ini)}">${minAHora(x.ini)}–${minAHora(x.fin)}</button>`).join('') +
+        (props.length > visibles.length ? `<span class="fhuecos-nota"> +${props.length - visibles.length} más</span>` : '') +
         masDias;
       box.querySelectorAll('[data-hueco]').forEach(b =>
         b.addEventListener('click', () => {
@@ -1865,6 +1867,24 @@
       return huecosDe(ocupantes, h).filter(x => x.fin - x.ini >= dur);
     }
 
+    /** Trocea los huecos en citas concretas del tamaño del tratamiento:
+     *  un hueco de 9:30–14:00 con 60 min se ofrece como 9:30–10:30,
+     *  10:30–11:30… y, si sobra un pico, también el último que apura el
+     *  cierre (13:00–14:00). */
+    function propuestasDe(huecos, dur) {
+      const props = [];
+      for (const hgap of huecos) {
+        for (let t = hgap.ini; t + dur <= hgap.fin; t += dur) {
+          props.push({ ini: t, fin: t + dur });
+        }
+        const ultimo = hgap.fin - dur;
+        if (ultimo > hgap.ini && (ultimo - hgap.ini) % dur !== 0) {
+          props.push({ ini: ultimo, fin: hgap.fin });
+        }
+      }
+      return props;
+    }
+
     /** La semana de un vistazo: huecos de los próximos 14 días que
      *  aguantan la duración. Un toque fija fecha y hora a la vez. */
     async function ampliarHuecos() {
@@ -1884,12 +1904,13 @@
       let html = '', diasCon = 0;
       for (let i = 0; i < 14 && diasCon < 6; i++) {
         const dia = addDias(desde, i);
-        const libres = huecosLibresDe(dia, data || [], dur);
-        if (!libres.length) continue;
+        const props = propuestasDe(huecosLibresDe(dia, data || [], dur), dur);
+        if (!props.length) continue;
         diasCon++;
         html += `<div class="fhuecos-dia">${DIAS[dia.getDay()]} ${dia.getDate()} · ${fmtFechaCorta(dia)}</div>` +
-          libres.slice(0, 4).map(x =>
-            `<button type="button" class="fhueco" data-fdia="${inputFecha(dia)}" data-fhora="${minAHora(x.ini)}">${minAHora(x.ini)}–${minAHora(x.fin)}</button>`).join('');
+          props.slice(0, 5).map(x =>
+            `<button type="button" class="fhueco" data-fdia="${inputFecha(dia)}" data-fhora="${minAHora(x.ini)}">${minAHora(x.ini)}–${minAHora(x.fin)}</button>`).join('') +
+          (props.length > 5 ? `<span class="fhuecos-nota"> +${props.length - 5} más eligiendo ese día</span>` : '');
       }
       const cont = $('fh-lista');
       if (!cont) return;
@@ -3160,6 +3181,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v27');
+  console.info('[agenda] v28');
   comprobarSesion();
 })();
