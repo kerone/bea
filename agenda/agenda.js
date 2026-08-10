@@ -457,18 +457,21 @@
     return items;
   }
 
-  /** Huecos ≥30 min entre citas ocupantes, dentro del horario del día. */
+  /** Huecos ≥30 min entre citas ocupantes, dentro del horario del día.
+   *  Con horario partido, la pausa de mediodía NO cuenta como hueco. */
   function huecosDe(ocupantes, hDia) {
     if (!hDia.activo) return [];
-    const desde = hDia.abre, hasta = hDia.cierra;
-    const tramos = ocupantes.map(o => [Math.max(o.ini, desde), Math.min(o.fin, hasta)])
-      .filter(([a, b]) => b > a).sort((a, b) => a[0] - b[0]);
-    const huecos = []; let cursor = desde;
-    for (const [a, b] of tramos) {
-      if (a - cursor >= 30) huecos.push({ ini: cursor, fin: a });
-      cursor = Math.max(cursor, b);
+    const huecos = [];
+    for (const t of hDia.tramos) {
+      const ocupado = ocupantes.map(o => [Math.max(o.ini, t.abre), Math.min(o.fin, t.cierra)])
+        .filter(([a, b]) => b > a).sort((a, b) => a[0] - b[0]);
+      let cursor = t.abre;
+      for (const [a, b] of ocupado) {
+        if (a - cursor >= 30) huecos.push({ ini: cursor, fin: a });
+        cursor = Math.max(cursor, b);
+      }
+      if (t.cierra - cursor >= 30) huecos.push({ ini: cursor, fin: t.cierra });
     }
-    if (hasta - cursor >= 30) huecos.push({ ini: cursor, fin: hasta });
     return huecos;
   }
 
@@ -507,8 +510,14 @@
 
       // Fuera de horario apagado (que una cita a las 14:30 salte a la vista)
       if (laborable) {
-        if (hDia.abre > v.desde) bloques += `<div class="rej-fuera" style="top:0;height:calc(var(--px) * ${hDia.abre - v.desde})"></div>`;
-        if (v.hasta > hDia.cierra) bloques += `<div class="rej-fuera" style="top:calc(var(--px) * ${hDia.cierra - v.desde});height:calc(var(--px) * ${v.hasta - hDia.cierra})"></div>`;
+        // Se apaga todo lo que quede fuera de los tramos de trabajo,
+        // incluida la pausa de mediodía del horario partido
+        let cursorH = v.desde;
+        for (const t of hDia.tramos) {
+          if (t.abre > cursorH) bloques += `<div class="rej-fuera" style="top:calc(var(--px) * ${cursorH - v.desde});height:calc(var(--px) * ${t.abre - cursorH})"></div>`;
+          cursorH = Math.max(cursorH, t.cierra);
+        }
+        if (v.hasta > cursorH) bloques += `<div class="rej-fuera" style="top:calc(var(--px) * ${cursorH - v.desde});height:calc(var(--px) * ${v.hasta - cursorH})"></div>`;
       } else {
         bloques += `<div class="rej-fuera" style="top:0;height:calc(var(--px) * ${altura})"></div>`;
       }
@@ -598,8 +607,14 @@
       const finas = propias.filter(c => !ESTADOS_QUE_OCUPAN.includes(c.estado));
       let bloques = '';
       if (laborable) {
-        if (hDia.abre > v.desde) bloques += `<div class="rej-fuera" style="top:0;height:calc(var(--px) * ${hDia.abre - v.desde})"></div>`;
-        if (v.hasta > hDia.cierra) bloques += `<div class="rej-fuera" style="top:calc(var(--px) * ${hDia.cierra - v.desde});height:calc(var(--px) * ${v.hasta - hDia.cierra})"></div>`;
+        // Se apaga todo lo que quede fuera de los tramos de trabajo,
+        // incluida la pausa de mediodía del horario partido
+        let cursorH = v.desde;
+        for (const t of hDia.tramos) {
+          if (t.abre > cursorH) bloques += `<div class="rej-fuera" style="top:calc(var(--px) * ${cursorH - v.desde});height:calc(var(--px) * ${t.abre - cursorH})"></div>`;
+          cursorH = Math.max(cursorH, t.cierra);
+        }
+        if (v.hasta > cursorH) bloques += `<div class="rej-fuera" style="top:calc(var(--px) * ${cursorH - v.desde});height:calc(var(--px) * ${v.hasta - cursorH})"></div>`;
       } else {
         bloques += `<div class="rej-fuera" style="top:0;height:calc(var(--px) * ${altura})"></div>`;
       }
@@ -1147,37 +1162,84 @@
       ${sinSQL ? '<p class="fotos-nota" style="margin-bottom:12px">Para poder guardarlo, ejecuta <b>supabase/agenda-horario.sql</b> en Supabase (SQL Editor). Mientras tanto se usa L-V de 9:30 a 14:00.</p>' : ''}
       ${orden.map(d => {
         const h = horarioDe(d);
+        const t1 = h.tramos[0];
+        const t2 = h.tramos[1] || null;
         return `
         <div class="horario-fila">
           <label class="horario-dia">
             <input type="checkbox" data-h-activo="${d}"${h.activo ? ' checked' : ''}>
             <span>${nombres[d]}</span>
           </label>
-          <input type="time" data-h-abre="${d}" value="${minAHora(h.abre)}"${h.activo ? '' : ' disabled'}>
-          <span class="horario-sep">a</span>
-          <input type="time" data-h-cierra="${d}" value="${minAHora(h.cierra)}"${h.activo ? '' : ' disabled'}>
+          <span class="horario-tramo">
+            <input type="time" data-h-abre="${d}" value="${minAHora(t1.abre)}"${h.activo ? '' : ' disabled'}>
+            <span class="horario-sep">a</span>
+            <input type="time" data-h-cierra="${d}" value="${minAHora(t1.cierra)}"${h.activo ? '' : ' disabled'}>
+          </span>
+          <span class="horario-tramo" data-h-t2="${d}"${t2 ? '' : ' hidden'}>
+            <span class="horario-sep">y de</span>
+            <input type="time" data-h-abre2="${d}" value="${t2 ? minAHora(t2.abre) : ''}"${h.activo ? '' : ' disabled'}>
+            <span class="horario-sep">a</span>
+            <input type="time" data-h-cierra2="${d}" value="${t2 ? minAHora(t2.cierra) : ''}"${h.activo ? '' : ' disabled'}>
+            <button type="button" class="horario-quitar" data-h-quitar="${d}" aria-label="Quitar el tramo de tarde">×</button>
+          </span>
+          <button type="button" class="btn btn-ghost btn-sm" data-h-partir="${d}"${t2 ? ' hidden' : ''}${h.activo ? '' : ' disabled'}>+ tarde</button>
         </div>`;
       }).join('')}
-      <div style="margin-top:16px">
+      <p style="font-size:12.5px;color:var(--muted);margin-top:10px">
+        «+ tarde» añade un segundo tramo para el horario partido: la pausa
+        de mediodía queda apagada en el calendario y no se ofrece en los huecos.
+      </p>
+      <div style="margin-top:12px">
         <button class="btn btn-dark" id="h-guardar">Guardar horario</button>
       </div>`;
+
+    document.querySelectorAll('[data-h-partir]').forEach(btn =>
+      btn.addEventListener('click', () => {
+        const d = btn.dataset.hPartir;
+        document.querySelector(`[data-h-t2="${d}"]`).hidden = false;
+        const a2 = document.querySelector(`[data-h-abre2="${d}"]`);
+        if (!a2.value) a2.value = '16:00';
+        const c2 = document.querySelector(`[data-h-cierra2="${d}"]`);
+        if (!c2.value) c2.value = '20:00';
+        btn.hidden = true;
+      }));
+    document.querySelectorAll('[data-h-quitar]').forEach(btn =>
+      btn.addEventListener('click', () => {
+        const d = btn.dataset.hQuitar;
+        document.querySelector(`[data-h-t2="${d}"]`).hidden = true;
+        document.querySelector(`[data-h-abre2="${d}"]`).value = '';
+        document.querySelector(`[data-h-cierra2="${d}"]`).value = '';
+        document.querySelector(`[data-h-partir="${d}"]`).hidden = false;
+      }));
 
     document.querySelectorAll('[data-h-activo]').forEach(ch =>
       ch.addEventListener('change', () => {
         const d = ch.dataset.hActivo;
-        document.querySelector(`[data-h-abre="${d}"]`).disabled = !ch.checked;
-        document.querySelector(`[data-h-cierra="${d}"]`).disabled = !ch.checked;
+        ['abre', 'cierra', 'abre2', 'cierra2'].forEach(k => {
+          document.querySelector(`[data-h-${k}="${d}"]`).disabled = !ch.checked;
+        });
+        document.querySelector(`[data-h-partir="${d}"]`).disabled = !ch.checked;
       }));
 
     $('h-guardar').addEventListener('click', async () => {
-      const filas = orden.map(d => ({
-        dia: d,
-        activo: document.querySelector(`[data-h-activo="${d}"]`).checked,
-        abre: document.querySelector(`[data-h-abre="${d}"]`).value || '09:30',
-        cierra: document.querySelector(`[data-h-cierra="${d}"]`).value || '14:00'
-      }));
+      const filas = orden.map(d => {
+        const t2oculto = document.querySelector(`[data-h-t2="${d}"]`).hidden;
+        return {
+          dia: d,
+          activo: document.querySelector(`[data-h-activo="${d}"]`).checked,
+          abre: document.querySelector(`[data-h-abre="${d}"]`).value || '09:30',
+          cierra: document.querySelector(`[data-h-cierra="${d}"]`).value || '14:00',
+          abre2: t2oculto ? null : (document.querySelector(`[data-h-abre2="${d}"]`).value || null),
+          cierra2: t2oculto ? null : (document.querySelector(`[data-h-cierra2="${d}"]`).value || null)
+        };
+      });
       const mal = filas.find(f => f.activo && f.cierra <= f.abre);
       if (mal) return toast(`Revisa el ${nombres[mal.dia].toLowerCase()}: el cierre debe ser posterior a la apertura`);
+      const mal2 = filas.find(f => f.activo && (f.abre2 || f.cierra2) &&
+        (!f.abre2 || !f.cierra2 || f.abre2 < f.cierra || f.cierra2 <= f.abre2));
+      if (mal2) return toast(`Revisa la tarde del ${nombres[mal2.dia].toLowerCase()}: debe empezar tras la mañana y cerrar después de abrir`);
+      // Un día sin tramo de tarde guarda ambos en blanco
+      filas.forEach(f => { if (!f.abre2 || !f.cierra2) { f.abre2 = null; f.cierra2 = null; } });
       const btn = $('h-guardar'); btn.disabled = true;
       const { error } = await db.from('horario_semana').upsert(filas);
       btn.disabled = false;
@@ -1383,14 +1445,18 @@
   const minAHora = (m) => `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`;
   const horaAMin = (t) => { const [h, m] = String(t).split(':'); return (Number(h) || 0) * 60 + (Number(m) || 0); };
 
-  /** Horario de un día de la semana (0=domingo…6=sábado). */
+  /** Horario de un día de la semana (0=domingo…6=sábado).
+   *  tramos: 1 (jornada seguida) o 2 (horario partido, pausa en medio).
+   *  abre/cierra son el arranque del primer tramo y el fin del último
+   *  (la envolvente, para dimensionar la rejilla). */
   function horarioDe(diaSemana) {
     const h = state.horario && state.horario[diaSemana];
     if (h) return h;
     return {
       activo: HORARIO_DEFECTO.dias.includes(diaSemana),
       abre: HORARIO_DEFECTO.abre,
-      cierra: HORARIO_DEFECTO.cierra
+      cierra: HORARIO_DEFECTO.cierra,
+      tramos: [{ abre: HORARIO_DEFECTO.abre, cierra: HORARIO_DEFECTO.cierra }]
     };
   }
 
@@ -1399,7 +1465,14 @@
     if (error || !data || !data.length) { state.horario = null; return; }
     state.horario = {};
     data.forEach(r => {
-      state.horario[r.dia] = { activo: r.activo, abre: horaAMin(r.abre), cierra: horaAMin(r.cierra) };
+      const tramos = [{ abre: horaAMin(r.abre), cierra: horaAMin(r.cierra) }];
+      if (r.abre2 && r.cierra2) tramos.push({ abre: horaAMin(r.abre2), cierra: horaAMin(r.cierra2) });
+      state.horario[r.dia] = {
+        activo: r.activo,
+        abre: tramos[0].abre,
+        cierra: tramos[tramos.length - 1].cierra,
+        tramos
+      };
     });
   }
 
@@ -1434,8 +1507,12 @@
     const minIni = d.getHours() * 60 + d.getMinutes();
     const df = new Date(fin);
     const minFin = df.getHours() * 60 + df.getMinutes();
-    if (minIni < h.abre || minFin > h.cierra || !mismaFecha(d, df)) {
-      return `queda fuera de tu horario (${minAHora(h.abre)}–${minAHora(h.cierra)})`;
+    // La cita debe caber ENTERA en alguno de los tramos: una cita que
+    // pisa la pausa de mediodía también es "fuera de horario"
+    const cabe = h.tramos.some(t => minIni >= t.abre && minFin <= t.cierra);
+    if (!cabe || !mismaFecha(d, df)) {
+      const tramos = h.tramos.map(t => `${minAHora(t.abre)}–${minAHora(t.cierra)}`).join(' y ');
+      return `queda fuera de tu horario (${tramos})`;
     }
     return null;
   }
@@ -3018,6 +3095,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v25');
+  console.info('[agenda] v26');
   comprobarSesion();
 })();

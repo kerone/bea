@@ -787,3 +787,13 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: 21px; letter-spacin
 @media (max-width: 599px) {
   #ajustes-seg button { padding: 7px 10px; font-size: 12px; }
 }
+
+/* Horario partido: tramos y botón de quitar la tarde */
+.horario-fila { flex-wrap: wrap; }
+.horario-tramo { display: inline-flex; align-items: center; gap: 8px; }
+.horario-quitar {
+  width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--line-strong);
+  background: transparent; color: var(--muted); font-size: 15px; line-height: 1;
+  cursor: pointer;
+}
+.horario-quitar:hover { color: var(--danger); border-color: var(--danger); }

@@ -17,9 +17,31 @@ create table if not exists public.horario_semana (
   activo     boolean not null default false,
   abre       time    not null default '09:30',
   cierra     time    not null default '14:00',
+  -- Horario partido: segundo tramo (tarde) opcional. O los dos en
+  -- blanco, o los dos rellenos y después del primer tramo.
+  abre2      time,
+  cierra2    time,
   updated_at timestamptz not null default now(),
   check (cierra > abre)
 );
+
+-- Si la tabla ya existía de una versión anterior, añadir el tramo de tarde
+alter table public.horario_semana add column if not exists abre2  time;
+alter table public.horario_semana add column if not exists cierra2 time;
+
+do $$
+begin
+  if not exists (select 1 from pg_constraint
+                  where conname = 'horario_tramo2_ck'
+                    and conrelid = 'public.horario_semana'::regclass) then
+    alter table public.horario_semana
+      add constraint horario_tramo2_ck check (
+        (abre2 is null and cierra2 is null)
+        or (abre2 is not null and cierra2 is not null
+            and abre2 >= cierra and cierra2 > abre2)
+      );
+  end if;
+end $$;
 
 drop trigger if exists horario_touch on public.horario_semana;
 create trigger horario_touch before update on public.horario_semana
@@ -43,5 +65,6 @@ drop policy if exists horario_admin_all on public.horario_semana;
 create policy horario_admin_all on public.horario_semana
   for all using (public.is_admin()) with check (public.is_admin());
 
--- Comprobación: 7 filas
-select dia, activo, abre, cierra from public.horario_semana order by dia;
+-- Comprobación: 7 filas (abre2/cierra2 en blanco = jornada seguida)
+select dia, activo, abre, cierra, abre2, cierra2
+  from public.horario_semana order by dia;
