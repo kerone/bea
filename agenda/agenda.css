@@ -361,3 +361,6 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: 21px; letter-spacin
   max-width: 100%; background: #fff; border: 1px solid var(--line);
   border-radius: 8px; padding: 8px; margin-top: 10px;
 }
+
+/* Icono de WhatsApp dentro del botón de aviso */
+#w-enviar svg { width: 19px; height: 19px; }

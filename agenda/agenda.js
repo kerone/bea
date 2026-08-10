@@ -630,7 +630,7 @@
       </div>
       <div class="modal-actions">
         <button class="btn btn-dark" id="f-guardar">Guardar</button>
-        ${!esNueva ? '<button class="btn btn-outline" id="f-wa">Enviar por WhatsApp</button>' : ''}
+        <button class="btn btn-accent" id="f-guardar-wa">Guardar y avisar</button>
         ${!esNueva ? '<button class="btn btn-danger" id="f-borrar">Eliminar</button>' : ''}
       </div>`);
 
@@ -642,7 +642,7 @@
       if (t.precio !== null && !$('f-precio').value) $('f-precio').value = t.precio;
     });
 
-    $('f-guardar').addEventListener('click', async () => {
+    async function guardar(avisar) {
       const clientaId = $('f-clienta').value;
       if (!clientaId) return toast('Elige una clienta');
       if (!$('f-fecha').value || !$('f-hora').value) return toast('Falta la fecha o la hora');
@@ -659,22 +659,28 @@
       if (!esNueva) payload.estado = $('f-estado').value;
 
       const q = esNueva
-        ? db.from('citas').insert(payload)
-        : db.from('citas').update(payload).eq('id', cita.id);
-      const { error } = await q;
+        ? db.from('citas').insert(payload).select().single()
+        : db.from('citas').update(payload).eq('id', cita.id).select().single();
+      const { data, error } = await q;
       if (error) { toast('No se pudo guardar: ' + error.message); return; }
-      cerrarModal();
       await cargarCitas();
       render();
-      toast(esNueva ? 'Cita creada' : 'Cita actualizada');
-    });
+      if (avisar) {
+        panelWhatsApp(data, esNueva ? 'Cita creada ✓' : 'Cita actualizada ✓');
+      } else {
+        cerrarModal();
+        toast(esNueva ? 'Cita creada' : 'Cita actualizada');
+      }
+    }
+
+    $('f-guardar').addEventListener('click', () => guardar(false));
+    $('f-guardar-wa').addEventListener('click', () => guardar(true));
 
     if ($('a-llego')) $('a-llego').addEventListener('click', () => iniciarTratamiento(cita));
     if ($('a-noasistio')) $('a-noasistio').addEventListener('click', () => marcarNoAsistio(cita));
     if ($('a-finalizar')) $('a-finalizar').addEventListener('click', () => finalizarTratamiento(cita));
 
     if (!esNueva) {
-      $('f-wa').addEventListener('click', () => enviarWhatsApp(cita));
       $('f-borrar').addEventListener('click', async () => {
         if (!confirm('¿Eliminar esta cita? No se puede deshacer.\n\nSi la clienta ha avisado de que no viene, es mejor marcarla como "Cancelada": así queda constancia en su histórico.')) return;
         const { error } = await db.from('citas').delete().eq('id', cita.id);
@@ -1007,10 +1013,10 @@
   }
 
   // ─── Confirmación por WhatsApp con "añadir a mi calendario" ──
-  function enviarWhatsApp(cita) {
+  /** Devuelve la URL de WhatsApp lista para usar, o null si no se puede. */
+  function urlWhatsApp(cita) {
     const cl = clientaDe(cita.clienta_id);
-    if (!cl) return toast('Clienta no encontrada');
-    if (!cl.telefono) return toast('Esta clienta no tiene teléfono en su ficha');
+    if (!cl || !cl.telefono) return null;
 
     const inicio = new Date(cita.inicio);
     // El enlace solo lleva fecha, hora y duración: NO viaja el tratamiento
@@ -1031,7 +1037,38 @@
 
     const tel = cl.telefono.replace(/[^\d]/g, '');
     const numero = tel.length === 9 ? '34' + tel : tel;
-    window.open(`https://wa.me/${numero}?text=${encodeURIComponent(texto)}`, '_blank');
+    return `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
+  }
+
+  /** Panel de confirmación tras crear o mover una cita. Usa un enlace real
+   *  (no window.open tras un await): así ningún navegador lo bloquea. */
+  function panelWhatsApp(cita, titulo) {
+    const cl = clientaDe(cita.clienta_id);
+    const url = urlWhatsApp(cita);
+    abrirModal(titulo, `
+      <p style="font-size:15px;margin-bottom:6px">
+        <strong>${esc(cl ? nombreCompleto(cl) : '')}</strong><br>
+        <span style="color:var(--ink-soft)">${fmtFechaLarga(new Date(cita.inicio))} a las ${fmtHora(cita.inicio)}</span>
+      </p>
+      ${url ? `
+        <p style="font-size:13px;color:var(--muted);margin:14px 0">
+          Se abrirá WhatsApp con la confirmación escrita y un enlace para que
+          añada la cita a su calendario.
+        </p>
+        <a class="btn btn-dark" style="width:100%" href="${url}" target="_blank" rel="noopener" id="w-enviar">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.2s-.7 1-.9 1.2c-.2.2-.3.2-.6.1a8 8 0 0 1-4-3.5c-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5l-1-2.2c-.2-.5-.4-.5-.6-.5h-.6a1.1 1.1 0 0 0-.8.4A3.3 3.3 0 0 0 5 9.1c0 1.5 1.1 2.9 1.2 3.1a12 12 0 0 0 4.7 4.1c1.7.7 2.4.8 3.2.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.3s-.2-.2-.5-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+          Enviar por WhatsApp
+        </a>
+        <button class="btn btn-ghost" style="width:100%;margin-top:8px" id="w-cerrar">Ahora no</button>`
+      : `
+        <div class="alerta" style="margin:14px 0">
+          <b>Sin teléfono en la ficha</b>
+          Añádele el móvil a ${esc(cl ? cl.nombre : 'la clienta')} para poder avisarla por WhatsApp.
+        </div>
+        <button class="btn btn-outline" style="width:100%" id="w-cerrar">Entendido</button>`}
+    `);
+    $('w-cerrar').addEventListener('click', cerrarModal);
+    if ($('w-enviar')) $('w-enviar').addEventListener('click', () => setTimeout(cerrarModal, 400));
   }
 
   // ─── Botón flotante ──────────────────────────────────────
@@ -1043,6 +1080,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v3');
+  console.info('[agenda] v4');
   comprobarSesion();
 })();
