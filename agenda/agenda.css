@@ -309,7 +309,7 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: 21px; letter-spacin
   overflow: hidden; touch-action: none;
 }
 .firma-wrap.firmado { border-style: solid; border-color: var(--accent); }
-#firma-canvas { display: block; width: 100%; height: 190px; cursor: crosshair; }
+.firma-wrap canvas { display: block; width: 100%; height: 190px; cursor: crosshair; }
 .firma-hint {
   position: absolute; inset: 0; display: flex; align-items: center;
   justify-content: center; pointer-events: none; color: var(--muted);
@@ -714,3 +714,9 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: 21px; letter-spacin
   color: #6B4A17;
 }
 .ultima-sesion--aviso b { color: #6B4A17; }
+
+/* Nota de bono activo en el formulario de cita */
+.ultima-sesion--bono {
+  background: #E9EFE4; border: 1px solid rgba(92,122,78,0.35); color: #3E5434;
+}
+.ultima-sesion--bono b { color: #3E5434; }

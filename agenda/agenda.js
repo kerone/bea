@@ -1427,6 +1427,7 @@
                value="${esc(cita && !cita.tratamiento_id ? cita.tratamiento || '' : '')}">
       </div>
       <div class="ultima-sesion" id="f-ultima" hidden></div>
+      <div class="ultima-sesion ultima-sesion--bono" id="f-bono" hidden></div>
       <div class="field-row">
         <div class="field"><label for="f-fecha">Fecha *</label><input type="date" id="f-fecha" value="${fecha}" required></div>
         <div class="field"><label for="f-hora">Hora *</label><input type="time" id="f-hora" value="${hora}" step="300" required></div>
@@ -1470,11 +1471,16 @@
     let _ultimaPedida = 0;
     async function pintarUltimaSesion() {
       const box = $('f-ultima');
+      const nb = $('f-bono');
       if (!box) return;
       const cliId = $('f-clienta').value;
       const tratId = $('f-trat').value;
       const libre = tratId === '__otro' ? $('f-trat-libre').value.trim() : '';
-      if (!cliId || !tratId || (tratId === '__otro' && !libre)) { box.hidden = true; return; }
+      if (!cliId || !tratId || (tratId === '__otro' && !libre)) {
+        box.hidden = true;
+        if (nb) nb.hidden = true;
+        return;
+      }
       const peticion = ++_ultimaPedida;
       let q = db.from('citas').select('inicio, notas, precio')
         .eq('clienta_id', cliId)
@@ -1485,6 +1491,30 @@
       if (!esNueva) q = q.neq('id', cita.id);
       const { data, error } = await q;
       if (peticion !== _ultimaPedida) return; // llegó tarde: ya se pidió otra
+
+      // ¿Tiene bono activo que cubra este tratamiento? (si el SQL está)
+      if (nb) {
+        nb.hidden = true;
+        const { data: bs, error: eB } = await db.from('bonos')
+          .select('*').eq('clienta_id', cliId);
+        if (peticion !== _ultimaPedida) return;
+        if (!eB && bs && bs.length) {
+          const { data: us } = await db.from('bono_usos')
+            .select('bono_id').eq('clienta_id', cliId);
+          if (peticion !== _ultimaPedida) return;
+          const cuenta = {};
+          (us || []).forEach(x => { cuenta[x.bono_id] = (cuenta[x.bono_id] || 0) + 1; });
+          const b = bs.find(x =>
+            (x.sesiones_total - (cuenta[x.id] || 0)) > 0 &&
+            (!x.tratamiento_id || x.tratamiento_id === tratId));
+          if (b) {
+            nb.hidden = false;
+            nb.innerHTML = `<b>🎟️ TIENE BONO ACTIVO</b> · ${esc(b.nombre)} · quedan <b>${b.sesiones_total - (cuenta[b.id] || 0)}</b>
+              <p>Al marcar «Ha llegado» la agenda ofrecerá descontar la sesión con su firma.</p>`;
+          }
+        }
+      }
+
       const u = !error && data && data[0];
       const t = tratId !== '__otro' ? state.tratamientos.find(x => x.id === tratId) : null;
       if (!u) {
@@ -1932,6 +1962,7 @@
       if (!(await cambiarEstado(cita, 'en_curso', extras))) return;
       cerrarModal(); render();
       toast(previo ? 'Ya tenía el consentimiento firmado' : 'Tratamiento iniciado');
+      await ofrecerBono(cita); // ¿se paga con bono? mejor al entrar
       return;
     }
     modalConsentimiento(cita, plantilla, extras);
@@ -2091,12 +2122,14 @@
       cerrarModal(); render();
       if (ok) toast('Consentimiento firmado · tratamiento iniciado');
       // si falló, cambiarEstado ya mostró su error; la firma queda guardada
+      await ofrecerBono(cita);
     });
 
     $('k-saltar').addEventListener('click', async () => {
       if (!confirm('¿Empezar sin consentimiento firmado?\n\nQuedará registrado que esta sesión no tiene consentimiento.')) return;
       if (!(await cambiarEstado(cita, 'en_curso', extras))) return;
       cerrarModal(); render(); toast('Tratamiento iniciado sin firma');
+      await ofrecerBono(cita);
     });
 
     $('k-remoto').addEventListener('click', (e) => {
@@ -2156,6 +2189,7 @@
       cerrarModal(); render();
       toast(ok ? 'Consentimiento firmado · tratamiento iniciado'
                : 'Consentimiento firmado (no se pudo iniciar la cita)');
+      await ofrecerBono(cita);
     }, 4000);
     alCerrarModal(() => clearInterval(timer));
 
@@ -2375,11 +2409,16 @@
         </div>`).join('')}`);
   }
 
-  /** Tras finalizar una cita: si tiene bonos con sesiones, ofrecer descontar. */
+  /** Al entrar la clienta (o al finalizar, como red): si tiene bonos con
+   *  sesiones para este tratamiento, ofrecer descontar con su firma. */
   async function ofrecerBono(cita) {
     const { data: bonos, error } = await db.from('bonos')
       .select('*').eq('clienta_id', cita.clienta_id);
     if (error || !bonos || !bonos.length) return false; // sin SQL o sin bonos
+    // Si esta cita ya descontó una sesión, no volver a preguntar
+    const { data: yaUso } = await db.from('bono_usos')
+      .select('id').eq('cita_id', cita.id).limit(1);
+    if (yaUso && yaUso.length) return false;
     const { data: usos } = await db.from('bono_usos')
       .select('id, bono_id').eq('clienta_id', cita.clienta_id);
     const cuenta = {};
@@ -2774,6 +2813,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v19');
+  console.info('[agenda] v20');
   comprobarSesion();
 })();
