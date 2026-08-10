@@ -106,7 +106,7 @@
     const { data: esAdmin } = await db.rpc('is_admin');
     if (!esAdmin) {
       await db.auth.signOut();
-      mostrarLogin('Esta cuenta no tiene acceso a la agenda.');
+      mostrarLogin('Esta cuenta no tiene permiso para acceder.');
       return;
     }
     $('user-chip').textContent = user.email;
@@ -137,6 +137,18 @@
     btn.disabled = false; btn.textContent = 'Entrar';
     if (error) { msg.textContent = 'Email o contraseña incorrectos.'; return; }
     comprobarSesion();
+  });
+
+  $('li-google').addEventListener('click', async () => {
+    const msg = $('login-msg');
+    msg.style.color = 'var(--muted)';
+    msg.textContent = 'Redirigiendo a Google…';
+    const { error } = await db.auth.signInWithOAuth({
+      provider: 'google',
+      // Volver a la propia agenda, no a la home de la web
+      options: { redirectTo: location.origin + '/agenda/' }
+    });
+    if (error) { msg.style.color = 'var(--danger)'; msg.textContent = error.message; }
   });
 
   $('logout-btn').addEventListener('click', async () => {
