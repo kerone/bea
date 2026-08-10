@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<!-- Firma de consentimiento desde el dispositivo del cliente.
+     Se llega aquí con un token de un solo uso (?t=...) generado por la
+     agenda. Sin token válido, la página no enseña ni un dato: las RPCs
+     de supabase/agenda-firma-remota.sql son la única puerta, y caducan. -->
+<html lang="es-ES">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Consentimiento · PRECISSA INSTITUTE</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#F2ECE3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F2ECE3; --surface: #fff; --ink: #241D17; --ink-soft: #544A40;
+    --muted: #726A5D; --accent: #A86B4E; --accent-dark: #7E4C36;
+    --line: rgba(36,29,23,0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Manrope', sans-serif; background: var(--bg); color: var(--ink);
+    font-size: 16px; line-height: 1.55; min-height: 100vh;
+    display: flex; justify-content: center; padding: 20px 14px 40px;
+  }
+  .caja { width: 100%; max-width: 560px; }
+  .brand {
+    font-family: 'Instrument Serif', serif; letter-spacing: 0.12em;
+    font-size: 17px; text-align: center; margin-bottom: 18px;
+  }
+  .panel {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 14px; padding: 20px 18px;
+  }
+  h1 { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 24px; margin-bottom: 4px; }
+  .sub { font-size: 13.5px; color: var(--muted); margin-bottom: 14px; }
+  .texto {
+    background: var(--bg); border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px; font-size: 13.5px; color: var(--ink-soft);
+    white-space: pre-wrap; max-height: 44vh; overflow-y: auto; margin-bottom: 16px;
+  }
+  label { display: block; font-size: 12.5px; font-weight: 700; letter-spacing: 0.04em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  input[type=text] {
+    width: 100%; border: 1px solid var(--line); border-radius: 10px;
+    padding: 12px; font: inherit; margin-bottom: 14px; background: #fff;
+  }
+  .check { display: flex; gap: 9px; align-items: flex-start; font-size: 13px;
+    color: var(--ink-soft); margin-bottom: 16px; cursor: pointer; }
+  .check input { margin-top: 3px; width: 17px; height: 17px; accent-color: var(--accent-dark); }
+  .firma-wrap {
+    position: relative; border: 1.5px dashed var(--line); border-radius: 10px;
+    background: #fff; height: 160px; touch-action: none;
+  }
+  .firma-wrap.firmado { border-style: solid; }
+  canvas { width: 100%; height: 100%; display: block; }
+  .firma-linea { position: absolute; left: 12%; right: 12%; bottom: 30px;
+    border-bottom: 1px solid var(--line); pointer-events: none; }
+  .firma-hint { position: absolute; left: 0; right: 0; bottom: 8px; text-align: center;
+    font-size: 12px; color: var(--muted); pointer-events: none; }
+  .firmado .firma-hint { display: none; }
+  .btn {
+    display: block; width: 100%; text-align: center; border-radius: 999px;
+    padding: 14px; font: inherit; font-weight: 700; cursor: pointer; border: 0;
+  }
+  .btn-dark { background: var(--ink); color: var(--bg); margin-top: 14px; }
+  .btn-ghost { background: none; color: var(--ink-soft); margin-top: 6px;
+    border: 1px solid var(--line); padding: 10px; font-weight: 600; font-size: 14px; }
+  .msg { text-align: center; padding: 30px 10px; }
+  .msg h1 { margin-bottom: 8px; }
+  .msg p { color: var(--muted); font-size: 14.5px; }
+  .error { color: #A83D2C; font-size: 13.5px; margin-top: 10px; text-align: center; min-height: 20px; }
+</style>
+</head>
+<body>
+<div class="caja">
+  <div class="brand">PRECISSA INSTITUTE</div>
+  <div class="panel" id="panel">
+    <div class="msg"><p>Cargando…</p></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4"></script>
+<script src="/assets/js/supabase-config.js"></script>
+<script>
+(function () {
+  'use strict';
+  const cfg = window.PRECISSA_SUPABASE_CONFIG;
+  const db = window.supabase.createClient(cfg.url, cfg.anonKey);
+  const panel = document.getElementById('panel');
+  const token = new URLSearchParams(location.search).get('t');
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g,
+      c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+  function mensaje(titulo, texto) {
+    panel.innerHTML = `<div class="msg"><h1>${esc(titulo)}</h1><p>${esc(texto)}</p></div>`;
+  }
+
+  if (!token) { mensaje('Enlace incompleto', 'Pide en el centro que te lo envíen de nuevo.'); return; }
+
+  db.rpc('firma_remota_datos', { p_token: token }).then(({ data, error }) => {
+    if (error || !data) {
+      mensaje('Este enlace ya no es válido', 'Puede haber caducado o haberse usado ya. Pide en el centro que te generen otro.');
+      return;
+    }
+    if (data.ya_firmado) {
+      mensaje('Ya está firmado', 'Este consentimiento ya quedó registrado. No hace falta nada más, ¡gracias!');
+      return;
+    }
+    montar(data);
+  });
+
+  function montar(d) {
+    panel.innerHTML = `
+      <h1>${esc(d.titulo)}</h1>
+      <p class="sub">Hola${d.nombre ? ' ' + esc(d.nombre) : ''}: léelo con calma y firma abajo con el dedo.</p>
+      <div class="texto" id="texto"></div>
+      <label for="nombre">Nombre y apellidos de quien firma</label>
+      <input type="text" id="nombre" autocomplete="name" value="${esc(d.nombre || '')}">
+      <label class="check">
+        <input type="checkbox" id="fotos">
+        <span>Autorizo que se tomen fotografías del tratamiento con fines de seguimiento clínico
+        (opcional; marcarla no autoriza su publicación).</span>
+      </label>
+      <label>Firma</label>
+      <div class="firma-wrap" id="wrap">
+        <canvas id="lienzo"></canvas>
+        <div class="firma-linea"></div>
+        <div class="firma-hint">Firma aquí con el dedo</div>
+      </div>
+      <button type="button" class="btn btn-ghost" id="limpiar">Borrar firma</button>
+      <button type="button" class="btn btn-dark" id="firmar">Firmar</button>
+      <div class="error" id="error"></div>`;
+    document.getElementById('texto').textContent = d.texto;
+
+    const canvas = document.getElementById('lienzo');
+    const wrap = document.getElementById('wrap');
+    const ctx = canvas.getContext('2d');
+    let pintando = false, hayFirma = false;
+
+    function ajustar() {
+      const r = canvas.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = r.width * dpr;
+      canvas.height = r.height * dpr;
+      ctx.scale(dpr, dpr);
+      ctx.lineWidth = 2.2; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      ctx.strokeStyle = '#241D17';
+    }
+    setTimeout(ajustar, 30);
+    window.addEventListener('resize', () => {
+      const previo = hayFirma ? canvas.toDataURL() : null;
+      ajustar();
+      if (previo) {
+        const im = new Image();
+        im.onload = () => {
+          const r = canvas.getBoundingClientRect();
+          ctx.drawImage(im, 0, 0, r.width, r.height);
+        };
+        im.src = previo;
+      }
+    });
+
+    const punto = (e) => {
+      const r = canvas.getBoundingClientRect();
+      return { x: e.clientX - r.left, y: e.clientY - r.top };
+    };
+    canvas.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
+      pintando = true; hayFirma = true; wrap.classList.add('firmado');
+      const p = punto(e); ctx.beginPath(); ctx.moveTo(p.x, p.y);
+      canvas.setPointerCapture(e.pointerId);
+    });
+    canvas.addEventListener('pointermove', (e) => {
+      if (!pintando) return;
+      e.preventDefault();
+      const p = punto(e); ctx.lineTo(p.x, p.y); ctx.stroke();
+    });
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach(ev =>
+      canvas.addEventListener(ev, () => { pintando = false; }));
+
+    document.getElementById('limpiar').addEventListener('click', () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      hayFirma = false; wrap.classList.remove('firmado');
+    });
+
+    document.getElementById('firmar').addEventListener('click', async () => {
+      const err = document.getElementById('error');
+      const nombre = document.getElementById('nombre').value.trim();
+      if (nombre.length < 3) { err.textContent = 'Escribe tu nombre y apellidos.'; return; }
+      if (!hayFirma) { err.textContent = 'Falta la firma.'; return; }
+      const btn = document.getElementById('firmar');
+      btn.disabled = true; btn.textContent = 'Guardando…'; err.textContent = '';
+
+      const { data, error } = await db.rpc('firma_remota_guardar', {
+        p_token: token,
+        p_nombre: nombre,
+        p_firma: canvas.toDataURL('image/png'),
+        p_acepta_fotos: document.getElementById('fotos').checked
+      });
+      if (error || data === 'token_invalido') {
+        btn.disabled = false; btn.textContent = 'Firmar';
+        err.textContent = 'No se ha podido guardar. Si el enlace ha caducado, pide otro en el centro.';
+        return;
+      }
+      if (data === 'nombre_invalido' || data === 'firma_invalida') {
+        btn.disabled = false; btn.textContent = 'Firmar';
+        err.textContent = 'Revisa el nombre y la firma e inténtalo de nuevo.';
+        return;
+      }
+      mensaje('Listo, gracias', data === 'ya_firmado'
+        ? 'Este consentimiento ya estaba registrado.'
+        : 'Tu consentimiento ha quedado firmado y registrado. Ya puedes cerrar esta página.');
+    });
+  }
+})();
+</script>
+</body>
+</html>

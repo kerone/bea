@@ -659,3 +659,15 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: 21px; letter-spacin
   width: 56px; height: 56px; border-radius: 8px; object-fit: cover;
   border: 1px solid var(--line); cursor: pointer; background: var(--bg2);
 }
+
+/* Firma desde el móvil del cliente (QR + espera) */
+.qr-caja {
+  display: flex; justify-content: center; padding: 14px;
+  background: #fff; border: 1px solid var(--line); border-radius: 12px;
+}
+.qr-caja img { image-rendering: pixelated; max-width: 100%; }
+.rec-espera {
+  text-align: center; font-size: 13px; color: var(--muted);
+  margin-top: 14px; animation: espera 1.6s ease-in-out infinite;
+}
+@keyframes espera { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }

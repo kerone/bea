@@ -892,6 +892,7 @@
           <dt>Teléfono</dt><dd>${c.telefono ? `<a href="tel:${esc(c.telefono)}">${esc(c.telefono)}</a>` : '—'}</dd>
           <dt>Email</dt><dd>${esc(c.email || '—')}</dd>
           <dt>DNI / NIE</dt><dd>${esc(c.dni || '—')}</dd>
+          <dt>Dirección</dt><dd>${esc(c.direccion || '—')}</dd>
           <dt>Nacimiento</dt><dd>${c.fecha_nacimiento ? fmtFechaCorta(c.fecha_nacimiento) : '—'}</dd>
           <dt>Notas</dt><dd>${esc(c.notas || '—')}</dd>
           <dt>Alta</dt><dd>${fmtFechaCorta(c.created_at)}</dd>
@@ -1633,6 +1634,10 @@
         <div class="field"><label for="c-dni">DNI / NIE <small>(para facturar)</small></label><input id="c-dni" autocomplete="off" value="${esc(cl ? cl.dni || '' : '')}"></div>
       </div>
       <div class="field">
+        <label for="c-direccion">Dirección <small>(calle, nº, CP y población · para facturar)</small></label>
+        <input id="c-direccion" autocomplete="off" value="${esc(cl ? cl.direccion || '' : '')}">
+      </div>
+      <div class="field">
         <label for="c-contra">Contraindicaciones, alergias y medicación</label>
         <textarea id="c-contra" placeholder="Embarazo, marcapasos, fotosensibilizantes, alergias, fototipo…">${esc(cl ? cl.contraindicaciones || '' : '')}</textarea>
         <p style="font-size:11.5px;color:var(--muted);margin-top:5px">
@@ -1659,6 +1664,7 @@
         telefono: $('c-tel').value.trim() || null,
         email: $('c-email').value.trim() || null,
         dni: $('c-dni').value.trim().toUpperCase() || null,
+        direccion: $('c-direccion').value.trim() || null,
         fecha_nacimiento: $('c-nac').value || null,
         contraindicaciones: $('c-contra').value.trim() || null,
         notas: $('c-notas').value.trim() || null
@@ -1837,8 +1843,11 @@
           ${opciones.map(p => `<option value="${p.id}"${sel && p.id === sel.id ? ' selected' : ''}>${esc(p.nombre)}</option>`).join('')}
         </select>
       </div>
-      <p style="font-size:12.5px;color:var(--muted);margin-bottom:8px">
+      <p style="font-size:12.5px;color:var(--muted);margin-bottom:4px">
         Pásale la tablet para que lo lea y firme.
+      </p>
+      <p style="font-size:12.5px;margin-bottom:8px">
+        <a href="#" id="k-remoto" style="color:var(--accent-dark);text-decoration:underline">¿Sin tablet a mano? Que lo firme desde su propio móvil (QR o WhatsApp)</a>
       </p>
       <div class="consent-texto" id="k-texto"></div>
       <div class="field">
@@ -1982,6 +1991,71 @@
       if (!(await cambiarEstado(cita, 'en_curso', extras))) return;
       cerrarModal(); render(); toast('Tratamiento iniciado sin firma');
     });
+
+    $('k-remoto').addEventListener('click', (e) => {
+      e.preventDefault();
+      const p = state.plantillas.find(x => x.id === $('k-plantilla').value);
+      if (!p) return toast('Elige el documento a firmar');
+      firmaRemota(cita, p, extras);
+    });
+  }
+
+  /** Firma desde el dispositivo del cliente: token de un solo uso →
+   *  QR en pantalla + envío por WhatsApp, y espera hasta que firme. */
+  async function firmaRemota(cita, plantilla, extras) {
+    const cl = clientaDe(cita.clienta_id);
+    const { data: tok, error } = await db.from('firma_tokens')
+      .insert({ cita_id: cita.id, plantilla_id: plantilla.id }).select().single();
+    if (error) {
+      toast('Para la firma a distancia hay que ejecutar supabase/agenda-firma-remota.sql');
+      return;
+    }
+    const url = `${location.origin}/agenda/firmar/?t=${tok.token}`;
+    const num = telWa(cl && cl.telefono);
+    const wa = num ? `https://wa.me/${num}?text=${encodeURIComponent(
+      `Hola ${cl.nombre}, aquí tienes el consentimiento de tu tratamiento en ${NEGOCIO.nombre}, para leerlo y firmarlo desde el móvil:\n${url}`)}` : null;
+
+    abrirModal('Firma desde su móvil', `
+      <p style="font-size:13.5px;color:var(--ink-soft);margin-bottom:12px">
+        <b>${esc(plantilla.nombre)}</b> · ${esc(cl ? nombreCompleto(cl) : '')}.<br>
+        Que escanee el código con la cámara del móvil, o envíaselo por
+        WhatsApp. El enlace <b>caduca en 2 horas y solo sirve una vez</b>.
+      </p>
+      <div class="qr-caja" id="k-qr"></div>
+      ${wa ? `<a class="btn btn-outline" style="width:100%;margin-top:12px" href="${wa}" target="_blank" rel="noopener">Enviar el enlace por WhatsApp</a>`
+           : '<p class="fotos-nota">No tiene teléfono en la ficha: enséñale el código.</p>'}
+      <p class="rec-espera" id="k-espera">Esperando la firma… esta ventana avisará sola.</p>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" id="k-volver">Volver a la firma en tablet</button>
+      </div>`);
+
+    // QR generado en el propio navegador (sin enviar la URL a nadie)
+    try {
+      const qr = qrcode(0, 'M');
+      qr.addData(url);
+      qr.make();
+      $('k-qr').innerHTML = qr.createImgTag(5, 10);
+    } catch (e) {
+      $('k-qr').innerHTML = `<p style="font-size:12px;word-break:break-all">${esc(url)}</p>`;
+    }
+
+    // Sondeo: en cuanto exista el consentimiento de esta cita, seguimos
+    const timer = setInterval(async () => {
+      const { data } = await db.from('consentimientos_firmados')
+        .select('id').eq('cita_id', cita.id).maybeSingle();
+      if (!data) return;
+      clearInterval(timer);
+      const ok = await cambiarEstado(cita, 'en_curso', extras);
+      cerrarModal(); render();
+      toast(ok ? 'Consentimiento firmado · tratamiento iniciado'
+               : 'Consentimiento firmado (no se pudo iniciar la cita)');
+    }, 4000);
+    alCerrarModal(() => clearInterval(timer));
+
+    $('k-volver').addEventListener('click', () => {
+      clearInterval(timer);
+      modalConsentimiento(cita, plantilla, extras);
+    });
   }
 
   /** Muestra un consentimiento ya firmado (texto + imagen de la firma). */
@@ -1995,6 +2069,9 @@
       const { data: s } = await db.storage.from('consentimientos')
         .createSignedUrl(c.firma_path, 300);
       if (s) img = `<img class="firma-img" src="${s.signedUrl}" alt="Firma de ${esc(c.firmante_nombre)}">`;
+    } else if (c.firma_data && /^data:image\/png;base64,[A-Za-z0-9+/=]+$/.test(c.firma_data)) {
+      // Firma hecha desde el móvil del cliente: imagen embebida
+      img = `<img class="firma-img" src="${c.firma_data}" alt="Firma de ${esc(c.firmante_nombre)}">`;
     }
     abrirModal('Consentimiento firmado', `
       <p style="font-size:13px;color:var(--muted);margin-bottom:10px">
@@ -2370,6 +2447,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v15');
+  console.info('[agenda] v16');
   comprobarSesion();
 })();
