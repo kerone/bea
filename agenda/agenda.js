@@ -1821,19 +1821,20 @@
       const pieMas = () => {
         if ($('fh-mas')) $('fh-mas').addEventListener('click', ampliarHuecos);
       };
+      const etiquetaDia = `${DIAS[d0.getDay()]} ${d0.getDate()} · ${fmtFechaCorta(d0)}`;
       if (!h.activo) {
-        box.innerHTML = '<span class="fhuecos-nota">Según tu horario, ese día está cerrado (puedes agendar igualmente).</span>' + masDias;
+        box.innerHTML = `<span class="fhuecos-nota">El ${etiquetaDia} está cerrado según tu horario (puedes agendar igualmente).</span>` + masDias;
         pieMas();
         return;
       }
       const props = propuestasDe(huecosLibresDe(d0, data || [], dur), dur);
       if (!props.length) {
-        box.innerHTML = `<span class="fhuecos-nota">Ese día no queda hueco de ${dur} min dentro de tu horario.</span>` + masDias;
+        box.innerHTML = `<span class="fhuecos-nota">El ${etiquetaDia} no tiene hueco de ${dur} min dentro de tu horario.</span>` + masDias;
         pieMas();
         return;
       }
       const visibles = props.slice(0, 12);
-      box.innerHTML = '<span class="fhuecos-tit">Huecos libres · toca uno para usar su hora:</span>' +
+      box.innerHTML = `<span class="fhuecos-tit">Huecos del ${etiquetaDia} (el día elegido arriba):</span>` +
         visibles.map(x =>
           `<button type="button" class="fhueco" data-hueco="${minAHora(x.ini)}">${minAHora(x.ini)}–${minAHora(x.fin)}</button>`).join('') +
         (props.length > visibles.length ? `<span class="fhuecos-nota"> +${props.length - visibles.length} más</span>` : '') +
@@ -1904,6 +1905,8 @@
       let html = '', diasCon = 0;
       for (let i = 0; i < 14 && diasCon < 6; i++) {
         const dia = addDias(desde, i);
+        // El día elegido ya tiene sus huecos arriba: aquí, solo los demás
+        if (mismaFecha(dia, new Date(aISO($('f-fecha').value || inputFecha(desde), '00:00')))) continue;
         const props = propuestasDe(huecosLibresDe(dia, data || [], dur), dur);
         if (!props.length) continue;
         diasCon++;
@@ -1915,7 +1918,8 @@
       const cont = $('fh-lista');
       if (!cont) return;
       cont.innerHTML = html
-        || `<span class="fhuecos-nota">Sin huecos de ${dur} min en los próximos 14 días. Prueba con otra duración.</span>`;
+        ? '<div class="fhuecos-cab">Otros días con hueco · toca para fijar fecha y hora:</div>' + html
+        : `<span class="fhuecos-nota">Sin más huecos de ${dur} min en los próximos 14 días. Prueba con otra duración.</span>`;
       cont.querySelectorAll('[data-fdia]').forEach(b =>
         b.addEventListener('click', () => {
           $('f-fecha').value = b.dataset.fdia;
@@ -3181,6 +3185,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v28');
+  console.info('[agenda] v29');
   comprobarSesion();
 })();
