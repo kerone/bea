@@ -9,6 +9,12 @@
 wrangler.jsonc
 CNAME
 
+# Documentacion y configuracion de trabajo: son notas internas del
+# proyecto, no contenido de la web. No deben servirse en el dominio.
+CLAUDE.md
+README.md
+.claude
+
 # Infraestructura y scripts (SQL, migraciones): nada que servir
 supabase
 
