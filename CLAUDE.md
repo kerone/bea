@@ -202,6 +202,24 @@ que alimenta el porcentaje de faltas de su ficha.
   cambiarlos, sube la versión: si no, el service worker puede servir HTML
   nuevo con JavaScript viejo y los botones dejan de responder.
 
+**Rejilla y solapes** (v8-v9):
+- La detección de solapes AVISA, nunca bloquea: en estética el solape a
+  veces es intencionado. Comparación con `<` estrictos e intervalos
+  semiabiertos: dos citas pegadas (11:00 fin / 11:00 inicio) NO chocan.
+- La comprobación de choques es contra Supabase (`conflictosDe`), no
+  contra la memoria, y falla CERRADO: sin respuesta no se guarda.
+- Estados que ocupan hueco: programada, en_curso, completada. Canceladas
+  y faltas se pintan como franja fina y LIBERAN el hueco.
+- La ventana horaria (9:00–14:30 por defecto) se amplía sola si hay
+  citas fuera; jamás se oculta una cita.
+- La línea de "ahora" solo mueve su style.top: un repintado por reloj
+  cerraría el modal o el buscador abiertos.
+- "Profesional" es una ETIQUETA (tabla `profesionales`), no una cuenta:
+  dar acceso real a otra persona exige revisar RLS y la política de
+  privacidad. Con una sola activa, la interfaz no pregunta nada.
+- SQL de esta parte: `supabase/agenda-profesionales.sql` (documenta por
+  qué NO se usa EXCLUDE USING gist y cuál sería el camino).
+
 **Datos de salud**: el campo `contraindicaciones` de `clientas` es
 categoría especial del RGPD (art. 9). La política de privacidad actual
 cubre alumnado y newsletter, **no clientas de cabina**: falta ampliarla.
