@@ -380,3 +380,14 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: 21px; letter-spacin
 .picker-item:hover, .picker-item:focus { background: var(--bg2); outline: none; }
 .picker-item small { color: var(--muted); font-size: 12.5px; flex-shrink: 0; }
 .picker-vacio { padding: 14px; color: var(--muted); font-size: 13.5px; text-align: center; }
+
+/* ─── Aviso de solape / duplicado / fuera de horario ───────── */
+.aviso-solape {
+  background: #F7E7D6; border: 1px solid rgba(198,139,47,0.35);
+  border-radius: 10px; padding: 14px; margin: 4px 0 2px;
+  font-size: 13.5px; color: #6B4A17; line-height: 1.5;
+}
+.aviso-solape b { display: block; margin-bottom: 4px; font-size: 14px; }
+.aviso-solape p { margin-bottom: 10px; }
+.aviso-solape .aviso-nota { font-size: 12.5px; opacity: 0.85; }
+.aviso-solape .fila { display: flex; gap: 8px; flex-wrap: wrap; }

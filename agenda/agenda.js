@@ -32,7 +32,10 @@
     clientaAbierta: null,
     filtro: '',
     plantillas: [],
-    ajustesTab: 'tratamientos'
+    ajustesTab: 'tratamientos',
+    citasError: false,
+    // Se rellenará cuando exista la tabla de profesionales (SQL aparte).
+    profesionalActivo: null
   };
 
   // ─── Utilidades ──────────────────────────────────────────
@@ -189,10 +192,17 @@
     const { data, error } = await db.from('citas').select('*')
       .gte('inicio', desde.toISOString()).lt('inicio', hasta.toISOString())
       .order('inicio');
-    if (error) { toast('No se pudieron cargar las citas'); return; }
+    if (error) {
+      // Distinguir "no hay citas" de "no se pudo comprobar": con datos
+      // rancios la agenda parecería libre y se daría hora encima.
+      state.citasError = true;
+      return;
+    }
+    state.citasError = false;
     state.citas = data || [];
   }
   const clientaDe = (id) => state.clientas.find(c => c.id === id);
+  const clienteNombre = (id) => { const c = clientaDe(id); return c ? nombreCompleto(c) : 'otro cliente'; };
 
   // ─── Navegación entre vistas ─────────────────────────────
   function irA(vista) {
@@ -237,8 +247,17 @@
       $('date-sub').textContent = mismaFecha(state.fecha, hoy())
         ? 'Hoy' : state.fecha.getFullYear();
     }
+    if (state.citasError) {
+      $('agenda-body').innerHTML = `
+        <div class="empty">No se han podido cargar las citas.<br>
+          <button class="btn btn-outline btn-sm" id="citas-reintentar" style="margin-top:10px">Reintentar</button>
+        </div>`;
+      $('citas-reintentar').addEventListener('click', async () => {
+        await cargarCitas(); renderAgenda();
+      });
+      return;
+    }
     $('agenda-body').innerHTML = esSemana ? htmlSemana() : htmlDia();
-    enlazarCitas();
   }
 
   function htmlDia() {
@@ -299,10 +318,21 @@
     }[e] || e;
   }
 
-  function enlazarCitas() {
-    document.querySelectorAll('[data-cita]').forEach(el =>
-      el.addEventListener('click', () => abrirCita(el.dataset.cita)));
+  // Delegación registrada UNA vez: los listeners por tarjeta se
+  // acumulaban en cada repintado (la ficha sigue en el DOM oculta por
+  // CSS) y un clic llegaba a abrir el modal varias veces.
+  function alClicarCita(ev) {
+    const firma = ev.target.closest('[data-firma]');
+    if (firma) {
+      ev.preventDefault();
+      verConsentimiento(firma.dataset.firma);
+      return;
+    }
+    const el = ev.target.closest('[data-cita]');
+    if (el) abrirCita(el.dataset.cita);
   }
+  $('agenda-body').addEventListener('click', alClicarCita);
+  $('ficha-body').addEventListener('click', alClicarCita);
 
   $('prev-btn').addEventListener('click', () => moverFecha(-1));
   $('next-btn').addEventListener('click', () => moverFecha(1));
@@ -438,12 +468,6 @@
 
     $('editar-cli').addEventListener('click', () => modalClienta(c));
     $('cita-para-cli').addEventListener('click', () => modalCita(null, c.id));
-    enlazarCitas();
-    document.querySelectorAll('[data-firma]').forEach(el =>
-      el.addEventListener('click', (ev) => {
-        ev.preventDefault(); ev.stopPropagation();   // no abrir también la cita
-        verConsentimiento(el.dataset.firma);
-      }));
   }
 
   // ─── TRATAMIENTOS ────────────────────────────────────────
@@ -526,6 +550,8 @@
       const nombre = $('p-nombre').value.trim();
       const texto = $('p-texto').value.trim();
       if (!nombre || !texto) return toast('Faltan el nombre o el texto');
+      $('p-guardar').disabled = true;
+      try {
       const cambioTexto = p && texto !== p.texto;
       const payload = {
         nombre, texto,
@@ -539,6 +565,7 @@
       if (error) { toast('No se pudo guardar'); return; }
       cerrarModal(); await cargarPlantillas(); render();
       toast(cambioTexto ? `Guardado · ahora es la versión ${payload.version}` : 'Guardado');
+      } finally { const b = $('p-guardar'); if (b) b.disabled = false; }
     });
   }
 
@@ -548,10 +575,82 @@
     $('modal-body').innerHTML = html;
     $('modal').classList.add('open');
   }
-  function cerrarModal() { $('modal').classList.remove('open'); }
+  let _limpiezasModal = [];
+  /** Registra una limpieza que se ejecutará al cerrar el modal actual. */
+  function alCerrarModal(fn) { _limpiezasModal.push(fn); }
+  function cerrarModal() {
+    $('modal').classList.remove('open');
+    _limpiezasModal.forEach(fn => { try { fn(); } catch (e) {} });
+    _limpiezasModal = [];
+  }
   $('modal-close').addEventListener('click', cerrarModal);
   $('modal').addEventListener('click', (e) => { if (e.target === $('modal')) cerrarModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') cerrarModal(); });
+
+  // ─── Solapes ─────────────────────────────────────────────
+  // Estados que ocupan hueco de verdad. Una cancelada o una falta NO
+  // bloquean: su hueco vuelve a estar disponible.
+  const ESTADOS_QUE_OCUPAN = ['programada', 'en_curso', 'completada'];
+  const HORARIO = { abre: 9 * 60 + 30, cierra: 14 * 60, dias: [1, 2, 3, 4, 5] };
+
+  /** Fin de una cita en milisegundos de época. Única definición de "fin". */
+  function finDe(c) {
+    return new Date(c.inicio).getTime() + (c.duracion_min || 60) * 60000;
+  }
+
+  // Intervalos semiabiertos [ini, fin) en milisegundos.
+  // DOS "<" ESTRICTOS: 10:00-11:00 y 11:00-12:00 se tocan pero NO solapan
+  // (encadenar citas es lo normal); un "<=" avisaría de choque cada día.
+  function solapan(aIni, aFin, bIni, bFin) {
+    return aIni < bFin && bIni < aFin;
+  }
+
+  /** Valida fecha/hora/duración y falla cerrado si algo no es un número. */
+  function validarCita(fechaStr, horaStr, durStr) {
+    const ini = new Date(aISO(fechaStr, horaStr)).getTime();
+    const dur = Math.round(Number(durStr));
+    if (!Number.isFinite(ini)) return { error: 'La fecha o la hora no son válidas' };
+    if (!Number.isFinite(dur) || dur < 5 || dur > 600) {
+      return { error: 'La duración debe estar entre 5 minutos y 10 horas' };
+    }
+    return { ini, dur, fin: ini + dur * 60000 };
+  }
+
+  /** ¿Cae fuera del horario del centro? Informativo, nunca bloquea. */
+  function fueraDeHorario(ini, fin) {
+    const d = new Date(ini);
+    if (!HORARIO.dias.includes(d.getDay())) return 'ese día el centro está cerrado';
+    const minIni = d.getHours() * 60 + d.getMinutes();
+    const df = new Date(fin);
+    const minFin = df.getHours() * 60 + df.getMinutes();
+    if (minIni < HORARIO.abre || minFin > HORARIO.cierra || !mismaFecha(d, df)) {
+      return 'queda fuera de tu horario (9:30–14:00)';
+    }
+    return null;
+  }
+
+  /**
+   * Comprobación AUTORITATIVA contra Supabase (no contra la memoria: una
+   * cita editada desde la ficha puede estar fuera de la ventana cargada).
+   * Si la consulta falla, LANZA: fallar cerrado, no se guarda a ciegas.
+   */
+  async function conflictosDe({ id, profesionalId, ini, fin }) {
+    // Ninguna cita dura más de 600 min: nada que empiece antes de
+    // ini-600min puede alcanzarnos. Cota inferior para usar el índice.
+    let q = db.from('citas')
+      .select('id, clienta_id, inicio, duracion_min, estado, tratamiento')
+      .in('estado', ESTADOS_QUE_OCUPAN)
+      .gte('inicio', new Date(ini - 600 * 60000).toISOString())
+      .lt('inicio', new Date(fin).toISOString());
+    if (profesionalId) q = q.eq('profesional_id', profesionalId);
+    if (id) q = q.neq('id', id); // nunca .neq con undefined: PostgREST da 400
+    const { data, error } = await q;
+    if (error) throw error;
+    return (data || []).filter(c => {
+      const cIni = new Date(c.inicio).getTime();
+      return solapan(ini, fin, cIni, cIni + (c.duracion_min || 60) * 60000);
+    });
+  }
 
   // ─── Modal: CITA ─────────────────────────────────────────
   function abrirCita(id) {
@@ -620,7 +719,7 @@
       <div class="field">
         <label for="f-estado">Estado</label>
         <select id="f-estado">
-          ${['programada', 'completada', 'cancelada', 'no_asistio'].map(e =>
+          ${['programada', 'en_curso', 'completada', 'cancelada', 'no_asistio'].map(e =>
             `<option value="${e}"${cita.estado === e ? ' selected' : ''}>${etiquetaEstado(e)}</option>`).join('')}
         </select>
       </div>` : ''}
@@ -661,9 +760,13 @@
     }
     inpCli.addEventListener('input', () => { hidCli.value = ''; pintarLista(inpCli.value); });
     inpCli.addEventListener('focus', () => { if (!hidCli.value) pintarLista(inpCli.value); });
-    document.addEventListener('click', (ev) => {
+    // Registrado en el documento pero RETIRADO al cerrar el modal: antes
+    // se quedaba vivo para siempre, uno por cada formulario abierto.
+    const cerrarLista = (ev) => {
       if (listaCli && !listaCli.contains(ev.target) && ev.target !== inpCli) listaCli.hidden = true;
-    });
+    };
+    document.addEventListener('click', cerrarLista);
+    alCerrarModal(() => document.removeEventListener('click', cerrarLista));
 
     // Al elegir tratamiento, rellenar duración y precio por defecto
     $('f-trat').addEventListener('change', () => {
@@ -673,39 +776,135 @@
       if (t.precio !== null && !$('f-precio').value) $('f-precio').value = t.precio;
     });
 
-    async function guardar(avisar) {
+    function pintarAviso(html) {
+      let panel = $('f-aviso');
+      if (!panel) {
+        panel = document.createElement('div');
+        panel.id = 'f-aviso';
+        panel.className = 'aviso-solape';
+        const acciones = document.querySelector('#modal-body .modal-actions');
+        acciones.parentNode.insertBefore(panel, acciones);
+      }
+      panel.innerHTML = html;
+      panel.scrollIntoView({ block: 'nearest' });
+    }
+    function quitarAviso() { const p = $('f-aviso'); if (p) p.remove(); }
+
+    async function guardar(avisar, forzar) {
       const clientaId = $('f-clienta').value;
       if (!clientaId) return toast('Elige un cliente');
       if (!$('f-fecha').value || !$('f-hora').value) return toast('Falta la fecha o la hora');
-      const t = state.tratamientos.find(x => x.id === $('f-trat').value);
-      const payload = {
-        clienta_id: clientaId,
-        tratamiento_id: t ? t.id : null,
-        tratamiento: t ? t.nombre : null,
-        inicio: aISO($('f-fecha').value, $('f-hora').value),
-        duracion_min: Number($('f-dur').value) || 60,
-        precio: $('f-precio').value === '' ? null : Number($('f-precio').value),
-        notas: $('f-notas').value.trim() || null
-      };
-      if (!esNueva) payload.estado = $('f-estado').value;
 
-      const q = esNueva
-        ? db.from('citas').insert(payload).select().single()
-        : db.from('citas').update(payload).eq('id', cita.id).select().single();
-      const { data, error } = await q;
-      if (error) { toast('No se pudo guardar: ' + error.message); return; }
-      await cargarCitas();
-      render();
-      if (avisar) {
-        panelWhatsApp(data, esNueva ? 'Cita creada ✓' : 'Cita actualizada ✓');
-      } else {
-        cerrarModal();
-        toast(esNueva ? 'Cita creada' : 'Cita actualizada');
+      const v = validarCita($('f-fecha').value, $('f-hora').value, $('f-dur').value);
+      if (v.error) return toast(v.error);
+
+      const botones = [$('f-guardar'), $('f-guardar-wa')].filter(Boolean);
+      botones.forEach(b => { b.disabled = true; });
+      try {
+        // ── Comprobación de choques (autoritativa), salvo que fuerce ──
+        if (!forzar) {
+          let lista;
+          try {
+            lista = await conflictosDe({
+              id: esNueva ? null : cita.id,
+              profesionalId: state.profesionalActivo || null,
+              ini: v.ini, fin: v.fin
+            });
+          } catch (e) {
+            toast('No se ha podido comprobar si hay choque. Revisa la conexión.');
+            return;
+          }
+          const fuera = fueraDeHorario(v.ini, v.fin);
+          const notaFuera = fuera
+            ? `<p class="aviso-nota">Además, la cita ${fuera}. Puedes guardarla igual.</p>` : '';
+
+          const mismaPersona = lista.filter(c => c.clienta_id === clientaId);
+          if (mismaPersona.length) {
+            const c0 = mismaPersona[0];
+            pintarAviso(`
+              <b>Ya tiene cita ese día</b>
+              <p>${esc(clienteNombre(clientaId))} ya tiene cita a las ${fmtHora(c0.inicio)}
+              (${esc(c0.tratamiento || 'sin tratamiento')}). ¿Seguro que no es un duplicado?</p>
+              ${notaFuera}
+              <div class="fila">
+                <button type="button" class="btn btn-dark btn-sm" id="av-abrir">Abrir la cita que ya tiene</button>
+                <button type="button" class="btn btn-ghost btn-sm" id="av-forzar">Crear otra igualmente</button>
+              </div>`);
+            $('av-abrir').addEventListener('click', () => { quitarAviso(); abrirCita(c0.id); });
+            $('av-forzar').addEventListener('click', () => { quitarAviso(); guardar(avisar, true); });
+            return;
+          }
+          if (lista.length) {
+            const desc = lista.length === 1
+              ? `Se pisa con <b>${esc(clienteNombre(lista[0].clienta_id))}</b>
+                 · ${esc(lista[0].tratamiento || 'sin tratamiento')},
+                 de ${fmtHora(lista[0].inicio)} a ${fmtHora(new Date(finDe(lista[0])).toISOString())}.`
+              : `Se pisa con ${lista.length} citas: ` + lista.map(c =>
+                  `${esc(clienteNombre(c.clienta_id))} (${fmtHora(c.inicio)})`).join(' y ') + '.';
+            pintarAviso(`
+              <b>Esa hora está ocupada</b>
+              <p>${desc}</p>
+              ${notaFuera}
+              <div class="fila">
+                <button type="button" class="btn btn-dark btn-sm" id="av-otra">Elegir otra hora</button>
+                <button type="button" class="btn btn-ghost btn-sm" id="av-forzar">Guardar igualmente (se solapan)</button>
+              </div>`);
+            $('av-otra').addEventListener('click', () => { quitarAviso(); $('f-hora').focus(); });
+            $('av-forzar').addEventListener('click', () => { quitarAviso(); guardar(avisar, true); });
+            return;
+          }
+          if (fuera) {
+            pintarAviso(`
+              <b>Fuera de horario</b>
+              <p>La cita ${fuera}. No pasa nada: puedes guardarla igual.</p>
+              <div class="fila">
+                <button type="button" class="btn btn-dark btn-sm" id="av-guardar">Guardar de todos modos</button>
+                <button type="button" class="btn btn-ghost btn-sm" id="av-otra">Cambiar la hora</button>
+              </div>`);
+            $('av-guardar').addEventListener('click', () => { quitarAviso(); guardar(avisar, true); });
+            $('av-otra').addEventListener('click', () => { quitarAviso(); $('f-hora').focus(); });
+            return;
+          }
+        }
+
+        // ── Guardado real ──
+        const t = state.tratamientos.find(x => x.id === $('f-trat').value);
+        const payload = {
+          clienta_id: clientaId,
+          tratamiento_id: t ? t.id : null,
+          tratamiento: t ? t.nombre : null,
+          inicio: new Date(v.ini).toISOString(),
+          duracion_min: v.dur,
+          precio: $('f-precio').value === '' ? null : Number($('f-precio').value),
+          notas: $('f-notas').value.trim() || null
+        };
+        if (!esNueva) payload.estado = $('f-estado').value;
+        if (state.profesionalActivo) payload.profesional_id = state.profesionalActivo;
+
+        const q = esNueva
+          ? db.from('citas').insert(payload).select().single()
+          : db.from('citas').update(payload).eq('id', cita.id).select().single();
+        const { data, error } = await q;
+        if (error) { toast('No se pudo guardar: ' + error.message); return; }
+        await cargarCitas();
+        render();
+        if (avisar) {
+          panelWhatsApp(data, esNueva ? 'Cita creada ✓' : 'Cita actualizada ✓');
+        } else {
+          cerrarModal();
+          toast(esNueva ? 'Cita creada' : 'Cita actualizada');
+        }
+      } finally {
+        botones.forEach(b => { b.disabled = false; });
       }
     }
 
-    $('f-guardar').addEventListener('click', () => guardar(false));
-    $('f-guardar-wa').addEventListener('click', () => guardar(true));
+    $('f-guardar').addEventListener('click', () => guardar(false, false));
+    $('f-guardar-wa').addEventListener('click', () => guardar(true, false));
+
+    // Al cambiar hora, fecha o duración, el aviso anterior deja de valer
+    ['f-fecha', 'f-hora', 'f-dur'].forEach(id =>
+      $(id).addEventListener('input', quitarAviso));
 
     if ($('a-llego')) $('a-llego').addEventListener('click', () => iniciarTratamiento(cita));
     if ($('a-noasistio')) $('a-noasistio').addEventListener('click', () => marcarNoAsistio(cita));
@@ -753,6 +952,8 @@
     $('c-guardar').addEventListener('click', async () => {
       const nombre = $('c-nombre').value.trim();
       if (!nombre) return toast('El nombre es obligatorio');
+      $('c-guardar').disabled = true;
+      try {
       const payload = {
         nombre,
         apellidos: $('c-apellidos').value.trim() || null,
@@ -772,6 +973,7 @@
       if (esNueva) { state.clientaAbierta = data.id; irA('ficha'); }
       else render();
       toast(esNueva ? 'Cliente dado de alta' : 'Ficha actualizada');
+      } finally { const b = $('c-guardar'); if (b) b.disabled = false; }
     });
 
     if (!esNueva) {
@@ -818,6 +1020,8 @@
     $('t-guardar').addEventListener('click', async () => {
       const nombre = $('t-nombre').value.trim();
       if (!nombre) return toast('El nombre es obligatorio');
+      $('t-guardar').disabled = true;
+      try {
       const payload = {
         nombre,
         duracion_min: Number($('t-dur').value) || 60,
@@ -832,6 +1036,7 @@
       const { error } = await q;
       if (error) { toast('No se pudo guardar'); return; }
       cerrarModal(); await cargarTratamientos(); render(); toast('Guardado');
+      } finally { const b = $('t-guardar'); if (b) b.disabled = false; }
     });
 
     if (!esNuevo) {
@@ -1119,6 +1324,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v6');
+  console.info('[agenda] v7');
   comprobarSesion();
 })();
