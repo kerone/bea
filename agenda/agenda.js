@@ -185,10 +185,24 @@
     if (error) { toast('No se pudieron cargar los tratamientos'); return; }
     state.tratamientos = data || [];
   }
-  /** Carga un margen amplio alrededor de la fecha vista, para movernos sin recargar. */
+  /** Rango de fechas que la vista actual necesita tener cargado. */
+  function rangoMostrado() {
+    if (state.modo === 'mes') {
+      // La cuadrícula del mes puede enseñar hasta 6 semanas: desde el
+      // lunes anterior al día 1 hasta el domingo posterior al último día.
+      const primero = new Date(state.fecha.getFullYear(), state.fecha.getMonth(), 1);
+      const ultimo = new Date(state.fecha.getFullYear(), state.fecha.getMonth() + 1, 0);
+      return { desde: lunesDe(primero), hasta: addDias(lunesDe(ultimo), 7) };
+    }
+    const l = lunesDe(state.fecha);
+    return { desde: addDias(l, -7), hasta: addDias(l, 14) };
+  }
+
+  /** Carga el rango de la vista con margen de ±14 días. */
   async function cargarCitas() {
-    const desde = addDias(lunesDe(state.fecha), -35);
-    const hasta = addDias(lunesDe(state.fecha), 42);
+    const r = rangoMostrado();
+    const desde = addDias(r.desde, -14);
+    const hasta = addDias(r.hasta, 14);
     const { data, error } = await db.from('citas').select('*')
       .gte('inicio', desde.toISOString()).lt('inicio', hasta.toISOString())
       .order('inicio');
@@ -239,7 +253,11 @@
   function renderAgenda() {
     pararLineaAhora();
     const esSemana = state.modo === 'semana';
-    if (esSemana) {
+    const esMes = state.modo === 'mes';
+    if (esMes) {
+      $('date-label').textContent = `${MESES[state.fecha.getMonth()]} ${state.fecha.getFullYear()}`;
+      $('date-sub').textContent = '';
+    } else if (esSemana) {
       const l = lunesDe(state.fecha), d = addDias(l, 4); // L–V
       $('date-label').textContent = `${l.getDate()} – ${d.getDate()} de ${MESES[d.getMonth()]}`;
       $('date-sub').textContent = d.getFullYear();
@@ -259,7 +277,9 @@
       return;
     }
     const comoLista = localStorage.getItem('agendaLista') === '1';
-    if (esSemana) {
+    if (esMes) {
+      $('agenda-body').innerHTML = htmlMes();
+    } else if (esSemana) {
       const l = lunesDe(state.fecha);
       const dias = [0, 1, 2, 3, 4].map(i => addDias(l, i));
       $('agenda-body').innerHTML = htmlRejilla(dias, true) + piePrevisto(dias);
@@ -475,6 +495,60 @@
     </div>`;
   }
 
+  // ── VISTA MES ─────────────────────────────────────────────
+  function htmlMes() {
+    const y = state.fecha.getFullYear(), m = state.fecha.getMonth();
+    const primero = new Date(y, m, 1);
+    const ultimo = new Date(y, m + 1, 0);
+    const inicio = lunesDe(primero);
+    const semanas = Math.ceil((Math.round((addDias(lunesDe(ultimo), 7) - inicio) / 86400000)) / 7);
+
+    let filas = '';
+    for (let s = 0; s < semanas; s++) {
+      let celdas = '';
+      for (let d = 0; d < 5; d++) { // L–V: el centro cierra el finde
+        const dia = addDias(inicio, s * 7 + d);
+        const esMesActual = dia.getMonth() === m;
+        const esHoy = mismaFecha(dia, hoy());
+        const citas = citasDe(dia);
+        const ocupantes = citas.filter(c => ESTADOS_QUE_OCUPAN.includes(c.estado));
+
+        let lineas = '';
+        const visibles = ocupantes.slice(0, 3);
+        // Si el "+N más" fuese a contener una sola cita, se enseña la cita
+        const resto = ocupantes.length - visibles.length;
+        for (const c of visibles) {
+          const cl = clientaDe(c.clienta_id);
+          lineas += `<div class="mes-linea" style="border-left-color:${esc(colorTrat(c))}">
+            <b>${fmtHora(c.inicio)}</b> ${esc(cl ? cl.nombre : '—')}</div>`;
+        }
+        if (resto === 1) {
+          const c = ocupantes[3];
+          const cl = clientaDe(c.clienta_id);
+          lineas += `<div class="mes-linea" style="border-left-color:${esc(colorTrat(c))}">
+            <b>${fmtHora(c.inicio)}</b> ${esc(cl ? cl.nombre : '—')}</div>`;
+        } else if (resto > 1) {
+          lineas += `<div class="mes-mas">+${resto} más</div>`;
+        }
+        // En móvil las líneas se ocultan por CSS y mandan los puntos
+        const puntos = ocupantes.slice(0, 4).map(c =>
+          `<i style="background:${esc(colorTrat(c))}"></i>`).join('');
+
+        celdas += `<button type="button"
+          class="mes-celda${esMesActual ? '' : ' mes-otro'}${esHoy ? ' mes-hoy' : ''}"
+          data-ir-dia="${dia.toISOString()}"
+          aria-label="${fmtFechaLarga(dia)}: ${ocupantes.length} cita${ocupantes.length === 1 ? '' : 's'}">
+          <span class="mes-num">${dia.getDate()}</span>
+          <div class="mes-lineas">${lineas}</div>
+          <div class="mes-puntos">${puntos}</div>
+        </button>`;
+      }
+      filas += celdas;
+    }
+    return `<div class="mes-cab">${['Lun','Mar','Mié','Jue','Vie'].map(d => `<span>${d}</span>`).join('')}</div>
+      <div class="mes-grid" style="grid-template-rows:repeat(${semanas}, minmax(0, 1fr))">${filas}</div>`;
+  }
+
   // ── Línea de "ahora": mueve SOLO su style.top, nunca repinta ──
   let _tAhora = null;
   function pintarAhora() {
@@ -564,14 +638,21 @@
     state.fecha = hoy(); await cargarCitas(); renderAgenda();
   });
   async function moverFecha(dir) {
-    state.fecha = addDias(state.fecha, state.modo === 'semana' ? 7 * dir : dir);
+    if (state.modo === 'mes') {
+      // new Date(y, m+dir, 1), nunca setMonth: desde el 31 de enero,
+      // setMonth(getMonth()+1) aterriza en el 3 de marzo.
+      state.fecha = new Date(state.fecha.getFullYear(), state.fecha.getMonth() + dir, 1);
+    } else {
+      state.fecha = addDias(state.fecha, state.modo === 'semana' ? 7 * dir : dir);
+    }
     await cargarCitas();
     renderAgenda();
   }
-  function cambiarModo(modo) {
+  async function cambiarModo(modo) {
     state.modo = modo;
     document.querySelectorAll('#mode-seg button').forEach(x =>
       x.classList.toggle('active', x.dataset.mode === modo));
+    await cargarCitas(); // el mes necesita un rango más ancho que el día
     renderAgenda();
   }
   document.querySelectorAll('#mode-seg button').forEach(b =>
@@ -1551,6 +1632,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v8');
+  console.info('[agenda] v9');
   comprobarSesion();
 })();

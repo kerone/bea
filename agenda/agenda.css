@@ -508,3 +508,42 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: 21px; letter-spacin
   display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;
 }
 .rej-pie a { color: var(--accent-dark); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+
+/* ═══ VISTA MES ═════════════════════════════════════════════ */
+.mes-cab {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  padding: 0 1px; margin-bottom: 4px;
+}
+.mes-cab span {
+  text-align: center; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted);
+}
+.mes-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px;
+}
+.mes-celda {
+  display: flex; flex-direction: column; align-items: stretch; gap: 3px;
+  min-height: 84px; padding: 6px; text-align: left;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 9px; cursor: pointer; font-family: var(--sans);
+  overflow: hidden; transition: border-color 0.15s;
+}
+.mes-celda:hover { border-color: var(--line-strong); }
+.mes-celda.mes-otro { opacity: 0.45; }
+.mes-celda.mes-hoy { border-color: var(--accent); border-width: 1.5px; }
+.mes-num { font-family: var(--serif); font-size: 14px; color: var(--ink); }
+.mes-hoy .mes-num { color: var(--accent-dark); font-weight: 600; }
+.mes-linea {
+  font-size: 10.5px; color: var(--ink-soft); border-left: 2px solid var(--accent);
+  padding-left: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  line-height: 1.45;
+}
+.mes-linea b { font-weight: 600; color: var(--ink); }
+.mes-mas { font-size: 10.5px; color: var(--accent-dark); font-weight: 600; padding-left: 6px; }
+.mes-puntos { display: none; gap: 3px; margin-top: auto; }
+.mes-puntos i { width: 6px; height: 6px; border-radius: 50%; display: block; }
+@media (max-width: 559px) {
+  .mes-celda { min-height: 58px; padding: 5px; }
+  .mes-lineas { display: none; }
+  .mes-puntos { display: flex; }
+}
