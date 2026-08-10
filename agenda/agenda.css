@@ -396,6 +396,9 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: 21px; letter-spacin
   background: var(--surface);
   border: 1px solid var(--line); border-radius: var(--radius);
   overflow: hidden;
+  /* respiro para que la primera y la última etiqueta de hora (centradas
+     sobre su línea) no queden amputadas por el recorte del marco */
+  padding-top: 12px; padding-bottom: 12px;
 }
 @media (min-width: 560px) { .rejilla { --px: 1.7px; } }
 @media (min-width: 900px) { .rejilla { --px: 1.9px; } }

@@ -503,7 +503,7 @@
 
     const scroll = (conCabecera && dias.length > 1) ? ' rej-scroll' : '';
     return `<div class="rejilla">
-      <div class="rej-horas"${conCabecera ? ' style="padding-top:33px"' : ''}>
+      <div class="rej-horas"${conCabecera ? ' style="padding-top:34px"' : ''}>
         <div style="position:relative;height:calc(var(--px) * ${altura})">${horas}</div>
       </div>
       <div class="rej-cols${scroll}">${cols}</div>
@@ -568,7 +568,7 @@
     }).join('');
 
     return `<div class="rejilla">
-      <div class="rej-horas" style="padding-top:33px">
+      <div class="rej-horas" style="padding-top:34px">
         <div style="position:relative;height:calc(var(--px) * ${altura})">${horas}</div>
       </div>
       <div class="rej-cols">${cols}</div>
@@ -1813,6 +1813,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v9');
+  console.info('[agenda] v10');
   comprobarSesion();
 })();
