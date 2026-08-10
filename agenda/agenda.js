@@ -1974,6 +1974,17 @@
   /** La clienta ha llegado: si su tratamiento tiene consentimiento, se firma ahora. */
   async function iniciarTratamiento(cita) {
     const extras = datosDelFormulario(); // antes de que otro modal pise el formulario
+
+    // ¿Hay otro tratamiento aún en cabina? Confirmación consciente, no
+    // bloqueo: el solape real existe (una clienta en reposo mientras
+    // entra la siguiente) y con dos profesionales es el día a día.
+    const { data: abiertas } = await db.from('citas')
+      .select('id, clienta_id, inicio').eq('estado', 'en_curso').neq('id', cita.id);
+    if (abiertas && abiertas.length) {
+      const quien = abiertas.map(x =>
+        `${clienteNombre(x.clienta_id)} (desde las ${fmtHora(x.inicio)})`).join(', ');
+      if (!confirm(`Todavía está en cabina: ${quien}.\n\n¿Empezar también con ${clienteNombre(cita.clienta_id)}?\n\nSi ya habías terminado con la persona anterior, cancela y finaliza su tratamiento primero (barra oscura de arriba).`)) return;
+    }
     const trat = state.tratamientos.find(t => t.id === cita.tratamiento_id);
     // Solo cuentan las plantillas ACTIVAS: con todas inactivas se firmaba
     // un consentimiento con texto vacío (valor probatorio nulo).
@@ -2841,6 +2852,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v21');
+  console.info('[agenda] v22');
   comprobarSesion();
 })();
