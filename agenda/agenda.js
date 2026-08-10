@@ -2017,11 +2017,12 @@
     return `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
   }
 
-  // ── Recordatorios: qué citas ya se avisaron (apunte local) ──
+  // ── Recordatorios: qué citas ya se avisaron ──
   // WhatsApp no permite programar envíos desde una web: el recordatorio lo
-  // manda la propietaria con un toque. Aquí solo se apunta a quién se lo
-  // envió ya para no mandarlo dos veces. Es un apunte de ESTE dispositivo
-  // (localStorage); el registro de verdad es el propio chat de WhatsApp.
+  // manda la propietaria con un toque. El "ya avisada" se guarda en la
+  // columna citas.recordatorio_enviado_at (agenda-recordatorios.sql) para
+  // que todos los dispositivos lo compartan; el localStorage queda como
+  // apunte de repuesto mientras ese SQL no esté ejecutado.
   const REC_KEY = 'agenda_recordatorios';
   function recLeer() {
     try {
@@ -2038,45 +2039,56 @@
     const m = recLeer();
     m[cita.id] = cita.inicio;
     try { localStorage.setItem(REC_KEY, JSON.stringify(m)); } catch (e) { /* sin sitio: da igual */ }
+  }
+
+  /** Marca una cita como avisada: en la base de datos (compartido entre
+   *  dispositivos) y en local (repuesto por si el SQL no está ejecutado). */
+  async function marcarRecordatorio(cita) {
+    recMarcar(cita);
+    await db.from('citas')
+      .update({ recordatorio_enviado_at: new Date().toISOString() })
+      .eq('id', cita.id);
+    // Si la columna aún no existe, el update falla y queda el apunte local
     actualizarCampana();
   }
 
-  /** Globito con el número de recordatorios pendientes de HOY y MAÑANA
-   *  (citas programadas, con teléfono, aún sin avisar). */
+  /** Citas programadas de las PRÓXIMAS 24 HORAS aún sin recordatorio.
+   *  Enviadas o ya empezadas desaparecen solas de esta lista. */
+  async function recPendientes() {
+    const hasta = new Date(Date.now() + 24 * 3600000);
+    const { data, error } = await db.from('citas').select('*')
+      .eq('estado', 'programada')
+      .gte('inicio', new Date().toISOString())
+      .lt('inicio', hasta.toISOString())
+      .order('inicio');
+    if (error) return null;
+    const local = recLeer();
+    return (data || []).filter(c => !c.recordatorio_enviado_at && !local[c.id]);
+  }
+
+  /** Globito con el número de recordatorios pendientes (24 h, con teléfono). */
   async function actualizarCampana() {
     const btn = $('rec-btn');
     if (!btn) return;
-    const { data, error } = await db.from('citas').select('id, clienta_id, inicio')
-      .eq('estado', 'programada')
-      .gte('inicio', new Date().toISOString())
-      .lt('inicio', addDias(hoy(), 2).toISOString());
-    if (error) return; // sin conexión, el globito se queda como estaba
-    const enviados = recLeer();
-    const n = (data || []).filter(c =>
-      !enviados[c.id] && telWa((clientaDe(c.clienta_id) || {}).telefono)).length;
+    const pendientes = await recPendientes();
+    if (pendientes === null) return; // sin conexión, el globito se queda como estaba
+    const n = pendientes.filter(c => telWa((clientaDe(c.clienta_id) || {}).telefono)).length;
     let b = btn.querySelector('.rec-badge');
     if (!n) { if (b) b.remove(); return; }
     if (!b) { b = document.createElement('span'); b.className = 'rec-badge'; btn.appendChild(b); }
     b.textContent = n;
   }
 
-  /** Modal con las citas programadas de los próximos días, cada una con su
-   *  botón de recordatorio por WhatsApp. */
+  /** Modal con los recordatorios PENDIENTES de las próximas 24 horas.
+   *  Al enviar uno, desaparece de la lista; si la cita vence sin enviarlo,
+   *  también desaparece (ya no tiene sentido recordarla). */
   async function modalRecordatorios() {
-    const hasta = addDias(hoy(), 8);
-    const { data, error } = await db.from('citas').select('*')
-      .eq('estado', 'programada')
-      .gte('inicio', new Date().toISOString())
-      .lt('inicio', hasta.toISOString())
-      .order('inicio');
-    if (error) { toast('No se han podido cargar las citas. Revisa la conexión.'); return; }
-
-    const citas = data || [];
-    const enviados = recLeer();
+    const citas = await recPendientes();
+    if (citas === null) { toast('No se han podido cargar las citas. Revisa la conexión.'); return; }
 
     let cuerpo = '';
     if (!citas.length) {
-      cuerpo = '<div class="empty">No hay citas programadas en los próximos 7 días.</div>';
+      cuerpo = '<div class="empty">Nada pendiente: no hay citas en las próximas 24 horas sin avisar.</div>';
     } else {
       let diaAnt = '';
       for (const c of citas) {
@@ -2090,17 +2102,16 @@
         }
         const cl = clientaDe(c.clienta_id);
         const url = urlRecordatorio(c);
-        const ya = !!enviados[c.id];
         cuerpo += `
-          <div class="rec-item">
+          <div class="rec-item" data-rec-item="${c.id}">
             <div class="rec-info">
               <b>${fmtHora(c.inicio)} · ${esc(cl ? nombreCompleto(cl) : '—')}</b>
               <span>${esc(c.tratamiento || 'Sin tratamiento indicado')}</span>
             </div>
             ${url ? `
-              <a class="btn ${ya ? 'btn-outline' : 'btn-dark'} btn-sm rec-enviar${ya ? ' rec-ya' : ''}"
+              <a class="btn btn-dark btn-sm rec-enviar"
                  href="${url}" target="_blank" rel="noopener" data-rec="${c.id}">
-                ${ya ? 'Enviado ✓' : 'Recordar'}
+                Recordar
               </a>`
             : '<span class="rec-sintel">Sin teléfono</span>'}
           </div>`;
@@ -2109,19 +2120,33 @@
 
     abrirModal('Recordatorios', `
       <p style="font-size:13px;color:var(--muted);margin-bottom:14px">
-        Un toque en <b>Recordar</b> abre WhatsApp con el recordatorio ya
-        escrito: solo tienes que darle a enviar. Lo cómodo es repasar esta
-        lista la tarde de antes.
+        Citas de las <b>próximas 24 horas</b> aún sin recordatorio. Un toque
+        en <b>Recordar</b> abre WhatsApp con el mensaje ya escrito; al
+        enviarlo, la cita desaparece de esta lista en todos tus aparatos.
       </p>
       ${cuerpo}`);
 
     document.querySelectorAll('.rec-enviar').forEach(a =>
       a.addEventListener('click', () => {
         const c = citas.find(x => x.id === a.dataset.rec);
-        if (c) recMarcar(c);
+        if (c) marcarRecordatorio(c);
+        // Enviado → fuera de la lista (con un instante de confirmación)
         a.textContent = 'Enviado ✓';
         a.classList.add('rec-ya', 'btn-outline');
         a.classList.remove('btn-dark');
+        const fila = a.closest('[data-rec-item]');
+        setTimeout(() => {
+          if (fila) fila.remove();
+          // Si era la última, mensaje de "todo al día" (y cabeceras fuera)
+          if (!document.querySelector('[data-rec-item]')) {
+            const body = $('modal-body');
+            if (body) body.querySelectorAll('.rec-dia').forEach(x => x.remove());
+            if (body && !body.querySelector('.empty')) {
+              body.insertAdjacentHTML('beforeend',
+                '<div class="empty">Todo al día: recordatorios enviados. ✓</div>');
+            }
+          }
+        }, 900);
       }));
   }
   $('rec-btn').addEventListener('click', modalRecordatorios);
@@ -2157,7 +2182,7 @@
     if ($('w-enviar')) $('w-enviar').addEventListener('click', () => {
       // Si la cita es de hoy o mañana, esta confirmación recién enviada ya
       // hace de recordatorio: que no vuelva a salir como pendiente.
-      if (new Date(cita.inicio).getTime() - Date.now() < 48 * 3600000) recMarcar(cita);
+      if (new Date(cita.inicio).getTime() - Date.now() < 48 * 3600000) marcarRecordatorio(cita);
       setTimeout(cerrarModal, 400);
     });
   }
@@ -2171,6 +2196,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v13');
+  console.info('[agenda] v14');
   comprobarSesion();
 })();
