@@ -12,4 +12,8 @@ Disallow: /.github/
 Disallow: /docs/cursos/  # los .md son fuente, el contenido renderizado va en /cursos
 
 # Sitemap
+# Agenda interna: aplicacion privada de gestion de clientas.
+# No debe rastrearse ni indexarse (ademas lleva meta noindex).
+Disallow: /agenda/
+
 Sitemap: https://precissainstitute.com/sitemap.xml

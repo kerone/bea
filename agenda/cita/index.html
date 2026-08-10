@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!-- Confirmación de cita · PRECISSA INSTITUTE
+     Página pública a la que llega la clienta desde el WhatsApp de
+     confirmación. NO consulta la base de datos: solo lee la fecha y la
+     duración de la URL y genera un archivo de calendario estándar.
+     Por eso no viaja aquí ningún dato personal ni de salud. -->
+<html lang="es-ES">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu cita · PRECISSA INSTITUTE</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#F2ECE3">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F2ECE3; --bg2: #E6DDCC; --ink: #241D17; --ink-soft: #544A40;
+  --muted: #726A5D; --accent: #A86B4E; --accent-dark: #7E4C36;
+  --line: rgba(36,29,23,0.10);
+  --serif: 'Instrument Serif', serif; --sans: 'Manrope', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--sans); background: var(--bg); color: var(--ink);
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; padding: 28px 20px; text-align: center;
+  -webkit-font-smoothing: antialiased;
+}
+.logo { font-family: var(--serif); font-size: 19px; letter-spacing: 0.14em; margin-bottom: 30px; }
+.eyebrow {
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+}
+h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 7vw, 44px); line-height: 1.1; letter-spacing: -0.01em; }
+h1 em { font-style: italic; color: var(--accent-dark); }
+.hora { font-family: var(--serif); font-size: clamp(38px, 11vw, 60px); color: var(--accent-dark); line-height: 1; margin: 16px 0 6px; }
+.card {
+  background: #fff; border: 1px solid var(--line); border-radius: 14px;
+  padding: 24px 22px; max-width: 400px; width: 100%; margin: 22px 0;
+  box-shadow: 0 10px 30px rgba(36,29,23,0.06);
+}
+.dato { display: flex; align-items: flex-start; gap: 10px; text-align: left; font-size: 14.5px; color: var(--ink-soft); margin-top: 14px; line-height: 1.5; }
+.dato svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 3px; opacity: 0.6; }
+.dato a { color: inherit; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 14px 26px; border-radius: 999px; font-size: 15px; font-weight: 600;
+  text-decoration: none; border: 1px solid transparent; cursor: pointer;
+  transition: transform 0.12s; width: 100%; max-width: 340px;
+}
+.btn:active { transform: scale(0.98); }
+.btn-dark { background: var(--ink); color: var(--bg); }
+.btn-outline { background: transparent; border-color: rgba(36,29,23,0.22); color: var(--ink); margin-top: 10px; }
+.btn svg { width: 18px; height: 18px; }
+.pie { margin-top: 26px; font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+.pie a { color: var(--accent-dark); }
+.error { color: var(--ink-soft); max-width: 380px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+  <div class="logo">PRECISSA INSTITUTE</div>
+  <div id="contenido"></div>
+
+<script>
+(function () {
+  const NEG = {
+    nombre: 'PRECISSA INSTITUTE',
+    direccion: "C/ de la República de la Costa d'Ivori, 46017 València",
+    tel: '+34601056706',
+    telVisible: '601 05 67 06',
+    mapa: 'https://maps.app.goo.gl/RfxWU2e8j4qnrgg5A'
+  };
+  const DIAS = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+  const MESES = ['enero','febrero','marzo','abril','mayo','junio','julio',
+                 'agosto','septiembre','octubre','noviembre','diciembre'];
+
+  const p = new URLSearchParams(location.search);
+  const seg = parseInt(p.get('i'), 10);
+  const dur = Math.max(5, Math.min(600, parseInt(p.get('d'), 10) || 60));
+
+  const cont = document.getElementById('contenido');
+
+  if (!seg || isNaN(seg)) {
+    cont.innerHTML = `
+      <h1>Enlace no válido</h1>
+      <p class="error" style="margin-top:14px">
+        Este enlace de cita no es correcto o ha caducado.
+        Escríbenos y te lo reenviamos.
+      </p>
+      <p class="pie"><a href="tel:${NEG.tel}">${NEG.telVisible}</a></p>`;
+    return;
+  }
+
+  const inicio = new Date(seg * 1000);
+  const fin = new Date(inicio.getTime() + dur * 60000);
+
+  const hh = String(inicio.getHours()).padStart(2, '0');
+  const mm = String(inicio.getMinutes()).padStart(2, '0');
+  const pasada = fin.getTime() < Date.now();
+
+  cont.innerHTML = `
+    <div class="eyebrow">${pasada ? 'Cita pasada' : 'Tu cita está confirmada'}</div>
+    <h1>${DIAS[inicio.getDay()]} ${inicio.getDate()}<br><em>de ${MESES[inicio.getMonth()]}</em></h1>
+    <div class="card">
+      <div class="hora">${hh}:${mm}</div>
+      <div style="font-size:13px;color:var(--muted)">duración aproximada ${dur} min</div>
+      <div class="dato">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <a href="${NEG.mapa}" target="_blank" rel="noopener">${NEG.direccion}</a>
+      </div>
+      <div class="dato">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <a href="tel:${NEG.tel}">${NEG.telVisible}</a>
+      </div>
+    </div>
+
+    ${pasada ? '' : `
+    <button class="btn btn-dark" id="add-ics">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Añadir a mi calendario
+    </button>
+    <a class="btn btn-outline" id="add-google" target="_blank" rel="noopener">Añadir a Google Calendar</a>`}
+
+    <p class="pie">
+      ${pasada ? 'Esta cita ya ha pasado.' : 'Funciona con iPhone, Android y Outlook.'}<br>
+      ¿Necesitas cambiarla? Llámanos al <a href="tel:${NEG.tel}">${NEG.telVisible}</a>
+    </p>`;
+
+  if (pasada) return;
+
+  // ─── Generar el archivo de calendario (.ics) ───────────────
+  const z = (n) => String(n).padStart(2, '0');
+  const utc = (d) => `${d.getUTCFullYear()}${z(d.getUTCMonth() + 1)}${z(d.getUTCDate())}T${z(d.getUTCHours())}${z(d.getUTCMinutes())}00Z`;
+  const escIcs = (s) => String(s).replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\n/g, '\\n');
+
+  const ics = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//PRECISSA INSTITUTE//Agenda//ES',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+    'BEGIN:VEVENT',
+    `UID:${seg}-precissa@precissainstitute.com`,
+    `DTSTAMP:${utc(new Date())}`,
+    `DTSTART:${utc(inicio)}`,
+    `DTEND:${utc(fin)}`,
+    `SUMMARY:${escIcs('Cita en ' + NEG.nombre)}`,
+    `LOCATION:${escIcs(NEG.direccion)}`,
+    `DESCRIPTION:${escIcs('Tu cita en ' + NEG.nombre + '. Teléfono: ' + NEG.telVisible)}`,
+    'BEGIN:VALARM',
+    'TRIGGER:-PT2H',
+    'ACTION:DISPLAY',
+    'DESCRIPTION:Recordatorio de tu cita',
+    'END:VALARM',
+    'END:VEVENT',
+    'END:VCALENDAR'
+  ].join('\r\n');
+
+  document.getElementById('add-ics').addEventListener('click', function () {
+    const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'cita-precissa.ics';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 4000);
+  });
+
+  // Alternativa para quien use Google Calendar en el navegador
+  const g = new URLSearchParams({
+    action: 'TEMPLATE',
+    text: 'Cita en ' + NEG.nombre,
+    dates: `${utc(inicio)}/${utc(fin)}`,
+    location: NEG.direccion,
+    details: 'Teléfono: ' + NEG.telVisible
+  });
+  document.getElementById('add-google').href =
+    'https://calendar.google.com/calendar/render?' + g.toString();
+})();
+</script>
+</body>
+</html>
