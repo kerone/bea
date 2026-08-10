@@ -1590,7 +1590,8 @@
       </div>` : ''}
       <div class="modal-actions">
         <button class="btn btn-dark" id="f-guardar">Guardar</button>
-        <button class="btn btn-accent" id="f-guardar-wa">Guardar y avisar</button>
+        ${esNueva || cita.estado === 'programada'
+          ? '<button class="btn btn-accent" id="f-guardar-wa">Guardar y avisar</button>' : ''}
         ${!esNueva ? '<button class="btn btn-danger" id="f-borrar">Eliminar</button>' : ''}
       </div>`);
 
@@ -1896,7 +1897,9 @@
     }
 
     $('f-guardar').addEventListener('click', () => guardar(false, false));
-    $('f-guardar-wa').addEventListener('click', () => guardar(true, false));
+    // Solo existe en citas nuevas o aún programadas: avisar por WhatsApp
+    // de una cita en cabina o ya cerrada no tiene sentido.
+    if ($('f-guardar-wa')) $('f-guardar-wa').addEventListener('click', () => guardar(true, false));
 
     // Al cambiar hora, fecha o duración, el aviso anterior deja de valer
     ['f-fecha', 'f-hora', 'f-dur'].forEach(id =>
@@ -3015,6 +3018,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v24');
+  console.info('[agenda] v25');
   comprobarSesion();
 })();

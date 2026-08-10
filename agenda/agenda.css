@@ -778,3 +778,12 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: 21px; letter-spacin
   margin: 0 6px 6px 0; font-family: var(--sans);
 }
 .fhueco:hover { border-color: var(--ink); background: var(--bg2); }
+
+/* Las filas de pestañas (.seg) nunca deben desbordar la página: si no
+   caben, se desplazan ELLAS, no la pantalla entera */
+.seg { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.seg::-webkit-scrollbar { display: none; }
+.seg button { white-space: nowrap; flex-shrink: 0; }
+@media (max-width: 599px) {
+  #ajustes-seg button { padding: 7px 10px; font-size: 12px; }
+}
