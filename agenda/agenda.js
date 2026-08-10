@@ -855,6 +855,20 @@
     const fotosDe = {};
     (fts || []).forEach(f => { (fotosDe[f.cita_id] = fotosDe[f.cita_id] || []).push(f); });
 
+    // Bonos y sus usos firmados (si el SQL aún no está, la tarjeta avisa)
+    const { data: bonos, error: eBonos } = await db.from('bonos')
+      .select('*').eq('clienta_id', c.id).order('created_at', { ascending: false });
+    let usosBono = [];
+    if (!eBonos) {
+      const { data: u } = await db.from('bono_usos')
+        .select('id, bono_id, cita_id, usado_at').eq('clienta_id', c.id).order('usado_at');
+      usosBono = u || [];
+    }
+    const usosDe = {};
+    usosBono.forEach(u => { (usosDe[u.bono_id] = usosDe[u.bono_id] || []).push(u); });
+    const bonoEnCita = {};
+    usosBono.forEach(u => { if (u.cita_id) bonoEnCita[u.cita_id] = true; });
+
     // Porcentaje de faltas: solo cuentan las citas que ya pasaron y se
     // cerraron de una forma u otra. Las canceladas con aviso no penalizan.
     const cerradas = historico.filter(x => ['completada', 'no_asistio'].includes(x.estado));
@@ -928,6 +942,34 @@
       </div>
 
       <div class="card">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap">
+          <h2>Bonos</h2>
+          <button class="btn btn-outline btn-sm" id="nuevo-bono">Nuevo bono</button>
+        </div>
+        ${eBonos
+          ? '<p class="fotos-nota" style="margin-top:10px">Para activar los bonos, ejecuta <b>supabase/agenda-bonos.sql</b> en Supabase (SQL Editor).</p>'
+          : (bonos && bonos.length ? bonos.map(b => {
+              const usadas = (usosDe[b.id] || []).length;
+              const quedan = b.sesiones_total - usadas;
+              return `
+              <div class="bono${quedan <= 0 ? ' bono-agotado' : ''}">
+                <div class="bono-info">
+                  <b>${esc(b.nombre)}</b>
+                  <span>${fmtFechaCorta(b.comprado_at)}${b.precio !== null ? ' · ' + fmtPrecio(b.precio) : ''}</span>
+                  <div class="bono-progreso"><i style="width:${Math.min(100, Math.round(usadas * 100 / b.sesiones_total))}%"></i></div>
+                  <span>${usadas} de ${b.sesiones_total} usadas · ${quedan > 0 ? `quedan <b>${quedan}</b>` : '<b>agotado</b>'}</span>
+                </div>
+                <div class="bono-acciones">
+                  ${quedan > 0 ? `<button class="btn btn-dark btn-sm" data-bono-usar="${b.id}">Descontar sesión</button>` : ''}
+                  ${usadas > 0 ? `<button class="btn btn-outline btn-sm" data-bono-ver="${b.id}">Ver usos firmados</button>`
+                               : `<button class="btn btn-ghost btn-sm" data-bono-borrar="${b.id}">Eliminar</button>`}
+                </div>
+              </div>`;
+            }).join('')
+          : '<p style="font-size:13.5px;color:var(--muted);margin-top:10px">Sin bonos. Con "Nuevo bono" registras un paquete de sesiones pagado por adelantado.</p>')}
+      </div>
+
+      <div class="card">
         <h2>Histórico de tratamientos</h2>
         <p style="font-size:13px;color:var(--muted);margin-bottom:12px">
           ${historico.length} cita${historico.length === 1 ? '' : 's'}${gastado > 0 ? ` · ${fmtPrecio(gastado)} facturado` : ''}
@@ -948,7 +990,7 @@
               <div class="cita-meta">
                 ${h.precio ? fmtPrecio(h.precio) + ' · ' : ''}
                 ${(state.profesionales.filter(p => p.activo).length > 1 && profesionalDe(h.profesional_id)) ? esc(profesionalDe(h.profesional_id).nombre) + ' · ' : ''}
-                <span class="badge badge-${h.estado}">${etiquetaEstado(h.estado)}</span>
+                <span class="badge badge-${h.estado}">${etiquetaEstado(h.estado)}</span>${bonoEnCita[h.id] ? ' · <span class="badge badge-bono">Bono</span>' : ''}
                 ${firmaDe[h.id] ? ` · <a href="#" data-firma="${firmaDe[h.id].id}" style="color:var(--accent-dark);text-decoration:underline">consentimiento firmado</a>` : ''}
               </div>
               ${(fotosDe[h.id] || []).length ? `<div class="ficha-fotos" data-fotos-cita="${h.id}"></div>` : ''}
@@ -965,6 +1007,28 @@
 
     $('editar-cli').addEventListener('click', () => modalClienta(c));
     $('cita-para-cli').addEventListener('click', () => modalCita(null, c.id));
+
+    $('nuevo-bono').addEventListener('click', () => modalNuevoBono(c));
+    document.querySelectorAll('[data-bono-usar]').forEach(b =>
+      b.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        const bono = (bonos || []).find(x => x.id === b.dataset.bonoUsar);
+        if (bono) modalUsarBono(bono, c, null, (usosDe[bono.id] || []).length);
+      }));
+    document.querySelectorAll('[data-bono-ver]').forEach(b =>
+      b.addEventListener('click', (ev) => {
+        ev.stopPropagation();
+        const bono = (bonos || []).find(x => x.id === b.dataset.bonoVer);
+        if (bono) modalVerUsosBono(bono);
+      }));
+    document.querySelectorAll('[data-bono-borrar]').forEach(b =>
+      b.addEventListener('click', async (ev) => {
+        ev.stopPropagation();
+        if (!confirm('¿Eliminar este bono? No tiene usos registrados.')) return;
+        const { error } = await db.from('bonos').delete().eq('id', b.dataset.bonoBorrar);
+        if (error) { toast('No se pudo eliminar'); return; }
+        toast('Bono eliminado'); renderFicha();
+      }));
 
     // Miniaturas de las fotos: todas las firmas de URL en un solo viaje
     const visibles = historialVisible.flatMap(h => fotosDe[h.id] || []);
@@ -1818,6 +1882,8 @@
     if (!(await cambiarEstado(cita, 'completada', datosDelFormulario()))) return;
     cerrarModal(); render();
     toast('Tratamiento finalizado');
+    // Si tiene bono con sesiones para este tratamiento, preguntar ahora
+    await ofrecerBono(cita);
   }
 
   /** La clienta ha llegado: si su tratamiento tiene consentimiento, se firma ahora. */
@@ -2095,6 +2161,226 @@
       </p>
       <div class="consent-texto" style="max-height:44vh">${esc(c.texto_firmado)}</div>
       ${img}`);
+  }
+
+  // ─── Bonos de sesiones ───────────────────────────────────
+  // Paquetes prepagados. Cada sesión gastada queda registrada CON LA
+  // FIRMA de la clienta: ante cualquier duda se le enseñan sus usos
+  // firmados con fecha y hora, y no hay confusión posible.
+
+  function modalNuevoBono(cl) {
+    abrirModal('Nuevo bono', `
+      <p style="font-size:13px;color:var(--muted);margin-bottom:12px">
+        Paquete de sesiones pagado por adelantado para <b>${esc(nombreCompleto(cl))}</b>.
+      </p>
+      <div class="field">
+        <label for="b-trat">Tratamiento</label>
+        <select id="b-trat">
+          <option value="">Cualquier tratamiento</option>
+          ${state.tratamientos.filter(t => t.activo).map(t =>
+            `<option value="${t.id}">${esc(t.nombre)}</option>`).join('')}
+        </select>
+      </div>
+      <div class="field">
+        <label for="b-nombre">Nombre del bono *</label>
+        <input id="b-nombre" placeholder="Ej.: Bono 5 sesiones láser">
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="b-sesiones">Nº de sesiones *</label>
+          <input id="b-sesiones" type="number" min="1" max="100" step="1" value="5"></div>
+        <div class="field"><label for="b-precio">Precio total (€)</label>
+          <input id="b-precio" type="number" min="0" step="0.01"></div>
+      </div>
+      <div class="field">
+        <label for="b-fecha">Fecha de compra</label>
+        <input id="b-fecha" type="date" value="${inputFecha(new Date())}">
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-dark" id="b-guardar">Crear bono</button>
+      </div>`);
+
+    // Nombre sugerido al elegir tratamiento (solo si no lo ha escrito ya)
+    $('b-trat').addEventListener('change', () => {
+      const t = state.tratamientos.find(x => x.id === $('b-trat').value);
+      const n = $('b-nombre');
+      if (t && (!n.value.trim() || n.dataset.auto === '1')) {
+        n.value = `Bono ${$('b-sesiones').value || 5} sesiones · ${t.nombre}`;
+        n.dataset.auto = '1';
+      }
+    });
+    $('b-nombre').addEventListener('input', () => { $('b-nombre').dataset.auto = ''; });
+
+    $('b-guardar').addEventListener('click', async () => {
+      const nombre = $('b-nombre').value.trim();
+      const sesiones = parseInt($('b-sesiones').value, 10);
+      if (!nombre) return toast('Ponle nombre al bono');
+      if (!(sesiones >= 1 && sesiones <= 100)) return toast('Revisa el número de sesiones');
+      const btn = $('b-guardar'); btn.disabled = true;
+      const { error } = await db.from('bonos').insert({
+        clienta_id: cl.id,
+        tratamiento_id: $('b-trat').value || null,
+        nombre,
+        sesiones_total: sesiones,
+        precio: $('b-precio').value === '' ? null : Number($('b-precio').value),
+        comprado_at: $('b-fecha').value || undefined
+      });
+      btn.disabled = false;
+      if (error) { toast('No se pudo crear: ' + error.message); return; }
+      cerrarModal(); toast('Bono creado'); renderFicha();
+    });
+  }
+
+  /** Descuenta una sesión del bono con la firma de la clienta.
+   *  Si viene de "Finalizar" trae la cita; desde la ficha, sin cita. */
+  function modalUsarBono(bono, cl, cita, usadas) {
+    const n = usadas + 1;
+    abrirModal('Descontar sesión del bono', `
+      <p style="font-size:13.5px;color:var(--ink-soft);margin-bottom:10px">
+        <b>${esc(bono.nombre)}</b> · sesión <b>${n} de ${bono.sesiones_total}</b>.
+        ${cita ? 'Se anotará en la cita de hoy.' : ''}
+      </p>
+      <div class="consent-texto" style="max-height:20vh">Confirmo que hoy, ${fmtFechaLarga(new Date())}, utilizo una sesión de mi bono "${esc(bono.nombre)}" (sesión ${n} de ${bono.sesiones_total}) en ${esc(NEGOCIO.nombre)}.</div>
+      <div class="field">
+        <label for="bu-nombre">Nombre de quien firma *</label>
+        <input id="bu-nombre" value="${esc(nombreCompleto(cl))}">
+      </div>
+      <div class="field">
+        <label>Firma</label>
+        <div class="firma-wrap" id="bu-wrap">
+          <canvas id="bu-canvas"></canvas>
+          <div class="firma-linea"></div>
+          <div class="firma-hint">Firma aquí con el dedo o el lápiz</div>
+        </div>
+        <button class="btn btn-ghost btn-sm" id="bu-limpiar" style="margin-top:6px">Borrar firma</button>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-dark" id="bu-firmar">Firmar y descontar</button>
+        <button class="btn btn-ghost" id="bu-sinfirma">Descontar sin firma</button>
+      </div>`);
+
+    const canvas = $('bu-canvas'), wrap = $('bu-wrap');
+    const ctx = canvas.getContext('2d');
+    let pintando = false, hayFirma = false;
+    function ajustar() {
+      const r = canvas.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = r.width * dpr; canvas.height = r.height * dpr;
+      ctx.scale(dpr, dpr);
+      ctx.lineWidth = 2.2; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      ctx.strokeStyle = '#241D17';
+    }
+    setTimeout(ajustar, 30);
+    protegerCierre(() => hayFirma ? '¿Cerrar sin guardar la firma?' : null);
+    const punto = (e) => {
+      const r = canvas.getBoundingClientRect();
+      return { x: e.clientX - r.left, y: e.clientY - r.top };
+    };
+    canvas.addEventListener('pointerdown', (e) => {
+      e.preventDefault();
+      pintando = true; hayFirma = true; wrap.classList.add('firmado');
+      const p = punto(e); ctx.beginPath(); ctx.moveTo(p.x, p.y);
+      canvas.setPointerCapture(e.pointerId);
+    });
+    canvas.addEventListener('pointermove', (e) => {
+      if (!pintando) return;
+      e.preventDefault();
+      const p = punto(e); ctx.lineTo(p.x, p.y); ctx.stroke();
+    });
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach(ev =>
+      canvas.addEventListener(ev, () => { pintando = false; }));
+    $('bu-limpiar').addEventListener('click', () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      hayFirma = false; wrap.classList.remove('firmado');
+    });
+
+    async function descontar(conFirma) {
+      const nombre = $('bu-nombre').value.trim();
+      if (conFirma && !nombre) return toast('Falta el nombre de quien firma');
+      if (conFirma && !hayFirma) return toast('Falta la firma');
+      const botones = [$('bu-firmar'), $('bu-sinfirma')];
+      botones.forEach(b => { b.disabled = true; });
+      const { error } = await db.from('bono_usos').insert({
+        bono_id: bono.id,
+        clienta_id: cl.id,
+        cita_id: cita ? cita.id : null,
+        firma_data: conFirma ? canvas.toDataURL('image/png') : null,
+        firmante_nombre: conFirma ? nombre : null
+      });
+      if (error) {
+        botones.forEach(b => { b.disabled = false; });
+        toast('No se pudo registrar: ' + error.message);
+        return;
+      }
+      // Sesión cubierta por el bono: el importe ya se cobró al venderlo.
+      // Se deja la cita a 0 € para no contar ese dinero dos veces.
+      if (cita) await db.from('citas').update({ precio: 0 }).eq('id', cita.id);
+      cerrarModal();
+      toast(`Sesión ${n} de ${bono.sesiones_total} descontada${bono.sesiones_total - n > 0 ? ` · quedan ${bono.sesiones_total - n}` : ' · bono agotado'}`);
+      if (state.vista === 'ficha') renderFicha(); else { await cargarCitas(); render(); }
+    }
+    $('bu-firmar').addEventListener('click', () => descontar(true));
+    $('bu-sinfirma').addEventListener('click', () => {
+      if (!confirm('¿Descontar la sesión sin firma?\n\nQuedará registrada la fecha, pero sin el justificante firmado.')) return;
+      descontar(false);
+    });
+  }
+
+  /** Los usos de un bono, con sus firmas: el justificante para enseñar. */
+  async function modalVerUsosBono(bono) {
+    const { data, error } = await db.from('bono_usos')
+      .select('*').eq('bono_id', bono.id).order('usado_at');
+    if (error) return toast('No se pudieron cargar los usos');
+    const usos = data || [];
+    abrirModal('Usos del bono', `
+      <p style="font-size:13px;color:var(--muted);margin-bottom:12px">
+        <b>${esc(bono.nombre)}</b> · ${usos.length} de ${bono.sesiones_total} sesiones usadas.
+        Cada uso lleva la fecha y la firma de ese día.
+      </p>
+      ${usos.map((u, i) => `
+        <div class="bono-uso">
+          <div>
+            <b>Sesión ${i + 1}</b>
+            <span>${fmtFechaCorta(u.usado_at)} · ${fmtHora(u.usado_at)}${u.firmante_nombre ? ' · ' + esc(u.firmante_nombre) : ''}</span>
+          </div>
+          ${u.firma_data && /^data:image\/png;base64,[A-Za-z0-9+/=]+$/.test(u.firma_data)
+            ? `<img src="${u.firma_data}" alt="Firma del uso ${i + 1}">`
+            : '<span class="rec-sintel">Sin firma</span>'}
+        </div>`).join('')}`);
+  }
+
+  /** Tras finalizar una cita: si tiene bonos con sesiones, ofrecer descontar. */
+  async function ofrecerBono(cita) {
+    const { data: bonos, error } = await db.from('bonos')
+      .select('*').eq('clienta_id', cita.clienta_id);
+    if (error || !bonos || !bonos.length) return false; // sin SQL o sin bonos
+    const { data: usos } = await db.from('bono_usos')
+      .select('id, bono_id').eq('clienta_id', cita.clienta_id);
+    const cuenta = {};
+    (usos || []).forEach(u => { cuenta[u.bono_id] = (cuenta[u.bono_id] || 0) + 1; });
+    // Valen: bonos con sesiones restantes y del tratamiento de la cita
+    // (o de cualquier tratamiento)
+    const validos = bonos.filter(b =>
+      (b.sesiones_total - (cuenta[b.id] || 0)) > 0 &&
+      (!b.tratamiento_id || b.tratamiento_id === cita.tratamiento_id));
+    if (!validos.length) return false;
+
+    const cl = clientaDe(cita.clienta_id);
+    abrirModal('¿Se paga con bono?', `
+      <p style="font-size:13.5px;color:var(--ink-soft);margin-bottom:12px">
+        ${esc(cl ? nombreCompleto(cl) : '')} tiene bono con sesiones disponibles.
+      </p>
+      ${validos.map(b => `
+        <button class="btn btn-dark" style="width:100%;margin-bottom:8px" data-elegir-bono="${b.id}">
+          ${esc(b.nombre)} · quedan ${b.sesiones_total - (cuenta[b.id] || 0)}
+        </button>`).join('')}
+      <button class="btn btn-outline" style="width:100%" id="ob-no">No, se paga suelta</button>`);
+    document.querySelectorAll('[data-elegir-bono]').forEach(btn =>
+      btn.addEventListener('click', () => {
+        const b = validos.find(x => x.id === btn.dataset.elegirBono);
+        modalUsarBono(b, cl, cita, cuenta[b.id] || 0);
+      }));
+    $('ob-no').addEventListener('click', () => { cerrarModal(); });
+    return true;
   }
 
   // ─── Fotos de la sesión ──────────────────────────────────
@@ -2461,6 +2747,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v17');
+  console.info('[agenda] v18');
   comprobarSesion();
 })();
