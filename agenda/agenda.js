@@ -849,6 +849,12 @@
     const firmaDe = {};
     (firmas || []).forEach(x => { firmaDe[x.cita_id] = x; });
 
+    // Fotos de sus sesiones, por cita (si la tabla aún no existe, nada)
+    const { data: fts } = await db.from('fotos_sesion')
+      .select('id, cita_id, ruta').eq('clienta_id', c.id).order('created_at');
+    const fotosDe = {};
+    (fts || []).forEach(f => { (fotosDe[f.cita_id] = fotosDe[f.cita_id] || []).push(f); });
+
     // Porcentaje de faltas: solo cuentan las citas que ya pasaron y se
     // cerraron de una forma u otra. Las canceladas con aviso no penalizan.
     const cerradas = historico.filter(x => ['completada', 'no_asistio'].includes(x.estado));
@@ -930,6 +936,7 @@
                 <span class="badge badge-${h.estado}">${etiquetaEstado(h.estado)}</span>
                 ${firmaDe[h.id] ? ` · <a href="#" data-firma="${firmaDe[h.id].id}" style="color:var(--accent-dark);text-decoration:underline">consentimiento firmado</a>` : ''}
               </div>
+              ${(fotosDe[h.id] || []).length ? `<div class="ficha-fotos" data-fotos-cita="${h.id}"></div>` : ''}
             </div>
           </div>`).join('')
           : `<div class="empty">${filtroTrat ? 'Sin sesiones de ese tratamiento.' : 'Todavía no tiene tratamientos registrados.'}</div>`}
@@ -943,6 +950,25 @@
 
     $('editar-cli').addEventListener('click', () => modalClienta(c));
     $('cita-para-cli').addEventListener('click', () => modalCita(null, c.id));
+
+    // Miniaturas de las fotos: todas las firmas de URL en un solo viaje
+    const visibles = historialVisible.flatMap(h => fotosDe[h.id] || []);
+    if (visibles.length) {
+      const { data: sig } = await db.storage.from(BUCKET_FOTOS)
+        .createSignedUrls(visibles.map(f => rutaMini(f.ruta)), 3600);
+      const url = {};
+      (sig || []).forEach((s, i) => { if (s && s.signedUrl) url[visibles[i].id] = s.signedUrl; });
+      document.querySelectorAll('[data-fotos-cita]').forEach(box => {
+        const lista = fotosDe[box.dataset.fotosCita] || [];
+        box.innerHTML = lista.map(f =>
+          `<img src="${url[f.id] || ''}" alt="Foto de la sesión" data-ver="${esc(f.ruta)}">`).join('');
+      });
+      document.querySelectorAll('[data-ver]').forEach(im =>
+        im.addEventListener('click', (ev) => {
+          ev.stopPropagation(); // que no abra además la cita
+          abrirFotoGrande(im.dataset.ver);
+        }));
+    }
   }
 
   // ─── TRATAMIENTOS ────────────────────────────────────────
@@ -1342,6 +1368,13 @@
         <label for="f-notas">Notas de la sesión</label>
         <textarea id="f-notas" placeholder="Parámetros usados, incidencias, evolución…">${esc(cita ? cita.notas || '' : '')}</textarea>
       </div>
+      ${!esNueva ? `
+      <div class="field">
+        <label>Fotos de la sesión</label>
+        <div class="fotos-grid" id="f-fotos"></div>
+        <p id="f-fotos-aviso" class="fotos-nota" hidden>⚠️ En su último consentimiento firmado <b>no autorizó fotografías</b>. Mejor no hacerlas, o pedirle una firma nueva que sí las autorice.</p>
+        <input type="file" id="f-foto-input" accept="image/*" multiple hidden>
+      </div>` : ''}
       <div class="modal-actions">
         <button class="btn btn-dark" id="f-guardar">Guardar</button>
         <button class="btn btn-accent" id="f-guardar-wa">Guardar y avisar</button>
@@ -1570,9 +1603,12 @@
     if ($('a-noasistio')) $('a-noasistio').addEventListener('click', () => marcarNoAsistio(cita));
     if ($('a-finalizar')) $('a-finalizar').addEventListener('click', () => finalizarTratamiento(cita));
 
+    if ($('f-fotos')) montarSeccionFotos(cita);
+
     if (!esNueva) {
       $('f-borrar').addEventListener('click', async () => {
         if (!confirm('¿Eliminar esta cita? No se puede deshacer.\n\nSi la clienta ha avisado de que no viene, es mejor marcarla como "Cancelada": así queda constancia en su histórico.')) return;
+        await borrarArchivosFotos('cita_id', cita.id); // sus fotos, del bucket
         const { error } = await db.from('citas').delete().eq('id', cita.id);
         if (error) { toast('No se pudo eliminar'); return; }
         cerrarModal(); await cargarCitas(); render(); toast('Cita eliminada');
@@ -1653,6 +1689,7 @@
               .remove(archivos.map(a => cl.id + '/' + a.name));
           }
         } catch (e) { /* si falla, la fila manda; el archivo queda sin referencia */ }
+        try { await borrarArchivosFotos('clienta_id', cl.id); } catch (e) { /* ídem */ }
         const { error } = await db.from('clientas').delete().eq('id', cl.id);
         if (error) { toast('No se pudo eliminar'); return; }
         cerrarModal(); await cargarTodo(); irA('clientas'); toast('Ficha eliminada');
@@ -1969,6 +2006,143 @@
       ${img}`);
   }
 
+  // ─── Fotos de la sesión ──────────────────────────────────
+  // Bucket PRIVADO (agenda-fotos.sql): cada foto se comprime en el
+  // navegador antes de subirse (grande ~1800 px + miniatura) para que el
+  // almacenamiento gratuito dure años. Se enseñan con enlace firmado.
+  const BUCKET_FOTOS = 'tratamiento-fotos';
+  const rutaMini = (r) => r.replace(/\.jpg$/, '_mini.jpg');
+
+  /** Reduce una imagen en el navegador y la devuelve como JPEG. */
+  function comprimirImagen(file, maxLado, calidad) {
+    return new Promise((res, rej) => {
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => {
+        const f = Math.min(1, maxLado / Math.max(img.width, img.height));
+        const cv = document.createElement('canvas');
+        cv.width = Math.max(1, Math.round(img.width * f));
+        cv.height = Math.max(1, Math.round(img.height * f));
+        cv.getContext('2d').drawImage(img, 0, 0, cv.width, cv.height);
+        URL.revokeObjectURL(url);
+        cv.toBlob(b => b ? res(b) : rej(new Error('sin blob')), 'image/jpeg', calidad);
+      };
+      img.onerror = () => { URL.revokeObjectURL(url); rej(new Error('imagen ilegible')); };
+      img.src = url;
+    });
+  }
+
+  /** Visor a pantalla completa; un toque lo cierra. */
+  function visorFoto(url) {
+    const v = document.createElement('div');
+    v.className = 'visor';
+    v.innerHTML = `<img src="${url}" alt="Foto del tratamiento">`;
+    v.addEventListener('click', () => v.remove());
+    document.body.appendChild(v);
+  }
+  async function abrirFotoGrande(ruta) {
+    const { data } = await db.storage.from(BUCKET_FOTOS).createSignedUrl(ruta, 600);
+    if (data && data.signedUrl) visorFoto(data.signedUrl);
+    else toast('No se ha podido abrir la foto');
+  }
+
+  /** Pinta la galería de una cita dentro del formulario. */
+  async function pintarFotosCita(cita) {
+    const grid = $('f-fotos');
+    if (!grid) return;
+    const { data, error } = await db.from('fotos_sesion')
+      .select('id, ruta').eq('cita_id', cita.id).order('created_at');
+    if (error) {
+      grid.innerHTML = '<p class="fotos-nota">Para activar las fotos, ejecuta <b>supabase/agenda-fotos.sql</b> en Supabase (SQL Editor).</p>';
+      return;
+    }
+    const fotos = data || [];
+    const urls = {};
+    if (fotos.length) {
+      const { data: sig } = await db.storage.from(BUCKET_FOTOS)
+        .createSignedUrls(fotos.map(f => rutaMini(f.ruta)), 3600);
+      (sig || []).forEach((s, i) => { if (s && s.signedUrl) urls[fotos[i].id] = s.signedUrl; });
+    }
+    grid.innerHTML = fotos.map(f => `
+      <div class="foto-mini" data-foto="${f.id}" data-ruta="${esc(f.ruta)}" role="button" tabindex="0" aria-label="Ver foto">
+        ${urls[f.id] ? `<img src="${urls[f.id]}" alt="">` : '<span>📷</span>'}
+        <button type="button" class="foto-x" aria-label="Eliminar foto">×</button>
+      </div>`).join('') + `
+      <button type="button" class="foto-add" id="f-foto-add" aria-label="Añadir fotos">+</button>`;
+
+    $('f-foto-add').addEventListener('click', () => $('f-foto-input').click());
+    grid.querySelectorAll('.foto-mini').forEach(el => {
+      el.addEventListener('click', (ev) => {
+        if (ev.target.closest('.foto-x')) return;
+        abrirFotoGrande(el.dataset.ruta);
+      });
+      el.querySelector('.foto-x').addEventListener('click', async () => {
+        if (!confirm('¿Eliminar esta foto? No se puede deshacer.')) return;
+        const ruta = el.dataset.ruta;
+        // Primero los archivos, luego la fila: nunca queda una fila que
+        // apunte a una foto ya borrada.
+        await db.storage.from(BUCKET_FOTOS).remove([ruta, rutaMini(ruta)]);
+        const { error: eDel } = await db.from('fotos_sesion').delete().eq('id', el.dataset.foto);
+        if (eDel) { toast('No se pudo eliminar la foto'); return; }
+        pintarFotosCita(cita);
+      });
+    });
+  }
+
+  /** Sección de fotos del formulario de cita: galería + subida + aviso
+   *  si el último consentimiento firmado no autorizó fotografías. */
+  function montarSeccionFotos(cita) {
+    pintarFotosCita(cita);
+
+    db.from('consentimientos_firmados').select('acepta_fotos')
+      .eq('clienta_id', cita.clienta_id)
+      .order('firmado_at', { ascending: false }).limit(1)
+      .then(({ data }) => {
+        if (data && data[0] && data[0].acepta_fotos === false) {
+          const av = $('f-fotos-aviso');
+          if (av) av.hidden = false;
+        }
+      });
+
+    let contador = 0;
+    $('f-foto-input').addEventListener('change', async () => {
+      const files = [...$('f-foto-input').files];
+      $('f-foto-input').value = '';
+      for (const file of files) {
+        try {
+          toast('Subiendo foto…');
+          const grande = await comprimirImagen(file, 1800, 0.85);
+          const mini = await comprimirImagen(file, 320, 0.8);
+          const ruta = `${cita.clienta_id}/${cita.id}/${Date.now()}-${contador++}.jpg`;
+          const { error: e1 } = await db.storage.from(BUCKET_FOTOS)
+            .upload(ruta, grande, { contentType: 'image/jpeg', upsert: false });
+          if (e1) { toast('No se pudo subir la foto: ' + e1.message); continue; }
+          await db.storage.from(BUCKET_FOTOS)
+            .upload(rutaMini(ruta), mini, { contentType: 'image/jpeg', upsert: false });
+          const { error: e2 } = await db.from('fotos_sesion')
+            .insert({ clienta_id: cita.clienta_id, cita_id: cita.id, ruta });
+          if (e2) {
+            // Fila no guardada → fuera los archivos huérfanos
+            db.storage.from(BUCKET_FOTOS).remove([ruta, rutaMini(ruta)]).then(() => {}, () => {});
+            toast('No se pudo guardar la foto: ' + e2.message);
+            continue;
+          }
+        } catch (e) { toast('Esa imagen no se ha podido leer'); }
+      }
+      pintarFotosCita(cita);
+    });
+  }
+
+  /** Borra del bucket todas las fotos de una cita o de una clienta.
+   *  Tolerante: si la tabla aún no existe, no hace nada. */
+  async function borrarArchivosFotos(campo, id) {
+    const { data } = await db.from('fotos_sesion').select('ruta').eq(campo, id);
+    if (data && data.length) {
+      await db.storage.from(BUCKET_FOTOS)
+        .remove(data.flatMap(f => [f.ruta, rutaMini(f.ruta)]));
+    }
+  }
+
   // ─── Confirmación por WhatsApp con "añadir a mi calendario" ──
   /** Número en formato internacional para wa.me/tel:, o null si no hay. */
   function telWa(telefono) {
@@ -2196,6 +2370,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v14');
+  console.info('[agenda] v15');
   comprobarSesion();
 })();
