@@ -1060,7 +1060,7 @@
           <div style="width:10px;height:38px;border-radius:5px;background:${esc(t.color)};flex-shrink:0"></div>
           <div class="row-body">
             <b>${esc(t.nombre)}</b>
-            <span>${t.duracion_min} min${t.precio !== null ? ' · ' + fmtPrecio(t.precio) : ' · sin precio'}${t.activo ? '' : ' · inactivo'}</span>
+            <span>${t.duracion_min} min${t.precio !== null ? ' · ' + fmtPrecio(t.precio) : ' · sin precio'}${t.requiere_prueba ? ' · prueba previa' : ''}${t.activo ? '' : ' · inactivo'}</span>
           </div>
         </div>`).join('')
       : '<div class="empty">No hay tratamientos en el catálogo.</div>';
@@ -1486,8 +1486,24 @@
       const { data, error } = await q;
       if (peticion !== _ultimaPedida) return; // llegó tarde: ya se pidió otra
       const u = !error && data && data[0];
-      if (!u) { box.hidden = true; return; }
+      const t = tratId !== '__otro' ? state.tratamientos.find(x => x.id === tratId) : null;
+      if (!u) {
+        // Sin ninguna sesión previa: si el tratamiento exige prueba en
+        // zona, que quien agenda lo vea. Avisa, no bloquea: esta cita
+        // puede ser precisamente la de la prueba.
+        if (!error && t && t.requiere_prueba) {
+          box.hidden = false;
+          box.className = 'ultima-sesion ultima-sesion--aviso';
+          box.innerHTML = `<b>⚠️ PRIMERA VEZ · REQUIERE PRUEBA PREVIA</b>
+            <p>No consta ninguna sesión de ${esc(t.nombre)} en su historial. Este tratamiento necesita prueba previa en zona (24–48 h antes): comprueba que la tiene hecha, o agenda primero la prueba.</p>`;
+          return;
+        }
+        box.hidden = true;
+        box.className = 'ultima-sesion';
+        return;
+      }
       box.hidden = false;
+      box.className = 'ultima-sesion';
       box.innerHTML = `<b>ÚLTIMA SESIÓN DE ESTE TRATAMIENTO</b> · ${fmtFechaCorta(u.inicio)}${u.precio ? ' · ' + fmtPrecio(u.precio) : ''}
         <p>${u.notas ? esc(u.notas) : 'Sin notas registradas aquel día.'}</p>`;
     }
@@ -1798,6 +1814,11 @@
             `<option value="${p.id}"${t && t.consentimiento_id === p.id ? ' selected' : ''}>${esc(p.nombre)}</option>`).join('')}
         </select>
       </div>
+      <label class="check-linea">
+        <input type="checkbox" id="t-prueba"${t && t.requiere_prueba ? ' checked' : ''}>
+        <span><b>Requiere prueba previa en zona</b> (p. ej. parche 24–48 h antes).
+        Al agendarlo a alguien sin sesiones previas, la agenda avisará.</span>
+      </label>
       <div class="field-row">
         <div class="field"><label for="t-color">Color</label><input id="t-color" type="color" value="${t ? t.color : '#A86B4E'}" style="height:44px;padding:4px"></div>
         <div class="field"><label for="t-activo">Estado</label>
@@ -1823,13 +1844,19 @@
         precio: $('t-precio').value === '' ? null : Number($('t-precio').value),
         color: $('t-color').value,
         activo: $('t-activo').value === '1',
-        consentimiento_id: $('t-consent').value || null
+        consentimiento_id: $('t-consent').value || null,
+        requiere_prueba: $('t-prueba').checked
       };
       const q = esNuevo
         ? db.from('tratamientos').insert(payload)
         : db.from('tratamientos').update(payload).eq('id', t.id);
       const { error } = await q;
-      if (error) { toast('No se pudo guardar'); return; }
+      if (error) {
+        toast(/requiere_prueba/.test(error.message)
+          ? 'Falta ejecutar supabase/agenda-prueba-previa.sql en Supabase'
+          : 'No se pudo guardar');
+        return;
+      }
       cerrarModal(); await cargarTratamientos(); render(); toast('Guardado');
       } finally { const b = $('t-guardar'); if (b) b.disabled = false; }
     });
@@ -2747,6 +2774,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v18');
+  console.info('[agenda] v19');
   comprobarSesion();
 })();
