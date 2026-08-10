@@ -899,6 +899,20 @@
         </dl>
       </div>
 
+      ${(() => {
+        // Lo primero que se quiere saber al abrir la ficha: qué se le
+        // hizo la última vez y con qué parámetros (notas de aquel día).
+        const u = historico.find(x => ['completada', 'en_curso'].includes(x.estado));
+        if (!u) return '';
+        return `
+      <div class="card ultima-card" data-cita="${u.id}" role="button" tabindex="0"
+           aria-label="Abrir la última sesión">
+        <h2>Última sesión</h2>
+        <p class="ultima-meta">${fmtFechaCorta(u.inicio)} · <b>${esc(u.tratamiento || 'Sin tratamiento')}</b>${u.precio ? ' · ' + fmtPrecio(u.precio) : ''}</p>
+        <p class="ultima-notas">${u.notas ? esc(u.notas) : 'Sin notas registradas aquel día.'}</p>
+      </div>`;
+      })()}
+
       <div class="card">
         <h2>Resumen</h2>
         <div class="stats">
@@ -2447,6 +2461,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v16');
+  console.info('[agenda] v17');
   comprobarSesion();
 })();

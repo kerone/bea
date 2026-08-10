@@ -671,3 +671,9 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: 21px; letter-spacin
   margin-top: 14px; animation: espera 1.6s ease-in-out infinite;
 }
 @keyframes espera { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
+
+/* Última sesión (ficha): lo primero que se consulta al abrirla */
+.ultima-card { border-left: 4px solid var(--accent); cursor: pointer; }
+.ultima-card:hover { border-color: var(--line-strong); border-left-color: var(--accent-dark); }
+.ultima-meta { font-size: 13.5px; color: var(--ink-soft); margin-top: 6px; }
+.ultima-notas { font-size: 14px; margin-top: 6px; white-space: pre-wrap; }
