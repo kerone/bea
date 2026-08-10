@@ -816,7 +816,15 @@
   // ─── Flujo del día: llegada → cabina → cierre ────────────
   async function cambiarEstado(cita, estado) {
     const { error } = await db.from('citas').update({ estado }).eq('id', cita.id);
-    if (error) { toast('No se pudo actualizar'); return false; }
+    if (error) {
+      // El fallo típico: falta ejecutar agenda-consentimientos.sql, que es
+      // quien permite el estado 'en_curso' en la base de datos.
+      const falta = /constraint|check/i.test(error.message || '');
+      toast(falta
+        ? 'Falta ejecutar agenda-consentimientos.sql en Supabase'
+        : 'No se pudo actualizar: ' + (error.message || 'error desconocido'));
+      return false;
+    }
     await cargarCitas();
     return true;
   }
@@ -1080,6 +1088,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v4');
+  console.info('[agenda] v5');
   comprobarSesion();
 })();
