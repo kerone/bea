@@ -989,8 +989,8 @@
                 </div>
                 <div class="bono-acciones">
                   ${quedan > 0 ? `<button class="btn btn-dark btn-sm" data-bono-usar="${b.id}">Descontar sesión</button>` : ''}
-                  ${usadas > 0 ? `<button class="btn btn-outline btn-sm" data-bono-ver="${b.id}">Ver usos firmados</button>`
-                               : `<button class="btn btn-ghost btn-sm" data-bono-borrar="${b.id}">Eliminar</button>`}
+                  ${usadas > 0 ? `<button class="btn btn-outline btn-sm" data-bono-ver="${b.id}">Ver usos firmados</button>` : ''}
+                  <button class="btn btn-ghost btn-sm" data-bono-borrar="${b.id}" data-usos="${usadas}">Eliminar</button>
                 </div>
               </div>`;
             }).join('')
@@ -1052,7 +1052,11 @@
     document.querySelectorAll('[data-bono-borrar]').forEach(b =>
       b.addEventListener('click', async (ev) => {
         ev.stopPropagation();
-        if (!confirm('¿Eliminar este bono? No tiene usos registrados.')) return;
+        const nUsos = Number(b.dataset.usos) || 0;
+        const msg = nUsos
+          ? `¿Eliminar este bono?\n\nSe borrarán también sus ${nUsos} uso${nUsos === 1 ? '' : 's'} firmado${nUsos === 1 ? '' : 's'} (los justificantes). Hazlo solo si el bono fue un error o una prueba; si solo quieres corregir un uso, usa "Ver usos firmados".`
+          : '¿Eliminar este bono? No tiene usos registrados.';
+        if (!confirm(msg)) return;
         const { error } = await db.from('bonos').delete().eq('id', b.dataset.bonoBorrar);
         if (error) { toast('No se pudo eliminar'); return; }
         toast('Bono eliminado'); renderFicha();
@@ -2445,7 +2449,20 @@
           ${u.firma_data && /^data:image\/png;base64,[A-Za-z0-9+/=]+$/.test(u.firma_data)
             ? `<img src="${u.firma_data}" alt="Firma del uso ${i + 1}">`
             : '<span class="rec-sintel">Sin firma</span>'}
+          <button type="button" class="icon-btn" data-uso-borrar="${u.id}" aria-label="Eliminar este uso" style="width:36px;height:36px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
         </div>`).join('')}`);
+
+    document.querySelectorAll('[data-uso-borrar]').forEach(btn =>
+      btn.addEventListener('click', async () => {
+        if (!confirm('¿Eliminar este uso?\n\nEl bono recuperará la sesión y se borrará su justificante firmado. Hazlo solo si fue un error o una prueba.')) return;
+        const { error: eDel } = await db.from('bono_usos').delete().eq('id', btn.dataset.usoBorrar);
+        if (eDel) { toast('No se pudo eliminar el uso'); return; }
+        toast('Uso eliminado · el bono recupera la sesión');
+        modalVerUsosBono(bono); // repintar la lista
+        if (state.vista === 'ficha') renderFicha();
+      }));
   }
 
   /** Al entrar la clienta (o al finalizar, como red): si tiene bonos con
@@ -2852,6 +2869,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v22');
+  console.info('[agenda] v23');
   comprobarSesion();
 })();
