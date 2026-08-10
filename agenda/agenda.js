@@ -34,7 +34,8 @@
     plantillas: [],
     ajustesTab: 'tratamientos',
     citasError: false,
-    // Se rellenará cuando exista la tabla de profesionales (SQL aparte).
+    profesionales: [],
+    // Con UNA sola profesional activa, todo se asigna a ella sin preguntar.
     profesionalActivo: null
   };
 
@@ -163,9 +164,20 @@
 
   // ─── Carga de datos ──────────────────────────────────────
   async function cargarTodo() {
-    await Promise.all([cargarClientas(), cargarTratamientos(), cargarPlantillas()]);
+    await Promise.all([cargarClientas(), cargarTratamientos(), cargarPlantillas(), cargarProfesionales()]);
     await cargarCitas();
   }
+  async function cargarProfesionales() {
+    // Tolerante: si aún no se ha ejecutado agenda-profesionales.sql, la
+    // app funciona igual que antes, sin el concepto de profesional.
+    const { data, error } = await db.from('profesionales')
+      .select('*').order('orden').order('nombre');
+    if (error) { state.profesionales = []; state.profesionalActivo = null; return; }
+    state.profesionales = data || [];
+    const activos = state.profesionales.filter(p => p.activo);
+    state.profesionalActivo = activos.length === 1 ? activos[0].id : null;
+  }
+  const profesionalDe = (id) => state.profesionales.find(p => p.id === id);
   async function cargarPlantillas() {
     const { data, error } = await db.from('consentimiento_plantillas')
       .select('*').order('nombre');
@@ -287,7 +299,10 @@
       $('agenda-body').innerHTML = htmlDia() +
         `<div class="rej-pie"><span></span><a data-toggle-lista>Ver como rejilla</a></div>`;
     } else {
-      $('agenda-body').innerHTML = htmlRejilla([state.fecha], false) + piePrevisto([state.fecha]);
+      const activos = state.profesionales.filter(p => p.activo);
+      $('agenda-body').innerHTML = (activos.length > 1
+        ? htmlRejillaProfesionales(state.fecha, activos)
+        : htmlRejilla([state.fecha], false)) + piePrevisto([state.fecha]);
     }
     arrancarLineaAhora();
   }
@@ -492,6 +507,71 @@
         <div style="position:relative;height:calc(var(--px) * ${altura})">${horas}</div>
       </div>
       <div class="rej-cols${scroll}">${cols}</div>
+    </div>`;
+  }
+
+  /** Vista día con una columna por profesional (solo con 2 o más). */
+  function htmlRejillaProfesionales(dia, activos) {
+    const citas = citasDe(dia);
+    const v = ventanaDe([citas]);
+    const altura = v.hasta - v.desde;
+    const laborable = HORARIO.dias.includes(dia.getDay());
+    const esHoy = mismaFecha(dia, hoy());
+
+    let horas = '';
+    for (let m = Math.ceil(v.desde / 60) * 60; m <= v.hasta; m += 60) {
+      horas += `<span class="rej-hora" style="top:calc(var(--px) * ${m - v.desde})">${String(m / 60).padStart(2, '0')}:00</span>`;
+    }
+
+    const cols = activos.map(p => {
+      const propias = citas.filter(c => c.profesional_id === p.id);
+      const ocupantes = repartir(propias.filter(c => ESTADOS_QUE_OCUPAN.includes(c.estado)));
+      const finas = propias.filter(c => !ESTADOS_QUE_OCUPAN.includes(c.estado));
+      let bloques = '';
+      if (laborable) {
+        if (HORARIO.abre > v.desde) bloques += `<div class="rej-fuera" style="top:0;height:calc(var(--px) * ${HORARIO.abre - v.desde})"></div>`;
+        if (v.hasta > HORARIO.cierra) bloques += `<div class="rej-fuera" style="top:calc(var(--px) * ${HORARIO.cierra - v.desde});height:calc(var(--px) * ${v.hasta - HORARIO.cierra})"></div>`;
+      } else {
+        bloques += `<div class="rej-fuera" style="top:0;height:calc(var(--px) * ${altura})"></div>`;
+      }
+      for (const hgap of huecosDe(ocupantes, laborable)) {
+        bloques += `<button type="button" class="rej-hueco" data-hueco="${dia.toISOString()}|${hgap.ini}"
+          style="top:calc(var(--px) * ${hgap.ini - v.desde});height:calc(var(--px) * ${hgap.fin - hgap.ini})"
+          aria-label="Hueco libre">${etiquetaHueco(hgap.fin - hgap.ini)}</button>`;
+      }
+      for (const it of ocupantes) {
+        const c = it.cita;
+        const cl = clientaDe(c.clienta_id);
+        const anchoCol = 100 / it.cols;
+        const durPx = it.fin - it.ini;
+        bloques += `
+          <button type="button" class="gcita estado-${c.estado}${durPx < 26 ? ' gcita--corta' : ''}" data-cita="${c.id}"
+            style="top:calc(var(--px) * ${it.ini - v.desde});height:calc(var(--px) * ${durPx});
+                   left:calc(${it.col * anchoCol}% + 3px);width:calc(${anchoCol}% - 6px);
+                   border-left-color:${esc(p.color)}"
+            aria-label="De ${fmtHora(c.inicio)} a ${fmtHora(new Date(finDe(c)).toISOString())}, ${esc(cl ? nombreCompleto(cl) : 'cliente eliminado')}, ${esc(c.tratamiento || 'sin tratamiento')}, con ${esc(p.nombre)}">
+            <b>${fmtHora(c.inicio)} · ${esc(cl ? cl.nombre : '—')}</b>
+            <span>${esc(c.tratamiento || '')}</span>
+          </button>`;
+      }
+      for (const c of finas) {
+        const ini = minutosDe(c.inicio);
+        bloques += `<button type="button" class="gcita--fina" data-cita="${c.id}"
+          style="top:calc(var(--px) * ${ini - v.desde});height:calc(var(--px) * ${Math.min(c.duracion_min || 60, 1440 - ini)})"
+          aria-label="${etiquetaEstado(c.estado)}"></button>`;
+      }
+      if (esHoy) bloques += `<div class="rej-ahora" data-ahora data-desde="${v.desde}" style="display:none"></div>`;
+      return `<div class="rej-col">
+        <div class="rej-col-cab" style="color:${esc(p.color)}">${esc(p.nombre)}</div>
+        <div class="rej-lienzo" style="height:calc(var(--px) * ${altura})">${bloques}</div>
+      </div>`;
+    }).join('');
+
+    return `<div class="rejilla">
+      <div class="rej-horas" style="padding-top:33px">
+        <div style="position:relative;height:calc(var(--px) * ${altura})">${horas}</div>
+      </div>
+      <div class="rej-cols">${cols}</div>
     </div>`;
   }
 
@@ -764,6 +844,7 @@
               ${h.notas ? `<div class="cita-trat">${esc(h.notas)}</div>` : ''}
               <div class="cita-meta">
                 ${h.precio ? fmtPrecio(h.precio) + ' · ' : ''}
+                ${(state.profesionales.filter(p => p.activo).length > 1 && profesionalDe(h.profesional_id)) ? esc(profesionalDe(h.profesional_id).nombre) + ' · ' : ''}
                 <span class="badge badge-${h.estado}">${etiquetaEstado(h.estado)}</span>
                 ${firmaDe[h.id] ? ` · <a href="#" data-firma="${firmaDe[h.id].id}" style="color:var(--accent-dark);text-decoration:underline">consentimiento firmado</a>` : ''}
               </div>
@@ -779,6 +860,7 @@
   // ─── TRATAMIENTOS ────────────────────────────────────────
   function renderAjustes() {
     if (state.ajustesTab === 'consentimientos') return renderPlantillas();
+    if (state.ajustesTab === 'profesionales') return renderProfesionales();
     $('ajustes-body').innerHTML = state.tratamientos.length
       ? state.tratamientos.map(t => `
         <div class="row" data-trat="${t.id}">
@@ -793,17 +875,22 @@
       el.addEventListener('click', () =>
         modalTratamiento(state.tratamientos.find(t => t.id === el.dataset.trat))));
   }
-  $('nuevo-trat-btn').addEventListener('click', () =>
-    state.ajustesTab === 'consentimientos' ? modalPlantilla(null) : modalTratamiento(null));
+  $('nuevo-trat-btn').addEventListener('click', () => {
+    if (state.ajustesTab === 'consentimientos') return modalPlantilla(null);
+    if (state.ajustesTab === 'profesionales') return modalProfesional(null);
+    modalTratamiento(null);
+  });
 
   document.querySelectorAll('#ajustes-seg button').forEach(b =>
     b.addEventListener('click', () => {
       state.ajustesTab = b.dataset.tab;
       document.querySelectorAll('#ajustes-seg button').forEach(x =>
         x.classList.toggle('active', x === b));
-      $('ajustes-ayuda').textContent = state.ajustesTab === 'tratamientos'
-        ? 'Tu catálogo para agendar rápido: al elegir un tratamiento se rellenan solos la duración y el precio.'
-        : 'Los documentos que firman tus clientas en la tablet. Asocia cada uno a su tratamiento desde la pestaña anterior.';
+      $('ajustes-ayuda').textContent = {
+        tratamientos: 'Tu catálogo para agendar rápido: al elegir un tratamiento se rellenan solos la duración y el precio.',
+        consentimientos: 'Los documentos que firman tus clientes en la tablet. Asocia cada uno a su tratamiento desde la pestaña anterior.',
+        profesionales: 'Quién realiza las citas. Con una sola persona activa, la agenda no pregunta nada; con dos o más, el día se divide en columnas.'
+      }[state.ajustesTab];
       renderAjustes();
     }));
 
@@ -824,6 +911,86 @@
     document.querySelectorAll('[data-plant]').forEach(el =>
       el.addEventListener('click', () =>
         modalPlantilla(state.plantillas.find(p => p.id === el.dataset.plant))));
+  }
+
+  function renderProfesionales() {
+    if (!state.profesionales.length) {
+      $('ajustes-body').innerHTML = `<div class="empty">
+        Falta un paso en Supabase.<br>
+        Ejecuta <code>supabase/agenda-profesionales.sql</code> y recarga.
+      </div>`;
+      return;
+    }
+    $('ajustes-body').innerHTML = state.profesionales.map(p => `
+      <div class="row" data-prof="${p.id}">
+        <div style="width:10px;height:38px;border-radius:5px;background:${esc(p.color)};flex-shrink:0"></div>
+        <div class="row-body">
+          <b>${esc(p.nombre)}</b>
+          <span>${p.activo ? 'activa' : 'inactiva'}</span>
+        </div>
+      </div>`).join('');
+    document.querySelectorAll('[data-prof]').forEach(el =>
+      el.addEventListener('click', () =>
+        modalProfesional(profesionalDe(el.dataset.prof))));
+  }
+
+  // Seis colores fijos separados en tono: dos marrones de la casa serían
+  // indistinguibles en la rejilla.
+  const COLORES_PROF = ['#A86B4E', '#3D6E99', '#5C7A4E', '#8C5A5A', '#6E6558', '#C68B2F'];
+
+  function modalProfesional(p) {
+    const esNuevo = !p;
+    const color = p ? p.color : COLORES_PROF.find(c =>
+      !state.profesionales.some(x => x.color === c)) || COLORES_PROF[0];
+    abrirModal(esNuevo ? 'Nueva profesional' : 'Editar profesional', `
+      <div class="field">
+        <label for="pr-nombre">Nombre *</label>
+        <input id="pr-nombre" value="${esc(p ? p.nombre : '')}" placeholder="Como quieres verlo en la agenda">
+      </div>
+      <div class="field">
+        <label>Color en la agenda</label>
+        <div class="paleta" id="pr-paleta">
+          ${COLORES_PROF.map(c => `
+            <button type="button" class="paleta-color${c === color ? ' activo' : ''}"
+              data-color="${c}" style="background:${c}" aria-label="Color ${c}"></button>`).join('')}
+        </div>
+      </div>
+      <div class="field">
+        <label for="pr-activo">Estado</label>
+        <select id="pr-activo">
+          <option value="1"${!p || p.activo ? ' selected' : ''}>Activa</option>
+          <option value="0"${p && !p.activo ? ' selected' : ''}>Inactiva</option>
+        </select>
+        <p style="font-size:11.5px;color:var(--muted);margin-top:5px">
+          Para dar de baja, usa "Inactiva": sus citas pasadas se conservan.
+        </p>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-dark" id="pr-guardar">Guardar</button>
+      </div>`);
+
+    let colorElegido = color;
+    document.querySelectorAll('#pr-paleta .paleta-color').forEach(b =>
+      b.addEventListener('click', () => {
+        colorElegido = b.dataset.color;
+        document.querySelectorAll('#pr-paleta .paleta-color').forEach(x =>
+          x.classList.toggle('activo', x === b));
+      }));
+
+    $('pr-guardar').addEventListener('click', async () => {
+      const nombre = $('pr-nombre').value.trim();
+      if (!nombre) return toast('El nombre es obligatorio');
+      $('pr-guardar').disabled = true;
+      try {
+        const payload = { nombre, color: colorElegido, activo: $('pr-activo').value === '1' };
+        const q = esNuevo
+          ? db.from('profesionales').insert(payload)
+          : db.from('profesionales').update(payload).eq('id', p.id);
+        const { error } = await q;
+        if (error) { toast('No se pudo guardar: ' + error.message); return; }
+        cerrarModal(); await cargarProfesionales(); render(); toast('Guardado');
+      } finally { const b = $('pr-guardar'); if (b) b.disabled = false; }
+    });
   }
 
   function modalPlantilla(p) {
@@ -1007,6 +1174,14 @@
         <input type="hidden" id="f-clienta" value="${esc(cid)}">
         <div class="picker" id="f-lista-cli" hidden></div>
       </div>
+      ${state.profesionales.filter(p => p.activo).length > 1 ? `
+      <div class="field">
+        <label for="f-profesional">Quién lo realiza *</label>
+        <select id="f-profesional">
+          ${state.profesionales.filter(p => p.activo).map(p =>
+            `<option value="${p.id}"${cita && cita.profesional_id === p.id ? ' selected' : ''}>${esc(p.nombre)}</option>`).join('')}
+        </select>
+      </div>` : ''}
       <div class="field">
         <label for="f-trat">Tratamiento</label>
         <select id="f-trat">
@@ -1040,6 +1215,11 @@
         <button class="btn btn-accent" id="f-guardar-wa">Guardar y avisar</button>
         ${!esNueva ? '<button class="btn btn-danger" id="f-borrar">Eliminar</button>' : ''}
       </div>`);
+
+    function profesionalElegido() {
+      const sel = $('f-profesional');
+      return sel ? sel.value : (state.profesionalActivo || null);
+    }
 
     // ── Buscador de clientes: filtra según se escribe ──
     const inpCli = $('f-buscar-cli'), listaCli = $('f-lista-cli'), hidCli = $('f-clienta');
@@ -1115,7 +1295,7 @@
           try {
             lista = await conflictosDe({
               id: esNueva ? null : cita.id,
-              profesionalId: state.profesionalActivo || null,
+              profesionalId: profesionalElegido(),
               ini: v.ini, fin: v.fin
             });
           } catch (e) {
@@ -1187,7 +1367,8 @@
           notas: $('f-notas').value.trim() || null
         };
         if (!esNueva) payload.estado = $('f-estado').value;
-        if (state.profesionalActivo) payload.profesional_id = state.profesionalActivo;
+        const prof = profesionalElegido();
+        if (prof) payload.profesional_id = prof;
 
         const q = esNueva
           ? db.from('citas').insert(payload).select().single()

@@ -547,3 +547,12 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: 21px; letter-spacin
   .mes-lineas { display: none; }
   .mes-puntos { display: flex; }
 }
+
+/* Paleta de colores para profesionales */
+.paleta { display: flex; gap: 10px; flex-wrap: wrap; }
+.paleta-color {
+  width: 40px; height: 40px; border-radius: 50%; border: 3px solid transparent;
+  cursor: pointer; transition: transform 0.1s;
+}
+.paleta-color:active { transform: scale(0.94); }
+.paleta-color.activo { border-color: var(--ink); box-shadow: 0 0 0 2px var(--bg); }
