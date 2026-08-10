@@ -237,9 +237,10 @@
   }
 
   function renderAgenda() {
+    pararLineaAhora();
     const esSemana = state.modo === 'semana';
     if (esSemana) {
-      const l = lunesDe(state.fecha), d = addDias(l, 6);
+      const l = lunesDe(state.fecha), d = addDias(l, 4); // L–V
       $('date-label').textContent = `${l.getDate()} – ${d.getDate()} de ${MESES[d.getMonth()]}`;
       $('date-sub').textContent = d.getFullYear();
     } else {
@@ -257,7 +258,28 @@
       });
       return;
     }
-    $('agenda-body').innerHTML = esSemana ? htmlSemana() : htmlDia();
+    const comoLista = localStorage.getItem('agendaLista') === '1';
+    if (esSemana) {
+      const l = lunesDe(state.fecha);
+      const dias = [0, 1, 2, 3, 4].map(i => addDias(l, i));
+      $('agenda-body').innerHTML = htmlRejilla(dias, true) + piePrevisto(dias);
+    } else if (comoLista) {
+      $('agenda-body').innerHTML = htmlDia() +
+        `<div class="rej-pie"><span></span><a data-toggle-lista>Ver como rejilla</a></div>`;
+    } else {
+      $('agenda-body').innerHTML = htmlRejilla([state.fecha], false) + piePrevisto([state.fecha]);
+    }
+    arrancarLineaAhora();
+  }
+
+  function piePrevisto(dias) {
+    const total = dias.flatMap(d => citasDe(d))
+      .filter(c => c.estado !== 'cancelada' && c.estado !== 'no_asistio')
+      .reduce((s, c) => s + (Number(c.precio) || 0), 0);
+    const modo = state.modo === 'dia'
+      ? `<a data-toggle-lista>Ver como lista</a>` : '<span></span>';
+    return `<div class="rej-pie">${modo}${total > 0
+      ? `<span>Previsto: <strong style="color:var(--ink)">${fmtPrecio(total)}</strong></span>` : '<span></span>'}</div>`;
   }
 
   function htmlDia() {
@@ -290,26 +312,201 @@
       </article>`;
   }
 
-  function htmlSemana() {
-    const l = lunesDe(state.fecha);
-    let out = '<div class="week">';
-    for (let i = 0; i < 7; i++) {
-      const d = addDias(l, i);
-      const citas = citasDe(d);
-      const esHoy = mismaFecha(d, hoy());
-      out += `<div class="week-col${esHoy ? ' is-today' : ''}">
-        <h3>${DIAS[d.getDay()].slice(0, 3)} ${d.getDate()}</h3>
-        ${citas.length ? citas.map(c => {
-          const cl = clientaDe(c.clienta_id);
-          return `<div class="wcita" data-cita="${c.id}" style="border-left-color:${c.estado === 'cancelada' ? 'var(--muted)' : 'var(--accent)'}">
-            <b>${fmtHora(c.inicio)}</b>
-            <span>${esc(cl ? cl.nombre : '—')}</span>
-          </div>`;
-        }).join('') : '<div style="font-size:12px;color:var(--muted)">—</div>'}
-      </div>`;
+  // ═══ REJILLA TEMPORAL ═══════════════════════════════════
+  const VENTANA = { desde: 9 * 60, hasta: 14 * 60 + 30 }; // 9:00–14:30 por defecto
+
+  const minutosDe = (iso) => { const d = new Date(iso); return d.getHours() * 60 + d.getMinutes(); };
+
+  /** Ventana visible: la de por defecto, ampliada (nunca recortada) por
+   *  las citas reales y redondeada a la hora. Ninguna cita se oculta. */
+  function ventanaDe(citasPorDia) {
+    let desde = VENTANA.desde, hasta = VENTANA.hasta;
+    for (const citas of citasPorDia) {
+      for (const c of citas) {
+        const ini = minutosDe(c.inicio);
+        const fin = Math.min(ini + (c.duracion_min || 60), 24 * 60);
+        if (ini < desde) desde = Math.floor(ini / 60) * 60;
+        if (fin > hasta) hasta = Math.ceil(fin / 60) * 60;
+      }
     }
-    return out + '</div>';
+    return { desde: Math.max(0, desde), hasta: Math.min(24 * 60, hasta) };
   }
+
+  /** Reparte citas solapadas en columnas dentro de su racimo de colisión.
+   *  Devuelve [{cita, col, cols, ini, fin}] con minutos de reloj. */
+  function repartir(citas) {
+    const items = citas.map(c => {
+      const ini = minutosDe(c.inicio);
+      return { cita: c, ini, fin: Math.min(ini + (c.duracion_min || 60), 24 * 60), col: 0, cols: 1 };
+    }).sort((a, b) => a.ini - b.ini || b.fin - a.fin);
+
+    // Racimos: la colisión es transitiva (A-B y B-C juntan a A, B y C)
+    const racimos = [];
+    let g = [], finG = -Infinity;
+    for (const it of items) {
+      if (g.length && it.ini >= finG) { racimos.push(g); g = []; finG = -Infinity; }
+      g.push(it); finG = Math.max(finG, it.fin);
+    }
+    if (g.length) racimos.push(g);
+
+    for (const racimo of racimos) {
+      const cols = []; // cols[i] = fin de la última cita colocada en esa columna
+      for (const it of racimo) {
+        let i = cols.findIndex(f => f <= it.ini);
+        if (i === -1) { i = cols.length; cols.push(0); }
+        cols[i] = it.fin;
+        it.col = i;
+      }
+      for (const it of racimo) it.cols = cols.length;
+    }
+    return items;
+  }
+
+  /** Huecos ≥30 min entre citas ocupantes, dentro del horario del centro. */
+  function huecosDe(ocupantes, esLaborable) {
+    if (!esLaborable) return [];
+    const desde = HORARIO.abre, hasta = HORARIO.cierra;
+    const tramos = ocupantes.map(o => [Math.max(o.ini, desde), Math.min(o.fin, hasta)])
+      .filter(([a, b]) => b > a).sort((a, b) => a[0] - b[0]);
+    const huecos = []; let cursor = desde;
+    for (const [a, b] of tramos) {
+      if (a - cursor >= 30) huecos.push({ ini: cursor, fin: a });
+      cursor = Math.max(cursor, b);
+    }
+    if (hasta - cursor >= 30) huecos.push({ ini: cursor, fin: hasta });
+    return huecos;
+  }
+
+  function etiquetaHueco(min) {
+    const hh = Math.floor(min / 60), mm = min % 60;
+    if (!hh) return `${mm} min libres`;
+    return mm ? `${hh} h ${mm} min libres` : `${hh} h libres`;
+  }
+
+  const colorTrat = (c) => {
+    const t = state.tratamientos.find(x => x.id === c.tratamiento_id);
+    return (t && t.color) || 'var(--accent)';
+  };
+
+  function htmlRejilla(dias, conCabecera) {
+    const porDia = dias.map(d => citasDe(d));
+    const v = ventanaDe(porDia);
+    const altura = (v.hasta - v.desde);
+
+    // Regleta de horas
+    let horas = '';
+    for (let m = Math.ceil(v.desde / 60) * 60; m <= v.hasta; m += 60) {
+      horas += `<span class="rej-hora" style="top:calc(var(--px) * ${m - v.desde})">${String(m / 60).padStart(2, '0')}:00</span>`;
+    }
+
+    const cols = dias.map((dia, di) => {
+      const citas = porDia[di];
+      const esHoy = mismaFecha(dia, hoy());
+      const laborable = HORARIO.dias.includes(dia.getDay());
+
+      const ocupantes = repartir(citas.filter(c => ESTADOS_QUE_OCUPAN.includes(c.estado)));
+      const finas = citas.filter(c => !ESTADOS_QUE_OCUPAN.includes(c.estado));
+
+      let bloques = '';
+
+      // Fuera de horario apagado (que una cita a las 14:30 salte a la vista)
+      if (laborable) {
+        if (HORARIO.abre > v.desde) bloques += `<div class="rej-fuera" style="top:0;height:calc(var(--px) * ${HORARIO.abre - v.desde})"></div>`;
+        if (v.hasta > HORARIO.cierra) bloques += `<div class="rej-fuera" style="top:calc(var(--px) * ${HORARIO.cierra - v.desde});height:calc(var(--px) * ${v.hasta - HORARIO.cierra})"></div>`;
+      } else {
+        bloques += `<div class="rej-fuera" style="top:0;height:calc(var(--px) * ${altura})"></div>`;
+      }
+
+      // Huecos con etiqueta (tocar → nueva cita a esa hora)
+      for (const hgap of huecosDe(ocupantes, laborable)) {
+        bloques += `<button type="button" class="rej-hueco" data-hueco="${dia.toISOString()}|${hgap.ini}"
+          style="top:calc(var(--px) * ${hgap.ini - v.desde});height:calc(var(--px) * ${hgap.fin - hgap.ini})"
+          aria-label="Hueco libre de ${etiquetaHueco(hgap.fin - hgap.ini)}">${etiquetaHueco(hgap.fin - hgap.ini)}</button>`;
+      }
+
+      // Citas ocupantes
+      for (const it of ocupantes) {
+        const c = it.cita;
+        const cl = clientaDe(c.clienta_id);
+        const anchoCol = 100 / it.cols;
+        const durPx = it.fin - it.ini;
+        const corta = durPx < 26; // por debajo de ~44px reales
+        bloques += `
+          <button type="button" class="gcita estado-${c.estado}${corta ? ' gcita--corta' : ''}" data-cita="${c.id}"
+            style="top:calc(var(--px) * ${it.ini - v.desde});height:calc(var(--px) * ${durPx});
+                   left:calc(${it.col * anchoCol}% + 3px);width:calc(${anchoCol}% - 6px);
+                   border-left-color:${esc(colorTrat(c))}"
+            aria-label="De ${fmtHora(c.inicio)} a ${fmtHora(new Date(finDe(c)).toISOString())}, ${esc(cl ? nombreCompleto(cl) : 'cliente eliminado')}, ${esc(c.tratamiento || 'sin tratamiento')}, ${etiquetaEstado(c.estado)}">
+            <b>${fmtHora(c.inicio)} · ${esc(cl ? cl.nombre : '—')}</b>
+            <span>${esc(c.tratamiento || '')}</span>
+          </button>`;
+      }
+
+      // Canceladas y faltas: franja fina, el hueco queda libre
+      for (const c of finas) {
+        const ini = minutosDe(c.inicio);
+        const dur = Math.min(c.duracion_min || 60, 24 * 60 - ini);
+        bloques += `<button type="button" class="gcita--fina" data-cita="${c.id}"
+          style="top:calc(var(--px) * ${ini - v.desde});height:calc(var(--px) * ${dur})"
+          aria-label="${etiquetaEstado(c.estado)}: ${fmtHora(c.inicio)}"
+          title="${etiquetaEstado(c.estado)} · ${fmtHora(c.inicio)}"></button>`;
+      }
+
+      // Línea de ahora (solo hoy y si cae dentro de la ventana)
+      if (esHoy) {
+        bloques += `<div class="rej-ahora" data-ahora data-desde="${v.desde}" style="display:none"></div>`;
+      }
+
+      const cab = conCabecera
+        ? `<div class="rej-col-cab${esHoy ? ' is-hoy' : ''}" data-ir-dia="${dia.toISOString()}">
+             ${DIAS[dia.getDay()].slice(0, 3)} <small>${dia.getDate()}</small></div>`
+        : '';
+      return `<div class="rej-col">${cab}
+        <div class="rej-lienzo" style="height:calc(var(--px) * ${altura})">${bloques}</div>
+      </div>`;
+    }).join('');
+
+    const scroll = (conCabecera && dias.length > 1) ? ' rej-scroll' : '';
+    return `<div class="rejilla">
+      <div class="rej-horas"${conCabecera ? ' style="padding-top:33px"' : ''}>
+        <div style="position:relative;height:calc(var(--px) * ${altura})">${horas}</div>
+      </div>
+      <div class="rej-cols${scroll}">${cols}</div>
+    </div>`;
+  }
+
+  // ── Línea de "ahora": mueve SOLO su style.top, nunca repinta ──
+  let _tAhora = null;
+  function pintarAhora() {
+    const ahora = new Date();
+    const min = ahora.getHours() * 60 + ahora.getMinutes();
+    document.querySelectorAll('[data-ahora]').forEach(el => {
+      const desde = Number(el.dataset.desde);
+      const lienzo = el.parentElement;
+      const minutos = lienzoAltura(lienzo);
+      const pxMin = minutos ? lienzo.offsetHeight / minutos : 0;
+      const dentro = pxMin > 0 && min >= desde && min <= desde + minutos;
+      el.style.display = dentro ? '' : 'none';
+      if (dentro) el.style.top = (min - desde) * pxMin + 'px';
+    });
+  }
+  function lienzoAltura(lienzo) {
+    // minutos que representa el lienzo, deducidos de su height en calc
+    const m = /\* (\d+)\)/.exec(lienzo.getAttribute('style') || '');
+    return m ? Number(m[1]) : 330;
+  }
+  function arrancarLineaAhora() {
+    pintarAhora();
+    if (_tAhora) clearTimeout(_tAhora);
+    const tick = () => {
+      pintarAhora();
+      _tAhora = setTimeout(tick, 60000 - (Date.now() % 60000) + 250);
+    };
+    _tAhora = setTimeout(tick, 60000 - (Date.now() % 60000) + 250);
+  }
+  function pararLineaAhora() { if (_tAhora) { clearTimeout(_tAhora); _tAhora = null; } }
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) pintarAhora(); });
+  window.addEventListener('pageshow', pintarAhora);
 
   function etiquetaEstado(e) {
     return {
@@ -329,7 +526,34 @@
       return;
     }
     const el = ev.target.closest('[data-cita]');
-    if (el) abrirCita(el.dataset.cita);
+    if (el) { abrirCita(el.dataset.cita); return; }
+
+    // Toque en un hueco libre → nueva cita con la hora ya puesta
+    const hueco = ev.target.closest('[data-hueco]');
+    if (hueco) {
+      const [iso, min] = hueco.dataset.hueco.split('|');
+      const dia = new Date(iso);
+      const redondeado = Math.round(Number(min) / 15) * 15;
+      modalCita(null, null, {
+        fecha: inputFecha(dia),
+        hora: `${String(Math.floor(redondeado / 60)).padStart(2, '0')}:${String(redondeado % 60).padStart(2, '0')}`
+      });
+      return;
+    }
+    // Cabecera de un día en la vista semana → vista día
+    const cab = ev.target.closest('[data-ir-dia]');
+    if (cab) {
+      state.fecha = new Date(cab.dataset.irDia);
+      state.fecha.setHours(0, 0, 0, 0);
+      cambiarModo('dia');
+      return;
+    }
+    // Enlace lista/rejilla
+    if (ev.target.closest('[data-toggle-lista]')) {
+      const actual = localStorage.getItem('agendaLista') === '1';
+      localStorage.setItem('agendaLista', actual ? '0' : '1');
+      renderAgenda();
+    }
   }
   $('agenda-body').addEventListener('click', alClicarCita);
   $('ficha-body').addEventListener('click', alClicarCita);
@@ -344,13 +568,14 @@
     await cargarCitas();
     renderAgenda();
   }
+  function cambiarModo(modo) {
+    state.modo = modo;
+    document.querySelectorAll('#mode-seg button').forEach(x =>
+      x.classList.toggle('active', x.dataset.mode === modo));
+    renderAgenda();
+  }
   document.querySelectorAll('#mode-seg button').forEach(b =>
-    b.addEventListener('click', () => {
-      state.modo = b.dataset.mode;
-      document.querySelectorAll('#mode-seg button').forEach(x =>
-        x.classList.toggle('active', x === b));
-      renderAgenda();
-    }));
+    b.addEventListener('click', () => cambiarModo(b.dataset.mode)));
 
   // ─── CLIENTAS ────────────────────────────────────────────
   function renderClientas() {
@@ -662,11 +887,13 @@
     }
   }
 
-  function modalCita(cita, clientaIdPre) {
+  function modalCita(cita, clientaIdPre, prellenado) {
     const esNueva = !cita;
     const cid = cita ? cita.clienta_id : (clientaIdPre || '');
-    const fecha = cita ? inputFecha(new Date(cita.inicio)) : inputFecha(state.fecha);
-    const hora = cita ? inputHora(cita.inicio) : '10:00';
+    const fecha = cita ? inputFecha(new Date(cita.inicio))
+      : (prellenado && prellenado.fecha) || inputFecha(state.fecha);
+    const hora = cita ? inputHora(cita.inicio)
+      : (prellenado && prellenado.hora) || '10:00';
 
     // Acciones del día: solo tienen sentido cuando la cita ya toca.
     // Marcar la llegada de una cita de la semana que viene sería un error.
@@ -1324,6 +1551,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v7');
+  console.info('[agenda] v8');
   comprobarSesion();
 })();
