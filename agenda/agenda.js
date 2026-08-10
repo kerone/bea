@@ -34,6 +34,7 @@
     plantillas: [],
     ajustesTab: 'tratamientos',
     citasError: false,
+    fichaFiltro: null,
     profesionales: [],
     // Con UNA sola profesional activa, todo se asigna a ella sin preguntar.
     profesionalActivo: null
@@ -109,7 +110,13 @@
 
     // is_admin() vive en el servidor y es la misma función que usan
     // las políticas RLS: si dice que no, aquí no se entra.
-    const { data: esAdmin } = await db.rpc('is_admin');
+    const { data: esAdmin, error: eAdmin } = await db.rpc('is_admin');
+    if (eAdmin) {
+      // Fallo de RED, no de permisos: no destruir la sesión ni acusar
+      // a la cuenta. Se reintenta recargando.
+      mostrarLogin('No se ha podido comprobar el acceso. Revisa la conexión y recarga.');
+      return;
+    }
     if (!esAdmin) {
       await db.auth.signOut();
       mostrarLogin('Esta cuenta no tiene permiso para acceder.');
@@ -294,7 +301,18 @@
     } else if (esSemana) {
       const l = lunesDe(state.fecha);
       const dias = [0, 1, 2, 3, 4].map(i => addDias(l, i));
+      // El finde solo aparece si tiene citas: una cita aceptada en sábado
+      // JAMÁS puede quedar invisible.
+      [5, 6].forEach(i => { const d = addDias(l, i); if (citasDe(d).length) dias.push(d); });
       $('agenda-body').innerHTML = htmlRejilla(dias, true) + piePrevisto(dias);
+      // En móvil, arrancar la semana en HOY, no en lunes
+      const sc = document.querySelector('#agenda-body .rej-scroll');
+      if (sc) {
+        const idx = dias.findIndex(d => mismaFecha(d, hoy()));
+        if (idx > 0 && sc.children[idx]) {
+          sc.scrollLeft = sc.children[idx].offsetLeft - sc.children[0].offsetLeft;
+        }
+      }
     } else if (comoLista) {
       $('agenda-body').innerHTML = htmlDia() +
         `<div class="rej-pie"><span></span><a data-toggle-lista>Ver como rejilla</a></div>`;
@@ -322,7 +340,7 @@
     if (!citas.length) {
       return `<div class="empty">No hay citas este día.<br>Pulsa el botón + para añadir una.</div>`;
     }
-    const total = citas.filter(c => c.estado !== 'cancelada')
+    const total = citas.filter(c => c.estado !== 'cancelada' && c.estado !== 'no_asistio')
       .reduce((s, c) => s + (Number(c.precio) || 0), 0);
     return citas.map(htmlCita).join('') + (total > 0
       ? `<div style="text-align:right;color:var(--muted);font-size:13.5px;margin-top:10px">
@@ -455,8 +473,7 @@
       // Huecos con etiqueta (tocar → nueva cita a esa hora)
       for (const hgap of huecosDe(ocupantes, laborable)) {
         bloques += `<button type="button" class="rej-hueco" data-hueco="${dia.toISOString()}|${hgap.ini}"
-          style="top:calc(var(--px) * ${hgap.ini - v.desde});height:calc(var(--px) * ${hgap.fin - hgap.ini})"
-          aria-label="Hueco libre de ${etiquetaHueco(hgap.fin - hgap.ini)}">${etiquetaHueco(hgap.fin - hgap.ini)}</button>`;
+          style="top:calc(var(--px) * ${hgap.ini - v.desde});height:calc(var(--px) * ${hgap.fin - hgap.ini})">${etiquetaHueco(hgap.fin - hgap.ini)}</button>`;
       }
 
       // Citas ocupantes
@@ -523,8 +540,16 @@
       horas += `<span class="rej-hora" style="top:calc(var(--px) * ${m - v.desde})">${String(m / 60).padStart(2, '0')}:00</span>`;
     }
 
-    const cols = activos.map(p => {
-      const propias = citas.filter(c => c.profesional_id === p.id);
+    // Citas cuya profesional no está entre las activas (sin asignar o de
+    // baja): columna propia para que NUNCA desaparezcan de la vista.
+    const idsActivas = new Set(activos.map(p => p.id));
+    const sueltas = citas.filter(c => !idsActivas.has(c.profesional_id));
+    const columnas = activos.map(p =>
+      ({ id: p.id, nombre: p.nombre, color: p.color }));
+    if (sueltas.length) columnas.push({ id: null, nombre: 'Sin asignar', color: '#6E6558' });
+
+    const cols = columnas.map(p => {
+      const propias = p.id === null ? sueltas : citas.filter(c => c.profesional_id === p.id);
       const ocupantes = repartir(propias.filter(c => ESTADOS_QUE_OCUPAN.includes(c.estado)));
       const finas = propias.filter(c => !ESTADOS_QUE_OCUPAN.includes(c.estado));
       let bloques = '';
@@ -536,8 +561,7 @@
       }
       for (const hgap of huecosDe(ocupantes, laborable)) {
         bloques += `<button type="button" class="rej-hueco" data-hueco="${dia.toISOString()}|${hgap.ini}"
-          style="top:calc(var(--px) * ${hgap.ini - v.desde});height:calc(var(--px) * ${hgap.fin - hgap.ini})"
-          aria-label="Hueco libre">${etiquetaHueco(hgap.fin - hgap.ini)}</button>`;
+          style="top:calc(var(--px) * ${hgap.ini - v.desde});height:calc(var(--px) * ${hgap.fin - hgap.ini})">${etiquetaHueco(hgap.fin - hgap.ini)}</button>`;
       }
       for (const it of ocupantes) {
         const c = it.cita;
@@ -586,7 +610,7 @@
     let filas = '';
     for (let s = 0; s < semanas; s++) {
       let celdas = '';
-      for (let d = 0; d < 5; d++) { // L–V: el centro cierra el finde
+      for (let d = 0; d < 6; d++) { // L–S: el sábado se trabaja a veces
         const dia = addDias(inicio, s * 7 + d);
         const esMesActual = dia.getMonth() === m;
         const esHoy = mismaFecha(dia, hoy());
@@ -625,7 +649,24 @@
       }
       filas += celdas;
     }
-    return `<div class="mes-cab">${['Lun','Mar','Mié','Jue','Vie'].map(d => `<span>${d}</span>`).join('')}</div>
+    // Citas en domingo: la cuadrícula es L-S, pero ninguna cita puede
+    // quedar invisible → franja de aviso pulsable.
+    let findes = '';
+    for (let s = 0; s < semanas; s++) {
+      for (const d of [6]) {
+        const dia = addDias(inicio, s * 7 + d);
+        if (dia.getMonth() !== m) continue;
+        const oc = citasDe(dia).filter(c => ESTADOS_QUE_OCUPAN.includes(c.estado));
+        if (oc.length) {
+          findes += `<button type="button" class="mes-finde-btn" data-ir-dia="${dia.toISOString()}">
+            ${DIAS[dia.getDay()]} ${dia.getDate()} · ${oc.length} cita${oc.length === 1 ? '' : 's'}</button>`;
+        }
+      }
+    }
+    const avisoFinde = findes
+      ? `<div class="mes-finde">Citas en domingo: ${findes}</div>` : '';
+
+    return avisoFinde + `<div class="mes-cab">${['Lun','Mar','Mié','Jue','Vie','Sáb'].map(d => `<span>${d}</span>`).join('')}</div>
       <div class="mes-grid" style="grid-template-rows:repeat(${semanas}, minmax(0, 1fr))">${filas}</div>`;
   }
 
@@ -646,7 +687,7 @@
   }
   function lienzoAltura(lienzo) {
     // minutos que representa el lienzo, deducidos de su height en calc
-    const m = /\* (\d+)\)/.exec(lienzo.getAttribute('style') || '');
+    const m = /\* ([\d.]+)\)/.exec(lienzo.getAttribute('style') || '');
     return m ? Number(m[1]) : 330;
   }
   function arrancarLineaAhora() {
@@ -687,7 +728,7 @@
     if (hueco) {
       const [iso, min] = hueco.dataset.hueco.split('|');
       const dia = new Date(iso);
-      const redondeado = Math.round(Number(min) / 15) * 15;
+      const redondeado = Math.ceil(Number(min) / 15) * 15; // hacia arriba: jamás dentro de la cita anterior
       modalCita(null, null, {
         fecha: inputFecha(dia),
         hora: `${String(Math.floor(redondeado / 60)).padStart(2, '0')}:${String(redondeado % 60).padStart(2, '0')}`
@@ -744,9 +785,12 @@
     const lista = state.clientas.filter(c => !q ||
       nombreCompleto(c).toLowerCase().includes(q) ||
       (c.telefono || '').includes(q) ||
-      (c.email || '').toLowerCase().includes(q));
+      (c.email || '').toLowerCase().includes(q) ||
+      (c.dni || '').toLowerCase().includes(q));
     $('clientas-body').innerHTML = lista.length
-      ? lista.map(c => `
+      ? lista.map(c => {
+        const num = telWa(c.telefono);
+        return `
         <div class="row" data-clienta="${c.id}">
           <div class="avatar">${esc(iniciales(c))}</div>
           <div class="row-body">
@@ -754,10 +798,24 @@
             <span>${esc(c.telefono || c.email || 'Sin contacto')}</span>
           </div>
           ${c.contraindicaciones ? '<span title="Tiene contraindicaciones anotadas">⚠️</span>' : ''}
-        </div>`).join('')
+          ${num ? `
+          <a class="icon-btn row-icono" href="tel:+${num}" aria-label="Llamar a ${esc(nombreCompleto(c))}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </a>
+          <a class="icon-btn row-icono" href="https://wa.me/${num}" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp a ${esc(nombreCompleto(c))}">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.2s-.7 1-.9 1.2c-.2.2-.3.2-.6.1a8 8 0 0 1-4-3.5c-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5l-1-2.2c-.2-.5-.4-.5-.6-.5h-.6a1.1 1.1 0 0 0-.8.4A3.3 3.3 0 0 0 5 9.1c0 1.5 1.1 2.9 1.2 3.1a12 12 0 0 0 4.7 4.1c1.7.7 2.4.8 3.2.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.3s-.2-.2-.5-.3z"/><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+          </a>` : ''}
+        </div>`;
+      }).join('')
       : `<div class="empty">${q ? 'Nadie coincide con la búsqueda.' : 'Aún no hay clientes. Pulsa + para dar de alta el primero.'}</div>`;
     document.querySelectorAll('[data-clienta]').forEach(el =>
-      el.addEventListener('click', () => { state.clientaAbierta = el.dataset.clienta; irA('ficha'); }));
+      el.addEventListener('click', (ev) => {
+        // Los iconos de llamar/WhatsApp no deben abrir la ficha
+        if (ev.target.closest('a')) return;
+        state.clientaAbierta = el.dataset.clienta;
+        state.fichaFiltro = null; // cada ficha arranca sin filtro
+        irA('ficha');
+      }));
   }
   $('cli-search').addEventListener('input', (e) => { state.filtro = e.target.value; renderClientas(); });
 
@@ -767,8 +825,19 @@
     if (!c) { irA('clientas'); return; }
 
     // El histórico completo se pide aparte: puede ir más atrás que la agenda cargada
-    const { data: hist } = await db.from('citas').select('*')
+    const { data: hist, error: eHist } = await db.from('citas').select('*')
       .eq('clienta_id', c.id).order('inicio', { ascending: false });
+    if (eHist) {
+      // Sin esto, un fallo de red pintaría "0 citas" como si fuera verdad.
+      $('ficha-body').innerHTML = `
+        <div class="view-head"><div><div class="eyebrow">Ficha de cliente</div>
+          <h1>${esc(nombreCompleto(c))}</h1></div></div>
+        <div class="empty">No se ha podido cargar su histórico.<br>
+          <button class="btn btn-outline btn-sm" id="ficha-reintentar" style="margin-top:10px">Reintentar</button>
+        </div>`;
+      $('ficha-reintentar').addEventListener('click', () => renderFicha());
+      return;
+    }
     const historico = hist || [];
     const gastado = historico.filter(x => x.estado === 'completada')
       .reduce((s, x) => s + (Number(x.precio) || 0), 0);
@@ -785,6 +854,13 @@
     const faltas = cerradas.filter(x => x.estado === 'no_asistio').length;
     const pctFaltas = cerradas.length ? Math.round(faltas * 100 / cerradas.length) : 0;
     const faltasPreocupan = faltas >= 2 && pctFaltas >= 25;
+
+    // Filtro del histórico por tratamiento: para leer la evolución de un
+    // mismo tratamiento seguida, sin las otras 20 sesiones en medio.
+    const tiposTrat = [...new Set(historico.map(x => x.tratamiento).filter(Boolean))];
+    const filtroTrat = tiposTrat.includes(state.fichaFiltro) ? state.fichaFiltro : null;
+    const historialVisible = filtroTrat
+      ? historico.filter(x => x.tratamiento === filtroTrat) : historico;
 
     $('ficha-body').innerHTML = `
       <div class="view-head">
@@ -808,6 +884,7 @@
         <dl class="kv">
           <dt>Teléfono</dt><dd>${c.telefono ? `<a href="tel:${esc(c.telefono)}">${esc(c.telefono)}</a>` : '—'}</dd>
           <dt>Email</dt><dd>${esc(c.email || '—')}</dd>
+          <dt>DNI / NIE</dt><dd>${esc(c.dni || '—')}</dd>
           <dt>Nacimiento</dt><dd>${c.fecha_nacimiento ? fmtFechaCorta(c.fecha_nacimiento) : '—'}</dd>
           <dt>Notas</dt><dd>${esc(c.notas || '—')}</dd>
           <dt>Alta</dt><dd>${fmtFechaCorta(c.created_at)}</dd>
@@ -833,7 +910,11 @@
         <p style="font-size:13px;color:var(--muted);margin-bottom:12px">
           ${historico.length} cita${historico.length === 1 ? '' : 's'}${gastado > 0 ? ` · ${fmtPrecio(gastado)} facturado` : ''}
         </p>
-        ${historico.length ? historico.map(h => `
+        ${tiposTrat.length > 1 ? `<div class="fchips">
+          <button type="button" data-ftrat=""${!filtroTrat ? ' class="activo"' : ''}>Todos</button>
+          ${tiposTrat.map(t => `<button type="button" data-ftrat="${esc(t)}"${filtroTrat === t ? ' class="activo"' : ''}>${esc(t)}</button>`).join('')}
+        </div>` : ''}
+        ${historialVisible.length ? historialVisible.map(h => `
           <div class="cita estado-${h.estado}" data-cita="${h.id}" style="margin-bottom:8px">
             <div class="cita-bar"></div>
             <div class="cita-hora" style="min-width:88px;font-size:15px">
@@ -850,8 +931,14 @@
               </div>
             </div>
           </div>`).join('')
-          : '<div class="empty">Todavía no tiene tratamientos registrados.</div>'}
+          : `<div class="empty">${filtroTrat ? 'Sin sesiones de ese tratamiento.' : 'Todavía no tiene tratamientos registrados.'}</div>`}
       </div>`;
+
+    document.querySelectorAll('#ficha-body [data-ftrat]').forEach(b =>
+      b.addEventListener('click', () => {
+        state.fichaFiltro = b.dataset.ftrat || null;
+        renderFicha();
+      }));
 
     $('editar-cli').addEventListener('click', () => modalClienta(c));
     $('cita-para-cli').addEventListener('click', () => modalCita(null, c.id));
@@ -1049,16 +1136,29 @@
     $('modal').classList.add('open');
   }
   let _limpiezasModal = [];
+  let _guardaCierre = null;
   /** Registra una limpieza que se ejecutará al cerrar el modal actual. */
   function alCerrarModal(fn) { _limpiezasModal.push(fn); }
+  /** El modal actual pedirá confirmación antes de cerrarse si fn() devuelve un mensaje. */
+  function protegerCierre(fn) { _guardaCierre = fn; }
   function cerrarModal() {
     $('modal').classList.remove('open');
+    _guardaCierre = null;
     _limpiezasModal.forEach(fn => { try { fn(); } catch (e) {} });
     _limpiezasModal = [];
   }
-  $('modal-close').addEventListener('click', cerrarModal);
-  $('modal').addEventListener('click', (e) => { if (e.target === $('modal')) cerrarModal(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') cerrarModal(); });
+  /** Cierre iniciado por la usuaria (X, fondo, Escape): pasa por la guarda.
+   *  Un roce en el fondo de la tablet no debe tirar una firma a medias. */
+  function intentarCerrarModal() {
+    if (_guardaCierre) {
+      const msg = _guardaCierre();
+      if (msg && !confirm(msg)) return;
+    }
+    cerrarModal();
+  }
+  $('modal-close').addEventListener('click', intentarCerrarModal);
+  $('modal').addEventListener('click', (e) => { if (e.target === $('modal')) intentarCerrarModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && $('modal').classList.contains('open')) intentarCerrarModal(); });
 
   // ─── Solapes ─────────────────────────────────────────────
   // Estados que ocupan hueco de verdad. Una cancelada o una falta NO
@@ -1107,15 +1207,18 @@
    * cita editada desde la ficha puede estar fuera de la ventana cargada).
    * Si la consulta falla, LANZA: fallar cerrado, no se guarda a ciegas.
    */
-  async function conflictosDe({ id, profesionalId, ini, fin }) {
+  async function conflictosDe({ id, ini, fin }) {
     // Ninguna cita dura más de 600 min: nada que empiece antes de
     // ini-600min puede alcanzarnos. Cota inferior para usar el índice.
+    // Se piden TODAS las citas del tramo (sin filtrar por profesional):
+    // el duplicado de una misma clienta debe saltar aunque su otra cita
+    // sea con otra profesional, y las citas sin asignar chocan con todas.
+    const conProf = state.profesionales.length > 0; // la columna existe
     let q = db.from('citas')
-      .select('id, clienta_id, inicio, duracion_min, estado, tratamiento')
+      .select('id, clienta_id, inicio, duracion_min, estado, tratamiento' + (conProf ? ', profesional_id' : ''))
       .in('estado', ESTADOS_QUE_OCUPAN)
       .gte('inicio', new Date(ini - 600 * 60000).toISOString())
       .lt('inicio', new Date(fin).toISOString());
-    if (profesionalId) q = q.eq('profesional_id', profesionalId);
     if (id) q = q.neq('id', id); // nunca .neq con undefined: PostgREST da 400
     const { data, error } = await q;
     if (error) throw error;
@@ -1131,7 +1234,10 @@
     if (c) modalCita(c);
     else { // viene del histórico de la ficha, fuera del rango cargado
       db.from('citas').select('*').eq('id', id).single()
-        .then(({ data }) => { if (data) modalCita(data); });
+        .then(({ data, error }) => {
+          if (data) modalCita(data);
+          else if (error) toast('No se pudo abrir la cita. Revisa la conexión.');
+        });
     }
   }
 
@@ -1178,8 +1284,18 @@
       <div class="field">
         <label for="f-profesional">Quién lo realiza *</label>
         <select id="f-profesional">
-          ${state.profesionales.filter(p => p.activo).map(p =>
-            `<option value="${p.id}"${cita && cita.profesional_id === p.id ? ' selected' : ''}>${esc(p.nombre)}</option>`).join('')}
+          ${(() => {
+            const activos = state.profesionales.filter(p => p.activo);
+            // Si la cita es de una profesional de baja, se mantiene su
+            // opción marcada: editar el precio no debe reasignarla.
+            const deBaja = cita && cita.profesional_id
+              && !activos.some(p => p.id === cita.profesional_id)
+              && profesionalDe(cita.profesional_id);
+            return (deBaja ? [`<option value="${deBaja.id}" selected>${esc(deBaja.nombre)} (baja)</option>`] : [])
+              .concat(activos.map(p =>
+                `<option value="${p.id}"${cita && cita.profesional_id === p.id ? ' selected' : ''}>${esc(p.nombre)}</option>`))
+              .join('');
+          })()}
         </select>
       </div>` : ''}
       <div class="field">
@@ -1188,8 +1304,23 @@
           <option value="">— Sin especificar —</option>
           ${state.tratamientos.filter(t => t.activo).map(t =>
             `<option value="${t.id}"${cita && cita.tratamiento_id === t.id ? ' selected' : ''}>${esc(t.nombre)}</option>`).join('')}
+          ${(() => {
+            // Cita con un tratamiento hoy dado de baja: se conserva su
+            // opción marcada, que editar el precio no borre el tratamiento.
+            const t = cita && cita.tratamiento_id
+              && !state.tratamientos.some(x => x.activo && x.id === cita.tratamiento_id)
+              && state.tratamientos.find(x => x.id === cita.tratamiento_id);
+            return t ? `<option value="${t.id}" selected>${esc(t.nombre)} (baja)</option>` : '';
+          })()}
+          <option value="__otro"${cita && !cita.tratamiento_id && cita.tratamiento ? ' selected' : ''}>Otro (escribirlo a mano)…</option>
         </select>
       </div>
+      <div class="field" id="f-trat-libre-wrap"${cita && !cita.tratamiento_id && cita.tratamiento ? '' : ' hidden'}>
+        <label for="f-trat-libre">Nombre del tratamiento</label>
+        <input id="f-trat-libre" autocomplete="off" placeholder="Escribe el tratamiento…"
+               value="${esc(cita && !cita.tratamiento_id ? cita.tratamiento || '' : '')}">
+      </div>
+      <div class="ultima-sesion" id="f-ultima" hidden></div>
       <div class="field-row">
         <div class="field"><label for="f-fecha">Fecha *</label><input type="date" id="f-fecha" value="${fecha}" required></div>
         <div class="field"><label for="f-hora">Hora *</label><input type="time" id="f-hora" value="${hora}" step="300" required></div>
@@ -1221,6 +1352,33 @@
       return sel ? sel.value : (state.profesionalActivo || null);
     }
 
+    /** Muestra las notas de la ÚLTIMA sesión de este mismo tratamiento:
+     *  "¿con qué parámetros la traté la última vez?" sin buscar nada. */
+    let _ultimaPedida = 0;
+    async function pintarUltimaSesion() {
+      const box = $('f-ultima');
+      if (!box) return;
+      const cliId = $('f-clienta').value;
+      const tratId = $('f-trat').value;
+      const libre = tratId === '__otro' ? $('f-trat-libre').value.trim() : '';
+      if (!cliId || !tratId || (tratId === '__otro' && !libre)) { box.hidden = true; return; }
+      const peticion = ++_ultimaPedida;
+      let q = db.from('citas').select('inicio, notas, precio')
+        .eq('clienta_id', cliId)
+        .in('estado', ['completada', 'en_curso'])
+        .order('inicio', { ascending: false }).limit(1);
+      // Con tratamiento a mano se busca por nombre (sin distinguir mayúsculas)
+      q = tratId === '__otro' ? q.ilike('tratamiento', libre) : q.eq('tratamiento_id', tratId);
+      if (!esNueva) q = q.neq('id', cita.id);
+      const { data, error } = await q;
+      if (peticion !== _ultimaPedida) return; // llegó tarde: ya se pidió otra
+      const u = !error && data && data[0];
+      if (!u) { box.hidden = true; return; }
+      box.hidden = false;
+      box.innerHTML = `<b>ÚLTIMA SESIÓN DE ESTE TRATAMIENTO</b> · ${fmtFechaCorta(u.inicio)}${u.precio ? ' · ' + fmtPrecio(u.precio) : ''}
+        <p>${u.notas ? esc(u.notas) : 'Sin notas registradas aquel día.'}</p>`;
+    }
+
     // ── Buscador de clientes: filtra según se escribe ──
     const inpCli = $('f-buscar-cli'), listaCli = $('f-lista-cli'), hidCli = $('f-clienta');
     function pintarLista(q) {
@@ -1244,6 +1402,7 @@
           hidCli.value = c.id;
           inpCli.value = nombreCompleto(c);
           listaCli.hidden = true;
+          pintarUltimaSesion();
         }));
     }
     inpCli.addEventListener('input', () => { hidCli.value = ''; pintarLista(inpCli.value); });
@@ -1258,11 +1417,17 @@
 
     // Al elegir tratamiento, rellenar duración y precio por defecto
     $('f-trat').addEventListener('change', () => {
-      const t = state.tratamientos.find(x => x.id === $('f-trat').value);
+      const val = $('f-trat').value;
+      $('f-trat-libre-wrap').hidden = val !== '__otro';
+      pintarUltimaSesion();
+      if (val === '__otro') { $('f-trat-libre').focus(); return; }
+      const t = state.tratamientos.find(x => x.id === val);
       if (!t) return;
       $('f-dur').value = t.duracion_min;
       if (t.precio !== null && !$('f-precio').value) $('f-precio').value = t.precio;
     });
+    $('f-trat-libre').addEventListener('change', pintarUltimaSesion);
+    pintarUltimaSesion(); // al abrir una cita existente, directamente
 
     function pintarAviso(html) {
       let panel = $('f-aviso');
@@ -1295,13 +1460,16 @@
           try {
             lista = await conflictosDe({
               id: esNueva ? null : cita.id,
-              profesionalId: profesionalElegido(),
               ini: v.ini, fin: v.fin
             });
           } catch (e) {
             toast('No se ha podido comprobar si hay choque. Revisa la conexión.');
             return;
           }
+          const prof = profesionalElegido();
+          // Choque real: misma profesional, o cita sin asignar (choca con todas)
+          const choques = lista.filter(c =>
+            !prof || c.profesional_id == null || c.profesional_id === prof);
           const fuera = fueraDeHorario(v.ini, v.fin);
           const notaFuera = fuera
             ? `<p class="aviso-nota">Además, la cita ${fuera}. Puedes guardarla igual.</p>` : '';
@@ -1322,12 +1490,12 @@
             $('av-forzar').addEventListener('click', () => { quitarAviso(); guardar(avisar, true); });
             return;
           }
-          if (lista.length) {
-            const desc = lista.length === 1
-              ? `Se pisa con <b>${esc(clienteNombre(lista[0].clienta_id))}</b>
-                 · ${esc(lista[0].tratamiento || 'sin tratamiento')},
-                 de ${fmtHora(lista[0].inicio)} a ${fmtHora(new Date(finDe(lista[0])).toISOString())}.`
-              : `Se pisa con ${lista.length} citas: ` + lista.map(c =>
+          if (choques.length) {
+            const desc = choques.length === 1
+              ? `Se pisa con <b>${esc(clienteNombre(choques[0].clienta_id))}</b>
+                 · ${esc(choques[0].tratamiento || 'sin tratamiento')},
+                 de ${fmtHora(choques[0].inicio)} a ${fmtHora(new Date(finDe(choques[0])).toISOString())}.`
+              : `Se pisa con ${choques.length} citas: ` + choques.map(c =>
                   `${esc(clienteNombre(c.clienta_id))} (${fmtHora(c.inicio)})`).join(' y ') + '.';
             pintarAviso(`
               <b>Esa hora está ocupada</b>
@@ -1356,11 +1524,13 @@
         }
 
         // ── Guardado real ──
-        const t = state.tratamientos.find(x => x.id === $('f-trat').value);
+        const sel = $('f-trat').value;
+        const t = sel === '__otro' ? null : state.tratamientos.find(x => x.id === sel);
+        const libre = sel === '__otro' ? $('f-trat-libre').value.trim() : '';
         const payload = {
           clienta_id: clientaId,
           tratamiento_id: t ? t.id : null,
-          tratamiento: t ? t.nombre : null,
+          tratamiento: t ? t.nombre : (libre || null),
           inicio: new Date(v.ini).toISOString(),
           duracion_min: v.dur,
           precio: $('f-precio').value === '' ? null : Number($('f-precio').value),
@@ -1421,7 +1591,10 @@
         <div class="field"><label for="c-tel">Teléfono</label><input id="c-tel" type="tel" value="${esc(cl ? cl.telefono || '' : '')}"></div>
         <div class="field"><label for="c-nac">Nacimiento</label><input id="c-nac" type="date" value="${cl && cl.fecha_nacimiento ? cl.fecha_nacimiento : ''}"></div>
       </div>
-      <div class="field"><label for="c-email">Email</label><input id="c-email" type="email" value="${esc(cl ? cl.email || '' : '')}"></div>
+      <div class="field-row">
+        <div class="field"><label for="c-email">Email</label><input id="c-email" type="email" value="${esc(cl ? cl.email || '' : '')}"></div>
+        <div class="field"><label for="c-dni">DNI / NIE <small>(para facturar)</small></label><input id="c-dni" autocomplete="off" value="${esc(cl ? cl.dni || '' : '')}"></div>
+      </div>
       <div class="field">
         <label for="c-contra">Contraindicaciones, alergias y medicación</label>
         <textarea id="c-contra" placeholder="Embarazo, marcapasos, fotosensibilizantes, alergias, fototipo…">${esc(cl ? cl.contraindicaciones || '' : '')}</textarea>
@@ -1448,6 +1621,7 @@
         apellidos: $('c-apellidos').value.trim() || null,
         telefono: $('c-tel').value.trim() || null,
         email: $('c-email').value.trim() || null,
+        dni: $('c-dni').value.trim().toUpperCase() || null,
         fecha_nacimiento: $('c-nac').value || null,
         contraindicaciones: $('c-contra').value.trim() || null,
         notas: $('c-notas').value.trim() || null
@@ -1468,6 +1642,16 @@
     if (!esNueva) {
       $('c-borrar').addEventListener('click', async () => {
         if (!confirm(`¿Eliminar la ficha de ${nombreCompleto(cl)}?\n\nSe borrarán también TODAS sus citas y su histórico. Esta acción no se puede deshacer.`)) return;
+        // Derecho de supresión de verdad: también las imágenes de firma
+        // del bucket (la fila cae en cascada, el archivo no).
+        try {
+          const { data: archivos } = await db.storage.from('consentimientos')
+            .list(cl.id, { limit: 100 });
+          if (archivos && archivos.length) {
+            await db.storage.from('consentimientos')
+              .remove(archivos.map(a => cl.id + '/' + a.name));
+          }
+        } catch (e) { /* si falla, la fila manda; el archivo queda sin referencia */ }
         const { error } = await db.from('clientas').delete().eq('id', cl.id);
         if (error) { toast('No se pudo eliminar'); return; }
         cerrarModal(); await cargarTodo(); irA('clientas'); toast('Ficha eliminada');
@@ -1539,8 +1723,20 @@
   }
 
   // ─── Flujo del día: llegada → cabina → cierre ────────────
-  async function cambiarEstado(cita, estado) {
-    const { error } = await db.from('citas').update({ estado }).eq('id', cita.id);
+  /** Si el modal de cita está abierto, recoge precio y notas escritos:
+   *  "Finalizar" pide revisar esos campos y antes los descartaba. */
+  function datosDelFormulario() {
+    const extras = {};
+    const p = $('f-precio');
+    if (p) extras.precio = p.value === '' ? null : Number(p.value);
+    const n = $('f-notas');
+    if (n) extras.notas = n.value.trim() || null;
+    return extras;
+  }
+
+  async function cambiarEstado(cita, estado, extras) {
+    const { error } = await db.from('citas')
+      .update(Object.assign({ estado }, extras || {})).eq('id', cita.id);
     if (error) {
       // El fallo típico: falta ejecutar agenda-consentimientos.sql, que es
       // quien permite el estado 'en_curso' en la base de datos.
@@ -1555,39 +1751,43 @@
   }
 
   async function marcarNoAsistio(cita) {
-    if (!(await cambiarEstado(cita, 'no_asistio'))) return;
+    if (!(await cambiarEstado(cita, 'no_asistio', datosDelFormulario()))) return;
     cerrarModal(); render();
     toast('Marcada como no presentada');
   }
 
   async function finalizarTratamiento(cita) {
-    if (!(await cambiarEstado(cita, 'completada'))) return;
+    if (!(await cambiarEstado(cita, 'completada', datosDelFormulario()))) return;
     cerrarModal(); render();
     toast('Tratamiento finalizado');
   }
 
   /** La clienta ha llegado: si su tratamiento tiene consentimiento, se firma ahora. */
   async function iniciarTratamiento(cita) {
+    const extras = datosDelFormulario(); // antes de que otro modal pise el formulario
     const trat = state.tratamientos.find(t => t.id === cita.tratamiento_id);
+    // Solo cuentan las plantillas ACTIVAS: con todas inactivas se firmaba
+    // un consentimiento con texto vacío (valor probatorio nulo).
+    const activas = state.plantillas.filter(p => p.activa);
     const plantilla = trat && trat.consentimiento_id
-      ? state.plantillas.find(p => p.id === trat.consentimiento_id)
+      ? activas.find(p => p.id === trat.consentimiento_id)
       : null;
 
     // ¿Ya firmó para esta cita? No se pide dos veces.
     const { data: previo } = await db.from('consentimientos_firmados')
       .select('id').eq('cita_id', cita.id).maybeSingle();
 
-    if (previo || !state.plantillas.length) {
-      if (!(await cambiarEstado(cita, 'en_curso'))) return;
+    if (previo || !activas.length) {
+      if (!(await cambiarEstado(cita, 'en_curso', extras))) return;
       cerrarModal(); render();
       toast(previo ? 'Ya tenía el consentimiento firmado' : 'Tratamiento iniciado');
       return;
     }
-    modalConsentimiento(cita, plantilla);
+    modalConsentimiento(cita, plantilla, extras);
   }
 
   // ─── Consentimiento informado con firma ──────────────────
-  function modalConsentimiento(cita, plantillaPre) {
+  function modalConsentimiento(cita, plantillaPre, extras) {
     const cl = clientaDe(cita.clienta_id);
     const opciones = state.plantillas.filter(p => p.activa);
     const sel = plantillaPre || opciones[0];
@@ -1651,6 +1851,24 @@
       ctx.strokeStyle = '#241D17';
     }
     setTimeout(ajustar, 30);
+    // Si la tablet gira o cambia el tamaño, recalibrar SIN perder el trazo:
+    // redimensionar un canvas lo borra, así que se salva y se repinta.
+    const reajustar = () => {
+      const previo = hayFirma ? canvas.toDataURL() : null;
+      ajustar();
+      if (previo) {
+        const im = new Image();
+        im.onload = () => {
+          const r = canvas.getBoundingClientRect();
+          ctx.drawImage(im, 0, 0, r.width, r.height);
+        };
+        im.src = previo;
+      }
+    };
+    window.addEventListener('resize', reajustar);
+    alCerrarModal(() => window.removeEventListener('resize', reajustar));
+    // Una firma a medias no se tira por un roce fuera del panel
+    protegerCierre(() => hayFirma ? '¿Cerrar sin guardar la firma?' : null);
 
     const punto = (e) => {
       const r = canvas.getBoundingClientRect();
@@ -1683,6 +1901,7 @@
       if (!hayFirma) return toast('Falta la firma');
 
       const p = state.plantillas.find(x => x.id === $('k-plantilla').value);
+      if (!p) return toast('Elige el documento a firmar');
       const btn = $('k-firmar'); btn.disabled = true; btn.textContent = 'Guardando…';
 
       const blob = await new Promise(res => canvas.toBlob(res, 'image/png'));
@@ -1698,27 +1917,31 @@
       const { error } = await db.from('consentimientos_firmados').insert({
         cita_id: cita.id,
         clienta_id: cita.clienta_id,
-        plantilla_id: p ? p.id : null,
-        titulo: p ? p.nombre : 'Consentimiento',
-        texto_firmado: p ? p.texto : '',   // copia literal de lo firmado
-        version: p ? p.version : null,
+        plantilla_id: p.id,
+        titulo: p.nombre,
+        texto_firmado: p.texto,   // copia literal de lo firmado
+        version: p.version,
         firma_path: ruta,
         firmante_nombre: nombre,
         acepta_fotos: $('k-fotos').checked
       });
       if (error) {
+        // La imagen ya subió: retirarla para no dejar una firma huérfana
+        // (dato personal sin fila que lo referencie).
+        db.storage.from('consentimientos').remove([ruta]).then(() => {}, () => {});
         btn.disabled = false; btn.textContent = 'Firmar y empezar';
         toast('No se pudo registrar: ' + error.message);
         return;
       }
-      await cambiarEstado(cita, 'en_curso');
+      const ok = await cambiarEstado(cita, 'en_curso', extras);
       cerrarModal(); render();
-      toast('Consentimiento firmado · tratamiento iniciado');
+      if (ok) toast('Consentimiento firmado · tratamiento iniciado');
+      // si falló, cambiarEstado ya mostró su error; la firma queda guardada
     });
 
     $('k-saltar').addEventListener('click', async () => {
       if (!confirm('¿Empezar sin consentimiento firmado?\n\nQuedará registrado que esta sesión no tiene consentimiento.')) return;
-      if (!(await cambiarEstado(cita, 'en_curso'))) return;
+      if (!(await cambiarEstado(cita, 'en_curso', extras))) return;
       cerrarModal(); render(); toast('Tratamiento iniciado sin firma');
     });
   }
@@ -1746,6 +1969,13 @@
   }
 
   // ─── Confirmación por WhatsApp con "añadir a mi calendario" ──
+  /** Número en formato internacional para wa.me/tel:, o null si no hay. */
+  function telWa(telefono) {
+    const tel = (telefono || '').replace(/[^\d]/g, '');
+    if (!tel) return null;
+    return tel.length === 9 ? '34' + tel : tel;
+  }
+
   /** Devuelve la URL de WhatsApp lista para usar, o null si no se puede. */
   function urlWhatsApp(cita) {
     const cl = clientaDe(cita.clienta_id);
@@ -1768,10 +1998,112 @@
       `Añádela a tu calendario aquí:\n${enlace}\n\n` +
       `Si necesitas cambiarla, avísame. ¡Nos vemos!`;
 
-    const tel = cl.telefono.replace(/[^\d]/g, '');
-    const numero = tel.length === 9 ? '34' + tel : tel;
+    return `https://wa.me/${telWa(cl.telefono)}?text=${encodeURIComponent(texto)}`;
+  }
+
+  /** URL de WhatsApp con el RECORDATORIO de una cita ya confirmada. */
+  function urlRecordatorio(cita) {
+    const cl = clientaDe(cita.clienta_id);
+    const numero = cl && telWa(cl.telefono);
+    if (!numero) return null;
+    const inicio = new Date(cita.inicio);
+    const texto =
+      `Hola ${cl.nombre}, te recuerdo tu cita en ${NEGOCIO.nombre}:\n\n` +
+      `📅 ${fmtFechaLarga(inicio)}\n` +
+      `🕐 ${fmtHora(cita.inicio)}\n` +
+      `📍 ${NEGOCIO.direccion}\n\n` +
+      `Si no te viene bien, avísame y buscamos otro hueco. ¡Te espero!`;
     return `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
   }
+
+  // ── Recordatorios: qué citas ya se avisaron (apunte local) ──
+  // WhatsApp no permite programar envíos desde una web: el recordatorio lo
+  // manda la propietaria con un toque. Aquí solo se apunta a quién se lo
+  // envió ya para no mandarlo dos veces. Es un apunte de ESTE dispositivo
+  // (localStorage); el registro de verdad es el propio chat de WhatsApp.
+  const REC_KEY = 'agenda_recordatorios';
+  function recLeer() {
+    try {
+      const m = JSON.parse(localStorage.getItem(REC_KEY)) || {};
+      // Limpieza: citas ya pasadas no hace falta recordarlas más
+      const ahora = Date.now();
+      for (const id of Object.keys(m)) {
+        if (new Date(m[id]).getTime() < ahora - 86400000) delete m[id];
+      }
+      return m;
+    } catch (e) { return {}; }
+  }
+  function recMarcar(cita) {
+    const m = recLeer();
+    m[cita.id] = cita.inicio;
+    try { localStorage.setItem(REC_KEY, JSON.stringify(m)); } catch (e) { /* sin sitio: da igual */ }
+  }
+
+  /** Modal con las citas programadas de los próximos días, cada una con su
+   *  botón de recordatorio por WhatsApp. */
+  async function modalRecordatorios() {
+    const hasta = addDias(hoy(), 8);
+    const { data, error } = await db.from('citas').select('*')
+      .eq('estado', 'programada')
+      .gte('inicio', new Date().toISOString())
+      .lt('inicio', hasta.toISOString())
+      .order('inicio');
+    if (error) { toast('No se han podido cargar las citas. Revisa la conexión.'); return; }
+
+    const citas = data || [];
+    const enviados = recLeer();
+
+    let cuerpo = '';
+    if (!citas.length) {
+      cuerpo = '<div class="empty">No hay citas programadas en los próximos 7 días.</div>';
+    } else {
+      let diaAnt = '';
+      for (const c of citas) {
+        const d = new Date(c.inicio);
+        const clave = d.toDateString();
+        if (clave !== diaAnt) {
+          diaAnt = clave;
+          const rel = mismaFecha(d, hoy()) ? 'Hoy · '
+            : mismaFecha(d, addDias(hoy(), 1)) ? 'Mañana · ' : '';
+          cuerpo += `<div class="rec-dia">${rel}${fmtFechaLarga(d)}</div>`;
+        }
+        const cl = clientaDe(c.clienta_id);
+        const url = urlRecordatorio(c);
+        const ya = !!enviados[c.id];
+        cuerpo += `
+          <div class="rec-item">
+            <div class="rec-info">
+              <b>${fmtHora(c.inicio)} · ${esc(cl ? nombreCompleto(cl) : '—')}</b>
+              <span>${esc(c.tratamiento || 'Sin tratamiento indicado')}</span>
+            </div>
+            ${url ? `
+              <a class="btn ${ya ? 'btn-outline' : 'btn-dark'} btn-sm rec-enviar${ya ? ' rec-ya' : ''}"
+                 href="${url}" target="_blank" rel="noopener" data-rec="${c.id}">
+                ${ya ? 'Enviado ✓' : 'Recordar'}
+              </a>`
+            : '<span class="rec-sintel">Sin teléfono</span>'}
+          </div>`;
+      }
+    }
+
+    abrirModal('Recordatorios', `
+      <p style="font-size:13px;color:var(--muted);margin-bottom:14px">
+        Un toque en <b>Recordar</b> abre WhatsApp con el recordatorio ya
+        escrito: solo tienes que darle a enviar. Lo cómodo es repasar esta
+        lista la tarde de antes.
+      </p>
+      ${cuerpo}`);
+
+    document.querySelectorAll('.rec-enviar').forEach(a =>
+      a.addEventListener('click', () => {
+        const c = citas.find(x => x.id === a.dataset.rec);
+        if (c) recMarcar(c);
+        a.textContent = 'Enviado ✓';
+        a.classList.add('rec-ya', 'btn-outline');
+        a.classList.remove('btn-dark');
+      }));
+  }
+  $('rec-btn').addEventListener('click', modalRecordatorios);
 
   /** Panel de confirmación tras crear o mover una cita. Usa un enlace real
    *  (no window.open tras un await): así ningún navegador lo bloquea. */
@@ -1813,6 +2145,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v10');
+  console.info('[agenda] v12');
   comprobarSesion();
 })();

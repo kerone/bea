@@ -92,7 +92,9 @@ create index if not exists citas_profesional_idx
 -- ─────────────────────────────────────────────────────────────────────
 do $$
 begin
-  if not exists (select 1 from pg_constraint where conname = 'citas_duracion_ck') then
+  if not exists (select 1 from pg_constraint
+                  where conname = 'citas_duracion_ck'
+                    and conrelid = 'public.citas'::regclass) then
     alter table public.citas
       add constraint citas_duracion_ck
       check (duracion_min > 0 and duracion_min <= 600) not valid;

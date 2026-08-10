@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="agenda.css?v=10">
+<link rel="stylesheet" href="agenda.css?v=12">
 </head>
 <body>
 
@@ -96,6 +96,9 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
         </button>
         <button class="btn btn-outline btn-sm" id="today-btn">Hoy</button>
+        <button class="icon-btn" id="rec-btn" aria-label="Recordatorios por WhatsApp" title="Recordatorios por WhatsApp">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </button>
         <div class="seg" id="mode-seg">
           <button data-mode="dia" class="active">Día</button>
           <button data-mode="semana">Semana</button>
@@ -159,7 +162,7 @@
 
 <!-- ═══ MODALES ═════════════════════════════════════════════ -->
 <div class="modal" id="modal">
-  <div class="modal-panel" role="dialog" aria-modal="true">
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="modal-head">
       <h2 id="modal-title">—</h2>
       <button class="icon-btn" id="modal-close" aria-label="Cerrar">
@@ -174,7 +177,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4"></script>
 <script src="/assets/js/supabase-config.js"></script>
-<script src="agenda.js?v=10"></script>
+<script src="agenda.js?v=12"></script>
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {

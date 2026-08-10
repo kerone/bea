@@ -83,11 +83,29 @@ create policy firmados_admin_all on public.consentimientos_firmados
   for all using (public.is_admin()) with check (public.is_admin());
 
 -- ─────────────────────────────────────────────────────────────────────
+-- 4b) INMUTABILIDAD: un consentimiento firmado es una prueba. Nadie lo
+--     edita, ni siquiera una cuenta admin (borrar sí se permite: lo
+--     exige el derecho de supresión del RGPD y las cascadas).
+-- ─────────────────────────────────────────────────────────────────────
+create or replace function public.consentimientos_solo_lectura()
+returns trigger
+language plpgsql
+as $$
+begin
+  raise exception 'Los consentimientos firmados no se modifican: son la prueba de lo que se firmó ese día.';
+end;
+$$;
+
+drop trigger if exists cf_inmutable on public.consentimientos_firmados;
+create trigger cf_inmutable before update on public.consentimientos_firmados
+  for each row execute function public.consentimientos_solo_lectura();
+
+-- ─────────────────────────────────────────────────────────────────────
 -- 5) Bucket PRIVADO para las imágenes de firma
 -- ─────────────────────────────────────────────────────────────────────
 insert into storage.buckets (id, name, public)
 values ('consentimientos', 'consentimientos', false)
-on conflict (id) do nothing;
+on conflict (id) do update set public = false;  -- fuerza privado aunque existiera
 
 drop policy if exists consent_read  on storage.objects;
 drop policy if exists consent_write on storage.objects;
@@ -97,6 +115,10 @@ create policy consent_read on storage.objects
 
 create policy consent_write on storage.objects
   for insert with check (bucket_id = 'consentimientos' and public.is_admin());
+
+drop policy if exists consent_delete on storage.objects;
+create policy consent_delete on storage.objects
+  for delete using (bucket_id = 'consentimientos' and public.is_admin());
 
 -- ─────────────────────────────────────────────────────────────────────
 -- 6) Plantillas iniciales
