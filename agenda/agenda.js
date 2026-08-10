@@ -682,5 +682,8 @@
   });
 
   // ─── Arranque ────────────────────────────────────────────
+  // Marca de versión: si el HTML espera una versión y el navegador tiene
+  // otra en caché, al menos queda constancia en la consola.
+  console.info('[agenda] v2');
   comprobarSesion();
 })();
