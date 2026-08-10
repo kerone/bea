@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- Agenda interna · PRECISSA INSTITUTE
-     App privada: fichas de clientas, agenda e histórico de tratamientos.
+     App privada: fichas de clientes, agenda e histórico de tratamientos.
      NO se enlaza desde la web pública ni se incluye en el sitemap. Pero
      lo que de verdad la protege es el login de Supabase + las políticas
      RLS de supabase/agenda.sql, no el hecho de estar oculta. -->
@@ -20,13 +20,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="agenda.css?v=4">
+<link rel="stylesheet" href="agenda.css?v=6">
 </head>
 <body>
 
 <!-- ═══ LOGIN ═══════════════════════════════════════════════ -->
 <!-- La pantalla de acceso es deliberadamente neutra: no describe qué hay
-     detrás. Contar que aquí se guardan datos de clientas solo sirve para
+     detrás. Contar que aquí se guardan datos personales solo sirve para
      dar pistas a quien no debería estar mirando. -->
 <div id="login-view" class="login-wrap">
   <div class="login-box">
@@ -70,7 +70,7 @@
     <div class="brand">PRECISSA INSTITUTE<small>Agenda interna</small></div>
     <nav class="tabs" id="tabs">
       <button class="tab active" data-view="agenda">Agenda</button>
-      <button class="tab" data-view="clientas">Clientas</button>
+      <button class="tab" data-view="clientas">Clientes</button>
       <button class="tab" data-view="ajustes">Ajustes</button>
     </nav>
     <div class="topbar-right">
@@ -104,8 +104,8 @@
 
     <!-- ── CLIENTAS ── -->
     <section class="view" id="view-clientas">
-      <div class="view-head"><h1>Clientas</h1></div>
-      <input type="search" class="search" id="cli-search" placeholder="Buscar por nombre, teléfono o email…" aria-label="Buscar clientas">
+      <div class="view-head"><h1>Clientes</h1></div>
+      <input type="search" class="search" id="cli-search" placeholder="Buscar por nombre, teléfono o email…" aria-label="Buscar clientes">
       <div id="clientas-body"></div>
     </section>
 
@@ -140,7 +140,7 @@
     </button>
     <button data-view="clientas">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
-      <span>Clientas</span>
+      <span>Clientes</span>
     </button>
     <button data-view="ajustes">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6h.09A1.65 1.65 0 0 0 10 3.09V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9v.09a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
@@ -170,6 +170,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4"></script>
 <script src="/assets/js/supabase-config.js"></script>
-<script src="agenda.js?v=5"></script>
+<script src="agenda.js?v=6"></script>
 </body>
 </html>

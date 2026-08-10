@@ -173,7 +173,7 @@
   }
   async function cargarClientas() {
     const { data, error } = await db.from('clientas').select('*').order('nombre');
-    if (error) { toast('No se pudieron cargar las clientas'); return; }
+    if (error) { toast('No se pudieron cargar los clientes'); return; }
     state.clientas = data || [];
   }
   async function cargarTratamientos() {
@@ -261,7 +261,7 @@
         <div class="cita-bar"></div>
         <div class="cita-hora">${fmtHora(c.inicio)}<small>${c.duracion_min} min</small></div>
         <div class="cita-body">
-          <div class="cita-nombre">${esc(cl ? nombreCompleto(cl) : 'Clienta eliminada')}</div>
+          <div class="cita-nombre">${esc(cl ? nombreCompleto(cl) : 'Cliente eliminado')}</div>
           <div class="cita-trat">${esc(c.tratamiento || 'Sin tratamiento')}</div>
           <div class="cita-meta">
             hasta ${fmtHora(fin)}${c.precio ? ' · ' + fmtPrecio(c.precio) : ''}
@@ -339,7 +339,7 @@
           </div>
           ${c.contraindicaciones ? '<span title="Tiene contraindicaciones anotadas">⚠️</span>' : ''}
         </div>`).join('')
-      : `<div class="empty">${q ? 'Ninguna clienta coincide con la búsqueda.' : 'Aún no hay clientas. Pulsa + para dar de alta la primera.'}</div>`;
+      : `<div class="empty">${q ? 'Nadie coincide con la búsqueda.' : 'Aún no hay clientes. Pulsa + para dar de alta el primero.'}</div>`;
     document.querySelectorAll('[data-clienta]').forEach(el =>
       el.addEventListener('click', () => { state.clientaAbierta = el.dataset.clienta; irA('ficha'); }));
   }
@@ -357,7 +357,7 @@
     const gastado = historico.filter(x => x.estado === 'completada')
       .reduce((s, x) => s + (Number(x.precio) || 0), 0);
 
-    // Consentimientos firmados de esta clienta, indexados por cita
+    // Consentimientos firmados de esta persona, indexados por cita
     const { data: firmas } = await db.from('consentimientos_firmados')
       .select('id, cita_id, titulo, firmado_at').eq('clienta_id', c.id);
     const firmaDe = {};
@@ -373,7 +373,7 @@
     $('ficha-body').innerHTML = `
       <div class="view-head">
         <div>
-          <div class="eyebrow">Ficha de clienta</div>
+          <div class="eyebrow">Ficha de cliente</div>
           <h1>${esc(nombreCompleto(c))}</h1>
         </div>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -408,7 +408,7 @@
           ${gastado > 0 ? `<div class="stat"><b style="font-size:19px">${fmtPrecio(gastado)}</b><span>facturado</span></div>` : ''}
         </div>
         ${faltasPreocupan ? `<p style="font-size:13px;color:#8A5A17;margin-top:12px">
-          Ha faltado sin avisar ${faltas} de ${cerradas.length} veces. Quizá convenga confirmarle la cita el día antes o pedir señal.
+          Ha faltado sin avisar ${faltas} de ${cerradas.length} veces. Quizá convenga confirmar la cita el día antes o pedir señal.
         </p>` : ''}
       </div>
 
@@ -576,7 +576,7 @@
     if (cita && cita.estado === 'programada' && yaToca) {
       acciones = `
         <div class="acciones-hoy">
-          <p><strong>¿Ha venido la clienta?</strong></p>
+          <p><strong>¿Ha venido?</strong></p>
           <div class="fila">
             <button class="btn btn-dark" id="a-llego">Ha llegado</button>
             <button class="btn btn-outline" id="a-noasistio">No se presentó</button>
@@ -594,11 +594,11 @@
 
     abrirModal(esNueva ? 'Nueva cita' : 'Cita', acciones + `
       <div class="field">
-        <label for="f-clienta">Clienta *</label>
-        <select id="f-clienta" required>
-          <option value="">— Elige una clienta —</option>
-          ${state.clientas.map(c => `<option value="${c.id}"${c.id === cid ? ' selected' : ''}>${esc(nombreCompleto(c))}</option>`).join('')}
-        </select>
+        <label for="f-buscar-cli">Cliente *</label>
+        <input id="f-buscar-cli" autocomplete="off" placeholder="Escribe un nombre o teléfono…"
+               value="${cid ? esc(nombreCompleto(clientaDe(cid) || {})) : ''}">
+        <input type="hidden" id="f-clienta" value="${esc(cid)}">
+        <div class="picker" id="f-lista-cli" hidden></div>
       </div>
       <div class="field">
         <label for="f-trat">Tratamiento</label>
@@ -634,6 +634,37 @@
         ${!esNueva ? '<button class="btn btn-danger" id="f-borrar">Eliminar</button>' : ''}
       </div>`);
 
+    // ── Buscador de clientes: filtra según se escribe ──
+    const inpCli = $('f-buscar-cli'), listaCli = $('f-lista-cli'), hidCli = $('f-clienta');
+    function pintarLista(q) {
+      const t = (q || '').toLowerCase().trim();
+      const res = state.clientas.filter(c =>
+        !t || nombreCompleto(c).toLowerCase().includes(t) || (c.telefono || '').includes(t)
+      ).slice(0, 8);
+      if (!res.length) {
+        listaCli.innerHTML = '<div class="picker-vacio">Sin coincidencias</div>';
+      } else {
+        listaCli.innerHTML = res.map(c => `
+          <button type="button" class="picker-item" data-id="${c.id}">
+            <span>${esc(nombreCompleto(c))}</span>
+            <small>${esc(c.telefono || 'sin teléfono')}</small>
+          </button>`).join('');
+      }
+      listaCli.hidden = false;
+      listaCli.querySelectorAll('.picker-item').forEach(b =>
+        b.addEventListener('click', () => {
+          const c = clientaDe(b.dataset.id);
+          hidCli.value = c.id;
+          inpCli.value = nombreCompleto(c);
+          listaCli.hidden = true;
+        }));
+    }
+    inpCli.addEventListener('input', () => { hidCli.value = ''; pintarLista(inpCli.value); });
+    inpCli.addEventListener('focus', () => { if (!hidCli.value) pintarLista(inpCli.value); });
+    document.addEventListener('click', (ev) => {
+      if (listaCli && !listaCli.contains(ev.target) && ev.target !== inpCli) listaCli.hidden = true;
+    });
+
     // Al elegir tratamiento, rellenar duración y precio por defecto
     $('f-trat').addEventListener('change', () => {
       const t = state.tratamientos.find(x => x.id === $('f-trat').value);
@@ -644,7 +675,7 @@
 
     async function guardar(avisar) {
       const clientaId = $('f-clienta').value;
-      if (!clientaId) return toast('Elige una clienta');
+      if (!clientaId) return toast('Elige un cliente');
       if (!$('f-fecha').value || !$('f-hora').value) return toast('Falta la fecha o la hora');
       const t = state.tratamientos.find(x => x.id === $('f-trat').value);
       const payload = {
@@ -693,7 +724,7 @@
   // ─── Modal: CLIENTA ──────────────────────────────────────
   function modalClienta(cl) {
     const esNueva = !cl;
-    abrirModal(esNueva ? 'Nueva clienta' : 'Editar ficha', `
+    abrirModal(esNueva ? 'Nuevo cliente' : 'Editar ficha', `
       <div class="field-row">
         <div class="field"><label for="c-nombre">Nombre *</label><input id="c-nombre" value="${esc(cl ? cl.nombre : '')}" required></div>
         <div class="field"><label for="c-apellidos">Apellidos</label><input id="c-apellidos" value="${esc(cl ? cl.apellidos || '' : '')}"></div>
@@ -707,7 +738,7 @@
         <label for="c-contra">Contraindicaciones, alergias y medicación</label>
         <textarea id="c-contra" placeholder="Embarazo, marcapasos, fotosensibilizantes, alergias, fototipo…">${esc(cl ? cl.contraindicaciones || '' : '')}</textarea>
         <p style="font-size:11.5px;color:var(--muted);margin-top:5px">
-          Son datos de salud: anota solo lo necesario para tratarla con seguridad.
+          Son datos de salud: anota solo lo necesario para un tratamiento seguro.
         </p>
       </div>
       <div class="field">
@@ -740,7 +771,7 @@
       await cargarClientas();
       if (esNueva) { state.clientaAbierta = data.id; irA('ficha'); }
       else render();
-      toast(esNueva ? 'Clienta dada de alta' : 'Ficha actualizada');
+      toast(esNueva ? 'Cliente dado de alta' : 'Ficha actualizada');
     });
 
     if (!esNueva) {
@@ -875,7 +906,7 @@
         </select>
       </div>
       <p style="font-size:12.5px;color:var(--muted);margin-bottom:8px">
-        Dale la tablet a la clienta para que lo lea y firme.
+        Pásale la tablet para que lo lea y firme.
       </p>
       <div class="consent-texto" id="k-texto"></div>
       <div class="field">
@@ -1071,7 +1102,7 @@
       : `
         <div class="alerta" style="margin:14px 0">
           <b>Sin teléfono en la ficha</b>
-          Añádele el móvil a ${esc(cl ? cl.nombre : 'la clienta')} para poder avisarla por WhatsApp.
+          Añade el móvil a ${esc(cl ? cl.nombre : 'esta persona')} para poder avisar por WhatsApp.
         </div>
         <button class="btn btn-outline" style="width:100%" id="w-cerrar">Entendido</button>`}
     `);
@@ -1088,6 +1119,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v5');
+  console.info('[agenda] v6');
   comprobarSesion();
 })();

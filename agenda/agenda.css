@@ -364,3 +364,19 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: 21px; letter-spacin
 
 /* Icono de WhatsApp dentro del botón de aviso */
 #w-enviar svg { width: 19px; height: 19px; }
+
+/* ─── Buscador de clientes en el formulario de cita ────────── */
+.picker {
+  margin-top: 6px; border: 1px solid var(--line-strong); border-radius: 10px;
+  background: var(--surface); max-height: 220px; overflow-y: auto;
+  box-shadow: var(--shadow);
+}
+.picker-item {
+  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  width: 100%; text-align: left; border: 0; background: none; cursor: pointer;
+  padding: 11px 14px; border-bottom: 1px solid var(--line); font-size: 14.5px;
+}
+.picker-item:last-child { border-bottom: 0; }
+.picker-item:hover, .picker-item:focus { background: var(--bg2); outline: none; }
+.picker-item small { color: var(--muted); font-size: 12.5px; flex-shrink: 0; }
+.picker-vacio { padding: 14px; color: var(--muted); font-size: 13.5px; text-align: center; }
