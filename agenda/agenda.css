@@ -612,3 +612,13 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: 21px; letter-spacin
 .rec-enviar { flex-shrink: 0; text-decoration: none; }
 .rec-enviar.rec-ya { color: var(--muted); }
 .rec-sintel { font-size: 12px; color: var(--muted); flex-shrink: 0; }
+
+/* Globito de recordatorios pendientes en la campana */
+#rec-btn { position: relative; }
+.rec-badge {
+  position: absolute; top: -3px; right: -3px;
+  min-width: 17px; height: 17px; padding: 0 4px; border-radius: 999px;
+  background: var(--accent-dark); color: #fff;
+  font-size: 10.5px; font-weight: 700; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+}

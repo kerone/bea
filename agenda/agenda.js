@@ -233,6 +233,7 @@
     }
     state.citasError = false;
     state.citas = data || [];
+    actualizarCampana(); // sin await: el globito no frena el pintado
   }
   const clientaDe = (id) => state.clientas.find(c => c.id === id);
   const clienteNombre = (id) => { const c = clientaDe(id); return c ? nombreCompleto(c) : 'otro cliente'; };
@@ -2037,6 +2038,26 @@
     const m = recLeer();
     m[cita.id] = cita.inicio;
     try { localStorage.setItem(REC_KEY, JSON.stringify(m)); } catch (e) { /* sin sitio: da igual */ }
+    actualizarCampana();
+  }
+
+  /** Globito con el número de recordatorios pendientes de HOY y MAÑANA
+   *  (citas programadas, con teléfono, aún sin avisar). */
+  async function actualizarCampana() {
+    const btn = $('rec-btn');
+    if (!btn) return;
+    const { data, error } = await db.from('citas').select('id, clienta_id, inicio')
+      .eq('estado', 'programada')
+      .gte('inicio', new Date().toISOString())
+      .lt('inicio', addDias(hoy(), 2).toISOString());
+    if (error) return; // sin conexión, el globito se queda como estaba
+    const enviados = recLeer();
+    const n = (data || []).filter(c =>
+      !enviados[c.id] && telWa((clientaDe(c.clienta_id) || {}).telefono)).length;
+    let b = btn.querySelector('.rec-badge');
+    if (!n) { if (b) b.remove(); return; }
+    if (!b) { b = document.createElement('span'); b.className = 'rec-badge'; btn.appendChild(b); }
+    b.textContent = n;
   }
 
   /** Modal con las citas programadas de los próximos días, cada una con su
@@ -2133,7 +2154,12 @@
         <button class="btn btn-outline" style="width:100%" id="w-cerrar">Entendido</button>`}
     `);
     $('w-cerrar').addEventListener('click', cerrarModal);
-    if ($('w-enviar')) $('w-enviar').addEventListener('click', () => setTimeout(cerrarModal, 400));
+    if ($('w-enviar')) $('w-enviar').addEventListener('click', () => {
+      // Si la cita es de hoy o mañana, esta confirmación recién enviada ya
+      // hace de recordatorio: que no vuelva a salir como pendiente.
+      if (new Date(cita.inicio).getTime() - Date.now() < 48 * 3600000) recMarcar(cita);
+      setTimeout(cerrarModal, 400);
+    });
   }
 
   // ─── Botón flotante ──────────────────────────────────────
@@ -2145,6 +2171,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v12');
+  console.info('[agenda] v13');
   comprobarSesion();
 })();
