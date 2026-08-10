@@ -171,7 +171,7 @@
 
   // ─── Carga de datos ──────────────────────────────────────
   async function cargarTodo() {
-    await Promise.all([cargarClientas(), cargarTratamientos(), cargarPlantillas(), cargarProfesionales()]);
+    await Promise.all([cargarClientas(), cargarTratamientos(), cargarPlantillas(), cargarProfesionales(), cargarHorario()]);
     await cargarCitas();
   }
   async function cargarProfesionales() {
@@ -395,14 +395,27 @@
   }
 
   // ═══ REJILLA TEMPORAL ═══════════════════════════════════
-  const VENTANA = { desde: 9 * 60, hasta: 14 * 60 + 30 }; // 9:00–14:30 por defecto
+  /** Ventana base de la rejilla: el horario configurado (el tramo más
+   *  amplio de la semana) con media hora de respiro por cada lado. */
+  function ventanaBase() {
+    let abre = Infinity, cierra = -Infinity;
+    for (let d = 0; d < 7; d++) {
+      const h = horarioDe(d);
+      if (!h.activo) continue;
+      abre = Math.min(abre, h.abre);
+      cierra = Math.max(cierra, h.cierra);
+    }
+    if (!Number.isFinite(abre)) { abre = HORARIO_DEFECTO.abre; cierra = HORARIO_DEFECTO.cierra; }
+    return { desde: Math.max(0, abre - 30), hasta: Math.min(24 * 60, cierra + 30) };
+  }
 
   const minutosDe = (iso) => { const d = new Date(iso); return d.getHours() * 60 + d.getMinutes(); };
 
-  /** Ventana visible: la de por defecto, ampliada (nunca recortada) por
-   *  las citas reales y redondeada a la hora. Ninguna cita se oculta. */
+  /** Ventana visible: la base, ampliada (nunca recortada) por las citas
+   *  reales y redondeada a la hora. Ninguna cita se oculta. */
   function ventanaDe(citasPorDia) {
-    let desde = VENTANA.desde, hasta = VENTANA.hasta;
+    const base = ventanaBase();
+    let desde = base.desde, hasta = base.hasta;
     for (const citas of citasPorDia) {
       for (const c of citas) {
         const ini = minutosDe(c.inicio);
@@ -444,10 +457,10 @@
     return items;
   }
 
-  /** Huecos ≥30 min entre citas ocupantes, dentro del horario del centro. */
-  function huecosDe(ocupantes, esLaborable) {
-    if (!esLaborable) return [];
-    const desde = HORARIO.abre, hasta = HORARIO.cierra;
+  /** Huecos ≥30 min entre citas ocupantes, dentro del horario del día. */
+  function huecosDe(ocupantes, hDia) {
+    if (!hDia.activo) return [];
+    const desde = hDia.abre, hasta = hDia.cierra;
     const tramos = ocupantes.map(o => [Math.max(o.ini, desde), Math.min(o.fin, hasta)])
       .filter(([a, b]) => b > a).sort((a, b) => a[0] - b[0]);
     const huecos = []; let cursor = desde;
@@ -484,7 +497,8 @@
     const cols = dias.map((dia, di) => {
       const citas = porDia[di];
       const esHoy = mismaFecha(dia, hoy());
-      const laborable = HORARIO.dias.includes(dia.getDay());
+      const hDia = horarioDe(dia.getDay());
+      const laborable = hDia.activo;
 
       const ocupantes = repartir(citas.filter(c => ESTADOS_QUE_OCUPAN.includes(c.estado)));
       const finas = citas.filter(c => !ESTADOS_QUE_OCUPAN.includes(c.estado));
@@ -493,14 +507,14 @@
 
       // Fuera de horario apagado (que una cita a las 14:30 salte a la vista)
       if (laborable) {
-        if (HORARIO.abre > v.desde) bloques += `<div class="rej-fuera" style="top:0;height:calc(var(--px) * ${HORARIO.abre - v.desde})"></div>`;
-        if (v.hasta > HORARIO.cierra) bloques += `<div class="rej-fuera" style="top:calc(var(--px) * ${HORARIO.cierra - v.desde});height:calc(var(--px) * ${v.hasta - HORARIO.cierra})"></div>`;
+        if (hDia.abre > v.desde) bloques += `<div class="rej-fuera" style="top:0;height:calc(var(--px) * ${hDia.abre - v.desde})"></div>`;
+        if (v.hasta > hDia.cierra) bloques += `<div class="rej-fuera" style="top:calc(var(--px) * ${hDia.cierra - v.desde});height:calc(var(--px) * ${v.hasta - hDia.cierra})"></div>`;
       } else {
         bloques += `<div class="rej-fuera" style="top:0;height:calc(var(--px) * ${altura})"></div>`;
       }
 
       // Huecos con etiqueta (tocar → nueva cita a esa hora)
-      for (const hgap of huecosDe(ocupantes, laborable)) {
+      for (const hgap of huecosDe(ocupantes, hDia)) {
         bloques += `<button type="button" class="rej-hueco" data-hueco="${dia.toISOString()}|${hgap.ini}"
           style="top:calc(var(--px) * ${hgap.ini - v.desde});height:calc(var(--px) * ${hgap.fin - hgap.ini})">${etiquetaHueco(hgap.fin - hgap.ini)}</button>`;
       }
@@ -561,7 +575,8 @@
     const citas = citasDe(dia);
     const v = ventanaDe([citas]);
     const altura = v.hasta - v.desde;
-    const laborable = HORARIO.dias.includes(dia.getDay());
+    const hDia = horarioDe(dia.getDay());
+      const laborable = hDia.activo;
     const esHoy = mismaFecha(dia, hoy());
 
     let horas = '';
@@ -583,12 +598,12 @@
       const finas = propias.filter(c => !ESTADOS_QUE_OCUPAN.includes(c.estado));
       let bloques = '';
       if (laborable) {
-        if (HORARIO.abre > v.desde) bloques += `<div class="rej-fuera" style="top:0;height:calc(var(--px) * ${HORARIO.abre - v.desde})"></div>`;
-        if (v.hasta > HORARIO.cierra) bloques += `<div class="rej-fuera" style="top:calc(var(--px) * ${HORARIO.cierra - v.desde});height:calc(var(--px) * ${v.hasta - HORARIO.cierra})"></div>`;
+        if (hDia.abre > v.desde) bloques += `<div class="rej-fuera" style="top:0;height:calc(var(--px) * ${hDia.abre - v.desde})"></div>`;
+        if (v.hasta > hDia.cierra) bloques += `<div class="rej-fuera" style="top:calc(var(--px) * ${hDia.cierra - v.desde});height:calc(var(--px) * ${v.hasta - hDia.cierra})"></div>`;
       } else {
         bloques += `<div class="rej-fuera" style="top:0;height:calc(var(--px) * ${altura})"></div>`;
       }
-      for (const hgap of huecosDe(ocupantes, laborable)) {
+      for (const hgap of huecosDe(ocupantes, hDia)) {
         bloques += `<button type="button" class="rej-hueco" data-hueco="${dia.toISOString()}|${hgap.ini}"
           style="top:calc(var(--px) * ${hgap.ini - v.desde});height:calc(var(--px) * ${hgap.fin - hgap.ini})">${etiquetaHueco(hgap.fin - hgap.ini)}</button>`;
       }
@@ -1086,6 +1101,7 @@
   function renderAjustes() {
     if (state.ajustesTab === 'consentimientos') return renderPlantillas();
     if (state.ajustesTab === 'profesionales') return renderProfesionales();
+    if (state.ajustesTab === 'horario') return renderHorario();
     $('ajustes-body').innerHTML = state.tratamientos.length
       ? state.tratamientos.map(t => `
         <div class="row" data-trat="${t.id}">
@@ -1103,6 +1119,7 @@
   $('nuevo-trat-btn').addEventListener('click', () => {
     if (state.ajustesTab === 'consentimientos') return modalPlantilla(null);
     if (state.ajustesTab === 'profesionales') return modalProfesional(null);
+    if (state.ajustesTab === 'horario') return; // el horario no "añade"
     modalTratamiento(null);
   });
 
@@ -1114,10 +1131,66 @@
       $('ajustes-ayuda').textContent = {
         tratamientos: 'Tu catálogo para agendar rápido: al elegir un tratamiento se rellenan solos la duración y el precio.',
         consentimientos: 'Los documentos que firman tus clientes en la tablet. Asocia cada uno a su tratamiento desde la pestaña anterior.',
-        profesionales: 'Quién realiza las citas. Con una sola persona activa, la agenda no pregunta nada; con dos o más, el día se divide en columnas.'
+        profesionales: 'Quién realiza las citas. Con una sola persona activa, la agenda no pregunta nada; con dos o más, el día se divide en columnas.',
+        horario: 'Tu semana de trabajo: pinta la franja laborable, avisa de citas fuera de hora y alimenta el buscador de huecos. Nunca bloquea: siempre puedes agendar fuera.'
       }[state.ajustesTab];
+      $('nuevo-trat-btn').style.display = state.ajustesTab === 'horario' ? 'none' : '';
       renderAjustes();
     }));
+
+  // ─── AJUSTES · Horario semanal ───────────────────────────
+  function renderHorario() {
+    const orden = [1, 2, 3, 4, 5, 6, 0];
+    const nombres = { 1: 'Lunes', 2: 'Martes', 3: 'Miércoles', 4: 'Jueves', 5: 'Viernes', 6: 'Sábado', 0: 'Domingo' };
+    const sinSQL = !state.horario;
+    $('ajustes-body').innerHTML = `
+      ${sinSQL ? '<p class="fotos-nota" style="margin-bottom:12px">Para poder guardarlo, ejecuta <b>supabase/agenda-horario.sql</b> en Supabase (SQL Editor). Mientras tanto se usa L-V de 9:30 a 14:00.</p>' : ''}
+      ${orden.map(d => {
+        const h = horarioDe(d);
+        return `
+        <div class="horario-fila">
+          <label class="horario-dia">
+            <input type="checkbox" data-h-activo="${d}"${h.activo ? ' checked' : ''}>
+            <span>${nombres[d]}</span>
+          </label>
+          <input type="time" data-h-abre="${d}" value="${minAHora(h.abre)}"${h.activo ? '' : ' disabled'}>
+          <span class="horario-sep">a</span>
+          <input type="time" data-h-cierra="${d}" value="${minAHora(h.cierra)}"${h.activo ? '' : ' disabled'}>
+        </div>`;
+      }).join('')}
+      <div style="margin-top:16px">
+        <button class="btn btn-dark" id="h-guardar">Guardar horario</button>
+      </div>`;
+
+    document.querySelectorAll('[data-h-activo]').forEach(ch =>
+      ch.addEventListener('change', () => {
+        const d = ch.dataset.hActivo;
+        document.querySelector(`[data-h-abre="${d}"]`).disabled = !ch.checked;
+        document.querySelector(`[data-h-cierra="${d}"]`).disabled = !ch.checked;
+      }));
+
+    $('h-guardar').addEventListener('click', async () => {
+      const filas = orden.map(d => ({
+        dia: d,
+        activo: document.querySelector(`[data-h-activo="${d}"]`).checked,
+        abre: document.querySelector(`[data-h-abre="${d}"]`).value || '09:30',
+        cierra: document.querySelector(`[data-h-cierra="${d}"]`).value || '14:00'
+      }));
+      const mal = filas.find(f => f.activo && f.cierra <= f.abre);
+      if (mal) return toast(`Revisa el ${nombres[mal.dia].toLowerCase()}: el cierre debe ser posterior a la apertura`);
+      const btn = $('h-guardar'); btn.disabled = true;
+      const { error } = await db.from('horario_semana').upsert(filas);
+      btn.disabled = false;
+      if (error) {
+        toast(sinSQL ? 'Falta ejecutar supabase/agenda-horario.sql en Supabase'
+                     : 'No se pudo guardar: ' + error.message);
+        return;
+      }
+      await cargarHorario();
+      toast('Horario guardado');
+      renderHorario();
+    });
+  }
 
   function renderPlantillas() {
     $('ajustes-body').innerHTML = state.plantillas.length
@@ -1302,7 +1375,33 @@
   // Estados que ocupan hueco de verdad. Una cancelada o una falta NO
   // bloquean: su hueco vuelve a estar disponible.
   const ESTADOS_QUE_OCUPAN = ['programada', 'en_curso', 'completada'];
-  const HORARIO = { abre: 9 * 60 + 30, cierra: 14 * 60, dias: [1, 2, 3, 4, 5] };
+
+  // ─── Horario del centro ──────────────────────────────────
+  // Configurable desde Ajustes → Horario (tabla horario_semana). Mientras
+  // el SQL no esté ejecutado, se usa este de siempre: L-V 9:30–14:00.
+  const HORARIO_DEFECTO = { abre: 9 * 60 + 30, cierra: 14 * 60, dias: [1, 2, 3, 4, 5] };
+  const minAHora = (m) => `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`;
+  const horaAMin = (t) => { const [h, m] = String(t).split(':'); return (Number(h) || 0) * 60 + (Number(m) || 0); };
+
+  /** Horario de un día de la semana (0=domingo…6=sábado). */
+  function horarioDe(diaSemana) {
+    const h = state.horario && state.horario[diaSemana];
+    if (h) return h;
+    return {
+      activo: HORARIO_DEFECTO.dias.includes(diaSemana),
+      abre: HORARIO_DEFECTO.abre,
+      cierra: HORARIO_DEFECTO.cierra
+    };
+  }
+
+  async function cargarHorario() {
+    const { data, error } = await db.from('horario_semana').select('*');
+    if (error || !data || !data.length) { state.horario = null; return; }
+    state.horario = {};
+    data.forEach(r => {
+      state.horario[r.dia] = { activo: r.activo, abre: horaAMin(r.abre), cierra: horaAMin(r.cierra) };
+    });
+  }
 
   /** Fin de una cita en milisegundos de época. Única definición de "fin". */
   function finDe(c) {
@@ -1330,12 +1429,13 @@
   /** ¿Cae fuera del horario del centro? Informativo, nunca bloquea. */
   function fueraDeHorario(ini, fin) {
     const d = new Date(ini);
-    if (!HORARIO.dias.includes(d.getDay())) return 'ese día el centro está cerrado';
+    const h = horarioDe(d.getDay());
+    if (!h.activo) return 'ese día el centro está cerrado según tu horario';
     const minIni = d.getHours() * 60 + d.getMinutes();
     const df = new Date(fin);
     const minFin = df.getHours() * 60 + df.getMinutes();
-    if (minIni < HORARIO.abre || minFin > HORARIO.cierra || !mismaFecha(d, df)) {
-      return 'queda fuera de tu horario (9:30–14:00)';
+    if (minIni < h.abre || minFin > h.cierra || !mismaFecha(d, df)) {
+      return `queda fuera de tu horario (${minAHora(h.abre)}–${minAHora(h.cierra)})`;
     }
     return null;
   }
@@ -1468,6 +1568,7 @@
         <div class="field"><label for="f-dur">Duración (min)</label><input type="number" id="f-dur" min="5" step="5" value="${cita ? cita.duracion_min : 60}"></div>
         <div class="field"><label for="f-precio">Precio (€)</label><input type="number" id="f-precio" min="0" step="0.01" value="${cita && cita.precio !== null ? cita.precio : ''}"></div>
       </div>
+      <div class="fhuecos" id="f-huecos" hidden></div>
       ${!esNueva ? `
       <div class="field">
         <label for="f-estado">Estado</label>
@@ -1619,6 +1720,51 @@
     });
     $('f-trat-libre').addEventListener('change', pintarUltimaSesion);
     pintarUltimaSesion(); // al abrir una cita existente, directamente
+
+    // ── Huecos libres del día elegido, según duración y horario ──
+    let _huecosPedidos = 0;
+    async function pintarHuecos() {
+      const box = $('f-huecos');
+      if (!box) return;
+      const fecha = $('f-fecha').value;
+      const dur = Math.round(Number($('f-dur').value)) || 60;
+      if (!fecha) { box.hidden = true; return; }
+      const peticion = ++_huecosPedidos;
+      const d0 = new Date(aISO(fecha, '00:00'));
+      const { data, error } = await db.from('citas')
+        .select('id, inicio, duracion_min, estado')
+        .gte('inicio', d0.toISOString()).lt('inicio', addDias(d0, 1).toISOString());
+      if (peticion !== _huecosPedidos) return; // llegó tarde
+      if (error) { box.hidden = true; return; }
+      const h = horarioDe(d0.getDay());
+      box.hidden = false;
+      if (!h.activo) {
+        box.innerHTML = '<span class="fhuecos-nota">Según tu horario, ese día está cerrado (puedes agendar igualmente).</span>';
+        return;
+      }
+      const ocupantes = (data || [])
+        .filter(c => ESTADOS_QUE_OCUPAN.includes(c.estado) && (esNueva || c.id !== cita.id))
+        .map(c => {
+          const ini = minutosDe(c.inicio);
+          return { ini, fin: Math.min(ini + (c.duracion_min || 60), 24 * 60) };
+        });
+      const libres = huecosDe(ocupantes, h).filter(x => x.fin - x.ini >= dur);
+      if (!libres.length) {
+        box.innerHTML = `<span class="fhuecos-nota">Ese día no queda hueco de ${dur} min dentro de tu horario.</span>`;
+        return;
+      }
+      box.innerHTML = '<span class="fhuecos-tit">Huecos libres · toca uno para usar su hora:</span>' +
+        libres.map(x =>
+          `<button type="button" class="fhueco" data-hueco="${minAHora(x.ini)}">${minAHora(x.ini)}–${minAHora(x.fin)}</button>`).join('');
+      box.querySelectorAll('[data-hueco]').forEach(b =>
+        b.addEventListener('click', () => {
+          $('f-hora').value = b.dataset.hueco;
+          quitarAviso();
+        }));
+    }
+    $('f-fecha').addEventListener('input', pintarHuecos);
+    $('f-dur').addEventListener('input', pintarHuecos);
+    pintarHuecos();
 
     function pintarAviso(html) {
       let panel = $('f-aviso');
@@ -2869,6 +3015,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v23');
+  console.info('[agenda] v24');
   comprobarSesion();
 })();
