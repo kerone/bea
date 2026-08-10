@@ -1,0 +1,18 @@
+{
+  "name": "Agenda PRECISSA",
+  "short_name": "Agenda",
+  "description": "Agenda y fichas de clientes de PRECISSA INSTITUTE",
+  "id": "/agenda/",
+  "start_url": "/agenda/",
+  "scope": "/agenda/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#F2ECE3",
+  "theme_color": "#F2ECE3",
+  "lang": "es-ES",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
