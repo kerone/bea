@@ -1019,7 +1019,7 @@
                 </div>
                 <div class="bono-acciones">
                   ${quedan > 0 ? `<button class="btn btn-dark btn-sm" data-bono-usar="${b.id}">Descontar sesión</button>` : ''}
-                  ${usadas > 0 ? `<button class="btn btn-outline btn-sm" data-bono-ver="${b.id}">Ver usos firmados</button>` : ''}
+                  ${usadas > 0 ? `<button class="btn btn-outline btn-sm" data-bono-ver="${b.id}">Ver usos</button>` : ''}
                   <button class="btn btn-ghost btn-sm" data-bono-borrar="${b.id}" data-usos="${usadas}">Eliminar</button>
                 </div>
               </div>`;
@@ -1084,7 +1084,7 @@
         ev.stopPropagation();
         const nUsos = Number(b.dataset.usos) || 0;
         const msg = nUsos
-          ? `¿Eliminar este bono?\n\nSe borrarán también sus ${nUsos} uso${nUsos === 1 ? '' : 's'} firmado${nUsos === 1 ? '' : 's'} (los justificantes). Hazlo solo si el bono fue un error o una prueba; si solo quieres corregir un uso, usa "Ver usos firmados".`
+          ? `¿Eliminar este bono?\n\nSe borrarán también sus ${nUsos} uso${nUsos === 1 ? '' : 's'} registrado${nUsos === 1 ? '' : 's'}. Hazlo solo si el bono fue un error o una prueba; si solo quieres corregir un uso, usa "Ver usos".`
           : '¿Eliminar este bono? No tiene usos registrados.';
         if (!confirm(msg)) return;
         const { error } = await db.from('bonos').delete().eq('id', b.dataset.bonoBorrar);
@@ -1721,7 +1721,7 @@
           if (b) {
             nb.hidden = false;
             nb.innerHTML = `<b>🎟️ TIENE BONO ACTIVO</b> · ${esc(b.nombre)} · quedan <b>${b.sesiones_total - (cuenta[b.id] || 0)}</b>
-              <p>Al marcar «Ha llegado» la agenda ofrecerá descontar la sesión con su firma.</p>`;
+              <p>Al marcar «Ha llegado» la agenda ofrecerá descontar la sesión.</p>`;
           }
         }
       }
@@ -2650,102 +2650,28 @@
     });
   }
 
-  /** Descuenta una sesión del bono con la firma de la clienta.
-   *  Si viene de "Finalizar" trae la cita; desde la ficha, sin cita. */
-  function modalUsarBono(bono, cl, cita, usadas) {
+  /** Descuenta una sesión del bono (sin firma: un toque y confirmación).
+   *  Si viene de "Ha llegado"/"Finalizar" trae la cita; desde la ficha, sin cita. */
+  async function modalUsarBono(bono, cl, cita, usadas) {
     const n = usadas + 1;
-    abrirModal('Descontar sesión del bono', `
-      <p style="font-size:13.5px;color:var(--ink-soft);margin-bottom:10px">
-        <b>${esc(bono.nombre)}</b> · sesión <b>${n} de ${bono.sesiones_total}</b>.
-        ${cita ? 'Se anotará en la cita de hoy.' : ''}
-      </p>
-      <div class="consent-texto" style="max-height:20vh">Confirmo que hoy, ${fmtFechaLarga(new Date())}, utilizo una sesión de mi bono "${esc(bono.nombre)}" (sesión ${n} de ${bono.sesiones_total}) en ${esc(NEGOCIO.nombre)}.</div>
-      <div class="field">
-        <label for="bu-nombre">Nombre de quien firma *</label>
-        <input id="bu-nombre" value="${esc(nombreCompleto(cl))}">
-      </div>
-      <div class="field">
-        <label>Firma</label>
-        <div class="firma-wrap" id="bu-wrap">
-          <canvas id="bu-canvas"></canvas>
-          <div class="firma-linea"></div>
-          <div class="firma-hint">Firma aquí con el dedo o el lápiz</div>
-        </div>
-        <button class="btn btn-ghost btn-sm" id="bu-limpiar" style="margin-top:6px">Borrar firma</button>
-      </div>
-      <div class="modal-actions">
-        <button class="btn btn-dark" id="bu-firmar">Firmar y descontar</button>
-        <button class="btn btn-ghost" id="bu-sinfirma">Descontar sin firma</button>
-      </div>`);
-
-    const canvas = $('bu-canvas'), wrap = $('bu-wrap');
-    const ctx = canvas.getContext('2d');
-    let pintando = false, hayFirma = false;
-    function ajustar() {
-      const r = canvas.getBoundingClientRect();
-      const dpr = window.devicePixelRatio || 1;
-      canvas.width = r.width * dpr; canvas.height = r.height * dpr;
-      ctx.scale(dpr, dpr);
-      ctx.lineWidth = 2.2; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-      ctx.strokeStyle = '#241D17';
-    }
-    setTimeout(ajustar, 30);
-    protegerCierre(() => hayFirma ? '¿Cerrar sin guardar la firma?' : null);
-    const punto = (e) => {
-      const r = canvas.getBoundingClientRect();
-      return { x: e.clientX - r.left, y: e.clientY - r.top };
-    };
-    canvas.addEventListener('pointerdown', (e) => {
-      e.preventDefault();
-      pintando = true; hayFirma = true; wrap.classList.add('firmado');
-      const p = punto(e); ctx.beginPath(); ctx.moveTo(p.x, p.y);
-      canvas.setPointerCapture(e.pointerId);
+    const quedan = bono.sesiones_total - n;
+    if (!confirm(`¿Descontar una sesión del bono?\n\n${bono.nombre} · sesión ${n} de ${bono.sesiones_total}${quedan > 0 ? ` (quedarán ${quedan})` : ' (quedará agotado)'}${cita ? '\nSe anotará en la cita de hoy y su precio pasará a 0 €.' : ''}`)) return;
+    const { error } = await db.from('bono_usos').insert({
+      bono_id: bono.id,
+      clienta_id: cl.id,
+      cita_id: cita ? cita.id : null
     });
-    canvas.addEventListener('pointermove', (e) => {
-      if (!pintando) return;
-      e.preventDefault();
-      const p = punto(e); ctx.lineTo(p.x, p.y); ctx.stroke();
-    });
-    ['pointerup', 'pointercancel', 'pointerleave'].forEach(ev =>
-      canvas.addEventListener(ev, () => { pintando = false; }));
-    $('bu-limpiar').addEventListener('click', () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      hayFirma = false; wrap.classList.remove('firmado');
-    });
-
-    async function descontar(conFirma) {
-      const nombre = $('bu-nombre').value.trim();
-      if (conFirma && !nombre) return toast('Falta el nombre de quien firma');
-      if (conFirma && !hayFirma) return toast('Falta la firma');
-      const botones = [$('bu-firmar'), $('bu-sinfirma')];
-      botones.forEach(b => { b.disabled = true; });
-      const { error } = await db.from('bono_usos').insert({
-        bono_id: bono.id,
-        clienta_id: cl.id,
-        cita_id: cita ? cita.id : null,
-        firma_data: conFirma ? canvas.toDataURL('image/png') : null,
-        firmante_nombre: conFirma ? nombre : null
-      });
-      if (error) {
-        botones.forEach(b => { b.disabled = false; });
-        toast('No se pudo registrar: ' + error.message);
-        return;
-      }
-      // Sesión cubierta por el bono: el importe ya se cobró al venderlo.
-      // Se deja la cita a 0 € para no contar ese dinero dos veces.
-      if (cita) await db.from('citas').update({ precio: 0 }).eq('id', cita.id);
-      cerrarModal();
-      toast(`Sesión ${n} de ${bono.sesiones_total} descontada${bono.sesiones_total - n > 0 ? ` · quedan ${bono.sesiones_total - n}` : ' · bono agotado'}`);
-      if (state.vista === 'ficha') renderFicha(); else { await cargarCitas(); render(); }
-    }
-    $('bu-firmar').addEventListener('click', () => descontar(true));
-    $('bu-sinfirma').addEventListener('click', () => {
-      if (!confirm('¿Descontar la sesión sin firma?\n\nQuedará registrada la fecha, pero sin el justificante firmado.')) return;
-      descontar(false);
-    });
+    if (error) { toast('No se pudo registrar: ' + error.message); return; }
+    // Sesión cubierta por el bono: el importe ya se cobró al venderlo.
+    // Se deja la cita a 0 € para no contar ese dinero dos veces.
+    if (cita) await db.from('citas').update({ precio: 0 }).eq('id', cita.id);
+    cerrarModal();
+    toast(`Sesión ${n} de ${bono.sesiones_total} descontada${quedan > 0 ? ` · quedan ${quedan}` : ' · bono agotado'}`);
+    if (state.vista === 'ficha') renderFicha(); else { await cargarCitas(); render(); }
   }
 
-  /** Los usos de un bono, con sus firmas: el justificante para enseñar. */
+  /** Los usos de un bono: la cuenta detallada para enseñar si hay dudas.
+   *  Los usos antiguos que se firmaron conservan y muestran su firma. */
   async function modalVerUsosBono(bono) {
     const { data, error } = await db.from('bono_usos')
       .select('*').eq('bono_id', bono.id).order('usado_at');
@@ -2754,7 +2680,7 @@
     abrirModal('Usos del bono', `
       <p style="font-size:13px;color:var(--muted);margin-bottom:12px">
         <b>${esc(bono.nombre)}</b> · ${usos.length} de ${bono.sesiones_total} sesiones usadas.
-        Cada uso lleva la fecha y la firma de ese día.
+        Cada uso queda registrado con su fecha y hora.
       </p>
       ${usos.map((u, i) => `
         <div class="bono-uso">
@@ -2764,7 +2690,7 @@
           </div>
           ${u.firma_data && /^data:image\/png;base64,[A-Za-z0-9+/=]+$/.test(u.firma_data)
             ? `<img src="${u.firma_data}" alt="Firma del uso ${i + 1}">`
-            : '<span class="rec-sintel">Sin firma</span>'}
+            : ''}
           <button type="button" class="icon-btn" data-uso-borrar="${u.id}" aria-label="Eliminar este uso" style="width:36px;height:36px">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
           </button>
@@ -2772,7 +2698,7 @@
 
     document.querySelectorAll('[data-uso-borrar]').forEach(btn =>
       btn.addEventListener('click', async () => {
-        if (!confirm('¿Eliminar este uso?\n\nEl bono recuperará la sesión y se borrará su justificante firmado. Hazlo solo si fue un error o una prueba.')) return;
+        if (!confirm('¿Eliminar este uso?\n\nEl bono recuperará la sesión. Hazlo solo si fue un error.')) return;
         const { error: eDel } = await db.from('bono_usos').delete().eq('id', btn.dataset.usoBorrar);
         if (eDel) { toast('No se pudo eliminar el uso'); return; }
         toast('Uso eliminado · el bono recupera la sesión');
@@ -2782,7 +2708,7 @@
   }
 
   /** Al entrar la clienta (o al finalizar, como red): si tiene bonos con
-   *  sesiones para este tratamiento, ofrecer descontar con su firma. */
+    *  sesiones para este tratamiento, ofrecer descontarla en un toque. */
   async function ofrecerBono(cita) {
     const { data: bonos, error } = await db.from('bonos')
       .select('*').eq('clienta_id', cita.clienta_id);
@@ -3185,6 +3111,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v29');
+  console.info('[agenda] v30');
   comprobarSesion();
 })();
