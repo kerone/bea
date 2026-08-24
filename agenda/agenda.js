@@ -287,11 +287,46 @@
       b.classList.toggle('active', b.dataset.view === vista));
     $('fab').style.display = (vista === 'agenda' || vista === 'clientas') ? '' : 'none';
     window.scrollTo(0, 0);
+    // El botón atrás del móvil debe navegar DENTRO de la app, no salirse:
+    // cada cambio de pantalla se apila en el historial del navegador.
+    if (!_navDesdeHistorial) {
+      history.pushState({ vista, clienta: state.clientaAbierta || null }, '');
+    }
     render();
   }
   document.querySelectorAll('#tabs .tab, #bottomnav button').forEach(b =>
     b.addEventListener('click', () => irA(b.dataset.view)));
-  $('ficha-back').addEventListener('click', () => irA('clientas'));
+  $('ficha-back').addEventListener('click', () => {
+    // Volver de la ficha ES ir atrás: así el historial no crece en círculos
+    if (history.state && history.state.vista === 'ficha') history.back();
+    else irA('clientas');
+  });
+
+  // ─── Botón atrás del navegador/móvil ─────────────────────
+  let _navDesdeHistorial = false; // popstate en curso: no re-apilar
+  let _cierrePropio = false;      // el modal ya se cerró desde la app
+  history.replaceState({ vista: 'agenda', clienta: null }, '');
+
+  window.addEventListener('popstate', (ev) => {
+    // 1) Con un modal abierto, atrás lo CIERRA (no cambia de pantalla)
+    if ($('modal').classList.contains('open')) {
+      const msg = _guardaCierre && _guardaCierre();
+      if (msg && !confirm(msg)) {
+        history.pushState({ modal: true }, ''); // se queda donde estaba
+        return;
+      }
+      cerrarModalDOM();
+      return;
+    }
+    if (_cierrePropio) { _cierrePropio = false; return; } // eco del cierre en-app
+    // 2) Sin modal: navegar a la pantalla apilada
+    const st = ev.state || { vista: 'agenda', clienta: null };
+    if (st.modal) { history.back(); return; } // estado de modal huérfano
+    _navDesdeHistorial = true;
+    if (st.clienta) state.clientaAbierta = st.clienta;
+    irA(st.vista || 'agenda');
+    _navDesdeHistorial = false;
+  });
 
   // ─── Render principal ────────────────────────────────────
   function render() {
@@ -1414,9 +1449,13 @@
 
   // ─── MODAL ───────────────────────────────────────────────
   function abrirModal(titulo, html) {
+    const yaAbierto = $('modal').classList.contains('open');
     $('modal-title').textContent = titulo;
     $('modal-body').innerHTML = html;
     $('modal').classList.add('open');
+    // Una entrada en el historial por modal (los encadenados no apilan
+    // más): así el botón atrás del móvil cierra el modal, no la app.
+    if (!yaAbierto) history.pushState({ modal: true }, '');
   }
   let _limpiezasModal = [];
   let _guardaCierre = null;
@@ -1424,11 +1463,21 @@
   function alCerrarModal(fn) { _limpiezasModal.push(fn); }
   /** El modal actual pedirá confirmación antes de cerrarse si fn() devuelve un mensaje. */
   function protegerCierre(fn) { _guardaCierre = fn; }
-  function cerrarModal() {
+  /** Cierre del modal en el DOM, sin tocar el historial (lo usa popstate). */
+  function cerrarModalDOM() {
     $('modal').classList.remove('open');
     _guardaCierre = null;
     _limpiezasModal.forEach(fn => { try { fn(); } catch (e) {} });
     _limpiezasModal = [];
+  }
+  /** Cierre desde la app: además consume la entrada de historial del modal. */
+  function cerrarModal() {
+    if (!$('modal').classList.contains('open')) return;
+    cerrarModalDOM();
+    if (history.state && history.state.modal) {
+      _cierrePropio = true;
+      history.back();
+    }
   }
   /** Cierre iniciado por la usuaria (X, fondo, Escape): pasa por la guarda.
    *  Un roce en el fondo de la tablet no debe tirar una firma a medias. */
@@ -3132,6 +3181,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v32');
+  console.info('[agenda] v33');
   comprobarSesion();
 })();
