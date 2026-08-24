@@ -22,15 +22,24 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="agenda.css?v=31">
+<link rel="stylesheet" href="agenda.css?v=32">
 </head>
 <body>
+
+<!-- Pantalla de carga: se enseña mientras se decide si hay sesión.
+     Evita el destello del login cuando ya se está dentro. -->
+<div id="splash" class="login-wrap">
+  <div class="login-box" style="text-align:center">
+    <div class="brand">PRECISSA INSTITUTE</div>
+    <p style="color:var(--muted);font-size:13.5px;margin-top:10px">Cargando…</p>
+  </div>
+</div>
 
 <!-- ═══ LOGIN ═══════════════════════════════════════════════ -->
 <!-- La pantalla de acceso es deliberadamente neutra: no describe qué hay
      detrás. Contar que aquí se guardan datos personales solo sirve para
      dar pistas a quien no debería estar mirando. -->
-<div id="login-view" class="login-wrap">
+<div id="login-view" class="login-wrap" style="display:none">
   <div class="login-box">
     <div class="brand">PRECISSA INSTITUTE</div>
     <h1>Acceso restringido</h1>
@@ -183,7 +192,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4"></script>
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
 <script src="/assets/js/supabase-config.js"></script>
-<script src="agenda.js?v=31"></script>
+<script src="agenda.js?v=32"></script>
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {

@@ -105,8 +105,11 @@
       $('login-msg').textContent = 'Supabase no está configurado.';
       return;
     }
-    const { data: { user } } = await db.auth.getUser();
-    if (!user) return mostrarLogin();
+    // getSession lee la sesión guardada en el dispositivo (instantáneo);
+    // getUser haría un viaje a Supabase y provocaba el destello del login.
+    const { data: { session } } = await db.auth.getSession();
+    if (!session || !session.user) return mostrarLogin();
+    const user = session.user;
 
     // is_admin() vive en el servidor y es la misma función que usan
     // las políticas RLS: si dice que no, aquí no se entra.
@@ -126,13 +129,20 @@
     entrar();
   }
 
+  function quitarSplash() {
+    const s = $('splash');
+    if (s) s.remove();
+  }
+
   function mostrarLogin(msg) {
+    quitarSplash();
     $('login-view').style.display = '';
     $('app').hidden = true;
     if (msg) $('login-msg').textContent = msg;
   }
 
   async function entrar() {
+    quitarSplash();
     $('login-view').style.display = 'none';
     $('app').hidden = false;
     await cargarTodo();
@@ -3122,6 +3132,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v31');
+  console.info('[agenda] v32');
   comprobarSesion();
 })();
