@@ -2141,10 +2141,21 @@
         contraindicaciones: $('c-contra').value.trim() || null,
         notas: $('c-notas').value.trim() || null
       };
-      const q = esNueva
-        ? db.from('clientas').insert(payload).select().single()
-        : db.from('clientas').update(payload).eq('id', cl.id).select().single();
-      const { data, error } = await q;
+      const guardarCon = (p) => esNueva
+        ? db.from('clientas').insert(p).select().single()
+        : db.from('clientas').update(p).eq('id', cl.id).select().single();
+      let { data, error } = await guardarCon(payload);
+      if (error && /dni|direccion/.test(error.message)) {
+        // Aún no se ha ejecutado agenda-dni.sql: se guarda la ficha sin
+        // esos dos campos para no bloquear el alta, y se avisa.
+        const sinFacturacion = { ...payload };
+        delete sinFacturacion.dni;
+        delete sinFacturacion.direccion;
+        ({ data, error } = await guardarCon(sinFacturacion));
+        if (!error && (payload.dni || payload.direccion)) {
+          toast('Guardado SIN DNI/dirección: ejecuta supabase/agenda-dni.sql para activarlos');
+        }
+      }
       if (error) { toast('No se pudo guardar: ' + error.message); return; }
       cerrarModal();
       await cargarClientas();
@@ -3111,6 +3122,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v30');
+  console.info('[agenda] v31');
   comprobarSesion();
 })();
