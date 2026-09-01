@@ -18,7 +18,7 @@
   // Datos del negocio para la confirmación de cita
   const NEGOCIO = {
     nombre: 'PRECISSA INSTITUTE',
-    direccion: "C/ de la República de la Costa d'Ivori, 46017 València",
+    direccion: "Av. Primero de Mayo - C/ Gerónima Galés, bajo 5, 46017 València",
     telefono: '601 05 67 06'
   };
 
