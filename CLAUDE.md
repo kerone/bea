@@ -42,7 +42,7 @@ Cambiar uno implica cambiarlos todos.
 |---|---|
 | Teléfono | `601 05 67 06` · enlaces `tel:+34601056706` |
 | Horario | Lunes a viernes, 9:30–14:00 (sin tardes, finde cerrado) |
-| Dirección | Av. Primero de Mayo - C/ Gerónima Galés, bajo 5, 46017 València |
+| Dirección | Av. Primero de Mayo - C/ Jerónima Galés, bajo 5, 46017 València |
 | Email | precissainstitute@gmail.com |
 | Instagram | https://www.instagram.com/precissainstitute |
 | Maps | https://maps.app.goo.gl/RfxWU2e8j4qnrgg5A |
