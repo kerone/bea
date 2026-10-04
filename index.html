@@ -1157,7 +1157,7 @@ a.footer-nap-line:hover { color: var(--bg); }
           <a class="footer-nap-line" href="https://maps.app.goo.gl/RfxWU2e8j4qnrgg5A" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Av. Primero de Mayo - C/ Jerónima Galés, bajo 5 · 46017 València</span></a>
           <a class="footer-nap-line" href="tel:+34601056706"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>601 05 67 06</span></a>
           <span class="footer-nap-line footer-nap-hours"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Lunes a viernes · 9:30–14:00</span></span>
-          <a class="footer-nap-line" href="https://www.google.com/maps/dir/?api=1&destination=Precissa%20Institute%2C%20C%2F%20de%20la%20Rep%C3%BAblica%20de%20la%20Costa%20d%27Ivori%2C%2046017%20Val%C3%A8ncia" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg><span>Cómo llegar</span></a>
+          <a class="footer-nap-line" href="https://www.google.com/maps/dir/?api=1&destination=Precissa%20Institute%2C%20Av.%20Primero%20de%20Mayo%20-%20C%2F%20Jer%C3%B3nima%20Gal%C3%A9s%2C%20bajo%205%2C%2046017%20Val%C3%A8ncia" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg><span>Cómo llegar</span></a>
           <a class="footer-nap-line" href="https://maps.app.goo.gl/RfxWU2e8j4qnrgg5A" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>Reseñas en Google</span></a>
         </address>
       </div>
@@ -3265,8 +3265,8 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
           <input type="text" name="nombre" required autocomplete="name">
         </label>
         <label class="quote-field">
-          <span class="quote-label">Email *</span>
-          <input type="email" name="email" required autocomplete="email">
+          <span class="quote-label">Email <small>(opcional)</small></span>
+          <input type="email" name="email" autocomplete="email">
         </label>
         <label class="quote-field">
           <span class="quote-label">Teléfono <small>(opcional · agiliza la respuesta)</small></span>
@@ -3299,7 +3299,7 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 
         <div class="quote-actions">
           <button type="button" class="btn btn-outline" onclick="closeQuoteForm()">Cancelar</button>
-          <button type="submit" class="btn btn-clay" id="quote-submit-btn">Enviar solicitud</button>
+          <button type="submit" class="btn btn-clay" id="quote-submit-btn">Enviar por WhatsApp</button>
         </div>
 
         <div class="quote-status" id="quote-status" role="status" aria-live="polite"></div>
@@ -3308,8 +3308,9 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 
     <div class="quote-success" id="quote-success" hidden>
       <div class="quote-success-icon">✓</div>
-      <h3 class="quote-success-title serif">Solicitud <em>enviada</em></h3>
-      <p class="quote-success-text">Gracias. Te respondemos en menos de 24 h laborables al email que nos has indicado. Si has dejado teléfono también podemos llamarte para resolver dudas.</p>
+      <h3 class="quote-success-title serif">Ya casi <em>está</em></h3>
+      <p class="quote-success-text">Te hemos abierto WhatsApp con tu consulta ya escrita: <strong>solo tienes que darle a enviar</strong> y te respondemos por ahí.</p>
+      <p class="quote-success-text"><a id="quote-wa-link" href="#" target="_blank" rel="noopener" style="text-decoration:underline">¿No se ha abierto WhatsApp? Pulsa aquí</a></p>
       <button type="button" class="btn btn-outline" onclick="closeQuoteForm()">Cerrar</button>
     </div>
   </div>
@@ -6046,38 +6047,36 @@ document.getElementById('quote-form').addEventListener('submit', async function(
 
   if (!form.reportValidity()) return;
 
-  submitBtn.disabled  = true;
-  submitBtn.textContent = 'Enviando…';
-  status.textContent  = '';
-
   const data = Object.fromEntries(new FormData(form));
+  if (data._honey) return; // bot
 
-  try {
-    const res = await fetch(QUOTE_ENDPOINT, {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body:    JSON.stringify(data)
-    });
-    const json = await res.json().catch(() => ({}));
-    if (res.ok && (json.success === 'true' || json.success === true)) {
-      document.getElementById('quote-form-wrap').hidden = true;
-      document.getElementById('quote-success').hidden   = false;
-    } else {
-      // FormSubmit responde así la primera vez con un email no verificado
-      const msg = String(json.message || '').toLowerCase();
-      if (msg.includes('activate') || msg.includes('confirm') || msg.includes('verifi')) {
-        throw new Error('Servicio de email pendiente de activación. Inténtalo de nuevo en unos minutos o escribe a precissainstitute@gmail.com');
-      }
-      throw new Error(json.message || 'fail');
-    }
-  } catch (err) {
-    status.textContent = err.message && err.message.length > 30
-      ? err.message
-      : 'No se pudo enviar. Inténtalo de nuevo o escribe a precissainstitute@gmail.com';
-  } finally {
-    submitBtn.disabled  = false;
-    submitBtn.textContent = 'Enviar solicitud';
-  }
+  // Canal principal: WhatsApp con la consulta ya escrita. Se abre DENTRO
+  // del gesto (antes de cualquier await) o el navegador lo bloquearía.
+  const modo = document.getElementById('quote-overlay').getAttribute('data-mode');
+  const que  = data.producto && data.producto !== '(Consulta general)' ? data.producto : '';
+  let texto = 'Hola, soy ' + String(data.nombre || '').trim() + '. ';
+  if (modo === 'curso')     texto += que ? 'Me interesa el curso "' + que + '" y me gustaría recibir información (fechas, precio y modalidad).' : 'Me gustaría recibir información sobre vuestros cursos.';
+  else if (modo === 'demo') texto += 'Me gustaría solicitar una demostración' + (que ? ' de ' + que : '') + '.';
+  else                      texto += 'Me gustaría recibir presupuesto' + (que ? ' de ' + que : '') + '.';
+  if (data.profesional) texto += '\n(' + data.profesional + (data.empresa ? ' · ' + data.empresa : '') + ')';
+  if (String(data.mensaje || '').trim()) texto += '\n\n' + String(data.mensaje).trim();
+  const wa = 'https://wa.me/34601056706?text=' + encodeURIComponent(texto);
+  const abierto = window.open(wa, '_blank');
+  if (!abierto) location.href = wa;
+
+  // Copia de respaldo al correo, en segundo plano: si la persona no llega
+  // a pulsar "enviar" en WhatsApp, la solicitud no se pierde.
+  data.canal = 'WhatsApp (copia de respaldo)';
+  fetch(QUOTE_ENDPOINT, {
+    method: 'POST', keepalive: true,
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(data)
+  }).catch(() => {});
+
+  status.textContent = '';
+  document.getElementById('quote-wa-link').href = wa;
+  document.getElementById('quote-form-wrap').hidden = true;
+  document.getElementById('quote-success').hidden   = false;
 });
 
 // ─── INIT ───────────────────────────────────────────────
