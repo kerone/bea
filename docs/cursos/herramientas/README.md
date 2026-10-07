@@ -10,10 +10,18 @@ Flujo usado para el curso 07 (Depilación láser · manual de 60 h):
 3. `python3 -I construir-depilacion-laser.py <carpeta>` — genera:
    - la materia `.md` con las imágenes embebidas (se sube desde el panel),
    - la copia versionada para `docs/cursos/` con imágenes como archivos,
-   - el deck HTML con el estilo de PRECISSA (CSS/JS del deck original).
-4. `node qa-deck.cjs deck.html carpeta-capturas` — comprueba que ninguna
+   - (el deck automático que generaba este script se descartó: troceaba el
+     texto en diapositivas y no servía para dar clase).
+4. `python3 -I deck-depilacion-laser.py <carpeta>` — el deck DOCENTE real:
+   diapositivas escritas a mano (una idea por pantalla, infografías con sus
+   puntos clave, casos, cronogramas de las jornadas) y un panel de GUION
+   (botón "Guion" o tecla N) con el texto íntegro del manual de cada
+   diapositiva, para quien expone. Reutiliza el CSS/JS del deck original de
+   PRECISSA y añade componentes (.split, .cards, .kpis, .pasos, .checks…).
+5. `node qa-deck.cjs deck.html carpeta-capturas` — comprueba que ninguna
    diapositiva desborda los 720 px y saca capturas de muestra
    (`NODE_PATH` no sirve con ESM: el script usa `require` con ruta absoluta).
+   `node qa-js.cjs deck.html carpeta` comprueba errores JS, navegación y guion.
 
 La subida al bucket privado la hace la propietaria desde el panel de
 administración (Materia → elegir archivo · Lección → subir HTML).

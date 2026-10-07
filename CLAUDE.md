@@ -144,8 +144,10 @@ temporal, solo a quien tiene matrícula (o es admin).
   (7 módulos online + 8 jornadas presenciales). La fuente versionada está en
   `docs/cursos/07-depilacion-laser.md` con sus 6 infografías en
   `docs/cursos/img/`. La materia del aula (mismo texto con las imágenes
-  embebidas en base64) y el deck de 78 diapositivas se generan con el
-  script de la sesión y **se suben desde el panel de administración** al
+  embebidas en base64) se genera con `docs/cursos/herramientas/`; el deck
+  docente (60 diapositivas escritas a mano + panel de guion con el texto del
+  manual, `deck-depilacion-laser.py`) también. Ambos **se suben desde el
+  panel de administración** al
   bucket privado (Materia → elegir archivo .md · Lección 1 → subir HTML).
   Las imágenes van embebidas porque la materia se sanitiza con DOMPurify,
   que admite `data:` en `<img>`, y así un solo archivo lo contiene todo.
