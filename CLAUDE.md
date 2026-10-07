@@ -144,7 +144,9 @@ temporal, solo a quien tiene matrícula (o es admin).
   (7 módulos online + 8 jornadas presenciales). La fuente versionada está en
   `docs/cursos/07-depilacion-laser.md` con sus 6 infografías en
   `docs/cursos/img/`. La materia del aula (mismo texto con las imágenes
-  embebidas en base64) se genera con `docs/cursos/herramientas/`; el deck
+  embebidas en base64 y estructura de libro: componentes `ac-*` que marked
+  deja pasar y DOMPurify admite) se genera con `materia-libro.py` en
+  `docs/cursos/herramientas/`; el deck
   docente (60 diapositivas escritas a mano + panel de guion con el texto del
   manual, `deck-depilacion-laser.py`) también. Ambos **se suben desde el
   panel de administración** al

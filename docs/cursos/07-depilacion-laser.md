@@ -2,29 +2,17 @@
      materia del aula (la copia real, con las imágenes embebidas, vive en el
      bucket privado course-private y se sube desde el panel de administración). -->
 
-**MANUAL PROFESIONAL**
+<div class="ac-portada"><span class="ac-portada-k">Manual profesional</span><h1>Depilación láser</h1><p class="ac-portada-sub">Fundamentos, valoración, seguridad y práctica supervisada</p><div class="ac-kpis"><div><b>60</b><span>horas</span></div><div><b>28 h</b><span>teoría online</span></div><div><b>32 h</b><span>práctica presencial</span></div><div><b>7</b><span>módulos teóricos</span></div><div><b>8</b><span>jornadas prácticas</span></div></div></div>
 
-# Depilación láser
+<figure class="ac-fig"><img src="img/protocolo-seguridad.jpg" alt="Infografía: protocolo y seguridad antes, durante y después de la sesión"><figcaption>Secuencia didáctica de referencia para cada sesión.</figcaption></figure>
 
-Fundamentos, valoración, seguridad y práctica supervisada
+<p class="ac-lead">Material formativo en español con ilustraciones originales, ejercicios, pruebas de aprendizaje, casos y rúbricas.</p>
 
-**60 HORAS**
+<div class="ac-aviso"><b>Aviso de alcance</b><p>Este manual es material de formación general y no sustituye la capacitación específica del equipo, sus instrucciones de uso, la valoración sanitaria cuando proceda ni la normativa estatal y autonómica aplicable. La autorización para operar, el ámbito profesional y los requisitos del centro deben verificarse localmente. No se prescriben parámetros universales: se aplican únicamente los indicados por el fabricante para el dispositivo, la zona y la persona, dentro de la competencia profesional y con supervisión adecuada.</p></div>
 
-28 h teoría online  |  32 h práctica presencial
+<nav class="ac-indice"><span class="ac-indice-k">Índice</span><ol><li><a href="#" data-ir="sec-como-usar-este-manual">Cómo usar este manual</a></li><li><a href="#" data-ir="sec-modulo-1-piel-pelo-y-foliculo">Módulo 1. Piel, pelo y folículo</a></li><li><a href="#" data-ir="sec-modulo-2-ciclo-piloso-y-fototipos">Módulo 2. Ciclo piloso y fototipos</a></li><li><a href="#" data-ir="sec-modulo-3-fisica-de-la-luz-y-fototermolisis-selectiva">Módulo 3. Física de la luz y fototermólisis selectiva</a></li><li><a href="#" data-ir="sec-modulo-4-tecnologias-y-equipos">Módulo 4. Tecnologías y equipos</a></li><li><a href="#" data-ir="sec-modulo-5-valoracion-anamnesis-y-criterios-de-aplazamiento">Módulo 5. Valoración, anamnesis y criterios de aplazamiento</a></li><li><a href="#" data-ir="sec-modulo-6-seguridad-protocolo-y-efectos-adversos">Módulo 6. Seguridad, protocolo y efectos adversos</a></li><li><a href="#" data-ir="sec-modulo-7-cuidados-documentacion-casos-y-repaso">Módulo 7. Cuidados, documentación, casos y repaso</a></li><li><a href="#" data-ir="sec-practicas-presenciales">Prácticas presenciales</a></li><li><a href="#" data-ir="sec-cinco-casos-practicos">Cinco casos prácticos</a></li><li><a href="#" data-ir="sec-examen-practico-integrado">Examen práctico integrado</a></li><li><a href="#" data-ir="sec-fuentes-y-lecturas-de-referencia">Fuentes y lecturas de referencia</a></li></ol></nav>
 
-7 módulos teóricos  |  8 jornadas prácticas
-
-![Infografía: protocolo y seguridad antes, durante y después de la sesión](img/protocolo-seguridad.jpg)
-
-*Secuencia didáctica de referencia para cada sesión.*
-
-Material formativo en español con ilustraciones originales, ejercicios, pruebas de aprendizaje, casos y rúbricas.
-
-### Aviso de alcance
-
-Este manual es material de formación general y no sustituye la capacitación específica del equipo, sus instrucciones de uso, la valoración sanitaria cuando proceda ni la normativa estatal y autonómica aplicable. La autorización para operar, el ámbito profesional y los requisitos del centro deben verificarse localmente. No se prescriben parámetros universales: se aplican únicamente los indicados por el fabricante para el dispositivo, la zona y la persona, dentro de la competencia profesional y con supervisión adecuada.
-
-## Cómo usar este manual
+<div class="ac-cap" id="sec-como-usar-este-manual"><span class="ac-cap-n">Introducción</span><h2>Cómo usar este manual</h2></div>
 
 El curso suma 60 horas exactas: siete módulos de cuatro horas (28 h de estudio online) y ocho jornadas presenciales de cuatro horas (32 h). Cada módulo combina explicación, tablas de síntesis y actividades. Las jornadas organizan demostración, práctica entre compañeras o modelos debidamente informados y supervisión docente. La práctica directa sobre personas solo se realiza si el centro está autorizado, con consentimiento, evaluación previa y supervisión competente.
 
@@ -47,18 +35,11 @@ El curso suma 60 horas exactas: siete módulos de cuatro horas (28 h de estudio 
 | 7. Cuidados, documentación, casos y repaso | 7. Incidencias, mantenimiento y documentación |
 |  | 8. Evaluación práctica integrada |
 
-## Módulo 1. Piel, pelo y folículo
+<div class="ac-cap" id="sec-modulo-1-piel-pelo-y-foliculo"><span class="ac-cap-n">Módulo 1 de 7</span><h2>Piel, pelo y folículo</h2><span class="ac-cap-meta">Duración: 4 horas de estudio online.</span></div>
 
-Duración: 4 horas de estudio online.
+<div class="ac-obj"><span class="ac-obj-k">Resultados de aprendizaje</span><ol><li>Distinguir las capas cutáneas y sus funciones generales.</li><li>Reconocer las partes del pelo y del folículo relevantes para la fotodepilación.</li><li>Explicar por qué la melanina del tallo y la unidad pilosebácea es un cromóforo principal.</li></ol></div>
 
-### Resultados de aprendizaje
-- Distinguir las capas cutáneas y sus funciones generales.
-- Reconocer las partes del pelo y del folículo relevantes para la fotodepilación.
-- Explicar por qué la melanina del tallo y la unidad pilosebácea es un cromóforo principal.
-
-![Infografía: anatomía del folículo piloso (epidermis, dermis, hipodermis, bulbo, papila, melanocitos)](img/anatomia-foliculo.jpg)
-
-*Esquema 1. Anatomía simplificada del folículo.*
+<figure class="ac-fig"><img src="img/anatomia-foliculo.jpg" alt="Infografía: anatomía del folículo piloso (epidermis, dermis, hipodermis, bulbo, papila, melanocitos)"><figcaption>Esquema 1. Anatomía simplificada del folículo.</figcaption></figure>
 
 ### Piel y barrera cutánea
 
@@ -87,18 +68,11 @@ El pelo terminal suele ser más grueso y pigmentado que el vello fino; pelo blan
 | Glándula sebácea | Secreta sebo hacia el canal folicular. |
 | Músculo erector | Eleva el pelo; no es el blanco térmico. |
 
-## Módulo 2. Ciclo piloso y fototipos
+<div class="ac-cap" id="sec-modulo-2-ciclo-piloso-y-fototipos"><span class="ac-cap-n">Módulo 2 de 7</span><h2>Ciclo piloso y fototipos</h2><span class="ac-cap-meta">Duración: 4 horas de estudio online.</span></div>
 
-Duración: 4 horas de estudio online.
+<div class="ac-obj"><span class="ac-obj-k">Resultados de aprendizaje</span><ol><li>Describir anágena, catágena y telógena.</li><li>Relacionar el ciclo asíncrono con la necesidad de sesiones espaciadas.</li><li>Utilizar Fitzpatrick como referencia complementaria y no como ajuste automático.</li></ol></div>
 
-### Resultados de aprendizaje
-- Describir anágena, catágena y telógena.
-- Relacionar el ciclo asíncrono con la necesidad de sesiones espaciadas.
-- Utilizar Fitzpatrick como referencia complementaria y no como ajuste automático.
-
-![Infografía: ciclo piloso con las fases anágena, catágena y telógena](img/ciclo-piloso.jpg)
-
-*Esquema 2. Fases del ciclo piloso.*
+<figure class="ac-fig"><img src="img/ciclo-piloso.jpg" alt="Infografía: ciclo piloso con las fases anágena, catágena y telógena"><figcaption>Esquema 2. Fases del ciclo piloso.</figcaption></figure>
 
 ### Fases del ciclo
 
@@ -112,9 +86,7 @@ Fitzpatrick clasifica la respuesta habitual a radiación ultravioleta (tendencia
 
 En pieles más pigmentadas o bronceadas, la epidermis compite más por la energía; aumenta la importancia de elegir una longitud de onda y un protocolo apropiados al dispositivo, mantener enfriamiento indicado y respetar la prueba de tolerancia. Un fototipo no habilita a tratar ni determina por sí solo la fluencia.
 
-![Infografía: fototipos de piel I a VI según Fitzpatrick](img/fototipos-fitzpatrick.jpg)
-
-*Esquema 3. Representación ilustrativa de Fitzpatrick. La asignación individual requiere entrevista y observación.*
+<figure class="ac-fig"><img src="img/fototipos-fitzpatrick.jpg" alt="Infografía: fototipos de piel I a VI según Fitzpatrick"><figcaption>Esquema 3. Representación ilustrativa de Fitzpatrick. La asignación individual requiere entrevista y observación.</figcaption></figure>
 
 ### Tabla de referencia
 
@@ -127,18 +99,11 @@ En pieles más pigmentadas o bronceadas, la epidermis compite más por la energ�
 | V | Raramente se quema; pigmentación intensa | Mayor competencia epidérmica posible. |
 | VI | Muy raramente se quema; pigmentación profunda | Elección técnica y supervisión especializadas. |
 
-## Módulo 3. Física de la luz y fototermólisis selectiva
+<div class="ac-cap" id="sec-modulo-3-fisica-de-la-luz-y-fototermolisis-selectiva"><span class="ac-cap-n">Módulo 3 de 7</span><h2>Física de la luz y fototermólisis selectiva</h2><span class="ac-cap-meta">Duración: 4 horas de estudio online.</span></div>
 
-Duración: 4 horas de estudio online.
+<div class="ac-obj"><span class="ac-obj-k">Resultados de aprendizaje</span><ol><li>Diferenciar láser de luz pulsada intensa.</li><li>Definir longitud de onda, fluencia, duración de pulso, frecuencia, spot y enfriamiento.</li><li>Explicar el principio de fototermólisis selectiva y sus límites.</li></ol></div>
 
-### Resultados de aprendizaje
-- Diferenciar láser de luz pulsada intensa.
-- Definir longitud de onda, fluencia, duración de pulso, frecuencia, spot y enfriamiento.
-- Explicar el principio de fototermólisis selectiva y sus límites.
-
-![Infografía: fototermólisis selectiva, de la absorción de la luz por la melanina al daño selectivo del folículo](img/fototermolisis-selectiva.jpg)
-
-*Esquema 4. Cadena conceptual de fototermólisis selectiva.*
+<figure class="ac-fig"><img src="img/fototermolisis-selectiva.jpg" alt="Infografía: fototermólisis selectiva, de la absorción de la luz por la melanina al daño selectivo del folículo"><figcaption>Esquema 4. Cadena conceptual de fototermólisis selectiva.</figcaption></figure>
 
 ### Luz y cromóforos
 
@@ -156,9 +121,7 @@ La luz se absorbe en el cromóforo, se convierte en calor y produce lesión tér
 
 Un enrojecimiento perifolicular leve y transitorio puede aparecer, pero no debe buscarse una respuesta intensa como prueba de eficacia. Dolor desproporcionado, blanqueamiento grisáceo, ampolla, carbonización o eritema confluyente: detener inmediatamente y activar el protocolo de incidencia.
 
-### Actividad de aprendizaje
-
-Escribe una explicación de 120 palabras comparando la fluencia y la duración del pulso; añade dos motivos por los que nunca deben copiarse ajustes entre equipos.
+<div class="ac-act"><span class="ac-act-k">Actividad de aprendizaje</span><p>Escribe una explicación de 120 palabras comparando la fluencia y la duración del pulso; añade dos motivos por los que nunca deben copiarse ajustes entre equipos.</p></div>
 
 ### Ficha técnica
 
@@ -171,18 +134,11 @@ Escribe una explicación de 120 palabras comparando la fluencia y la duración d
 | Spot | Área iluminada | ¿El cabezal está apoyado y perpendicular según IFU? |
 | Enfriamiento | Control térmico epidérmico | ¿Está operativo y es suficiente según instrucciones? |
 
-## Módulo 4. Tecnologías y equipos
+<div class="ac-cap" id="sec-modulo-4-tecnologias-y-equipos"><span class="ac-cap-n">Módulo 4 de 7</span><h2>Tecnologías y equipos</h2><span class="ac-cap-meta">Duración: 4 horas de estudio online.</span></div>
 
-Duración: 4 horas de estudio online.
+<div class="ac-obj"><span class="ac-obj-k">Resultados de aprendizaje</span><ol><li>Comparar Diodo, Alejandrita, Nd:YAG e IPL con lenguaje no absoluto.</li><li>Reconocer que la etiqueta comercial no garantiza seguridad o eficacia.</li><li>Leer las instrucciones de uso y el etiquetado del equipo antes de operarlo.</li></ol></div>
 
-### Resultados de aprendizaje
-- Comparar Diodo, Alejandrita, Nd:YAG e IPL con lenguaje no absoluto.
-- Reconocer que la etiqueta comercial no garantiza seguridad o eficacia.
-- Leer las instrucciones de uso y el etiquetado del equipo antes de operarlo.
-
-![Infografía: comparativa de diodo, alejandrita, Nd:YAG e IPL](img/comparativa-tecnologias.jpg)
-
-*Esquema 5. Tecnologías y rangos espectrales indicativos; no representa una prescripción.*
+<figure class="ac-fig"><img src="img/comparativa-tecnologias.jpg" alt="Infografía: comparativa de diodo, alejandrita, Nd:YAG e IPL"><figcaption>Esquema 5. Tecnologías y rangos espectrales indicativos; no representa una prescripción.</figcaption></figure>
 
 ### Comparación orientativa
 
@@ -208,14 +164,9 @@ Las tablas de esta formación son didácticas y no clasifican un producto comerc
 | IPL | Luz pulsada filtrada | Espectro amplio; selección de filtro importa | No es láser; filtros y pulso dependen del equipo. |
 | SHR / barrido | Modo comercial de algunos sistemas | Puede implicar pases repetidos y movimiento | Definición varía; seguir IFU exacta. |
 
-## Módulo 5. Valoración, anamnesis y criterios de aplazamiento
+<div class="ac-cap" id="sec-modulo-5-valoracion-anamnesis-y-criterios-de-aplazamiento"><span class="ac-cap-n">Módulo 5 de 7</span><h2>Valoración, anamnesis y criterios de aplazamiento</h2><span class="ac-cap-meta">Duración: 4 horas de estudio online.</span></div>
 
-Duración: 4 horas de estudio online.
-
-### Resultados de aprendizaje
-- Realizar entrevista estructurada con privacidad y consentimiento.
-- Identificar datos que requieren aplazar, consultar o derivar.
-- Documentar zona, pelo, piel, exposición, medicación e historial.
+<div class="ac-obj"><span class="ac-obj-k">Resultados de aprendizaje</span><ol><li>Realizar entrevista estructurada con privacidad y consentimiento.</li><li>Identificar datos que requieren aplazar, consultar o derivar.</li><li>Documentar zona, pelo, piel, exposición, medicación e historial.</li></ol></div>
 
 ### Anamnesis y evaluación
 
@@ -233,9 +184,7 @@ Evitar listas simplistas de “contraindicación absoluta” universales. El alc
 
 Clasificar cada consulta: tratar solo si profesional competente confirma idoneidad y se cumplen todas las condiciones; aplazar si hay exposición/bronceado, irritación, preparación inadecuada o evaluación incompleta; derivar/consultar si hay lesión, condición médica o medicación que excede competencia. La prueba de parche/sensibilidad se realiza donde y como indique IFU y protocolo del centro; observar y documentar el intervalo indicado antes de tratar área extensa.
 
-### Actividad de aprendizaje
-
-Completa la ficha de anamnesis de una persona ficticia y marca decisión: tratar, aplazar o derivar, justificando cada dato.
+<div class="ac-act"><span class="ac-act-k">Actividad de aprendizaje</span><p>Completa la ficha de anamnesis de una persona ficticia y marca decisión: tratar, aplazar o derivar, justificando cada dato.</p></div>
 
 ### Ficha de valoración previa
 
@@ -251,18 +200,11 @@ Completa la ficha de anamnesis de una persona ficticia y marca decisión: tratar
 | Prueba previa | Parámetros según IFU ___  sitio ___  fecha/revisión ___ |
 | Consentimiento/documentación | □ Consentimiento  □ Fotografías autorizadas (si aplica) |
 
-## Módulo 6. Seguridad, protocolo y efectos adversos
+<div class="ac-cap" id="sec-modulo-6-seguridad-protocolo-y-efectos-adversos"><span class="ac-cap-n">Módulo 6 de 7</span><h2>Seguridad, protocolo y efectos adversos</h2><span class="ac-cap-meta">Duración: 4 horas de estudio online.</span></div>
 
-Duración: 4 horas de estudio online.
+<div class="ac-obj"><span class="ac-obj-k">Resultados de aprendizaje</span><ol><li>Aplicar controles de ingeniería, administrativos y de protección personal.</li><li>Seguir una secuencia de sesión segura sin omitir barreras.</li><li>Reconocer y responder a incidentes dentro de la propia competencia.</li></ol></div>
 
-### Resultados de aprendizaje
-- Aplicar controles de ingeniería, administrativos y de protección personal.
-- Seguir una secuencia de sesión segura sin omitir barreras.
-- Reconocer y responder a incidentes dentro de la propia competencia.
-
-![Infografía: protocolo y seguridad antes, durante y después de la sesión](img/protocolo-seguridad.jpg)
-
-*Esquema 6. Controles y flujo general; la instrucción de uso específica prevalece.*
+<figure class="ac-fig"><img src="img/protocolo-seguridad.jpg" alt="Infografía: protocolo y seguridad antes, durante y después de la sesión"><figcaption>Esquema 6. Controles y flujo general; la instrucción de uso específica prevalece.</figcaption></figure>
 
 ### Seguridad del recinto y ocular
 
@@ -286,14 +228,9 @@ Limpiar y desinfectar superficies y aplicadores entre usuarios siguiendo materia
 |---|---|---|
 | □ Sala señalizada y acceso controlado □ Equipo y enfriamiento verificados □ Gafas correctas e íntegras □ Consentimiento y piel revisados | □ Gafas puestas por todos □ Cabezal/contacto según IFU □ Observación continua de piel y dolor □ Detener ante señal inesperada | □ Cuidados según protocolo □ Instrucciones posteriores entregadas □ Sesión registrada □ Equipo limpio y fallo comunicado |
 
-## Módulo 7. Cuidados, documentación, casos y repaso
+<div class="ac-cap" id="sec-modulo-7-cuidados-documentacion-casos-y-repaso"><span class="ac-cap-n">Módulo 7 de 7</span><h2>Cuidados, documentación, casos y repaso</h2><span class="ac-cap-meta">Duración: 4 horas de estudio online.</span></div>
 
-Duración: 4 horas de estudio online.
-
-### Resultados de aprendizaje
-- Indicar cuidados posteriores individualizados y signos de alarma.
-- Registrar los datos necesarios para trazabilidad y continuidad.
-- Resolver casos con una decisión segura y una explicación comprensible.
+<div class="ac-obj"><span class="ac-obj-k">Resultados de aprendizaje</span><ol><li>Indicar cuidados posteriores individualizados y signos de alarma.</li><li>Registrar los datos necesarios para trazabilidad y continuidad.</li><li>Resolver casos con una decisión segura y una explicación comprensible.</li></ol></div>
 
 ### Cuidados posteriores
 
@@ -309,9 +246,7 @@ Fecha y profesional; zona; evaluación actualizada; equipo, aplicador y versión
 
 Hablar de reducción del vello y respuesta variable, no de garantía de depilación permanente universal. Explicar que el pelo claro/blanco puede responder poco y que factores hormonales y ciclo afectan la evolución. Evitar fotografías o datos sensibles sin autorización y explicar cuándo una derivación es lo más prudente.
 
-### Actividad de aprendizaje
-
-Elabora una hoja de instrucciones posteriores en lenguaje sencillo y un registro de sesión sin datos identificativos innecesarios.
+<div class="ac-act"><span class="ac-act-k">Actividad de aprendizaje</span><p>Elabora una hoja de instrucciones posteriores en lenguaje sencillo y un registro de sesión sin datos identificativos innecesarios.</p></div>
 
 ### Plantilla de registro
 
@@ -321,7 +256,7 @@ Elabora una hoja de instrucciones posteriores en lenguaje sencillo y un registro
 |  |  |  |  |  |  |
 |  |  |  |  |  |  |
 
-## Prácticas presenciales
+<div class="ac-cap" id="sec-practicas-presenciales"><span class="ac-cap-n">Bloque presencial · 32 h</span><h2>Prácticas presenciales</h2></div>
 
 Ocho jornadas de cuatro horas (32 h). Cada actividad debe adaptarse al centro, competencias de la docente, autorización local, equipo disponible e instrucciones del fabricante. El entrenamiento en simulador y material didáctico precede cualquier aplicación en persona. La modelo/paciente recibe información, puede retirarse en cualquier momento y nunca se usa como demostración sin consentimiento.
 
@@ -335,7 +270,7 @@ Ocho jornadas de cuatro horas (32 h). Cada actividad debe adaptarse al centro, c
 | 2:00–3:00 | selección/inspección de gafas certificadas y cuidado |
 | 3:00–4:00 | simulación de comprobaciones preuso y parada segura |
 
-Evidencia: Demostrar checklist completo y explicar por qué las gafas deben corresponder al rango espectral.
+<div class="ac-evid"><b>Evidencia de aprendizaje</b><p>Demostrar checklist completo y explicar por qué las gafas deben corresponder al rango espectral.</p></div>
 
 ### Jornada 2. Consulta y valoración
 
@@ -347,7 +282,7 @@ Evidencia: Demostrar checklist completo y explicar por qué las gafas deben corr
 | 2:15–3:15 | resolver fichas con decisión tratar/aplazar/derivar |
 | 3:15–4:00 | feedback y documentación |
 
-Evidencia: Completar ficha simulada, identificar datos faltantes y no diagnosticar lesiones.
+<div class="ac-evid"><b>Evidencia de aprendizaje</b><p>Completar ficha simulada, identificar datos faltantes y no diagnosticar lesiones.</p></div>
 
 ### Jornada 3. Preparación y protocolo simulado
 
@@ -359,7 +294,7 @@ Evidencia: Completar ficha simulada, identificar datos faltantes y no diagnostic
 | 2:15–3:15 | postura, apoyo y cobertura con dispositivo desactivado |
 | 3:15–4:00 | auditoría por pares con lista de cotejo |
 
-Evidencia: Completar secuencia en orden sin saltar controles; describir criterio de parada.
+<div class="ac-evid"><b>Evidencia de aprendizaje</b><p>Completar secuencia en orden sin saltar controles; describir criterio de parada.</p></div>
 
 ### Jornada 4. Prueba de parche y toma de decisiones
 
@@ -371,7 +306,7 @@ Evidencia: Completar secuencia en orden sin saltar controles; describir criterio
 | 2:30–3:15 | registrar parámetros/respuesta esperada y ventana de observación |
 | 3:15–4:00 | interpretar escenarios simulados |
 
-Evidencia: Nunca ampliar zona antes del intervalo y criterios indicados por protocolo/IFU.
+<div class="ac-evid"><b>Evidencia de aprendizaje</b><p>Nunca ampliar zona antes del intervalo y criterios indicados por protocolo/IFU.</p></div>
 
 ### Jornada 5. Práctica supervisada I
 
@@ -383,7 +318,7 @@ Evidencia: Nunca ampliar zona antes del intervalo y criterios indicados por prot
 | 2:45–3:30 | observación postratamiento y cuidados |
 | 3:30–4:00 | registro y devolución individual |
 
-Evidencia: La docente decide quién puede ejecutar cada paso. No se fuerza práctica real si faltan condiciones seguras.
+<div class="ac-evid"><b>Evidencia de aprendizaje</b><p>La docente decide quién puede ejecutar cada paso. No se fuerza práctica real si faltan condiciones seguras.</p></div>
 
 ### Jornada 6. Práctica supervisada II y comparación
 
@@ -395,7 +330,7 @@ Evidencia: La docente decide quién puede ejecutar cada paso. No se fuerza prác
 | 2:30–3:15 | comparar procedimientos según IFU, no parámetros copiados |
 | 3:15–4:00 | registro y debate de resultados |
 
-Evidencia: Explicar qué cambia entre equipos y qué permanece como controles universales.
+<div class="ac-evid"><b>Evidencia de aprendizaje</b><p>Explicar qué cambia entre equipos y qué permanece como controles universales.</p></div>
 
 ### Jornada 7. Incidencias y documentación
 
@@ -407,7 +342,7 @@ Evidencia: Explicar qué cambia entre equipos y qué permanece como controles un
 | 2:15–3:00 | higiene, limpieza y mantenimiento de usuario |
 | 3:00–4:00 | auditoría de fichas y protección de datos |
 
-Evidencia: Detener de inmediato al observar daño o fallo; no reanudar hasta autorización.
+<div class="ac-evid"><b>Evidencia de aprendizaje</b><p>Detener de inmediato al observar daño o fallo; no reanudar hasta autorización.</p></div>
 
 ### Jornada 8. Evaluación práctica integrada
 
@@ -420,44 +355,23 @@ Evidencia: Detener de inmediato al observar daño o fallo; no reanudar hasta aut
 | 2:50–3:30 | estación D: cierre, registro y cuidados |
 | 3:30–4:00 | feedback y plan de mejora |
 
-Evidencia: Aplicar rúbrica al final del manual; detener la prueba si aparece una falta crítica de seguridad.
+<div class="ac-evid"><b>Evidencia de aprendizaje</b><p>Aplicar rúbrica al final del manual; detener la prueba si aparece una falta crítica de seguridad.</p></div>
 
-
-## Cinco casos prácticos
+<div class="ac-cap" id="sec-cinco-casos-practicos"><span class="ac-cap-n">Para resolver</span><h2>Cinco casos prácticos</h2></div>
 
 En cada caso, la alumna debe presentar: datos que faltan, decisión, fundamento, explicación a la persona, registro y acción de seguimiento.
 
-### Caso 1. Bronceado reciente y cambio de hábitos
+<div class="ac-caso"><div class="ac-caso-head"><span>Caso 1</span><h3>Bronceado reciente y cambio de hábitos</h3></div><p class="ac-caso-k">Escenario</p><p>Cliente con fototipo III reportado, piel notablemente más oscura tras vacaciones y deseo de sesión inmediata.</p><p class="ac-caso-k">Respuesta esperada</p><p>Aplazar; documentar exposición y estado actual; seguir criterios de IFU/protocolo sobre espera y reevaluar. Explicar de forma comprensible que fototipo y pigmentación presente son datos distintos.</p></div>
 
-Escenario: Cliente con fototipo III reportado, piel notablemente más oscura tras vacaciones y deseo de sesión inmediata.
+<div class="ac-caso"><div class="ac-caso-head"><span>Caso 2</span><h3>Pelo blanco y expectativas</h3></div><p class="ac-caso-k">Escenario</p><p>Cliente solicita eliminación total de pelo blanco en mentón tras una sesión.</p><p class="ac-caso-k">Respuesta esperada</p><p>Explicar la baja disponibilidad de melanina y respuesta limitada; no garantizar. Revisar opciones dentro de competencia y derivar/consultar si existe crecimiento nuevo que requiera evaluación médica.</p></div>
 
-Respuesta esperada: Aplazar; documentar exposición y estado actual; seguir criterios de IFU/protocolo sobre espera y reevaluar. Explicar de forma comprensible que fototipo y pigmentación presente son datos distintos.
+<div class="ac-caso"><div class="ac-caso-head"><span>Caso 3</span><h3>Medicación fotosensibilizante posible</h3></div><p class="ac-caso-k">Escenario</p><p>La persona no recuerda el nombre de su antibiótico y quiere proceder.</p><p class="ac-caso-k">Respuesta esperada</p><p>Aplazar hasta identificar fármaco y aclarar compatibilidad mediante IFU/protocolo y profesional prescriptor cuando corresponda. No indicar suspensión.</p></div>
 
-### Caso 2. Pelo blanco y expectativas
+<div class="ac-caso"><div class="ac-caso-head"><span>Caso 4</span><h3>Piel reactiva durante la sesión</h3></div><p class="ac-caso-k">Escenario</p><p>Aparece dolor agudo y blanqueamiento localizado después de un disparo, sin ampolla aún.</p><p class="ac-caso-k">Respuesta esperada</p><p>Interrumpir de inmediato emisión y tratamiento; valorar zona, aplicar protocolo de primeros auxilios dentro de formación, solicitar evaluación sanitaria adecuada, registrar y reportar. No reanudar.</p></div>
 
-Escenario: Cliente solicita eliminación total de pelo blanco en mentón tras una sesión.
+<div class="ac-caso"><div class="ac-caso-head"><span>Caso 5</span><h3>Protección ocular no verificada</h3></div><p class="ac-caso-k">Escenario</p><p>Las gafas disponibles son oscuras pero no muestran rango ni certificación legibles para el equipo.</p><p class="ac-caso-k">Respuesta esperada</p><p>No iniciar. Confirmar equipo de protección apropiado con fabricante/responsable de seguridad; limitar acceso y posponer hasta disponer de barrera verificada.</p></div>
 
-Respuesta esperada: Explicar la baja disponibilidad de melanina y respuesta limitada; no garantizar. Revisar opciones dentro de competencia y derivar/consultar si existe crecimiento nuevo que requiera evaluación médica.
-
-### Caso 3. Medicación fotosensibilizante posible
-
-Escenario: La persona no recuerda el nombre de su antibiótico y quiere proceder.
-
-Respuesta esperada: Aplazar hasta identificar fármaco y aclarar compatibilidad mediante IFU/protocolo y profesional prescriptor cuando corresponda. No indicar suspensión.
-
-### Caso 4. Piel reactiva durante la sesión
-
-Escenario: Aparece dolor agudo y blanqueamiento localizado después de un disparo, sin ampolla aún.
-
-Respuesta esperada: Interrumpir de inmediato emisión y tratamiento; valorar zona, aplicar protocolo de primeros auxilios dentro de formación, solicitar evaluación sanitaria adecuada, registrar y reportar. No reanudar.
-
-### Caso 5. Protección ocular no verificada
-
-Escenario: Las gafas disponibles son oscuras pero no muestran rango ni certificación legibles para el equipo.
-
-Respuesta esperada: No iniciar. Confirmar equipo de protección apropiado con fabricante/responsable de seguridad; limitar acceso y posponer hasta disponer de barrera verificada.
-
-## Examen práctico integrado
+<div class="ac-cap" id="sec-examen-practico-integrado"><span class="ac-cap-n">Evaluación</span><h2>Examen práctico integrado</h2></div>
 
 Duración orientativa: 50 minutos por alumna en estaciones. El examen puede realizarse con simulador o modelo autorizado. La operadora debe verbalizar cada comprobación; no se evalúa la rapidez por encima de seguridad. La evaluadora detiene la prueba ante riesgo inmediato.
 
@@ -484,6 +398,7 @@ Duración orientativa: 50 minutos por alumna en estaciones. El examen puede real
 Puntuación: nivel asignado (1–4) por criterio multiplicado por su peso; convertir a porcentaje del máximo. Aprobado sugerido: ≥80 % y ningún nivel 1 en seguridad ocular, decisión de idoneidad, equipo/IFU o respuesta a incidencias. Un fallo crítico implica detener la evaluación, dar retroalimentación y exigir nueva demostración antes de cualquier práctica autónoma. La aprobación del curso no sustituye licencias ni habilitaciones legales.
 
 ### Lista breve de observación
+
 - Confirma identidad, cambio clínico y consentimiento.
 - Evalúa piel y pelo; reconoce incertidumbre y aplaza cuando corresponde.
 - Identifica el equipo, consulta IFU y no extrapola ajustes.
@@ -491,7 +406,7 @@ Puntuación: nivel asignado (1–4) por criterio multiplicado por su peso; conve
 - Observa continuamente piel, dolor y equipo; detiene ante señales anormales.
 - Entrega indicaciones, explica signos de alarma y completa registro.
 
-## Fuentes y lecturas de referencia
+<div class="ac-cap" id="sec-fuentes-y-lecturas-de-referencia"><span class="ac-cap-n">Para ampliar</span><h2>Fuentes y lecturas de referencia</h2></div>
 
 Fuentes oficiales consultadas para las recomendaciones de seguridad y contexto regulatorio. Revisar las versiones vigentes y los requisitos autonómicos/municipales aplicables antes de implantar el curso o prestar servicios.
 - BOE. Real Decreto 1024/2024, de 8 de octubre, actualización de cualificaciones profesionales de Imagen Personal. Incluye competencias de valoración, selección de fotodepilación, prueba previa, gafas de protección, preparación y manejo de incidencias. https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-24101

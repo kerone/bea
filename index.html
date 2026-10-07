@@ -1490,12 +1490,15 @@ a.footer-nap-line:hover { color: var(--bg); }
 .ac-materia pre code { background: transparent; padding: 0; }
 .ac-materia blockquote { border-left: 3px solid var(--accent); padding: 8px 18px; margin: 0 0 1em; color: var(--ink-soft); background: var(--bg2); border-radius: 0 8px 8px 0; }
 .ac-materia hr { border: none; border-top: 1px solid var(--line); margin: 2em 0; }
-.ac-materia a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; word-break: break-all; }
+.ac-materia a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
 /* Imágenes embebidas en la materia (infografías de los manuales): nunca más
    anchas que la columna, o en móvil la página entera se desplaza de lado */
 .ac-materia img { display: block; max-width: 100%; height: auto; margin: 0 auto 1em; border-radius: 10px; box-shadow: 0 6px 24px rgba(36,29,23,0.10); }
-.ac-materia { overflow-wrap: anywhere; }
+.ac-materia { overflow-wrap: break-word; }
 .ac-tabla-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 0 1.4em; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+/* Tablas de pocas columnas: caben enteras ajustando el texto, sin deslizar */
+.ac-materia .ac-tabla-scroll--ajustada table { width: 100%; }
+.ac-materia .ac-tabla-scroll--ajustada th, .ac-materia .ac-tabla-scroll--ajustada td { min-width: 0; max-width: none; }
 .ac-materia table { width: max-content; min-width: 100%; border-collapse: collapse; margin: 0; font-size: 14px; background: var(--surface); display: table; }
 .ac-materia table thead { display: table-header-group; }
 .ac-materia table tbody { display: table-row-group; }
@@ -1503,6 +1506,67 @@ a.footer-nap-line:hover { color: var(--bg); }
    nunca se aprietan letra a letra para caber en el móvil */
 .ac-materia th, .ac-materia td { overflow-wrap: normal; word-break: normal; hyphens: manual; min-width: 120px; max-width: 340px; }
 .ac-materia th { background: var(--bg2); text-align: left; padding: 10px 14px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 1px solid var(--line); }
+.ac-materia tbody tr:nth-child(even) td { background: var(--bg); }
+
+/* ─── Materia con estructura de libro de texto (componentes ac-*) ───
+   Los genera la herramienta docs/cursos/herramientas/materia-libro.py; el
+   texto del manual no cambia, solo se envuelve. DOMPurify admite div/figure,
+   class, id y data-*. */
+.ac-materia { font-size: 17px; line-height: 1.75; }
+.ac-materia p { margin: 0 0 1.1em; }
+.ac-materia h3 { font-size: 23px; margin: 2em 0 0.6em; }
+.ac-materia h3::before { content: ""; display: block; width: 36px; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 12px; }
+.ac-materia ul li::marker, .ac-materia ol li::marker { color: var(--accent); }
+.ac-eyebrow, .ac-portada-k, .ac-cap-n, .ac-obj-k, .ac-act-k, .ac-indice-k, .ac-caso-head span { display: block; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
+.ac-portada { padding: 24px 0 28px; border-bottom: 1px solid var(--line); margin-bottom: 28px; }
+.ac-portada h1 { font-size: 54px; line-height: 1; margin: 10px 0 8px; }
+.ac-portada-sub { font-size: 19px; color: var(--ink-soft); margin: 0 0 22px; line-height: 1.4; }
+.ac-kpis { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.ac-kpis div { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+.ac-kpis b { display: block; font-family: var(--serif); font-size: 28px; line-height: 1; color: var(--accent-dark); margin-bottom: 5px; }
+.ac-kpis span { font-size: 11.5px; color: var(--muted); letter-spacing: 0.04em; line-height: 1.3; display: block; }
+.ac-lead { font-size: 19px; color: var(--ink-soft); line-height: 1.6; }
+.ac-aviso { background: #FBF6E9; border-left: 4px solid #C68B2F; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 0 0 28px; font-size: 15px; }
+.ac-aviso b { display: block; font-family: var(--serif); font-size: 19px; font-style: italic; color: #8A5A17; margin-bottom: 6px; }
+.ac-aviso p { margin: 0; color: var(--ink-soft); }
+.ac-indice { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px 24px; margin: 0 0 40px; }
+.ac-indice ol { list-style: none; padding: 0; margin: 10px 0 0; counter-reset: ix; columns: 2; column-gap: 32px; }
+.ac-indice li { counter-increment: ix; break-inside: avoid; padding: 7px 0; border-bottom: 1px dashed var(--line); font-size: 14.5px; margin: 0; }
+.ac-indice li::before { content: counter(ix, decimal-leading-zero); font-family: var(--serif); font-style: italic; color: var(--accent); margin-right: 10px; white-space: nowrap; }
+.ac-indice a { color: var(--ink); text-decoration: none; overflow-wrap: normal; }
+.ac-indice a:hover { color: var(--accent-dark); text-decoration: underline; }
+.ac-cap { margin: 64px 0 24px; padding-top: 26px; border-top: 2px solid var(--ink); scroll-margin-top: 96px; }
+.ac-cap h2 { font-size: 36px; margin: 6px 0 4px; border: 0; padding: 0; line-height: 1.1; }
+.ac-cap-meta { display: block; font-size: 13px; color: var(--muted); margin-top: 4px; }
+.ac-obj { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 22px; margin: 0 0 26px; }
+.ac-obj-k { color: var(--muted); }
+.ac-obj ol { margin: 8px 0 0; padding: 0; list-style: none; counter-reset: ob; }
+.ac-obj li { counter-increment: ob; display: flex; gap: 12px; align-items: baseline; padding: 8px 0; border-top: 1px solid var(--line); font-size: 15px; line-height: 1.5; margin: 0; }
+.ac-obj li::before { content: counter(ob, decimal-leading-zero); font-family: var(--serif); font-style: italic; color: var(--accent); flex-shrink: 0; min-width: 26px; white-space: nowrap; }
+.ac-fig { margin: 24px 0 34px; }
+.ac-fig img { display: block; max-width: 100%; height: auto; margin: 0 auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(36,29,23,0.12); }
+.ac-fig figcaption { font-size: 13px; color: var(--muted); text-align: center; margin-top: 10px; font-style: italic; }
+.ac-act { background: var(--bg2); border-radius: 12px; padding: 18px 22px; margin: 8px 0 30px; }
+.ac-act-k { color: var(--accent-dark); }
+.ac-act p { margin: 6px 0 0; font-size: 15px; }
+.ac-evid { background: #EEF4EA; border-left: 4px solid #5C7A4E; border-radius: 0 10px 10px 0; padding: 12px 18px; margin: -6px 0 30px; font-size: 15px; }
+.ac-evid b { display: block; color: #3E5434; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 4px; }
+.ac-evid p { margin: 0; }
+.ac-caso { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin: 0 0 20px; }
+.ac-caso-head { background: var(--bg2); padding: 14px 20px; display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; }
+.ac-caso-head h3 { margin: 0; font-size: 22px; font-style: italic; }
+.ac-caso-head h3::before { display: none; }
+.ac-caso-k { padding: 0 20px; margin: 18px 0 4px; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.ac-caso > p:not(.ac-caso-k) { padding: 0 20px; font-size: 15px; margin: 0 0 10px; }
+.ac-caso > p:last-child { padding-bottom: 18px; color: #3E5434; }
+@media (max-width: 768px) {
+  .ac-materia { font-size: 16px; }
+  .ac-portada h1 { font-size: 40px; }
+  .ac-kpis { grid-template-columns: repeat(3, 1fr); }
+  .ac-indice ol { columns: 1; }
+  .ac-cap { margin-top: 48px; }
+  .ac-cap h2 { font-size: 30px; }
+}
 .ac-materia td { padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.5; }
 .ac-materia tr:last-child td { border-bottom: none; }
 .ac-materia-empty, .ac-materia-loading { padding: 60px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 10px; }
@@ -5572,9 +5636,18 @@ async function renderAulaMateria(course) {
     host.querySelectorAll('.ac-materia table').forEach(t => {
       const w = document.createElement('div');
       w.className = 'ac-tabla-scroll';
+      const cols = (t.querySelector('tr') || { children: [] }).children.length;
+      if (cols <= 3) w.classList.add('ac-tabla-scroll--ajustada');
       t.parentNode.insertBefore(w, t);
       w.appendChild(t);
     });
+    // Índice de la materia: desplazamiento suave sin tocar el hash (que es
+    // del router de la SPA).
+    host.querySelectorAll('[data-ir]').forEach(a => a.addEventListener('click', e => {
+      e.preventDefault();
+      const dest = host.querySelector('#' + a.dataset.ir);
+      if (dest) dest.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }));
   } catch (e) {
     // Mensaje amable: el "HTTP 404" en crudo asustaba y no orientaba.
     console.warn('[aula] materia no disponible', e);

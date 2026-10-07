@@ -7,7 +7,13 @@ Flujo usado para el curso 07 (Depilación láser · manual de 60 h):
 2. Extraer las imágenes del .docx (`unzip -j manual.docx 'word/media/*'`),
    optimizarlas a JPEG de 1000 px (Pillow) y guardar su base64 + `meta.json`
    con nombre corto y texto alternativo (ver `construir-*.py`).
-3. `python3 -I construir-depilacion-laser.py <carpeta>` — genera:
+3. `python3 -I materia-libro.py <carpeta> embed` (y `… docs`) — la MATERIA del
+   aula con estructura de libro de texto: mismo texto del manual, envuelto en
+   componentes `ac-*` (portada, índice, capítulos, objetivos, figuras,
+   actividades, evidencias, casos) que index.html sabe pintar. Los tests y el
+   examen se recortan (van a `test.questions` en courses-data.js).
+   `node qa-materia.cjs preview.html capturas` fotografía la vista previa.
+   (Versión anterior, sin estructura: `python3 -I construir-depilacion-laser.py <carpeta>`, que genera:
    - la materia `.md` con las imágenes embebidas (se sube desde el panel),
    - la copia versionada para `docs/cursos/` con imágenes como archivos,
    - (el deck automático que generaba este script se descartó: troceaba el
