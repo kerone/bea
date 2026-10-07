@@ -1495,8 +1495,10 @@ a.footer-nap-line:hover { color: var(--bg); }
    anchas que la columna, o en móvil la página entera se desplaza de lado */
 .ac-materia img { display: block; max-width: 100%; height: auto; margin: 0 auto 1em; border-radius: 10px; box-shadow: 0 6px 24px rgba(36,29,23,0.10); }
 .ac-materia { overflow-wrap: anywhere; }
-.ac-materia table { width: 100%; border-collapse: collapse; margin: 0 0 1.4em; font-size: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; display: block; overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; }
-.ac-materia table thead, .ac-materia table tbody { display: table; width: max-content; min-width: 100%; table-layout: auto; }
+.ac-tabla-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 0 1.4em; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.ac-materia table { width: max-content; min-width: 100%; border-collapse: collapse; margin: 0; font-size: 14px; background: var(--surface); display: table; }
+.ac-materia table thead { display: table-header-group; }
+.ac-materia table tbody { display: table-row-group; }
 /* Tablas anchas (rúbricas, matrices): se deslizan de lado con palabras enteras,
    nunca se aprietan letra a letra para caber en el móvil */
 .ac-materia th, .ac-materia td { overflow-wrap: normal; word-break: normal; hyphens: manual; min-width: 120px; max-width: 340px; }
@@ -5563,6 +5565,16 @@ async function renderAulaMateria(course) {
     const purifier = await loadSanitizer();
     if (purifier) html = purifier.sanitize(html);
     host.innerHTML = '<article class="ac-materia">' + html + '</article>';
+    // Tablas anchas: cada una va en un marco que se desliza de lado, con la
+    // tabla entera dentro (cabecera y cuerpo alineados). Sin esto, en móvil
+    // o se partían las palabras o cabecera y cuerpo calculaban columnas
+    // distintas.
+    host.querySelectorAll('.ac-materia table').forEach(t => {
+      const w = document.createElement('div');
+      w.className = 'ac-tabla-scroll';
+      t.parentNode.insertBefore(w, t);
+      w.appendChild(t);
+    });
   } catch (e) {
     // Mensaje amable: el "HTTP 404" en crudo asustaba y no orientaba.
     console.warn('[aula] materia no disponible', e);
