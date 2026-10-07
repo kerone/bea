@@ -10,8 +10,12 @@ def img_md(m, modo):
     v = meta[k]
     src = f'data:image/jpeg;base64,{b64[k]}' if modo == 'embed' else f'img/{v["slug"]}.jpg'
     return f'![{v["alt"]}]({src})'
-materia = re.sub(r'!\[\[IMG:(image\d\.png)\]\]', lambda m: img_md(m, 'embed'), md)
-docs    = re.sub(r'!\[\[IMG:(image\d\.png)\]\]', lambda m: img_md(m, 'docs'), md)
+# Los tests y el examen NO van en la materia: viven en la pestaña "Test" del
+# aula (courses-data.js → test.questions). Se recortan del texto.
+md_materia = re.sub(r'\n## Seis tests de aprendizaje\n.*?(?=\n## Cinco casos prácticos\n)', '\n', md, flags=re.S)
+assert '## Examen final' not in md_materia and '## Cinco casos' in md_materia
+materia = re.sub(r'!\[\[IMG:(image\d\.png)\]\]', lambda m: img_md(m, 'embed'), md_materia)
+docs    = re.sub(r'!\[\[IMG:(image\d\.png)\]\]', lambda m: img_md(m, 'docs'), md_materia)
 cab = ('<!-- Depilación láser · manual profesional 60 h. Fuente versionada de la\n'
        '     materia del aula (la copia real, con las imágenes embebidas, vive en el\n'
        '     bucket privado course-private y se sube desde el panel de administración). -->\n\n')
@@ -171,11 +175,11 @@ slides.insert(2, f'''<section class="slide slide--figura">
 # Evaluación (resumen) y cierre
 slide('slide--section', 'Evaluación', 'Cómo se <em>evalúa</em>', '', h1=True)
 slide('', 'Evaluación', 'Tres pruebas, <em>una competencia</em>', '''<div class="takeaways">
-  <div class="takeaway"><div class="takeaway-text"><strong>Seis tests de aprendizaje</strong>Cinco preguntas por módulo, con respuesta razonada. Se hacen al terminar cada bloque de teoría.</div></div>
-  <div class="takeaway"><div class="takeaway-text"><strong>Examen final teórico</strong>30 preguntas, 45–60 minutos. Umbral sugerido: 24/30 (80 %), con clave razonada.</div></div>
+  <div class="takeaway"><div class="takeaway-text"><strong>Seis tests de aprendizaje</strong>Cinco preguntas por módulo para afianzar cada bloque de teoría, con la respuesta razonada.</div></div>
+  <div class="takeaway"><div class="takeaway-text"><strong>Examen final teórico</strong>30 preguntas en la pestaña <em>Test</em> del aula. Umbral sugerido: 24/30 (80 %).</div></div>
   <div class="takeaway"><div class="takeaway-text"><strong>Cinco casos prácticos</strong>Bronceado reciente, pelo blanco, medicación fotosensibilizante, piel reactiva y protección ocular no verificada.</div></div>
   <div class="takeaway"><div class="takeaway-text"><strong>Examen práctico integrado</strong>Rúbrica de seis criterios. Aprobado ≥ 80 % y ningún fallo crítico en seguridad, decisión, equipo o incidencias.</div></div>
-</div><p class="slide-meta" style="margin-top:18px">Tests, examen, casos y rúbrica completos: en la materia del curso, dentro del aula.</p>''')
+</div><p class="slide-meta" style="margin-top:18px">El examen se hace en la pestaña Test del aula; casos y rúbrica están en la materia del curso.</p>''')
 slide('slide--closing', 'PRECISSA INSTITUTE · Electroestética', 'La seguridad del paciente <em>es siempre la prioridad</em>', '''<p class="slide-lead">Protección ocular obligatoria · no tratar zonas con contraindicaciones · detener el procedimiento ante una reacción no esperada · registrar cada sesión.</p>
 <div class="refs"><strong>Fuentes de referencia:</strong> BOE, Real Decreto 1024/2024 (cualificaciones de Imagen Personal) · Reglamento de Ejecución (UE) 2022/2346 (productos del anexo XVI) · AEMPS, nota informativa NI-PS-38-2022 · FDA, Laser Products FAQ y "Your Skin". Enlaces completos en la materia del curso.</div>''')
 
