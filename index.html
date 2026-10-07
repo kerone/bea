@@ -233,7 +233,10 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   background: transparent; color: var(--ink);
   border: 1px solid var(--line-strong);
 }
-.btn-outline:hover { background: var(--soft); }
+.btn-outline:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.btn-outline-white { color: #fff; border-color: rgba(255,255,255,0.45); }
+.btn-outline-white:hover { background: #fff; color: var(--ink); border-color: #fff; }
+.btn-sm .ico-arrow { width: 14px; height: 14px; }
 .btn-text {
   padding: 0; border-radius: 0; background: none; gap: 6px;
   color: var(--accent); font-weight: 500; font-size: 13.5px;
@@ -982,7 +985,6 @@ a.footer-nap-line:hover { color: var(--bg); }
       <!-- Docencia -->
       <div class="diptych-card diptych-dark">
         <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
-          <span class="chip chip-white" style="font-size:9.5px">PARTE I</span>
           <span class="chip chip-white">Formación</span>
         </div>
         <div class="diptych-display">Aprende.</div>
@@ -998,7 +1000,7 @@ a.footer-nap-line:hover { color: var(--bg); }
           </div>
         </div>
         <div class="diptych-link">
-          <button class="btn btn-text btn-text-white" onclick="goTo('cursos','docencia')">Entrar al área docente <i class="ico ico-arrow" aria-hidden="true"></i></button>
+          <button class="btn btn-outline btn-outline-white btn-sm" onclick="goTo('cursos','docencia')">Entrar al área docente <i class="ico ico-arrow" aria-hidden="true"></i></button>
         </div>
       </div>
       <!-- Aparatología -->
@@ -1007,13 +1009,12 @@ a.footer-nap-line:hover { color: var(--bg); }
           <span class="diptych-img-cap">PRECISSA RF-200 · radiofrecuencia</span>
         </div>
         <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
-          <span class="chip chip-filled" style="font-size:9.5px">PARTE II</span>
           <span class="chip chip-outline">Aparatología</span>
         </div>
         <div class="diptych-display" style="font-family:var(--serif);font-size:64px;letter-spacing:-0.022em;line-height:0.95;margin:16px 0 14px">Equípate.</div>
         <p class="diptych-desc" style="color:var(--ink-soft)">Aparatología profesional. El equipo que se enseña en PRECISSA INSTITUTE, disponible para tu cabina.</p>
         <div class="diptych-link">
-          <button class="btn btn-text" onclick="goTo('tienda','aparatologia')">Entrar a la tienda <i class="ico ico-arrow" aria-hidden="true"></i></button>
+          <button class="btn btn-outline btn-sm" onclick="goTo('tienda','aparatologia')">Entrar a la tienda <i class="ico ico-arrow" aria-hidden="true"></i></button>
         </div>
       </div>
     </div>
@@ -1078,7 +1079,7 @@ a.footer-nap-line:hover { color: var(--bg); }
         <span class="eyebrow">Formación</span>
         <h2 class="section-h2" style="margin-top:8px">Áreas de especialización</h2>
       </div>
-      <button class="btn btn-text" onclick="goTo('cursos','docencia')">Ver cursos <i class="ico ico-arrow" aria-hidden="true"></i></button>
+      <button class="btn btn-outline btn-sm" onclick="goTo('cursos','docencia')">Ver cursos <i class="ico ico-arrow" aria-hidden="true"></i></button>
     </div>
     <div class="areas-grid" id="areas-grid">
       <!-- Renderizado por JS desde window.PRECISSA_CATEGORIES -->
@@ -1099,7 +1100,7 @@ a.footer-nap-line:hover { color: var(--bg); }
         <span class="eyebrow">Equipo profesional</span>
         <h2 class="section-h2" style="margin-top:8px">Aparatología destacada</h2>
       </div>
-      <button class="btn btn-text" onclick="goTo('tienda','aparatologia')">Ver catálogo <i class="ico ico-arrow" aria-hidden="true"></i></button>
+      <button class="btn btn-outline btn-sm" onclick="goTo('tienda','aparatologia')">Ver catálogo <i class="ico ico-arrow" aria-hidden="true"></i></button>
     </div>
     <div class="products-grid" id="home-products-grid"></div>
   </section>
@@ -2628,7 +2629,7 @@ a.footer-nap-line:hover { color: var(--bg); }
         <div class="revision-num">Pregunta 01</div>
         <div class="revision-q">¿Qué es la radiofrecuencia y en qué rango de frecuencia trabajan los dispositivos faciales?</div>
         <div class="revision-exp">Explicación · La RF facial opera entre 1 y 6 MHz, permitiendo penetración controlada en dermis sin dañar la epidermis.</div>
-        <button class="btn btn-text btn-sm" onclick="goTo('leccion','docencia')">Ver lección <i class="ico ico-arrow" aria-hidden="true"></i></button>
+        <button class="btn btn-outline btn-sm" onclick="goTo('leccion','docencia')">Ver lección <i class="ico ico-arrow" aria-hidden="true"></i></button>
       </div>
     </div>
     <div class="revision-item" style="background:rgba(168,107,78,0.04)">
@@ -2637,7 +2638,7 @@ a.footer-nap-line:hover { color: var(--bg); }
         <div class="revision-num">Pregunta 04</div>
         <div class="revision-q">¿Cuál es la diferencia fundamental entre la RF monopolar y bipolar?</div>
         <div class="revision-exp">Explicación · La monopolar requiere placa pasiva; la bipolar concentra ambos electrodos en el cabezal para efecto más superficial y controlado.</div>
-        <button class="btn btn-text btn-sm" onclick="goTo('leccion','docencia')">Ver lección <i class="ico ico-arrow" aria-hidden="true"></i></button>
+        <button class="btn btn-outline btn-sm" onclick="goTo('leccion','docencia')">Ver lección <i class="ico ico-arrow" aria-hidden="true"></i></button>
       </div>
     </div>
     <div class="revision-item">
@@ -2646,7 +2647,7 @@ a.footer-nap-line:hover { color: var(--bg); }
         <div class="revision-num">Pregunta 07</div>
         <div class="revision-q">¿A qué temperatura trabaja la RF para activar la síntesis de colágeno?</div>
         <div class="revision-exp">Explicación · El rango terapéutico es 40–45 °C en dermis, suficiente para la retracción de fibras y la neocolagénesis.</div>
-        <button class="btn btn-text btn-sm" onclick="goTo('leccion','docencia')">Ver lección <i class="ico ico-arrow" aria-hidden="true"></i></button>
+        <button class="btn btn-outline btn-sm" onclick="goTo('leccion','docencia')">Ver lección <i class="ico ico-arrow" aria-hidden="true"></i></button>
       </div>
     </div>
   </div>
@@ -6306,7 +6307,7 @@ function renderAreasHome() {
         <div class="area-card-body">
           <div class="area-title">${escapeHtml(cat.label)}</div>
           <p class="area-desc">${escapeHtml(d.desc)}</p>
-          <button class="btn btn-text">Ver itinerario <i class="ico ico-arrow" aria-hidden="true"></i></button>
+          <button class="btn btn-outline btn-sm">Ver itinerario <i class="ico ico-arrow" aria-hidden="true"></i></button>
         </div>
       </div>`;
   }).join('');
