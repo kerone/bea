@@ -1496,7 +1496,10 @@ a.footer-nap-line:hover { color: var(--bg); }
 .ac-materia img { display: block; max-width: 100%; height: auto; margin: 0 auto 1em; border-radius: 10px; box-shadow: 0 6px 24px rgba(36,29,23,0.10); }
 .ac-materia { overflow-wrap: anywhere; }
 .ac-materia table { width: 100%; border-collapse: collapse; margin: 0 0 1.4em; font-size: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; display: block; overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; }
-.ac-materia table thead, .ac-materia table tbody { display: table; width: 100%; table-layout: auto; }
+.ac-materia table thead, .ac-materia table tbody { display: table; width: max-content; min-width: 100%; table-layout: auto; }
+/* Tablas anchas (rúbricas, matrices): se deslizan de lado con palabras enteras,
+   nunca se aprietan letra a letra para caber en el móvil */
+.ac-materia th, .ac-materia td { overflow-wrap: normal; word-break: normal; hyphens: manual; min-width: 120px; max-width: 340px; }
 .ac-materia th { background: var(--bg2); text-align: left; padding: 10px 14px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 1px solid var(--line); }
 .ac-materia td { padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.5; }
 .ac-materia tr:last-child td { border-bottom: none; }
