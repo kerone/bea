@@ -1533,8 +1533,8 @@ a.footer-nap-line:hover { color: var(--bg); }
 .ac-indice ol { list-style: none; padding: 0; margin: 10px 0 0; counter-reset: ix; columns: 2; column-gap: 32px; }
 .ac-indice li { counter-increment: ix; break-inside: avoid; padding: 7px 0; border-bottom: 1px dashed var(--line); font-size: 14.5px; margin: 0; }
 .ac-indice li::before { content: counter(ix, decimal-leading-zero); font-family: var(--serif); font-style: italic; color: var(--accent); margin-right: 10px; white-space: nowrap; }
-.ac-indice a { color: var(--ink); text-decoration: none; overflow-wrap: normal; }
-.ac-indice a:hover { color: var(--accent-dark); text-decoration: underline; }
+.ac-indice a, .ac-indice [data-ir] { color: var(--ink); text-decoration: none; overflow-wrap: normal; cursor: pointer; }
+.ac-indice a:hover, .ac-indice [data-ir]:hover { color: var(--accent-dark); text-decoration: underline; }
 .ac-cap { margin: 64px 0 24px; padding-top: 26px; border-top: 2px solid var(--ink); scroll-margin-top: 96px; }
 .ac-cap h2 { font-size: 36px; margin: 6px 0 4px; border: 0; padding: 0; line-height: 1.1; }
 .ac-cap-meta { display: block; font-size: 13px; color: var(--muted); margin-top: 4px; }
@@ -5618,6 +5618,15 @@ async function renderAulaMateria(course) {
     host.innerHTML = '<div class="ac-materia-empty">Este curso aún no tiene materia. Añade el enlace al .md desde <strong>Administración → Cursos → Editar → Materia</strong>.</div>';
     return;
   }
+  // Caché en memoria por documento: volver a la materia (o cambiar de
+  // pestaña y regresar) no vuelve a descargar ni a procesar 2-3 MB.
+  window._aulaMateriaCache = window._aulaMateriaCache || {};
+  const cacheKey = String(course.sourceDoc);
+  if (window._aulaMateriaCache[cacheKey]) {
+    host.innerHTML = window._aulaMateriaCache[cacheKey];
+    aulaMateriaWire(host);
+    return;
+  }
   host.innerHTML = '<div class="ac-materia-loading">Cargando materia…</div>';
   try {
     const url = await resolveContentUrl(course.sourceDoc);
@@ -5625,10 +5634,30 @@ async function renderAulaMateria(course) {
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const md = await res.text();
     const lib = await loadMarkdownLib();
-    let html = lib.parse(md);
+    // Las imágenes embebidas (base64, cientos de KB cada una) se apartan
+    // antes de marked y DOMPurify: con ellas dentro el procesado tardaba
+    // segundos. Solo se apartan data-URIs de imagen con base64 limpio.
+    const imgs = [];
+    const mdLigero = md.replace(/data:image\/(?:jpeg|png|webp|gif);base64,[A-Za-z0-9+/=]+/g, m => {
+      imgs.push(m); return '__AULA_IMG_' + (imgs.length - 1) + '__';
+    });
+    let html = lib.parse(mdLigero);
     const purifier = await loadSanitizer();
     if (purifier) html = purifier.sanitize(html);
+    html = html.replace(/__AULA_IMG_(\d+)__/g, (_, i) => imgs[Number(i)] || '');
     host.innerHTML = '<article class="ac-materia">' + html + '</article>';
+    window._aulaMateriaCache[cacheKey] = host.innerHTML;
+    aulaMateriaWire(host);
+  } catch (e) {
+    // Mensaje amable: el "HTTP 404" en crudo asustaba y no orientaba.
+    console.warn('[aula] materia no disponible', e);
+    host.innerHTML = '<div class="ac-materia-empty">Ahora mismo no podemos mostrar la materia de este curso. ' +
+      'Prueba a recargar la página en un momento y, si sigue sin aparecer, escríbenos a ' +
+      '<a class="aula-link" href="mailto:precissainstitute@gmail.com">precissainstitute@gmail.com</a>.</div>';
+  }
+}
+/** Comportamiento de la materia ya pintada: tablas deslizables e índice. */
+function aulaMateriaWire(host) {
     // Tablas anchas: cada una va en un marco que se desliza de lado, con la
     // tabla entera dentro (cabecera y cuerpo alineados). Sin esto, en móvil
     // o se partían las palabras o cabecera y cuerpo calculaban columnas
@@ -5641,20 +5670,21 @@ async function renderAulaMateria(course) {
       t.parentNode.insertBefore(w, t);
       w.appendChild(t);
     });
-    // Índice de la materia: desplazamiento suave sin tocar el hash (que es
-    // del router de la SPA).
-    host.querySelectorAll('[data-ir]').forEach(a => a.addEventListener('click', e => {
-      e.preventDefault();
-      const dest = host.querySelector('#' + a.dataset.ir);
-      if (dest) dest.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }));
-  } catch (e) {
-    // Mensaje amable: el "HTTP 404" en crudo asustaba y no orientaba.
-    console.warn('[aula] materia no disponible', e);
-    host.innerHTML = '<div class="ac-materia-empty">Ahora mismo no podemos mostrar la materia de este curso. ' +
-      'Prueba a recargar la página en un momento y, si sigue sin aparecer, escríbenos a ' +
-      '<a class="aula-link" href="mailto:precissainstitute@gmail.com">precissainstitute@gmail.com</a>.</div>';
-  }
+    // Índice de la materia: desplazamiento suave SIN tocar el hash, que es
+    // del router de la SPA (un href="#" suelto manda a la portada). Se
+    // retira el href por si el enlace lo trae, y se captura el clic antes
+    // que nadie.
+    host.querySelectorAll('[data-ir]').forEach(a => {
+      a.removeAttribute('href');
+      a.setAttribute('role', 'link'); a.setAttribute('tabindex', '0');
+      const ir = (e) => {
+        e.preventDefault(); e.stopPropagation();
+        const dest = host.querySelector('#' + a.dataset.ir);
+        if (dest) dest.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+      a.addEventListener('click', ir, true);
+      a.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') ir(e); });
+    });
 }
 
 // Resuelve una referencia de contenido a una URL cargable. Si es privada

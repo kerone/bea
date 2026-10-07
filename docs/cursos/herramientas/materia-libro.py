@@ -47,7 +47,7 @@ out.append('')
 # Índice
 secciones = [(m.group(1), m.start()) for m in re.finditer(r'^## (.+)$', md, re.M)]
 def slug(t): return re.sub(r'[^a-z0-9]+', '-', re.sub(r'[áéíóúñ]', lambda m: 'aeiounn'['áéíóúñ'.index(m.group(0))], t.lower())).strip('-')
-idx = ''.join(f'<li><a href="#" data-ir="sec-{slug(t)}">{inl(t)}</a></li>' for t, _ in secciones
+idx = ''.join(f'<li><span class="ac-ir" role="link" tabindex="0" data-ir="sec-{slug(t)}">{inl(t)}</span></li>' for t, _ in secciones
               if not t.startswith('Seis tests') and not t.startswith('Examen final'))
 out.append(f'<nav class="ac-indice"><span class="ac-indice-k">Índice</span><ol>{idx}</ol></nav>')
 out.append('')
