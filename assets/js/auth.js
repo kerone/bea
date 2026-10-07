@@ -100,8 +100,13 @@
           display = 'alumna';
         }
         if (display.length > 18) display = display.slice(0, 16) + '…';
+        display = display.charAt(0).toUpperCase() + display.slice(1);
         const userNameEl = $('aula-user-name');
-        if (userNameEl) userNameEl.textContent = display.toLowerCase();
+        if (userNameEl) userNameEl.textContent = display;
+        const avatarEl = $('aula-avatar');
+        if (avatarEl) avatarEl.textContent = display.charAt(0).toUpperCase();
+        const subEl = $('aula-user-sub');
+        if (subEl && user.email) subEl.textContent = user.email;
       } else {
         show(loginSection, true);
         show(listSection, false);

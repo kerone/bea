@@ -169,6 +169,7 @@
 .ico-zap    { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M13 2L4 14h7l-1 8 9-12h-7z'/%3E%3C/svg%3E"); }
 .ico-user   { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21a8 8 0 1 0-16 0M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8z'/%3E%3C/svg%3E"); }
 .ico-menu   { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 7h16M4 12h16M4 17h16'/%3E%3C/svg%3E"); }
+.ico-logout { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9'/%3E%3C/svg%3E"); }
 .ico-x      { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E"); }
 .btn .ico-arrow { width:15px; height:15px; margin-left:2px; }
 .btn-text .ico-arrow { width:14px; height:14px; }
@@ -534,7 +535,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <div class="nav-right">
       <button class="btn btn-dark btn-sm acceder-btn" onclick="goTo('aula','docencia')">Acceder</button>
       <button class="btn btn-text nav-admin-link" style="display:none;border-bottom:none;padding-bottom:0" onclick="goTo('admin','')">Administración</button>
-      <button class="btn btn-text mi-aula-btn" style="display:none;border-bottom:none;padding-bottom:0" onclick="goTo('aula','docencia')">Mi aula</button>
+      <button class="btn btn-dark btn-sm mi-aula-btn" style="display:none" onclick="goTo('aula','docencia')"><i class="ico ico-user" aria-hidden="true"></i> Mi aula</button>
     </div>
   </div>
   <!-- Desktop row 2 -->
@@ -556,7 +557,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <a class="nav-logo" href="/" onclick="goTo('home','');return false">PRECISSA INSTITUTE<span class="nav-logo-sub">Dermocosmiatría &amp; Electroestética</span></a>
     <div class="nav-mobile-right">
       <button class="btn btn-dark btn-sm acceder-btn" style="padding:8px 14px;font-size:12px" onclick="goTo('aula','docencia')">Acceder</button>
-      <button class="btn btn-text mi-aula-btn" style="display:none;font-size:12px;border-bottom:none;padding-bottom:0" onclick="goTo('aula','docencia')">Mi aula</button>
+      <button class="btn btn-dark btn-sm mi-aula-btn" style="display:none;padding:8px 14px;font-size:12px" onclick="goTo('aula','docencia')"><i class="ico ico-user" aria-hidden="true"></i> Mi aula</button>
     </div>
   </div>
 </nav>
@@ -580,7 +581,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <div class="drawer-item nav-admin-link" style="display:none" onclick="goTo('admin','');closeDrawer()">Administración</div>
     <div class="drawer-item" style="margin-top:16px">
       <button class="btn btn-dark acceder-btn" style="width:100%;justify-content:center" onclick="goTo('aula','docencia');closeDrawer()">Acceder</button>
-      <button class="btn btn-dark mi-aula-btn" style="display:none;width:100%;justify-content:center" onclick="goTo('aula','docencia');closeDrawer()">Mi aula</button>
+      <button class="btn btn-dark mi-aula-btn" style="display:none;width:100%;justify-content:center" onclick="goTo('aula','docencia');closeDrawer()"><i class="ico ico-user" aria-hidden="true"></i> Mi aula</button>
     </div>
   </div>
 </div>
@@ -1341,24 +1342,30 @@ a.footer-nap-line:hover { color: var(--bg); }
 .aula-config-warn code { background: rgba(0,0,0,0.06); padding: 1px 6px; border-radius: 4px; font-size: 11.5px; }
 
 /* Listado privado */
-.aula-list-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 36px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
-.aula-list-h1 { font-family: var(--serif); font-size: 44px; line-height: 1.15; letter-spacing: -0.02em; overflow-wrap: anywhere; max-width: 100%; padding-top: 6px; }
-.aula-list-h1 em { font-style: italic; color: var(--accent); }
-.aula-list-sub { font-size: 14px; color: var(--ink-soft); margin-top: 6px; }
+.aula-list-head { display: flex; align-items: center; justify-content: space-between; gap: 20px 32px; flex-wrap: wrap; margin-bottom: 32px; padding: 24px 28px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+.aula-profile { display: flex; align-items: center; gap: 20px; min-width: 0; }
+.aula-avatar { width: 64px; height: 64px; border-radius: 50%; flex: none; display: flex; align-items: center; justify-content: center; background: var(--accent-soft); color: var(--accent-dark); font-family: var(--serif); font-size: 30px; line-height: 1; border: 1px solid rgba(168,107,78,0.25); }
+.aula-list-h1 { font-family: var(--serif); font-size: 36px; line-height: 1.1; letter-spacing: -0.02em; overflow-wrap: anywhere; max-width: 100%; margin-top: 4px; }
+.aula-list-sub { font-size: 13.5px; color: var(--ink-soft); margin-top: 4px; }
+.aula-logout { flex: none; }
+.aula-logout .ico { width: 14px; height: 14px; }
 .aula-courses-grid { display: flex; flex-direction: column; gap: 48px; }
 .aula-courses-filters {
-  display:flex; align-items:center; gap:8px; flex-wrap:wrap;
-  margin-bottom: 32px; padding: 14px 0 18px;
+  display:flex; align-items:stretch; gap:28px; flex-wrap:nowrap;
+  margin-bottom: 32px; padding: 0;
   border-bottom: 1px solid var(--line);
   position: sticky; top: 108px; z-index: 30;
   background: var(--bg);
+  overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
 }
+.aula-courses-filters::-webkit-scrollbar { display: none; }
+.aula-courses-filters:empty { display: none; }
 @media (max-width: 768px) {
-  .aula-courses-filters { top: 64px; padding: 10px 0 14px; }
+  .aula-courses-filters { top: 64px; gap: 22px; margin-left: -20px; margin-right: -20px; padding: 0 20px; }
 }
-.aula-courses-filter { padding:7px 16px; border-radius:999px; font-size:12.5px; font-weight:500; cursor:pointer; border:1px solid var(--line-strong); color:var(--ink-soft); transition:all 0.15s; letter-spacing:0.02em; background: transparent; }
-.aula-courses-filter:hover { border-color:var(--ink); color:var(--ink); }
-.aula-courses-filter.active { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+.aula-courses-filter { padding:14px 0 12px; border:0; border-bottom:2px solid transparent; margin-bottom:-1px; border-radius:0; font-size:13.5px; font-weight:500; cursor:pointer; color:var(--muted); transition:color 0.15s, border-color 0.15s; white-space:nowrap; background: transparent; }
+.aula-courses-filter:hover { color:var(--ink); }
+.aula-courses-filter.active { color:var(--ink); border-bottom-color:var(--ink); font-weight:600; }
 .aula-category.is-hidden { display: none; }
 .aula-category-head { margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
 .aula-category-title { font-family: var(--serif); font-size: 26px; line-height: 1.1; letter-spacing: -0.01em; margin: 0 0 4px; }
@@ -1373,12 +1380,21 @@ a.footer-nap-line:hover { color: var(--bg); }
 .aula-course-card-title { font-family: var(--serif); font-size: 20px; line-height: 1.15; margin-bottom: 8px; }
 .aula-course-card-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.5; flex: 1; }
 .aula-course-card-meta { display: flex; gap: 14px; font-size: 11.5px; color: var(--muted); margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--line); }
-.aula-empty { padding: 60px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 12px; grid-column: 1/-1; }
+.aula-empty { padding: 48px 24px; text-align: center; color: var(--ink-soft); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; grid-column: 1/-1; font-size: 14px; line-height: 1.55; }
+.aula-empty-ico { width: 56px; height: 56px; border-radius: 50%; background: var(--accent-soft); color: var(--accent-dark); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+.aula-empty-ico .ico { width: 24px; height: 24px; }
+.aula-empty-title { font-family: var(--serif); font-size: 24px; color: var(--ink); margin-bottom: 6px; }
+.aula-empty p { max-width: 420px; margin: 0 auto; }
+.aula-empty .btn { margin-top: 20px; }
 @media (max-width: 768px) {
   .aula-wrap { padding: 88px 20px 60px; }
   .aula-login-card { padding: 32px 24px; }
   .aula-login-h1 { font-size: 32px; }
-  .aula-list-h1 { font-size: 32px; }
+  .aula-list-h1 { font-size: 28px; }
+  .aula-list-head { padding: 20px; gap: 16px; }
+  .aula-avatar { width: 52px; height: 52px; font-size: 24px; }
+  .aula-profile { gap: 14px; }
+  .aula-logout { width: 100%; justify-content: center; }
 }
 </style>
 
@@ -1428,12 +1444,15 @@ a.footer-nap-line:hover { color: var(--bg); }
     <span class="page-bc-current">Aula</span>
   </div>
   <div class="aula-list-head">
-    <div>
-      <span class="eyebrow accent">Tu aula</span>
-      <h2 class="aula-list-h1">Hola, <em id="aula-user-name">alumna</em>.</h2>
-      <p class="aula-list-sub">Estos son tus cursos disponibles.</p>
+    <div class="aula-profile">
+      <div class="aula-avatar" id="aula-avatar" aria-hidden="true">A</div>
+      <div>
+        <span class="eyebrow accent">Tu aula</span>
+        <h2 class="aula-list-h1">Hola, <span id="aula-user-name">alumna</span></h2>
+        <p class="aula-list-sub" id="aula-user-sub">Estos son tus cursos disponibles.</p>
+      </div>
     </div>
-    <button class="btn btn-text" onclick="auth.logout()">Cerrar sesión</button>
+    <button class="btn btn-outline btn-sm aula-logout" onclick="auth.logout()"><i class="ico ico-logout" aria-hidden="true"></i> Cerrar sesión</button>
   </div>
   <div class="cursos-search">
     <span class="cursos-search-icon" aria-hidden="true"></span>
@@ -3419,7 +3438,7 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 <script src="assets/js/products-data.js"></script>
 <script src="assets/js/product-content.js"></script>
 <!-- Lógica de autenticación -->
-<script src="assets/js/auth.js"></script>
+<script src="assets/js/auth.js?v=2"></script>
 <script>
 // ─── ROUTING ──────────────────────────────────────────
 const SUBLINKS = {
@@ -5446,11 +5465,16 @@ async function renderAulaCourses() {
     // o de Supabase): antes ambos casos mostraban el mismo mensaje y una
     // alumna matriculada veía "no tienes cursos" por un fallo puntual.
     if (window.enrollments && window.enrollments.hadError && window.enrollments.hadError()) {
-      grid.innerHTML = '<div class="aula-empty">No hemos podido comprobar tu matrícula (fallo de conexión). ' +
-        '<a class="aula-link" href="/#aula" onclick="window.enrollments.invalidate();renderAulaCourses();return false">Reintentar</a></div>';
+      grid.innerHTML = '<div class="aula-empty"><div class="aula-empty-ico"><i class="ico ico-x" aria-hidden="true"></i></div>' +
+        '<div class="aula-empty-title">No hemos podido comprobar tu matrícula</div>' +
+        '<p>Ha fallado la conexión. Tus cursos siguen ahí: vuelve a intentarlo en un momento.</p>' +
+        '<button class="btn btn-outline btn-sm" onclick="window.enrollments.invalidate();renderAulaCourses();return false">Reintentar</button></div>';
       return;
     }
-    grid.innerHTML = '<div class="aula-empty">Aún no tienes cursos asignados. Habla con tu profesora para que te dé acceso.</div>';
+    grid.innerHTML = '<div class="aula-empty"><div class="aula-empty-ico"><i class="ico ico-book" aria-hidden="true"></i></div>' +
+      '<div class="aula-empty-title">Todavía no tienes cursos</div>' +
+      '<p>Cuando tu profesora te dé acceso a un curso aparecerá aquí, con su materia, su presentación y sus tests.</p>' +
+      '<button class="btn btn-dark btn-sm" onclick="goTo(\'cursos\',\'docencia\')">Ver el catálogo <i class="ico ico-arrow" aria-hidden="true"></i></button></div>';
     return;
   }
   const renderAulaCard = (c) => `
