@@ -1252,10 +1252,11 @@ a.footer-nap-line:hover { color: var(--bg); }
 .cursos-pub-card-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .cursos-pub-card-cover-fallback { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-style: italic; font-size: 28px; color: var(--muted); }
 .cursos-pub-card-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
-.cursos-pub-card-eyebrow { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
-.cursos-pub-card-title { font-family: var(--serif); font-size: 22px; line-height: 1.15; margin-bottom: 10px; }
-.cursos-pub-card-desc { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; flex: 1; }
-.cursos-pub-card-meta { display: flex; gap: 14px; font-size: 11.5px; color: var(--muted); margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); }
+.cursos-pub-card-tag { font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+.cursos-pub-card-title { font-family: var(--serif); font-size: 23px; line-height: 1.15; margin-bottom: 8px; }
+.cursos-pub-card-desc { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.cursos-pub-card-meta { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--ink-soft); margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); }
+.cursos-pub-card-meta span + span::before { content: '·'; color: var(--muted); margin-right: 8px; }
 .cursos-pub-card-cta { margin-top: 14px; padding: 10px 18px; display:inline-flex; align-items:center; gap:7px; background: var(--ink); color: var(--bg); border: none; border-radius: 999px; font-family: var(--sans); font-size: 12.5px; font-weight: 600; letter-spacing: 0.03em; cursor: pointer; transition: background 0.15s, transform 0.1s; }
 .cursos-pub-card-cta:hover { background: var(--accent-dark, var(--accent)); }
 .cursos-pub-card-cta:active { transform: scale(0.98); }
@@ -3953,13 +3954,14 @@ function buildCourseSearchText(c) {
 }
 function renderCourseCardPublic(c) {
   const searchAttr = buildCourseSearchText(c);
+  const cat = getCategories().find(k => k.id === c.category);
   return `
     <article class="cursos-pub-card" id="curso-card-${escapeAttr(c.id)}" data-search="${escapeAttr(searchAttr)}">
       <div class="cursos-pub-card-cover">
         ${c.cover ? `<img src="${c.cover}" alt="" loading="lazy">` : `<div class="cursos-pub-card-cover-fallback">${escapeHtml(c.title)}</div>`}
       </div>
       <div class="cursos-pub-card-body">
-        ${c.eyebrow ? `<div class="cursos-pub-card-eyebrow">${escapeHtml(c.eyebrow)}</div>` : ''}
+        ${cat ? `<div class="cursos-pub-card-tag">${escapeHtml(cat.label)}</div>` : ''}
         <div class="cursos-pub-card-title">${escapeHtml(c.title)}</div>
         <div class="cursos-pub-card-desc">${escapeHtml(c.shortDescription || c.description || '')}</div>
         <div class="cursos-pub-card-meta">
@@ -5779,6 +5781,7 @@ function aulaPresFullscreen() {
   }
   if (wrap.requestFullscreen) {
     wrap.requestFullscreen().then(() => {
+      aulaPresFocus();
       // En movil, intentar bloquear a horizontal (silencioso si falla)
       if (screen.orientation && screen.orientation.lock) {
         screen.orientation.lock('landscape').catch(() => {});
@@ -5788,6 +5791,30 @@ function aulaPresFullscreen() {
     aulaPresOpenTab();
   }
 }
+// El foco se queda en la página al entrar en pantalla completa, y el deck
+// escucha el teclado dentro de su iframe: sin esto había que hacer clic en
+// la diapositiva para poder pasar de página.
+function aulaPresFocus() {
+  const f = document.getElementById('ac-pres-frame');
+  if (!f) return;
+  try { f.contentWindow.focus(); } catch (e) { try { f.focus(); } catch (e2) {} }
+}
+document.addEventListener('fullscreenchange', () => { if (document.fullscreenElement) aulaPresFocus(); });
+// Y por si el foco sigue fuera (p. ej. tras pulsar el botón), las teclas de
+// navegación que recibe la página se reenvían al deck mientras esté a la vista.
+document.addEventListener('keydown', (e) => {
+  const f = document.getElementById('ac-pres-frame');
+  if (!f || !f.contentWindow) return;
+  const t = e.target;
+  if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT' || t.isContentEditable)) return;
+  if (!document.fullscreenElement && f.offsetParent === null) return;
+  const keys = ['ArrowRight', 'ArrowLeft', 'PageDown', 'PageUp', 'Home', 'End', ' ', 'n', 'N'];
+  if (keys.indexOf(e.key) === -1) return;
+  e.preventDefault();
+  try {
+    f.contentWindow.document.dispatchEvent(new KeyboardEvent('keydown', { key: e.key, code: e.code, bubbles: true, cancelable: true }));
+  } catch (err) {}
+});
 // Fallback sin fullscreen nativo (iOS): abrir el deck en pestaña nueva.
 // Con decks privados no hay src (van por srcdoc): se vuelca el documento.
 function aulaPresOpenTab() {
