@@ -137,7 +137,18 @@ temporal, solo a quien tiene matrícula (o es admin).
 - **diatermia**: sin lecciones a propósito, pendiente de material real.
 - **anatomia-fisiologia-cutanea**: usa la lección integrada de la web
   (`leccion-integrada`), no un deck aparte. Por eso no tiene materia .md.
-- La mayoría de cursos aún usa la portada de relleno `assets/le-petit.jpg`.
+- La mayoría de cursos aún usa la portada de relleno `assets/le-petit.jpg`
+  en `courses-data.js`; las portadas reales se subieron desde el panel de
+  administración y viven en `course_overrides` (bucket `course-media`).
+- **depilacion-laser**: su contenido real es el *Manual profesional de 60 h*
+  (7 módulos online + 8 jornadas presenciales). La fuente versionada está en
+  `docs/cursos/07-depilacion-laser.md` con sus 6 infografías en
+  `docs/cursos/img/`. La materia del aula (mismo texto con las imágenes
+  embebidas en base64) y el deck de 78 diapositivas se generan con el
+  script de la sesión y **se suben desde el panel de administración** al
+  bucket privado (Materia → elegir archivo .md · Lección 1 → subir HTML).
+  Las imágenes van embebidas porque la materia se sanitiza con DOMPurify,
+  que admite `data:` en `<img>`, y así un solo archivo lo contiene todo.
 
 ## 9. Analítica
 

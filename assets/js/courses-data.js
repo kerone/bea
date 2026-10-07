@@ -314,15 +314,15 @@ window.PRECISSA_COURSES = [
     id: 'depilacion-laser',
     title: 'Depilación láser',
     category: 'electroestetica',
-    eyebrow: 'Diodo · Alejandrita · Nd:YAG · Nivel avanzado',
+    eyebrow: 'Diodo · Alejandrita · Nd:YAG · IPL · Manual profesional 60 h',
     level: 'Avanzado',
-    duration: '32 h',
+    duration: '60 h',
     cover: 'assets/le-petit.jpg',
-    shortDescription: 'Las tres longitudes de onda profesionales (diodo 810 nm, alejandrita 755 nm, Nd:YAG 1064 nm) y su selección por fototipo y zona.',
-    description: 'Depilación láser de cabina profesional. Cubre fundamentos de absorción selectiva por melanina, anatomía del folículo y fases anágena-catágena-telógena (CRÍTICO: solo afecta anágenas), las tres longitudes de onda con sus ventajas e indicaciones (diodo polivalente, alejandrita rápido para fototipos bajos, Nd:YAG seguro para fototipos altos), test patch obligatorio, contraindicaciones (embarazo, tatuajes, melanoma previo, isotretinoína reciente), manejo de complicaciones y mantenimiento.',
+    shortDescription: 'Manual profesional de 60 h: 28 h de teoría online en 7 módulos y 32 h de práctica presencial en 8 jornadas. Fundamentos, valoración, seguridad y práctica supervisada.',
+    description: 'Formación completa en depilación láser con manual profesional de 60 horas: piel, pelo y folículo; ciclo piloso y fototipos Fitzpatrick; física de la luz y fototermólisis selectiva; tecnologías (diodo, alejandrita, Nd:YAG e IPL) y lectura del equipo e IFU; valoración, anamnesis y criterios de aplazamiento; seguridad ocular y de cabina, protocolo de sesión y efectos adversos; cuidados, documentación y casos. Ocho jornadas presenciales con práctica supervisada, prueba de parche y evaluación práctica con rúbrica. Incluye seis tests, examen final de 30 preguntas y cinco casos prácticos.',
     sourceDoc: 'docs/cursos/07-depilacion-laser.md',
     lessons: [
-      { id: 'leccion-1', title: 'Depilación láser · Presentación', duration: '45 min', slides: 'assets/cursos/depilacion-laser/leccion-1/index.html' }
+      { id: 'leccion-1', title: 'Depilación láser · Manual profesional (7 módulos + prácticas)', duration: '2 h 30 min', slides: 'assets/cursos/depilacion-laser/leccion-1/index.html' }
     ],
     test: { questions: [] }
   },
