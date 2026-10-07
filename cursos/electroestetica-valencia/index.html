@@ -276,7 +276,7 @@ p strong { color: var(--ink); font-weight: 600; }
 ul.clean { list-style: none; margin: 18px 0 0; padding: 0; }
 ul.clean li { padding: 12px 0 12px 28px; border-bottom: 1px solid var(--line); color: var(--ink); font-size: 15.5px; line-height: 1.45; position: relative; }
 ul.clean li:last-child { border-bottom: none; }
-ul.clean li::before { content: '·'; position: absolute; left: 6px; top: 8px; font-family: var(--serif); font-style: italic; color: var(--accent); font-size: 22px; line-height: 1; }
+ul.clean li::before { content: ''; position: absolute; left: 6px; top: 11px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
 ul.clean li strong { color: var(--ink); font-weight: 600; }
 ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-top: 2px; }
 
@@ -336,6 +336,9 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 .lp-submit:disabled { opacity: 0.6; cursor: wait; transform: none; }
 .lp-status { font-size: 13px; min-height: 18px; color: rgba(242,236,227,0.85); text-align: center; }
 .lp-alt { margin-top: 22px; font-size: 13px; color: rgba(242,236,227,0.7); }
+
+.ico { display:inline-block; width:1em; height:1em; flex:none; background-color:currentColor; -webkit-mask:var(--ico) center/contain no-repeat; mask:var(--ico) center/contain no-repeat; vertical-align:-0.125em; }
+.ico-arrow { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E"); width:15px; height:15px; }
 </style>
 </head>
 <body>
@@ -359,27 +362,27 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 </nav>
 
 <section class="hero">
-  <div class="eyebrow">Docencia · Curso profesional</div>
+  <div class="eyebrow">Curso profesional</div>
   <h1>Curso de Electroestética <em>en Valencia</em></h1>
   <p class="hero-lede">
     Formación profesional en electroestética y aparatología facial y corporal para esteticistas en Valencia. Radiofrecuencia, HIFU, cavitación, presoterapia, IPL y láser. Presencial y online.
   </p>
   <div class="hero-cta">
-    <a href="#contacto" class="btn btn-dark">Solicitar información →</a>
+    <a href="#contacto" class="btn btn-dark">Solicitar información <i class="ico ico-arrow" aria-hidden="true"></i></a>
     <a href="tel:+34601056706" class="btn btn-outline">Llamar 601 05 67 06</a>
   </div>
 </section>
 
 <section>
   <div class="eyebrow eyebrow-muted">Qué es</div>
-  <h2><em>Electroestética</em></h2>
+  <h2>Electroestética</h2>
   <p>Es la rama de la estética que trabaja con <strong>aparatología</strong>: luz, energía y mecánica controlada para tratar la piel y el cuerpo. En PRECISSA INSTITUTE no enseñamos a apretar botones: partimos de la <strong>física de cada equipo</strong> —qué hace la energía en el tejido y por qué— para que domines los parámetros, las indicaciones y, sobre todo, la seguridad.</p>
 </section>
 
 <div class="section-alt">
   <section>
     <div class="eyebrow eyebrow-muted">Contenido</div>
-    <h2>El curso <em>incluye</em></h2>
+    <h2>El curso incluye</h2>
     <ul class="clean">
       <li><strong>Fundamentos físicos de la aparatología</strong> · cómo actúa cada energía en la piel</li>
       <li><strong>Radiofrecuencia facial y corporal</strong> · monopolar, bipolar y tripolar</li>
@@ -396,7 +399,7 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 
 <section>
   <div class="eyebrow eyebrow-muted">Aplicaciones</div>
-  <h2><em>Qué resuelve</em> la electroestética</h2>
+  <h2>Qué resuelve la electroestética</h2>
   <ul class="clean">
     <li><strong>Flacidez facial y corporal</strong> · radiofrecuencia y HIFU</li>
     <li><strong>Lifting no quirúrgico</strong> · reafirmación y tensado</li>
@@ -411,7 +414,7 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 <div class="section-alt">
   <section>
     <div class="eyebrow eyebrow-muted">Detalles</div>
-    <h2><em>Ficha</em> del curso</h2>
+    <h2>Ficha del curso</h2>
     <div class="ficha">
       <div class="ficha-grid">
         <div class="ficha-row">
@@ -433,7 +436,7 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 
 <section>
   <div class="eyebrow eyebrow-muted">Perfil</div>
-  <h2>¿A quién va <em>dirigido</em>?</h2>
+  <h2>¿A quién va dirigido?</h2>
   <ul class="clean">
       <li><strong>Esteticistas</strong> que quieren dominar la aparatología en vez de depender del manual de cada máquina</li>
       <li><strong>Profesionales con cabina</strong> que van a invertir en equipos y quieren comprar y trabajar con criterio</li>
@@ -443,7 +446,7 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 
 <section>
   <div class="eyebrow eyebrow-muted">FAQ</div>
-  <h2>Preguntas <em>frecuentes</em></h2>
+  <h2>Preguntas frecuentes</h2>
   <div class="faq-item">
     <div class="faq-q">¿Qué es la electroestética?</div>
     <div class="faq-a">Es la rama de la estética que utiliza aparatología (luz, energía y mecánica controlada) para tratar la piel y el cuerpo: radiofrecuencia, HIFU, cavitación, presoterapia, vacumterapia, IPL, láser y diatermia.</div>
@@ -476,19 +479,19 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 
 <section>
   <div class="eyebrow eyebrow-muted">Formación relacionada</div>
-  <h2>Otros cursos <em>en Valencia</em></h2>
+  <h2>Otros cursos en Valencia</h2>
   <ul class="clean">
       <li><strong><a href="/cursos/hifu-valencia/" style="color:inherit">Curso de HIFU</a></strong><span>Lifting facial no quirúrgico con ultrasonido focalizado.</span></li>
       <li><strong><a href="/cursos/depilacion-laser-valencia/" style="color:inherit">Curso de Depilación Láser</a></strong><span>Diodo, alejandrita y Nd:YAG con seguridad por fototipo.</span></li>
       <li><strong><a href="/cursos/plasmapen-valencia/" style="color:inherit">Curso de Plasmapen</a></strong><span>Blefaroplastia no quirúrgica, fibromas y queratosis por arco voltaico.</span></li>
-      <li><strong><a href="/cursos/" style="color:inherit">Todos los cursos de estética en Valencia →</a></strong><span>Los 23 cursos de PRECISSA INSTITUTE, por categorías.</span></li>
+      <li><strong><a href="/cursos/" style="color:inherit">Todos los cursos de estética en Valencia <i class="ico ico-arrow" aria-hidden="true"></i></a></strong><span>Los 23 cursos de PRECISSA INSTITUTE, por categorías.</span></li>
   </ul>
 </section>
 
 <section class="contact" id="contacto">
   <div class="contact-inner">
     <div class="eyebrow" style="color: var(--accent-soft);">Solicitar información</div>
-    <h2>Próxima convocatoria <em>en Valencia</em></h2>
+    <h2>Próxima convocatoria en Valencia</h2>
     <p>Déjanos tu nombre y se abrirá WhatsApp con tu consulta ya escrita: te respondemos por ahí con fechas, precio y modalidad.</p>
     <form class="lp-form" id="lp-form" novalidate>
       <input type="hidden" name="producto" value="Curso de Electroestética">

@@ -153,8 +153,25 @@
   --line-strong:  rgba(36,29,23,0.18);
   --serif: 'Instrument Serif', serif;
   --sans:  'Manrope', sans-serif;
-  --r: 8px;
+  --r: 12px;
+  --r-sm: 4px;
 }
+
+/* ─── ICONOS (SVG por máscara: heredan color y se alinean por flex) ─── */
+.ico { display:inline-block; width:1em; height:1em; flex:none; background-color:currentColor;
+  -webkit-mask:var(--ico) center/contain no-repeat; mask:var(--ico) center/contain no-repeat;
+  vertical-align:-0.125em; }
+.ico-arrow  { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E"); }
+.ico-chev-d { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); width:.85em; height:.85em; }
+.ico-chev-r { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E"); width:.85em; height:.85em; }
+.ico-home   { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z'/%3E%3C/svg%3E"); }
+.ico-book   { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4.5A2.5 2.5 0 0 1 6.5 2H20v16H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5V4.5M6.5 18H20'/%3E%3C/svg%3E"); }
+.ico-zap    { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M13 2L4 14h7l-1 8 9-12h-7z'/%3E%3C/svg%3E"); }
+.ico-user   { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21a8 8 0 1 0-16 0M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8z'/%3E%3C/svg%3E"); }
+.ico-menu   { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 7h16M4 12h16M4 17h16'/%3E%3C/svg%3E"); }
+.ico-x      { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E"); }
+.btn .ico-arrow { width:15px; height:15px; margin-left:2px; }
+.btn-text .ico-arrow { width:14px; height:14px; }
 
 /* ─── RESET ──────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -200,7 +217,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 
 /* ─── BUTTONS ────────────────────────────────────────── */
 .btn {
-  display: inline-flex; align-items: center; gap: 6px;
+  display: inline-flex; align-items: center; gap: 8px;
   padding: 14px 24px; border-radius: 999px;
   font-family: var(--sans); font-size: 13.5px; font-weight: 500;
   transition: background 0.18s, color 0.18s, border-color 0.18s, transform 0.12s;
@@ -217,7 +234,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 }
 .btn-outline:hover { background: var(--soft); }
 .btn-text {
-  padding: 0; border-radius: 0; background: none;
+  padding: 0; border-radius: 0; background: none; gap: 6px;
   color: var(--accent); font-weight: 500; font-size: 13.5px;
   border-bottom: 1px solid var(--accent);
   padding-bottom: 2px;
@@ -255,15 +272,6 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 }
 
 /* ─── SECTION BAND ───────────────────────────────────── */
-.part-band {
-  position: absolute; top: 0; left: 64px;
-  transform: translateY(-50%);
-  padding: 4px 14px; font-size: 10.5px;
-  letter-spacing: 0.24em; text-transform: uppercase;
-  font-family: var(--sans); font-weight: 600; border-radius: 999px;
-}
-.part-band-I   { background: var(--accent); color: #fff; }
-.part-band-II  { background: var(--ink); color: var(--bg); }
 
 /* Filigrana / divisor con sello SS INSTITUTE */
 .part-divider {
@@ -339,7 +347,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .nav-link.active { color: var(--ink); font-weight: 500; }
 .nav-link.active::after {
   content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
-  height: 1.5px; background: var(--accent); border-radius: 2px;
+  height: 1.5px; background: var(--accent); border-radius: 4px;
 }
 .nav-icon { font-size: 15px; color: var(--ink-soft); cursor: pointer; position: relative; }
 .drawer-ig {
@@ -400,7 +408,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .nav-link-wrap:hover .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
 .nav-dropdown {
   position: absolute; top: 100%; left: 0; margin-top: 8px;
-  background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
   padding: 10px 0; min-width: 260px;
   box-shadow: 0 12px 32px rgba(36,29,23,0.08);
   opacity: 0; visibility: hidden; transform: translateY(-6px);
@@ -426,7 +434,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 }
 .nav-mobile .nav-logo { justify-self: center; }
 .nav-mobile-right { display: flex; align-items: center; gap: 16px; justify-self: end; }
-.hamburger { font-size: 22px; cursor: pointer; color: var(--ink); background: none; border: none; padding: 0; justify-self: start; }
+.hamburger { font-size: 24px; display:inline-flex; cursor: pointer; color: var(--ink); background: none; border: none; padding: 0; justify-self: start; }
 
 .tab-bar {
   display: none;
@@ -444,7 +452,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   transition: color 0.15s;
 }
 .tab-item.active { color: var(--accent); font-weight: 600; }
-.tab-icon { font-size: 20px; }
+.tab-icon { font-size: 21px; display:inline-flex; line-height:1; }
 
 /* Mobile drawer */
 .mobile-drawer {
@@ -459,11 +467,11 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   padding: 28px 24px; overflow-y: auto;
   display: flex; flex-direction: column; gap: 6px;
 }
-.drawer-close { align-self: flex-end; font-size: 24px; cursor: pointer; margin-bottom: 16px; }
+.drawer-close { align-self: flex-end; font-size: 22px; display:inline-flex; cursor: pointer; margin-bottom: 16px; }
 .drawer-section { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); font-weight: 800; margin: 18px 0 6px; }
 .drawer-item { font-size: 16px; font-weight: 400; color: var(--ink); padding: 8px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
 .drawer-subitem { font-size: 14px; color: var(--ink-soft); padding: 8px 0 8px 22px; border-bottom: 1px solid var(--line); cursor: pointer; position: relative; }
-.drawer-subitem:not(.is-cat)::before { content: '▸'; position: absolute; left: 2px; top: 50%; transform: translateY(-50%); font-size: 12px; color: var(--accent); line-height: 1; }
+.drawer-subitem:not(.is-cat)::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 12px; height: 12px; background: var(--accent); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat; }
 #drawer-cursos-cats { margin: 0; padding: 0; border-left: none; }
 .drawer-subitem.is-cat { padding-left: 28px; font-size: 13px; color: var(--ink-soft); }
 
@@ -477,7 +485,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .page-bc span:hover, .page-bc a:hover { color: var(--ink); }
 .page-bc .page-bc-current { color: var(--ink); cursor: default; }
 .page-bc .page-bc-current:hover { color: var(--ink); }
-.page-bc .page-bc-sep { margin: 0 8px; color: var(--line-strong); cursor: default; }
+.page-bc .page-bc-sep { margin: 0 6px; color: var(--line-strong); cursor: default; display:inline-flex; vertical-align:-1px; }
 .page-bc .page-bc-sep:hover { color: var(--line-strong); }
 @media (max-width: 768px) {
   .page-bc { font-size: 11.5px; margin-bottom: 16px; }
@@ -508,7 +516,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <div class="nav-left">
       <a class="nav-link" href="/" onclick="goTo('home','');return false">Inicio</a>
       <span class="nav-link-wrap">
-        <a class="nav-link active" href="/cursos/" onclick="goTo('cursos','docencia');return false">Docencia <span style="font-size:10px">▾</span></a>
+        <a class="nav-link active" href="/cursos/" onclick="goTo('cursos','docencia');return false">Cursos <i class="ico ico-chev-d" aria-hidden="true"></i></a>
         <div class="nav-dropdown" id="docencia-dropdown">
           <a class="nav-dropdown-item" href="/cursos/" onclick="goTo('cursos','docencia');return false">Ver todos los cursos</a>
           <div class="nav-dropdown-sep"></div>
@@ -521,7 +529,6 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
         </div>
       </span>
       <a class="nav-link" href="/#tienda" onclick="goTo('tienda','aparatologia');return false">Aparatología</a>
-      <span class="nav-link">Diario</span>
     </div>
     <a class="nav-logo" href="/" onclick="goTo('home','');return false">PRECISSA INSTITUTE<span class="nav-logo-sub">Dermocosmiatría &amp; Electroestética</span></a>
     <div class="nav-right">
@@ -532,10 +539,10 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   </div>
   <!-- Desktop row 2 -->
   <div class="nav-row2" id="nav-row2">
-    <span class="nav-area-label" id="nav-area-label">Docencia</span>
+    <span class="nav-area-label" id="nav-area-label">Cursos</span>
     <div class="nav-sep"></div>
     <div class="nav-sub-links" id="nav-sub-links">
-      <a class="nav-sub-link active" href="/cursos/" onclick="goTo('cursos','docencia');return false">Cursos</a>
+      <a class="nav-sub-link active" href="/cursos/" onclick="goTo('cursos','docencia');return false">Catálogo</a>
       <a class="nav-sub-link" href="/#aula" onclick="goTo('aula','docencia');return false">Acceso alumnado</a>
     </div>
     <a href="https://www.instagram.com/precissainstitute" target="_blank" rel="noopener" class="nav-row2-ig" aria-label="Instagram PRECISSA INSTITUTE">
@@ -545,7 +552,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   </div>
   <!-- Mobile row -->
   <div class="nav-mobile">
-    <button class="hamburger" onclick="openDrawer()" aria-label="Abrir menú">☰</button>
+    <button class="hamburger" onclick="openDrawer()" aria-label="Abrir menú"><i class="ico ico-menu" aria-hidden="true"></i></button>
     <a class="nav-logo" href="/" onclick="goTo('home','');return false">PRECISSA INSTITUTE<span class="nav-logo-sub">Dermocosmiatría &amp; Electroestética</span></a>
     <div class="nav-mobile-right">
       <button class="btn btn-dark btn-sm acceder-btn" style="padding:8px 14px;font-size:12px" onclick="goTo('aula','docencia')">Acceder</button>
@@ -558,20 +565,18 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 <div class="mobile-drawer" id="mobile-drawer">
   <div class="drawer-overlay" onclick="closeDrawer()"></div>
   <div class="drawer-panel">
-    <button class="drawer-close" onclick="closeDrawer()">✕</button>
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Cerrar menú"><i class="ico ico-x" aria-hidden="true"></i></button>
     <a href="https://www.instagram.com/precissainstitute" target="_blank" rel="noopener" class="drawer-ig" onclick="closeDrawer()" aria-label="Instagram PRECISSA INSTITUTE">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.7"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
       <span>Instagram</span>
     </a>
-    <div class="drawer-section">Docencia</div>
-    <a class="drawer-subitem" href="/cursos/" onclick="goTo('cursos','docencia');closeDrawer();return false" style="display:block">Cursos · ver todos</a>
+    <div class="drawer-section">Cursos</div>
+    <a class="drawer-subitem" href="/cursos/" onclick="goTo('cursos','docencia');closeDrawer();return false" style="display:block">Todos los cursos</a>
     <div id="drawer-cursos-cats"><!-- 4 categorías inyectadas por JS --></div>
     <a class="drawer-subitem" href="/#aula" onclick="goTo('aula','docencia');closeDrawer();return false" style="display:block">Acceso alumnado</a>
     <div class="drawer-section">Aparatología</div>
     <a class="drawer-subitem" href="/#tienda" onclick="goTo('tienda','aparatologia');closeDrawer();return false" style="display:block">Catálogo</a>
     <a class="drawer-subitem" href="/#tienda" onclick="closeDrawer();openDemoForm();return false" style="display:block">Demos</a>
-    <div class="drawer-section">Más</div>
-    <div class="drawer-item">Diario</div>
     <div class="drawer-item nav-admin-link" style="display:none" onclick="goTo('admin','');closeDrawer()">Administración</div>
     <div class="drawer-item" style="margin-top:16px">
       <button class="btn btn-dark acceder-btn" style="width:100%;justify-content:center" onclick="goTo('aula','docencia');closeDrawer()">Acceder</button>
@@ -584,16 +589,16 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 <div class="tab-bar">
   <div class="tab-bar-inner">
     <a class="tab-item active" href="/" onclick="goTo('home','');return false">
-      <span class="tab-icon">⌂</span><span>Inicio</span>
+      <span class="tab-icon"><i class="ico ico-home" aria-hidden="true"></i></span><span>Inicio</span>
     </a>
     <a class="tab-item" href="/cursos/" onclick="goTo('cursos','docencia');return false">
-      <span class="tab-icon">◷</span><span>Docencia</span>
+      <span class="tab-icon"><i class="ico ico-book" aria-hidden="true"></i></span><span>Cursos</span>
     </a>
     <a class="tab-item" href="/#tienda" onclick="goTo('tienda','aparatologia');return false">
-      <span class="tab-icon">◈</span><span>Aparatología</span>
+      <span class="tab-icon"><i class="ico ico-zap" aria-hidden="true"></i></span><span>Aparatología</span>
     </a>
     <a class="tab-item" href="/#aula" onclick="goTo('aula','docencia');return false">
-      <span class="tab-icon">◎</span><span>Yo</span>
+      <span class="tab-icon"><i class="ico ico-user" aria-hidden="true"></i></span><span>Aula</span>
     </a>
   </div>
 </div>
@@ -633,7 +638,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .hero-ig:hover { color: var(--accent); }
 .hero-ig svg { display: block; flex-shrink: 0; }
 .hero-h1 {
-  font-family: var(--serif); font-size: 80px; line-height: 0.98;
+  font-family: var(--serif); font-size: 72px; line-height: 1.0;
   letter-spacing: -0.022em; color: var(--ink);
   margin: 18px 0 26px;
 }
@@ -649,7 +654,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 /* Diptych */
 .diptych { padding: 96px 56px; }
 .diptych-header { text-align: center; margin-bottom: 52px; }
-.diptych-h2 { font-family: var(--serif); font-size: 52px; line-height: 1.08; letter-spacing: -0.018em; margin-top: 12px; }
+.diptych-h2 { font-family: var(--serif); font-size: 48px; line-height: 1.08; letter-spacing: -0.018em; margin-top: 12px; }
 .diptych-h2 em { font-style: italic; }
 .diptych-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .diptych-card { border-radius: 12px; overflow: hidden; min-height: 420px; position: relative; padding: 44px 40px; display: flex; flex-direction: column; }
@@ -672,7 +677,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .diptych-desc { font-size: 14px; line-height: 1.6; opacity: 0.75; max-width: 300px; margin-bottom: 28px; }
 .diptych-sub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: auto; }
 .diptych-sub-card {
-  border-radius: 8px; padding: 16px;
+  border-radius: 12px; padding: 16px;
 }
 .diptych-dark .diptych-sub-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); }
 .diptych-light .diptych-sub-card { background: var(--surface); border: 1px solid var(--line); }
@@ -688,7 +693,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   display: grid; grid-template-columns: 0.85fr 1fr; gap: 64px;
   max-width: 1240px; margin: 0 auto; align-items: center;
 }
-.profesora-img-wrap { position: relative; overflow: hidden; border-radius: 6px; aspect-ratio: 4/5; }
+.profesora-img-wrap { position: relative; overflow: hidden; border-radius: 4px; aspect-ratio: 4/5; }
 .profesora-img { width: 100%; height: 100%; object-fit: cover; display: block; filter: contrast(1.02) saturate(0.96); }
 .profesora-img-label {
   position: absolute; bottom: 14px; left: 14px;
@@ -735,7 +740,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 /* Enfoque pedagógico */
 .enfoque { padding: 104px 56px; background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .enfoque-intro { max-width: 880px; margin: 0 auto 72px; }
-.enfoque-h2 { font-family: var(--serif); font-size: 56px; line-height: 1.06; letter-spacing: -0.018em; margin: 14px 0 28px; }
+.enfoque-h2 { font-family: var(--serif); font-size: 48px; line-height: 1.08; letter-spacing: -0.018em; margin: 14px 0 28px; }
 .enfoque-h2 em { font-style: italic; }
 .enfoque-lede { font-size: 16.5px; line-height: 1.65; color: var(--ink-soft); max-width: 720px; }
 .enfoque-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 1200px; margin: 0 auto; }
@@ -748,11 +753,11 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 /* Areas */
 .areas { padding: 96px 56px; position: relative; }
 .section-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 48px; }
-.section-h2 { font-family: var(--serif); font-size: 44px; letter-spacing: -0.018em; line-height: 1.1; }
+.section-h2 { font-family: var(--serif); font-size: 48px; letter-spacing: -0.018em; line-height: 1.08; }
 .section-h2 em { font-style: italic; }
 .areas-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
 @media (max-width: 1100px) { .areas-grid { grid-template-columns: repeat(2,1fr); } }
-.area-card { border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
+.area-card { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
 .area-card-img { height: 340px; position: relative; overflow: hidden; }
 .area-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .area-card-img .area-roman { z-index: 2; text-shadow: 0 1px 8px rgba(36,29,23,0.35); }
@@ -777,16 +782,16 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .tests-feat-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
 .tests-feat-desc { font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; }
 .test-preview-card {
-  background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
   padding: 24px; box-shadow: 0 12px 36px rgba(36,29,23,0.06);
 }
 .test-preview-module { font-size: 11px; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px; }
-.test-preview-progress { height: 4px; background: var(--soft); border-radius: 2px; margin-bottom: 20px; overflow: hidden; }
-.test-preview-progress-inner { height: 100%; width: 33%; background: var(--accent); border-radius: 2px; }
+.test-preview-progress { height: 4px; background: var(--soft); border-radius: 4px; margin-bottom: 20px; overflow: hidden; }
+.test-preview-progress-inner { height: 100%; width: 33%; background: var(--accent); border-radius: 4px; }
 .test-preview-q { font-family: var(--serif); font-size: 18px; line-height: 1.4; margin-bottom: 20px; }
 .test-preview-q em { font-style: italic; }
 .test-option {
-  border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px;
+  border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px;
   margin-bottom: 8px; font-size: 13.5px; cursor: pointer;
   transition: background 0.15s, border-color 0.15s;
   display: flex; align-items: flex-start; gap: 10px;
@@ -802,7 +807,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .aparatologia-section { padding: 96px 56px; background: var(--bg2); position: relative; }
 .products-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-top: 48px; }
 .product-card {
-  background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
   overflow: hidden; cursor: pointer; transition: box-shadow 0.2s;
 }
 .product-card:hover { box-shadow: 0 8px 24px rgba(36,29,23,0.1); }
@@ -826,7 +831,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .testimonials { background: var(--surface); padding: 96px 56px; }
 .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 52px; }
 .testimonial-card { display: flex; flex-direction: column; }
-.testimonial-img { height: 240px; border-radius: 8px; margin-bottom: 20px; }
+.testimonial-img { height: 240px; border-radius: 12px; margin-bottom: 20px; }
 .testimonial-quote { font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.55; color: var(--ink); margin-bottom: 14px; }
 .testimonial-name { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
 .testimonial-centro { font-size: 11.5px; color: var(--muted); }
@@ -865,7 +870,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   position: absolute; inset: 0; display: flex; flex-direction: column;
   justify-content: center; padding: 0 56px; max-width: 640px;
 }
-.newsletter-h2 { font-family: var(--serif); font-size: 44px; line-height: 1.1; letter-spacing: -0.018em; color: #fff; margin: 12px 0 32px; }
+.newsletter-h2 { font-family: var(--serif); font-size: 48px; line-height: 1.1; letter-spacing: -0.018em; color: #fff; margin: 12px 0 32px; }
 .newsletter-h2 em { font-style: italic; }
 .newsletter-form { display: flex; gap: 0; max-width: 420px; }
 .newsletter-input {
@@ -947,11 +952,11 @@ a.footer-nap-line:hover { color: var(--bg); }
   <!-- HERO -->
   <section class="hero">
     <div class="hero-left">
-      <span class="eyebrow accent">· Especialistas en Plasmapen y electroestética · Valencia</span>
-      <h1 class="hero-h1">El protocolo<br>de la <em>ciencia.</em></h1>
+      <span class="eyebrow accent">Especialistas en Plasmapen y electroestética · Valencia</span>
+      <h1 class="hero-h1">El protocolo<br>de la <em>ciencia</em></h1>
       <p class="hero-desc">Formación avanzada para profesionales que entienden que la técnica sin conocimiento no es suficiente.</p>
       <div class="hero-ctas">
-        <button class="btn btn-dark" onclick="goTo('cursos','docencia')">Ver cursos →</button>
+        <button class="btn btn-dark" onclick="goTo('cursos','docencia')">Ver cursos <i class="ico ico-arrow" aria-hidden="true"></i></button>
         <button class="btn btn-outline" onclick="goTo('tienda','aparatologia')">Aparatología</button>
       </div>
       <a href="https://www.instagram.com/precissainstitute" target="_blank" rel="noopener" class="hero-ig" aria-label="Instagram PRECISSA INSTITUTE">
@@ -963,22 +968,21 @@ a.footer-nap-line:hover { color: var(--bg); }
       <img src="assets/IMG-20260522-WA0032.jpg" alt="Editorial PRECISSA INSTITUTE"
         width="1392" height="752" fetchpriority="high"
         style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
-      <div class="ph-label">editorial PRECISSA INSTITUTE · primavera 2026</div>
     </div>
   </section>
 
   <!-- DIPTYCH -->
   <section class="diptych">
     <div class="diptych-header">
-      <span class="eyebrow">· Una escuela, dos mundos</span>
-      <h2 class="diptych-h2">Aprende el protocolo.<br><em>Compra la máquina.</em></h2>
+      <span class="eyebrow">Una escuela, dos mundos</span>
+      <h2 class="diptych-h2">Aprende el protocolo.<br>Compra la máquina.</h2>
     </div>
     <div class="diptych-grid">
       <!-- Docencia -->
       <div class="diptych-card diptych-dark">
         <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
           <span class="chip chip-white" style="font-size:9.5px">PARTE I</span>
-          <span class="chip chip-white">Docencia</span>
+          <span class="chip chip-white">Formación</span>
         </div>
         <div class="diptych-display">Aprende.</div>
         <p class="diptych-desc">Protocolos rigurosos, apuntes descargables y tests que acreditan tu nivel.</p>
@@ -993,7 +997,7 @@ a.footer-nap-line:hover { color: var(--bg); }
           </div>
         </div>
         <div class="diptych-link">
-          <button class="btn btn-text btn-text-white" onclick="goTo('cursos','docencia')">Entrar al área docente →</button>
+          <button class="btn btn-text btn-text-white" onclick="goTo('cursos','docencia')">Entrar al área docente <i class="ico ico-arrow" aria-hidden="true"></i></button>
         </div>
       </div>
       <!-- Aparatología -->
@@ -1008,7 +1012,7 @@ a.footer-nap-line:hover { color: var(--bg); }
         <div class="diptych-display" style="font-family:var(--serif);font-size:64px;letter-spacing:-0.022em;line-height:0.95;margin:16px 0 14px">Equípate.</div>
         <p class="diptych-desc" style="color:var(--ink-soft)">Aparatología profesional. El equipo que se enseña en PRECISSA INSTITUTE, disponible para tu cabina.</p>
         <div class="diptych-link">
-          <button class="btn btn-text" onclick="goTo('tienda','aparatologia')">Entrar a la tienda →</button>
+          <button class="btn btn-text" onclick="goTo('tienda','aparatologia')">Entrar a la tienda <i class="ico ico-arrow" aria-hidden="true"></i></button>
         </div>
       </div>
     </div>
@@ -1022,7 +1026,7 @@ a.footer-nap-line:hover { color: var(--bg); }
       </div>
       <div class="profesora-content">
         <span class="eyebrow accent">Beatriz Navarro</span>
-        <h2 class="profesora-h2">El criterio<br>detrás de cada<br><em>protocolo.</em></h2>
+        <h2 class="profesora-h2">El criterio<br>detrás de cada<br>protocolo</h2>
         <p class="profesora-lead">Más de 15 años en cabina, cientos de horas de docencia y una obsesión: que cada alumna entienda <em>por qué</em> cada técnica funciona, no solo cómo se aplica.</p>
         <p class="profesora-desc">En PRECISSA INSTITUTE no se enseña a copiar un protocolo: se enseña a leer la piel, anticipar su respuesta y diseñar el tratamiento que de verdad encaja con esa cabina, esa máquina y ese cliente. Cada curso pasa por sus manos antes de llegar al aula.</p>
         <div class="profesora-creds">
@@ -1035,7 +1039,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 
   <!-- PULL QUOTE -->
   <section class="pullquote">
-    <span class="eyebrow">· Nuestra filosofía</span>
+    <span class="eyebrow">Nuestra filosofía</span>
     <h2 class="pullquote-h2">La piel se cuida con <em>conocimiento.</em><br>La cabina se respeta con <em>método.</em></h2>
     <p class="pullquote-desc">En PRECISSA INSTITUTE no separamos la ciencia del gesto. Cada protocolo nace de evidencia clínica y se perfecciona en cabina.</p>
   </section>
@@ -1043,24 +1047,24 @@ a.footer-nap-line:hover { color: var(--bg); }
   <!-- ENFOQUE PEDAGÓGICO -->
   <section class="enfoque">
     <div class="enfoque-intro">
-      <span class="eyebrow accent">· Nuestro enfoque</span>
-      <h2 class="enfoque-h2">Aprende <em>haciendo.</em><br>Entiende <em>practicando.</em></h2>
+      <span class="eyebrow accent">Nuestro enfoque</span>
+      <h2 class="enfoque-h2">Aprende haciendo.<br>Entiende practicando.</h2>
       <p class="enfoque-lede">PRECISSA INSTITUTE introduce una <em>innovación pedagógica</em> en la formación en estética: la teoría ya no precede a la práctica, emerge de ella. No estudias para algún día aplicarla — la descubres cuando tus manos la necesitan. Cada concepto llega en el momento exacto: sobre piel real, con la profesora al lado, con el resultado a la vista.</p>
     </div>
     <div class="enfoque-grid">
       <div class="enfoque-card">
         <div class="enfoque-num">i.</div>
-        <h3 class="enfoque-card-h">Aula y cabina, <em>a la vez.</em></h3>
+        <h3 class="enfoque-card-h">Aula y cabina, a la vez</h3>
         <p class="enfoque-card-d">Cada sesión combina concepto y ejecución el mismo día. No memorizas para luego aplicar: aplicas mientras aprendes.</p>
       </div>
       <div class="enfoque-card">
         <div class="enfoque-num">ii.</div>
-        <h3 class="enfoque-card-h">Entender <em>haciendo.</em></h3>
+        <h3 class="enfoque-card-h">Entender haciendo</h3>
         <p class="enfoque-card-d">La fisiología, la histología, la electroestética dejan de ser conceptos abstractos. Llegan cuando tus manos las reclaman.</p>
       </div>
       <div class="enfoque-card">
         <div class="enfoque-num">iii.</div>
-        <h3 class="enfoque-card-h">De la experiencia, <em>al protocolo.</em></h3>
+        <h3 class="enfoque-card-h">De la experiencia, al protocolo</h3>
         <p class="enfoque-card-d">No al revés. Primero las manos exploran; después la teoría explica lo que han visto. Así se fija el conocimiento.</p>
       </div>
     </div>
@@ -1068,13 +1072,12 @@ a.footer-nap-line:hover { color: var(--bg); }
 
   <!-- ÁREAS DE ESPECIALIZACIÓN -->
   <section class="areas" style="position:relative">
-    <div class="part-band part-band-I">Parte I · Docencia</div>
     <div class="section-header">
       <div>
-        <span class="eyebrow">· Docencia / Cursos</span>
-        <h2 class="section-h2" style="margin-top:8px">Áreas de <em>especialización</em></h2>
+        <span class="eyebrow">Formación</span>
+        <h2 class="section-h2" style="margin-top:8px">Áreas de especialización</h2>
       </div>
-      <button class="btn btn-text" onclick="goTo('cursos','docencia')">Ver cursos →</button>
+      <button class="btn btn-text" onclick="goTo('cursos','docencia')">Ver cursos <i class="ico ico-arrow" aria-hidden="true"></i></button>
     </div>
     <div class="areas-grid" id="areas-grid">
       <!-- Renderizado por JS desde window.PRECISSA_CATEGORIES -->
@@ -1090,24 +1093,23 @@ a.footer-nap-line:hover { color: var(--bg); }
 
   <!-- APARATOLOGÍA DESTACADA -->
   <section class="aparatologia-section" style="position:relative">
-    <div class="part-band part-band-II">Parte II · Aparatología</div>
     <div class="section-header">
       <div>
-        <span class="eyebrow">· Equipo profesional</span>
-        <h2 class="section-h2" style="margin-top:8px">Aparatología <em>destacada</em></h2>
+        <span class="eyebrow">Equipo profesional</span>
+        <h2 class="section-h2" style="margin-top:8px">Aparatología destacada</h2>
       </div>
-      <button class="btn btn-text" onclick="goTo('tienda','aparatologia')">Ver catálogo →</button>
+      <button class="btn btn-text" onclick="goTo('tienda','aparatologia')">Ver catálogo <i class="ico ico-arrow" aria-hidden="true"></i></button>
     </div>
     <div class="products-grid" id="home-products-grid"></div>
   </section>
 
   <!-- TESTIMONIOS -->
   <section class="testimonials">
-    <div style="text-align:center;margin-bottom:8px"><span class="eyebrow">· Alumnas en activo</span></div>
-    <h2 style="font-family:var(--serif);font-size:42px;letter-spacing:-0.018em;text-align:center">Quien ya está en <em>cabina.</em></h2>
+    <div style="text-align:center;margin-bottom:8px"><span class="eyebrow">Alumnas en activo</span></div>
+    <h2 class="section-h2" style="text-align:center">Quien ya está en cabina</h2>
     <div class="testimonials-grid" id="testimonials-grid">
       <div class="testimonial-card">
-        <div class="testimonial-img" style="border-radius:8px;overflow:hidden;">
+        <div class="testimonial-img" style="border-radius:12px;overflow:hidden;">
           <img src="assets/IMG-20260522-WA0032.jpg" alt="Editorial PRECISSA INSTITUTE"
             width="1392" height="752" loading="lazy"
             style="width:100%;height:240px;object-fit:cover;object-position:center top;display:block;filter:grayscale(100%);">
@@ -1137,8 +1139,8 @@ a.footer-nap-line:hover { color: var(--bg); }
     <div class="newsletter-overlay"></div>
     <img src="assets/seal-ss-lg.webp" alt="" class="newsletter-watermark" aria-hidden="true" loading="lazy">
     <div class="newsletter-content">
-      <span class="eyebrow white">· Diario PRECISSA INSTITUTE</span>
-      <h2 class="newsletter-h2">Suscríbete al diario<br>de cabina. Protocolos,<br>fichas y <em>ofertas en<br>aparatología.</em></h2>
+      <span class="eyebrow white">Diario PRECISSA INSTITUTE</span>
+      <h2 class="newsletter-h2">Suscríbete al diario<br>de cabina. Protocolos,<br>fichas y ofertas en<br>aparatología.</h2>
       <div class="newsletter-form" id="newsletter-form">
         <input class="newsletter-input" type="email" placeholder="tu@email.com" aria-label="Tu email para el newsletter">
         <button class="newsletter-btn" onclick="submitNewsletter()">Suscribirme</button>
@@ -1165,7 +1167,6 @@ a.footer-nap-line:hover { color: var(--bg); }
         <div class="footer-col-title">Escuela</div>
         <a class="footer-link" href="/cursos/" onclick="goTo('cursos','docencia');return false">Cursos de estética en Valencia</a>
         <a class="footer-link" href="/#aula" onclick="goTo('aula','docencia');return false">Acceso alumnado</a>
-        <a class="footer-link">Diario</a>
       </div>
       <div>
         <div class="footer-col-title">Cursos en Valencia</div>
@@ -1222,27 +1223,30 @@ a.footer-nap-line:hover { color: var(--bg); }
 .cursos-search-icon { position: absolute; left: 16px; top: 50%; width: 14px; height: 14px; transform: translateY(-50%); border: 1.5px solid var(--muted); border-radius: 50%; pointer-events: none; }
 .cursos-search-icon::after { content: ''; position: absolute; right: -5px; bottom: -5px; width: 7px; height: 1.5px; background: var(--muted); transform: rotate(45deg); transform-origin: left center; }
 .cursos-pub-card.is-filtered, .aula-course-card.is-filtered { display: none; }
-.cursos-pub-noresults { padding: 60px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 10px; margin-top: 12px; }
+.cursos-pub-noresults { padding: 60px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 12px; margin-top: 12px; }
 .cursos-pub-filters {
-  display:flex; align-items:center; gap:8px; flex-wrap:wrap;
-  margin-bottom: 40px; padding: 14px 0 18px;
+  display:flex; align-items:stretch; gap:28px; flex-wrap:nowrap;
+  margin-bottom: 40px; padding: 0;
   border-bottom: 1px solid var(--line);
   position: sticky; top: 108px; z-index: 30;
   background: var(--bg);
+  overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
 }
+.cursos-pub-filters::-webkit-scrollbar { display: none; }
 @media (max-width: 768px) {
-  .cursos-pub-filters { top: 64px; padding: 10px 0 14px; }
+  .cursos-pub-filters { top: 64px; gap: 22px; margin-left: -20px; margin-right: -20px; padding: 0 20px; }
+  .cursos-pub-category-count { display: none; }
 }
-.cursos-pub-filter { padding:7px 16px; border-radius:999px; font-size:12.5px; font-weight:500; cursor:pointer; border:1px solid var(--line-strong); color:var(--ink-soft); transition:all 0.15s; letter-spacing:0.02em; background: transparent; }
-.cursos-pub-filter:hover { border-color:var(--ink); color:var(--ink); }
-.cursos-pub-filter.active { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+.cursos-pub-filter { padding:14px 0 12px; border:0; border-bottom:2px solid transparent; margin-bottom:-1px; border-radius:0; font-size:13.5px; font-weight:500; cursor:pointer; color:var(--muted); transition:color 0.15s, border-color 0.15s; white-space:nowrap; background: transparent; }
+.cursos-pub-filter:hover { color:var(--ink); }
+.cursos-pub-filter.active { color:var(--ink); border-bottom-color:var(--ink); font-weight:600; }
 .cursos-pub-category.is-hidden { display: none; }
 .cursos-pub-category-head { margin-bottom: 22px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
 .cursos-pub-category-title { font-family: var(--serif); font-size: 32px; line-height: 1.1; letter-spacing: -0.01em; margin: 0 0 6px; }
 .cursos-pub-category-tagline { font-size: 13.5px; color: var(--ink-soft); margin: 0; }
-.cursos-pub-category-count { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; display: block; }
+.cursos-pub-category-count { font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0; color: var(--muted); margin-left: 6px; vertical-align: 6px; }
 .cursos-pub-category-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px; }
-.cursos-pub-card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.18s, box-shadow 0.18s; }
+.cursos-pub-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.18s, box-shadow 0.18s; }
 .cursos-pub-card:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(36,29,23,0.08); }
 .cursos-pub-card-cover { height: 180px; background: var(--bg2); position: relative; overflow: hidden; }
 .cursos-pub-card-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -1252,7 +1256,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 .cursos-pub-card-title { font-family: var(--serif); font-size: 22px; line-height: 1.15; margin-bottom: 10px; }
 .cursos-pub-card-desc { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; flex: 1; }
 .cursos-pub-card-meta { display: flex; gap: 14px; font-size: 11.5px; color: var(--muted); margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); }
-.cursos-pub-card-cta { margin-top: 14px; padding: 10px 18px; background: var(--ink); color: var(--bg); border: none; border-radius: 999px; font-family: var(--sans); font-size: 12.5px; font-weight: 600; letter-spacing: 0.03em; cursor: pointer; transition: background 0.15s, transform 0.1s; }
+.cursos-pub-card-cta { margin-top: 14px; padding: 10px 18px; display:inline-flex; align-items:center; gap:7px; background: var(--ink); color: var(--bg); border: none; border-radius: 999px; font-family: var(--sans); font-size: 12.5px; font-weight: 600; letter-spacing: 0.03em; cursor: pointer; transition: background 0.15s, transform 0.1s; }
 .cursos-pub-card-cta:hover { background: var(--accent-dark, var(--accent)); }
 .cursos-pub-card-cta:active { transform: scale(0.98); }
 .cursos-pub-card-cta--enrolled { background: var(--accent-dark); }
@@ -1260,7 +1264,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 .cursos-pub-cta { background: var(--ink); color: var(--bg); padding: 56px; border-radius: 12px; margin-top: 64px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
 .cursos-pub-cta h2 { font-family: var(--serif); font-size: 32px; line-height: 1.1; margin-bottom: 8px; }
 .cursos-pub-cta p { font-size: 14px; color: rgba(242,236,227,0.7); }
-.cursos-pub-empty { padding: 60px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 10px; grid-column: 1/-1; }
+.cursos-pub-empty { padding: 60px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 12px; grid-column: 1/-1; }
 @media (max-width: 768px) {
   .cursos-pub { padding: 88px 20px 60px; }
   .cursos-pub-h1 { font-size: 40px; }
@@ -1270,12 +1274,12 @@ a.footer-nap-line:hover { color: var(--bg); }
 <section class="cursos-pub">
   <div class="page-bc">
     <span onclick="goTo('home','')">Inicio</span>
-    <span class="page-bc-sep">›</span>
+    <span class="page-bc-sep"><i class="ico ico-chev-r" aria-hidden="true"></i></span>
     <span class="page-bc-current">Cursos</span>
   </div>
   <div class="cursos-pub-head">
-    <span class="eyebrow accent">· Docencia / Cursos</span>
-    <h2 class="cursos-pub-h1">Programas <em>formativos</em>.</h2>
+    <span class="eyebrow accent">Cursos</span>
+    <h2 class="cursos-pub-h1">Programas formativos</h2>
     <p class="cursos-pub-desc">Cursos de protocolo riguroso, basados en evidencia y diseñados para profesionales en activo. Si ya eres alumna de PRECISSA INSTITUTE, accede al aula para entrar en tu materia y tests.</p>
   </div>
   <div class="cursos-search">
@@ -1299,7 +1303,7 @@ a.footer-nap-line:hover { color: var(--bg); }
       <h2>¿Ya eres alumna?</h2>
       <p>Accede al aula con tu cuenta para ver tu materia y tests.</p>
     </div>
-    <button class="btn btn-light" onclick="goTo('aula','docencia')">Acceso alumnado →</button>
+    <button class="btn btn-light" onclick="goTo('aula','docencia')">Acceso alumnado <i class="ico ico-arrow" aria-hidden="true"></i></button>
   </div>
 </section>
 </div><!-- /page-cursos -->
@@ -1322,17 +1326,17 @@ a.footer-nap-line:hover { color: var(--bg); }
 .aula-divider { display: flex; align-items: center; gap: 12px; margin: 22px 0; color: var(--muted); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
 .aula-divider::before, .aula-divider::after { content: ''; flex: 1; height: 1px; background: var(--line); }
 .aula-form { display: flex; flex-direction: column; gap: 10px; }
-.aula-input { padding: 13px 16px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; font-family: inherit; background: var(--bg); transition: border-color 0.15s; }
+.aula-input { padding: 13px 16px; border: 1px solid var(--line); border-radius: 12px; font-size: 14px; font-family: inherit; background: var(--bg); transition: border-color 0.15s; }
 .aula-input:focus { outline: none; border-color: var(--accent); }
 .aula-form-btn { padding: 13px; background: var(--ink); color: var(--bg); border: none; border-radius: 999px; font-size: 14px; font-weight: 500; cursor: pointer; transition: background 0.15s; margin-top: 4px; }
 .aula-form-btn:hover { background: var(--accent-dark); }
 .aula-foot { font-size: 13px; color: var(--ink-soft); text-align: center; margin-top: 20px; }
 .aula-foot .aula-link { color: var(--accent); cursor: pointer; text-decoration: underline; }
-.aula-msg { margin-top: 14px; padding: 10px 14px; border-radius: 8px; font-size: 12.5px; line-height: 1.45; }
+.aula-msg { margin-top: 14px; padding: 10px 14px; border-radius: 12px; font-size: 12.5px; line-height: 1.45; }
 .aula-msg.aula-msg-err { background: #fdecea; color: #8a2424; border: 1px solid #f3c7c1; }
 .aula-msg.aula-msg-ok { background: #e9f5ec; color: #1f5a30; border: 1px solid #c8e3d0; }
 .aula-msg.aula-msg-info { background: var(--accent-soft); color: var(--accent-dark); border: 1px solid #e0c8b6; }
-.aula-config-warn { background: #fff8e6; color: #7a5a00; border: 1px solid #f1d77d; border-radius: 8px; padding: 12px 14px; font-size: 12.5px; margin-bottom: 18px; line-height: 1.5; }
+.aula-config-warn { background: #fff8e6; color: #7a5a00; border: 1px solid #f1d77d; border-radius: 12px; padding: 12px 14px; font-size: 12.5px; margin-bottom: 18px; line-height: 1.5; }
 .aula-config-warn code { background: rgba(0,0,0,0.06); padding: 1px 6px; border-radius: 4px; font-size: 11.5px; }
 
 /* Listado privado */
@@ -1360,7 +1364,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 .aula-category-tagline { font-size: 12.5px; color: var(--ink-soft); margin: 0; }
 .aula-category-count { font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; display: block; }
 .aula-category-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }
-.aula-course-card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform 0.18s, box-shadow 0.18s; display: flex; flex-direction: column; }
+.aula-course-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; cursor: pointer; transition: transform 0.18s, box-shadow 0.18s; display: flex; flex-direction: column; }
 .aula-course-card:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(36,29,23,0.08); }
 .aula-course-card-cover { height: 150px; background: var(--bg2); }
 .aula-course-card-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -1368,7 +1372,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 .aula-course-card-title { font-family: var(--serif); font-size: 20px; line-height: 1.15; margin-bottom: 8px; }
 .aula-course-card-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.5; flex: 1; }
 .aula-course-card-meta { display: flex; gap: 14px; font-size: 11.5px; color: var(--muted); margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--line); }
-.aula-empty { padding: 60px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 10px; grid-column: 1/-1; }
+.aula-empty { padding: 60px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 12px; grid-column: 1/-1; }
 @media (max-width: 768px) {
   .aula-wrap { padding: 88px 20px 60px; }
   .aula-login-card { padding: 32px 24px; }
@@ -1380,8 +1384,8 @@ a.footer-nap-line:hover { color: var(--bg); }
 <!-- ── Login (no autenticada) ── -->
 <section class="aula-wrap aula-login" id="aula-login-section">
   <div class="aula-login-card">
-    <span class="eyebrow accent">· Docencia / Acceso alumnado</span>
-    <h2 class="aula-login-h1">Bienvenida al <em>aula</em>.</h2>
+    <span class="eyebrow accent">Acceso alumnado</span>
+    <h2 class="aula-login-h1">Bienvenida al aula</h2>
     <p class="aula-login-sub">Accede con tu cuenta de Google o con tu email.</p>
 
     <div class="aula-config-warn" id="aula-config-warn" style="display:none">
@@ -1419,12 +1423,12 @@ a.footer-nap-line:hover { color: var(--bg); }
 <section class="aula-wrap" id="aula-list-section" style="display:none">
   <div class="page-bc">
     <span onclick="goTo('home','')">Inicio</span>
-    <span class="page-bc-sep">›</span>
+    <span class="page-bc-sep"><i class="ico ico-chev-r" aria-hidden="true"></i></span>
     <span class="page-bc-current">Aula</span>
   </div>
   <div class="aula-list-head">
     <div>
-      <span class="eyebrow accent">· Tu aula</span>
+      <span class="eyebrow accent">Tu aula</span>
       <h2 class="aula-list-h1">Hola, <em id="aula-user-name">alumna</em>.</h2>
       <p class="aula-list-sub">Estos son tus cursos disponibles.</p>
     </div>
@@ -1486,16 +1490,16 @@ a.footer-nap-line:hover { color: var(--bg); }
 .ac-materia strong { color: var(--ink); }
 .ac-materia em { font-style: italic; color: var(--ink-soft); }
 .ac-materia code { background: var(--bg2); padding: 2px 6px; border-radius: 4px; font-size: 13.5px; font-family: ui-monospace, Menlo, Consolas, monospace; }
-.ac-materia pre { background: var(--bg2); padding: 14px 16px; border-radius: 8px; overflow-x: auto; font-size: 13px; line-height: 1.5; margin: 0 0 1em; }
+.ac-materia pre { background: var(--bg2); padding: 14px 16px; border-radius: 12px; overflow-x: auto; font-size: 13px; line-height: 1.5; margin: 0 0 1em; }
 .ac-materia pre code { background: transparent; padding: 0; }
-.ac-materia blockquote { border-left: 3px solid var(--accent); padding: 8px 18px; margin: 0 0 1em; color: var(--ink-soft); background: var(--bg2); border-radius: 0 8px 8px 0; }
+.ac-materia blockquote { border-left: 3px solid var(--accent); padding: 8px 18px; margin: 0 0 1em; color: var(--ink-soft); background: var(--bg2); border-radius: 0 12px 12px 0; }
 .ac-materia hr { border: none; border-top: 1px solid var(--line); margin: 2em 0; }
 .ac-materia a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
 /* Imágenes embebidas en la materia (infografías de los manuales): nunca más
    anchas que la columna, o en móvil la página entera se desplaza de lado */
-.ac-materia img { display: block; max-width: 100%; height: auto; margin: 0 auto 1em; border-radius: 10px; box-shadow: 0 6px 24px rgba(36,29,23,0.10); }
+.ac-materia img { display: block; max-width: 100%; height: auto; margin: 0 auto 1em; border-radius: 12px; box-shadow: 0 6px 24px rgba(36,29,23,0.10); }
 .ac-materia { overflow-wrap: break-word; }
-.ac-tabla-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 0 1.4em; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.ac-tabla-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 0 1.4em; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
 /* Tablas de pocas columnas: caben enteras ajustando el texto, sin deslizar */
 .ac-materia .ac-tabla-scroll--ajustada table { width: 100%; }
 .ac-materia .ac-tabla-scroll--ajustada th, .ac-materia .ac-tabla-scroll--ajustada td { min-width: 0; max-width: none; }
@@ -1515,18 +1519,18 @@ a.footer-nap-line:hover { color: var(--bg); }
 .ac-materia { font-size: 17px; line-height: 1.75; }
 .ac-materia p { margin: 0 0 1.1em; }
 .ac-materia h3 { font-size: 23px; margin: 2em 0 0.6em; }
-.ac-materia h3::before { content: ""; display: block; width: 36px; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 12px; }
+.ac-materia h3::before { content: ""; display: block; width: 36px; height: 3px; background: var(--accent); border-radius: 4px; margin-bottom: 12px; }
 .ac-materia ul li::marker, .ac-materia ol li::marker { color: var(--accent); }
 .ac-eyebrow, .ac-portada-k, .ac-cap-n, .ac-obj-k, .ac-act-k, .ac-indice-k, .ac-caso-head span { display: block; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; color: var(--accent); }
 .ac-portada { padding: 24px 0 28px; border-bottom: 1px solid var(--line); margin-bottom: 28px; }
 .ac-portada h1 { font-size: 54px; line-height: 1; margin: 10px 0 8px; }
 .ac-portada-sub { font-size: 19px; color: var(--ink-soft); margin: 0 0 22px; line-height: 1.4; }
 .ac-kpis { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
-.ac-kpis div { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+.ac-kpis div { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
 .ac-kpis b { display: block; font-family: var(--serif); font-size: 28px; line-height: 1; color: var(--accent-dark); margin-bottom: 5px; }
 .ac-kpis span { font-size: 11.5px; color: var(--muted); letter-spacing: 0.04em; line-height: 1.3; display: block; }
 .ac-lead { font-size: 19px; color: var(--ink-soft); line-height: 1.6; }
-.ac-aviso { background: #FBF6E9; border-left: 4px solid #C68B2F; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 0 0 28px; font-size: 15px; }
+.ac-aviso { background: #FBF6E9; border-left: 4px solid #C68B2F; border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 0 0 28px; font-size: 15px; }
 .ac-aviso b { display: block; font-family: var(--serif); font-size: 19px; font-style: italic; color: #8A5A17; margin-bottom: 6px; }
 .ac-aviso p { margin: 0; color: var(--ink-soft); }
 .ac-indice { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px 24px; margin: 0 0 40px; }
@@ -1549,7 +1553,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 .ac-act { background: var(--bg2); border-radius: 12px; padding: 18px 22px; margin: 8px 0 30px; }
 .ac-act-k { color: var(--accent-dark); }
 .ac-act p { margin: 6px 0 0; font-size: 15px; }
-.ac-evid { background: #EEF4EA; border-left: 4px solid #5C7A4E; border-radius: 0 10px 10px 0; padding: 12px 18px; margin: -6px 0 30px; font-size: 15px; }
+.ac-evid { background: #EEF4EA; border-left: 4px solid #5C7A4E; border-radius: 0 12px 12px 0; padding: 12px 18px; margin: -6px 0 30px; font-size: 15px; }
 .ac-evid b { display: block; color: #3E5434; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 4px; }
 .ac-evid p { margin: 0; }
 .ac-caso { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin: 0 0 20px; }
@@ -1569,8 +1573,8 @@ a.footer-nap-line:hover { color: var(--bg); }
 }
 .ac-materia td { padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.5; }
 .ac-materia tr:last-child td { border-bottom: none; }
-.ac-materia-empty, .ac-materia-loading { padding: 60px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 10px; }
-.ac-empty { padding: 40px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 10px; }
+.ac-materia-empty, .ac-materia-loading { padding: 60px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 12px; }
+.ac-empty { padding: 40px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 12px; }
 
 /* Presentación: deck embebido + selector de lección + fullscreen */
 .ac-pres-host { display: flex; flex-direction: column; gap: 14px; }
@@ -1581,7 +1585,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 .ac-pres-lesson.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 .ac-pres-fs { padding: 9px 18px; border-radius: 999px; font-size: 12.5px; font-weight: 600; cursor: pointer; background: var(--ink); color: var(--bg); border: none; letter-spacing: 0.03em; transition: background 0.15s; display: inline-flex; align-items: center; gap: 8px; }
 .ac-pres-fs:hover { background: var(--accent-dark, var(--accent)); }
-.ac-pres-fs-icon { display: inline-block; width: 14px; height: 14px; border: 1.5px solid currentColor; border-radius: 2px; position: relative; }
+.ac-pres-fs-icon { display: inline-block; width: 14px; height: 14px; border: 1.5px solid currentColor; border-radius: 4px; position: relative; }
 .ac-pres-fs-icon::before, .ac-pres-fs-icon::after { content: ''; position: absolute; width: 4px; height: 4px; }
 .ac-pres-fs-icon::before { top: -1px; left: -1px; border-top: 1.5px solid currentColor; border-left: 1.5px solid currentColor; }
 .ac-pres-fs-icon::after { bottom: -1px; right: -1px; border-bottom: 1.5px solid currentColor; border-right: 1.5px solid currentColor; }
@@ -1589,7 +1593,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 .ac-pres-frame-wrap:fullscreen { border-radius: 0; aspect-ratio: auto; min-height: 0; }
 .ac-pres-frame-wrap:fullscreen iframe { border-radius: 0; }
 .ac-pres-frame { width: 100%; height: 100%; border: none; display: block; background: var(--bg); }
-.ac-pres-empty { padding: 60px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 10px; }
+.ac-pres-empty { padding: 60px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 12px; }
 @media (max-width: 768px) {
   .ac-pres-frame-wrap { aspect-ratio: 16 / 9; min-height: 0; }
   .ac-pres-toolbar { gap: 8px; }
@@ -1606,20 +1610,20 @@ a.footer-nap-line:hover { color: var(--bg); }
 .ac-slides-frame { flex: 1; border: none; background: var(--bg); width: 100%; }
 
 /* Test */
-.ac-test-empty { padding: 60px 24px; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 10px; }
+.ac-test-empty { padding: 60px 24px; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 12px; }
 .ac-test-empty p { margin-bottom: 16px; }
-.ac-test-q { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px; margin-bottom: 14px; }
+.ac-test-q { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px 24px; margin-bottom: 14px; }
 .ac-test-q-num { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
 .ac-test-q-text { font-size: 15px; font-weight: 500; margin-bottom: 14px; line-height: 1.4; }
 .ac-test-opts { display: flex; flex-direction: column; gap: 8px; }
-.ac-test-opt { padding: 12px 16px; border: 1px solid var(--line); border-radius: 8px; cursor: pointer; font-size: 13.5px; transition: background 0.15s, border-color 0.15s; }
+.ac-test-opt { padding: 12px 16px; border: 1px solid var(--line); border-radius: 12px; cursor: pointer; font-size: 13.5px; transition: background 0.15s, border-color 0.15s; }
 .ac-test-opt:hover { background: var(--bg); }
 .ac-test-opt.selected { background: var(--accent-soft); border-color: var(--accent); }
 .ac-test-opt.correct { background: #e9f5ec; border-color: #6fb37e; color: #1f5a30; }
 .ac-test-opt.wrong { background: #fdecea; border-color: #d57a72; color: #8a2424; }
 .ac-test-submit { margin-top: 20px; margin-bottom: 24px; white-space: nowrap; padding: 14px 28px; background: var(--ink); color: var(--bg); border: none; border-radius: 999px; font-size: 14px; cursor: pointer; transition: background 0.15s; }
 .ac-test-submit:hover { background: var(--accent-dark); }
-.ac-test-result { background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 10px; padding: 22px; margin-top: 18px; text-align: center; }
+.ac-test-result { background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 12px; padding: 22px; margin-top: 18px; text-align: center; }
 .ac-test-result-score { font-family: var(--serif); font-size: 36px; }
 .ac-test-result-lbl { font-size: 12px; color: var(--ink-soft); margin-top: 4px; }
 /* En móvil la barra fija inferior tapaba el final del test (botón Corregir y
@@ -1634,7 +1638,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 </style>
 <section class="ac-wrap">
   <div class="ac-bc">
-    <span onclick="goTo('aula','docencia')">Aula</span> ›
+    <span onclick="goTo('aula','docencia')">Aula</span> <i class="ico ico-chev-r" aria-hidden="true"></i>
     <span id="ac-bc-title">Curso</span>
   </div>
   <div class="ac-head">
@@ -1682,7 +1686,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 .curso-stat-item { display:flex; flex-direction:column; }
 .curso-stat-val { font-family:var(--serif); font-size:18px; }
 .curso-stat-key { font-size:11px; color:var(--muted); margin-top:2px; }
-.precio-card { background:var(--surface); border:1px solid var(--line); border-radius:10px; overflow:hidden; box-shadow:0 12px 36px rgba(36,29,23,0.06); }
+.precio-card { background:var(--surface); border:1px solid var(--line); border-radius:12px; overflow:hidden; box-shadow:0 12px 36px rgba(36,29,23,0.06); }
 .precio-card-img { height:240px; position:relative; }
 .precio-card-play { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
 .precio-card-play-btn { width:56px; height:56px; border-radius:50%; background:rgba(255,255,255,0.9); display:flex; align-items:center; justify-content:center; font-size:20px; cursor:pointer; transition:transform 0.15s; }
@@ -1691,8 +1695,8 @@ a.footer-nap-line:hover { color: var(--bg); }
 .precio-old { font-size:14px; color:var(--muted); text-decoration:line-through; margin-bottom:2px; }
 .precio-main { font-family:var(--serif); font-size:32px; margin-bottom:4px; }
 .precio-cuotas { font-size:12px; color:var(--muted); margin-bottom:20px; }
-.precio-progress { height:4px; background:var(--soft); border-radius:2px; overflow:hidden; margin-bottom:6px; }
-.precio-progress-inner { height:100%; width:28%; background:var(--accent); border-radius:2px; }
+.precio-progress { height:4px; background:var(--soft); border-radius:4px; overflow:hidden; margin-bottom:6px; }
+.precio-progress-inner { height:100%; width:28%; background:var(--accent); border-radius:4px; }
 .precio-progress-label { font-size:11.5px; color:var(--muted); margin-bottom:18px; }
 .precio-bullets { display:flex; flex-direction:column; gap:6px; margin:18px 0; }
 .precio-bullet { font-size:12.5px; color:var(--ink-soft); display:flex; gap:8px; align-items:flex-start; }
@@ -1705,14 +1709,14 @@ a.footer-nap-line:hover { color: var(--bg); }
 .tab-content.active { display:block; }
 
 /* Temario */
-.modulo-acordeon { border:1px solid var(--line); border-radius:8px; overflow:hidden; margin-bottom:10px; }
+.modulo-acordeon { border:1px solid var(--line); border-radius:12px; overflow:hidden; margin-bottom:10px; }
 .modulo-header { display:flex; align-items:center; justify-content:space-between; padding:18px 22px; cursor:pointer; background:var(--surface); transition:background 0.15s; }
 .modulo-header:hover { background:var(--bg); }
 .modulo-left { display:flex; align-items:center; gap:14px; }
 .modulo-num { font-family:var(--serif); font-style:italic; font-size:22px; color:var(--muted); width:28px; }
 .modulo-title { font-size:16px; font-weight:600; }
 .modulo-meta { font-size:12px; color:var(--muted); margin-top:2px; }
-.modulo-chevron { font-size:13px; color:var(--muted); transition:transform 0.2s; }
+.modulo-chevron { font-size:14px; color:var(--muted); transition:transform 0.2s; display:inline-flex; }
 .modulo-body { display:none; border-top:1px solid var(--line); }
 .modulo-body.open { display:block; }
 .leccion-row { display:flex; align-items:center; gap:14px; padding:14px 22px; border-bottom:1px dashed var(--line); font-size:13.5px; transition:background 0.12s; }
@@ -1734,13 +1738,13 @@ a.footer-nap-line:hover { color: var(--bg); }
   <div class="curso-detail-hero">
     <div>
       <div class="curso-detail-breadcrumb">
-        <span onclick="goTo('home','')">Inicio</span> ›
-        <span onclick="goTo('cursos','docencia')">Cursos</span> ›
-        <span>Cosmetología</span> ›
+        <span onclick="goTo('home','')">Inicio</span> <i class="ico ico-chev-r" aria-hidden="true"></i>
+        <span onclick="goTo('cursos','docencia')">Cursos</span> <i class="ico ico-chev-r" aria-hidden="true"></i>
+        <span>Cosmetología</span> <i class="ico ico-chev-r" aria-hidden="true"></i>
         <span style="color:var(--ink)">Anatomía y fisiología cutánea</span>
       </div>
       <span class="eyebrow accent">Cosmetología · Nivel inicial</span>
-      <h2 class="curso-detail-h1">Anatomía y fisiología<br><em>cutánea</em></h2>
+      <h2 class="curso-detail-h1">Anatomía y fisiología<br>cutánea</h2>
       <p class="curso-detail-desc">El curso fundacional de toda profesional de la estética. Aprende, desde dentro, qué es la piel, cómo está construida, cómo envejece y cómo cuidarla con criterio. La base sobre la que se apoyará todo lo demás.</p>
       <div class="curso-stats-row">
         <div class="curso-stat-item"><span class="curso-stat-val serif">~6h</span><span class="curso-stat-key">duración</span></div>
@@ -1763,7 +1767,7 @@ a.footer-nap-line:hover { color: var(--bg); }
         <div class="precio-cuotas">o 3 × €60 sin intereses</div>
         <div class="precio-progress"><div class="precio-progress-inner" style="width:6%"></div></div>
         <div class="precio-progress-label">Has empezado · 1 de 16 lecciones</div>
-        <button class="btn btn-dark" style="width:100%;justify-content:center" onclick="goTo('leccion','docencia')">Empezar lección 1 →</button>
+        <button class="btn btn-dark" style="width:100%;justify-content:center" onclick="goTo('leccion','docencia')">Empezar lección 1 <i class="ico ico-arrow" aria-hidden="true"></i></button>
         <div class="precio-bullets">
           <div class="precio-bullet"><span style="color:var(--accent)">✓</span> Acceso de por vida</div>
           <div class="precio-bullet"><span style="color:var(--accent)">✓</span> Certificado al superar el 80 %</div>
@@ -1789,7 +1793,7 @@ a.footer-nap-line:hover { color: var(--bg); }
           <span class="modulo-num">I</span>
           <div><div class="modulo-title">La piel por dentro</div><div class="modulo-meta">6 lecciones · 2h 10min</div></div>
         </div>
-        <span class="modulo-chevron">▾</span>
+        <span class="modulo-chevron"><i class="ico ico-chev-d" aria-hidden="true"></i></span>
       </div>
       <div class="modulo-body open">
         <div class="leccion-row active-lesson" onclick="goTo('leccion','docencia')">
@@ -1831,7 +1835,7 @@ a.footer-nap-line:hover { color: var(--bg); }
           <span class="modulo-num">II</span>
           <div><div class="modulo-title">Cómo funciona la piel</div><div class="modulo-meta">4 lecciones · 1h 25min</div></div>
         </div>
-        <span class="modulo-chevron" style="transform:rotate(-90deg)">▾</span>
+        <span class="modulo-chevron" style="transform:rotate(-90deg)"><i class="ico ico-chev-d" aria-hidden="true"></i></span>
       </div>
       <div class="modulo-body">
         <div class="leccion-row locked-lesson"><div class="lesson-dot locked">🔒</div><div class="leccion-title">Lección 7 · Funciones de la piel</div><div class="leccion-dur">14 min</div></div>
@@ -1847,7 +1851,7 @@ a.footer-nap-line:hover { color: var(--bg); }
           <span class="modulo-num">III</span>
           <div><div class="modulo-title">Envejecimiento y alteraciones</div><div class="modulo-meta">3 lecciones · 1h 05min</div></div>
         </div>
-        <span class="modulo-chevron" style="transform:rotate(-90deg)">▾</span>
+        <span class="modulo-chevron" style="transform:rotate(-90deg)"><i class="ico ico-chev-d" aria-hidden="true"></i></span>
       </div>
       <div class="modulo-body">
         <div class="leccion-row locked-lesson"><div class="lesson-dot locked">🔒</div><div class="leccion-title">Lección 11 · Fototipos cutáneos</div><div class="leccion-dur">10 min</div></div>
@@ -1862,7 +1866,7 @@ a.footer-nap-line:hover { color: var(--bg); }
           <span class="modulo-num">IV</span>
           <div><div class="modulo-title">Diagnóstico y cuidados</div><div class="modulo-meta">3 lecciones · 1h 20min</div></div>
         </div>
-        <span class="modulo-chevron" style="transform:rotate(-90deg)">▾</span>
+        <span class="modulo-chevron" style="transform:rotate(-90deg)"><i class="ico ico-chev-d" aria-hidden="true"></i></span>
       </div>
       <div class="modulo-body">
         <div class="leccion-row locked-lesson"><div class="lesson-dot locked">🔒</div><div class="leccion-title">Lección 14 · Patologías cutáneas más frecuentes</div><div class="leccion-dur">26 min</div></div>
@@ -1910,7 +1914,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 .lv-crumb b { color: var(--ink); font-weight: 500; }
 .lv-prog-wrap { flex: 0 0 220px; display: flex; align-items: center; gap: 12px; }
 .lv-prog-num { font-family: var(--serif); font-size: 14px; color: var(--ink); font-variant-numeric: tabular-nums; }
-.lv-prog-bar { flex: 1; height: 3px; background: var(--soft); border-radius: 2px; overflow: hidden; }
+.lv-prog-bar { flex: 1; height: 3px; background: var(--soft); border-radius: 4px; overflow: hidden; }
 .lv-prog-fill { height: 100%; background: var(--accent); width: 0; transition: width 0.4s cubic-bezier(.5,0,.2,1); }
 .lv-close { font-size: 18px; color: var(--ink-soft); cursor: pointer; }
 
@@ -1982,7 +1986,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 .lv-numbers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; }
 .lv-num-card {
   background: var(--surface); border: 1px solid var(--line);
-  border-radius: 14px; padding: 28px 22px;
+  border-radius: 12px; padding: 28px 22px;
   transition: transform 0.4s, border-color 0.3s, box-shadow 0.3s;
 }
 .lv-num-card:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 12px 30px rgba(36,29,23,0.08); }
@@ -1997,12 +2001,12 @@ a.footer-nap-line:hover { color: var(--bg); }
 .lv-layers-wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; }
 .lv-layers-img {
   display: block; width: 100%; max-width: 420px; height: auto; margin: 0 auto;
-  border-radius: 18px; box-shadow: 0 18px 40px rgba(36,29,23,0.18);
+  border-radius: 12px; box-shadow: 0 18px 40px rgba(36,29,23,0.18);
 }
 .lv-layers-diagram {
   position: relative; aspect-ratio: 4/5; max-width: 420px; margin: 0 auto;
   display: flex; flex-direction: column; justify-content: flex-start;
-  border-radius: 18px; overflow: hidden;
+  border-radius: 12px; overflow: hidden;
   box-shadow: 0 18px 40px rgba(36,29,23,0.10);
 }
 .lv-layer {
@@ -2044,7 +2048,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 .lv-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 32px; }
 .lv-compare-card {
   background: var(--surface); border: 1px solid var(--line);
-  border-radius: 14px; padding: 36px 30px;
+  border-radius: 12px; padding: 36px 30px;
   position: relative; overflow: hidden;
 }
 .lv-compare-card::before {
@@ -2060,7 +2064,7 @@ a.footer-nap-line:hover { color: var(--bg); }
   font-size: 14px; color: var(--ink-soft); padding: 9px 0;
   border-bottom: 1px solid var(--line); display: flex; gap: 10px;
 }
-.lv-compare-list li::before { content: '·'; color: var(--accent); font-size: 22px; line-height: 0.6; }
+.lv-compare-list li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex: none; margin-top: 8px; }
 .lv-compare-list li:last-child { border-bottom: none; }
 
 /* ─── SECCIÓN PARALLAX 3D ─────────────────────────────── */
@@ -2118,7 +2122,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 /* ─── KEY POINTS (resumen visual) ─────────────────────── */
 .lv-keys { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 32px; }
 .lv-key {
-  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
   padding: 30px 26px; position: relative;
 }
 .lv-key-num {
@@ -2155,7 +2159,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 .lv-quiz-feedback {
   background: var(--surface); border-left: 3px solid var(--accent);
   padding: 14px 18px; font-size: 14px; color: var(--ink-soft);
-  border-radius: 0 8px 8px 0; margin-bottom: 20px;
+  border-radius: 0 12px 12px 0; margin-bottom: 20px;
   opacity: 0; max-height: 0; overflow: hidden;
   transition: opacity 0.3s, max-height 0.35s ease;
 }
@@ -2173,7 +2177,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 .lv-end-result {
   display: inline-flex; flex-direction: column; align-items: center;
   background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 16px; padding: 28px 40px; margin-bottom: 36px;
+  border-radius: 12px; padding: 28px 40px; margin-bottom: 36px;
 }
 .lv-end-score {
   font-family: var(--serif); font-size: 52px; line-height: 1;
@@ -2271,7 +2275,7 @@ a.footer-nap-line:hover { color: var(--bg); }
   <!-- ─── Slide 1 · Portada ──────────────────────────── -->
   <section class="lv-slide lv-cover" data-slide="1" data-label="Portada" style="position:relative">
     <div class="lv-slide-inner">
-      <span class="lv-eyebrow">· Lección 01 · Anatomía cutánea</span>
+      <span class="lv-eyebrow">Lección 01 · Anatomía cutánea</span>
       <h2 class="lv-h1">La <em>piel.</em><br>El órgano que<br>nos define.</h2>
       <p class="lv-lede">Una clase corta, visual y precisa para entender qué es la piel, cómo está organizada y por qué será siempre tu primer terreno de trabajo.</p>
       <div class="lv-cover-meta">
@@ -2286,7 +2290,7 @@ a.footer-nap-line:hover { color: var(--bg); }
   <!-- ─── Slide 2 · Qué es la piel ───────────────────── -->
   <section class="lv-slide" data-slide="2" data-label="Concepto">
     <div class="lv-slide-inner">
-      <span class="lv-eyebrow">· 01 · Concepto</span>
+      <span class="lv-eyebrow">01 · Concepto</span>
       <h2 class="lv-h2">No es una cubierta.<br>Es <em>un órgano vivo.</em></h2>
       <p class="lv-lede">La piel, también llamada tegumento, es el órgano más extenso del cuerpo humano. Percibe, regula, protege, sintetiza, excreta y comunica. Es la frontera —y el puente— entre el cuerpo y el mundo.</p>
       <div class="lv-numbers">
@@ -2301,7 +2305,7 @@ a.footer-nap-line:hover { color: var(--bg); }
   <!-- ─── Slide 3 · Las 3 capas ──────────────────────── -->
   <section class="lv-slide" data-slide="3" data-label="3 capas">
     <div class="lv-slide-inner">
-      <span class="lv-eyebrow">· 02 · Estructura</span>
+      <span class="lv-eyebrow">02 · Estructura</span>
       <div class="lv-layers-wrap">
         <img class="lv-layers-img" src="assets/capas-piel.jpg"
              alt="Las tres capas de la piel: epidermis, dermis e hipodermis"
@@ -2322,7 +2326,7 @@ a.footer-nap-line:hover { color: var(--bg); }
   <!-- ─── Slide 4 · Fina vs Gruesa ──────────────────── -->
   <section class="lv-slide" data-slide="4" data-label="Tipos">
     <div class="lv-slide-inner">
-      <span class="lv-eyebrow">· 03 · No toda la piel es igual</span>
+      <span class="lv-eyebrow">03 · No toda la piel es igual</span>
       <h2 class="lv-h2">Fina o <em>gruesa.</em><br>Cambia según la zona.</h2>
       <p class="lv-lede">Dos variedades histológicas se reparten todo el cuerpo. Saber cuál tienes delante condiciona la técnica, el producto y la presión.</p>
       <div class="lv-compare">
@@ -2363,7 +2367,7 @@ a.footer-nap-line:hover { color: var(--bg); }
            alt="" loading="lazy" decoding="async">
       <div class="lv-parallax-copy">
         <div>
-          <span class="lv-eyebrow">· Cosmetología en cabina</span>
+          <span class="lv-eyebrow">Cosmetología en cabina</span>
           <div class="lv-pquote">El detalle se aprende <em>mirando.</em></div>
         </div>
         <div>
@@ -2376,7 +2380,7 @@ a.footer-nap-line:hover { color: var(--bg); }
   <!-- ─── Slide 6 · Importancia profesional ────────── -->
   <section class="lv-slide" data-slide="6" data-label="Tu trabajo">
     <div class="lv-slide-inner">
-      <span class="lv-eyebrow">· 04 · Tu campo de trabajo</span>
+      <span class="lv-eyebrow">04 · Tu campo de trabajo</span>
       <h2 class="lv-h2">Una piel.<br>Una <em>responsabilidad.</em></h2>
       <p class="lv-lede">Cualquier técnica, producto o aparato cosmetológico actúa sobre la piel o a través de ella. Trabajamos sobre un órgano vivo, complejo y sensible. Lo que aplicamos importa: cómo lo aplicamos, también.</p>
       <p class="lv-body" style="max-width:680px">Una buena esteticista no se limita a aplicar técnicas: comprende la piel sobre la que trabaja y adapta sus actuaciones a cada persona y a cada momento. Observar, analizar y decidir con criterio: ese es el oficio.</p>
@@ -2386,7 +2390,7 @@ a.footer-nap-line:hover { color: var(--bg); }
   <!-- ─── Slide 7 · Resumen visual (3 ideas) ───────── -->
   <section class="lv-slide" data-slide="7" data-label="Resumen">
     <div class="lv-slide-inner">
-      <span class="lv-eyebrow">· Para llevarte a casa</span>
+      <span class="lv-eyebrow">Para llevarte a casa</span>
       <h2 class="lv-h2">Tres ideas claras.<br><em>Ni una más.</em></h2>
       <div class="lv-keys">
         <div class="lv-key">
@@ -2412,7 +2416,7 @@ a.footer-nap-line:hover { color: var(--bg); }
   <section class="lv-slide" data-slide="8" data-label="Test">
     <div class="lv-slide-inner">
       <div class="lv-quiz" id="lv-quiz">
-        <span class="lv-eyebrow">· Comprueba lo aprendido</span>
+        <span class="lv-eyebrow">Comprueba lo aprendido</span>
         <div class="lv-quiz-q-num" id="lv-quiz-q-num">Pregunta 01 / 03</div>
         <h2 class="lv-quiz-q" id="lv-quiz-q">¿Cuál es la capa de la piel que actúa como <em>barrera</em> y se renueva continuamente?</h2>
         <div class="lv-quiz-opts" id="lv-quiz-opts">
@@ -2421,7 +2425,7 @@ a.footer-nap-line:hover { color: var(--bg); }
         <div class="lv-quiz-feedback" id="lv-quiz-feedback"></div>
         <div class="lv-quiz-nav">
           <span class="lv-quiz-progress" id="lv-quiz-progress">Aciertos: 0 / 0</span>
-          <button class="btn btn-dark btn-sm" id="lv-quiz-next" style="display:none" onclick="lvQuizNext()">Siguiente →</button>
+          <button class="btn btn-dark btn-sm" id="lv-quiz-next" style="display:none" onclick="lvQuizNext()">Siguiente <i class="ico ico-arrow" aria-hidden="true"></i></button>
         </div>
       </div>
     </div>
@@ -2430,7 +2434,7 @@ a.footer-nap-line:hover { color: var(--bg); }
   <!-- ─── Slide 9 · Cierre ─────────────────────────── -->
   <section class="lv-slide lv-end" data-slide="9" data-label="Fin">
     <div class="lv-slide-inner">
-      <span class="lv-eyebrow" style="color:rgba(236,221,208,0.85)">· Lección completada</span>
+      <span class="lv-eyebrow" style="color:rgba(236,221,208,0.85)">Lección completada</span>
       <h2 class="lv-h2">Has terminado la primera <em>lección.</em></h2>
       <p class="lv-lede">Ya tienes el mapa básico. En las siguientes lecciones bajaremos al detalle: la epidermis por dentro, la dermis y sus fibras, los anejos cutáneos.</p>
       <div class="lv-end-result">
@@ -2438,7 +2442,7 @@ a.footer-nap-line:hover { color: var(--bg); }
         <div class="lv-end-score-lab">Tu resultado</div>
       </div>
       <div class="lv-end-ctas">
-        <a class="lv-end-cta-main" onclick="goTo('leccion','docencia');window.scrollTo({top:0,behavior:'instant'});">Siguiente lección · La epidermis →</a>
+        <a class="lv-end-cta-main" onclick="goTo('leccion','docencia');window.scrollTo({top:0,behavior:'instant'});">Siguiente lección · La epidermis <i class="ico ico-arrow" aria-hidden="true"></i></a>
         <a class="lv-end-cta-ghost" onclick="goTo('aula-curso','docencia')">Volver al temario</a>
       </div>
     </div>
@@ -2457,14 +2461,14 @@ a.footer-nap-line:hover { color: var(--bg); }
 .test-topbar-mid { font-family:var(--serif); font-size:20px; letter-spacing:-0.01em; }
 .test-topbar-right { display:flex; align-items:center; gap:20px; }
 .test-q-counter { font-size:13px; color:var(--muted); }
-.test-qbar { width:160px; height:6px; background:var(--soft); border-radius:3px; overflow:hidden; }
+.test-qbar { width:160px; height:6px; background:var(--soft); border-radius:4px; overflow:hidden; }
 .test-qbar-fill { height:100%; width:33%; background:var(--accent); }
 .test-layout { display:grid; grid-template-columns:1fr 280px; gap:0; }
 .test-main { padding:48px 56px; }
 .test-h2 { font-family:var(--serif); font-size:32px; line-height:1.35; letter-spacing:-0.012em; margin:14px 0 32px; }
 .test-h2 em { font-style:italic; }
 .test-opt {
-  border:1px solid var(--line); border-radius:10px; padding:16px 18px;
+  border:1px solid var(--line); border-radius:12px; padding:16px 18px;
   margin-bottom:10px; cursor:pointer; display:flex; align-items:flex-start; gap:14px;
   transition:background 0.15s, border-color 0.15s; font-size:14px; line-height:1.5;
 }
@@ -2477,7 +2481,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 .test-sidebar-title { font-size:11px; letter-spacing:0.18em; text-transform:uppercase; font-weight:600; color:var(--muted); margin-bottom:16px; }
 .test-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:6px; margin-bottom:20px; }
 .test-grid-item {
-  aspect-ratio:1; border-radius:6px; display:flex; align-items:center; justify-content:center;
+  aspect-ratio:1; border-radius:4px; display:flex; align-items:center; justify-content:center;
   font-family:var(--serif); font-size:13px; cursor:pointer;
   border:1px solid var(--line);
 }
@@ -2509,7 +2513,7 @@ a.footer-nap-line:hover { color: var(--bg); }
   </div>
   <div class="test-layout">
     <div class="test-main">
-      <span class="eyebrow">· Pregunta única · 4 opciones</span>
+      <span class="eyebrow">Pregunta única · 4 opciones</span>
       <h2 class="test-h2">¿Cuál es la diferencia fundamental entre la radiofrecuencia <em>monopolar</em> y la <em>bipolar</em> en el tratamiento facial?</h2>
       <div class="test-opt" onclick="testSelect(this)"><span class="test-opt-ltr">A</span>La monopolar utiliza un electrodo activo y uno pasivo; la bipolar sólo electrodos activos en el mismo cabezal.</div>
       <div class="test-opt selected" onclick="testSelect(this)"><span class="test-opt-ltr">B</span>La bipolar penetra más profundamente que la monopolar en tejidos subcutáneos por su mayor frecuencia.</div>
@@ -2518,7 +2522,7 @@ a.footer-nap-line:hover { color: var(--bg); }
       <div class="test-footer">
         <button class="btn btn-outline btn-sm">← Anterior</button>
         <button class="btn btn-outline btn-sm" style="color:var(--muted)">Saltar pregunta</button>
-        <button class="btn btn-dark" onclick="goTo('resultado','docencia')">Siguiente →</button>
+        <button class="btn btn-dark" onclick="goTo('resultado','docencia')">Siguiente <i class="ico ico-arrow" aria-hidden="true"></i></button>
       </div>
     </div>
     <div class="test-sidebar">
@@ -2554,10 +2558,10 @@ a.footer-nap-line:hover { color: var(--bg); }
 .score-stat-row:last-child { border-bottom:none; }
 .score-stat-label { color:var(--ink-soft); }
 .score-stat-val { font-family:var(--serif); font-size:16px; font-weight:400; }
-.score-cert { background:var(--accent-soft); border-radius:8px; padding:12px 16px; text-align:center; font-size:13px; color:var(--accent); font-weight:500; margin-top:16px; width:100%; }
+.score-cert { background:var(--accent-soft); border-radius:12px; padding:12px 16px; text-align:center; font-size:13px; color:var(--accent); font-weight:500; margin-top:16px; width:100%; }
 .revision { padding:48px 56px; }
 .revision-h2 { font-family:var(--serif); font-size:26px; letter-spacing:-0.01em; margin-bottom:28px; }
-.revision-item { border:1px solid var(--line); border-radius:8px; padding:20px 22px; margin-bottom:10px; display:flex; gap:16px; align-items:flex-start; }
+.revision-item { border:1px solid var(--line); border-radius:12px; padding:20px 22px; margin-bottom:10px; display:flex; gap:16px; align-items:flex-start; }
 .revision-icon { font-size:18px; flex-shrink:0; margin-top:2px; }
 .revision-num { font-size:11px; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px; }
 .revision-q { font-size:14px; font-weight:500; margin-bottom:8px; }
@@ -2571,7 +2575,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 <div class="page-wrap">
   <div class="resultado-hero">
     <div>
-      <span class="eyebrow">· Test completado</span>
+      <span class="eyebrow">Test completado</span>
       <h2 class="resultado-h1">¡Buen trabajo,<br><em>Lucía.</em></h2>
       <p class="resultado-desc">Has superado el umbral del 80 %. Tu certificado del módulo 2 ya está disponible en tu perfil.</p>
       <div class="resultado-ctas">
@@ -2604,7 +2608,7 @@ a.footer-nap-line:hover { color: var(--bg); }
         <div class="revision-num">Pregunta 01</div>
         <div class="revision-q">¿Qué es la radiofrecuencia y en qué rango de frecuencia trabajan los dispositivos faciales?</div>
         <div class="revision-exp">Explicación · La RF facial opera entre 1 y 6 MHz, permitiendo penetración controlada en dermis sin dañar la epidermis.</div>
-        <button class="btn btn-text btn-sm" onclick="goTo('leccion','docencia')">Ver lección →</button>
+        <button class="btn btn-text btn-sm" onclick="goTo('leccion','docencia')">Ver lección <i class="ico ico-arrow" aria-hidden="true"></i></button>
       </div>
     </div>
     <div class="revision-item" style="background:rgba(168,107,78,0.04)">
@@ -2613,7 +2617,7 @@ a.footer-nap-line:hover { color: var(--bg); }
         <div class="revision-num">Pregunta 04</div>
         <div class="revision-q">¿Cuál es la diferencia fundamental entre la RF monopolar y bipolar?</div>
         <div class="revision-exp">Explicación · La monopolar requiere placa pasiva; la bipolar concentra ambos electrodos en el cabezal para efecto más superficial y controlado.</div>
-        <button class="btn btn-text btn-sm" onclick="goTo('leccion','docencia')">Ver lección →</button>
+        <button class="btn btn-text btn-sm" onclick="goTo('leccion','docencia')">Ver lección <i class="ico ico-arrow" aria-hidden="true"></i></button>
       </div>
     </div>
     <div class="revision-item">
@@ -2622,7 +2626,7 @@ a.footer-nap-line:hover { color: var(--bg); }
         <div class="revision-num">Pregunta 07</div>
         <div class="revision-q">¿A qué temperatura trabaja la RF para activar la síntesis de colágeno?</div>
         <div class="revision-exp">Explicación · El rango terapéutico es 40–45 °C en dermis, suficiente para la retracción de fibras y la neocolagénesis.</div>
-        <button class="btn btn-text btn-sm" onclick="goTo('leccion','docencia')">Ver lección →</button>
+        <button class="btn btn-text btn-sm" onclick="goTo('leccion','docencia')">Ver lección <i class="ico ico-arrow" aria-hidden="true"></i></button>
       </div>
     </div>
   </div>
@@ -2635,24 +2639,26 @@ a.footer-nap-line:hover { color: var(--bg); }
 <div class="page" id="page-tienda">
 <style>
 .tienda-header { padding:48px 56px 0; max-width: 1480px; margin: 0 auto; }
-.tienda-h1 { font-family:var(--serif); font-size:42px; letter-spacing:-0.018em; margin:10px 0 8px; }
+.tienda-h1 { font-family:var(--serif); font-size:48px; line-height:1.08; letter-spacing:-0.018em; margin:10px 0 8px; }
 .tienda-h1 em { font-style:italic; }
 .tienda-meta { font-size:13px; color:var(--muted); margin-bottom:28px; }
 .filter-chips {
-  display:flex; align-items:center; gap:8px; flex-wrap:wrap;
-  padding: 14px 56px 18px;
+  display:flex; align-items:stretch; gap:28px; flex-wrap:nowrap;
+  padding: 0 56px;
   border-bottom: 1px solid var(--line);
   position: sticky; top: 108px; z-index: 30;
   background: var(--bg);
   max-width: 1480px; margin: 0 auto;
+  overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
 }
-.filter-chip { padding:7px 16px; border-radius:999px; font-size:12.5px; font-weight:500; cursor:pointer; border:1px solid var(--line-strong); color:var(--ink-soft); transition:all 0.15s; letter-spacing:0.02em; }
-.filter-chip:hover { border-color:var(--ink); color:var(--ink); }
-.filter-chip.active { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+.filter-chips::-webkit-scrollbar { display: none; }
+.filter-chip { padding:14px 0 12px; border:0; border-bottom:2px solid transparent; margin-bottom:-1px; border-radius:0; font-size:13.5px; font-weight:500; cursor:pointer; color:var(--muted); transition:color 0.15s, border-color 0.15s; white-space:nowrap; }
+.filter-chip:hover { color:var(--ink); }
+.filter-chip.active { color:var(--ink); border-bottom-color:var(--ink); font-weight:600; }
 .filter-chip-special { margin-left:auto; display:flex; align-items:center; gap:6px; }
 .tienda-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; padding:40px 56px 64px; max-width: 1480px; margin: 0 auto; }
 .tienda-product-card {
-  background:var(--surface); border:1px solid var(--line); border-radius:10px;
+  background:var(--surface); border:1px solid var(--line); border-radius:12px;
   overflow:hidden; cursor:pointer; transition:box-shadow 0.2s, transform 0.15s;
 }
 .tienda-product-card:hover { box-shadow:0 10px 30px rgba(36,29,23,0.1); transform:translateY(-2px); }
@@ -2665,7 +2671,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 .tienda-product-course { font-size:11px; color:var(--muted); border-top:1px solid var(--line); padding-top:10px; margin-top:10px; font-family:var(--serif); font-style:italic; }
 @media(max-width:768px){
   .tienda-header { padding:32px 20px 0; }
-  .filter-chips { padding: 10px 20px 14px; top: 64px; }
+  .filter-chips { padding: 0 20px; top: 64px; gap: 22px; }
   .tienda-grid { grid-template-columns:1fr 1fr; padding:24px 20px 80px; gap:12px; }
   .tienda-h1 { font-size:30px; }
 }
@@ -2674,11 +2680,11 @@ a.footer-nap-line:hover { color: var(--bg); }
   <div class="tienda-header">
     <div class="page-bc">
       <span onclick="goTo('home','')">Inicio</span>
-      <span class="page-bc-sep">›</span>
+      <span class="page-bc-sep"><i class="ico ico-chev-r" aria-hidden="true"></i></span>
       <span class="page-bc-current">Aparatología</span>
     </div>
-    <span class="eyebrow">· Aparatología profesional</span>
-    <h2 class="tienda-h1">El equipo que <em>se enseña</em><br>en PRECISSA INSTITUTE.</h2>
+    <span class="eyebrow">Aparatología profesional</span>
+    <h2 class="tienda-h1">El equipo que se enseña<br>en PRECISSA INSTITUTE</h2>
     <p class="tienda-meta">Ordenado por relevancia</p>
   </div>
   <div class="filter-chips" id="tienda-filter-chips"></div>
@@ -2694,9 +2700,9 @@ a.footer-nap-line:hover { color: var(--bg); }
 .producto-layout { display:grid; grid-template-columns:1.1fr 1fr; gap:60px; padding:48px 56px; align-items:start; }
 .producto-breadcrumb { font-size:12px; color:var(--muted); margin-bottom:32px; }
 .producto-breadcrumb span { cursor:pointer; } .producto-breadcrumb span:hover { color:var(--ink); }
-.producto-gallery-main { height:430px; border-radius:10px; overflow:hidden; margin-bottom:12px; }
+.producto-gallery-main { height:430px; border-radius:12px; overflow:hidden; margin-bottom:12px; }
 .producto-thumbs { display:flex; gap:10px; }
-.producto-thumb { width:80px; height:60px; border-radius:6px; overflow:hidden; cursor:pointer; border:2px solid transparent; transition:border-color 0.15s; flex-shrink:0; }
+.producto-thumb { width:80px; height:60px; border-radius:4px; overflow:hidden; cursor:pointer; border:2px solid transparent; transition:border-color 0.15s; flex-shrink:0; }
 .producto-thumb.active { border-color:var(--accent); }
 .producto-right {}
 .producto-eyebrow-row { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
@@ -2709,15 +2715,15 @@ a.footer-nap-line:hover { color: var(--bg); }
 .producto-precio-nota { font-size:12.5px; color:var(--muted); margin-bottom:28px; letter-spacing:0.01em; }
 .producto-ctas { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:28px; }
 .producto-aprende {
-  background:var(--accent-soft); border-radius:8px; padding:16px;
+  background:var(--accent-soft); border-radius:12px; padding:16px;
   display:flex; align-items:center; gap:14px; margin-bottom:28px; cursor:pointer;
   transition:background 0.15s;
 }
 .producto-aprende:hover { background:#e4cfbe; }
-.producto-aprende-img { width:64px; height:64px; border-radius:6px; flex-shrink:0; overflow:hidden; }
+.producto-aprende-img { width:64px; height:64px; border-radius:4px; flex-shrink:0; overflow:hidden; }
 .producto-aprende-eyebrow { font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent-dark); font-weight:600; margin-bottom:4px; }
 .producto-aprende-title { font-family:var(--serif); font-size:16px; line-height:1.3; }
-.producto-aprende-dur { font-size:12px; color:var(--muted); margin-top:3px; }
+.producto-aprende-dur { font-size:12px; color:var(--muted); margin-top:3px; display:flex; align-items:center; gap:5px; }
 .producto-specs {}
 .producto-specs-title { font-family:var(--serif); font-size:18px; margin-bottom:16px; }
 .specs-grid { display:grid; grid-template-columns:1fr 1fr; gap:0; }
@@ -2765,15 +2771,15 @@ a.footer-nap-line:hover { color: var(--bg); }
 .adm-table-scroll > table { min-width: 640px; }
 .adm-cell-date { font-size: 12px; color: var(--muted); }
 .adm-cell-edit { text-align: right; color: var(--accent); font-size: 13px; }
-.adm-no-results { padding: 60px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 10px; margin-top: 12px; }
+.adm-no-results { padding: 60px 24px; text-align: center; color: var(--muted); font-style: italic; border: 1px dashed var(--line); border-radius: 12px; margin-top: 12px; }
 
 .adm-loader { padding: 80px 24px; text-align: center; color: var(--muted); font-style: italic; }
 .adm-warn { background: var(--accent-soft); border-left: 3px solid var(--accent); padding: 16px 20px; border-radius: 4px; margin: 24px 0; font-size: 14px; color: var(--ink); }
-.adm-warn code { background: rgba(36,29,23,0.08); padding: 1px 6px; border-radius: 3px; font-size: 12.5px; }
+.adm-warn code { background: rgba(36,29,23,0.08); padding: 1px 6px; border-radius: 4px; font-size: 12.5px; }
 
 .adm-modal { display: none; position: fixed; inset: 0; background: rgba(36,29,23,0.55); backdrop-filter: blur(4px); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
 .adm-modal.open { display: flex; }
-.adm-modal-card { background: var(--surface); border-radius: 14px; max-width: 640px; width: 100%; max-height: 88vh; display: flex; flex-direction: column; box-shadow: 0 20px 60px rgba(36,29,23,0.3); }
+.adm-modal-card { background: var(--surface); border-radius: 12px; max-width: 640px; width: 100%; max-height: 88vh; display: flex; flex-direction: column; box-shadow: 0 20px 60px rgba(36,29,23,0.3); }
 .adm-modal-head { padding: 22px 26px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
 .adm-modal-email { font-family: var(--serif); font-size: 22px; line-height: 1.2; color: var(--ink); }
 .adm-modal-name  { font-size: 13px; color: var(--muted); margin-top: 4px; }
@@ -2789,7 +2795,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 .adm-course-row input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; accent-color: var(--accent); }
 .adm-course-name { font-size: 14px; color: var(--ink); line-height: 1.3; }
 .adm-course-name small { display: block; color: var(--muted); font-size: 11px; margin-top: 2px; }
-.adm-course-row input[type="date"], .adm-course-row select { padding: 7px 10px; border: 1px solid var(--line); border-radius: 6px; font-family: var(--sans); font-size: 12.5px; background: var(--surface); color: var(--ink); }
+.adm-course-row input[type="date"], .adm-course-row select { padding: 7px 10px; border: 1px solid var(--line); border-radius: 4px; font-family: var(--sans); font-size: 12.5px; background: var(--surface); color: var(--ink); }
 .adm-course-row input[type="date"]:disabled, .adm-course-row select:disabled { opacity: 0.4; cursor: not-allowed; }
 .adm-modal-foot { padding: 18px 26px; border-top: 1px solid var(--line); display: flex; justify-content: flex-end; align-items: center; gap: 12px; }
 .adm-danger { color: #b34b3b; }
@@ -2826,11 +2832,11 @@ a.footer-nap-line:hover { color: var(--bg); }
 .res-field { display: flex; flex-direction: column; gap: 6px; }
 .res-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
 .res-label small { text-transform: none; letter-spacing: 0; font-weight: 400; }
-.res-input { width: 100%; padding: 10px 13px; border: 1px solid var(--line); border-radius: 8px; font-family: var(--sans); font-size: 14px; background: var(--bg); color: var(--ink); box-sizing: border-box; }
+.res-input { width: 100%; padding: 10px 13px; border: 1px solid var(--line); border-radius: 12px; font-family: var(--sans); font-size: 14px; background: var(--bg); color: var(--ink); box-sizing: border-box; }
 .res-input:focus { outline: none; border-color: var(--ink-soft); background: var(--surface); }
 textarea.res-input { resize: vertical; line-height: 1.5; }
 .res-photo { display: flex; gap: 16px; align-items: flex-start; }
-.res-photo-preview { width: 110px; height: 110px; flex: none; border-radius: 8px; border: 1px dashed var(--line); background: var(--bg2); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.res-photo-preview { width: 110px; height: 110px; flex: none; border-radius: 12px; border: 1px dashed var(--line); background: var(--bg2); display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .res-photo-preview span { font-size: 11px; color: var(--muted); }
 .res-photo-preview img { width: 100%; height: 100%; object-fit: cover; }
 .res-photo-actions { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
@@ -2855,7 +2861,7 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 .adm-switch input:checked + .adm-switch-slider { background: var(--accent); }
 .adm-switch input:checked + .adm-switch-slider::before { transform: translateX(20px); }
 .adm-switch input:disabled + .adm-switch-slider { opacity: 0.5; cursor: wait; }
-.adm-curso-edit-btn { background: none; border: 1px solid var(--line); border-radius: 6px; padding: 5px 12px; font-family: var(--sans); font-size: 12px; color: var(--ink); cursor: pointer; flex: none; }
+.adm-curso-edit-btn { background: none; border: 1px solid var(--line); border-radius: 4px; padding: 5px 12px; font-family: var(--sans); font-size: 12px; color: var(--ink); cursor: pointer; flex: none; }
 .adm-curso-edit-btn:hover { border-color: var(--ink-soft); }
 .adm-curso-edited { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); border-radius: 999px; padding: 1px 7px; margin-left: 6px; vertical-align: middle; }
 
@@ -2865,16 +2871,16 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 .adm-subtab { background: none; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; padding: 11px 14px; font-family: var(--sans); font-size: 13px; color: var(--muted); cursor: pointer; }
 .adm-subtab:hover { color: var(--ink); }
 .adm-subtab.active { color: var(--ink); border-bottom-color: var(--accent); font-weight: 600; }
-.ce-lesson, .ce-q { border: 1px solid var(--line); border-radius: 10px; padding: 16px; margin-bottom: 14px; }
+.ce-lesson, .ce-q { border: 1px solid var(--line); border-radius: 12px; padding: 16px; margin-bottom: 14px; }
 .ce-block-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
 .ce-block-num { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
 .ce-block-ops { display: flex; gap: 8px; }
-.ce-block-ops button { background: none; border: 1px solid var(--line); border-radius: 6px; padding: 3px 9px; font-size: 12px; cursor: pointer; color: var(--ink); }
+.ce-block-ops button { background: none; border: 1px solid var(--line); border-radius: 4px; padding: 3px 9px; font-size: 12px; cursor: pointer; color: var(--ink); }
 .ce-block-ops button.adm-danger { color: #b34b3b; border-color: #e3c4be; }
 .ce-block-ops button:disabled { opacity: 0.35; cursor: default; }
 .ce-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .ce-mini-label { font-size: 11px; color: var(--muted); display: block; margin-bottom: 4px; }
-.ce-drop { margin-top: 12px; border: 1.5px dashed var(--line); border-radius: 8px; padding: 14px; text-align: center; transition: border-color .15s, background .15s; }
+.ce-drop { margin-top: 12px; border: 1.5px dashed var(--line); border-radius: 12px; padding: 14px; text-align: center; transition: border-color .15s, background .15s; }
 .ce-drop.drag { border-color: var(--accent); background: var(--accent-soft); }
 .ce-drop-status { font-size: 12px; color: var(--muted); margin-top: 8px; word-break: break-all; }
 .ce-drop-status.ok { color: #3f8a52; }
@@ -2896,13 +2902,13 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 <section class="adm-wrap">
   <div class="page-bc">
     <span onclick="goTo('home','')">Inicio</span>
-    <span class="page-bc-sep">›</span>
+    <span class="page-bc-sep"><i class="ico ico-chev-r" aria-hidden="true"></i></span>
     <span class="page-bc-current">Administración</span>
   </div>
   <div class="adm-head">
     <div>
-      <span class="eyebrow accent">· Panel admin</span>
-      <h2 class="adm-h1">Alumnas y <em>accesos</em></h2>
+      <span class="eyebrow accent">Panel admin</span>
+      <h2 class="adm-h1">Alumnas y accesos</h2>
       <p class="adm-sub" id="adm-sub-count">Cargando…</p>
     </div>
   </div>
@@ -3116,7 +3122,7 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 <!-- MODAL: editor de equipo (aparatología) -->
 <style>
 .pe-gallery { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px; }
-.pe-thumb { position:relative; width:96px; height:72px; border-radius:6px; overflow:hidden; border:2px solid var(--line); background:var(--bg2); }
+.pe-thumb { position:relative; width:96px; height:72px; border-radius:4px; overflow:hidden; border:2px solid var(--line); background:var(--bg2); }
 .pe-thumb.main { border-color:var(--accent); }
 .pe-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
 .pe-thumb-tag { position:absolute; top:3px; left:3px; font-size:9px; background:var(--accent); color:#fff; padding:1px 5px; border-radius:4px; letter-spacing:.04em; z-index:1; }
@@ -3126,7 +3132,7 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 .pe-spec-row { display:flex; gap:8px; align-items:center; margin-bottom:8px; }
 .pe-spec-row .res-input { flex:1; }
 .pe-spec-row .pe-spec-k { flex:0 0 38%; }
-.pe-spec-row > button { flex:0 0 auto; border:1px solid var(--line-strong); background:var(--bg); border-radius:6px; width:34px; height:38px; cursor:pointer; color:var(--muted); }
+.pe-spec-row > button { flex:0 0 auto; border:1px solid var(--line-strong); background:var(--bg); border-radius:4px; width:34px; height:38px; cursor:pointer; color:var(--muted); }
 .pe-spec-row > button:hover { color:var(--accent); border-color:var(--accent); }
 .pe-hidden-label { display:flex; align-items:center; gap:8px; font-size:13px; color:var(--ink-soft); cursor:pointer; }
 </style>
@@ -3198,7 +3204,7 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 }
 .quote-overlay.open { display:flex; }
 .quote-modal {
-  background:var(--bg); border-radius:14px;
+  background:var(--bg); border-radius:12px;
   max-width:540px; width:100%;
   max-height:92vh; overflow-y:auto;
   padding:36px 36px 32px; position:relative;
@@ -3234,7 +3240,7 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 .quote-field textarea {
   font-family:var(--sans); font-size:14px; color:var(--ink);
   background:#fff; border:1px solid var(--line-strong);
-  border-radius:8px; padding:10px 12px;
+  border-radius:12px; padding:10px 12px;
   transition:border-color 0.15s, box-shadow 0.15s;
   width:100%; box-sizing:border-box;
 }
@@ -3247,7 +3253,7 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 .quote-field select {
   font-family:var(--sans); font-size:14px; color:var(--ink);
   background:#fff; border:1px solid var(--line-strong);
-  border-radius:8px; padding:10px 36px 10px 12px;
+  border-radius:12px; padding:10px 36px 10px 12px;
   transition:border-color 0.15s, box-shadow 0.15s;
   width:100%; box-sizing:border-box;
   appearance:none; -webkit-appearance:none; -moz-appearance:none;
@@ -3301,7 +3307,7 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 .quote-success-text { font-size:14px; color:var(--ink-soft); line-height:1.6; margin-bottom:22px; }
 
 @media (max-width:560px) {
-  .quote-modal { padding:28px 22px 24px; border-radius:10px; }
+  .quote-modal { padding:28px 22px 24px; border-radius:12px; }
   .quote-title { font-size:26px; }
   .quote-actions { flex-direction:column-reverse; }
   .quote-actions .btn { width:100%; justify-content:center; }
@@ -3314,8 +3320,8 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 
     <div id="quote-form-wrap">
       <div class="quote-header">
-        <div class="quote-eyebrow" id="quote-eyebrow">· Solicitud de presupuesto</div>
-        <h2 class="quote-title serif" id="quote-title">Pedir <em>presupuesto</em></h2>
+        <div class="quote-eyebrow" id="quote-eyebrow">Solicitud de presupuesto</div>
+        <h2 class="quote-title serif" id="quote-title">Pedir presupuesto</h2>
         <p class="quote-product" id="quote-product-line">Te respondemos en menos de 24 h laborables.</p>
       </div>
 
@@ -3384,7 +3390,7 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 
     <div class="quote-success" id="quote-success" hidden>
       <div class="quote-success-icon">✓</div>
-      <h3 class="quote-success-title serif">Ya casi <em>está</em></h3>
+      <h3 class="quote-success-title serif">Ya casi está</h3>
       <p class="quote-success-text">Te hemos abierto WhatsApp con tu consulta ya escrita: <strong>solo tienes que darle a enviar</strong> y te respondemos por ahí.</p>
       <p class="quote-success-text"><a id="quote-wa-link" href="#" target="_blank" rel="noopener" style="text-decoration:underline">¿No se ha abierto WhatsApp? Pulsa aquí</a></p>
       <button type="button" class="btn btn-outline" onclick="closeQuoteForm()">Cerrar</button>
@@ -3417,7 +3423,7 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 // ─── ROUTING ──────────────────────────────────────────
 const SUBLINKS = {
   docencia: [
-    { label: 'Cursos',           page: 'cursos' },
+    { label: 'Catálogo',           page: 'cursos' },
     { label: 'Acceso alumnado',  page: 'aula' }
   ],
   aparatologia: [
@@ -3427,13 +3433,13 @@ const SUBLINKS = {
 };
 const pages = {
   'home':       { el: 'page-home',       area: '',           areaLabel: '',              subActive: null },
-  'cursos':     { el: 'page-cursos',     area: 'docencia',   areaLabel: 'Docencia',      subActive: 'cursos' },
-  'curso':      { el: 'page-curso',      area: 'docencia',   areaLabel: 'Docencia',      subActive: 'cursos' },
-  'aula':       { el: 'page-aula',       area: 'docencia',   areaLabel: 'Docencia',      subActive: 'aula' },
-  'aula-curso': { el: 'page-aula-curso', area: 'docencia',   areaLabel: 'Docencia',      subActive: 'aula' },
-  'leccion':    { el: 'page-leccion',    area: 'docencia',   areaLabel: 'Docencia',      subActive: 'aula' },
-  'tests':      { el: 'page-tests',      area: 'docencia',   areaLabel: 'Docencia',      subActive: 'aula' },
-  'resultado':  { el: 'page-resultado',  area: 'docencia',   areaLabel: 'Docencia',      subActive: 'aula' },
+  'cursos':     { el: 'page-cursos',     area: 'docencia',   areaLabel: 'Cursos',        subActive: 'cursos' },
+  'curso':      { el: 'page-curso',      area: 'docencia',   areaLabel: 'Cursos',        subActive: 'cursos' },
+  'aula':       { el: 'page-aula',       area: 'docencia',   areaLabel: 'Cursos',        subActive: 'aula' },
+  'aula-curso': { el: 'page-aula-curso', area: 'docencia',   areaLabel: 'Cursos',        subActive: 'aula' },
+  'leccion':    { el: 'page-leccion',    area: 'docencia',   areaLabel: 'Cursos',        subActive: 'aula' },
+  'tests':      { el: 'page-tests',      area: 'docencia',   areaLabel: 'Cursos',        subActive: 'aula' },
+  'resultado':  { el: 'page-resultado',  area: 'docencia',   areaLabel: 'Cursos',        subActive: 'aula' },
   'tienda':     { el: 'page-tienda',     area: 'aparatologia', areaLabel: 'Aparatología', subActive: 'tienda' },
   'producto':   { el: 'page-producto',   area: 'aparatologia', areaLabel: 'Aparatología', subActive: 'tienda' },
   'admin':      { el: 'page-admin',      area: '',           areaLabel: '',              subActive: null },
@@ -3451,7 +3457,7 @@ function goTo(pageKey, area) {
 }
 
 function updateNav(pageKey, cfg) {
-  // Orden real de .nav-link: [0]=Inicio, [1]=Docencia, [2]=Aparatología, [3]=Diario
+  // Orden real de .nav-link: [0]=Inicio, [1]=Cursos, [2]=Aparatología
   document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
   if (!cfg.area) document.querySelectorAll('.nav-link')[0].classList.add('active');
   if (cfg.area === 'docencia') document.querySelectorAll('.nav-link')[1].classList.add('active');
@@ -3493,7 +3499,7 @@ function updateTabBar(area, pageKey) {
   const tabs = document.querySelectorAll('.tab-item');
   tabs.forEach(t => t.classList.remove('active'));
   // Las páginas del aula viven en el área 'docencia', pero su pestaña
-  // en móvil es "Yo" (índice 3), no "Docencia".
+  // en móvil es "Aula" (índice 3), no "Cursos".
   const aulaPages = ['aula', 'aula-curso', 'leccion', 'tests', 'resultado'];
   if (pageKey && aulaPages.indexOf(pageKey) !== -1) { tabs[3].classList.add('active'); return; }
   if (!area) tabs[0].classList.add('active');
@@ -3832,7 +3838,7 @@ document.querySelectorAll('.producto-thumb').forEach(thumb => {
           fbEl.classList.add('show');
           progEl.textContent = 'Aciertos: ' + qHits + ' / ' + (qIdx+1);
           nextBtn.style.display = '';
-          nextBtn.textContent = (qIdx < quizData.length - 1) ? 'Siguiente pregunta →' : 'Ver resultado →';
+          nextBtn.innerHTML = (qIdx < quizData.length - 1) ? 'Siguiente pregunta <i class="ico ico-arrow" aria-hidden="true"></i>' : 'Ver resultado <i class="ico ico-arrow" aria-hidden="true"></i>';
         });
         optsEl.appendChild(div);
       });
@@ -4037,7 +4043,7 @@ async function decoratePublicCourseCards() {
     const id = slot.dataset.cursoId;
     const title = slot.dataset.cursoTitle || '';
     if (accessible.has(id)) {
-      slot.innerHTML = `<button class="cursos-pub-card-cta cursos-pub-card-cta--enrolled" onclick="openAulaCurso('${escapeJs(id)}')">Entrar al curso →</button>`;
+      slot.innerHTML = `<button class="cursos-pub-card-cta cursos-pub-card-cta--enrolled" onclick="openAulaCurso('${escapeJs(id)}')">Entrar al curso <i class="ico ico-arrow" aria-hidden="true"></i></button>`;
     } else {
       slot.innerHTML = `<button class="cursos-pub-card-cta" onclick="openCursoInfoForm('${escapeJs(title)}')">Solicitar información</button>`;
     }
@@ -4068,8 +4074,7 @@ function renderPublicCourses() {
     return `
       <section class="cursos-pub-category" id="cat-${cat.id}" data-category="${cat.id}">
         <header class="cursos-pub-category-head">
-          <span class="cursos-pub-category-count">${inCat.length} ${inCat.length === 1 ? 'curso' : 'cursos'}</span>
-          <h3 class="cursos-pub-category-title">${escapeHtml(cat.label)}</h3>
+          <h3 class="cursos-pub-category-title">${escapeHtml(cat.label)} <span class="cursos-pub-category-count">${inCat.length}</span></h3>
           <p class="cursos-pub-category-tagline">${escapeHtml(cat.tagline || '')}</p>
         </header>
         <div class="cursos-pub-category-cards">
@@ -5082,7 +5087,7 @@ function productCardPublic(p) {
         ${p.category ? `<span class="chip chip-accent" style="margin-bottom:6px">${escapeHtml(productCatLabel(p.category))}</span>` : ''}
         <div class="tienda-product-name">${escapeHtml(p.name)}</div>
         <p class="tienda-product-desc">${escapeHtml(p.shortDescription || '')}</p>
-        <div class="tienda-product-bottom"><span class="tienda-product-price serif">${escapeHtml(p.price || 'Consultar precio')}</span><span style="color:var(--muted)">→</span></div>
+        <div class="tienda-product-bottom"><span class="tienda-product-price serif">${escapeHtml(p.price || 'Consultar precio')}</span><span style="color:var(--muted);display:inline-flex"><i class="ico ico-arrow" aria-hidden="true"></i></span></div>
         ${learn}
       </div>
     </div>`;
@@ -5105,9 +5110,9 @@ function renderProducto(id) {
     : '';
   left.innerHTML = `
     <div class="producto-breadcrumb">
-      <span onclick="goTo('home','')">Inicio</span> ›
-      <span onclick="goTo('tienda','aparatologia')">Aparatología</span> ›
-      ${p.category ? `<span onclick="goTo('tienda','aparatologia')">${escapeHtml(productCatLabel(p.category))}</span> ›` : ''}
+      <span onclick="goTo('home','')">Inicio</span> <i class="ico ico-chev-r" aria-hidden="true"></i>
+      <span onclick="goTo('tienda','aparatologia')">Aparatología</span> <i class="ico ico-chev-r" aria-hidden="true"></i>
+      ${p.category ? `<span onclick="goTo('tienda','aparatologia')">${escapeHtml(productCatLabel(p.category))}</span> <i class="ico ico-chev-r" aria-hidden="true"></i>` : ''}
       <span style="color:var(--ink)">${escapeHtml(p.name)}</span>
     </div>
     <div class="${mainCls}" id="producto-main-img" ${mainStyle}>${imgs[0] ? '' : `<div class="ph-label">${escapeHtml(p.name)}</div>`}</div>
@@ -5126,7 +5131,7 @@ function renderProducto(id) {
       <div>
         <div class="producto-aprende-eyebrow">· Aprende a usarlo</div>
         <div class="producto-aprende-title">${escapeHtml(p.relatedCourseLabel)}</div>
-        <div class="producto-aprende-dur">Formación incluida en la compra →</div>
+        <div class="producto-aprende-dur">Formación incluida en la compra <i class="ico ico-arrow" aria-hidden="true"></i></div>
       </div>
     </div>` : '';
   right.innerHTML = `
@@ -5170,7 +5175,7 @@ function renderFeaturedProducts() {
         <p class="product-desc">${escapeHtml(p.shortDescription || '')}</p>
         <div class="product-price-row">
           <span class="product-price serif">${escapeHtml(p.price || 'Consultar precio')}</span>
-          <span style="font-size:18px;color:var(--muted)">→</span>
+          <span style="font-size:18px;color:var(--muted);display:inline-flex"><i class="ico ico-arrow" aria-hidden="true"></i></span>
         </div>
         ${p.relatedCourseLabel ? `<div class="product-footer">aprende con · <em>${escapeHtml(p.relatedCourseLabel)}</em></div>` : ''}
       </div>
@@ -5905,7 +5910,7 @@ async function renderTestimonials() {
   const phs = ['ph-rose', 'ph-clay', 'ph-sand', 'ph-honey'];
   grid.innerHTML = data.map((t, i) => {
     const img = t.photo_url
-      ? `<div class="testimonial-img" style="border-radius:8px;overflow:hidden;">
+      ? `<div class="testimonial-img" style="border-radius:12px;overflow:hidden;">
            <img src="${escapeAttr(t.photo_url)}" alt="${escapeAttr(t.name)}" loading="lazy"
                 style="width:100%;height:240px;object-fit:cover;object-position:center top;display:block;"></div>`
       : `<div class="testimonial-img ph ${phs[i % phs.length]}"></div>`;
@@ -6071,7 +6076,7 @@ function openContactForm(mode, opts) {
   overlay.setAttribute('data-mode', mode);
 
   if (mode === 'demo') {
-    title.innerHTML       = 'Solicitar <em>demo</em>';
+    title.innerHTML       = 'Solicitar demo';
     eyebrow.textContent   = '· Solicitud de demostración';
     subjectInput.value    = 'Nueva solicitud de demo · PRECISSA INSTITUTE';
     mensaje.placeholder   = '¿Online o presencial? ¿Algún día u horario te conviene mejor?';
@@ -6099,7 +6104,7 @@ function openContactForm(mode, opts) {
       productLine.textContent = 'Te confirmamos disponibilidad (online o presencial) en menos de 24 h laborables.';
     }
   } else if (mode === 'curso') {
-    title.innerHTML       = 'Solicitar <em>información</em>';
+    title.innerHTML       = 'Solicitar información';
     eyebrow.textContent   = '· Información del curso';
     subjectInput.value    = 'Nueva solicitud de información · PRECISSA INSTITUTE';
     mensaje.placeholder   = '¿Qué fechas te encajan? ¿Modalidad presencial u online? ¿Tienes experiencia previa?';
@@ -6116,7 +6121,7 @@ function openContactForm(mode, opts) {
       productLine.textContent = 'Te respondemos con la información que pidas en menos de 24 h laborables.';
     }
   } else {
-    title.innerHTML       = 'Pedir <em>presupuesto</em>';
+    title.innerHTML       = 'Pedir presupuesto';
     eyebrow.textContent   = '· Solicitud de presupuesto';
     subjectInput.value    = 'Nueva solicitud de presupuesto · PRECISSA INSTITUTE';
     mensaje.placeholder   = '¿Necesitas formación incluida, demo previa, financiación…?';
@@ -6250,7 +6255,7 @@ function renderAreasHome() {
         <div class="area-card-body">
           <div class="area-title">${escapeHtml(cat.label)}</div>
           <p class="area-desc">${escapeHtml(d.desc)}</p>
-          <button class="btn btn-text">Ver itinerario →</button>
+          <button class="btn btn-text">Ver itinerario <i class="ico ico-arrow" aria-hidden="true"></i></button>
         </div>
       </div>`;
   }).join('');

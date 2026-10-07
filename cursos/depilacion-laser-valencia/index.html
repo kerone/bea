@@ -315,7 +315,7 @@ p strong { color: var(--ink); font-weight: 600; }
 ul.clean { list-style: none; margin: 18px 0 0; padding: 0; }
 ul.clean li { padding: 12px 0 12px 28px; border-bottom: 1px solid var(--line); color: var(--ink); font-size: 15.5px; line-height: 1.45; position: relative; }
 ul.clean li:last-child { border-bottom: none; }
-ul.clean li::before { content: '·'; position: absolute; left: 6px; top: 8px; font-family: var(--serif); font-style: italic; color: var(--accent); font-size: 22px; line-height: 1; }
+ul.clean li::before { content: ''; position: absolute; left: 6px; top: 11px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
 ul.clean li strong { color: var(--ink); font-weight: 600; }
 ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-top: 2px; }
 
@@ -375,6 +375,9 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 .lp-submit:disabled { opacity: 0.6; cursor: wait; transform: none; }
 .lp-status { font-size: 13px; min-height: 18px; color: rgba(242,236,227,0.85); text-align: center; }
 .lp-alt { margin-top: 22px; font-size: 13px; color: rgba(242,236,227,0.7); }
+
+.ico { display:inline-block; width:1em; height:1em; flex:none; background-color:currentColor; -webkit-mask:var(--ico) center/contain no-repeat; mask:var(--ico) center/contain no-repeat; vertical-align:-0.125em; }
+.ico-arrow { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E"); width:15px; height:15px; }
 </style>
 </head>
 <body>
@@ -398,20 +401,20 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 </nav>
 
 <section class="hero">
-  <div class="eyebrow">Docencia · Curso profesional</div>
+  <div class="eyebrow">Curso profesional</div>
   <h1>Curso de Depilación Láser <em>en Valencia</em></h1>
   <p class="hero-lede">
     Diodo, alejandrita y Nd:YAG con seguridad por fototipo: la depilación láser explicada desde la física, no desde el manual del fabricante. Formación profesional en Valencia. Presencial y online.
   </p>
   <div class="hero-cta">
-    <a href="#contacto" class="btn btn-dark">Solicitar información →</a>
+    <a href="#contacto" class="btn btn-dark">Solicitar información <i class="ico ico-arrow" aria-hidden="true"></i></a>
     <a href="tel:+34601056706" class="btn btn-outline">Llamar 601 05 67 06</a>
   </div>
 </section>
 
 <section>
   <div class="eyebrow eyebrow-muted">Qué es</div>
-  <h2><em>Depilación láser</em>, con criterio</h2>
+  <h2>Depilación láser, con criterio</h2>
   <p>La depilación láser funciona por <strong>fototermólisis selectiva</strong>: la melanina del pelo absorbe la luz, se calienta y destruye el folículo — sin dañar la piel de alrededor si los parámetros son correctos. Ese "si" es el 90% de la profesión: fluencia, longitud de onda y fototipo deciden entre un buen resultado y una quemadura.</p>
   <p>El curso también pone el lenguaje en su sitio: hablamos de <strong>reducción progresiva y duradera del vello</strong>, no de "depilación definitiva" — el término que la publicidad usa y la evidencia no avala. Solo los folículos en fase anágena responden a la luz, y por eso el tratamiento se construye en sesiones espaciadas.</p>
 </section>
@@ -419,7 +422,7 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 <div class="section-alt">
   <section>
     <div class="eyebrow eyebrow-muted">Contenido</div>
-    <h2>El curso <em>incluye</em></h2>
+    <h2>El curso incluye</h2>
     <ul class="clean">
       <li><strong>Fototermólisis selectiva</strong> · la física de por qué el láser destruye el pelo y respeta la piel</li>
       <li><strong>Anatomía del folículo y ciclo del pelo</strong> · anágena, catágena, telógena: solo la anágena responde</li>
@@ -439,7 +442,7 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 
 <section>
   <div class="eyebrow eyebrow-muted">Perfil</div>
-  <h2>¿A quién va <em>dirigido</em>?</h2>
+  <h2>¿A quién va dirigido?</h2>
   <ul class="clean">
       <li><strong>Esteticistas</strong> que quieren trabajar depilación láser con fundamento y seguridad</li>
       <li><strong>Operadoras de centros láser</strong> que ya disparan y quieren entender qué hacen y por qué</li>
@@ -450,7 +453,7 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 <div class="section-alt">
   <section>
     <div class="eyebrow eyebrow-muted">Detalles</div>
-    <h2><em>Ficha</em> del curso</h2>
+    <h2>Ficha del curso</h2>
     <div class="ficha">
       <div class="ficha-grid">
         <div class="ficha-row">
@@ -480,7 +483,7 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 <div class="section-alt">
   <section>
     <div class="eyebrow eyebrow-muted">FAQ</div>
-    <h2>Preguntas <em>frecuentes</em></h2>
+    <h2>Preguntas frecuentes</h2>
   <div class="faq-item">
     <div class="faq-q">¿Qué diferencia hay entre láser de diodo e IPL?</div>
     <div class="faq-a">El láser emite una única longitud de onda coherente y concentrada; la IPL es luz pulsada de espectro ancho, menos selectiva. Para depilación, el láser es más eficaz por sesión; la IPL es más versátil (manchas, fotorrejuvenecimiento). En PRECISSA formamos en ambas tecnologías.</div>
@@ -514,19 +517,19 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 
 <section>
   <div class="eyebrow eyebrow-muted">Formación relacionada</div>
-  <h2>Otros cursos <em>en Valencia</em></h2>
+  <h2>Otros cursos en Valencia</h2>
   <ul class="clean">
       <li><strong><a href="/cursos/electroestetica-valencia/" style="color:inherit">Curso de Electroestética</a></strong><span>Radiofrecuencia, HIFU, cavitación, IPL y láser: toda la aparatología.</span></li>
       <li><strong><a href="/cursos/hifu-valencia/" style="color:inherit">Curso de HIFU</a></strong><span>Lifting facial no quirúrgico con ultrasonido focalizado.</span></li>
       <li><strong><a href="/cursos/plasmapen-valencia/" style="color:inherit">Curso de Plasmapen</a></strong><span>Blefaroplastia no quirúrgica, fibromas y queratosis por arco voltaico.</span></li>
-      <li><strong><a href="/cursos/" style="color:inherit">Todos los cursos de estética en Valencia →</a></strong><span>Los 23 cursos de PRECISSA INSTITUTE, por categorías.</span></li>
+      <li><strong><a href="/cursos/" style="color:inherit">Todos los cursos de estética en Valencia <i class="ico ico-arrow" aria-hidden="true"></i></a></strong><span>Los 23 cursos de PRECISSA INSTITUTE, por categorías.</span></li>
   </ul>
 </section>
 
 <section class="contact" id="contacto">
   <div class="contact-inner">
     <div class="eyebrow" style="color: var(--accent-soft);">Solicitar información</div>
-    <h2>Próxima convocatoria <em>en Valencia</em></h2>
+    <h2>Próxima convocatoria en Valencia</h2>
     <p>Déjanos tu nombre y se abrirá WhatsApp con tu consulta ya escrita: te respondemos por ahí con fechas, precio y modalidad.</p>
     <form class="lp-form" id="lp-form" novalidate>
       <input type="hidden" name="producto" value="Curso de Depilación Láser">

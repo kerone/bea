@@ -324,7 +324,7 @@ p strong { color: var(--ink); font-weight: 600; }
 ul.clean { list-style: none; margin: 18px 0 0; padding: 0; }
 ul.clean li { padding: 12px 0 12px 28px; border-bottom: 1px solid var(--line); color: var(--ink); font-size: 15.5px; line-height: 1.45; position: relative; }
 ul.clean li:last-child { border-bottom: none; }
-ul.clean li::before { content: '·'; position: absolute; left: 6px; top: 8px; font-family: var(--serif); font-style: italic; color: var(--accent); font-size: 22px; line-height: 1; }
+ul.clean li::before { content: ''; position: absolute; left: 6px; top: 11px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
 ul.clean li strong { color: var(--ink); font-weight: 600; }
 ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-top: 2px; }
 
@@ -384,6 +384,9 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 .lp-submit:disabled { opacity: 0.6; cursor: wait; transform: none; }
 .lp-status { font-size: 13px; min-height: 18px; color: rgba(242,236,227,0.85); text-align: center; }
 .lp-alt { margin-top: 22px; font-size: 13px; color: rgba(242,236,227,0.7); }
+
+.ico { display:inline-block; width:1em; height:1em; flex:none; background-color:currentColor; -webkit-mask:var(--ico) center/contain no-repeat; mask:var(--ico) center/contain no-repeat; vertical-align:-0.125em; }
+.ico-arrow { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E"); width:15px; height:15px; }
 </style>
 </head>
 <body>
@@ -407,20 +410,20 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 </nav>
 
 <section class="hero">
-  <div class="eyebrow">Docencia · Curso profesional</div>
+  <div class="eyebrow">Curso profesional</div>
   <h1>Curso de Micropigmentación <em>en Valencia</em></h1>
   <p class="hero-lede">
     PMU profesional en tres áreas: labios, eyeliner y neutralización correctiva. Del dermógrafo a la teoría del color, con la exigencia sanitaria que la técnica merece. Presencial en Valencia y online.
   </p>
   <div class="hero-cta">
-    <a href="#contacto" class="btn btn-dark">Solicitar información →</a>
+    <a href="#contacto" class="btn btn-dark">Solicitar información <i class="ico ico-arrow" aria-hidden="true"></i></a>
     <a href="tel:+34601056706" class="btn btn-outline">Llamar 601 05 67 06</a>
   </div>
 </section>
 
 <section>
   <div class="eyebrow eyebrow-muted">Qué es</div>
-  <h2><em>Micropigmentación</em> profesional</h2>
+  <h2>Micropigmentación profesional</h2>
   <p>La micropigmentación (PMU) implanta pigmento en la piel con <strong>dermógrafo</strong> para realzar labios, mirada y cejas de forma semipermanente. Es la especialidad de mayor crecimiento en estética — y también la que menos perdona la falta de formación: se trabaja sobre mucosa, junto al ojo y con pigmentos regulados.</p>
   <p>Nuestro itinerario cubre las tres áreas con módulos independientes: <strong>labios</strong> (la técnica más solicitada tras cejas: lip blush, full lips y aquarelle), <strong>eyeliner</strong> (del lash enhancement invisible al eyeliner con winged) y <strong>neutralización correctiva</strong> (la subespecialidad que corrige labios virados con teoría del color). Para cejas pelo a pelo, tenemos <a href="/cursos/microblading-valencia/">curso propio de microblading</a>.</p>
 </section>
@@ -428,7 +431,7 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 <div class="section-alt">
   <section>
     <div class="eyebrow eyebrow-muted">Contenido</div>
-    <h2>El curso <em>incluye</em></h2>
+    <h2>El curso incluye</h2>
     <ul class="clean">
       <li><strong>LABIOS · anatomía del bermellón</strong> · mucosa, inervación y vascularización: tu zona de trabajo</li>
       <li><strong>LABIOS · química del viraje</strong> · los rosas viran a violeta: ante la duda, siempre cálido</li>
@@ -449,7 +452,7 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 
 <section>
   <div class="eyebrow eyebrow-muted">Perfil</div>
-  <h2>¿A quién va <em>dirigido</em>?</h2>
+  <h2>¿A quién va dirigido?</h2>
   <ul class="clean">
       <li><strong>Esteticistas</strong> que quieren especializarse en la disciplina de mayor demanda y ticket medio</li>
       <li><strong>Micropigmentadoras de cejas</strong> que quieren ampliar a labios y mirada</li>
@@ -460,7 +463,7 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 <div class="section-alt">
   <section>
     <div class="eyebrow eyebrow-muted">Detalles</div>
-    <h2><em>Ficha</em> del curso</h2>
+    <h2>Ficha del curso</h2>
     <div class="ficha">
       <div class="ficha-grid">
         <div class="ficha-row">
@@ -482,7 +485,7 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 
 <section>
   <div class="eyebrow eyebrow-muted">Seguridad y rigor</div>
-  <h2>Exigencia sanitaria <em>real</em></h2>
+  <h2>Exigencia sanitaria real</h2>
   <p>La micropigmentación está sujeta a los <strong>requisitos higiénico-sanitarios</strong> de la Comunidad Valenciana: instalaciones autorizadas, material estéril de un solo uso, gestión de residuos biosanitarios y formación habilitante. Además, desde 2022 la normativa europea <strong>REACH 2020/2081</strong> restringe qué pigmentos pueden usarse en PMU — trabajar con pigmento no conforme es ilegal y peligroso. Todo ello es materia de examen en nuestros módulos.</p>
   <p>En labios añadimos una exigencia que consideramos innegociable: la <strong>profilaxis antiviral</strong> en clientas con historial de herpes labial. Pigmentar sin ella puede desencadenar un brote que arruine el trabajo y dañe a la clienta. Así de claro se enseña.</p>
 </section>
@@ -490,7 +493,7 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 <div class="section-alt">
   <section>
     <div class="eyebrow eyebrow-muted">FAQ</div>
-    <h2>Preguntas <em>frecuentes</em></h2>
+    <h2>Preguntas frecuentes</h2>
   <div class="faq-item">
     <div class="faq-q">¿Qué técnica me conviene aprender primero?</div>
     <div class="faq-a">Si vienes de cero, cejas (microblading) o labios son las puertas de entrada con más demanda. El eyeliner exige más pulso y confianza cerca del ojo, y la neutralización es una subespecialidad para quien ya pigmenta labios. Te orientamos por teléfono según tu perfil.</div>
@@ -528,19 +531,19 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 
 <section>
   <div class="eyebrow eyebrow-muted">Formación relacionada</div>
-  <h2>Otros cursos <em>en Valencia</em></h2>
+  <h2>Otros cursos en Valencia</h2>
   <ul class="clean">
       <li><strong><a href="/cursos/microblading-valencia/" style="color:inherit">Curso de Microblading</a></strong><span>Cejas pelo a pelo: diseño, blade y pigmento con criterio clínico.</span></li>
       <li><strong><a href="/cursos/plasmapen-valencia/" style="color:inherit">Curso de Plasmapen</a></strong><span>Blefaroplastia no quirúrgica, fibromas y queratosis por arco voltaico.</span></li>
       <li><strong><a href="/cursos/electroestetica-valencia/" style="color:inherit">Curso de Electroestética</a></strong><span>Radiofrecuencia, HIFU, cavitación, IPL y láser: toda la aparatología.</span></li>
-      <li><strong><a href="/cursos/" style="color:inherit">Todos los cursos de estética en Valencia →</a></strong><span>Los 23 cursos de PRECISSA INSTITUTE, por categorías.</span></li>
+      <li><strong><a href="/cursos/" style="color:inherit">Todos los cursos de estética en Valencia <i class="ico ico-arrow" aria-hidden="true"></i></a></strong><span>Los 23 cursos de PRECISSA INSTITUTE, por categorías.</span></li>
   </ul>
 </section>
 
 <section class="contact" id="contacto">
   <div class="contact-inner">
     <div class="eyebrow" style="color: var(--accent-soft);">Solicitar información</div>
-    <h2>Próxima convocatoria <em>en Valencia</em></h2>
+    <h2>Próxima convocatoria en Valencia</h2>
     <p>Déjanos tu nombre y se abrirá WhatsApp con tu consulta ya escrita: te respondemos por ahí con fechas, precio y modalidad.</p>
     <form class="lp-form" id="lp-form" novalidate>
       <input type="hidden" name="producto" value="Curso de Micropigmentación">

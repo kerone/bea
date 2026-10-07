@@ -131,6 +131,14 @@ temporal, solo a quien tiene matrícula (o es admin).
 - Dependencias de CDN con **versión fijada**: supabase-js@2.45.4,
   marked@12.0.2, dompurify@3.0.9. Nada de rangos `@2`.
 - La materia en Markdown se sanitiza con DOMPurify antes de insertarla.
+- **Flechas y chevrones son iconos SVG por máscara (clase `.ico`), no
+  caracteres de texto** (`→`, `▾`, `›`): Manrope no tiene esos glifos y el
+  navegador los pintaba con otra fuente, descentrados. Para una flecha en un
+  botón: `<i class="ico ico-arrow" aria-hidden="true"></i>`. Las landings
+  llevan una copia mínima del CSS de `.ico`.
+- Sistema visual: eyebrows sin `· ` inicial, títulos sin punto final, cursiva
+  de acento solo en el hero y la cita; radios `999px` (píldora), `12px`
+  (tarjeta) y `4px` (detalle); filtros como pestañas con subrayado.
 
 ## 8. Contenido intencionado (no son fallos)
 
