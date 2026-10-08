@@ -174,6 +174,7 @@
 .ico-check  { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E"); }
 .ico-wa     { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000'%3E%3Cpath d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z'/%3E%3C/svg%3E"); }
 .ico-phone  { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z'/%3E%3C/svg%3E"); }
+.ico-cal    { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2'/%3E%3Cpath d='M16 2v4M8 2v4M3 10h18'/%3E%3C/svg%3E"); }
 .btn .ico-arrow { width:15px; height:15px; margin-left:2px; }
 .btn-text .ico-arrow { width:14px; height:14px; }
 
@@ -873,6 +874,8 @@ button.drawer-item { background: none; border: 0; border-bottom: 1px solid var(-
 
 /* Testimonios */
 .testimonials { background: var(--surface); padding: 96px 56px; }
+.testimonials[hidden] { display: none; }
+.testimonial-avatar { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--accent-soft); color: var(--accent-dark); font-family: var(--serif); font-size: 30px; line-height: 1; border: 1px solid rgba(168,107,78,0.25); margin-bottom: 20px; }
 .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 52px; }
 .testimonial-card { display: flex; flex-direction: column; }
 .testimonial-img { height: 240px; border-radius: 12px; margin-bottom: 20px; }
@@ -1145,33 +1148,10 @@ a.footer-nap-line:hover { color: var(--bg); }
   </section>
 
   <!-- TESTIMONIOS -->
-  <section class="testimonials">
+  <section class="testimonials" id="testimonials-section" hidden>
     <div style="text-align:center;margin-bottom:8px"><span class="eyebrow">Alumnas en activo</span></div>
     <h2 class="section-h2" style="text-align:center">Quien ya está en cabina</h2>
-    <div class="testimonials-grid" id="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="testimonial-img" style="border-radius:12px;overflow:hidden;">
-          <img src="assets/IMG-20260522-WA0032.jpg" alt="Editorial PRECISSA INSTITUTE"
-            width="1392" height="752" loading="lazy"
-            style="width:100%;height:240px;object-fit:cover;object-position:center top;display:block;filter:grayscale(100%);">
-        </div>
-        <p class="testimonial-quote">"PRECISSA INSTITUTE me dio el lenguaje para explicar lo que ya hacía. Ahora mis clientas confían en el protocolo, no sólo en mí."</p>
-        <div class="testimonial-name">Nerea Álvarez</div>
-        <div class="testimonial-centro">Centro Estético Nerea · Bilbao</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-img ph ph-rose"></div>
-        <p class="testimonial-quote">"La RF-200 la compré después del curso. No hay forma de usarla mal si has hecho la formación. Eso es lo que busco."</p>
-        <div class="testimonial-name">Claudia Moreno</div>
-        <div class="testimonial-centro">Skin Studio CM · Madrid</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-img ph ph-clay"></div>
-        <p class="testimonial-quote">"Los tests son lo que diferencia a PRECISSA INSTITUTE. Saber que tengo el 83 % en electroestética me da seguridad real en cabina."</p>
-        <div class="testimonial-name">Marta Iglesias</div>
-        <div class="testimonial-centro">Clínica Estética Iglesias · Sevilla</div>
-      </div>
-    </div>
+    <div class="testimonials-grid" id="testimonials-grid"></div>
   </section>
 
   <!-- NEWSLETTER -->
@@ -1303,6 +1283,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 .cursos-pub-card-desc { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .cursos-pub-card-meta { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--ink-soft); margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); }
 .cursos-pub-card-meta span + span::before { content: '·'; color: var(--muted); margin-right: 8px; }
+.cursos-pub-card-fecha { display:flex; align-items:center; gap:6px; font-size:13px; color:var(--ink); margin:10px 0 2px }
 .cursos-pub-card-cta { cursor: pointer; border: none; }
 .cursos-pub-card-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
 .cursos-pub-card-link { cursor: pointer; }
@@ -4188,10 +4169,29 @@ const LANDING_BY_COURSE = {
   'ipl-fotorejuvenecimiento': '/cursos/electroestetica-valencia/',
   'laser-switched-yag-carbon-peel': '/cursos/electroestetica-valencia/'
 };
+const MESES_ES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+// 'YYYY-MM-DD' -> '20 de octubre' (añade el año si no es el actual).
+// Devuelve '' si la fecha no es válida.
+function formatearFecha(iso) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso || ''));
+  if (!m) return '';
+  const y = +m[1], mo = +m[2], d = +m[3];
+  if (mo < 1 || mo > 12 || d < 1 || d > 31) return '';
+  return d + ' de ' + MESES_ES[mo - 1] + (y !== new Date().getFullYear() ? ' de ' + y : '');
+}
+// Devuelve la fecha formateada solo si la convocatoria no ha pasado.
+function proximaConvocatoria(c) {
+  if (!c || !c.nextStart) return '';
+  const hoy = new Date(); hoy.setHours(0, 0, 0, 0);
+  const [y, mo, d] = String(c.nextStart).split('-').map(Number);
+  if (new Date(y, mo - 1, d) < hoy) return '';
+  return formatearFecha(c.nextStart);
+}
 function renderCourseCardPublic(c) {
   const landing = LANDING_BY_COURSE[c.id];
   const searchAttr = buildCourseSearchText(c);
   const cat = getCategories().find(k => k.id === c.category);
+  const fecha = proximaConvocatoria(c);
   return `
     <article class="cursos-pub-card" id="curso-card-${escapeAttr(c.id)}" data-search="${escapeAttr(searchAttr)}">
       <div class="cursos-pub-card-cover">
@@ -4205,6 +4205,7 @@ function renderCourseCardPublic(c) {
           ${c.duration ? `<span>${escapeHtml(c.duration)}</span>` : ''}
           ${c.level ? `<span>${escapeHtml(c.level)}</span>` : ''}
         </div>
+        ${fecha ? `<div class="cursos-pub-card-fecha"><i class="ico ico-cal" aria-hidden="true"></i> Próxima convocatoria: <strong>${escapeHtml(fecha)}</strong></div>` : ''}
         <div class="cursos-pub-card-actions">
           <div class="cursos-pub-card-cta-slot" data-curso-id="${escapeAttr(c.id)}" data-curso-title="${escapeAttr(c.title)}">
             <button class="btn btn-dark btn-sm cursos-pub-card-cta" onclick="openCursoInfoForm('${escapeJs(c.title)}')">Solicitar información</button>
@@ -6207,32 +6208,34 @@ function escapeJs(s) { return escapeAttr(String(s ?? '').replace(/\\/g, '\\\\').
 
 // ─── HOOK por cambio de página ──────────────────────────
 // ─── HOME · RESEÑAS DE ALUMNAS (desde Supabase) ─────────
-// Si hay reseñas en la BD, sustituyen a las tarjetas estáticas de
-// respaldo. Si Supabase no está configurado, falla o no hay ninguna,
-// se conservan las que vienen en el HTML.
+// La sección solo se muestra si hay al menos una reseña real en la BD.
+// Sin Supabase, con error o sin reseñas, queda oculta (hidden), sin hueco.
 async function renderTestimonials() {
-  if (!window.testimonials || !window.testimonials.isConfigured()) return;
+  const sec = document.getElementById('testimonials-section');
   const grid = document.getElementById('testimonials-grid');
-  if (!grid) return;
+  if (!sec || !grid) return;
+  const ocultar = () => { grid.innerHTML = ''; sec.hidden = true; };
+  if (!window.testimonials || !window.testimonials.isConfigured()) return ocultar();
   let data;
   try { data = await window.testimonials.list(); }
-  catch (e) { return; }
-  if (!data || data.length === 0) return; // conservar respaldo estático
-  const phs = ['ph-rose', 'ph-clay', 'ph-sand', 'ph-honey'];
-  grid.innerHTML = data.map((t, i) => {
+  catch (e) { return ocultar(); }
+  if (!data || data.length === 0) return ocultar();
+  grid.innerHTML = data.map(t => {
+    const nombre = String(t.name || '').trim();
     const img = t.photo_url
       ? `<div class="testimonial-img" style="border-radius:12px;overflow:hidden;">
-           <img src="${escapeAttr(t.photo_url)}" alt="${escapeAttr(t.name)}" loading="lazy"
+           <img src="${escapeAttr(t.photo_url)}" alt="${escapeAttr(nombre)}" loading="lazy"
                 style="width:100%;height:240px;object-fit:cover;object-position:center top;display:block;"></div>`
-      : `<div class="testimonial-img ph ${phs[i % phs.length]}"></div>`;
+      : `<div class="testimonial-avatar" aria-hidden="true">${escapeHtml(nombre.charAt(0).toUpperCase() || '·')}</div>`;
     return `
       <div class="testimonial-card">
         ${img}
         <p class="testimonial-quote">"${escapeHtml(t.quote || '')}"</p>
-        <div class="testimonial-name">${escapeHtml(t.name || '')}</div>
+        <div class="testimonial-name">${escapeHtml(nombre)}</div>
         ${t.centro ? `<div class="testimonial-centro">${escapeHtml(t.centro)}</div>` : ''}
       </div>`;
   }).join('');
+  sec.hidden = false;
 }
 
 function onPageEnter(pageKey) {
@@ -6429,8 +6432,12 @@ function openContactForm(mode, opts) {
     productHidden.value    = opts.productName || '(Consulta general)';
     priceHidden.value      = '';
     if (opts.productName) {
-      productLine.innerHTML = 'Curso: <strong>' + escapeHtml(opts.productName) +
-        '</strong>. Te respondemos con fechas, precio y plazas disponibles en menos de 24 h laborables.';
+      const cursoSel = (getCourses() || []).find(x => x.title === opts.productName);
+      const fechaSel = proximaConvocatoria(cursoSel);
+      productLine.innerHTML = 'Curso: <strong>' + escapeHtml(opts.productName) + '</strong>. ' +
+        (fechaSel
+          ? 'Próxima convocatoria: ' + escapeHtml(fechaSel) + '. Te respondemos con precio y plazas disponibles en menos de 24 h laborables.'
+          : 'Te respondemos con fechas, precio y plazas disponibles en menos de 24 h laborables.');
     } else {
       productLine.textContent = 'Te respondemos con la información que pidas en menos de 24 h laborables.';
     }

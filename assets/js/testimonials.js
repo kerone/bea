@@ -18,7 +18,7 @@
   function isConfigured() { return !!client(); }
 
   // Devuelve un array, o null si Supabase no está configurado / hay error
-  // (en ese caso la home conserva las tarjetas estáticas de respaldo).
+  // (en ese caso la home oculta la sección de reseñas).
   async function list() {
     const c = client();
     if (!c) return null;

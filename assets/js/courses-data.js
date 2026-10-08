@@ -69,6 +69,7 @@ window.PRECISSA_COURSES = [
 
   {
     id: 'higiene-facial-profunda',
+    nextStart: '2026-10-21',
     title: 'Higiene Facial Profunda',
     category: 'estetica-facial-avanzada',
     eyebrow: 'Dermocosmiatría · Grado profesional · 5 módulos',
@@ -312,6 +313,7 @@ window.PRECISSA_COURSES = [
   },
   {
     id: 'depilacion-laser',
+    nextStart: '2026-10-20',
     title: 'Depilación láser',
     category: 'electroestetica',
     eyebrow: 'Diodo · Alejandrita · Nd:YAG · IPL · Manual profesional 60 h',

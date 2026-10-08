@@ -106,6 +106,7 @@
     {
       "@type": "CourseInstance",
       "courseMode": "onsite",
+      "startDate": "2026-10-20",
       "location": {
         "@type": "Place",
         "name": "PRECISSA INSTITUTE",
@@ -403,6 +404,11 @@ main:focus { outline: none; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; scroll-behavior: auto !important; } }
 </style>
+<style>
+.ico-cal { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2'/%3E%3Cpath d='M16 2v4M8 2v4M3 10h18'/%3E%3C/svg%3E"); }
+.hero-fecha { display:flex; align-items:center; gap:8px; font-size:15px; color:var(--ink); margin:-12px 0 24px; }
+@media (min-width: 641px) { .ficha-grid { grid-template-columns: repeat(4, 1fr); } }
+</style>
 </head>
 <body>
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -430,8 +436,9 @@ main:focus { outline: none; }
   <div class="eyebrow">Curso profesional</div>
   <h1>Curso de Depilación Láser <em>en Valencia</em></h1>
   <p class="hero-lede">
-    Diodo, alejandrita y Nd:YAG con seguridad por fototipo: la depilación láser explicada desde la física, no desde el manual del fabricante. Formación profesional en Valencia. Presencial en Valencia.
+    Diodo, alejandrita y Nd:YAG con seguridad por fototipo: la depilación láser explicada desde la física, no desde el manual del fabricante. Formación profesional presencial en Valencia.
   </p>
+  <p class="hero-fecha"><i class="ico ico-cal" aria-hidden="true"></i> Próxima convocatoria: <strong>20 de octubre de 2026</strong> · Valencia</p>
   <div class="hero-cta">
     <a href="#contacto" class="btn btn-dark">Solicitar información <i class="ico ico-arrow" aria-hidden="true"></i></a>
     <a href="tel:+34601056706" class="btn btn-outline">Llamar 601 05 67 06</a>
@@ -493,6 +500,10 @@ main:focus { outline: none; }
         <div class="ficha-row">
           <div class="label">Certificación</div>
           <div class="value">Sí · tras test y prácticas</div>
+        </div>
+        <div class="ficha-row">
+          <div class="label">Próxima convocatoria</div>
+          <div class="value">20 de octubre de 2026</div>
         </div>
       </div>
     </div>
@@ -556,7 +567,7 @@ main:focus { outline: none; }
 <section class="contact" id="contacto">
   <div class="contact-inner">
     <div class="eyebrow" style="color: var(--accent-soft);">Solicitar información</div>
-    <h2>Próxima convocatoria en Valencia</h2>
+    <h2>Próxima convocatoria: 20 de octubre</h2>
     <p>Déjanos tu nombre y se abrirá WhatsApp con tu consulta ya escrita: te respondemos por ahí con fechas, precio y plazas disponibles. ¿No usas WhatsApp? Llámanos al 601 05 67 06.</p>
     <form class="lp-form" id="lp-form" novalidate>
       <input type="hidden" name="producto" value="Curso de Depilación Láser">
