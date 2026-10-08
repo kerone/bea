@@ -534,9 +534,31 @@
   var btnAlt = document.getElementById('lp-alt-btn');
   var enviando = false;
 
+
+  // Origen publicitario (sin cookies): si la visita llega con utm_source en la
+  // dirección del anuncio, el mensaje de WhatsApp y la copia por correo lo
+  // indican, para saber qué campaña trae cada contacto.
+  function origenAnuncio() {
+    try {
+      var q = new URLSearchParams(location.search);
+      var s = (q.get('utm_source') || '').toLowerCase();
+      if (!s) return '';
+      var fuente = s.indexOf('google') !== -1 ? 'Google' : (s.indexOf('insta') !== -1 || s.indexOf('facebook') !== -1 || s.indexOf('meta') !== -1) ? 'Instagram' : s;
+      var camp = q.get('utm_campaign') || '';
+      return fuente + (camp ? ' · ' + camp : '');
+    } catch (e) { return ''; }
+  }
+  var ORIGEN = origenAnuncio();
+  if (ORIGEN) {
+    // Los botones de WhatsApp de la cabecera también llevan la marca del anuncio
+    document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function (a) {
+      try { var u = new URL(a.href); var t = u.searchParams.get('text') || ''; if (t && t.indexOf('anuncio') === -1) { u.searchParams.set('text', t + ' (Vengo del anuncio de ' + ORIGEN + ')'); a.href = u.toString(); } } catch (e) {}
+    });
+  }
   function enlaceWhatsApp(d) {
     var t = 'Hola, soy ' + d.nombre.trim() + '. Me interesa el ' + (d.producto || 'curso') +
       ' y me gustaría recibir información (fechas, precio y plazas disponibles).';
+    if (ORIGEN) t += ' (Vengo del anuncio de ' + ORIGEN + ')';
     if ((d.mensaje || '').trim()) t += '\n\n' + d.mensaje.trim();
     return 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(t);
   }
@@ -626,6 +648,7 @@
     }
     var data = {};
     new FormData(form).forEach(function (v, k) { data[k] = v; });
+    if (ORIGEN) data.origen_anuncio = ORIGEN;
     if (data._honey) return; // bot
 
     var wa = '';

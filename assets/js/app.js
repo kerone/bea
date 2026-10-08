@@ -743,7 +743,7 @@ function renderConvocatorias() {
     const cat = cats.find(k => k.id === c.category);
     const landing = LANDING_BY_COURSE[c.id];
     const poster = POSTERS[c.id];
-    const alt = poster ? 'Cartel del curso ' + c.title : '';
+    const alt = poster ? 'Cartel del curso de ' + c.title + ' en Valencia, inicio el ' + (proximaConvocatoria(c) || '') : '';
     const img = poster
       ? `<img src="${escapeAttr(poster)}" alt="${escapeAttr(alt)}" loading="lazy">`
       : (c.cover ? coverImgHtml(c.cover) : '');
@@ -3097,6 +3097,23 @@ document.addEventListener('keydown', e => {
 });
 
 // ─── Envío del modal: validación propia + dos canales ──────────────
+// Origen publicitario (sin cookies): ver origenAnuncio() en las landings.
+function origenAnuncio() {
+  try {
+    const q = new URLSearchParams(location.search);
+    const s = (q.get('utm_source') || '').toLowerCase();
+    if (!s) return '';
+    const fuente = s.includes('google') ? 'Google' : (s.includes('insta') || s.includes('facebook') || s.includes('meta')) ? 'Instagram' : s;
+    const camp = q.get('utm_campaign') || '';
+    return fuente + (camp ? ' · ' + camp : '');
+  } catch (e) { return ''; }
+}
+const ORIGEN_ANUNCIO = origenAnuncio();
+if (ORIGEN_ANUNCIO) {
+  document.querySelectorAll('a[href^="https://wa.me/"]').forEach(a => {
+    try { const u = new URL(a.href); const t = u.searchParams.get('text') || ''; if (t && !t.includes('anuncio')) { u.searchParams.set('text', t + ' (Vengo del anuncio de ' + ORIGEN_ANUNCIO + ')'); a.href = u.toString(); } } catch (e) {}
+  });
+}
 const QUOTE_MSG_FALLO = 'No hemos podido enviar tu solicitud. Llámanos al 601 05 67 06 o escríbenos a precissainstitute@gmail.com.';
 let quoteEnviando = false;
 
@@ -3182,6 +3199,7 @@ function quoteEnviar(canal) {
   }
 
   const data = Object.fromEntries(new FormData(form));
+  if (ORIGEN_ANUNCIO) data.origen_anuncio = ORIGEN_ANUNCIO;
   if (data._honey) return; // bot
 
   let wa = '';
@@ -3197,6 +3215,7 @@ function quoteEnviar(canal) {
     else                      texto += 'Me gustaría recibir presupuesto' + (que ? ' de ' + que : '') + '.';
     if (data.profesional) texto += '\n(' + data.profesional + (data.empresa ? ' · ' + data.empresa : '') + ')';
     if (String(data.mensaje || '').trim()) texto += '\n\n' + String(data.mensaje).trim();
+    if (ORIGEN_ANUNCIO) texto += ' (Vengo del anuncio de ' + ORIGEN_ANUNCIO + ')';
     wa = 'https://wa.me/34601056706?text=' + encodeURIComponent(texto);
     abierto = window.open(wa, '_blank');
     data.canal = 'WhatsApp (copia de respaldo)';
