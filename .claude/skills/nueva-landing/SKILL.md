@@ -43,7 +43,7 @@ bloque de contacto y footer. Así no diverge el diseño.
 ## Los 4 bloques JSON-LD
 
 BreadcrumbList (Inicio → Cursos → esta), Course (con `hasCourseInstance`
-onsite + online), EducationalOrganization (copia el de otra landing, con el
+solo onsite: la formación es presencial), EducationalOrganization (copia el de otra landing, con el
 NAP y `areaServed` de Valencia) y FAQPage.
 
 ⚠️ **El FAQPage debe generarse desde el HTML visible**, no escribirse a mano:

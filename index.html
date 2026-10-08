@@ -10,7 +10,7 @@
      (migrado desde kerone.github.io/bea el 2026-05-26)
      Posicionamiento principal: Plasmapen + electroestética · Valencia -->
 <title>Especialistas en Plasmapen y Electroestética en Valencia · PRECISSA</title>
-<meta name="description" content="Academia especializada en Plasmapen y electroestética en Valencia. Cursos de aparatología, micropigmentación y estética avanzada. Online y presencial.">
+<meta name="description" content="Academia especializada en Plasmapen y electroestética en Valencia. Cursos de aparatología, micropigmentación y estética avanzada. Formación presencial.">
 <meta name="keywords" content="curso plasmapen, academia plasmapen, plasmapen valencia, plasmapen formación, blefaroplastia no quirúrgica curso, curso fibroblast, academia estética valencia, escuela estética avanzada, curso microblading valencia, curso HIFU, electroestética valencia, formación esteticistas Valencia, dermocosmiatría">
 <meta name="author" content="PRECISSA INSTITUTE">
 <meta name="robots" content="index, follow, max-image-preview:large">
@@ -34,7 +34,7 @@
 <!-- ═══ TWITTER CARD ═════════════════════════════════════════ -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Especialistas en Plasmapen y Electroestética en Valencia · PRECISSA INSTITUTE">
-<meta name="twitter:description" content="Academia especializada en Plasmapen y electroestética en Valencia. Formación profesional presencial y online.">
+<meta name="twitter:description" content="Academia especializada en Plasmapen y electroestética en Valencia. Formación profesional presencial.">
 <meta name="twitter:image" content="https://precissainstitute.com/assets/og-image.jpg">
 
 <!-- ═══ FAVICON & THEME ══════════════════════════════════════ -->
@@ -6000,7 +6000,7 @@ function onPageEnter(pageKey) {
 const SEO_BASE_URL = 'https://precissainstitute.com/';
 const SEO_DEFAULTS = {
   title: 'Especialistas en Plasmapen y Electroestética en Valencia · PRECISSA',
-  description: 'Academia especializada en Plasmapen y electroestética en Valencia. Cursos de aparatología, micropigmentación y estética avanzada. Online y presencial.'
+  description: 'Academia especializada en Plasmapen y electroestética en Valencia. Cursos de aparatología, micropigmentación y estética avanzada. Formación presencial.'
 };
 const SEO_PAGE_META = {
   home:        { title: SEO_DEFAULTS.title, description: SEO_DEFAULTS.description },
@@ -6137,7 +6137,7 @@ function openContactForm(mode, opts) {
     title.innerHTML       = 'Solicitar demo';
     eyebrow.textContent   = '· Solicitud de demostración';
     subjectInput.value    = 'Nueva solicitud de demo · PRECISSA INSTITUTE';
-    mensaje.placeholder   = '¿Online o presencial? ¿Algún día u horario te conviene mejor?';
+    mensaje.placeholder   = '¿Algún día u horario te conviene mejor?';
     // El campo "producto" activo es el select; el hidden queda inactivo.
     productHidden.disabled = true;
     productSelect.disabled = false;
@@ -6157,15 +6157,15 @@ function openContactForm(mode, opts) {
     productSelect.value = hasOption ? preselect : '';
     if (hasOption) {
       productLine.innerHTML = 'Máquina: <strong>' + escapeHtml(preselect) +
-        '</strong>. Te confirmamos disponibilidad (online o presencial) en 24 h laborables.';
+        '</strong>. Te confirmamos disponibilidad en 24 h laborables.';
     } else {
-      productLine.textContent = 'Te confirmamos disponibilidad (online o presencial) en menos de 24 h laborables.';
+      productLine.textContent = 'Te confirmamos disponibilidad en menos de 24 h laborables.';
     }
   } else if (mode === 'curso') {
     title.innerHTML       = 'Solicitar información';
     eyebrow.textContent   = '· Información del curso';
     subjectInput.value    = 'Nueva solicitud de información · PRECISSA INSTITUTE';
-    mensaje.placeholder   = '¿Qué fechas te encajan? ¿Modalidad presencial u online? ¿Tienes experiencia previa?';
+    mensaje.placeholder   = '¿Qué fechas te encajan? ¿Tienes experiencia previa?';
     // Igual que presupuesto: producto en hidden, select desactivado
     productSelect.disabled = true;
     productSelect.required = false;

@@ -52,7 +52,7 @@ def build(L):
         "name": L['course_name'], "description": L['desc'],
         "provider": {"@type": "EducationalOrganization", "name": "PRECISSA INSTITUTE", "url": BASE + "/"},
         "url": url, "inLanguage": "es-ES", "educationalLevel": L['nivel'],
-        "courseMode": ["onsite", "online"],
+        "courseMode": "onsite",
         "audience": {"@type": "EducationalAudience", "educationalRole": "esteticista profesional"},
         "about": L['about'], "teaches": L['teaches'],
         "hasCourseInstance": [
@@ -60,8 +60,7 @@ def build(L):
              "location": {"@type": "Place", "name": "PRECISSA INSTITUTE",
                           "address": {"@type": "PostalAddress", "streetAddress": "Av. Primero de Mayo, 59, bajo", "postalCode": "46017",
                                       "addressLocality": "Valencia", "addressRegion": "Comunidad Valenciana", "addressCountry": "ES"}},
-             "courseWorkload": f"PT{L['horas']}H"},
-            {"@type": "CourseInstance", "courseMode": "online", "courseWorkload": f"PT{L['horas_online']}H"}]},
+             "courseWorkload": f"PT{L['horas']}H"}]},
         ensure_ascii=False, indent=2)
     page = f'''<!DOCTYPE html>
 <!-- Landing SEO · {L['h1_plain']} · PRECISSA INSTITUTE -->
@@ -189,7 +188,7 @@ def build(L):
       <div class="ficha-grid">
         <div class="ficha-row">
           <div class="label">Modalidad</div>
-          <div class="value">Presencial Valencia · Online</div>
+          <div class="value">Presencial en Valencia</div>
         </div>
         <div class="ficha-row">
           <div class="label">Nivel · Duración</div>
@@ -241,7 +240,7 @@ def build(L):
       <label class="lp-field"><span>Nombre y apellidos *</span><input type="text" name="nombre" required autocomplete="name"></label>
       <label class="lp-field"><span>Email <small>(opcional)</small></span><input type="email" name="email" autocomplete="email"></label>
       <label class="lp-field"><span>Teléfono <small>(opcional · agiliza la respuesta)</small></span><input type="tel" name="telefono" autocomplete="tel"></label>
-      <label class="lp-field"><span>Mensaje <small>(opcional)</small></span><textarea name="mensaje" rows="3" placeholder="¿Qué fechas te encajan? ¿Presencial u online? ¿Experiencia previa?"></textarea></label>
+      <label class="lp-field"><span>Mensaje <small>(opcional)</small></span><textarea name="mensaje" rows="3" placeholder="¿Qué fechas te encajan? ¿Tienes experiencia previa?"></textarea></label>
       <label class="lp-rgpd"><input type="checkbox" name="rgpd" required><span>He leído y acepto la <a href="/privacidad/" target="_blank" rel="noopener">política de privacidad</a> *</span></label>
       <button type="submit" class="lp-submit" id="lp-submit">Solicitar información por WhatsApp</button>
       <div class="lp-status" id="lp-status" role="status" aria-live="polite"></div>
@@ -271,7 +270,7 @@ LANDINGS = [
  'slug': 'dermapen-valencia', 'cursos': ['dermapen-microneedling'],
  'title': 'Curso de Dermapen en Valencia · PRECISSA INSTITUTE',
  'og_title': 'Curso de Dermapen en Valencia · Microneedling profesional',
- 'desc': 'Curso de Dermapen y microneedling en Valencia: inducción de colágeno, profundidad por zona, asepsia, fototipos altos y complicaciones. Presencial y online.',
+ 'desc': 'Curso de Dermapen y microneedling en Valencia: inducción de colágeno, profundidad por zona, asepsia, fototipos altos y complicaciones. Presencial en Valencia.',
  'keywords': 'curso dermapen valencia, curso microneedling valencia, formación dermapen, microneedling profesional valencia, inducción de colágeno curso, academia estética valencia',
  'h1': 'Curso de Dermapen <em>en Valencia</em>', 'h1_plain': 'Curso de Dermapen en Valencia', 'bc_short': 'Dermapen Valencia',
  'course_name': 'Curso de Dermapen en Valencia · Microneedling profesional',
@@ -279,7 +278,7 @@ LANDINGS = [
  'about': ['Dermapen', 'Microneedling', 'Inducción de colágeno', 'Cicatrices de acné'],
  'teaches': 'Fisiología de la inducción de colágeno por trauma controlado, profundidad por zona y objetivo, asepsia y material de un solo uso, cautela en fototipos altos, combinación con activos tópicos, aftercare y manejo de complicaciones.',
  'producto': 'Curso de Dermapen · Microneedling',
- 'lede': 'Microagujas motorizadas para inducción de colágeno: cicatrices, textura, poros y rejuvenecimiento, con la profundidad justa para cada zona. Formación profesional de microneedling para esteticistas en Valencia. Presencial y online.',
+ 'lede': 'Microagujas motorizadas para inducción de colágeno: cicatrices, textura, poros y rejuvenecimiento, con la profundidad justa para cada zona. Formación profesional de microneedling para esteticistas en Valencia. Presencial en Valencia.',
  'que_es_h2': 'Dermapen, microneedling con criterio',
  'que_es_p1': 'El Dermapen es un dermógrafo motorizado con un cartucho de microagujas de un solo uso que practica <strong>miles de microcanales controlados</strong> en la piel. Ese trauma mínimo y ordenado activa la cascada de reparación: la piel responde fabricando colágeno y elastina nuevos. Por eso funciona en cicatrices de acné, poros dilatados, textura irregular y pérdida de firmeza, y por eso también mejora la penetración de los activos que se aplican después.',
  'que_es_p2': 'La diferencia entre un buen resultado y un problema está en la <strong>profundidad</strong>. No es lo mismo trabajar a 0,25 mm para potenciar un cosmético que a 1,5-2,5 mm sobre una cicatriz. En el curso aprendes a decidir la profundidad por zona y por objetivo, a saber qué queda dentro del terreno de la estética y a reconocer cuándo una piel no debe tratarse ese día.',
@@ -320,7 +319,7 @@ LANDINGS = [
  'slug': 'hyaluron-pen-valencia', 'cursos': ['hyaluron-pen'],
  'title': 'Curso de Hyaluron Pen en Valencia · PRECISSA INSTITUTE',
  'og_title': 'Curso de Hyaluron Pen en Valencia · Hialurónico sin aguja',
- 'desc': 'Curso de Hyaluron Pen en Valencia: presión hidráulica, profundidad real, evidencia, marco regulatorio y manejo de complicaciones. Presencial y online.',
+ 'desc': 'Curso de Hyaluron Pen en Valencia: presión hidráulica, profundidad real, evidencia, marco regulatorio y manejo de complicaciones. Presencial en Valencia.',
  'keywords': 'curso hyaluron pen valencia, hyaluron pen curso, hialurónico sin aguja curso, formación hyaluron pen, curso acido hialuronico sin aguja valencia, academia estética valencia',
  'h1': 'Curso de Hyaluron Pen <em>en Valencia</em>', 'h1_plain': 'Curso de Hyaluron Pen en Valencia', 'bc_short': 'Hyaluron Pen Valencia',
  'course_name': 'Curso de Hyaluron Pen en Valencia · Hialurónico sin aguja',
@@ -328,7 +327,7 @@ LANDINGS = [
  'about': ['Hyaluron Pen', 'Ácido hialurónico sin aguja', 'Presión hidráulica', 'Hidratación labial'],
  'teaches': 'Fundamentos físicos de la presión hidráulica, profundidad real de deposición, evidencia disponible y sus límites, marco regulatorio en la UE, indicaciones cosméticas legítimas y las que no corresponden a estética, manejo de complicaciones y derivación.',
  'producto': 'Curso de Hyaluron Pen',
- 'lede': 'Ácido hialurónico sin aguja por presión hidráulica, explicado con la honestidad que esta técnica necesita: qué puede hacer, qué no debe hacerse desde una cabina de estética y cómo trabajar con seguridad. Formación para esteticistas en Valencia. Presencial y online.',
+ 'lede': 'Ácido hialurónico sin aguja por presión hidráulica, explicado con la honestidad que esta técnica necesita: qué puede hacer, qué no debe hacerse desde una cabina de estética y cómo trabajar con seguridad. Formación para esteticistas en Valencia. Presencial en Valencia.',
  'que_es_h2': 'Hyaluron Pen, sin aguja y sin humo',
  'que_es_p1': 'El Hyaluron Pen es un dispositivo que impulsa ácido hialurónico a través de la piel mediante <strong>presión hidráulica</strong>, sin aguja. El producto se deposita de forma difusa en capas superficiales, no en un punto profundo como hace una inyección. Esa diferencia física lo explica todo: sus indicaciones legítimas son <strong>cosméticas y superficiales</strong>, como la hidratación y el aspecto de los labios o de líneas finas.',
  'que_es_p2': 'Es una técnica polémica porque se ha vendido como "relleno sin aguja" para cosas que no puede hacer. Nuestro curso parte de la evidencia disponible y de sus límites, y te enseña a posicionarla con criterio: qué ofrecer, qué rechazar y cómo explicárselo a la clienta. Saber decir que no es parte del temario.',
@@ -369,7 +368,7 @@ LANDINGS = [
  'slug': 'cejas-valencia', 'cursos': ['cejas-diseno-visajismo', 'cejas-laminado-henna'],
  'title': 'Curso de Cejas en Valencia · Diseño, laminado y henna',
  'og_title': 'Curso de Cejas en Valencia · Diseño por visajismo, laminado y henna',
- 'desc': 'Curso de cejas en Valencia: diseño por visajismo con la regla de los 3 puntos, cinco técnicas de modelado, laminado y henna profesional. Presencial y online.',
+ 'desc': 'Curso de cejas en Valencia: diseño por visajismo con la regla de los 3 puntos, cinco técnicas de modelado, laminado y henna profesional. Presencial en Valencia.',
  'keywords': 'curso de cejas valencia, curso diseño de cejas valencia, curso laminado de cejas valencia, curso henna cejas, brow lamination curso, visajismo cejas curso, academia estética valencia',
  'h1': 'Curso de Cejas <em>en Valencia</em>', 'h1_plain': 'Curso de Cejas en Valencia', 'bc_short': 'Cejas Valencia',
  'course_name': 'Curso de Cejas en Valencia · Diseño por visajismo, laminado y henna',
@@ -377,7 +376,7 @@ LANDINGS = [
  'about': ['Diseño de cejas', 'Visajismo', 'Laminado de cejas', 'Henna de cejas'],
  'teaches': 'Análisis facial y formas de rostro, regla de los 3 puntos y proporción áurea, cinco técnicas de modelado (hilo, cera, sugaring, pinzas, navaja), laminado de cejas con química del tioglicolato, henna profesional con lawsona y manejo de complicaciones.',
  'producto': 'Curso de Cejas · Diseño, laminado y henna',
- 'lede': 'De la "depilación de cejas" a la consulta de diseño: visajismo, regla de los 3 puntos, cinco técnicas de modelado, laminado y henna profesional. Dos módulos que juntos montan una cabina de cejas completa. Formación para esteticistas en Valencia. Presencial y online.',
+ 'lede': 'De la "depilación de cejas" a la consulta de diseño: visajismo, regla de los 3 puntos, cinco técnicas de modelado, laminado y henna profesional. Dos módulos que juntos montan una cabina de cejas completa. Formación para esteticistas en Valencia. Presencial en Valencia.',
  'que_es_h2': 'La cabina de cejas, completa',
  'que_es_p1': 'Una ceja bien diseñada cambia un rostro más que cualquier otro servicio rápido de cabina, y la clienta lo sabe: por eso el diseño de cejas ha pasado de ser un extra a ser una consulta con valor propio. El primer módulo enseña a <strong>leer el rostro</strong> (ovalado, redondo, cuadrado, rectangular, triángulo invertido, diamante, pera), a aplicar la <strong>regla de los 3 puntos</strong> y la proporción áurea, y a corregir asimetrías con cinco técnicas de modelado: hilo, cera caliente, sugaring, pinzas y navaja.',
  'que_es_p2': 'El segundo módulo añade los dos servicios más demandados de los últimos años: el <strong>laminado</strong>, que fija el pelo en la dirección deseada durante semanas, y la <strong>henna profesional</strong>, que pigmenta pelo y piel y es la alternativa no permanente a la micropigmentación. Se enseñan por separado y en protocolo combinado: diseño, laminado y henna en una misma cita.',
@@ -419,7 +418,7 @@ LANDINGS = [
  'slug': 'lifting-pestanas-valencia', 'cursos': ['pestanas-lifting-tinte'],
  'title': 'Curso de Lifting de Pestañas en Valencia · PRECISSA',
  'og_title': 'Curso de Lifting de Pestañas en Valencia · Lifting y tinte',
- 'desc': 'Curso de lifting de pestañas y tinte en Valencia: química controlada, elección de pad, tiempos por tipo de pelo y complicaciones. Presencial y online.',
+ 'desc': 'Curso de lifting de pestañas y tinte en Valencia: química controlada, elección de pad, tiempos por tipo de pelo y complicaciones. Presencial en Valencia.',
  'keywords': 'curso lifting de pestañas valencia, curso lifting pestañas, lash lifting curso valencia, curso tinte de pestañas, formación pestañas valencia, academia estética valencia',
  'h1': 'Curso de Lifting de Pestañas <em>en Valencia</em>', 'h1_plain': 'Curso de Lifting de Pestañas en Valencia', 'bc_short': 'Lifting de pestañas Valencia',
  'course_name': 'Curso de Lifting de Pestañas en Valencia · Lifting y tinte',
@@ -427,7 +426,7 @@ LANDINGS = [
  'about': ['Lifting de pestañas', 'Tinte de pestañas', 'Lash lifting', 'Cabina de mirada'],
  'teaches': 'Ciclo folicular de la pestaña, química redox del lifting (tioglicolato, neutralizador, queratina), selección de pad por morfología, tiempos por tipo de pelo, tinte específico para pestañas, aftercare y manejo de complicaciones.',
  'producto': 'Curso de Lifting + tinte de pestañas',
- 'lede': 'Curvado permanente de la pestaña natural combinado con tinte profesional: uno de los servicios más rentables de la cabina de mirada, sin extensiones. Formación para esteticistas en Valencia. Presencial y online.',
+ 'lede': 'Curvado permanente de la pestaña natural combinado con tinte profesional: uno de los servicios más rentables de la cabina de mirada, sin extensiones. Formación para esteticistas en Valencia. Presencial en Valencia.',
  'que_es_h2': 'Lifting de pestañas, la mirada sin extensiones',
  'que_es_p1': 'El lifting de pestañas curva la pestaña natural desde la raíz mediante una <strong>reacción química controlada</strong>: un producto a base de tioglicolato abre la estructura del pelo, un neutralizador la fija en la nueva forma y un tratamiento de queratina la repara. Combinado con un tinte específico, el resultado es una mirada abierta y definida durante 6-8 semanas, sin extensiones ni mantenimiento semanal.',
  'que_es_p2': 'Es un servicio corto, de alta rotación y muy rentable, pero trabaja con química a un milímetro del ojo. La técnica está en elegir bien el <strong>pad</strong> según la longitud y la forma del ojo, y en calcular los <strong>tiempos por tipo de pelo</strong>: una pestaña fina y rubia no aguanta lo mismo que una gruesa y oscura. Esa es la diferencia entre una curva bonita y una pestaña quemada.',
@@ -468,7 +467,7 @@ LANDINGS = [
  'slug': 'maderoterapia-valencia', 'cursos': ['maderoterapia'],
  'title': 'Curso de Maderoterapia en Valencia · PRECISSA INSTITUTE',
  'og_title': 'Curso de Maderoterapia en Valencia · Masaje con instrumentos de madera',
- 'desc': 'Curso de maderoterapia en Valencia: instrumental completo, anatomía del tejido adiposo, secuencia del protocolo y contraindicaciones. Presencial y online.',
+ 'desc': 'Curso de maderoterapia en Valencia: instrumental completo, anatomía del tejido adiposo, secuencia del protocolo y contraindicaciones. Presencial en Valencia.',
  'keywords': 'curso maderoterapia valencia, maderoterapia curso, formación maderoterapia valencia, masaje con madera curso, curso masaje corporal valencia, academia estética valencia',
  'h1': 'Curso de Maderoterapia <em>en Valencia</em>', 'h1_plain': 'Curso de Maderoterapia en Valencia', 'bc_short': 'Maderoterapia Valencia',
  'course_name': 'Curso de Maderoterapia en Valencia · Masaje con instrumentos de madera',
@@ -476,7 +475,7 @@ LANDINGS = [
  'about': ['Maderoterapia', 'Masaje corporal', 'Celulitis', 'Modelado corporal'],
  'teaches': 'Instrumental completo y función de cada pieza, anatomía del tejido adiposo subcutáneo y la celulitis, secuencia del protocolo (calentamiento, drenaje, modelado, reducción, tonificación, enfriamiento), contraindicaciones y manejo de hematomas.',
  'producto': 'Curso de Maderoterapia',
- 'lede': 'Masaje corporal con instrumentos de madera, de origen colombiano, enseñado con claridad sobre lo que la evidencia respalda: rodillo cubano, copa sueca, hongo, tabla guitarra y una secuencia con sentido. Formación para esteticistas en Valencia. Presencial y online.',
+ 'lede': 'Masaje corporal con instrumentos de madera, de origen colombiano, enseñado con claridad sobre lo que la evidencia respalda: rodillo cubano, copa sueca, hongo, tabla guitarra y una secuencia con sentido. Formación para esteticistas en Valencia. Presencial en Valencia.',
  'que_es_h2': 'Maderoterapia, con método y sin promesas vacías',
  'que_es_p1': 'La maderoterapia es un masaje corporal que utiliza <strong>instrumentos de madera</strong> de formas específicas para movilizar el tejido, activar la circulación y el drenaje, y modelar el contorno. Cada pieza tiene una función: el rodillo cubano calienta y drena, la copa sueca trabaja la celulitis por succión y arrastre, el hongo actúa sobre zonas localizadas, la tabla guitarra modela el contorno y la paleta tonifica.',
  'que_es_p2': 'Su auge reciente ha venido acompañado de mucho humo. Nosotras la enseñamos con la <strong>secuencia</strong> que tiene sentido fisiológico (calentamiento, drenaje, modelado, reducción, tonificación y enfriamiento) y con claridad sobre lo que puede y no puede conseguir: mejora el aspecto de la celulitis y la retención, pero no sustituye a la dieta, al ejercicio ni a la aparatología. Esa honestidad es lo que hace que la clienta repita.',
@@ -517,7 +516,7 @@ LANDINGS = [
  'slug': 'drenaje-linfatico-valencia', 'cursos': ['drenaje-linfatico'],
  'title': 'Curso de Drenaje Linfático en Valencia · PRECISSA',
  'og_title': 'Curso de Drenaje Linfático Manual en Valencia · Métodos Vodder y Leduc',
- 'desc': 'Curso de drenaje linfático manual en Valencia: red linfática, métodos Vodder y Leduc, protocolos facial y corporal y contraindicaciones. Presencial y online.',
+ 'desc': 'Curso de drenaje linfático manual en Valencia: red linfática, métodos Vodder y Leduc, protocolos facial y corporal y contraindicaciones. Presencial en Valencia.',
  'keywords': 'curso drenaje linfático valencia, drenaje linfático manual curso, método vodder curso, curso drenaje linfatico estetica, formación drenaje linfático valencia, academia estética valencia',
  'h1': 'Curso de Drenaje Linfático <em>en Valencia</em>', 'h1_plain': 'Curso de Drenaje Linfático en Valencia', 'bc_short': 'Drenaje linfático Valencia',
  'course_name': 'Curso de Drenaje Linfático Manual en Valencia · Métodos Vodder y Leduc',
@@ -525,7 +524,7 @@ LANDINGS = [
  'about': ['Drenaje linfático manual', 'Método Vodder', 'Método Leduc', 'Retención de líquidos'],
  'teaches': 'Anatomía de la red linfática, fisiología del transporte linfático, métodos Vodder y Leduc con sus maniobras, indicaciones estéticas con expectativas realistas, protocolos facial y corporal, contraindicaciones absolutas y derivación.',
  'producto': 'Curso de Drenaje linfático manual',
- 'lede': 'No es un "masaje suave": es una técnica con base anatómica precisa. Métodos Vodder y Leduc, protocolos facial y corporal y honestidad sobre lo que el drenaje puede hacer. Formación para esteticistas en Valencia. Presencial y online.',
+ 'lede': 'No es un "masaje suave": es una técnica con base anatómica precisa. Métodos Vodder y Leduc, protocolos facial y corporal y honestidad sobre lo que el drenaje puede hacer. Formación para esteticistas en Valencia. Presencial en Valencia.',
  'que_es_h2': 'Drenaje linfático manual, con anatomía real',
  'que_es_p1': 'El drenaje linfático manual es una técnica de maniobras lentas, rítmicas y de presión muy ligera que acompaña el recorrido natural de la linfa hacia los ganglios. Para hacerlo bien hay que conocer la <strong>red linfática</strong>: capilares iniciales, colectores, ganglios, los territorios de drenaje y el conducto torácico. Sin ese mapa, lo que se hace es un masaje relajante con otro nombre.',
  'que_es_p2': 'Enseñamos los dos métodos de referencia, <strong>Vodder</strong> (1932) y <strong>Leduc</strong>, con sus maniobras propias, y sus indicaciones estéticas con expectativas realistas: postoperatorio estético, apoyo tras aparatología, retención de líquidos, celulitis edematosa y ojeras vasculares. Y marcamos con claridad dónde termina la estética y empieza la fisioterapia.',

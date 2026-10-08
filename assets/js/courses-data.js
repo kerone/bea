@@ -318,7 +318,7 @@ window.PRECISSA_COURSES = [
     level: 'Avanzado',
     duration: '60 h',
     cover: 'assets/le-petit.jpg',
-    shortDescription: 'Manual profesional de 60 h: 28 h de teoría online en 7 módulos y 32 h de práctica presencial en 8 jornadas. Fundamentos, valoración, seguridad y práctica supervisada.',
+    shortDescription: 'Manual profesional de 60 h: 28 h de teoría en 7 módulos y 32 h de práctica en 8 jornadas, todo presencial. Fundamentos, valoración, seguridad y práctica supervisada.',
     description: 'Formación completa en depilación láser con manual profesional de 60 horas: piel, pelo y folículo; ciclo piloso y fototipos Fitzpatrick; física de la luz y fototermólisis selectiva; tecnologías (diodo, alejandrita, Nd:YAG e IPL) y lectura del equipo e IFU; valoración, anamnesis y criterios de aplazamiento; seguridad ocular y de cabina, protocolo de sesión y efectos adversos; cuidados, documentación y casos. Ocho jornadas presenciales con práctica supervisada, prueba de parche y evaluación práctica con rúbrica. Incluye seis tests, examen final de 30 preguntas y cinco casos prácticos.',
     sourceDoc: 'docs/cursos/07-depilacion-laser.md',
     lessons: [

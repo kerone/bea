@@ -44,6 +44,7 @@ Cambiar uno implica cambiarlos todos.
 | Horario | Lunes a viernes, 9:30–14:00 (sin tardes, finde cerrado) |
 | Dirección | Av. Primero de Mayo, 59, bajo, 46017 València |
 | Email | precissainstitute@gmail.com |
+| Modalidad | **Solo presencial.** Nada de "online", "a distancia" ni "semipresencial" en ninguna página ni JSON-LD (`courseMode: onsite`). El aula virtual es apoyo al alumnado presencial. |
 | Instagram | https://www.instagram.com/precissainstitute |
 | Maps | https://maps.app.goo.gl/RfxWU2e8j4qnrgg5A |
 
@@ -154,7 +155,7 @@ temporal, solo a quien tiene matrícula (o es admin).
   en `courses-data.js`; las portadas reales se subieron desde el panel de
   administración y viven en `course_overrides` (bucket `course-media`).
 - **depilacion-laser**: su contenido real es el *Manual profesional de 60 h*
-  (7 módulos online + 8 jornadas presenciales). La fuente versionada está en
+  (7 módulos de teoría + 8 jornadas de práctica, todo presencial). La fuente versionada está en
   `docs/cursos/07-depilacion-laser.md` con sus 6 infografías en
   `docs/cursos/img/`. La materia del aula (mismo texto con las imágenes
   embebidas en base64 y estructura de libro: componentes `ac-*` que marked
