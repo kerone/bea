@@ -59,8 +59,13 @@ index.html          SPA de ~6200 líneas: home, catálogo, tienda, aula, admin.
                     Todo el CSS y el JS van inline. Routing por hash.
 cursos/index.html   Catálogo estático indexable (SEO). Generado desde
                     courses-data.js — si cambia el catálogo, regenerar.
-cursos/<x>-valencia/  6 landings SEO locales (plasmapen, electroestetica,
-                    microblading, hifu, depilacion-laser, micropigmentacion)
+cursos/<x>-valencia/  12 landings SEO locales (plasmapen, electroestetica,
+                    microblading, hifu, depilacion-laser, micropigmentacion,
+                    dermapen, hyaluron-pen, cejas, lifting-pestanas,
+                    maderoterapia, drenaje-linfatico). Las 6 últimas se
+                    generan con docs/cursos/herramientas/gen-landings.py
+                    (contenido en el propio script); si se retocan a mano,
+                    no volver a ejecutarlo sin actualizar el script.
 sobre/ aviso-legal/ privacidad/ cookies/ 404.html
 assets/js/          courses-data.js (23 cursos, 4 categorías), products-data.js,
                     auth.js, enrollments.js, admin.js, course-visibility.js,
