@@ -18,7 +18,7 @@
   // Datos del negocio para la confirmación de cita
   const NEGOCIO = {
     nombre: 'PRECISSA INSTITUTE',
-    direccion: "Av. Primero de Mayo - C/ Jerónima Galés, bajo 5, 46017 València",
+    direccion: "Av. Primero de Mayo, 59, bajo, 46017 València",
     telefono: '601 05 67 06'
   };
 
@@ -3181,6 +3181,6 @@
   // ─── Arranque ────────────────────────────────────────────
   // Marca de versión: si el HTML espera una versión y el navegador tiene
   // otra en caché, al menos queda constancia en la consola.
-  console.info('[agenda] v35');
+  console.info('[agenda] v36');
   comprobarSesion();
 })();
