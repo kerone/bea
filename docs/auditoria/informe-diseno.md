@@ -158,3 +158,27 @@ Objetivo: `assets/site.css` con tokens, base y componentes (unos 15 KB), cargado
 | Violaciones axe | 3 reglas (contraste 15 nodos, sin `main`, regiones) | 4 reglas (contraste 11, logo, sin `main`, regiones) |
 
 Toques hasta pedir información: 7 en móvil por el catálogo SPA, 5 por la landing, unos 9 clics en ordenador (con WhatsApp vinculado).
+
+---
+
+## Estado de ejecución (8 de octubre de 2026)
+
+Plan ejecutado íntegramente, un commit por bloque, cada uno validado (`/desplegar`) y con capturas antes/después en `capturas/NN-*/`:
+
+| Commit | Carpeta de capturas | Hallazgos cerrados |
+|---|---|---|
+| 1 Formularios | 01-formularios | 1, 2, 16, 17, 20, 33 |
+| 2 Cabecera y hero (+ WhatsApp y "Ver N cursos") | 02-cabecera-hero, 02b-whatsapp | 4, 5, 6, 19, 37 |
+| 3 Contraste y foco | 03-contraste-foco | 12, 18, 31 |
+| 4 Teclado | 04-teclado | 13, 14, 29, 30 |
+| 5 Tipografía y sistema | 05-tipografia | 9, 15, 32, 34 |
+| 6 Enlaces a landings | 06-enlaces-landings | 8, 25, 26 |
+| 7 Portadas y rellenos | 07-portadas-relleno | 10, 22, 27 (sin bajar opacidad, por decisión de la propietaria), 28 |
+| 8 Testimonios y fechas | 08-testimonios-fechas | 7, parte de 3 (fechas; el precio no se publica) |
+| 9a/9b CSS compartido | 09a-…, 09b-… | 11, 24 |
+| 10 Aula | 10-aula | 21, 36 |
+| 11 Rendimiento | 11-rendimiento | 35 (Lighthouse móvil 69 → 97 en las mismas condiciones) |
+| 12 Legal y viñetas | 12-legal-vinetas | 38 |
+| 13 Convocatorias | 13-convocatorias | bloque "Próximas convocatorias", landing de Limpieza facial, pósteres, foto del aula |
+
+Pendiente (gravedad media o decisión de negocio): precio no publicado (3); bloque "Imparte" y galería del aula en las landings (23); reseñas reales (7, a cargar desde el panel); separar el JS de admin y aula del resto (35, segunda fase); unificar `body` 15 px y pie de 5 columnas de la SPA con site.css (9b); FAQ como `<h3>` (accesibilidad, baja).

@@ -8,7 +8,7 @@
  * Bypass total a Supabase y FormSubmit (datos dinámicos, no se cachean).
  * ============================================================= */
 
-const CACHE_VERSION = 'v35';
+const CACHE_VERSION = 'v36';
 const CACHE_NAME = 'precissa-' + CACHE_VERSION;
 
 // Assets críticos pre-cacheados en install (la primera visita ya queda
@@ -23,6 +23,7 @@ const PRECACHE_URLS = [
   '/cursos/microblading-valencia/',
   '/cursos/hifu-valencia/',
   '/cursos/depilacion-laser-valencia/',
+  '/cursos/limpieza-facial-profunda-valencia/',
   '/cursos/micropigmentacion-valencia/',
   '/cursos/dermapen-valencia/',
   '/cursos/hyaluron-pen-valencia/',

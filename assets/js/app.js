@@ -619,6 +619,7 @@ const LANDING_BY_COURSE = {
   'hifu': '/cursos/hifu-valencia/',
   'microblading-cejas': '/cursos/microblading-valencia/',
   'depilacion-laser': '/cursos/depilacion-laser-valencia/',
+  'higiene-facial-profunda': '/cursos/limpieza-facial-profunda-valencia/',
   'micropigmentacion-labios': '/cursos/micropigmentacion-valencia/',
   'neutralizacion-labios': '/cursos/micropigmentacion-valencia/',
   'micropigmentacion-eyeliner': '/cursos/micropigmentacion-valencia/',
@@ -689,6 +690,96 @@ function renderCourseCardPublic(c) {
       </div>
     </article>`;
 }
+// ─── HOME · PRÓXIMAS CONVOCATORIAS ──────────────────────
+// Hueco para los pósteres: cuando lleguen, basta con poner aquí la ruta
+// (p. ej. 'assets/poster-depilacion-laser.jpg'). Vacío = se usa la portada.
+const POSTERS = { 'depilacion-laser': 'assets/poster-depilacion-laser-4x5.webp', 'higiene-facial-profunda': 'assets/poster-limpieza-facial-4x5.webp' };
+function convocatoriasVigentes() {
+  return getPublicCourses()
+    .filter(c => proximaConvocatoria(c))
+    .sort((a, b) => String(a.nextStart).localeCompare(String(b.nextStart)));
+}
+// ['2026-10-20','2026-10-21'] -> { dias: '20 y 21', mes: 'octubre', ... } agrupado por mes
+function resumenFechas(cursos) {
+  const grupos = [];
+  cursos.forEach(c => {
+    const [y, mo, d] = String(c.nextStart).split('-').map(Number);
+    let g = grupos.find(x => x.y === y && x.mo === mo);
+    if (!g) { g = { y, mo, dias: [] }; grupos.push(g); }
+    if (g.dias.indexOf(d) === -1) g.dias.push(d);
+  });
+  return grupos;
+}
+function unirLista(arr) {
+  if (arr.length <= 1) return arr.join('');
+  return arr.slice(0, -1).join(', ') + ' y ' + arr[arr.length - 1];
+}
+function textoInicios(cursos, conArticulo) {
+  const grupos = resumenFechas(cursos);
+  if (grupos.length === 0) return '';
+  const anio = g => (g.y !== new Date().getFullYear() ? ' de ' + g.y : '');
+  if (grupos.length === 1) {
+    const g = grupos[0];
+    const dias = conArticulo ? unirLista(g.dias.map(d => 'el ' + d)) : unirLista(g.dias.map(String));
+    return dias + ' de ' + MESES_ES[g.mo - 1] + anio(g);
+  }
+  // Meses distintos: solo se nombran los meses
+  return 'en ' + unirLista(grupos.map(g => MESES_ES[g.mo - 1]));
+}
+function renderConvocatorias() {
+  const sec = document.getElementById('convocatorias');
+  const link = document.getElementById('hero-convocatoria');
+  if (!sec) return;
+  const cursos = convocatoriasVigentes();
+  if (cursos.length === 0) {
+    sec.hidden = true; sec.querySelector('#convocatorias-grid').innerHTML = '';
+    if (link) link.hidden = true;
+    return;
+  }
+  const cats = getCategories();
+  const h2 = 'Empezamos ' + textoInicios(cursos, true);
+  document.getElementById('convocatorias-h2').textContent = h2;
+  document.getElementById('convocatorias-grid').innerHTML = cursos.map(c => {
+    const cat = cats.find(k => k.id === c.category);
+    const landing = LANDING_BY_COURSE[c.id];
+    const poster = POSTERS[c.id];
+    const alt = poster ? 'Cartel del curso ' + c.title : '';
+    const img = poster
+      ? `<img src="${escapeAttr(poster)}" alt="${escapeAttr(alt)}" loading="lazy">`
+      : (c.cover ? coverImgHtml(c.cover) : '');
+    const horas = /(\d+)\s*h\b/.exec(c.duration || '');
+    return `
+    <article class="convocatoria">
+      <div class="convocatoria-img">${img}</div>
+      <div class="convocatoria-body">
+        ${cat ? `<div class="convocatoria-tag">${escapeHtml(cat.label)}</div>` : ''}
+        <h3 class="convocatoria-title">${escapeHtml(c.title)}</h3>
+        <div class="convocatoria-fecha"><i class="ico ico-cal" aria-hidden="true"></i> Inicio: ${escapeHtml(proximaConvocatoria(c))}</div>
+        <div class="convocatoria-meta">Presencial en Valencia${horas ? ' · ' + horas[1] + ' h' : ''}</div>
+        <p class="convocatoria-desc">${escapeHtml(c.shortDescription || c.description || '')}</p>
+        <div class="convocatoria-ctas">
+          <button type="button" class="btn btn-dark btn-sm" onclick="openCursoInfoForm('${escapeJs(c.title)}')">Solicitar plaza</button>
+          ${landing ? `<a class="btn btn-outline btn-sm" href="${escapeAttr(landing)}">Ver temario</a>` : ''}
+        </div>
+      </div>
+    </article>`;
+  }).join('');
+  sec.hidden = false;
+  if (link) {
+    document.getElementById('hero-convocatoria-txt').textContent = 'Próximos inicios: ' + textoInicios(cursos, false);
+    link.hidden = false;
+    if (!link._wired) {
+      link._wired = true;
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        sec.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      });
+    }
+  }
+}
+window.renderConvocatorias = renderConvocatorias;
+
 function renderPublicCourseFilters() {
   const bar = document.getElementById('cursos-pub-filters');
   if (!bar) return;
@@ -3303,15 +3394,16 @@ window.addEventListener('popstate', routeFromHash);
 
 renderDrawerCategorias();
 renderAreasHome();
+renderConvocatorias();
 routeFromHash();
 if (window.auth && window.auth.init) window.auth.init();
 
 // Cargar visibilidad y overrides de cursos; refrescar el catálogo al llegar.
 if (window.courseVisibility && window.courseVisibility.isConfigured()) {
-  window.courseVisibility.load().then(() => { renderPublicCourses(); }).catch(() => {});
+  window.courseVisibility.load().then(() => { renderPublicCourses(); renderConvocatorias(); }).catch(() => {});
 }
 if (window.courseContent && window.courseContent.isConfigured()) {
-  window.courseContent.load().then(() => { renderPublicCourses(); }).catch(() => {});
+  window.courseContent.load().then(() => { renderPublicCourses(); renderConvocatorias(); }).catch(() => {});
 }
 // Cargar la tienda de aparatología; refrescar catálogo, ficha y home.
 if (window.productContent && window.productContent.isConfigured()) {

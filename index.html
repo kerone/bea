@@ -610,6 +610,36 @@ button.drawer-item { background: none; border: 0; border-bottom: 1px solid var(-
 .hero-right { position: relative; overflow: hidden; }
 .hero-photo { width: 100%; height: 100%; object-fit: cover; }
 
+/* Próximas convocatorias (se pinta por JS desde los cursos con nextStart vigente) */
+.convocatorias { padding: 72px 56px 8px; }
+.convocatorias[hidden] { display: none; }
+.convocatorias-header { text-align: center; margin-bottom: 36px; }
+.convocatorias-h2 { font-family: var(--serif); font-size: 40px; line-height: 1.1; letter-spacing: -0.018em; margin-top: 12px; }
+.convocatorias-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.convocatoria { display: grid; grid-template-columns: 40% minmax(0, 1fr); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+.convocatoria-img { position: relative; aspect-ratio: 4 / 5; background: var(--bg2); overflow: hidden; }
+.convocatoria-img picture { display: contents; }
+.convocatoria-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.convocatoria-body { padding: 28px 28px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; min-width: 0; }
+.convocatoria-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 10px; }
+.convocatoria-title { font-family: var(--serif); font-size: 28px; line-height: 1.12; letter-spacing: -0.012em; margin: 0 0 12px; }
+.convocatoria-fecha { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+.convocatoria-meta { font-size: 12.5px; color: var(--ink-soft); margin-bottom: 12px; }
+.convocatoria-desc { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; margin: 0 0 18px; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.convocatoria-ctas { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; }
+.convocatorias-grid:has(> .convocatoria:only-child) { grid-template-columns: minmax(0, 1fr); max-width: 640px; margin: 0 auto; }
+.hero-convocatoria { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; margin: -28px 0 28px; padding: 6px 0; font-size: 13.5px; font-weight: 500; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); }
+.hero-convocatoria[hidden] { display: none; }
+.hero-convocatoria:hover { color: var(--accent-dark); border-bottom-color: var(--accent-dark); }
+@media (max-width: 900px) {
+  .convocatorias { padding: 48px 20px 8px; }
+  .convocatorias-h2 { font-size: 32px; }
+  .convocatorias-grid { grid-template-columns: minmax(0, 1fr); }
+  .convocatoria { grid-template-columns: minmax(0, 1fr); }
+  .convocatoria-body { padding: 22px 20px 24px; }
+}
+@media (max-width: 768px) { .hero-convocatoria { margin: -20px 0 20px; } }
+
 /* Diptych */
 .diptych { padding: 96px 56px; }
 .diptych-header { text-align: center; margin-bottom: 52px; }
@@ -629,7 +659,7 @@ button.drawer-item { background: none; border: 0; border-bottom: 1px solid var(-
 }
 .diptych-dark { background: var(--ink); color: var(--bg); }
 .diptych-dark-img { height: 180px; margin: 18px 0; border-radius: var(--r); overflow: hidden; flex-shrink: 0; }
-.diptych-dark-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 38%; display: block; }
+.diptych-dark-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
 .diptych-light { background: var(--bg2); color: var(--ink); }
 .diptych-display {
   font-family: var(--serif); font-size: 64px; line-height: 0.95;
@@ -931,6 +961,7 @@ a.footer-nap-line:hover { color: var(--bg); }
         <button class="btn btn-dark" onclick="openCursoInfoForm('')">Solicitar información</button>
         <button class="btn btn-outline" onclick="goTo('cursos','docencia')">Ver cursos <i class="ico ico-arrow" aria-hidden="true"></i></button>
       </div>
+      <a class="hero-convocatoria" id="hero-convocatoria" href="#convocatorias" hidden><i class="ico ico-cal" aria-hidden="true"></i><span id="hero-convocatoria-txt"></span></a>
       <a href="https://www.instagram.com/precissainstitute" target="_blank" rel="noopener" class="hero-ig" aria-label="Instagram PRECISSA INSTITUTE">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.7"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
         <span>Instagram</span>
@@ -941,6 +972,15 @@ a.footer-nap-line:hover { color: var(--bg); }
         width="1392" height="752" fetchpriority="high"
         style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"></picture>
     </div>
+  </section>
+
+  <!-- PRÓXIMAS CONVOCATORIAS (generado por JS: renderConvocatorias en app.js) -->
+  <section class="convocatorias" id="convocatorias" aria-labelledby="convocatorias-h2" hidden>
+    <div class="convocatorias-header">
+      <span class="eyebrow">Próximas convocatorias</span>
+      <h2 class="convocatorias-h2" id="convocatorias-h2"></h2>
+    </div>
+    <div class="convocatorias-grid" id="convocatorias-grid"></div>
   </section>
 
   <!-- DIPTYCH -->
@@ -957,7 +997,7 @@ a.footer-nap-line:hover { color: var(--bg); }
         </div>
         <div class="diptych-display">Aprende</div>
         <p class="diptych-desc">Protocolos rigurosos, apuntes descargables y tests que acreditan tu nivel.</p>
-        <div class="diptych-dark-img"><picture><source type="image/webp" srcset="assets/profesora.webp"><img src="assets/profesora.jpg" alt="" width="1207" height="1303" loading="lazy"></picture></div>
+        <div class="diptych-dark-img"><picture><source type="image/webp" srcset="assets/aula-clase.webp"><img src="assets/aula-clase.jpg" alt="Beatriz Navarro enseñando una técnica facial a tres alumnas en el aula de PRECISSA INSTITUTE" width="923" height="1152" loading="lazy"></picture></div>
         <div class="diptych-sub-grid">
           <div class="diptych-sub-card">
             <div class="diptych-sub-title">Cursos</div>
@@ -1128,6 +1168,7 @@ a.footer-nap-line:hover { color: var(--bg); }
         <a class="footer-link" href="/cursos/lifting-pestanas-valencia/">Curso de Lifting de Pestañas</a>
         <a class="footer-link" href="/cursos/maderoterapia-valencia/">Curso de Maderoterapia</a>
         <a class="footer-link" href="/cursos/drenaje-linfatico-valencia/">Curso de Drenaje Linfático</a>
+        <a class="footer-link" href="/cursos/limpieza-facial-profunda-valencia/">Curso de Limpieza Facial</a>
       </div>
       <div>
         <div class="footer-col-title">Aparatología</div>
@@ -3471,7 +3512,7 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 <script defer src="assets/js/product-content.js"></script>
 <!-- Lógica de autenticación -->
 <script defer src="assets/js/auth.js?v=3"></script>
-<script defer src="assets/js/app.js?v=1"></script>
+<script defer src="assets/js/app.js?v=2"></script>
 
 <!-- Service Worker · convierte la web en PWA instalable + offline -->
 <script>
