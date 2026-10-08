@@ -355,7 +355,7 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 /* ─── Formulario de solicitud de información (bloque contacto) ─── */
 .lp-form { max-width: 460px; margin: 26px auto 0; text-align: left; display: flex; flex-direction: column; gap: 14px; }
 .lp-field span { display: block; font-size: 12px; letter-spacing: 0.04em; margin-bottom: 6px; color: rgba(242,236,227,0.75); }
-.lp-field input, .lp-field textarea { width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid rgba(242,236,227,0.25); background: rgba(242,236,227,0.08); color: #F2ECE3; font-family: var(--sans); font-size: 15px; }
+.lp-field input, .lp-field textarea { width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid rgba(242,236,227,0.25); background: rgba(242,236,227,0.08); color: #F2ECE3; font-family: var(--sans); font-size: 16px; }
 .lp-field input:focus, .lp-field textarea:focus { outline: none; border-color: rgba(242,236,227,0.7); box-shadow: 0 0 0 3px rgba(242,236,227,0.12); }
 .lp-field textarea { resize: vertical; }
 .lp-rgpd { display: flex; gap: 8px; align-items: flex-start; font-size: 12px; color: rgba(242,236,227,0.7); line-height: 1.5; }
@@ -365,10 +365,24 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 .lp-submit:hover { transform: translateY(-1px); }
 .lp-submit:disabled { opacity: 0.6; cursor: wait; transform: none; }
 .lp-status { font-size: 13px; min-height: 18px; color: rgba(242,236,227,0.85); text-align: center; }
+.lp-submit-alt { background: transparent; color: var(--bg); border: 1px solid rgba(242,236,227,0.45); font-weight: 500; }
+.lp-submit-alt:hover { background: rgba(242,236,227,0.1); }
+.lp-submit:disabled { cursor: wait; }
+.lp-field input.is-invalid, .lp-field textarea.is-invalid { border-color: var(--accent-soft); box-shadow: 0 0 0 3px rgba(236,221,208,0.18); }
+.lp-rgpd input.is-invalid { outline: 2px solid var(--accent-soft); outline-offset: 2px; }
+.field-error { font-size: 12.5px; line-height: 1.45; color: var(--accent-soft); margin-top: -8px; }
+.lp-status[data-error] { color: var(--accent-soft); }
+.lp-success { max-width: 460px; margin: 26px auto 0; text-align: center; }
+.lp-ok-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--accent-soft); color: var(--accent-dark); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 26px; }
+.lp-form[hidden], .lp-success[hidden] { display: none; }
+.lp-success-title { font-family: var(--serif); font-weight: 400; font-size: 26px; line-height: 1.15; margin-bottom: 10px; }
+.lp-success p { font-size: 15px; line-height: 1.55; color: rgba(242,236,227,0.85); margin-bottom: 12px; }
+.lp-success a, .lp-link { color: inherit; text-decoration: underline; text-underline-offset: 2px; background: none; border: 0; padding: 0; font: inherit; cursor: pointer; }
 .lp-alt { margin-top: 22px; font-size: 13px; color: rgba(242,236,227,0.7); }
 
 .ico { display:inline-block; width:1em; height:1em; flex:none; background-color:currentColor; -webkit-mask:var(--ico) center/contain no-repeat; mask:var(--ico) center/contain no-repeat; vertical-align:-0.125em; }
 .ico-arrow { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E"); width:15px; height:15px; }
+.ico-check { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E"); }
 </style>
 </head>
 <body>
@@ -521,7 +535,7 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
   <div class="contact-inner">
     <div class="eyebrow" style="color: var(--accent-soft);">Solicitar información</div>
     <h2>Próxima convocatoria en Valencia</h2>
-    <p>Déjanos tu nombre y se abrirá WhatsApp con tu consulta ya escrita: te respondemos por ahí con fechas, precio y modalidad.</p>
+    <p>Déjanos tu nombre y se abrirá WhatsApp con tu consulta ya escrita: te respondemos por ahí con fechas, precio y plazas disponibles. ¿No usas WhatsApp? Llámanos al 601 05 67 06.</p>
     <form class="lp-form" id="lp-form" novalidate>
       <input type="hidden" name="producto" value="Curso de Dermapen · Microneedling">
       <input type="hidden" name="_subject" value="Nueva solicitud de información · PRECISSA INSTITUTE">
@@ -529,13 +543,21 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
       <input type="hidden" name="origen" value="Landing dermapen-valencia">
       <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
       <label class="lp-field"><span>Nombre y apellidos *</span><input type="text" name="nombre" required autocomplete="name"></label>
-      <label class="lp-field"><span>Email <small>(opcional)</small></span><input type="email" name="email" autocomplete="email"></label>
-      <label class="lp-field"><span>Teléfono <small>(opcional · agiliza la respuesta)</small></span><input type="tel" name="telefono" autocomplete="tel"></label>
+      <label class="lp-field"><span>Email <small>(teléfono o email, al menos uno)</small></span><input type="email" name="email" autocomplete="email" inputmode="email"></label>
+      <label class="lp-field"><span>Teléfono <small>(teléfono o email, al menos uno)</small></span><input type="tel" name="telefono" autocomplete="tel"></label>
       <label class="lp-field"><span>Mensaje <small>(opcional)</small></span><textarea name="mensaje" rows="3" placeholder="¿Qué fechas te encajan? ¿Tienes experiencia previa?"></textarea></label>
       <label class="lp-rgpd"><input type="checkbox" name="rgpd" required><span>He leído y acepto la <a href="/privacidad/" target="_blank" rel="noopener">política de privacidad</a> *</span></label>
-      <button type="submit" class="lp-submit" id="lp-submit">Solicitar información por WhatsApp</button>
+      <button type="submit" class="lp-submit" id="lp-submit">Pedir información por WhatsApp</button>
+      <button type="button" class="lp-submit lp-submit-alt" id="lp-alt-btn" data-canal="correo">Prefiero que me llaméis o me escribáis</button>
       <div class="lp-status" id="lp-status" role="status" aria-live="polite"></div>
     </form>
+    <div class="lp-success" id="lp-success" hidden>
+      <div class="lp-ok-icon"><i class="ico ico-check" aria-hidden="true"></i></div>
+      <h3 class="lp-success-title serif" id="lp-success-title"></h3>
+      <p id="lp-success-text"></p>
+      <p id="lp-wa-wrap"><a id="lp-wa-link" href="#" target="_blank" rel="noopener">¿No se ha abierto WhatsApp? Pulsa aquí</a></p>
+      <p><button type="button" class="lp-link" id="lp-again">Enviar otra consulta</button></p>
+    </div>
     <div class="lp-alt">¿Prefieres hablar directamente?</div>
     <a href="tel:+34601056706" class="contact-phone">601 05 67 06</a>
     <div class="contact-meta">L-V · 9:30–14:00 · Valencia</div>
@@ -564,45 +586,157 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 </footer>
 
 
-<!-- Envío del formulario de información: se abre WhatsApp con el mensaje
-     ya escrito (canal principal) y se manda una copia al correo como
-     respaldo, por si la persona no llega a pulsar "enviar" en WhatsApp. -->
+<!-- Envío del formulario de información: dos canales. WhatsApp (principal, con
+     copia de respaldo al correo) o solo correo, para quien no usa WhatsApp. -->
 <script>
 (function () {
   var ENDPOINT = 'https://formsubmit.co/ajax/e42ac5fc68012174f8ffe40e562d842b';
   var WHATSAPP = '34601056706';
+  var MSG_FALLO = 'No hemos podido enviar tu solicitud. Llámanos al 601 05 67 06 o escríbenos a precissainstitute@gmail.com.';
   var form = document.getElementById('lp-form');
   if (!form) return;
+  var status = document.getElementById('lp-status');
+  var success = document.getElementById('lp-success');
+  var btnWa = document.getElementById('lp-submit');
+  var btnAlt = document.getElementById('lp-alt-btn');
+  var enviando = false;
+
   function enlaceWhatsApp(d) {
     var t = 'Hola, soy ' + d.nombre.trim() + '. Me interesa el ' + (d.producto || 'curso') +
-      ' y me gustaría recibir información (fechas, precio y modalidad).';
+      ' y me gustaría recibir información (fechas, precio y plazas disponibles).';
     if ((d.mensaje || '').trim()) t += '\n\n' + d.mensaje.trim();
     return 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(t);
   }
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var status = document.getElementById('lp-status');
-    if (!form.nombre.value.trim()) { status.textContent = 'Escribe tu nombre.'; return; }
-    var em = form.email.value.trim();
-    if (em && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { status.textContent = 'Revisa tu email.'; return; }
-    if (!form.rgpd.checked) { status.textContent = 'Marca la casilla de privacidad para poder responderte.'; return; }
+
+  // ── Validación propia (sin burbujas nativas) ──
+  function validar(f) {
+    var errores = [];
+    var nombre = f.nombre.value.trim();
+    var em = f.email.value.trim();
+    var tel = f.telefono.value.trim();
+    if (!nombre) errores.push({ el: f.nombre, msg: 'Escribe tu nombre para saber a quién respondemos.' });
+    if (!em && !tel) errores.push({ el: f.telefono, msg: 'Déjanos un teléfono o un email: si WhatsApp no se abre, te contactamos por ahí.' });
+    if (em && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) errores.push({ el: f.email, msg: 'Este email no parece completo (ejemplo: nombre@gmail.com).' });
+    if (!f.rgpd.checked) errores.push({ el: f.rgpd, msg: 'Marca la casilla de privacidad para que podamos responderte.' });
+    return errores;
+  }
+  function cajaDe(el) { return el.closest('label') || el.parentNode; }
+  function limpiarCampo(el) {
+    el.removeAttribute('aria-invalid');
+    el.removeAttribute('aria-describedby');
+    el.classList.remove('is-invalid');
+    var n = cajaDe(el).nextElementSibling;
+    if (n && n.classList.contains('field-error')) n.parentNode.removeChild(n);
+  }
+  function limpiarErrores() {
+    Array.prototype.forEach.call(form.querySelectorAll('.is-invalid'), limpiarCampo);
+    Array.prototype.forEach.call(form.querySelectorAll('.field-error'), function (n) { n.parentNode.removeChild(n); });
+    status.textContent = '';
+    status.removeAttribute('data-error');
+  }
+  function marcar(err, i) {
+    var el = err.el;
+    var d = document.createElement('div');
+    d.className = 'field-error';
+    d.id = 'lp-err-' + i;
+    d.setAttribute('role', 'alert');
+    d.textContent = err.msg;
+    el.setAttribute('aria-invalid', 'true');
+    el.setAttribute('aria-describedby', d.id);
+    el.classList.add('is-invalid');
+    var caja = cajaDe(el);
+    caja.parentNode.insertBefore(d, caja.nextSibling);
+  }
+  form.addEventListener('input', function (e) {
+    var el = e.target;
+    if (el.name === 'email' || el.name === 'telefono') { limpiarCampo(form.email); limpiarCampo(form.telefono); }
+    else limpiarCampo(el);
+  });
+  form.addEventListener('change', function (e) { if (e.target.name === 'rgpd') limpiarCampo(e.target); });
+
+  function bloquear(si) {
+    enviando = si;
+    btnWa.disabled = si;
+    btnAlt.disabled = si;
+  }
+  function mostrarExito(canal, wa) {
+    var correo = canal === 'correo';
+    document.getElementById('lp-success-title').textContent = correo ? 'Recibido, gracias' : 'Último paso: pulsa Enviar en WhatsApp';
+    document.getElementById('lp-success-text').textContent = correo
+      ? 'Te contactamos en menos de 24 h laborables (lunes a viernes, 9:30 a 14:00).'
+      : 'Si no usas WhatsApp, no pasa nada: te contactamos por teléfono o email.';
+    document.getElementById('lp-wa-wrap').hidden = correo;
+    if (!correo) document.getElementById('lp-wa-link').href = wa;
+    status.textContent = '';
+    form.hidden = true;
+    success.hidden = false;
+    bloquear(false);
+  }
+  function mostrarFallo() {
+    status.textContent = MSG_FALLO;
+    status.setAttribute('data-error', '');
+    bloquear(false);
+  }
+
+  function enviar(canal) {
+    if (enviando) return;
+    limpiarErrores();
+    var errores = validar(form);
+    if (errores.length) {
+      errores.forEach(marcar);
+      status.textContent = 'Revisa los campos marcados.';
+      status.setAttribute('data-error', '');
+      var primero = errores[0].el;
+      primero.focus();
+      if (primero.scrollIntoView) primero.scrollIntoView({ block: 'center' });
+      return;
+    }
     var data = {};
     new FormData(form).forEach(function (v, k) { data[k] = v; });
     if (data._honey) return; // bot
-    var wa = enlaceWhatsApp(data);
-    // Se abre DENTRO del gesto de la usuaria: si no, el navegador lo bloquea
-    var abierto = window.open(wa, '_blank');
-    if (!abierto) location.href = wa;
-    // Copia de respaldo al correo, en segundo plano
-    data.canal = 'WhatsApp (copia de respaldo)';
+
+    var wa = '';
+    var abierto = null;
+    if (canal === 'whatsapp') {
+      wa = enlaceWhatsApp(data);
+      // Se abre DENTRO del gesto de la usuaria: si no, el navegador lo bloquea
+      abierto = window.open(wa, '_blank');
+      data.canal = 'WhatsApp (copia de respaldo)';
+    } else {
+      data.canal = 'Correo (sin WhatsApp)';
+    }
+    bloquear(true);
+    status.textContent = 'Enviando…';
+    status.removeAttribute('data-error');
+
+    // Copia / envío por correo: cuenta como entregado solo con res.ok Y json.success
     fetch(ENDPOINT, {
       method: 'POST', keepalive: true,
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(data)
-    }).catch(function () {});
-    form.innerHTML = '<div class="lp-status" style="font-size:16px;padding:14px 0;line-height:1.5">' +
-      '✓ Te hemos abierto WhatsApp con tu mensaje ya escrito: <b>solo tienes que darle a enviar</b>.<br>' +
-      '<a href="' + wa + '" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">¿No se ha abierto? Pulsa aquí</a></div>';
+    }).then(function (res) {
+      return res.json().then(function (json) {
+        return res.ok && json && (json.success === true || json.success === 'true');
+      });
+    }).catch(function () { return false; }).then(function (ok) {
+      if (canal === 'whatsapp') {
+        // Si WhatsApp se abrió, la persona puede enviar desde ahí aunque falle la copia
+        if (ok || abierto) mostrarExito('whatsapp', wa); else mostrarFallo();
+      } else {
+        if (ok) mostrarExito('correo'); else mostrarFallo();
+      }
+    });
+  }
+
+  form.addEventListener('submit', function (e) { e.preventDefault(); enviar('whatsapp'); });
+  btnAlt.addEventListener('click', function () { enviar('correo'); });
+  document.getElementById('lp-again').addEventListener('click', function () {
+    success.hidden = true;
+    form.hidden = false;
+    limpiarErrores();
+    form.mensaje.value = '';
+    bloquear(false);
+    form.nombre.focus();
   });
 })();
 </script>

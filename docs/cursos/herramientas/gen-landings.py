@@ -230,7 +230,7 @@ def build(L):
   <div class="contact-inner">
     <div class="eyebrow" style="color: var(--accent-soft);">Solicitar información</div>
     <h2>Próxima convocatoria en Valencia</h2>
-    <p>Déjanos tu nombre y se abrirá WhatsApp con tu consulta ya escrita: te respondemos por ahí con fechas, precio y modalidad.</p>
+    <p>Déjanos tu nombre y se abrirá WhatsApp con tu consulta ya escrita: te respondemos por ahí con fechas, precio y plazas disponibles. ¿No usas WhatsApp? Llámanos al 601 05 67 06.</p>
     <form class="lp-form" id="lp-form" novalidate>
       <input type="hidden" name="producto" value="{esc(L['producto'])}">
       <input type="hidden" name="_subject" value="Nueva solicitud de información · PRECISSA INSTITUTE">
@@ -238,13 +238,21 @@ def build(L):
       <input type="hidden" name="origen" value="Landing {L['slug']}">
       <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
       <label class="lp-field"><span>Nombre y apellidos *</span><input type="text" name="nombre" required autocomplete="name"></label>
-      <label class="lp-field"><span>Email <small>(opcional)</small></span><input type="email" name="email" autocomplete="email"></label>
-      <label class="lp-field"><span>Teléfono <small>(opcional · agiliza la respuesta)</small></span><input type="tel" name="telefono" autocomplete="tel"></label>
+      <label class="lp-field"><span>Email <small>(teléfono o email, al menos uno)</small></span><input type="email" name="email" autocomplete="email" inputmode="email"></label>
+      <label class="lp-field"><span>Teléfono <small>(teléfono o email, al menos uno)</small></span><input type="tel" name="telefono" autocomplete="tel"></label>
       <label class="lp-field"><span>Mensaje <small>(opcional)</small></span><textarea name="mensaje" rows="3" placeholder="¿Qué fechas te encajan? ¿Tienes experiencia previa?"></textarea></label>
       <label class="lp-rgpd"><input type="checkbox" name="rgpd" required><span>He leído y acepto la <a href="/privacidad/" target="_blank" rel="noopener">política de privacidad</a> *</span></label>
-      <button type="submit" class="lp-submit" id="lp-submit">Solicitar información por WhatsApp</button>
+      <button type="submit" class="lp-submit" id="lp-submit">Pedir información por WhatsApp</button>
+      <button type="button" class="lp-submit lp-submit-alt" id="lp-alt-btn" data-canal="correo">Prefiero que me llaméis o me escribáis</button>
       <div class="lp-status" id="lp-status" role="status" aria-live="polite"></div>
     </form>
+    <div class="lp-success" id="lp-success" hidden>
+      <div class="lp-ok-icon"><i class="ico ico-check" aria-hidden="true"></i></div>
+      <h3 class="lp-success-title serif" id="lp-success-title"></h3>
+      <p id="lp-success-text"></p>
+      <p id="lp-wa-wrap"><a id="lp-wa-link" href="#" target="_blank" rel="noopener">¿No se ha abierto WhatsApp? Pulsa aquí</a></p>
+      <p><button type="button" class="lp-link" id="lp-again">Enviar otra consulta</button></p>
+    </div>
 {CONTACT_TAIL}{SCRIPTS}'''
     return page
 
