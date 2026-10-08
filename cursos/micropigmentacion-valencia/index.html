@@ -399,13 +399,24 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 .ico { display:inline-block; width:1em; height:1em; flex:none; background-color:currentColor; -webkit-mask:var(--ico) center/contain no-repeat; mask:var(--ico) center/contain no-repeat; vertical-align:-0.125em; }
 .ico-arrow { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E"); width:15px; height:15px; }
 .ico-check { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E"); }
+/* ─── Accesibilidad ─── */
+.skip-link { position: absolute; left: -9999px; top: 12px; z-index: 999; padding: 10px 14px; background: var(--ink); color: var(--bg); border-radius: 999px; }
+.skip-link:focus { left: 12px; }
+main:focus { outline: none; }
+@media (max-width: 768px) {
+  .breadcrumb a { display: inline-block; padding: 6px 2px; }
+  .lp-rgpd { padding: 6px 0; }
+  .footer a { display: inline-block; padding: 8px 0; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; scroll-behavior: auto !important; } }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 
 <nav class="nav" aria-label="Navegación principal">
   <div class="nav-inner">
-    <a href="/" class="nav-logo" aria-label="Inicio PRECISSA INSTITUTE">
+    <a href="/" class="nav-logo" aria-label="PRECISSA INSTITUTE Dermocosmiatría &amp; Electroestética, ir al inicio">
       PRECISSA INSTITUTE
       <span class="nav-logo-sub">Dermocosmiatría &amp; Electroestética</span>
     </a>
@@ -418,9 +429,10 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
   <span class="breadcrumb-sep">/</span>
   <a href="/cursos/">Cursos</a>
   <span class="breadcrumb-sep">/</span>
-  Micropigmentación Valencia
+  <span aria-current="page">Micropigmentación Valencia</span>
 </nav>
 
+<main id="contenido" tabindex="-1">
 <section class="hero">
   <div class="eyebrow">Curso profesional</div>
   <h1>Curso de Micropigmentación <em>en Valencia</em></h1>
@@ -589,6 +601,8 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
     </div>
   </div>
 </section>
+
+</main>
 
 <footer class="footer">
   <div class="footer-inner">

@@ -31,9 +31,17 @@ p { color: var(--ink-soft); max-width: 420px; line-height: 1.6; margin-bottom: 2
 .tel { margin-top: 28px; font-size: 13px; color: var(--muted); }
 .tel a { color: var(--accent-dark); text-decoration: underline; text-underline-offset: 3px; }
 :focus-visible { outline: 2px solid var(--accent-dark); outline-offset: 3px; }
+main { display: flex; flex-direction: column; align-items: center; }
+main:focus { outline: none; }
+.skip-link { position: absolute; left: -9999px; top: 12px; z-index: 999; padding: 10px 14px; background: var(--ink); color: var(--bg); border-radius: 999px; }
+.skip-link:focus { left: 12px; }
+@media (max-width: 768px) { .tel a { display: inline-block; padding: 8px 0; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; scroll-behavior: auto !important; } }
 </style>
 </head>
 <body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <main id="contenido" tabindex="-1">
   <div class="logo">PRECISSA INSTITUTE</div>
   <div class="code">404</div>
   <h1>Esta página no existe</h1>
@@ -44,6 +52,7 @@ p { color: var(--ink-soft); max-width: 420px; line-height: 1.6; margin-bottom: 2
     <a class="btn btn-outline" href="/cursos/plasmapen-valencia/">Curso de Plasmapen</a>
   </div>
   <div class="tel">¿Buscabas algo concreto? Llámanos: <a href="tel:+34601056706">601 05 67 06</a></div>
+  </main>
 <!-- Cloudflare Web Analytics (sin cookies: no requiere banner de consentimiento) -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d31ab6472923428fbacbe8d737b4f8d4"}'></script>
 </body>

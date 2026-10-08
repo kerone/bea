@@ -414,9 +414,9 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   border-bottom: 1.5px solid var(--accent);
 }
 .nav-sub-link-wrap { position: relative; }
-.nav-sub-link-wrap:hover .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+.nav-sub-link-wrap:hover .nav-dropdown, .nav-sub-link-wrap:focus-within .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
 .nav-link-wrap { position: relative; display: inline-flex; align-items: center; }
-.nav-link-wrap:hover .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+.nav-link-wrap:hover .nav-dropdown, .nav-link-wrap:focus-within .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
 .nav-dropdown {
   position: absolute; top: 100%; left: 0; margin-top: 8px;
   background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
@@ -426,6 +426,8 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   transition: opacity 0.15s, transform 0.15s, visibility 0.15s;
   z-index: 50;
 }
+.nav-link-wrap:focus-within .nav-dropdown, .nav-sub-link-wrap:focus-within .nav-dropdown { transition: none; } /* visible desde el primer fotograma: el siguiente Tab entra en el menú */
+.nav-link-wrap.dd-esc .nav-dropdown, .nav-sub-link-wrap.dd-esc .nav-dropdown { opacity: 0; visibility: hidden; transform: translateY(-6px); }
 .nav-dropdown-item {
   display: block; padding: 9px 18px;
   font-size: 13px; color: var(--ink); cursor: pointer;
@@ -487,9 +489,10 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   padding: 28px 24px; overflow-y: auto;
   display: flex; flex-direction: column; gap: 6px;
 }
-.drawer-close { align-self: flex-end; font-size: 22px; display:inline-flex; cursor: pointer; margin-bottom: 16px; }
+.drawer-close { align-self: flex-end; font-size: 22px; display:inline-flex; align-items:center; justify-content:center; min-width:44px; min-height:44px; margin:-10px -10px 6px 0; cursor: pointer; }
 .drawer-section { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); font-weight: 800; margin: 18px 0 6px; }
 .drawer-item { font-size: 16px; font-weight: 400; color: var(--ink); padding: 8px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
+button.drawer-item { background: none; border: 0; border-bottom: 1px solid var(--line); font-family: inherit; text-align: left; width: 100%; }
 .drawer-meta { font-size:12px; color:var(--muted); text-align:center; margin-top:6px; }
 .drawer-subitem { font-size: 14px; color: var(--ink-soft); padding: 8px 0 8px 22px; border-bottom: 1px solid var(--line); cursor: pointer; position: relative; }
 .drawer-subitem:not(.is-cat)::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 12px; height: 12px; background: var(--accent); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat; }
@@ -502,6 +505,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 
 /* Breadcrumb unificado · usado en listings y detalle */
 .page-bc { font-size: 12px; color: var(--muted); margin-bottom: 22px; letter-spacing: 0.02em; }
+.page-bc a { display: inline-block; padding: 6px 0; margin: -6px 0; }
 .page-bc span, .page-bc a { cursor: pointer; color: inherit; text-decoration: none; transition: color 0.15s; }
 .page-bc span:hover, .page-bc a:hover { color: var(--ink); }
 .page-bc .page-bc-current { color: var(--ink); cursor: default; }
@@ -526,9 +530,14 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   .nav-row1, .nav-row2 { display: none; }
   .nav-mobile { display: grid; }
 }
+/* ─── ACCESIBILIDAD ─── */
+.skip-link { position: absolute; left: -9999px; top: 12px; z-index: 999; padding: 10px 14px; background: var(--ink); color: var(--bg); border-radius: 999px; }
+.skip-link:focus { left: 12px; }
+#contenido:focus { outline: none; }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 
 <!-- ═══ NAVIGATION ══════════════════════════════════════ -->
 <nav id="main-nav">
@@ -537,7 +546,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <div class="nav-left">
       <a class="nav-link" href="/" onclick="goTo('home','');return false">Inicio</a>
       <span class="nav-link-wrap">
-        <a class="nav-link active" href="/cursos/" onclick="goTo('cursos','docencia');return false">Cursos <i class="ico ico-chev-d" aria-hidden="true"></i></a>
+        <a class="nav-link active" href="/cursos/" aria-haspopup="true" aria-expanded="false" onclick="goTo('cursos','docencia');return false">Cursos <i class="ico ico-chev-d" aria-hidden="true"></i></a>
         <div class="nav-dropdown" id="docencia-dropdown">
           <a class="nav-dropdown-item" href="/cursos/" onclick="goTo('cursos','docencia');return false">Ver todos los cursos</a>
           <div class="nav-dropdown-sep"></div>
@@ -574,7 +583,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   </div>
   <!-- Mobile row -->
   <div class="nav-mobile">
-    <button class="hamburger" onclick="openDrawer()" aria-label="Abrir menú"><i class="ico ico-menu" aria-hidden="true"></i></button>
+    <button class="hamburger" onclick="openDrawer()" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-drawer"><i class="ico ico-menu" aria-hidden="true"></i></button>
     <a class="nav-logo" href="/" onclick="goTo('home','');return false">PRECISSA INSTITUTE<span class="nav-logo-sub">Dermocosmiatría &amp; Electroestética</span></a>
     <div class="nav-mobile-right">
       <a class="nav-tel-round" href="https://wa.me/34601056706?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20vuestros%20cursos." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><i class="ico ico-wa" aria-hidden="true"></i></a>
@@ -585,7 +594,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 <!-- Mobile drawer -->
 <div class="mobile-drawer" id="mobile-drawer">
   <div class="drawer-overlay" onclick="closeDrawer()"></div>
-  <div class="drawer-panel">
+  <div class="drawer-panel" role="dialog" aria-modal="true" aria-label="Menú">
     <button class="drawer-close" onclick="closeDrawer()" aria-label="Cerrar menú"><i class="ico ico-x" aria-hidden="true"></i></button>
     <a href="https://www.instagram.com/precissainstitute" target="_blank" rel="noopener" class="drawer-ig" onclick="closeDrawer()" aria-label="Instagram PRECISSA INSTITUTE">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.7"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
@@ -603,7 +612,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <a class="btn btn-dark" href="https://wa.me/34601056706?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20vuestros%20cursos." target="_blank" rel="noopener" style="width:100%;justify-content:center;margin-top:8px"><i class="ico ico-wa" aria-hidden="true"></i> Escribir por WhatsApp</a>
     <a class="btn btn-outline" href="tel:+34601056706" style="width:100%;justify-content:center;margin-top:8px"><i class="ico ico-phone" aria-hidden="true"></i> Llamar 601 05 67 06</a>
     <div class="drawer-meta">L-V · 9:30–14:00</div>
-    <div class="drawer-item nav-admin-link" style="display:none" onclick="goTo('admin','');closeDrawer()">Administración</div>
+    <button type="button" class="drawer-item nav-admin-link" style="display:none" onclick="goTo('admin','');closeDrawer()">Administración</button>
     <div class="drawer-item" style="margin-top:16px">
       <button class="btn btn-dark acceder-btn" style="width:100%;justify-content:center" onclick="goTo('aula','docencia');closeDrawer()">Entrar al aula</button>
       <button class="btn btn-dark mi-aula-btn" style="display:none;width:100%;justify-content:center" onclick="goTo('aula','docencia');closeDrawer()"><i class="ico ico-user" aria-hidden="true"></i> Mi aula</button>
@@ -612,7 +621,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 </div>
 
 <!-- Tab bar -->
-<div class="tab-bar">
+<nav class="tab-bar" aria-label="Navegación inferior">
   <div class="tab-bar-inner">
     <a class="tab-item active" href="/" onclick="goTo('home','');return false">
       <span class="tab-icon"><i class="ico ico-home" aria-hidden="true"></i></span><span>Inicio</span>
@@ -627,8 +636,9 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       <span class="tab-icon"><i class="ico ico-user" aria-hidden="true"></i></span><span>Aula</span>
     </a>
   </div>
-</div>
+</nav>
 
+<main id="contenido" tabindex="-1">
 <!-- ═══════════════════════════════════════════════════════
      PAGE: HOME
 ════════════════════════════════════════════════════════ -->
@@ -662,6 +672,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   align-self: flex-start;
 }
 .hero-ig:hover { color: var(--accent); }
+@media (max-width: 768px) { .hero-ig { padding: 10px 0; margin-top: 12px; } }
 .hero-ig svg { display: block; flex-shrink: 0; }
 .hero-h1 {
   font-family: var(--serif); font-size: 72px; line-height: 1.0;
@@ -836,8 +847,12 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .products-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-top: 48px; }
 .product-card {
   background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
-  overflow: hidden; cursor: pointer; transition: box-shadow 0.2s;
+  overflow: hidden; cursor: pointer; transition: box-shadow 0.2s; position: relative;
 }
+.product-card a.product-link { color: inherit; text-decoration: none; }
+.product-card a.product-link::after { content: ""; position: absolute; inset: 0; border-radius: 12px; }
+.product-card a.product-link:focus-visible { outline: none; }
+.product-card a.product-link:focus-visible::after { outline: 2px solid var(--accent-dark); outline-offset: 3px; }
 .product-card:hover { box-shadow: 0 8px 24px rgba(36,29,23,0.1); }
 .product-img { height: 200px; position: relative; }
 .product-learn-chip {
@@ -938,6 +953,9 @@ a.footer-nap-line:hover { color: var(--bg); }
 .footer-col-title { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: rgba(242,236,227,0.65); margin-bottom: 16px; }
 .footer-link { font-size: 13.5px; color: rgba(242,236,227,0.7); display: block; margin-bottom: 8px; cursor: pointer; transition: color 0.15s; }
 .footer-link:hover { color: var(--bg); }
+@media (max-width: 768px) {
+  .footer-link, .footer-nap-line { padding: 6px 0; margin-bottom: 0; }
+}
 .footer-bottom { border-top: 1px solid rgba(242,236,227,0.12); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
 .footer-copy { font-size: 12px; color: rgba(242,236,227,0.65); }
 .footer-socials { display: flex; gap: 16px; }
@@ -1307,11 +1325,11 @@ a.footer-nap-line:hover { color: var(--bg); }
 }
 </style>
 <section class="cursos-pub">
-  <div class="page-bc">
-    <span onclick="goTo('home','')">Inicio</span>
+  <nav class="page-bc" aria-label="Migas de pan">
+    <a href="/" onclick="goTo('home','');return false">Inicio</a>
     <span class="page-bc-sep"><i class="ico ico-chev-r" aria-hidden="true"></i></span>
-    <span class="page-bc-current">Cursos</span>
-  </div>
+    <span class="page-bc-current" aria-current="page">Cursos</span>
+  </nav>
   <div class="cursos-pub-head">
     <span class="eyebrow accent">Cursos</span>
     <h2 class="cursos-pub-h1">Programas formativos</h2>
@@ -1367,7 +1385,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 .aula-form-btn { padding: 13px; background: var(--ink); color: var(--bg); border: none; border-radius: 999px; font-size: 14px; font-weight: 500; cursor: pointer; transition: background 0.15s; margin-top: 4px; }
 .aula-form-btn:hover { background: var(--accent-dark); }
 .aula-foot { font-size: 13px; color: var(--ink-soft); text-align: center; margin-top: 20px; }
-.aula-foot .aula-link { color: var(--accent-dark); cursor: pointer; text-decoration: underline; }
+.aula-foot .aula-link { color: var(--accent-dark); cursor: pointer; text-decoration: underline; background: none; border: 0; padding: 0; font: inherit; }
 .aula-msg { margin-top: 14px; padding: 10px 14px; border-radius: 12px; font-size: 12.5px; line-height: 1.45; }
 .aula-msg.aula-msg-err { background: #fdecea; color: #8a2424; border: 1px solid #f3c7c1; }
 .aula-msg.aula-msg-ok { background: #e9f5ec; color: #1f5a30; border: 1px solid #c8e3d0; }
@@ -1406,7 +1424,11 @@ a.footer-nap-line:hover { color: var(--bg); }
 .aula-category-tagline { font-size: 12.5px; color: var(--ink-soft); margin: 0; }
 .aula-category-count { font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 6px; display: block; }
 .aula-category-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }
-.aula-course-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; cursor: pointer; transition: transform 0.18s, box-shadow 0.18s; display: flex; flex-direction: column; }
+.aula-course-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; cursor: pointer; transition: transform 0.18s, box-shadow 0.18s; display: flex; flex-direction: column; position: relative; }
+.aula-course-card a.aula-course-link { color: inherit; text-decoration: none; }
+.aula-course-card a.aula-course-link::after { content: ""; position: absolute; inset: 0; border-radius: 12px; }
+.aula-course-card a.aula-course-link:focus-visible { outline: none; }
+.aula-course-card a.aula-course-link:focus-visible::after { outline: 2px solid var(--accent-dark); outline-offset: 3px; }
 .aula-course-card:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(36,29,23,0.08); }
 .aula-course-card-cover { height: 150px; background: var(--bg2); }
 .aula-course-card-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -1460,10 +1482,10 @@ a.footer-nap-line:hover { color: var(--bg); }
 
     <div class="aula-foot">
       <span id="aula-mode-text">¿No tienes cuenta?</span>
-      <span class="aula-link" id="aula-mode-toggle" onclick="auth.toggleMode()">Date de alta</span>
+      <button type="button" class="aula-link" id="aula-mode-toggle" onclick="auth.toggleMode()">Date de alta</button>
     </div>
     <div class="aula-foot" style="margin-top:6px">
-      <span class="aula-link" onclick="auth.forgotPassword()">¿Olvidaste la contraseña?</span>
+      <button type="button" class="aula-link" onclick="auth.forgotPassword()">¿Olvidaste la contraseña?</button>
     </div>
 
     <div class="aula-msg" id="aula-login-msg" style="display:none"></div>
@@ -1472,11 +1494,11 @@ a.footer-nap-line:hover { color: var(--bg); }
 
 <!-- ── Listado privado (autenticada) ── -->
 <section class="aula-wrap" id="aula-list-section" style="display:none">
-  <div class="page-bc">
-    <span onclick="goTo('home','')">Inicio</span>
+  <nav class="page-bc" aria-label="Migas de pan">
+    <a href="/" onclick="goTo('home','');return false">Inicio</a>
     <span class="page-bc-sep"><i class="ico ico-chev-r" aria-hidden="true"></i></span>
-    <span class="page-bc-current">Aula</span>
-  </div>
+    <span class="page-bc-current" aria-current="page">Aula</span>
+  </nav>
   <div class="aula-list-head">
     <div class="aula-profile">
       <div class="aula-avatar" id="aula-avatar" aria-hidden="true">A</div>
@@ -1514,8 +1536,8 @@ a.footer-nap-line:hover { color: var(--bg); }
 <style>
 .ac-wrap { padding: 148px 56px 80px; max-width: 1280px; margin: 0 auto; }
 .ac-bc { font-size: 12px; color: var(--muted); margin-bottom: 14px; }
-.ac-bc span { cursor: pointer; }
-.ac-bc span:hover { color: var(--ink); }
+.ac-bc a { cursor: pointer; color: inherit; text-decoration: none; display: inline-block; padding: 6px 0; margin: -6px 0; }
+.ac-bc a:hover { color: var(--ink); }
 .ac-head { padding-bottom: 28px; border-bottom: 1px solid var(--line); margin-bottom: 28px; }
 .ac-h1 { font-family: var(--serif); font-size: 44px; line-height: 1.15; letter-spacing: -0.02em; }
 .ac-h1 em { font-style: italic; }
@@ -1526,7 +1548,7 @@ a.footer-nap-line:hover { color: var(--bg); }
   background: var(--bg);
   padding-top: 8px;
 }
-.ac-tab { font-size: 14px; font-weight: 500; padding: 14px 0; cursor: pointer; color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s, border-color 0.2s; }
+.ac-tab { background: none; border: 0; font-family: inherit; font-size: 14px; font-weight: 500; padding: 14px 0; cursor: pointer; color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s, border-color 0.2s; }
 .ac-tab.active { color: var(--ink); border-bottom-color: var(--accent); }
 .ac-tab-content { display: none; }
 .ac-tab-content.active { display: block; }
@@ -1660,7 +1682,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 .ac-slides-modal.open { display: flex; }
 .ac-slides-topbar { padding: 14px 22px; display: flex; justify-content: space-between; align-items: center; color: var(--bg); background: rgba(36,29,23,0.95); border-bottom: 1px solid rgba(255,255,255,0.08); }
 .ac-slides-title { font-size: 13px; }
-.ac-slides-close { font-size: 22px; cursor: pointer; padding: 4px 12px; }
+.ac-slides-close { font-size: 22px; cursor: pointer; padding: 4px 12px; background: none; border: 0; color: inherit; font-family: inherit; min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
 .ac-slides-frame { flex: 1; border: none; background: var(--bg); width: 100%; }
 
 /* Test */
@@ -1670,7 +1692,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 .ac-test-q-num { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 8px; }
 .ac-test-q-text { font-size: 15px; font-weight: 500; margin-bottom: 14px; line-height: 1.4; }
 .ac-test-opts { display: flex; flex-direction: column; gap: 8px; }
-.ac-test-opt { padding: 12px 16px; border: 1px solid var(--line); border-radius: 12px; cursor: pointer; font-size: 13.5px; transition: background 0.15s, border-color 0.15s; }
+.ac-test-opt { width: 100%; background: none; text-align: left; font-family: inherit; color: inherit; padding: 12px 16px; border: 1px solid var(--line); border-radius: 12px; cursor: pointer; font-size: 13.5px; transition: background 0.15s, border-color 0.15s; }
 .ac-test-opt:hover { background: var(--bg); }
 .ac-test-opt.selected { background: var(--accent-soft); border-color: var(--accent); }
 .ac-test-opt.correct { background: #e9f5ec; border-color: #6fb37e; color: #1f5a30; }
@@ -1691,26 +1713,26 @@ a.footer-nap-line:hover { color: var(--bg); }
 }
 </style>
 <section class="ac-wrap">
-  <div class="ac-bc">
-    <span onclick="goTo('aula','docencia')">Aula</span> <i class="ico ico-chev-r" aria-hidden="true"></i>
-    <span id="ac-bc-title">Curso</span>
-  </div>
+  <nav class="ac-bc" aria-label="Migas de pan">
+    <a href="/#aula" onclick="goTo('aula','docencia');return false">Aula</a> <i class="ico ico-chev-r" aria-hidden="true"></i>
+    <span id="ac-bc-title" aria-current="page">Curso</span>
+  </nav>
   <div class="ac-head">
     <h2 class="ac-h1" id="ac-title">Curso</h2>
     <p class="ac-desc" id="ac-desc"></p>
   </div>
-  <div class="ac-tabs">
-    <span class="ac-tab active" data-tab="materia" onclick="aulaSwitchTab('materia')">Materia</span>
-    <span class="ac-tab" data-tab="presentacion" onclick="aulaSwitchTab('presentacion')">Presentación</span>
-    <span class="ac-tab" data-tab="test" onclick="aulaSwitchTab('test')">Test</span>
+  <div class="ac-tabs" role="tablist" aria-label="Secciones del curso">
+    <button type="button" role="tab" class="ac-tab active" data-tab="materia" id="ac-tabbtn-materia" aria-selected="true" aria-controls="ac-tab-materia" onclick="aulaSwitchTab('materia')">Materia</button>
+    <button type="button" role="tab" class="ac-tab" data-tab="presentacion" id="ac-tabbtn-presentacion" aria-selected="false" aria-controls="ac-tab-presentacion" onclick="aulaSwitchTab('presentacion')">Presentación</button>
+    <button type="button" role="tab" class="ac-tab" data-tab="test" id="ac-tabbtn-test" aria-selected="false" aria-controls="ac-tab-test" onclick="aulaSwitchTab('test')">Test</button>
   </div>
-  <div class="ac-tab-content active" id="ac-tab-materia">
+  <div class="ac-tab-content active" id="ac-tab-materia" role="tabpanel" aria-labelledby="ac-tabbtn-materia">
     <div class="ac-materia-host" id="ac-materia-host"></div>
   </div>
-  <div class="ac-tab-content" id="ac-tab-presentacion">
+  <div class="ac-tab-content" id="ac-tab-presentacion" role="tabpanel" aria-labelledby="ac-tabbtn-presentacion">
     <div class="ac-pres-host" id="ac-pres-host"></div>
   </div>
-  <div class="ac-tab-content" id="ac-tab-test">
+  <div class="ac-tab-content" id="ac-tab-test" role="tabpanel" aria-labelledby="ac-tabbtn-test">
     <div id="ac-test-container"></div>
   </div>
 </section>
@@ -1719,7 +1741,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 <div class="ac-slides-modal" id="ac-slides-modal">
   <div class="ac-slides-topbar">
     <span class="ac-slides-title" id="ac-slides-title">Lección</span>
-    <span class="ac-slides-close" onclick="closeAulaSlides()">✕</span>
+    <button type="button" class="ac-slides-close" onclick="closeAulaSlides()" aria-label="Cerrar"><i class="ico ico-x" aria-hidden="true"></i></button>
   </div>
   <iframe class="ac-slides-frame" id="ac-slides-frame" src="about:blank" title="Lección"></iframe>
 </div>
@@ -1757,24 +1779,25 @@ a.footer-nap-line:hover { color: var(--bg); }
 
 /* Tabs */
 .tabs-bar { border-bottom:1px solid var(--line); padding:0 56px; display:flex; gap:32px; }
-.tab-btn { font-size:13.5px; font-weight:400; color:var(--muted); padding:12px 0; cursor:pointer; border-bottom:2px solid transparent; transition:color 0.15s, border-color 0.2s; margin-bottom:-1px; }
+.tab-btn { background:none; border:0; font-family:inherit; font-size:13.5px; font-weight:400; color:var(--muted); padding:12px 0; cursor:pointer; border-bottom:2px solid transparent; transition:color 0.15s, border-color 0.2s; margin-bottom:-1px; }
 .tab-btn.active { color:var(--ink); font-weight:600; border-bottom-color:var(--accent); }
 .tab-content { display:none; padding:40px 56px; }
 .tab-content.active { display:block; }
 
 /* Temario */
 .modulo-acordeon { border:1px solid var(--line); border-radius:12px; overflow:hidden; margin-bottom:10px; }
-.modulo-header { display:flex; align-items:center; justify-content:space-between; padding:18px 22px; cursor:pointer; background:var(--surface); transition:background 0.15s; }
+.modulo-header { width:100%; border:0; font:inherit; color:inherit; text-align:left; display:flex; align-items:center; justify-content:space-between; padding:18px 22px; cursor:pointer; background:var(--surface); transition:background 0.15s; }
 .modulo-header:hover { background:var(--bg); }
 .modulo-left { display:flex; align-items:center; gap:14px; }
 .modulo-num { font-family:var(--serif); font-style:italic; font-size:22px; color:var(--muted); width:28px; }
-.modulo-title { font-size:16px; font-weight:600; }
-.modulo-meta { font-size:12px; color:var(--muted); margin-top:2px; }
+.modulo-title { display:block; font-size:16px; font-weight:600; }
+.modulo-meta { display:block; font-size:12px; color:var(--muted); margin-top:2px; }
 .modulo-chevron { font-size:14px; color:var(--muted); transition:transform 0.2s; display:inline-flex; }
 .modulo-body { display:none; border-top:1px solid var(--line); }
 .modulo-body.open { display:block; }
 .leccion-row { display:flex; align-items:center; gap:14px; padding:14px 22px; border-bottom:1px dashed var(--line); font-size:13.5px; transition:background 0.12s; }
 .leccion-row:last-child { border-bottom:none; }
+button.leccion-row { width:100%; font-family:inherit; color:inherit; text-align:left; background:none; border:0; border-bottom:1px dashed var(--line); }
 .leccion-row.active-lesson { background:var(--accent-soft); cursor:pointer; }
 .leccion-row:hover:not(.locked-lesson) { background:var(--bg); cursor:pointer; }
 .leccion-row.locked-lesson { opacity:0.5; cursor:default; }
@@ -1832,29 +1855,29 @@ a.footer-nap-line:hover { color: var(--bg); }
   </div>
 
   <!-- Tabs -->
-  <div class="tabs-bar">
-    <div class="tab-btn active" onclick="switchTab(this,'tab-temario')">Temario</div>
-    <div class="tab-btn" onclick="switchTab(this,'tab-recursos')">Recursos</div>
-    <div class="tab-btn" onclick="switchTab(this,'tab-aparato')">Aplicación práctica</div>
-    <div class="tab-btn" onclick="switchTab(this,'tab-profesora')">Profesora</div>
+  <div class="tabs-bar" role="tablist">
+    <button type="button" role="tab" class="tab-btn active" id="tabbtn-temario" aria-selected="true" aria-controls="tab-temario" onclick="switchTab(this,'tab-temario')">Temario</button>
+    <button type="button" role="tab" class="tab-btn" id="tabbtn-recursos" aria-selected="false" aria-controls="tab-recursos" onclick="switchTab(this,'tab-recursos')">Recursos</button>
+    <button type="button" role="tab" class="tab-btn" id="tabbtn-aparato" aria-selected="false" aria-controls="tab-aparato" onclick="switchTab(this,'tab-aparato')">Aplicación práctica</button>
+    <button type="button" role="tab" class="tab-btn" id="tabbtn-profesora" aria-selected="false" aria-controls="tab-profesora" onclick="switchTab(this,'tab-profesora')">Profesora</button>
   </div>
 
-  <div class="tab-content active" id="tab-temario">
+  <div class="tab-content active" id="tab-temario" role="tabpanel" aria-labelledby="tabbtn-temario">
     <!-- Módulo I -->
     <div class="modulo-acordeon">
-      <div class="modulo-header" onclick="toggleModulo(this)">
-        <div class="modulo-left">
+      <button type="button" class="modulo-header" aria-expanded="true" onclick="toggleModulo(this)">
+        <span class="modulo-left">
           <span class="modulo-num">I</span>
-          <div><div class="modulo-title">La piel por dentro</div><div class="modulo-meta">6 lecciones · 2h 10min</div></div>
-        </div>
+          <span><span class="modulo-title">La piel por dentro</span><span class="modulo-meta">6 lecciones · 2h 10min</span></span>
+        </span>
         <span class="modulo-chevron"><i class="ico ico-chev-d" aria-hidden="true"></i></span>
-      </div>
+      </button>
       <div class="modulo-body open">
-        <div class="leccion-row active-lesson" onclick="goTo('leccion','docencia')">
-          <div class="lesson-dot active">▶</div>
-          <div class="leccion-title">Lección 1 · Introducción a la piel</div>
-          <div class="leccion-dur">8 min</div>
-        </div>
+        <button type="button" class="leccion-row active-lesson" onclick="goTo('leccion','docencia')">
+          <span class="lesson-dot active" aria-hidden="true">▶</span>
+          <span class="leccion-title">Lección 1 · Introducción a la piel</span>
+          <span class="leccion-dur">8 min</span>
+        </button>
         <div class="leccion-row locked-lesson">
           <div class="lesson-dot locked">🔒</div>
           <div class="leccion-title">Lección 2 · Anatomía e histología general</div>
@@ -1884,13 +1907,13 @@ a.footer-nap-line:hover { color: var(--bg); }
     </div>
     <!-- Módulo II -->
     <div class="modulo-acordeon">
-      <div class="modulo-header" onclick="toggleModulo(this)">
-        <div class="modulo-left">
+      <button type="button" class="modulo-header" aria-expanded="false" onclick="toggleModulo(this)">
+        <span class="modulo-left">
           <span class="modulo-num">II</span>
-          <div><div class="modulo-title">Cómo funciona la piel</div><div class="modulo-meta">4 lecciones · 1h 25min</div></div>
-        </div>
+          <span><span class="modulo-title">Cómo funciona la piel</span><span class="modulo-meta">4 lecciones · 1h 25min</span></span>
+        </span>
         <span class="modulo-chevron" style="transform:rotate(-90deg)"><i class="ico ico-chev-d" aria-hidden="true"></i></span>
-      </div>
+      </button>
       <div class="modulo-body">
         <div class="leccion-row locked-lesson"><div class="lesson-dot locked">🔒</div><div class="leccion-title">Lección 7 · Funciones de la piel</div><div class="leccion-dur">14 min</div></div>
         <div class="leccion-row locked-lesson"><div class="lesson-dot locked">🔒</div><div class="leccion-title">Lección 8 · Vascularización e inervación</div><div class="leccion-dur">11 min</div></div>
@@ -1900,13 +1923,13 @@ a.footer-nap-line:hover { color: var(--bg); }
     </div>
     <!-- Módulo III -->
     <div class="modulo-acordeon">
-      <div class="modulo-header" onclick="toggleModulo(this)">
-        <div class="modulo-left">
+      <button type="button" class="modulo-header" aria-expanded="false" onclick="toggleModulo(this)">
+        <span class="modulo-left">
           <span class="modulo-num">III</span>
-          <div><div class="modulo-title">Envejecimiento y alteraciones</div><div class="modulo-meta">3 lecciones · 1h 05min</div></div>
-        </div>
+          <span><span class="modulo-title">Envejecimiento y alteraciones</span><span class="modulo-meta">3 lecciones · 1h 05min</span></span>
+        </span>
         <span class="modulo-chevron" style="transform:rotate(-90deg)"><i class="ico ico-chev-d" aria-hidden="true"></i></span>
-      </div>
+      </button>
       <div class="modulo-body">
         <div class="leccion-row locked-lesson"><div class="lesson-dot locked">🔒</div><div class="leccion-title">Lección 11 · Fototipos cutáneos</div><div class="leccion-dur">10 min</div></div>
         <div class="leccion-row locked-lesson"><div class="lesson-dot locked">🔒</div><div class="leccion-title">Lección 12 · Envejecimiento cutáneo</div><div class="leccion-dur">22 min</div></div>
@@ -1915,13 +1938,13 @@ a.footer-nap-line:hover { color: var(--bg); }
     </div>
     <!-- Módulo IV -->
     <div class="modulo-acordeon">
-      <div class="modulo-header" onclick="toggleModulo(this)">
-        <div class="modulo-left">
+      <button type="button" class="modulo-header" aria-expanded="false" onclick="toggleModulo(this)">
+        <span class="modulo-left">
           <span class="modulo-num">IV</span>
-          <div><div class="modulo-title">Diagnóstico y cuidados</div><div class="modulo-meta">3 lecciones · 1h 20min</div></div>
-        </div>
+          <span><span class="modulo-title">Diagnóstico y cuidados</span><span class="modulo-meta">3 lecciones · 1h 20min</span></span>
+        </span>
         <span class="modulo-chevron" style="transform:rotate(-90deg)"><i class="ico ico-chev-d" aria-hidden="true"></i></span>
-      </div>
+      </button>
       <div class="modulo-body">
         <div class="leccion-row locked-lesson"><div class="lesson-dot locked">🔒</div><div class="leccion-title">Lección 14 · Patologías cutáneas más frecuentes</div><div class="leccion-dur">26 min</div></div>
         <div class="leccion-row locked-lesson"><div class="lesson-dot locked">🔒</div><div class="leccion-title">Lección 15 · Análisis y diagnóstico estético</div><div class="leccion-dur">20 min</div></div>
@@ -1930,13 +1953,13 @@ a.footer-nap-line:hover { color: var(--bg); }
     </div>
   </div>
 
-  <div class="tab-content" id="tab-recursos">
+  <div class="tab-content" id="tab-recursos" role="tabpanel" aria-labelledby="tabbtn-recursos">
     <p style="color:var(--ink-soft);font-size:14px">12 recursos descargables — temario completo en PDF (50 págs.), atlas de lesiones elementales, fichas de fototipos, ficha técnica de análisis cutáneo y plantillas de protocolo.</p>
   </div>
-  <div class="tab-content" id="tab-aparato">
+  <div class="tab-content" id="tab-aparato" role="tabpanel" aria-labelledby="tabbtn-aparato">
     <p style="color:var(--ink-soft);font-size:14px">Este curso es la base teórica de toda la formación. Una vez completado, conecta directamente con los cursos prácticos de <strong>Limpieza facial profesional</strong>, <strong>Análisis cutáneo en cabina</strong> y <strong>Diseño de protocolos personalizados</strong>.</p>
   </div>
-  <div class="tab-content" id="tab-profesora">
+  <div class="tab-content" id="tab-profesora" role="tabpanel" aria-labelledby="tabbtn-profesora">
     <p style="color:var(--ink-soft);font-size:14px">Impartido por <strong>Bea</strong>, esteticista titulada con más de 15 años de experiencia clínica y docente. Especializada en cosmetología avanzada y dermocosmética.</p>
   </div>
 </div>
@@ -1962,7 +1985,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 @media(max-width: 768px){
   .lv-topbar { top: 64px; margin-top: 64px; padding: 12px 20px; gap: 14px; }
 }
-.lv-back { font-size: 13px; color: var(--ink-soft); cursor: pointer; display:flex; align-items:center; gap:6px; }
+.lv-back { background: none; border: 0; padding: 6px 0; font-family: inherit; font-size: 13px; color: var(--ink-soft); cursor: pointer; display:flex; align-items:center; gap:6px; }
 .lv-back:hover { color: var(--ink); }
 .lv-crumb { font-size: 12.5px; color: var(--muted); letter-spacing: 0.04em; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .lv-crumb b { color: var(--ink); font-weight: 500; }
@@ -1970,7 +1993,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 .lv-prog-num { font-family: var(--serif); font-size: 14px; color: var(--ink); font-variant-numeric: tabular-nums; }
 .lv-prog-bar { flex: 1; height: 3px; background: var(--soft); border-radius: 4px; overflow: hidden; }
 .lv-prog-fill { height: 100%; background: var(--accent); width: 0; transition: width 0.4s cubic-bezier(.5,0,.2,1); }
-.lv-close { font-size: 18px; color: var(--ink-soft); cursor: pointer; }
+.lv-close { font-size: 18px; color: var(--ink-soft); cursor: pointer; background: none; border: 0; font-family: inherit; min-width: 32px; min-height: 32px; display: inline-flex; align-items: center; justify-content: center; }
 
 /* ─── ESCENARIO DE SLIDES ─────────────────────────────── */
 .lv-stage {
@@ -2311,13 +2334,13 @@ a.footer-nap-line:hover { color: var(--bg); }
 
 <!-- Topbar de progreso -->
 <div class="lv-topbar">
-  <span class="lv-back" onclick="goTo('aula-curso','docencia')">←  Volver al curso</span>
+  <button type="button" class="lv-back" onclick="goTo('aula-curso','docencia')"><i class="ico ico-arrow" style="transform:scaleX(-1)" aria-hidden="true"></i> Volver al curso</button>
   <span class="lv-crumb">Anatomía y fisiología cutánea · Módulo I · <b>Lección 1 — Introducción a la piel</b></span>
   <div class="lv-prog-wrap">
     <span class="lv-prog-num" id="lv-prog-num">01 / 09</span>
     <div class="lv-prog-bar"><div class="lv-prog-fill" id="lv-prog-fill"></div></div>
   </div>
-  <span class="lv-close" onclick="goTo('aula-curso','docencia')">✕</span>
+  <button type="button" class="lv-close" onclick="goTo('aula-curso','docencia')" aria-label="Cerrar"><i class="ico ico-x" aria-hidden="true"></i></button>
 </div>
 
 <!-- Puntos de navegación lateral -->
@@ -2522,6 +2545,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 .test-h2 { font-family:var(--serif); font-size:32px; line-height:1.35; letter-spacing:-0.012em; margin:14px 0 32px; }
 .test-h2 em { font-style:italic; }
 .test-opt {
+  width:100%; background:none; text-align:left; font-family:inherit; color:inherit;
   border:1px solid var(--line); border-radius:12px; padding:16px 18px;
   margin-bottom:10px; cursor:pointer; display:flex; align-items:flex-start; gap:14px;
   transition:background 0.15s, border-color 0.15s; font-size:14px; line-height:1.5;
@@ -2569,10 +2593,10 @@ a.footer-nap-line:hover { color: var(--bg); }
     <div class="test-main">
       <span class="eyebrow">Pregunta única · 4 opciones</span>
       <h2 class="test-h2">¿Cuál es la diferencia fundamental entre la radiofrecuencia <em>monopolar</em> y la <em>bipolar</em> en el tratamiento facial?</h2>
-      <div class="test-opt" onclick="testSelect(this)"><span class="test-opt-ltr">A</span>La monopolar utiliza un electrodo activo y uno pasivo; la bipolar sólo electrodos activos en el mismo cabezal.</div>
-      <div class="test-opt selected" onclick="testSelect(this)"><span class="test-opt-ltr">B</span>La bipolar penetra más profundamente que la monopolar en tejidos subcutáneos por su mayor frecuencia.</div>
-      <div class="test-opt" onclick="testSelect(this)"><span class="test-opt-ltr">C</span>No existe diferencia clínica relevante entre ambas modalidades para uso facial.</div>
-      <div class="test-opt" onclick="testSelect(this)"><span class="test-opt-ltr">D</span>La monopolar siempre es más segura en pieles sensibles que cualquier configuración bipolar.</div>
+      <button type="button" class="test-opt" aria-pressed="false" onclick="testSelect(this)"><span class="test-opt-ltr">A</span>La monopolar utiliza un electrodo activo y uno pasivo; la bipolar sólo electrodos activos en el mismo cabezal.</button>
+      <button type="button" class="test-opt selected" aria-pressed="true" onclick="testSelect(this)"><span class="test-opt-ltr">B</span>La bipolar penetra más profundamente que la monopolar en tejidos subcutáneos por su mayor frecuencia.</button>
+      <button type="button" class="test-opt" aria-pressed="false" onclick="testSelect(this)"><span class="test-opt-ltr">C</span>No existe diferencia clínica relevante entre ambas modalidades para uso facial.</button>
+      <button type="button" class="test-opt" aria-pressed="false" onclick="testSelect(this)"><span class="test-opt-ltr">D</span>La monopolar siempre es más segura en pieles sensibles que cualquier configuración bipolar.</button>
       <div class="test-footer">
         <button class="btn btn-outline btn-sm">← Anterior</button>
         <button class="btn btn-outline btn-sm" style="color:var(--muted)">Saltar pregunta</button>
@@ -2706,15 +2730,19 @@ a.footer-nap-line:hover { color: var(--bg); }
   overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
 }
 .filter-chips::-webkit-scrollbar { display: none; }
-.filter-chip { padding:14px 0 12px; border:0; border-bottom:2px solid transparent; margin-bottom:-1px; border-radius:0; font-size:13.5px; font-weight:500; cursor:pointer; color:var(--muted); transition:color 0.15s, border-color 0.15s; white-space:nowrap; }
+.filter-chip { background:none; font-family:inherit; padding:14px 0 12px; border:0; border-bottom:2px solid transparent; margin-bottom:-1px; border-radius:0; font-size:13.5px; font-weight:500; cursor:pointer; color:var(--muted); transition:color 0.15s, border-color 0.15s; white-space:nowrap; }
 .filter-chip:hover { color:var(--ink); }
 .filter-chip.active { color:var(--ink); border-bottom-color:var(--ink); font-weight:600; }
 .filter-chip-special { margin-left:auto; display:flex; align-items:center; gap:6px; }
 .tienda-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; padding:40px 56px 64px; max-width: 1480px; margin: 0 auto; }
 .tienda-product-card {
   background:var(--surface); border:1px solid var(--line); border-radius:12px;
-  overflow:hidden; cursor:pointer; transition:box-shadow 0.2s, transform 0.15s;
+  overflow:hidden; cursor:pointer; transition:box-shadow 0.2s, transform 0.15s; position:relative;
 }
+.tienda-product-card a.tienda-product-link { color:inherit; text-decoration:none; }
+.tienda-product-card a.tienda-product-link::after { content:""; position:absolute; inset:0; border-radius:12px; }
+.tienda-product-card a.tienda-product-link:focus-visible { outline:none; }
+.tienda-product-card a.tienda-product-link:focus-visible::after { outline:2px solid var(--accent-dark); outline-offset:3px; }
 .tienda-product-card:hover { box-shadow:0 10px 30px rgba(36,29,23,0.1); transform:translateY(-2px); }
 .tienda-product-img { height:180px; position:relative; }
 .tienda-product-body { padding:16px 18px 20px; }
@@ -2732,11 +2760,11 @@ a.footer-nap-line:hover { color: var(--bg); }
 </style>
 <div class="page-wrap">
   <div class="tienda-header">
-    <div class="page-bc">
-      <span onclick="goTo('home','')">Inicio</span>
+    <nav class="page-bc" aria-label="Migas de pan">
+      <a href="/" onclick="goTo('home','');return false">Inicio</a>
       <span class="page-bc-sep"><i class="ico ico-chev-r" aria-hidden="true"></i></span>
-      <span class="page-bc-current">Aparatología</span>
-    </div>
+      <span class="page-bc-current" aria-current="page">Aparatología</span>
+    </nav>
     <span class="eyebrow">Aparatología profesional</span>
     <h2 class="tienda-h1">El equipo que se enseña<br>en PRECISSA INSTITUTE</h2>
     <p class="tienda-meta">Ordenado por relevancia</p>
@@ -2753,7 +2781,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 <style>
 .producto-layout { display:grid; grid-template-columns:1.1fr 1fr; gap:60px; padding:48px 56px; align-items:start; }
 .producto-breadcrumb { font-size:12px; color:var(--muted); margin-bottom:32px; }
-.producto-breadcrumb span { cursor:pointer; } .producto-breadcrumb span:hover { color:var(--ink); }
+.producto-breadcrumb a { cursor:pointer; color:inherit; text-decoration:none; display:inline-block; padding:6px 0; margin:-6px 0; } .producto-breadcrumb a:hover { color:var(--ink); }
 .producto-gallery-main { height:430px; border-radius:12px; overflow:hidden; margin-bottom:12px; }
 .producto-thumbs { display:flex; gap:10px; }
 .producto-thumb { width:80px; height:60px; border-radius:4px; overflow:hidden; cursor:pointer; border:2px solid transparent; transition:border-color 0.15s; flex-shrink:0; }
@@ -2956,11 +2984,11 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 }
 </style>
 <section class="adm-wrap">
-  <div class="page-bc">
-    <span onclick="goTo('home','')">Inicio</span>
+  <nav class="page-bc" aria-label="Migas de pan">
+    <a href="/" onclick="goTo('home','');return false">Inicio</a>
     <span class="page-bc-sep"><i class="ico ico-chev-r" aria-hidden="true"></i></span>
-    <span class="page-bc-current">Administración</span>
-  </div>
+    <span class="page-bc-current" aria-current="page">Administración</span>
+  </nav>
   <div class="adm-head">
     <div>
       <span class="eyebrow accent">Panel admin</span>
@@ -3248,6 +3276,8 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 </div>
 </div>
 
+</main>
+
 <!-- ═══════════════════════════════════════════════════════
      MODAL: PEDIR PRESUPUESTO
 ════════════════════════════════════════════════════════ -->
@@ -3275,8 +3305,12 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 .quote-close {
   position:absolute; top:14px; right:16px;
   width:32px; height:32px; border-radius:50%;
-  font-size:24px; line-height:1; color:var(--muted);
+  font-size:20px; line-height:1; color:var(--muted);
+  display:flex; align-items:center; justify-content:center;
   transition:background 0.15s, color 0.15s;
+}
+@media (max-width:560px) {
+  .quote-close { width:44px; height:44px; top:8px; right:8px; }
 }
 .quote-close:hover { background:var(--line); color:var(--ink); }
 .quote-header { margin-bottom:22px; padding-right:24px; flex:none; }
@@ -3392,7 +3426,7 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 
 <div class="quote-overlay" id="quote-overlay" data-mode="presupuesto" onclick="if(event.target===this) closeQuoteForm()">
   <div class="quote-modal" role="dialog" aria-modal="true" aria-labelledby="quote-title">
-    <button class="quote-close" type="button" onclick="closeQuoteForm()" aria-label="Cerrar">×</button>
+    <button class="quote-close" type="button" onclick="closeQuoteForm()" aria-label="Cerrar"><i class="ico ico-x" aria-hidden="true"></i></button>
 
     <div id="quote-form-wrap">
       <div class="quote-header">
@@ -3555,7 +3589,8 @@ function updateNav(pageKey, cfg) {
     const onclick = it.page
       ? `onclick="goTo('${it.page}','${cfg.area}');return false"`
       : (it.action ? `onclick="${it.action};return false"` : '');
-    const link = `<a class="nav-sub-link${isActive ? ' active' : ''}" href="${href}" ${onclick}>${it.label}</a>`;
+    const hasMenu = it.page === 'cursos' && (window.PRECISSA_CATEGORIES || []).length > 0;
+    const link = `<a class="nav-sub-link${isActive ? ' active' : ''}" href="${href}" ${hasMenu ? 'aria-haspopup="true" aria-expanded="false" ' : ''}${onclick}>${it.label}</a>`;
     // Si es Cursos, le añadimos un dropdown con las 4 categorías
     if (it.page === 'cursos') {
       const cats = (window.PRECISSA_CATEGORIES || []);
@@ -3591,14 +3626,93 @@ window.addEventListener('scroll', () => {
 });
 
 // ─── DRAWER ────────────────────────────────────────────
-function openDrawer() { document.getElementById('mobile-drawer').classList.add('open'); document.body.style.overflow='hidden'; }
-function closeDrawer() { document.getElementById('mobile-drawer').classList.remove('open'); document.body.style.overflow=''; }
+let _drawerOpener = null;
+let _drawerInerted = [];
+function _drawerIsOpen() { return document.getElementById('mobile-drawer').classList.contains('open'); }
+function openDrawer() {
+  const drawer = document.getElementById('mobile-drawer');
+  if (drawer.classList.contains('open')) return;
+  _drawerOpener = document.activeElement;
+  drawer.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.querySelectorAll('.hamburger').forEach(b => b.setAttribute('aria-expanded', 'true'));
+  // Lo que queda detrás del cajón no debe recibir foco ni lector de pantalla.
+  _drawerInerted = Array.from(document.body.children).filter(el =>
+    el !== drawer && !/^(SCRIPT|STYLE|LINK|NOSCRIPT)$/.test(el.tagName) && !el.hasAttribute('inert'));
+  _drawerInerted.forEach(el => el.setAttribute('inert', ''));
+  const close = drawer.querySelector('.drawer-close');
+  if (close) close.focus();
+}
+function closeDrawer() {
+  const drawer = document.getElementById('mobile-drawer');
+  const wasOpen = drawer.classList.contains('open');
+  drawer.classList.remove('open');
+  document.body.style.overflow = '';
+  document.querySelectorAll('.hamburger').forEach(b => b.setAttribute('aria-expanded', 'false'));
+  _drawerInerted.forEach(el => el.removeAttribute('inert'));
+  _drawerInerted = [];
+  if (wasOpen && _drawerOpener && document.contains(_drawerOpener)) {
+    try { _drawerOpener.focus(); } catch (e) {}
+  }
+  _drawerOpener = null;
+}
+
+// ─── Foco: lista de elementos enfocables y trampa de Tab ────────
+function _focusables(root) {
+  return Array.from(root.querySelectorAll(
+    'a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+  )).filter(el => el.getClientRects().length > 0 && getComputedStyle(el).visibility !== 'hidden');
+}
+function _trapTab(e, root) {
+  const list = _focusables(root);
+  if (!list.length) { e.preventDefault(); return; }
+  const first = list[0], last = list[list.length - 1];
+  const active = document.activeElement;
+  if (!root.contains(active)) { e.preventDefault(); first.focus(); }
+  else if (e.shiftKey && active === first) { e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && active === last) { e.preventDefault(); first.focus(); }
+}
+
+// ─── Desplegables del menú: foco por teclado ────────────────────
+// El CSS los abre con :hover y :focus-within; aquí sincronizamos
+// aria-expanded y dejamos cerrar con Escape (devuelve el foco al enlace).
+(function () {
+  const WRAP = '.nav-link-wrap, .nav-sub-link-wrap';
+  function trigger(wrap) { return wrap.querySelector(':scope > a'); }
+  function sync(wrap, open) { const t = trigger(wrap); if (t) t.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+  document.addEventListener('focusin', e => {
+    const wrap = e.target.closest && e.target.closest(WRAP);
+    if (!wrap || wrap.classList.contains('dd-esc')) return;
+    sync(wrap, true);
+  });
+  document.addEventListener('focusout', e => {
+    const wrap = e.target.closest && e.target.closest(WRAP);
+    if (!wrap) return;
+    if (e.relatedTarget && wrap.contains(e.relatedTarget)) return;
+    wrap.classList.remove('dd-esc');
+    sync(wrap, false);
+  });
+  document.addEventListener('mouseout', e => {
+    const wrap = e.target.closest && e.target.closest(WRAP);
+    if (wrap && !wrap.contains(e.relatedTarget)) wrap.classList.remove('dd-esc');
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape') return;
+    const wrap = document.activeElement && document.activeElement.closest && document.activeElement.closest(WRAP);
+    if (!wrap || !wrap.querySelector('.nav-dropdown')) return;
+    wrap.classList.add('dd-esc');
+    sync(wrap, false);
+    const t = trigger(wrap);
+    if (t) t.focus();
+  });
+})();
 
 // ─── TEST INTERACTION ──────────────────────────────────
 function testSelect(el) {
   el.closest('.test-main, .test-preview-card, .tests-section')
-    .querySelectorAll('.test-opt, .test-option').forEach(o => o.classList.remove('selected'));
+    .querySelectorAll('.test-opt, .test-option').forEach(o => { o.classList.remove('selected'); o.setAttribute('aria-pressed', 'false'); });
   el.classList.add('selected');
+  el.setAttribute('aria-pressed', 'true');
 }
 function selectOption(el) {
   el.closest('.test-preview-card, .tests-section')
@@ -3608,8 +3722,9 @@ function selectOption(el) {
 
 // ─── TABS (curso detail) ────────────────────────────────
 function switchTab(btn, tabId) {
-  btn.closest('.page').querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.closest('.page').querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
   btn.classList.add('active');
+  btn.setAttribute('aria-selected', 'true');
   btn.closest('.page').querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
   const target = document.getElementById(tabId);
   if (target) target.classList.add('active');
@@ -3633,6 +3748,7 @@ function toggleModulo(header) {
   const chevron = header.querySelector('.modulo-chevron');
   const isOpen = body.classList.contains('open');
   body.classList.toggle('open', !isOpen);
+  header.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
   chevron.style.transform = isOpen ? 'rotate(-90deg)' : 'rotate(0deg)';
 }
 
@@ -3641,8 +3757,9 @@ function filterTienda(chip, cat) {
   _tiendaFilter = cat;
   const cont = chip.closest('.filter-chips');
   if (cont) {
-    cont.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+    cont.querySelectorAll('.filter-chip').forEach(c => { c.classList.remove('active'); c.setAttribute('aria-pressed', 'false'); });
     chip.classList.add('active');
+    chip.setAttribute('aria-pressed', 'true');
   }
   const grid = document.getElementById('tienda-grid');
   if (grid) {
@@ -5149,8 +5266,8 @@ function renderTienda() {
   const chips = document.getElementById('tienda-filter-chips');
   const cats = getProductCategories();
   if (chips) {
-    chips.innerHTML = [`<span class="filter-chip${_tiendaFilter === 'todas' ? ' active' : ''}" onclick="filterTienda(this,'todas')">Todas</span>`]
-      .concat(cats.map(c => `<span class="filter-chip${_tiendaFilter === c.id ? ' active' : ''}" onclick="filterTienda(this,'${escapeJs(c.id)}')">${escapeHtml(c.label)}</span>`)).join('');
+    chips.innerHTML = [`<button type="button" class="filter-chip${_tiendaFilter === 'todas' ? ' active' : ''}" aria-pressed="${_tiendaFilter === 'todas'}" onclick="filterTienda(this,'todas')">Todas</button>`]
+      .concat(cats.map(c => `<button type="button" class="filter-chip${_tiendaFilter === c.id ? ' active' : ''}" aria-pressed="${_tiendaFilter === c.id}" onclick="filterTienda(this,'${escapeJs(c.id)}')">${escapeHtml(c.label)}</button>`)).join('');
   }
   const list = getPublicProducts().filter(p => _tiendaFilter === 'todas' || p.category === _tiendaFilter);
   if (list.length === 0) { grid.innerHTML = '<div class="adm-no-results" style="grid-column:1/-1">No hay equipos en esta categoría.</div>'; return; }
@@ -5160,11 +5277,11 @@ function productCardPublic(p) {
   const learn = p.relatedCourseLabel ? `<div class="tienda-product-course">aprende con · <em>${escapeHtml(p.relatedCourseLabel)}</em></div>` : '';
   const chip  = p.relatedCourseLabel ? '<span class="product-learn-chip">Aprende a usarlo</span>' : '';
   return `
-    <div class="tienda-product-card" onclick="goToProducto('${escapeJs(p.id)}')">
+    <div class="tienda-product-card">
       ${productImgHtml(p, 'tienda-product-img', chip)}
       <div class="tienda-product-body">
         ${p.category ? `<span class="chip chip-accent" style="margin-bottom:6px">${escapeHtml(productCatLabel(p.category))}</span>` : ''}
-        <div class="tienda-product-name">${escapeHtml(p.name)}</div>
+        <div class="tienda-product-name"><a class="tienda-product-link" href="/#producto/${encodeURIComponent(p.id)}" onclick="goToProducto('${escapeJs(p.id)}');return false">${escapeHtml(p.name)}</a></div>
         <p class="tienda-product-desc">${escapeHtml(p.shortDescription || '')}</p>
         <div class="tienda-product-bottom"><span class="tienda-product-price serif">${escapeHtml(p.price || 'Consultar precio')}</span><span style="color:var(--muted);display:inline-flex"><i class="ico ico-arrow" aria-hidden="true"></i></span></div>
         ${learn}
@@ -5188,12 +5305,12 @@ function renderProducto(id) {
     ? `<div class="producto-thumbs">${imgs.map((u, i) => `<div class="producto-thumb${i === 0 ? ' active' : ''}" style="background-image:url('${escapeAttr(u)}');background-size:cover;background-position:center" onclick="productoSetMain(this,'${escapeJs(u)}')"></div>`).join('')}</div>`
     : '';
   left.innerHTML = `
-    <div class="producto-breadcrumb">
-      <span onclick="goTo('home','')">Inicio</span> <i class="ico ico-chev-r" aria-hidden="true"></i>
-      <span onclick="goTo('tienda','aparatologia')">Aparatología</span> <i class="ico ico-chev-r" aria-hidden="true"></i>
-      ${p.category ? `<span onclick="goTo('tienda','aparatologia')">${escapeHtml(productCatLabel(p.category))}</span> <i class="ico ico-chev-r" aria-hidden="true"></i>` : ''}
-      <span style="color:var(--ink)">${escapeHtml(p.name)}</span>
-    </div>
+    <nav class="producto-breadcrumb" aria-label="Migas de pan">
+      <a href="/" onclick="goTo('home','');return false">Inicio</a> <i class="ico ico-chev-r" aria-hidden="true"></i>
+      <a href="/#tienda" onclick="goTo('tienda','aparatologia');return false">Aparatología</a> <i class="ico ico-chev-r" aria-hidden="true"></i>
+      ${p.category ? `<a href="/#tienda" onclick="goTo('tienda','aparatologia');return false">${escapeHtml(productCatLabel(p.category))}</a> <i class="ico ico-chev-r" aria-hidden="true"></i>` : ''}
+      <span style="color:var(--ink)" aria-current="page">${escapeHtml(p.name)}</span>
+    </nav>
     <div class="${mainCls}" id="producto-main-img" ${mainStyle}>${imgs[0] ? '' : `<div class="ph-label">${escapeHtml(p.name)}</div>`}</div>
     ${thumbs}`;
   const specs = (p.specs || []).filter(s => (s.k || s.v));
@@ -5246,11 +5363,11 @@ function renderFeaturedProducts() {
   const list = getPublicProducts().slice(0, 3);
   if (list.length === 0) { grid.innerHTML = ''; return; }
   grid.innerHTML = list.map(p => `
-    <div class="product-card" onclick="goToProducto('${escapeJs(p.id)}')">
+    <div class="product-card">
       ${productImgHtml(p, 'product-img', p.relatedCourseLabel ? '<span class="product-learn-chip">Aprende a usarlo</span>' : '')}
       <div class="product-body">
         ${p.category ? `<span class="chip chip-accent" style="margin-bottom:8px">${escapeHtml(productCatLabel(p.category))}</span>` : ''}
-        <div class="product-name">${escapeHtml(p.name)}</div>
+        <div class="product-name"><a class="product-link" href="/#producto/${encodeURIComponent(p.id)}" onclick="goToProducto('${escapeJs(p.id)}');return false">${escapeHtml(p.name)}</a></div>
         <p class="product-desc">${escapeHtml(p.shortDescription || '')}</p>
         <div class="product-price-row">
           <span class="product-price serif">${escapeHtml(p.price || 'Consultar precio')}</span>
@@ -5536,12 +5653,12 @@ async function renderAulaCourses() {
     return;
   }
   const renderAulaCard = (c) => `
-    <article class="aula-course-card" data-search="${escapeAttr(buildCourseSearchText(c))}" onclick="openAulaCurso('${escapeJs(c.id)}')">
+    <article class="aula-course-card" data-search="${escapeAttr(buildCourseSearchText(c))}" >
       <div class="aula-course-card-cover">
         ${c.cover ? `<img src="${c.cover}" alt="" loading="lazy">` : ''}
       </div>
       <div class="aula-course-card-body">
-        <div class="aula-course-card-title">${escapeHtml(c.title)}</div>
+        <div class="aula-course-card-title"><a class="aula-course-link" href="/#curso/${encodeURIComponent(c.id)}" onclick="openAulaCurso('${escapeJs(c.id)}');return false">${escapeHtml(c.title)}</a></div>
         <div class="aula-course-card-desc">${escapeHtml(c.shortDescription || c.description || '')}</div>
         <div class="aula-course-card-meta">
           ${c.lessons && c.lessons.length > 0 ? `<span>${c.lessons.length} lecciones</span>` : '<span>Próximamente</span>'}
@@ -5667,7 +5784,7 @@ function renderAulaCurso() {
 }
 
 function aulaSwitchTab(name) {
-  document.querySelectorAll('#page-aula-curso .ac-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+  document.querySelectorAll('#page-aula-curso .ac-tab').forEach(t => { const on = t.dataset.tab === name; t.classList.toggle('active', on); t.setAttribute('aria-selected', on ? 'true' : 'false'); });
   ['materia','presentacion','test'].forEach(n => {
     const el = document.getElementById('ac-tab-' + n);
     if (el) el.classList.toggle('active', n === name);
@@ -5949,7 +6066,7 @@ function renderAulaTest(course) {
           <div class="ac-test-q-text">${escapeHtml(q.q)}</div>
           <div class="ac-test-opts">
             ${q.options.map((opt, oi) => `
-              <div class="ac-test-opt" data-oi="${oi}" onclick="aulaTestSelect(${qi}, ${oi})">${escapeHtml(opt)}</div>
+              <button type="button" class="ac-test-opt" data-oi="${oi}" aria-pressed="false" onclick="aulaTestSelect(${qi}, ${oi})">${escapeHtml(opt)}</button>
             `).join('')}
           </div>
         </div>
@@ -5965,8 +6082,10 @@ function aulaTestSelect(qi, oi) {
   window._aulaTestAnswers = window._aulaTestAnswers || {};
   window._aulaTestAnswers[qi] = oi;
   const qEl = document.querySelector(`.ac-test-q[data-qi="${qi}"]`);
-  qEl.querySelectorAll('.ac-test-opt').forEach(o => o.classList.remove('selected'));
-  qEl.querySelector(`.ac-test-opt[data-oi="${oi}"]`).classList.add('selected');
+  qEl.querySelectorAll('.ac-test-opt').forEach(o => { o.classList.remove('selected'); o.setAttribute('aria-pressed', 'false'); });
+  const chosen = qEl.querySelector(`.ac-test-opt[data-oi="${oi}"]`);
+  chosen.classList.add('selected');
+  chosen.setAttribute('aria-pressed', 'true');
 }
 function aulaTestSubmit() {
   const answers = window._aulaTestAnswers || {};
@@ -6163,6 +6282,7 @@ injectCoursesItemListJsonLd();
 // flujo de entrega no cambia.
 const QUOTE_ENDPOINT = 'https://formsubmit.co/ajax/e42ac5fc68012174f8ffe40e562d842b';
 
+let _quoteOpener = null;
 function openContactForm(mode, opts) {
   opts = opts || {};
   if (mode !== 'demo' && mode !== 'curso') mode = 'presupuesto';
@@ -6254,6 +6374,7 @@ function openContactForm(mode, opts) {
   success.hidden     = true;
   status.textContent = '';
 
+  if (!overlay.classList.contains('open')) _quoteOpener = document.activeElement;
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
   setTimeout(() => form.querySelector('input[name="nombre"]').focus(), 80);
@@ -6273,15 +6394,31 @@ window.openDemoForm      = openDemoForm;
 window.openCursoInfoForm = openCursoInfoForm;
 
 function closeQuoteForm() {
-  document.getElementById('quote-overlay').classList.remove('open');
-  document.body.style.overflow = '';
+  const ov = document.getElementById('quote-overlay');
+  const wasOpen = ov.classList.contains('open');
+  ov.classList.remove('open');
+  // Si el cajón móvil sigue abierto, el scroll sigue bloqueado.
+  document.body.style.overflow = _drawerIsOpen() ? 'hidden' : '';
+  if (wasOpen && _quoteOpener && document.contains(_quoteOpener)) {
+    try { _quoteOpener.focus(); } catch (e) {}
+  }
+  _quoteOpener = null;
 }
 window.closeQuoteForm = closeQuoteForm;
 
+// Un único listener para Escape y la trampa de Tab. El modal del
+// formulario tiene prioridad sobre el cajón móvil (está por encima).
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && document.getElementById('quote-overlay').classList.contains('open')) {
-    closeQuoteForm();
+  const quote = document.getElementById('quote-overlay');
+  const quoteOpen = quote.classList.contains('open');
+  if (e.key === 'Escape') {
+    if (quoteOpen) { closeQuoteForm(); }
+    else if (_drawerIsOpen()) { closeDrawer(); }
+    return;
   }
+  if (e.key !== 'Tab') return;
+  if (quoteOpen) _trapTab(e, quote.querySelector('.quote-modal'));
+  else if (_drawerIsOpen()) _trapTab(e, document.querySelector('#mobile-drawer .drawer-panel'));
 });
 
 // ─── Envío del modal: validación propia + dos canales ──────────────
@@ -6560,6 +6697,12 @@ function routeFromHash() {
         }, 80);
       }
     });
+    return;
+  }
+  // Ruta de producto: #producto/<id>
+  if (hash.startsWith('#producto/')) {
+    window._currentProductId = decodeURIComponent(hash.substring(10));
+    _origGoTo('producto','aparatologia');
     return;
   }
   // Hash directo

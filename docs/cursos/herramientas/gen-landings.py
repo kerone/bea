@@ -124,10 +124,11 @@ def build(L):
 {STYLE}
 </head>
 <body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 
 <nav class="nav" aria-label="Navegación principal">
   <div class="nav-inner">
-    <a href="/" class="nav-logo" aria-label="Inicio PRECISSA INSTITUTE">
+    <a href="/" class="nav-logo" aria-label="PRECISSA INSTITUTE Dermocosmiatría &amp; Electroestética, ir al inicio">
       PRECISSA INSTITUTE
       <span class="nav-logo-sub">Dermocosmiatría &amp; Electroestética</span>
     </a>
@@ -140,9 +141,10 @@ def build(L):
   <span class="breadcrumb-sep">/</span>
   <a href="/cursos/">Cursos</a>
   <span class="breadcrumb-sep">/</span>
-  {esc(L['bc_short'])}
+  <span aria-current="page">{esc(L['bc_short'])}</span>
 </nav>
 
+<main id="contenido" tabindex="-1">
 <section class="hero">
   <div class="eyebrow">Curso profesional</div>
   <h1>{L['h1']}</h1>
