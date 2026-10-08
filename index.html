@@ -172,6 +172,7 @@
 .ico-logout { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9'/%3E%3C/svg%3E"); }
 .ico-x      { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E"); }
 .ico-check  { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E"); }
+.ico-phone  { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z'/%3E%3C/svg%3E"); }
 .btn .ico-arrow { width:15px; height:15px; margin-left:2px; }
 .btn-text .ico-arrow { width:14px; height:14px; }
 
@@ -439,7 +440,15 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 }
 .nav-mobile .nav-logo { justify-self: center; }
 .nav-mobile-right { display: flex; align-items: center; gap: 16px; justify-self: end; }
-.hamburger { font-size: 24px; display:inline-flex; cursor: pointer; color: var(--ink); background: none; border: none; padding: 0; justify-self: start; }
+.hamburger { font-size: 24px; display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; margin:-6px 0 -6px -10px; cursor: pointer; color: var(--ink); background: none; border: none; padding: 0; justify-self: start; }
+.hamburger .ico { width:24px; height:24px; }
+.nav-tel-round { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; margin:-4px 0; border-radius:999px; background:var(--ink); color:var(--bg); font-size:18px; }
+.nav-tel-round .ico { width:18px; height:18px; }
+@media (max-width: 400px) {
+  .nav-mobile { padding: 16px 14px; }
+  .nav-mobile .nav-logo { margin: 0 4px; font-size: 18px; letter-spacing: 0.1em; }
+  .nav-mobile .nav-logo-sub { font-size: 6px; letter-spacing: 0.05em; }
+}
 
 .tab-bar {
   display: none;
@@ -475,6 +484,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .drawer-close { align-self: flex-end; font-size: 22px; display:inline-flex; cursor: pointer; margin-bottom: 16px; }
 .drawer-section { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); font-weight: 800; margin: 18px 0 6px; }
 .drawer-item { font-size: 16px; font-weight: 400; color: var(--ink); padding: 8px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
+.drawer-meta { font-size:12px; color:var(--muted); text-align:center; margin-top:6px; }
 .drawer-subitem { font-size: 14px; color: var(--ink-soft); padding: 8px 0 8px 22px; border-bottom: 1px solid var(--line); cursor: pointer; position: relative; }
 .drawer-subitem:not(.is-cat)::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 12px; height: 12px; background: var(--accent); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat; }
 #drawer-cursos-cats { margin: 0; padding: 0; border-left: none; }
@@ -537,7 +547,8 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     </div>
     <a class="nav-logo" href="/" onclick="goTo('home','');return false">PRECISSA INSTITUTE<span class="nav-logo-sub">Dermocosmiatría &amp; Electroestética</span></a>
     <div class="nav-right">
-      <button class="btn btn-dark btn-sm acceder-btn" onclick="goTo('aula','docencia')">Acceder</button>
+      <a class="btn btn-dark btn-sm nav-tel" href="tel:+34601056706"><i class="ico ico-phone" aria-hidden="true"></i> 601 05 67 06</a>
+      <button class="btn btn-outline btn-sm acceder-btn" onclick="goTo('aula','docencia')">Entrar al aula</button>
       <button class="btn btn-text nav-admin-link" style="display:none;border-bottom:none;padding-bottom:0" onclick="goTo('admin','')">Administración</button>
       <button class="btn btn-dark btn-sm mi-aula-btn" style="display:none" onclick="goTo('aula','docencia')"><i class="ico ico-user" aria-hidden="true"></i> Mi aula</button>
     </div>
@@ -548,7 +559,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <div class="nav-sep"></div>
     <div class="nav-sub-links" id="nav-sub-links">
       <a class="nav-sub-link active" href="/cursos/" onclick="goTo('cursos','docencia');return false">Catálogo</a>
-      <a class="nav-sub-link" href="/#aula" onclick="goTo('aula','docencia');return false">Acceso alumnado</a>
+      <a class="nav-sub-link" href="/#aula" onclick="goTo('aula','docencia');return false">Aula</a>
     </div>
     <a href="https://www.instagram.com/precissainstitute" target="_blank" rel="noopener" class="nav-row2-ig" aria-label="Instagram PRECISSA INSTITUTE">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.7"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
@@ -560,8 +571,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <button class="hamburger" onclick="openDrawer()" aria-label="Abrir menú"><i class="ico ico-menu" aria-hidden="true"></i></button>
     <a class="nav-logo" href="/" onclick="goTo('home','');return false">PRECISSA INSTITUTE<span class="nav-logo-sub">Dermocosmiatría &amp; Electroestética</span></a>
     <div class="nav-mobile-right">
-      <button class="btn btn-dark btn-sm acceder-btn" style="padding:8px 14px;font-size:12px" onclick="goTo('aula','docencia')">Acceder</button>
-      <button class="btn btn-dark btn-sm mi-aula-btn" style="display:none;padding:8px 14px;font-size:12px" onclick="goTo('aula','docencia')"><i class="ico ico-user" aria-hidden="true"></i> Mi aula</button>
+      <a class="nav-tel-round" href="tel:+34601056706" aria-label="Llamar al 601 05 67 06"><i class="ico ico-phone" aria-hidden="true"></i></a>
     </div>
   </div>
 </nav>
@@ -575,16 +585,20 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.7"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
       <span>Instagram</span>
     </a>
+    <a class="drawer-item" href="/" onclick="goTo('home','');closeDrawer();return false" style="display:block">Inicio</a>
     <div class="drawer-section">Cursos</div>
     <a class="drawer-subitem" href="/cursos/" onclick="goTo('cursos','docencia');closeDrawer();return false" style="display:block">Todos los cursos</a>
     <div id="drawer-cursos-cats"><!-- 4 categorías inyectadas por JS --></div>
-    <a class="drawer-subitem" href="/#aula" onclick="goTo('aula','docencia');closeDrawer();return false" style="display:block">Acceso alumnado</a>
     <div class="drawer-section">Aparatología</div>
     <a class="drawer-subitem" href="/#tienda" onclick="goTo('tienda','aparatologia');closeDrawer();return false" style="display:block">Catálogo</a>
     <a class="drawer-subitem" href="/#tienda" onclick="closeDrawer();openDemoForm();return false" style="display:block">Demos</a>
+    <div class="drawer-section">Más</div>
+    <a class="drawer-item" href="/sobre/" style="display:block">Sobre nosotras</a>
+    <a class="btn btn-outline" href="tel:+34601056706" style="width:100%;justify-content:center;margin-top:8px"><i class="ico ico-phone" aria-hidden="true"></i> Llamar 601 05 67 06</a>
+    <div class="drawer-meta">L-V · 9:30–14:00</div>
     <div class="drawer-item nav-admin-link" style="display:none" onclick="goTo('admin','');closeDrawer()">Administración</div>
     <div class="drawer-item" style="margin-top:16px">
-      <button class="btn btn-dark acceder-btn" style="width:100%;justify-content:center" onclick="goTo('aula','docencia');closeDrawer()">Acceder</button>
+      <button class="btn btn-dark acceder-btn" style="width:100%;justify-content:center" onclick="goTo('aula','docencia');closeDrawer()">Entrar al aula</button>
       <button class="btn btn-dark mi-aula-btn" style="display:none;width:100%;justify-content:center" onclick="goTo('aula','docencia');closeDrawer()"><i class="ico ico-user" aria-hidden="true"></i> Mi aula</button>
     </div>
   </div>
@@ -926,7 +940,7 @@ a.footer-nap-line:hover { color: var(--bg); }
   .hero-left { padding: 40px 20px; order: 2; }
   .hero-left::before { display: none; }
   .hero-h1 { font-size: 40px; }
-  .hero-right { height: 520px; order: 1; }
+  .hero-right { height: 300px; order: 1; }
   .diptych, .areas, .tests-section, .aparatologia-section, .testimonials, .curso-destacado { padding: 64px 20px; }
   .diptych-grid, .tests-grid, .curso-grid { grid-template-columns: 1fr; }
   .areas-grid { grid-template-columns: 1fr; }
@@ -961,8 +975,8 @@ a.footer-nap-line:hover { color: var(--bg); }
       <h1 class="hero-h1">El protocolo<br>de la <em>ciencia</em></h1>
       <p class="hero-desc">Formación avanzada para profesionales que entienden que la técnica sin conocimiento no es suficiente.</p>
       <div class="hero-ctas">
-        <button class="btn btn-dark" onclick="goTo('cursos','docencia')">Ver cursos <i class="ico ico-arrow" aria-hidden="true"></i></button>
-        <button class="btn btn-outline" onclick="goTo('tienda','aparatologia')">Aparatología</button>
+        <button class="btn btn-dark" onclick="openCursoInfoForm('')">Solicitar información</button>
+        <button class="btn btn-outline" onclick="goTo('cursos','docencia')">Ver cursos <i class="ico ico-arrow" aria-hidden="true"></i></button>
       </div>
       <a href="https://www.instagram.com/precissainstitute" target="_blank" rel="noopener" class="hero-ig" aria-label="Instagram PRECISSA INSTITUTE">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.7"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
@@ -1001,7 +1015,7 @@ a.footer-nap-line:hover { color: var(--bg); }
           </div>
         </div>
         <div class="diptych-link">
-          <button class="btn btn-outline btn-outline-white btn-sm" onclick="goTo('cursos','docencia')">Entrar al área docente <i class="ico ico-arrow" aria-hidden="true"></i></button>
+          <button class="btn btn-outline btn-outline-white btn-sm" onclick="goTo('cursos','docencia')">Ver cursos <i class="ico ico-arrow" aria-hidden="true"></i></button>
         </div>
       </div>
       <!-- Aparatología -->
@@ -1169,7 +1183,7 @@ a.footer-nap-line:hover { color: var(--bg); }
       <div>
         <div class="footer-col-title">Escuela</div>
         <a class="footer-link" href="/cursos/" onclick="goTo('cursos','docencia');return false">Cursos de estética en Valencia</a>
-        <a class="footer-link" href="/#aula" onclick="goTo('aula','docencia');return false">Acceso alumnado</a>
+        <a class="footer-link" href="/#aula" onclick="goTo('aula','docencia');return false">Aula</a>
       </div>
       <div>
         <div class="footer-col-title">Cursos en Valencia</div>
@@ -1313,7 +1327,7 @@ a.footer-nap-line:hover { color: var(--bg); }
       <h2>¿Ya eres alumna?</h2>
       <p>Accede al aula con tu cuenta para ver tu materia y tests.</p>
     </div>
-    <button class="btn btn-light" onclick="goTo('aula','docencia')">Acceso alumnado <i class="ico ico-arrow" aria-hidden="true"></i></button>
+    <button class="btn btn-light" onclick="goTo('aula','docencia')">Entrar al aula <i class="ico ico-arrow" aria-hidden="true"></i></button>
   </div>
 </section>
 </div><!-- /page-cursos -->
@@ -1409,7 +1423,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 <!-- ── Login (no autenticada) ── -->
 <section class="aula-wrap aula-login" id="aula-login-section">
   <div class="aula-login-card">
-    <span class="eyebrow accent">Acceso alumnado</span>
+    <span class="eyebrow accent">Aula</span>
     <h2 class="aula-login-h1">Bienvenida al aula</h2>
     <p class="aula-login-sub">Accede con tu cuenta de Google o con tu email.</p>
 
@@ -3471,7 +3485,7 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 const SUBLINKS = {
   docencia: [
     { label: 'Catálogo',           page: 'cursos' },
-    { label: 'Acceso alumnado',  page: 'aula' }
+    { label: 'Aula',  page: 'aula' }
   ],
   aparatologia: [
     { label: 'Catálogo', page: 'tienda' },
@@ -6025,7 +6039,7 @@ const SEO_DEFAULTS = {
 const SEO_PAGE_META = {
   home:        { title: SEO_DEFAULTS.title, description: SEO_DEFAULTS.description },
   cursos:      { title: 'Cursos · Plasmapen, electroestética y más · PRECISSA INSTITUTE', description: 'Catálogo completo: curso de Plasmapen, electroestética, micropigmentación, dermocosmiatría y técnicas corporales. Protocolos basados en evidencia, casos clínicos y test discriminativo.' },
-  aula:        { title: 'Acceso alumnado · PRECISSA INSTITUTE', description: 'Acceso al aula privada de PRECISSA INSTITUTE para alumnado matriculado. Materia, presentación y test de cada curso.' },
+  aula:        { title: 'Aula · PRECISSA INSTITUTE', description: 'Acceso al aula privada de PRECISSA INSTITUTE para alumnado matriculado. Materia, presentación y test de cada curso.' },
   'aula-curso':{ title: 'Mi curso · PRECISSA INSTITUTE', description: 'Aula del curso: materia, presentación y test.' },
   leccion:     { title: 'Lección · PRECISSA INSTITUTE', description: 'Lección con slides en pantalla completa.' },
   tienda:      { title: 'Aparatología profesional · PRECISSA INSTITUTE', description: 'Catálogo de aparatología profesional de estética y electroestética: Plasmapen, radiofrecuencia, HIFU, IPL, láser y más.' },
