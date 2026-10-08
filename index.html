@@ -172,6 +172,7 @@
 .ico-logout { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9'/%3E%3C/svg%3E"); }
 .ico-x      { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E"); }
 .ico-check  { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E"); }
+.ico-wa     { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000'%3E%3Cpath d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z'/%3E%3C/svg%3E"); }
 .ico-phone  { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z'/%3E%3C/svg%3E"); }
 .btn .ico-arrow { width:15px; height:15px; margin-left:2px; }
 .btn-text .ico-arrow { width:14px; height:14px; }
@@ -447,7 +448,8 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .hamburger { font-size: 24px; display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; margin:-6px 0 -6px -10px; cursor: pointer; color: var(--ink); background: none; border: none; padding: 0; justify-self: start; }
 .hamburger .ico { width:24px; height:24px; }
 .nav-tel-round { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; margin:-4px 0; border-radius:999px; background:var(--ink); color:var(--bg); font-size:18px; }
-.nav-tel-round .ico { width:18px; height:18px; }
+.nav-tel-round .ico { width:20px; height:20px; }
+.nav-tel .ico-wa { width:16px; height:16px; }
 @media (max-width: 400px) {
   .nav-mobile { padding: 16px 14px; }
   .nav-mobile .nav-logo { margin: 0 4px; font-size: 18px; letter-spacing: 0.1em; }
@@ -551,7 +553,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     </div>
     <a class="nav-logo" href="/" onclick="goTo('home','');return false">PRECISSA INSTITUTE<span class="nav-logo-sub">Dermocosmiatría &amp; Electroestética</span></a>
     <div class="nav-right">
-      <a class="btn btn-dark btn-sm nav-tel" href="tel:+34601056706"><i class="ico ico-phone" aria-hidden="true"></i> 601 05 67 06</a>
+      <a class="btn btn-dark btn-sm nav-tel" href="https://wa.me/34601056706?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20vuestros%20cursos." target="_blank" rel="noopener"><i class="ico ico-wa" aria-hidden="true"></i> WhatsApp</a>
       <button class="btn btn-outline btn-sm acceder-btn" onclick="goTo('aula','docencia')">Entrar al aula</button>
       <button class="btn btn-text nav-admin-link" style="display:none;border-bottom:none;padding-bottom:0" onclick="goTo('admin','')">Administración</button>
       <button class="btn btn-dark btn-sm mi-aula-btn" style="display:none" onclick="goTo('aula','docencia')"><i class="ico ico-user" aria-hidden="true"></i> Mi aula</button>
@@ -575,7 +577,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <button class="hamburger" onclick="openDrawer()" aria-label="Abrir menú"><i class="ico ico-menu" aria-hidden="true"></i></button>
     <a class="nav-logo" href="/" onclick="goTo('home','');return false">PRECISSA INSTITUTE<span class="nav-logo-sub">Dermocosmiatría &amp; Electroestética</span></a>
     <div class="nav-mobile-right">
-      <a class="nav-tel-round" href="tel:+34601056706" aria-label="Llamar al 601 05 67 06"><i class="ico ico-phone" aria-hidden="true"></i></a>
+      <a class="nav-tel-round" href="https://wa.me/34601056706?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20vuestros%20cursos." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><i class="ico ico-wa" aria-hidden="true"></i></a>
     </div>
   </div>
 </nav>
@@ -598,6 +600,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
     <a class="drawer-subitem" href="/#tienda" onclick="closeDrawer();openDemoForm();return false" style="display:block">Demos</a>
     <div class="drawer-section">Más</div>
     <a class="drawer-item" href="/sobre/" style="display:block">Sobre nosotras</a>
+    <a class="btn btn-dark" href="https://wa.me/34601056706?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20vuestros%20cursos." target="_blank" rel="noopener" style="width:100%;justify-content:center;margin-top:8px"><i class="ico ico-wa" aria-hidden="true"></i> Escribir por WhatsApp</a>
     <a class="btn btn-outline" href="tel:+34601056706" style="width:100%;justify-content:center;margin-top:8px"><i class="ico ico-phone" aria-hidden="true"></i> Llamar 601 05 67 06</a>
     <div class="drawer-meta">L-V · 9:30–14:00</div>
     <div class="drawer-item nav-admin-link" style="display:none" onclick="goTo('admin','');closeDrawer()">Administración</div>
@@ -6460,6 +6463,8 @@ function renderAreasHome() {
   const cats = window.PRECISSA_CATEGORIES || [];
   grid.innerHTML = cats.map((cat, i) => {
     const d = AREA_DISPLAY[cat.id] || { ph: 'ph-sand', desc: cat.tagline || '' };
+    const nCursos = (typeof getCourses === 'function' ? getCourses() : []).filter(c => c.category === cat.id).length;
+    const ctaTxt = nCursos ? `Ver ${nCursos} ${nCursos === 1 ? 'curso' : 'cursos'}` : 'Ver cursos';
     const imgPart = d.cover
       ? `<img src="${escapeAttr(d.cover)}" alt="${escapeAttr(cat.label)}" loading="lazy">`
       : `<div class="ph-label">${escapeHtml(cat.id)} · PRECISSA INSTITUTE</div>`;
@@ -6473,7 +6478,7 @@ function renderAreasHome() {
         <div class="area-card-body">
           <div class="area-title">${escapeHtml(cat.label)}</div>
           <p class="area-desc">${escapeHtml(d.desc)}</p>
-          <button class="btn btn-outline btn-sm">Ver itinerario <i class="ico ico-arrow" aria-hidden="true"></i></button>
+          <button class="btn btn-outline btn-sm" aria-label="${escapeAttr(ctaTxt + ' de ' + cat.label)}">${escapeHtml(ctaTxt)} <i class="ico ico-arrow" aria-hidden="true"></i></button>
         </div>
       </div>`;
   }).join('');
