@@ -11,7 +11,7 @@
 --   · tabla public.testimonials   (las tarjetas de la home)
 --   · políticas RLS               (lectura pública, escritura solo admin)
 --   · bucket de Storage 'testimonials' (público) + sus políticas
---   · siembra las 3 reseñas que ya estaban en la web (Nerea/Claudia/Marta)
+--   · elimina las 3 reseñas de ejemplo si existen (no eran reales)
 -- =====================================================================
 
 -- 1) TABLA testimonials
@@ -85,13 +85,8 @@ create policy testimonials_storage_delete on storage.objects for delete
 
 -- 4) SIEMBRA: las 3 reseñas que ya estaban en el HTML.
 --    Solo se insertan si la tabla está vacía (idempotente).
-insert into public.testimonials (quote, name, centro, photo_url, sort_order)
-select * from (values
-  ('PRECISSA INSTITUTE me dio el lenguaje para explicar lo que ya hacía. Ahora mis clientas confían en el protocolo, no sólo en mí.',
-   'Nerea Álvarez', 'Centro Estético Nerea · Bilbao', 'assets/IMG-20260522-WA0032.jpg', 1),
-  ('La RF-200 la compré después del curso. No hay forma de usarla mal si has hecho la formación. Eso es lo que busco.',
-   'Claudia Moreno', 'Skin Studio CM · Madrid', null, 2),
-  ('Los tests son lo que diferencia a PRECISSA INSTITUTE. Saber que tengo el 83 % en electroestética me da seguridad real en cabina.',
-   'Marta Iglesias', 'Clínica Estética Iglesias · Sevilla', null, 3)
-) as v(quote, name, centro, photo_url, sort_order)
-where not exists (select 1 from public.testimonials);
+-- Las reseñas de ejemplo que se sembraban aquí (Nerea Álvarez, Claudia
+-- Moreno, Marta Iglesias) NO eran reales y se retiraron el 8/10/2026.
+-- Esta sentencia las elimina si siguen en la tabla (idempotente):
+delete from public.testimonials
+ where name in ('Nerea Álvarez', 'Claudia Moreno', 'Marta Iglesias');

@@ -2795,6 +2795,11 @@ async function renderTestimonials() {
   if (window.testimonials && window.testimonials.isConfigured()) {
     try { data = (await window.testimonials.list()) || []; } catch (e) { data = []; }
   }
+  // Las tres reseñas de ejemplo que se sembraron en Supabase al crear la
+  // sección (Nerea Álvarez, Claudia Moreno, Marta Iglesias) no eran reales:
+  // se descartan aunque sigan en la tabla hasta que se borren desde el panel.
+  const FICTICIAS = ['nerea álvarez', 'claudia moreno', 'marta iglesias'];
+  data = data.filter(t => FICTICIAS.indexOf(String(t.name || '').trim().toLowerCase()) === -1);
   data = data.concat(GOOGLE_REVIEWS);
   if (data.length === 0) return ocultar();
   const estrellas = (n) => `<div class="testimonial-stars" aria-label="${n} de 5 estrellas">${'<i class="ico ico-star" aria-hidden="true"></i>'.repeat(n)}</div>`;
