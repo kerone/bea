@@ -74,7 +74,7 @@ window.PRECISSA_COURSES = [
     category: 'estetica-facial-avanzada',
     eyebrow: 'Dermocosmiatría · Grado profesional · 5 módulos',
     level: 'Inicial a Avanzado',
-    duration: '80 h · grado completo',
+    duration: '60 h · grado completo',
     cover: 'assets/higiene-facial-profunda.jpg',
     shortDescription: 'Grado completo en limpieza facial profunda. Cinco módulos: activos, peelings, antiacné, despigmentantes y rejuvenecimiento facial avanzado.',
     description: 'El grado bandera de PRECISSA en estética facial. Cubre la asignatura transversal PIEL y cinco módulos clínicos: dermocosmética y principios activos (vitamina C, niacinamida, péptidos, retinoides, AHA/BHA); peelings químicos por profundidad (superficiales, medios y derivación de profundos); tratamientos antiacné con el límite estética/dermatología bien dibujado; tratamientos despigmentantes con diagnóstico diferencial entre melasma, PIH, lentigos y nevus; y rejuvenecimiento facial avanzado por décadas. Cierra con tres casos clínicos integrados que combinan varios módulos y test final discriminativo.',
