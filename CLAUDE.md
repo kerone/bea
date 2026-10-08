@@ -167,6 +167,9 @@ temporal, solo a quien tiene matrícula (o es admin).
   se añaden delante. Nunca volver a poner reseñas inventadas.
 - Fechas de convocatoria: campo `nextStart` (ISO) en courses-data.js; se
   pinta en tarjetas, catálogo estático, modal y landing. No se publica precio.
+- Tienda: `window.PRECISSA_TIENDA_PROXIMAMENTE` (products-data.js) en `true`
+  muestra "Próximamente" en #tienda, oculta destacados y demos y redirige
+  #producto/<id> a la tienda. Ponerlo en `false` cuando haya equipos.
 
 ## 8. Contenido intencionado (no son fallos)
 

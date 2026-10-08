@@ -6,7 +6,7 @@ const SUBLINKS = {
   ],
   aparatologia: [
     { label: 'Catálogo', page: 'tienda' },
-    { label: 'Demos',    page: null, action: 'openDemoForm()' }
+    { label: 'Demos',    page: null, action: 'openDemoForm()', hideIfSoon: true }
   ]
 };
 const pages = {
@@ -49,7 +49,7 @@ function updateNav(pageKey, cfg) {
   if (!cfg.area) { row2.style.display = 'none'; return; }
   row2.style.display = '';
   label.textContent = cfg.areaLabel;
-  const items = SUBLINKS[cfg.area] || [];
+  const items = (SUBLINKS[cfg.area] || []).filter(it => !(it.hideIfSoon && tiendaProximamente()));
   subLinks.innerHTML = items.map(it => {
     const isActive = it.page && it.page === cfg.subActive;
     const href = it.page === 'cursos' ? '/cursos/' : (it.page ? ('/' + (PAGE_HASH[it.page] || '')) : '/');
@@ -1894,11 +1894,30 @@ function productDestacadoHtml(p) {
     </div>`;
 }
 
+function tiendaProximamente() { return window.PRECISSA_TIENDA_PROXIMAMENTE === true; }
 function renderTienda() {
   const grid = document.getElementById('tienda-grid');
   if (!grid) return;
   const chips = document.getElementById('tienda-filter-chips');
   const meta = document.querySelector('#page-tienda .tienda-meta');
+  const eyebrow = document.getElementById('tienda-eyebrow');
+  const soon = tiendaProximamente();
+  if (eyebrow) eyebrow.textContent = soon ? 'Aparatología · próximamente' : 'Aparatología profesional';
+  if (soon) {
+    if (chips) chips.style.display = 'none';
+    if (meta) meta.style.display = 'none';
+    grid.innerHTML = `
+      <div class="tienda-proximamente">
+        <span class="aula-empty-ico"><i class="ico ico-zap" aria-hidden="true"></i></span>
+        <h3 class="serif">Tienda de aparatología, próximamente</h3>
+        <p>Estamos preparando el catálogo de equipos profesionales que se enseñan en PRECISSA INSTITUTE. Si buscas un equipo concreto para tu cabina, cuéntanoslo y te avisamos cuando esté disponible.</p>
+        <div class="tienda-proximamente-actions">
+          <a class="btn btn-dark btn-sm" href="https://wa.me/34601056706?text=Hola%2C%20me%20interesa%20la%20aparatolog%C3%ADa%20de%20PRECISSA%20INSTITUTE.%20Avisadme%20cuando%20est%C3%A9%20disponible." target="_blank" rel="noopener"><i class="ico ico-wa" aria-hidden="true"></i> Avísame por WhatsApp</a>
+          <button type="button" class="btn btn-outline btn-sm" onclick="goTo('cursos','docencia')">Ver cursos</button>
+        </div>
+      </div>`;
+    return;
+  }
   const few = getPublicProducts().length < 4;
   if (chips) chips.style.display = few ? 'none' : '';
   if (meta) meta.style.display = few ? 'none' : '';
@@ -1932,7 +1951,7 @@ function productCardPublic(p) {
     </div>`;
 }
 
-function goToProducto(id) { window._currentProductId = id; goTo('producto', 'aparatologia'); }
+function goToProducto(id) { if (tiendaProximamente()) { goTo('tienda', 'aparatologia'); return; } window._currentProductId = id; goTo('producto', 'aparatologia'); }
 
 function renderProducto(id) {
   const left  = document.getElementById('producto-left');
@@ -2000,9 +2019,23 @@ function productoSetMain(thumb, url) {
   thumb.classList.add('active');
 }
 
+function applyTiendaProximamente() {
+  const soon = tiendaProximamente();
+  const sec = document.querySelector('.aparatologia-section');
+  if (sec) sec.hidden = soon;
+  const chip = document.getElementById('equipate-chip');
+  if (chip) chip.textContent = soon ? 'Próximamente' : 'Aparatología';
+  const desc = document.getElementById('equipate-desc');
+  if (desc) desc.textContent = soon
+    ? 'Aparatología profesional, muy pronto: el equipo que se enseña en PRECISSA INSTITUTE, disponible para tu cabina.'
+    : 'Aparatología profesional. El equipo que se enseña en PRECISSA INSTITUTE, disponible para tu cabina.';
+  document.querySelectorAll('[data-demo-link]').forEach(el => { el.hidden = soon; el.style.display = soon ? 'none' : 'block'; });
+}
 function renderFeaturedProducts() {
+  applyTiendaProximamente();
   const grid = document.getElementById('home-products-grid');
   if (!grid) return;
+  if (tiendaProximamente()) { grid.innerHTML = ''; return; }
   const list = getPublicProducts().slice(0, 3);
   if (list.length === 0) { grid.innerHTML = ''; return; }
   if (list.length === 1) {
@@ -3411,6 +3444,11 @@ function routeFromHash() {
   }
   // Ruta de producto: #producto/<id>
   if (hash.startsWith('#producto/')) {
+    if (tiendaProximamente()) {
+      try { history.replaceState(null, '', window.location.pathname + '#tienda'); } catch (e) {}
+      _origGoTo('tienda','aparatologia');
+      return;
+    }
     window._currentProductId = decodeURIComponent(hash.substring(10));
     _origGoTo('producto','aparatologia');
     return;
@@ -3432,6 +3470,7 @@ window.addEventListener('popstate', routeFromHash);
 renderDrawerCategorias();
 renderAreasHome();
 renderConvocatorias();
+applyTiendaProximamente();
 routeFromHash();
 if (window.auth && window.auth.init) window.auth.init();
 

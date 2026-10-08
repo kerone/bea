@@ -1,3 +1,9 @@
+/* Interruptor de la tienda. true = modo "Próximamente": la vista #tienda muestra un aviso
+ * con botón de WhatsApp, se oculta "Aparatología destacada" en la home, las fichas
+ * #producto/<id> redirigen a la tienda y desaparece el enlace "Demos". Poner a false
+ * cuando haya equipos disponibles y todo vuelve a funcionar como antes. */
+window.PRECISSA_TIENDA_PROXIMAMENTE = true; // false cuando haya equipos disponibles
+
 /* =============================================================
  * PRECISSA INSTITUTE · Datos por defecto de la tienda (aparatología)
  * -------------------------------------------------------------
