@@ -2777,16 +2777,27 @@ function escapeJs(s) { return escapeAttr(String(s ?? '').replace(/\\/g, '\\\\').
 // ─── HOME · RESEÑAS DE ALUMNAS (desde Supabase) ─────────
 // La sección solo se muestra si hay al menos una reseña real en la BD.
 // Sin Supabase, con error o sin reseñas, queda oculta (hidden), sin hueco.
+// Reseñas reales publicadas en la ficha de Google de PRECISSA INSTITUTE
+// (copiadas el 8 de octubre de 2026 con permiso de la propietaria). Se
+// muestran siempre; si hay reseñas cargadas desde el panel, van primero.
+const GOOGLE_REVIEWS = [
+  { name: 'Yuly Vasquez', quote: 'Quiero agradecer a Beatriz por todo lo que he aprendido en sus clases de aparatología. Es una excelente profesora, con una forma de enseñar muy dinámica y práctica, que hace que aprender resulte fácil y, sobre todo, interesante. Gracias a ella he aprendido a trabajar con láser, depilación láser, IPL y Dermapen, siempre con mucha paciencia y dedicación.' },
+  { name: 'Cristina Sifre Martínez', quote: 'Durante la formación he podido aprender y practicar un montón de cosas: electroestética, diferentes tipos de láser, tratamientos faciales, diatermia, radiofrecuencia y muchos otros tratamientos. Siempre ha tenido muchísima paciencia conmigo, enseñándome desde la práctica y desde su propia experiencia. Sin duda, volvería a formarme contigo una y mil veces.' },
+  { name: 'Aroa Garci', quote: 'He tenido la oportunidad de formarme con ella y la experiencia ha sido excelente. Explica los contenidos de forma muy clara, tiene muchísima paciencia y se nota la gran experiencia que acumula en el sector. La recomiendo a cualquier persona que quiera aprender de una auténtica experta.' }
+].map(r => Object.assign({ google: true, stars: 5 }, r));
+
 async function renderTestimonials() {
   const sec = document.getElementById('testimonials-section');
   const grid = document.getElementById('testimonials-grid');
   if (!sec || !grid) return;
   const ocultar = () => { grid.innerHTML = ''; sec.hidden = true; };
-  if (!window.testimonials || !window.testimonials.isConfigured()) return ocultar();
-  let data;
-  try { data = await window.testimonials.list(); }
-  catch (e) { return ocultar(); }
-  if (!data || data.length === 0) return ocultar();
+  let data = [];
+  if (window.testimonials && window.testimonials.isConfigured()) {
+    try { data = (await window.testimonials.list()) || []; } catch (e) { data = []; }
+  }
+  data = data.concat(GOOGLE_REVIEWS);
+  if (data.length === 0) return ocultar();
+  const estrellas = (n) => `<div class="testimonial-stars" aria-label="${n} de 5 estrellas">${'<i class="ico ico-star" aria-hidden="true"></i>'.repeat(n)}</div>`;
   grid.innerHTML = data.map(t => {
     const nombre = String(t.name || '').trim();
     const img = t.photo_url
@@ -2797,9 +2808,11 @@ async function renderTestimonials() {
     return `
       <div class="testimonial-card">
         ${img}
+        ${t.stars ? estrellas(t.stars) : ''}
         <p class="testimonial-quote">"${escapeHtml(t.quote || '')}"</p>
         <div class="testimonial-name">${escapeHtml(nombre)}</div>
         ${t.centro ? `<div class="testimonial-centro">${escapeHtml(t.centro)}</div>` : ''}
+        ${t.google ? `<a class="testimonial-google" href="https://maps.app.goo.gl/RfxWU2e8j4qnrgg5A" target="_blank" rel="noopener">Reseña en Google</a>` : ''}
       </div>`;
   }).join('');
   sec.hidden = false;

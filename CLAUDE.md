@@ -162,8 +162,9 @@ temporal, solo a quien tiene matrícula (o es admin).
   propia en español bajo el campo (nada de `reportValidity`), dos canales
   (WhatsApp con mensaje prellenado y copia por correo; o solo correo) y
   éxito solo con `res.ok` y `json.success`.
-- Los testimonios de la home solo se muestran con reseñas reales cargadas
-  desde el panel; no hay reseñas de respaldo en el HTML (eran inventadas).
+- Los testimonios de la home son reseñas REALES: las tres de Google están
+  copiadas en `GOOGLE_REVIEWS` (app.js) con fecha; las del panel (Supabase)
+  se añaden delante. Nunca volver a poner reseñas inventadas.
 - Fechas de convocatoria: campo `nextStart` (ISO) en courses-data.js; se
   pinta en tarjetas, catálogo estático, modal y landing. No se publica precio.
 
