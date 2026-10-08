@@ -37,7 +37,7 @@ a:hover { color: var(--ink); }
 
 /* Marca de agua: sello SS gigante semitransparente que rota con el scroll */
 .page-watermark {
-  position: fixed; right: -160px; top: 50%;
+  position: fixed; right: 24px; top: 50%;
   transform: translate3d(0, -50%, 0) rotate(0deg);
   width: 520px; height: 520px;
   border-radius: 50%;
@@ -46,9 +46,10 @@ a:hover { color: var(--ink); }
   z-index: 0;
   will-change: transform;
 }
+html, body { overflow-x: clip; }
 .legal-wrap, .nav, .breadcrumb, .footer { position: relative; z-index: 1; }
 @media (max-width: 720px) {
-  .page-watermark { width: 340px; height: 340px; right: -150px; opacity: 0.07; }
+  .page-watermark { width: 340px; height: 340px; right: max(0px, calc((100vw - 340px) / 2)); opacity: 0.07; }
 }
 .nav-cta { display: inline-flex; padding: 9px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 13px; font-weight: 500; text-decoration: none; transition: background 0.18s; }
 .nav-cta:hover { background: #3a302a; color: var(--bg); }

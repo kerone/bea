@@ -705,6 +705,8 @@ button.drawer-item { background: none; border: 0; border-bottom: 1px solid var(-
   padding: 4px 10px; border-radius: 4px;
 }
 .diptych-dark { background: var(--ink); color: var(--bg); }
+.diptych-dark-img { height: 180px; margin: 18px 0; border-radius: var(--r); overflow: hidden; flex-shrink: 0; }
+.diptych-dark-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 38%; display: block; }
 .diptych-light { background: var(--bg2); color: var(--ink); }
 .diptych-display {
   font-family: var(--serif); font-size: 64px; line-height: 0.95;
@@ -893,9 +895,7 @@ button.drawer-item { background: none; border: 0; border-bottom: 1px solid var(-
 .curso-ctas { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 
 /* Newsletter */
-.newsletter { position: relative; height: 380px; overflow: hidden; }
-.newsletter-bg { width: 100%; height: 100%; }
-.newsletter-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(36,29,23,0.82) 0%, rgba(36,29,23,0.4) 100%); }
+.newsletter { position: relative; height: 380px; overflow: hidden; background: var(--ink); }
 .newsletter-watermark {
   position: absolute; right: -80px; top: 50%;
   width: 520px; height: 520px;
@@ -1025,8 +1025,9 @@ a.footer-nap-line:hover { color: var(--bg); }
         <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
           <span class="chip chip-white">Formación</span>
         </div>
-        <div class="diptych-display">Aprende.</div>
+        <div class="diptych-display">Aprende</div>
         <p class="diptych-desc">Protocolos rigurosos, apuntes descargables y tests que acreditan tu nivel.</p>
+        <div class="diptych-dark-img"><img src="assets/profesora.jpg" alt="" loading="lazy"></div>
         <div class="diptych-sub-grid">
           <div class="diptych-sub-card">
             <div class="diptych-sub-title">Cursos</div>
@@ -1049,7 +1050,7 @@ a.footer-nap-line:hover { color: var(--bg); }
         <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
           <span class="chip chip-outline">Aparatología</span>
         </div>
-        <div class="diptych-display" style="font-family:var(--serif);font-size:64px;letter-spacing:-0.022em;line-height:0.95;margin:16px 0 14px">Equípate.</div>
+        <div class="diptych-display" style="font-family:var(--serif);font-size:64px;letter-spacing:-0.022em;line-height:0.95;margin:16px 0 14px">Equípate</div>
         <p class="diptych-desc" style="color:var(--ink-soft)">Aparatología profesional. El equipo que se enseña en PRECISSA INSTITUTE, disponible para tu cabina.</p>
         <div class="diptych-link">
           <button class="btn btn-outline btn-sm" onclick="goTo('tienda','aparatologia')">Entrar a la tienda <i class="ico ico-arrow" aria-hidden="true"></i></button>
@@ -1175,8 +1176,6 @@ a.footer-nap-line:hover { color: var(--bg); }
 
   <!-- NEWSLETTER -->
   <section class="newsletter">
-    <div class="ph ph-honey newsletter-bg"></div>
-    <div class="newsletter-overlay"></div>
     <img src="assets/seal-ss-lg.webp" alt="" class="newsletter-watermark" aria-hidden="true" loading="lazy">
     <div class="newsletter-content">
       <span class="eyebrow white">Diario PRECISSA INSTITUTE</span>
@@ -2753,6 +2752,25 @@ button.leccion-row { width:100%; font-family:inherit; color:inherit; text-align:
 .tienda-product-bottom { display:flex; align-items:center; justify-content:space-between; }
 .tienda-product-price { font-family:var(--serif); font-size:13.5px; color: var(--accent-dark); }
 .tienda-product-course { font-size:11px; color:var(--muted); border-top:1px solid var(--line); padding-top:10px; margin-top:10px; font-family:var(--serif); }
+.tienda-destacado { grid-column:1/-1; display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); background:var(--surface); border:1px solid var(--line); border-radius:12px; overflow:hidden; position:relative; }
+.tienda-destacado-img { min-height:340px; position:relative; background-size:cover; background-position:center; }
+.tienda-destacado-img.ph { padding:32px; text-align:center; }
+.tienda-destacado-nombre-ph { font-family:var(--serif); font-size:44px; line-height:1.05; letter-spacing:-0.018em; color:#fff; position:relative; }
+.tienda-destacado-body { padding:44px 44px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; }
+.tienda-destacado-name { font-family:var(--serif); font-size:36px; line-height:1.1; letter-spacing:-0.018em; margin:10px 0 12px; }
+.tienda-destacado-name a { color:inherit; text-decoration:none; }
+.tienda-destacado-desc { font-size:14.5px; color:var(--ink-soft); line-height:1.6; margin-bottom:16px; max-width:440px; }
+.tienda-destacado-course { font-size:12.5px; color:var(--muted); font-family:var(--serif); margin-bottom:22px; }
+.tienda-destacado-ctas { display:flex; gap:10px; flex-wrap:wrap; }
+.tienda-destacado-home { max-width:1100px; margin:48px auto 0; }
+.tienda-destacado-home .tienda-destacado { background:var(--bg); }
+@media(max-width:768px){
+  .tienda-destacado { grid-template-columns:1fr; }
+  .tienda-destacado-img { min-height:220px; }
+  .tienda-destacado-body { padding:28px 22px; }
+  .tienda-destacado-name { font-size:28px; }
+}
+@media(max-width:480px){ .tienda-grid { grid-template-columns:1fr; } }
 @media(max-width:768px){
   .tienda-header { padding:32px 20px 0; }
   .filter-chips { padding: 0 20px; top: 64px; gap: 22px; }
@@ -5288,10 +5306,41 @@ function productImgHtml(p, cls, extra) {
 }
 
 let _tiendaFilter = 'todas';
+function productDestacadoHtml(p) {
+  const url = (p.images && p.images[0]) ? p.images[0] : '';
+  const img = url
+    ? `<div class="tienda-destacado-img" style="background-image:url('${escapeAttr(url)}')"></div>`
+    : `<div class="tienda-destacado-img ph ph-clay"><span class="tienda-destacado-nombre-ph" aria-hidden="true">${escapeHtml(p.name)}</span></div>`;
+  const learn = p.relatedCourseLabel ? `<div class="tienda-destacado-course">aprende con · <em>${escapeHtml(p.relatedCourseLabel)}</em></div>` : '';
+  return `
+    <div class="tienda-destacado">
+      ${img}
+      <div class="tienda-destacado-body">
+        ${p.category ? `<span class="chip chip-accent">${escapeHtml(productCatLabel(p.category))}</span>` : ''}
+        <h3 class="tienda-destacado-name"><a href="/#producto/${encodeURIComponent(p.id)}" onclick="goToProducto('${escapeJs(p.id)}');return false">${escapeHtml(p.name)}</a></h3>
+        <p class="tienda-destacado-desc">${escapeHtml(p.shortDescription || '')}</p>
+        ${learn}
+        <div class="tienda-destacado-ctas">
+          <button class="btn btn-dark btn-sm" onclick="openQuoteForm('${escapeJs(p.name)}')">Pedir precio</button>
+          <button class="btn btn-outline btn-sm" onclick="openDemoForm('${escapeJs(p.name)}')">Solicitar demo</button>
+        </div>
+      </div>
+    </div>`;
+}
+
 function renderTienda() {
   const grid = document.getElementById('tienda-grid');
   if (!grid) return;
   const chips = document.getElementById('tienda-filter-chips');
+  const meta = document.querySelector('#page-tienda .tienda-meta');
+  const few = getPublicProducts().length < 4;
+  if (chips) chips.style.display = few ? 'none' : '';
+  if (meta) meta.style.display = few ? 'none' : '';
+  if (few) {
+    const all = getPublicProducts();
+    grid.innerHTML = all.length ? all.map(productDestacadoHtml).join('') : '<div class="adm-no-results" style="grid-column:1/-1">No hay equipos disponibles.</div>';
+    return;
+  }
   const cats = getProductCategories();
   if (chips) {
     chips.innerHTML = [`<button type="button" class="filter-chip${_tiendaFilter === 'todas' ? ' active' : ''}" aria-pressed="${_tiendaFilter === 'todas'}" onclick="filterTienda(this,'todas')">Todas</button>`]
@@ -5365,7 +5414,7 @@ function renderProducto(id) {
     <div class="producto-precio-row"><span class="producto-precio serif">${escapeHtml(p.price || 'Consultar precio')}</span></div>
     ${p.priceNote ? `<div class="producto-precio-nota">${escapeHtml(p.priceNote)}</div>` : '<div style="margin-bottom:18px"></div>'}
     <div class="producto-ctas">
-      <button class="btn btn-dark" onclick="openQuoteForm('${escapeJs(p.name)}')">Pedir presupuesto</button>
+      <button class="btn btn-dark" onclick="openQuoteForm('${escapeJs(p.name)}')">Pedir precio</button>
       <button class="btn btn-outline" onclick="openDemoForm('${escapeJs(p.name)}')">Solicitar demo</button>
     </div>
     ${aprende}
@@ -5390,6 +5439,12 @@ function renderFeaturedProducts() {
   if (!grid) return;
   const list = getPublicProducts().slice(0, 3);
   if (list.length === 0) { grid.innerHTML = ''; return; }
+  if (list.length === 1) {
+    grid.className = 'tienda-destacado-home';
+    grid.innerHTML = productDestacadoHtml(list[0]);
+    return;
+  }
+  grid.className = 'products-grid';
   grid.innerHTML = list.map(p => `
     <div class="product-card">
       ${productImgHtml(p, 'product-img', p.relatedCourseLabel ? '<span class="product-learn-chip">Aprende a usarlo</span>' : '')}

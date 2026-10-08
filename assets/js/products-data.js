@@ -37,8 +37,8 @@
       description: 'Radiofrecuencia tripolar con sensor de impedancia en tiempo real. Control preciso de temperatura en dermis para tratamientos de lifting y remodelación facial.',
       price: 'Consultar precio',
       priceNote: 'Envío peninsular incluido · Garantía 3 años · Formación incluida',
-      relatedCourseId: '',
-      relatedCourseLabel: 'Radiofrecuencia facial profesional',
+      relatedCourseId: 'vacuum-cavitacion-radiofrecuencia',
+      relatedCourseLabel: 'Vacuum · Cavitación · Radiofrecuencia corporal',
       images: [],
       specs: [
         { k: 'Frecuencia',    v: '1 – 3 MHz' },
