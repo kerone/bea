@@ -1,0 +1,351 @@
+[
+  {
+    "captura": "movil-home",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 0,
+    "cortados": [],
+    "fuera": [
+      "div.nav-mobile-right",
+      "button.btn",
+      "img.newsletter-watermark"
+    ],
+    "h1": 1,
+    "alto": 11877
+  },
+  {
+    "captura": "movil-cursos",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 0,
+    "cortados": [],
+    "fuera": [],
+    "h1": 1,
+    "alto": 7738
+  },
+  {
+    "captura": "movil-landing-plasmapen",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 0,
+    "cortados": [],
+    "fuera": [],
+    "h1": 1,
+    "alto": 5820
+  },
+  {
+    "captura": "movil-landing-microblading",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 0,
+    "cortados": [],
+    "fuera": [],
+    "h1": 1,
+    "alto": 6948
+  },
+  {
+    "captura": "movil-sobre",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 1,
+    "cortados": [],
+    "fuera": [],
+    "h1": 1,
+    "alto": 1679
+  },
+  {
+    "captura": "movil-aviso-legal",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 1,
+    "cortados": [],
+    "fuera": [],
+    "h1": 1,
+    "alto": 3849
+  },
+  {
+    "captura": "movil-spa-curso-plasmapen",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 0,
+    "cortados": [],
+    "fuera": [
+      "div.nav-mobile-right",
+      "button.btn",
+      "img.newsletter-watermark"
+    ],
+    "h1": 1,
+    "alto": 11877
+  },
+  {
+    "captura": "movil-spa-tienda",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 0,
+    "cortados": [],
+    "fuera": [
+      "div.nav-mobile-right",
+      "button.btn",
+      "span.filter-chip"
+    ],
+    "h1": 1,
+    "alto": 1046
+  },
+  {
+    "captura": "movil-spa-aula-login",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 0,
+    "cortados": [],
+    "fuera": [
+      "div.nav-mobile-right",
+      "button.btn"
+    ],
+    "h1": 1,
+    "alto": 812
+  },
+  {
+    "captura": "movil-estado-menu-abierto",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 0,
+    "cortados": [],
+    "fuera": [
+      "div.nav-mobile-right",
+      "button.btn",
+      "img.newsletter-watermark"
+    ],
+    "h1": 1,
+    "alto": 11877
+  },
+  {
+    "captura": "movil-estado-form-spa-error",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 7,
+    "cortados": [],
+    "fuera": [
+      "div.nav-mobile-right",
+      "button.btn",
+      "button.cursos-pub-filter",
+      "button.cursos-pub-filter"
+    ],
+    "h1": 1,
+    "alto": 12632
+  },
+  {
+    "captura": "movil-estado-form-spa-exito",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 7,
+    "cortados": [],
+    "fuera": [
+      "div.nav-mobile-right",
+      "button.btn",
+      "button.cursos-pub-filter",
+      "button.cursos-pub-filter"
+    ],
+    "h1": 1,
+    "alto": 12632
+  },
+  {
+    "captura": "movil-estado-form-landing-error",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 0,
+    "cortados": [],
+    "fuera": [],
+    "h1": 1,
+    "alto": 5822
+  },
+  {
+    "captura": "movil-estado-form-landing-exito",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 0,
+    "cortados": [],
+    "fuera": [],
+    "h1": 1,
+    "alto": 5441
+  },
+  {
+    "captura": "movil-estado-faq",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 0,
+    "cortados": [],
+    "fuera": [],
+    "h1": 1,
+    "alto": 5820
+  },
+  {
+    "captura": "movil-estado-foco-teclado",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 0,
+    "cortados": [],
+    "fuera": [
+      "div.nav-mobile-right",
+      "button.btn",
+      "img.newsletter-watermark"
+    ],
+    "h1": 1,
+    "alto": 11877
+  },
+  {
+    "captura": "pc-home",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 1,
+    "cortados": [],
+    "fuera": [
+      "img.newsletter-watermark"
+    ],
+    "h1": 1,
+    "alto": 7208
+  },
+  {
+    "captura": "pc-cursos",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 0,
+    "cortados": [],
+    "fuera": [],
+    "h1": 1,
+    "alto": 5961
+  },
+  {
+    "captura": "pc-landing-plasmapen",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 0,
+    "cortados": [],
+    "fuera": [],
+    "h1": 1,
+    "alto": 5109
+  },
+  {
+    "captura": "pc-landing-microblading",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 0,
+    "cortados": [],
+    "fuera": [],
+    "h1": 1,
+    "alto": 5428
+  },
+  {
+    "captura": "pc-sobre",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 1,
+    "cortados": [],
+    "fuera": [],
+    "h1": 1,
+    "alto": 1327
+  },
+  {
+    "captura": "pc-aviso-legal",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 1,
+    "cortados": [],
+    "fuera": [],
+    "h1": 1,
+    "alto": 2830
+  },
+  {
+    "captura": "pc-spa-curso-plasmapen",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 1,
+    "cortados": [],
+    "fuera": [
+      "img.newsletter-watermark"
+    ],
+    "h1": 1,
+    "alto": 7208
+  },
+  {
+    "captura": "pc-spa-tienda",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 0,
+    "cortados": [],
+    "fuera": [],
+    "h1": 1,
+    "alto": 936
+  },
+  {
+    "captura": "pc-spa-aula-login",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 0,
+    "cortados": [],
+    "fuera": [],
+    "h1": 1,
+    "alto": 900
+  },
+  {
+    "captura": "pc-estado-form-spa-error",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 19,
+    "cortados": [],
+    "fuera": [],
+    "h1": 1,
+    "alto": 5620
+  },
+  {
+    "captura": "pc-estado-form-spa-exito",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 19,
+    "cortados": [],
+    "fuera": [],
+    "h1": 1,
+    "alto": 5620
+  },
+  {
+    "captura": "pc-estado-form-landing-error",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 0,
+    "cortados": [],
+    "fuera": [],
+    "h1": 1,
+    "alto": 5112
+  },
+  {
+    "captura": "pc-estado-form-landing-exito",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 0,
+    "cortados": [],
+    "fuera": [],
+    "h1": 1,
+    "alto": 4731
+  },
+  {
+    "captura": "pc-estado-faq",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 0,
+    "cortados": [],
+    "fuera": [],
+    "h1": 1,
+    "alto": 5109
+  },
+  {
+    "captura": "pc-estado-foco-teclado",
+    "hscroll": 0,
+    "deformadas": [],
+    "sinAlt": 1,
+    "cortados": [],
+    "fuera": [
+      "img.newsletter-watermark"
+    ],
+    "h1": 1,
+    "alto": 7208
+  }
+]
