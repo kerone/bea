@@ -133,7 +133,7 @@
   "name": "PRECISSA INSTITUTE",
   "alternateName": "PRECISSA",
   "url": "https://precissainstitute.com/",
-  "logo": "https://precissainstitute.com/assets/og-image.jpg",
+  "logo": "https://precissainstitute.com/assets/seal-ss-lg.webp",
   "image": "https://precissainstitute.com/assets/og-image.jpg",
   "description": "Academia de estética avanzada especializada en Plasmapen y electroestética en Valencia.",
   "telephone": "+34601056706",
@@ -274,6 +274,8 @@
   --line-strong:  rgba(36,29,23,0.18);
   --serif: 'Instrument Serif', serif;
   --sans:  'Manrope', sans-serif;
+  --r: 12px;
+  --r-sm: 4px;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -284,17 +286,17 @@ a { color: inherit; text-decoration: none; }
 .footer :focus-visible, .contact :focus-visible, .lp-field :focus-visible { outline-color: var(--bg); }
 
 .nav { position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 1px solid var(--line); }
-.nav-inner { max-width: 1100px; margin: 0 auto; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.nav-inner { max-width: 920px; margin: 0 auto; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .nav-logo { font-family: var(--serif); font-size: 22px; letter-spacing: 0.14em; line-height: 1; }
 .nav-logo-sub { display: block; font-family: var(--sans); font-size: 9px; font-weight: 500; letter-spacing: 0.10em; color: var(--muted); margin-top: 6px; }
-.nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 13px; font-weight: 500; transition: background 0.18s; white-space: nowrap; flex-shrink: 0; }
+.nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 13px; font-weight: 500; transition: background 0.18s; white-space: nowrap; flex-shrink: 0; }
 .nav-cta:hover { background: #3a302a; }
 
 .breadcrumb { max-width: 920px; margin: 0 auto; padding: 18px 32px 0; font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
 .breadcrumb a:hover { color: var(--accent); }
 .breadcrumb-sep { margin: 0 8px; color: var(--line-strong); }
 
-.eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 16px; }
+.eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 16px; }
 .eyebrow-muted { color: var(--muted); }
 .section-alt .eyebrow-muted { color: var(--ink-soft); }
 .section-alt ul.clean li span { color: var(--ink-soft); }
@@ -306,7 +308,7 @@ h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(38px, 6vw, 64
 h1 em { font-style: italic; color: var(--accent-dark); }
 .hero-lede { font-size: 17px; line-height: 1.55; color: var(--ink-soft); max-width: 680px; margin-bottom: 28px; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
-.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 999px; font-size: 14px; font-weight: 500; transition: background 0.18s, transform 0.12s; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border-radius: 999px; font-size: 14px; font-weight: 500; transition: background 0.18s, transform 0.12s; }
 .btn:hover { transform: translateY(-1px); }
 .btn-dark { background: var(--ink); color: var(--bg); }
 .btn-dark:hover { background: #3a302a; }
@@ -328,11 +330,11 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 .section-alt { background: var(--bg2); }
 .section-alt section { padding: 56px 32px; }
 
-.ficha { background: var(--ink); color: var(--bg); padding: 32px; border-radius: 10px; margin-top: 22px; }
+.ficha { background: var(--ink); color: var(--bg); padding: 32px; border-radius: var(--r); margin-top: 22px; }
 .ficha-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px 36px; }
 @media (max-width: 640px) { .ficha-grid { grid-template-columns: 1fr; } }
 .ficha-row .label { font-size: 10.5px; letter-spacing: 0.20em; text-transform: uppercase; color: rgba(242,236,227,0.65); margin-bottom: 4px; font-weight: 500; }
-.ficha-row .value { font-family: var(--serif); font-size: 18px; color: var(--bg); line-height: 1.3; font-style: italic; }
+.ficha-row .value { font-family: var(--serif); font-size: 18px; color: var(--bg); line-height: 1.3; font-style: normal; }
 
 .faq-item { border-bottom: 1px solid var(--line); padding: 18px 0; }
 .faq-item:first-child { padding-top: 4px; }
@@ -345,7 +347,7 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 .contact h2 { color: var(--bg); }
 .contact h2 em { color: var(--accent-soft); }
 .contact p { color: rgba(242,236,227,0.8); font-size: 16px; margin-bottom: 22px; }
-.contact-phone { font-family: var(--serif); font-style: italic; font-size: 30px; color: var(--bg); display: inline-block; margin: 8px 0; }
+.contact-phone { font-family: var(--serif); font-style: normal; font-size: 30px; color: var(--bg); display: inline-block; margin: 8px 0; }
 .contact-phone:hover { color: var(--accent-soft); }
 .contact-meta { margin-top: 24px; font-size: 13px; color: rgba(242,236,227,0.65); letter-spacing: 0.04em; }
 
@@ -370,14 +372,14 @@ ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-
 /* ─── Formulario de solicitud de información (bloque contacto) ─── */
 .lp-form { max-width: 460px; margin: 26px auto 0; text-align: left; display: flex; flex-direction: column; gap: 14px; }
 .lp-field span { display: block; font-size: 12px; letter-spacing: 0.04em; margin-bottom: 6px; color: rgba(242,236,227,0.75); }
-.lp-field input, .lp-field textarea { width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px solid rgba(242,236,227,0.25); background: rgba(242,236,227,0.08); color: #F2ECE3; font-family: var(--sans); font-size: 16px; }
+.lp-field input, .lp-field textarea { width: 100%; padding: 12px 14px; border-radius: var(--r); border: 1px solid rgba(242,236,227,0.25); background: rgba(242,236,227,0.08); color: #F2ECE3; font-family: var(--sans); font-size: 16px; }
 .lp-field input:focus, .lp-field textarea:focus { border-color: rgba(242,236,227,0.7); box-shadow: 0 0 0 3px rgba(242,236,227,0.12); }
 .lp-field input:focus-visible, .lp-field textarea:focus-visible { outline: 2px solid var(--bg); outline-offset: 2px; }
 .lp-field textarea { resize: vertical; }
 .lp-rgpd { display: flex; gap: 8px; align-items: flex-start; font-size: 12px; color: rgba(242,236,227,0.7); line-height: 1.5; }
 .lp-rgpd input { margin-top: 2px; }
 .lp-rgpd a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
-.lp-submit { padding: 14px 24px; border: 0; border-radius: 999px; background: var(--bg); color: var(--ink); font-family: var(--sans); font-weight: 600; font-size: 14px; letter-spacing: 0.02em; cursor: pointer; transition: transform 0.12s; }
+.lp-submit { padding: 14px 24px; border: 0; border-radius: 999px; background: var(--bg); color: var(--ink); font-family: var(--sans); font-weight: 500; font-size: 14px; cursor: pointer; transition: transform 0.12s; }
 .lp-submit:hover { transform: translateY(-1px); }
 .lp-submit:disabled { opacity: 0.6; cursor: wait; transform: none; }
 .lp-status { font-size: 13px; min-height: 18px; color: rgba(242,236,227,0.85); text-align: center; }

@@ -246,7 +246,7 @@
   --ink: #241D17; --ink-soft: #544A40; --muted: #726A5D;
   --accent: #A86B4E; --accent-dark: #7E4C36;
   --line: rgba(36,29,23,0.10); --line-strong: rgba(36,29,23,0.18);
-  --serif: 'Instrument Serif', serif; --sans: 'Manrope', sans-serif;
+  --serif: 'Instrument Serif', serif; --sans: 'Manrope', sans-serif; --r: 12px; --r-sm: 4px;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
@@ -255,14 +255,14 @@ a { color: inherit; text-decoration: none; }
 :focus:not(:focus-visible) { outline: none; }
 .footer :focus-visible, .contact :focus-visible, .lp-field :focus-visible { outline-color: var(--bg); }
 .nav { position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 1px solid var(--line); }
-.nav-inner { max-width: 1100px; margin: 0 auto; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.nav-inner { max-width: 920px; margin: 0 auto; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .nav-logo { font-family: var(--serif); font-size: 22px; letter-spacing: 0.14em; line-height: 1; }
 .nav-logo-sub { display: block; font-family: var(--sans); font-size: 10px; font-weight: 500; letter-spacing: 0.10em; color: var(--muted); margin-top: 6px; }
-.nav-cta { display: inline-flex; align-items: center; padding: 10px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 13px; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+.nav-cta { display: inline-flex; align-items: center; padding: 9px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 13px; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
 .breadcrumb { max-width: 920px; margin: 0 auto; padding: 18px 32px 0; font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
 .breadcrumb a:hover { color: var(--accent); }
 .breadcrumb-sep { margin: 0 8px; color: var(--line-strong); }
-.eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 14px; }
+.eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 14px; }
 .eyebrow-muted { color: var(--muted); }
 main { max-width: 920px; margin: 0 auto; padding: 40px 32px 64px; }
 h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(38px, 6vw, 58px); line-height: 1.05; letter-spacing: -0.02em; margin: 16px 0 14px; }
@@ -274,7 +274,7 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(26px, 4vw, 34
 .cat-lede { font-size: 14.5px; color: var(--ink-soft); margin: 6px 0 4px; }
 .cat-lede a { color: var(--accent-dark); text-decoration: underline; text-underline-offset: 3px; }
 .course-list { list-style: none; margin-top: 14px; }
-.course-item { display: block; padding: 16px 8px; border-bottom: 1px solid var(--line); transition: background 0.15s; border-radius: 6px; }
+.course-item { display: block; padding: 16px 8px; border-bottom: 1px solid var(--line); transition: background 0.15s; border-radius: var(--r-sm); }
 .course-item:hover { background: rgba(168,107,78,0.06); }
 .course-title { display: block; font-family: var(--serif); font-size: 21px; letter-spacing: -0.01em; }
 .course-item:hover .course-title { color: var(--accent-dark); }
@@ -283,7 +283,7 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(26px, 4vw, 34
 .contact { background: var(--ink); color: var(--bg); padding: 52px 32px; text-align: center; margin-top: 48px; border-radius: 12px; }
 .contact h2 { color: var(--bg); }
 .contact p { color: rgba(242,236,227,0.8); margin: 8px 0 16px; }
-.contact-phone { font-family: var(--serif); font-style: italic; font-size: 28px; color: var(--bg); }
+.contact-phone { font-family: var(--serif); font-style: normal; font-size: 28px; color: var(--bg); }
 .footer { background: var(--bg2); padding: 30px 32px; font-size: 13px; color: var(--ink-soft); margin-top: 56px; }
 .footer-inner { max-width: 920px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
 .footer a:hover { color: var(--accent); }
@@ -299,7 +299,7 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(26px, 4vw, 34
 .info-block { padding: 34px 0 8px; border-top: 1px solid var(--line); margin-top: 34px; }
 .info-block h2 { margin-bottom: 12px; }
 .info-block p { font-size: 15px; color: var(--ink-soft); line-height: 1.65; max-width: 720px; margin-bottom: 12px; }
-.faq-item { background: var(--bg2); border-radius: 10px; padding: 18px 22px; margin-top: 12px; }
+.faq-item { background: var(--bg2); border-radius: var(--r); padding: 18px 22px; margin-top: 12px; }
 .faq-q { font-family: var(--serif); font-size: 18.5px; margin-bottom: 6px; }
 .faq-a { font-size: 14px; color: var(--ink-soft); line-height: 1.6; }
 .faq-a a, .info-block p a { color: var(--accent-dark); text-decoration: underline; text-underline-offset: 3px; }
@@ -335,7 +335,7 @@ main:focus { outline: none; }
   <p class="lede">Formación profesional de estética para esteticistas y futuras especialistas: 23 cursos de aparatología, Plasmapen, micropigmentación, dermocosmiatría y técnicas corporales. Formación presencial en Valencia, con prácticas tuteladas y certificación.</p>
 
 <section class="cat">
-  <div class="eyebrow eyebrow-muted">Dermocosmiatría, cosmetología y servicios de cabina facial.</div>
+  <div class="eyebrow eyebrow-muted">Dermocosmiatría, cosmetología y servicios de cabina facial</div>
   <h2>Estética Facial Avanzada</h2>
   <ul class="course-list">
     <li>
@@ -384,7 +384,7 @@ main:focus { outline: none; }
 </section>
 
 <section class="cat">
-  <div class="eyebrow eyebrow-muted">Aparatología facial y corporal · luz, energía y mecánica controlada.</div>
+  <div class="eyebrow eyebrow-muted">Aparatología facial y corporal · luz, energía y mecánica controlada</div>
   <h2>Electroestética</h2>
   <p class="cat-lede">¿Quieres la visión completa de la aparatología? Mira el <a href="/cursos/electroestetica-valencia/"><strong>curso de Electroestética en Valencia</strong></a>.</p>
   <ul class="course-list">
@@ -455,7 +455,7 @@ main:focus { outline: none; }
 </section>
 
 <section class="cat">
-  <div class="eyebrow eyebrow-muted">Pigmentación profesional de cejas, labios y eyeliner.</div>
+  <div class="eyebrow eyebrow-muted">Pigmentación profesional de cejas, labios y eyeliner</div>
   <h2>Micropigmentación</h2>
   <ul class="course-list">
     <li>
@@ -490,7 +490,7 @@ main:focus { outline: none; }
 </section>
 
 <section class="cat">
-  <div class="eyebrow eyebrow-muted">Técnicas manuales y combinadas de modelado, drenaje y relajación.</div>
+  <div class="eyebrow eyebrow-muted">Técnicas manuales y combinadas de modelado, drenaje y relajación</div>
   <h2>Corporal y Bienestar</h2>
   <ul class="course-list">
     <li>

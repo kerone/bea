@@ -59,7 +59,7 @@
   "name": "PRECISSA INSTITUTE",
   "alternateName": "PRECISSA",
   "url": "https://precissainstitute.com/",
-  "logo": "https://precissainstitute.com/assets/og-image.jpg",
+  "logo": "https://precissainstitute.com/assets/seal-ss-lg.webp",
   "image": "https://precissainstitute.com/assets/og-image.jpg",
   "slogan": "Especialistas en Plasmapen y electroestética · Academia de estética avanzada en Valencia",
   "description": "Academia de estética avanzada y electroestética especializada en Plasmapen. Formación en micropigmentación, dermocosmiatría, técnicas corporales y aparatología médico-estética. Centro físico en Valencia.",
@@ -135,7 +135,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ─── TOKENS ─────────────────────────────────────────── */
 :root {
@@ -179,6 +179,7 @@
 
 /* ─── RESET ──────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+h1, h2, h3, h4 { font-weight: 400; }
 html { scroll-behavior: smooth; }
 body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 img { display: block; max-width: 100%; }
@@ -197,8 +198,8 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .serif { font-family: var(--serif); }
 .eyebrow {
   font-family: var(--sans);
-  font-size: 10.5px;
-  font-weight: 500;
+  font-size: 11px;
+  font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--muted);
@@ -218,7 +219,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .ph-charcoal { background: linear-gradient(160deg,#4a4540 0%,#2a2520 100%); }
 .ph-label {
   position: absolute; bottom: 14px; left: 14px;
-  font-family: var(--serif); font-style: italic;
+  font-family: var(--serif);
   font-size: 10.5px; color: rgba(255,255,255,0.75);
   letter-spacing: 0.04em; text-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
@@ -227,15 +228,13 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 14px 24px; border-radius: 999px;
-  font-family: var(--sans); font-size: 13.5px; font-weight: 500;
+  font-family: var(--sans); font-size: 14px; font-weight: 500;
   transition: background 0.18s, color 0.18s, border-color 0.18s, transform 0.12s;
   white-space: nowrap;
 }
 .btn:hover { transform: translateY(-1px); }
 .btn-dark { background: var(--ink); color: var(--bg); }
 .btn-dark:hover { background: #3a302a; }
-.btn-clay { background: var(--accent-dark); color: #fff; } /* accent puro daba 4,3:1 con blanco */
-.btn-clay:hover { background: var(--accent-dark); }
 .btn-outline {
   background: transparent; color: var(--ink);
   border: 1px solid var(--line-strong);
@@ -256,14 +255,14 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
 .btn-text-white:hover { color: rgba(255,255,255,0.8); }
 .btn-light { background: var(--bg); color: var(--ink); }
 .btn-light:hover { background: var(--surface); }
-.btn-sm { padding: 9px 18px; font-size: 12.5px; }
+.btn-sm { padding: 9px 18px; font-size: 13px; }
 
 /* ─── CHIPS ──────────────────────────────────────────── */
 .chip {
   display: inline-flex; align-items: center;
   padding: 4px 10px; border-radius: 999px;
-  font-size: 10.5px; font-weight: 500;
-  letter-spacing: 0.24em; text-transform: uppercase;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
   white-space: nowrap;
 }
 .chip-outline { border: 1px solid var(--line-strong); color: var(--ink); }
@@ -490,7 +489,7 @@ button { cursor: pointer; font-family: var(--sans); border: none; background: no
   display: flex; flex-direction: column; gap: 6px;
 }
 .drawer-close { align-self: flex-end; font-size: 22px; display:inline-flex; align-items:center; justify-content:center; min-width:44px; min-height:44px; margin:-10px -10px 6px 0; cursor: pointer; }
-.drawer-section { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); font-weight: 800; margin: 18px 0 6px; }
+.drawer-section { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin: 18px 0 6px; }
 .drawer-item { font-size: 16px; font-weight: 400; color: var(--ink); padding: 8px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
 button.drawer-item { background: none; border: 0; border-bottom: 1px solid var(--line); font-family: inherit; text-align: left; width: 100%; }
 .drawer-meta { font-size:12px; color:var(--muted); text-align:center; margin-top:6px; }
@@ -699,7 +698,7 @@ button.drawer-item { background: none; border: 0; border-bottom: 1px solid var(-
 .diptych-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .diptych-img-cap {
   position: absolute; bottom: 12px; left: 14px;
-  font-family: var(--serif); font-style: italic; font-size: 11.5px;
+  font-family: var(--serif); font-size: 11.5px;
   letter-spacing: 0.04em;
   color: rgba(255,255,255,0.92);
   background: rgba(36,29,23,0.55);
@@ -784,7 +783,7 @@ button.drawer-item { background: none; border: 0; border-bottom: 1px solid var(-
 .enfoque-lede { font-size: 16.5px; line-height: 1.65; color: var(--ink-soft); max-width: 720px; }
 .enfoque-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 1200px; margin: 0 auto; }
 .enfoque-card { border-top: 1px solid var(--line-strong); padding-top: 24px; }
-.enfoque-num { font-family: var(--serif); font-style: italic; font-size: 30px; color: var(--accent-dark); margin-bottom: 14px; line-height: 1; }
+.enfoque-num { font-family: var(--serif); font-size: 30px; color: var(--accent-dark); margin-bottom: 14px; line-height: 1; }
 .enfoque-card-h { font-family: var(--serif); font-size: 22px; line-height: 1.22; letter-spacing: -0.012em; margin: 0 0 12px; font-weight: 400; }
 .enfoque-card-h em { font-style: italic; }
 .enfoque-card-d { font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); }
@@ -807,7 +806,7 @@ button.drawer-item { background: none; border: 0; border-bottom: 1px solid var(-
   line-height: 1;
 }
 .area-card-body { padding: 22px; }
-.area-cat { font-size: 11px; color: var(--muted); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px; }
+.area-cat { font-size: 11px; color: var(--muted); letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 6px; }
 .area-title { font-family: var(--serif); font-size: 28px; letter-spacing: -0.01em; line-height: 1.15; margin-bottom: 10px; }
 .area-desc { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; margin-bottom: 18px; }
 
@@ -867,8 +866,8 @@ button.drawer-item { background: none; border: 0; border-bottom: 1px solid var(-
 .product-name { font-family: var(--serif); font-size: 19px; line-height: 1.2; margin: 6px 0 8px; }
 .product-desc { font-size: 12.5px; color: var(--ink-soft); line-height: 1.5; margin-bottom: 12px; }
 .product-price-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
-.product-price { font-family: var(--serif); font-size: 15.5px; color: var(--accent-dark); font-style: italic; letter-spacing: 0; }
-.product-footer { font-size: 11px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px; font-family: var(--serif); font-style: italic; }
+.product-price { font-family: var(--serif); font-size: 15.5px; color: var(--accent-dark); letter-spacing: 0; }
+.product-footer { font-size: 11px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px; font-family: var(--serif); }
 
 /* Testimonios */
 .testimonials { background: var(--surface); padding: 96px 56px; }
@@ -926,12 +925,8 @@ button.drawer-item { background: none; border: 0; border-bottom: 1px solid var(-
 .newsletter-input:focus { border-color: rgba(255,255,255,0.7); box-shadow: 0 0 0 3px rgba(255,255,255,0.15); }
 .newsletter-input:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 .newsletter-btn {
-  padding: 14px 24px; background: var(--accent-dark); color: #fff;
-  border: none; border-radius: 0 999px 999px 0; font-family: var(--sans);
-  font-size: 13.5px; font-weight: 500; cursor: pointer;
-  transition: background 0.18s;
+  border: none; border-radius: 0 999px 999px 0; cursor: pointer;
 }
-.newsletter-btn:hover { background: var(--ink); }
 .newsletter-thanks { font-family: var(--serif); font-style: italic; font-size: 22px; color: #fff; display: none; }
 
 /* Footer */
@@ -950,7 +945,7 @@ button.drawer-item { background: none; border: 0; border-bottom: 1px solid var(-
 .footer-nap-line svg { flex-shrink: 0; margin-top: 3px; opacity: 0.65; }
 a.footer-nap-line:hover { color: var(--bg); }
 .footer-nap-hours { color: rgba(242,236,227,0.65); }
-.footer-col-title { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: rgba(242,236,227,0.65); margin-bottom: 16px; }
+.footer-col-title { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 600; color: rgba(242,236,227,0.65); margin-bottom: 16px; }
 .footer-link { font-size: 13.5px; color: rgba(242,236,227,0.7); display: block; margin-bottom: 8px; cursor: pointer; transition: color 0.15s; }
 .footer-link:hover { color: var(--bg); }
 @media (max-width: 768px) {
@@ -1022,7 +1017,7 @@ a.footer-nap-line:hover { color: var(--bg); }
   <section class="diptych">
     <div class="diptych-header">
       <span class="eyebrow">Una escuela, dos mundos</span>
-      <h2 class="diptych-h2">Aprende el protocolo.<br>Compra la máquina.</h2>
+      <h2 class="diptych-h2">Aprende el protocolo.<br>Compra la máquina</h2>
     </div>
     <div class="diptych-grid">
       <!-- Docencia -->
@@ -1093,7 +1088,7 @@ a.footer-nap-line:hover { color: var(--bg); }
   <section class="enfoque">
     <div class="enfoque-intro">
       <span class="eyebrow accent">Nuestro enfoque</span>
-      <h2 class="enfoque-h2">Aprende haciendo.<br>Entiende practicando.</h2>
+      <h2 class="enfoque-h2">Aprende haciendo.<br>Entiende practicando</h2>
       <p class="enfoque-lede">PRECISSA INSTITUTE introduce una <em>innovación pedagógica</em> en la formación en estética: la teoría ya no precede a la práctica, emerge de ella. No estudias para algún día aplicarla — la descubres cuando tus manos la necesitan. Cada concepto llega en el momento exacto: sobre piel real, con la profesora al lado, con el resultado a la vista.</p>
     </div>
     <div class="enfoque-grid">
@@ -1185,10 +1180,10 @@ a.footer-nap-line:hover { color: var(--bg); }
     <img src="assets/seal-ss-lg.webp" alt="" class="newsletter-watermark" aria-hidden="true" loading="lazy">
     <div class="newsletter-content">
       <span class="eyebrow white">Diario PRECISSA INSTITUTE</span>
-      <h2 class="newsletter-h2">Suscríbete al diario<br>de cabina. Protocolos,<br>fichas y ofertas en<br>aparatología.</h2>
+      <h2 class="newsletter-h2">Suscríbete al diario<br>de cabina. Protocolos,<br>fichas y ofertas en<br>aparatología</h2>
       <div class="newsletter-form" id="newsletter-form">
         <input class="newsletter-input" type="email" placeholder="tu@email.com" aria-label="Tu email para el newsletter">
-        <button class="newsletter-btn" onclick="submitNewsletter()">Suscribirme</button>
+        <button class="btn btn-light newsletter-btn" onclick="submitNewsletter()">Suscribirme</button>
       </div>
       <div class="newsletter-thanks" id="newsletter-thanks">Gracias · revisa tu bandeja</div>
     </div>
@@ -1304,14 +1299,12 @@ a.footer-nap-line:hover { color: var(--bg); }
 .cursos-pub-card-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .cursos-pub-card-cover-fallback { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-style: italic; font-size: 28px; color: var(--muted); }
 .cursos-pub-card-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
-.cursos-pub-card-tag { font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 10px; }
+.cursos-pub-card-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 10px; }
 .cursos-pub-card-title { font-family: var(--serif); font-size: 23px; line-height: 1.15; margin-bottom: 8px; }
 .cursos-pub-card-desc { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .cursos-pub-card-meta { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--ink-soft); margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); }
 .cursos-pub-card-meta span + span::before { content: '·'; color: var(--muted); margin-right: 8px; }
-.cursos-pub-card-cta { margin-top: 14px; padding: 10px 18px; display:inline-flex; align-items:center; gap:7px; background: var(--ink); color: var(--bg); border: none; border-radius: 999px; font-family: var(--sans); font-size: 12.5px; font-weight: 600; letter-spacing: 0.03em; cursor: pointer; transition: background 0.15s, transform 0.1s; }
-.cursos-pub-card-cta:hover { background: var(--accent-dark, var(--accent)); }
-.cursos-pub-card-cta:active { transform: scale(0.98); }
+.cursos-pub-card-cta { margin-top: 14px; cursor: pointer; border: none; }
 .cursos-pub-card-cta--enrolled { background: var(--accent-dark); }
 .cursos-pub-card-cta--enrolled:hover { background: var(--ink); }
 .cursos-pub-cta { background: var(--ink); color: var(--bg); padding: 56px; border-radius: 12px; margin-top: 64px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
@@ -1422,7 +1415,7 @@ a.footer-nap-line:hover { color: var(--bg); }
 .aula-category-head { margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
 .aula-category-title { font-family: var(--serif); font-size: 26px; line-height: 1.1; letter-spacing: -0.01em; margin: 0 0 4px; }
 .aula-category-tagline { font-size: 12.5px; color: var(--ink-soft); margin: 0; }
-.aula-category-count { font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 6px; display: block; }
+.aula-category-count { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 6px; display: block; }
 .aula-category-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }
 .aula-course-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; cursor: pointer; transition: transform 0.18s, box-shadow 0.18s; display: flex; flex-direction: column; position: relative; }
 .aula-course-card a.aula-course-link { color: inherit; text-decoration: none; }
@@ -2749,8 +2742,8 @@ button.leccion-row { width:100%; font-family:inherit; color:inherit; text-align:
 .tienda-product-name { font-family:var(--serif); font-size:17px; line-height:1.25; margin:6px 0 8px; }
 .tienda-product-desc { font-size:12.5px; color:var(--ink-soft); line-height:1.5; margin-bottom:12px; }
 .tienda-product-bottom { display:flex; align-items:center; justify-content:space-between; }
-.tienda-product-price { font-family:var(--serif); font-size:13.5px; color: var(--accent-dark); font-style:italic; }
-.tienda-product-course { font-size:11px; color:var(--muted); border-top:1px solid var(--line); padding-top:10px; margin-top:10px; font-family:var(--serif); font-style:italic; }
+.tienda-product-price { font-family:var(--serif); font-size:13.5px; color: var(--accent-dark); }
+.tienda-product-course { font-size:11px; color:var(--muted); border-top:1px solid var(--line); padding-top:10px; margin-top:10px; font-family:var(--serif); }
 @media(max-width:768px){
   .tienda-header { padding:32px 20px 0; }
   .filter-chips { padding: 0 20px; top: 64px; gap: 22px; }
@@ -2803,7 +2796,7 @@ button.leccion-row { width:100%; font-family:inherit; color:inherit; text-align:
 }
 .producto-aprende:hover { background:#e4cfbe; }
 .producto-aprende-img { width:64px; height:64px; border-radius:4px; flex-shrink:0; overflow:hidden; }
-.producto-aprende-eyebrow { font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent-dark); font-weight:600; margin-bottom:4px; }
+.producto-aprende-eyebrow { font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent-dark); font-weight:600; margin-bottom:4px; }
 .producto-aprende-title { font-family:var(--serif); font-size:16px; line-height:1.3; }
 .producto-aprende-dur { font-size:12px; color:var(--muted); margin-top:3px; display:flex; align-items:center; gap:5px; }
 .producto-specs {}
@@ -3317,7 +3310,7 @@ textarea.res-input { resize: vertical; line-height: 1.5; }
 #quote-form-wrap { display:flex; flex-direction:column; min-height:0; flex:1 1 auto; }
 #quote-form-wrap[hidden], .quote-success[hidden] { display:none; }
 .quote-eyebrow {
-  font-size:11px; letter-spacing:0.18em; text-transform:uppercase;
+  font-size:11px; letter-spacing:0.22em; text-transform:uppercase;
   color: var(--accent-dark); font-weight:600; margin-bottom:8px;
 }
 .quote-title { font-size:32px; letter-spacing:-0.015em; line-height:1.1; margin-bottom:10px; }
@@ -4163,7 +4156,7 @@ function renderCourseCardPublic(c) {
           ${c.level ? `<span>${escapeHtml(c.level)}</span>` : ''}
         </div>
         <div class="cursos-pub-card-cta-slot" data-curso-id="${escapeAttr(c.id)}" data-curso-title="${escapeAttr(c.title)}">
-          <button class="cursos-pub-card-cta" onclick="openCursoInfoForm('${escapeJs(c.title)}')">Solicitar información</button>
+          <button class="btn btn-dark btn-sm cursos-pub-card-cta" onclick="openCursoInfoForm('${escapeJs(c.title)}')">Solicitar información</button>
         </div>
       </div>
     </article>`;
@@ -4239,9 +4232,9 @@ async function decoratePublicCourseCards() {
     const id = slot.dataset.cursoId;
     const title = slot.dataset.cursoTitle || '';
     if (accessible.has(id)) {
-      slot.innerHTML = `<button class="cursos-pub-card-cta cursos-pub-card-cta--enrolled" onclick="openAulaCurso('${escapeJs(id)}')">Entrar al curso <i class="ico ico-arrow" aria-hidden="true"></i></button>`;
+      slot.innerHTML = `<button class="btn btn-dark btn-sm cursos-pub-card-cta cursos-pub-card-cta--enrolled" onclick="openAulaCurso('${escapeJs(id)}')">Entrar al curso <i class="ico ico-arrow" aria-hidden="true"></i></button>`;
     } else {
-      slot.innerHTML = `<button class="cursos-pub-card-cta" onclick="openCursoInfoForm('${escapeJs(title)}')">Solicitar información</button>`;
+      slot.innerHTML = `<button class="btn btn-dark btn-sm cursos-pub-card-cta" onclick="openCursoInfoForm('${escapeJs(title)}')">Solicitar información</button>`;
     }
   });
 }
@@ -5337,7 +5330,7 @@ function renderProducto(id) {
     <div class="producto-precio-row"><span class="producto-precio serif">${escapeHtml(p.price || 'Consultar precio')}</span></div>
     ${p.priceNote ? `<div class="producto-precio-nota">${escapeHtml(p.priceNote)}</div>` : '<div style="margin-bottom:18px"></div>'}
     <div class="producto-ctas">
-      <button class="btn btn-clay" onclick="openQuoteForm('${escapeJs(p.name)}')">Pedir presupuesto</button>
+      <button class="btn btn-dark" onclick="openQuoteForm('${escapeJs(p.name)}')">Pedir presupuesto</button>
       <button class="btn btn-outline" onclick="openDemoForm('${escapeJs(p.name)}')">Solicitar demo</button>
     </div>
     ${aprende}
