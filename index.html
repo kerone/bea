@@ -1304,7 +1304,11 @@ a.footer-nap-line:hover { color: var(--bg); }
 .cursos-pub-card-desc { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .cursos-pub-card-meta { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--ink-soft); margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); }
 .cursos-pub-card-meta span + span::before { content: '·'; color: var(--muted); margin-right: 8px; }
-.cursos-pub-card-cta { margin-top: 14px; cursor: pointer; border: none; }
+.cursos-pub-card-cta { cursor: pointer; border: none; }
+.cursos-pub-card-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+.cursos-pub-card-link { cursor: pointer; }
+.cursos-pub-card.is-destacada { box-shadow: 0 0 0 3px var(--accent-soft), 0 12px 32px rgba(36,29,23,.12); }
+.cursos-pub-aviso { background: var(--accent-soft); color: var(--ink); border-radius: var(--r); padding: 12px 16px; margin-bottom: 20px; font-size: 14px; }
 .cursos-pub-card-cta--enrolled { background: var(--accent-dark); }
 .cursos-pub-card-cta--enrolled:hover { background: var(--ink); }
 .cursos-pub-cta { background: var(--ink); color: var(--bg); padding: 56px; border-radius: 12px; margin-top: 64px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
@@ -1316,6 +1320,11 @@ a.footer-nap-line:hover { color: var(--bg); }
   .cursos-pub-h1 { font-size: 40px; }
   .cursos-pub-cta { padding: 32px 24px; }
 }
+@media (max-width: 480px) {
+  .cursos-pub-card-actions { flex-direction: column; }
+  .cursos-pub-card-actions > *, .cursos-pub-card-actions .btn { width: 100%; justify-content: center; }
+  .cursos-pub-card-cta-slot .btn { width: 100%; justify-content: center; }
+}
 </style>
 <section class="cursos-pub">
   <nav class="page-bc" aria-label="Migas de pan">
@@ -1325,7 +1334,7 @@ a.footer-nap-line:hover { color: var(--bg); }
   </nav>
   <div class="cursos-pub-head">
     <span class="eyebrow accent">Cursos</span>
-    <h2 class="cursos-pub-h1">Programas formativos</h2>
+    <h2 class="cursos-pub-h1">Cursos de estética en Valencia</h2>
     <p class="cursos-pub-desc">Cursos de protocolo riguroso, basados en evidencia y diseñados para profesionales en activo. Si ya eres alumna de PRECISSA INSTITUTE, accede al aula para entrar en tu materia y tests.</p>
   </div>
   <div class="cursos-search">
@@ -3551,6 +3560,7 @@ const pages = {
 };
 
 function goTo(pageKey, area) {
+  const _av = document.querySelector('.cursos-pub-aviso'); if (_av) _av.remove();
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const cfg = pages[pageKey];
   if (!cfg) return;
@@ -4139,7 +4149,29 @@ function buildCourseSearchText(c) {
     cat ? cat.label : '', cat ? cat.tagline : ''
   ].filter(Boolean).join(' '));
 }
+// Landings SEO estáticas por curso (los 5 cursos sin landing no aparecen).
+const LANDING_BY_COURSE = {
+  'plasma-pen': '/cursos/plasmapen-valencia/',
+  'hifu': '/cursos/hifu-valencia/',
+  'microblading-cejas': '/cursos/microblading-valencia/',
+  'depilacion-laser': '/cursos/depilacion-laser-valencia/',
+  'micropigmentacion-labios': '/cursos/micropigmentacion-valencia/',
+  'neutralizacion-labios': '/cursos/micropigmentacion-valencia/',
+  'micropigmentacion-eyeliner': '/cursos/micropigmentacion-valencia/',
+  'dermapen-microneedling': '/cursos/dermapen-valencia/',
+  'hyaluron-pen': '/cursos/hyaluron-pen-valencia/',
+  'cejas-diseno-visajismo': '/cursos/cejas-valencia/',
+  'cejas-laminado-henna': '/cursos/cejas-valencia/',
+  'pestanas-lifting-tinte': '/cursos/lifting-pestanas-valencia/',
+  'maderoterapia': '/cursos/maderoterapia-valencia/',
+  'drenaje-linfatico': '/cursos/drenaje-linfatico-valencia/',
+  'vacuum-cavitacion-radiofrecuencia': '/cursos/electroestetica-valencia/',
+  'diatermia': '/cursos/electroestetica-valencia/',
+  'ipl-fotorejuvenecimiento': '/cursos/electroestetica-valencia/',
+  'laser-switched-yag-carbon-peel': '/cursos/electroestetica-valencia/'
+};
 function renderCourseCardPublic(c) {
+  const landing = LANDING_BY_COURSE[c.id];
   const searchAttr = buildCourseSearchText(c);
   const cat = getCategories().find(k => k.id === c.category);
   return `
@@ -4155,8 +4187,11 @@ function renderCourseCardPublic(c) {
           ${c.duration ? `<span>${escapeHtml(c.duration)}</span>` : ''}
           ${c.level ? `<span>${escapeHtml(c.level)}</span>` : ''}
         </div>
-        <div class="cursos-pub-card-cta-slot" data-curso-id="${escapeAttr(c.id)}" data-curso-title="${escapeAttr(c.title)}">
-          <button class="btn btn-dark btn-sm cursos-pub-card-cta" onclick="openCursoInfoForm('${escapeJs(c.title)}')">Solicitar información</button>
+        <div class="cursos-pub-card-actions">
+          <div class="cursos-pub-card-cta-slot" data-curso-id="${escapeAttr(c.id)}" data-curso-title="${escapeAttr(c.title)}">
+            <button class="btn btn-dark btn-sm cursos-pub-card-cta" onclick="openCursoInfoForm('${escapeJs(c.title)}')">Solicitar información</button>
+          </div>
+          ${landing ? `<a class="btn btn-outline btn-sm cursos-pub-card-link" href="${escapeAttr(landing)}">Ver temario <i class="ico ico-arrow" aria-hidden="true"></i></a>` : ''}
         </div>
       </div>
     </article>`;
@@ -6674,7 +6709,19 @@ function routeFromHash() {
   if (hash.startsWith('#curso/')) {
     const courseId = decodeURIComponent(hash.substring(7));
     const course = getCourses().find(c => c.id === courseId);
-    if (!course) { _origGoTo('home',''); return; }
+    if (!course) {
+      _origGoTo('cursos','docencia');
+      try { history.replaceState(null, '', window.location.pathname + '#cursos'); } catch (e) {}
+      const grid = document.getElementById('cursos-pub-grid');
+      if (grid && grid.parentNode && !document.querySelector('.cursos-pub-aviso')) {
+        const av = document.createElement('div');
+        av.className = 'cursos-pub-aviso';
+        av.setAttribute('role', 'status');
+        av.textContent = 'No encontramos ese curso. Estos son todos los que impartimos.';
+        grid.parentNode.insertBefore(av, grid);
+      }
+      return;
+    }
     Promise.resolve(canAccessCourse(course)).then(ok => {
       if (ok) {
         window._currentAulaCourseId = courseId;
@@ -6686,7 +6733,11 @@ function routeFromHash() {
         try { history.replaceState(null, '', window.location.pathname + '#cursos'); } catch (e) {}
         setTimeout(() => {
           const el = document.getElementById('curso-card-' + courseId);
-          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.classList.add('is-destacada');
+            setTimeout(() => el.classList.remove('is-destacada'), 2500);
+          }
         }, 80);
       }
     });
