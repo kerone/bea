@@ -8,7 +8,10 @@ TPL = (ROOT / 'cursos/hifu-valencia/index.html').read_text(encoding='utf-8')
 HOY = datetime.date.today().isoformat()
 BASE = 'https://precissainstitute.com'
 
-STYLE = re.search(r'<style>.*?</style>', TPL, re.S).group(0)
+# Hoja común + CSS residual (solo lo específico de la landing) y cabecera común:
+# se copian tal cual de la plantilla hifu (assets/site.css es la fuente de lo demás).
+STYLE = re.search(r'<link rel="stylesheet" href="/assets/site\.css[^>]*>\s*<style>.*?</style>', TPL, re.S).group(0)
+NAV = re.search(r'<header class="site-nav">.*?</header>', TPL, re.S).group(0)
 FONTS = re.search(r'<link rel="preconnect".*?rel="stylesheet">', TPL, re.S).group(0)
 FAVICON = re.search(r'<!-- ═══ FAVICON.*?theme-color" content="#F2ECE3">', TPL, re.S).group(0)
 ORG_LD = re.search(r'<!-- ═══ SCHEMA.ORG · LocalBusiness.*?</script>', TPL, re.S).group(0)
@@ -126,15 +129,7 @@ def build(L):
 <body>
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-<nav class="nav" aria-label="Navegación principal">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo" aria-label="PRECISSA INSTITUTE Dermocosmiatría &amp; Electroestética, ir al inicio">
-      PRECISSA INSTITUTE
-      <span class="nav-logo-sub">Dermocosmiatría &amp; Electroestética</span>
-    </a>
-    <a href="tel:+34601056706" class="nav-cta">601 05 67 06</a>
-  </div>
-</nav>
+{NAV}
 
 <nav class="breadcrumb" aria-label="Breadcrumb">
   <a href="/">Inicio</a>
@@ -146,7 +141,7 @@ def build(L):
 
 <main id="contenido" tabindex="-1">
 <section class="hero">
-  <div class="eyebrow">Curso profesional</div>
+  <div class="eyebrow accent">Curso profesional</div>
   <h1>{L['h1']}</h1>
   <p class="hero-lede">
     {esc(L['lede'])}
@@ -158,7 +153,7 @@ def build(L):
 </section>
 
 <section>
-  <div class="eyebrow eyebrow-muted">Qué es</div>
+  <div class="eyebrow">Qué es</div>
   <h2>{L['que_es_h2']}</h2>
   <p>{L['que_es_p1']}</p>
   <p>{L['que_es_p2']}</p>
@@ -166,7 +161,7 @@ def build(L):
 
 <div class="section-alt">
   <section>
-    <div class="eyebrow eyebrow-muted">Contenido</div>
+    <div class="eyebrow">Contenido</div>
     <h2>El curso incluye</h2>
     <ul class="clean">
 {li(L['incluye'])}
@@ -175,7 +170,7 @@ def build(L):
 </div>
 
 <section>
-  <div class="eyebrow eyebrow-muted">Perfil</div>
+  <div class="eyebrow">Perfil</div>
   <h2>¿A quién va dirigido?</h2>
   <ul class="clean">
 {li(L['perfil'])}
@@ -184,7 +179,7 @@ def build(L):
 
 <div class="section-alt">
   <section>
-    <div class="eyebrow eyebrow-muted">Detalles</div>
+    <div class="eyebrow">Detalles</div>
     <h2>Ficha del curso</h2>
     <div class="ficha">
       <div class="ficha-grid">
@@ -206,7 +201,7 @@ def build(L):
 </div>
 
 <section>
-  <div class="eyebrow eyebrow-muted">Seguridad y rigor</div>
+  <div class="eyebrow">Seguridad y rigor</div>
   <h2>{L['seg_h2']}</h2>
   <p>{L['seg_p1']}</p>
   <p>{L['seg_p2']}</p>
@@ -214,14 +209,14 @@ def build(L):
 
 <div class="section-alt">
   <section>
-    <div class="eyebrow eyebrow-muted">FAQ</div>
+    <div class="eyebrow">FAQ</div>
     <h2>Preguntas frecuentes</h2>
 {faq_html(L['faq'])}
   </section>
 </div>
 
 <section>
-  <div class="eyebrow eyebrow-muted">Formación relacionada</div>
+  <div class="eyebrow">Formación relacionada</div>
   <h2>Otros cursos en Valencia</h2>
   <ul class="clean">
 {related(L['related'])}
@@ -230,7 +225,7 @@ def build(L):
 
 <section class="contact" id="contacto">
   <div class="contact-inner">
-    <div class="eyebrow" style="color: var(--accent-soft);">Solicitar información</div>
+    <div class="eyebrow accent" style="color: var(--accent-soft);">Solicitar información</div>
     <h2>Próxima convocatoria en Valencia</h2>
     <p>Déjanos tu nombre y se abrirá WhatsApp con tu consulta ya escrita: te respondemos por ahí con fechas, precio y plazas disponibles. ¿No usas WhatsApp? Llámanos al 601 05 67 06.</p>
     <form class="lp-form" id="lp-form" novalidate>

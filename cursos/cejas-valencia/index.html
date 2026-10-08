@@ -248,173 +248,31 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="/assets/site.css?v=1">
 <style>
-:root {
-  --bg:           #F2ECE3;
-  --bg2:          #E6DDCC;
-  --surface:      #FFFFFF;
-  --soft:         #E5D9C5;
-  --ink:          #241D17;
-  --ink-soft:     #544A40;
-  --muted:        #726A5D; /* antes #8A8073: 3,3:1 sobre --bg, por debajo de WCAG AA (4,5:1) */
-  --accent:       #A86B4E;
-  --accent-dark:  #7E4C36;
-  --accent-soft:  #ECDDD0;
-  --line:         rgba(36,29,23,0.10);
-  --line-strong:  rgba(36,29,23,0.18);
-  --serif: 'Instrument Serif', serif;
-  --sans:  'Manrope', sans-serif;
-  --r: 12px;
-  --r-sm: 4px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-a { color: inherit; text-decoration: none; }
-:focus-visible { outline: 2px solid var(--accent-dark); outline-offset: 3px; }
-:focus:not(:focus-visible) { outline: none; }
-.footer :focus-visible, .contact :focus-visible, .lp-field :focus-visible { outline-color: var(--bg); }
-
-.nav { position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 1px solid var(--line); }
-.nav-inner { max-width: 920px; margin: 0 auto; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.nav-logo { font-family: var(--serif); font-size: 22px; letter-spacing: 0.14em; line-height: 1; }
-.nav-logo-sub { display: block; font-family: var(--sans); font-size: 9px; font-weight: 500; letter-spacing: 0.10em; color: var(--muted); margin-top: 6px; }
-.nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 13px; font-weight: 500; transition: background 0.18s; white-space: nowrap; flex-shrink: 0; }
-.nav-cta:hover { background: #3a302a; }
-
-.breadcrumb { max-width: 920px; margin: 0 auto; padding: 18px 32px 0; font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
-.breadcrumb a:hover { color: var(--accent); }
-.breadcrumb-sep { margin: 0 8px; color: var(--line-strong); }
-
-.eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 16px; }
-.eyebrow-muted { color: var(--muted); }
-.section-alt .eyebrow-muted { color: var(--ink-soft); }
-.section-alt ul.clean li span { color: var(--ink-soft); }
-
-section { max-width: 920px; margin: 0 auto; padding: 48px 32px; }
-.hero { padding: 56px 32px 32px; }
-
-h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(38px, 6vw, 64px); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 18px; }
-h1 em { font-style: italic; color: var(--accent-dark); }
-.hero-lede { font-size: 17px; line-height: 1.55; color: var(--ink-soft); max-width: 680px; margin-bottom: 28px; }
-.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
-.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border-radius: 999px; font-size: 14px; font-weight: 500; transition: background 0.18s, transform 0.12s; }
-.btn:hover { transform: translateY(-1px); }
-.btn-dark { background: var(--ink); color: var(--bg); }
-.btn-dark:hover { background: #3a302a; }
-.btn-outline { background: transparent; color: var(--ink); border: 1px solid var(--line-strong); }
-.btn-outline:hover { background: var(--soft); }
-
-h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(28px, 4vw, 38px); line-height: 1.15; letter-spacing: -0.015em; margin-bottom: 18px; }
-h2 em { font-style: italic; color: var(--accent-dark); }
-p { color: var(--ink-soft); line-height: 1.65; margin-bottom: 14px; }
-p strong { color: var(--ink); font-weight: 600; }
-
-ul.clean { list-style: none; margin: 18px 0 0; padding: 0; }
-ul.clean li { padding: 12px 0 12px 28px; border-bottom: 1px solid var(--line); color: var(--ink); font-size: 15.5px; line-height: 1.45; position: relative; }
-ul.clean li:last-child { border-bottom: none; }
-ul.clean li::before { content: ''; position: absolute; left: 6px; top: 11px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
-ul.clean li strong { color: var(--ink); font-weight: 600; }
-ul.clean li span { color: var(--muted); font-size: 14px; display: block; margin-top: 2px; }
-
-.section-alt { background: var(--bg2); }
-.section-alt section { padding: 56px 32px; }
-
-.ficha { background: var(--ink); color: var(--bg); padding: 32px; border-radius: var(--r); margin-top: 22px; }
-.ficha-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px 36px; }
-@media (max-width: 640px) { .ficha-grid { grid-template-columns: 1fr; } }
-.ficha-row .label { font-size: 10.5px; letter-spacing: 0.20em; text-transform: uppercase; color: rgba(242,236,227,0.65); margin-bottom: 4px; font-weight: 500; }
-.ficha-row .value { font-family: var(--serif); font-size: 18px; color: var(--bg); line-height: 1.3; font-style: normal; }
-
-.faq-item { border-bottom: 1px solid var(--line); padding: 18px 0; }
-.faq-item:first-child { padding-top: 4px; }
-.faq-q { font-family: var(--serif); font-size: 20px; letter-spacing: -0.01em; line-height: 1.3; color: var(--ink); margin-bottom: 8px; }
-.faq-a { font-size: 14.5px; line-height: 1.55; color: var(--ink-soft); }
-.faq-a strong { color: var(--ink); font-weight: 600; }
-
-.contact { background: var(--ink); color: var(--bg); padding: 64px 32px; text-align: center; margin-top: 32px; }
-.contact-inner { max-width: 620px; margin: 0 auto; }
-.contact h2 { color: var(--bg); }
-.contact h2 em { color: var(--accent-soft); }
-.contact p { color: rgba(242,236,227,0.8); font-size: 16px; margin-bottom: 22px; }
-.contact-phone { font-family: var(--serif); font-style: normal; font-size: 30px; color: var(--bg); display: inline-block; margin: 8px 0; }
-.contact-phone:hover { color: var(--accent-soft); }
-.contact-meta { margin-top: 24px; font-size: 13px; color: rgba(242,236,227,0.65); letter-spacing: 0.04em; }
-
-.footer { background: var(--bg2); padding: 30px 32px; font-size: 13px; color: var(--ink-soft); }
-.footer-inner { max-width: 920px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-.footer a:hover { color: var(--accent); }
-.footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
-
-@media (max-width: 720px) {
-  .nav-inner { padding: 14px 20px; gap: 10px; }
-  .nav-logo { font-size: 16px; }
-  .nav-cta { padding: 9px 14px; font-size: 12px; }
-  .breadcrumb { padding: 14px 20px 0; font-size: 11px; }
-  section, .hero { padding: 36px 20px; }
-  .section-alt section { padding: 40px 20px; }
-  .hero { padding-top: 32px; padding-bottom: 24px; }
-  .contact { padding: 44px 20px; }
-  .contact-phone { font-size: 26px; }
-  .footer { padding: 24px 20px; }
-}
-
-/* ─── Formulario de solicitud de información (bloque contacto) ─── */
-.lp-form { max-width: 460px; margin: 26px auto 0; text-align: left; display: flex; flex-direction: column; gap: 14px; }
-.lp-field span { display: block; font-size: 12px; letter-spacing: 0.04em; margin-bottom: 6px; color: rgba(242,236,227,0.75); }
-.lp-field input, .lp-field textarea { width: 100%; padding: 12px 14px; border-radius: var(--r); border: 1px solid rgba(242,236,227,0.25); background: rgba(242,236,227,0.08); color: #F2ECE3; font-family: var(--sans); font-size: 16px; }
-.lp-field input:focus, .lp-field textarea:focus { border-color: rgba(242,236,227,0.7); box-shadow: 0 0 0 3px rgba(242,236,227,0.12); }
-.lp-field input:focus-visible, .lp-field textarea:focus-visible { outline: 2px solid var(--bg); outline-offset: 2px; }
-.lp-field textarea { resize: vertical; }
-.lp-rgpd { display: flex; gap: 8px; align-items: flex-start; font-size: 12px; color: rgba(242,236,227,0.7); line-height: 1.5; }
-.lp-rgpd input { margin-top: 2px; }
-.lp-rgpd a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
-.lp-submit { padding: 14px 24px; border: 0; border-radius: 999px; background: var(--bg); color: var(--ink); font-family: var(--sans); font-weight: 500; font-size: 14px; cursor: pointer; transition: transform 0.12s; }
-.lp-submit:hover { transform: translateY(-1px); }
-.lp-submit:disabled { opacity: 0.6; cursor: wait; transform: none; }
-.lp-status { font-size: 13px; min-height: 18px; color: rgba(242,236,227,0.85); text-align: center; }
-.lp-submit-alt { background: transparent; color: var(--bg); border: 1px solid rgba(242,236,227,0.45); font-weight: 500; }
-.lp-submit-alt:hover { background: rgba(242,236,227,0.1); }
-.lp-submit:disabled { cursor: wait; }
-.lp-field input.is-invalid, .lp-field textarea.is-invalid { border-color: var(--accent-soft); box-shadow: 0 0 0 3px rgba(236,221,208,0.18); }
-.lp-rgpd input.is-invalid { outline: 2px solid var(--accent-soft); outline-offset: 2px; }
-.field-error { font-size: 12.5px; line-height: 1.45; color: var(--accent-soft); margin-top: -8px; }
-.lp-status[data-error] { color: var(--accent-soft); }
-.lp-success { max-width: 460px; margin: 26px auto 0; text-align: center; }
-.lp-ok-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--accent-soft); color: var(--accent-dark); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 26px; }
-.lp-form[hidden], .lp-success[hidden] { display: none; }
-.lp-success-title { font-family: var(--serif); font-weight: 400; font-size: 26px; line-height: 1.15; margin-bottom: 10px; }
-.lp-success p { font-size: 15px; line-height: 1.55; color: rgba(242,236,227,0.85); margin-bottom: 12px; }
-.lp-success a, .lp-link { color: inherit; text-decoration: underline; text-underline-offset: 2px; background: none; border: 0; padding: 0; font: inherit; cursor: pointer; }
-.lp-alt { margin-top: 22px; font-size: 13px; color: rgba(242,236,227,0.7); }
-
-.ico { display:inline-block; width:1em; height:1em; flex:none; background-color:currentColor; -webkit-mask:var(--ico) center/contain no-repeat; mask:var(--ico) center/contain no-repeat; vertical-align:-0.125em; }
-.ico-arrow { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E"); width:15px; height:15px; }
-.ico-check { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E"); }
-/* ─── Accesibilidad ─── */
-.skip-link { position: absolute; left: -9999px; top: 12px; z-index: 999; padding: 10px 14px; background: var(--ink); color: var(--bg); border-radius: 999px; }
-.skip-link:focus { left: 12px; }
-main:focus { outline: none; }
-@media (max-width: 768px) {
-  .breadcrumb a { display: inline-block; padding: 6px 2px; }
-  .lp-rgpd { padding: 6px 0; }
-  .footer a { display: inline-block; padding: 8px 0; }
-}
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; scroll-behavior: auto !important; } }
+.hero{padding:56px 32px 32px}
+.hero-lede{font-size:17px;line-height:1.55;color:var(--ink-soft);max-width:680px;margin-bottom:28px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+@media (max-width:720px){.hero{padding:32px 20px 24px}}
 </style>
 </head>
 <body>
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-<nav class="nav" aria-label="Navegación principal">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo" aria-label="PRECISSA INSTITUTE Dermocosmiatría &amp; Electroestética, ir al inicio">
-      PRECISSA INSTITUTE
-      <span class="nav-logo-sub">Dermocosmiatría &amp; Electroestética</span>
-    </a>
-    <a href="tel:+34601056706" class="nav-cta">601 05 67 06</a>
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-logo" aria-label="PRECISSA INSTITUTE Dermocosmiatría &amp; Electroestética, ir al inicio">PRECISSA INSTITUTE<span>Dermocosmiatría &amp; Electroestética</span></a>
+    <nav class="site-nav-links" aria-label="Navegación principal">
+      <a href="/cursos/" aria-current="page">Cursos</a>
+      <a href="/#tienda">Aparatología</a>
+      <a href="/sobre/">Sobre</a>
+    </nav>
+    <div class="site-nav-actions">
+      <a class="btn btn-dark btn-sm site-nav-wa" href="https://wa.me/34601056706?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20vuestros%20cursos." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><i class="ico ico-wa" aria-hidden="true"></i><span>WhatsApp</span></a>
+      <a class="btn btn-outline btn-sm" href="/#aula">Entrar al aula</a>
+    </div>
   </div>
-</nav>
+</header>
 
 <nav class="breadcrumb" aria-label="Breadcrumb">
   <a href="/">Inicio</a>
@@ -426,7 +284,7 @@ main:focus { outline: none; }
 
 <main id="contenido" tabindex="-1">
 <section class="hero">
-  <div class="eyebrow">Curso profesional</div>
+  <div class="eyebrow accent">Curso profesional</div>
   <h1>Curso de Cejas <em>en Valencia</em></h1>
   <p class="hero-lede">
     De la &quot;depilación de cejas&quot; a la consulta de diseño: visajismo, regla de los 3 puntos, cinco técnicas de modelado, laminado y henna profesional. Dos módulos que juntos montan una cabina de cejas completa. Formación para esteticistas en Valencia. Presencial en Valencia.
@@ -438,7 +296,7 @@ main:focus { outline: none; }
 </section>
 
 <section>
-  <div class="eyebrow eyebrow-muted">Qué es</div>
+  <div class="eyebrow">Qué es</div>
   <h2>La cabina de cejas, completa</h2>
   <p>Una ceja bien diseñada cambia un rostro más que cualquier otro servicio rápido de cabina, y la clienta lo sabe: por eso el diseño de cejas ha pasado de ser un extra a ser una consulta con valor propio. El primer módulo enseña a <strong>leer el rostro</strong> (ovalado, redondo, cuadrado, rectangular, triángulo invertido, diamante, pera), a aplicar la <strong>regla de los 3 puntos</strong> y la proporción áurea, y a corregir asimetrías con cinco técnicas de modelado: hilo, cera caliente, sugaring, pinzas y navaja.</p>
   <p>El segundo módulo añade los dos servicios más demandados de los últimos años: el <strong>laminado</strong>, que fija el pelo en la dirección deseada durante semanas, y la <strong>henna profesional</strong>, que pigmenta pelo y piel y es la alternativa no permanente a la micropigmentación. Se enseñan por separado y en protocolo combinado: diseño, laminado y henna en una misma cita.</p>
@@ -446,7 +304,7 @@ main:focus { outline: none; }
 
 <div class="section-alt">
   <section>
-    <div class="eyebrow eyebrow-muted">Contenido</div>
+    <div class="eyebrow">Contenido</div>
     <h2>El curso incluye</h2>
     <ul class="clean">
       <li><strong>Análisis facial y formas de rostro</strong> · siete formas clásicas y el tipo de ceja que corrige cada una</li>
@@ -466,7 +324,7 @@ main:focus { outline: none; }
 </div>
 
 <section>
-  <div class="eyebrow eyebrow-muted">Perfil</div>
+  <div class="eyebrow">Perfil</div>
   <h2>¿A quién va dirigido?</h2>
   <ul class="clean">
       <li><strong>Esteticistas que ya depilan cejas</strong> · y quieren convertir ese servicio en una consulta de diseño con precio propio</li>
@@ -478,7 +336,7 @@ main:focus { outline: none; }
 
 <div class="section-alt">
   <section>
-    <div class="eyebrow eyebrow-muted">Detalles</div>
+    <div class="eyebrow">Detalles</div>
     <h2>Ficha del curso</h2>
     <div class="ficha">
       <div class="ficha-grid">
@@ -500,7 +358,7 @@ main:focus { outline: none; }
 </div>
 
 <section>
-  <div class="eyebrow eyebrow-muted">Seguridad y rigor</div>
+  <div class="eyebrow">Seguridad y rigor</div>
   <h2>Química bien usada, cejas intactas</h2>
   <p>El laminado utiliza productos a base de <strong>tioglicolato</strong>, los mismos principios que una permanente, sobre un pelo mucho más fino y a milímetros del ojo. Tiempos mal calculados producen sobreprocesado y quemadura química. En el curso se trabaja con tiempos por tipo de pelo, prueba de sensibilidad previa y productos conformes a la normativa europea de cosméticos.</p>
   <p>Con la henna la regla es tajante: <strong>nunca henna negra con PPD</strong>, responsable de reacciones alérgicas graves. Se enseña a identificar una henna profesional con lawsona, a leer su etiquetado y a realizar la prueba de sensibilidad 48 horas antes. Todo el protocolo se adapta a los requisitos higiénico-sanitarios de los centros de estética de la Comunidad Valenciana.</p>
@@ -508,7 +366,7 @@ main:focus { outline: none; }
 
 <div class="section-alt">
   <section>
-    <div class="eyebrow eyebrow-muted">FAQ</div>
+    <div class="eyebrow">FAQ</div>
     <h2>Preguntas frecuentes</h2>
   <div class="faq-item">
     <div class="faq-q">¿Cuánto dura el laminado de cejas?</div>
@@ -542,7 +400,7 @@ main:focus { outline: none; }
 </div>
 
 <section>
-  <div class="eyebrow eyebrow-muted">Formación relacionada</div>
+  <div class="eyebrow">Formación relacionada</div>
   <h2>Otros cursos en Valencia</h2>
   <ul class="clean">
       <li><strong><a href="/cursos/microblading-valencia/" style="color:inherit">Curso de Microblading</a></strong><span>Cejas pelo a pelo con visajismo, pigmentos REACH y casos reales.</span></li>
@@ -554,7 +412,7 @@ main:focus { outline: none; }
 
 <section class="contact" id="contacto">
   <div class="contact-inner">
-    <div class="eyebrow" style="color: var(--accent-soft);">Solicitar información</div>
+    <div class="eyebrow accent" style="color: var(--accent-soft);">Solicitar información</div>
     <h2>Próxima convocatoria en Valencia</h2>
     <p>Déjanos tu nombre y se abrirá WhatsApp con tu consulta ya escrita: te respondemos por ahí con fechas, precio y plazas disponibles. ¿No usas WhatsApp? Llámanos al 601 05 67 06.</p>
     <form class="lp-form" id="lp-form" novalidate>
@@ -591,19 +449,60 @@ main:focus { outline: none; }
 
 </main>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <address style="font-style:normal;font-size:13px;line-height:1.6;opacity:0.85">
-      <a href="https://maps.app.goo.gl/RfxWU2e8j4qnrgg5A" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">Av. Primero de Mayo, 59, bajo, 46017 València</a>
-      · <a href="tel:+34601056706" style="color:inherit;text-decoration:none">601 05 67 06</a>
-      · Lunes a viernes 9:30–14:00
-    </address>
-    <div>© 2026 PRECISSA INSTITUTE · Valencia</div>
-    <div class="footer-links">
-      <a href="/">Inicio</a>
-      <a href="/cursos/">Cursos</a>
-      <a href="/#tienda">Aparatología</a>
-      <a href="/sobre/">Sobre nosotras</a>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">PRECISSA INSTITUTE<span class="footer-logo-sub">Dermocosmiatría &amp; Electroestética</span></div>
+        <p class="footer-bio">Escuela de estética avanzada y tienda de aparatología profesional. Formación rigurosa para las mejores especialistas de España.</p>
+        <address class="footer-nap">
+          <a class="footer-nap-line" href="https://maps.app.goo.gl/RfxWU2e8j4qnrgg5A" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Av. Primero de Mayo, 59, bajo · 46017 València</span></a>
+          <a class="footer-nap-line" href="tel:+34601056706"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>601 05 67 06</span></a>
+          <span class="footer-nap-line footer-nap-hours"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Lunes a viernes · 9:30–14:00</span></span>
+          <a class="footer-nap-line" href="https://www.google.com/maps/dir/?api=1&destination=Precissa%20Institute%2C%20Av.%20Primero%20de%20Mayo%2C%2059%2C%20bajo%2C%2046017%20Val%C3%A8ncia" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg><span>Cómo llegar</span></a>
+          <a class="footer-nap-line" href="https://maps.app.goo.gl/RfxWU2e8j4qnrgg5A" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>Reseñas en Google</span></a>
+        </address>
+      </div>
+      <div>
+        <div class="footer-col-title">Escuela</div>
+        <a class="footer-link" href="/cursos/">Cursos de estética en Valencia</a>
+        <a class="footer-link" href="/#aula">Aula</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Cursos en Valencia</div>
+        <a class="footer-link" href="/cursos/plasmapen-valencia/">Curso de Plasmapen</a>
+        <a class="footer-link" href="/cursos/electroestetica-valencia/">Curso de Electroestética</a>
+        <a class="footer-link" href="/cursos/microblading-valencia/">Curso de Microblading</a>
+        <a class="footer-link" href="/cursos/hifu-valencia/">Curso de HIFU</a>
+        <a class="footer-link" href="/cursos/depilacion-laser-valencia/">Curso de Depilación Láser</a>
+        <a class="footer-link" href="/cursos/micropigmentacion-valencia/">Curso de Micropigmentación</a>
+        <a class="footer-link" href="/cursos/dermapen-valencia/">Curso de Dermapen</a>
+        <a class="footer-link" href="/cursos/hyaluron-pen-valencia/">Curso de Hyaluron Pen</a>
+        <a class="footer-link" href="/cursos/cejas-valencia/">Curso de Cejas</a>
+        <a class="footer-link" href="/cursos/lifting-pestanas-valencia/">Curso de Lifting de Pestañas</a>
+        <a class="footer-link" href="/cursos/maderoterapia-valencia/">Curso de Maderoterapia</a>
+        <a class="footer-link" href="/cursos/drenaje-linfatico-valencia/">Curso de Drenaje Linfático</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Aparatología</div>
+        <a class="footer-link" href="/#tienda">Catálogo</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Compañía</div>
+        <a class="footer-link" href="/sobre/">Sobre PRECISSA INSTITUTE</a>
+        <a class="footer-link" href="/aviso-legal/">Aviso legal</a>
+        <a class="footer-link" href="/privacidad/">Privacidad</a>
+        <a class="footer-link" href="/cookies/">Cookies</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 PRECISSA INSTITUTE · Todos los derechos reservados</span>
+      <div>
+        <a class="footer-social" href="https://www.instagram.com/precissainstitute" target="_blank" rel="noopener" aria-label="Instagram PRECISSA INSTITUTE">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.7"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+          <span>Instagram</span>
+        </a>
+      </div>
     </div>
   </div>
 </footer>

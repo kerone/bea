@@ -8,7 +8,7 @@
  * Bypass total a Supabase y FormSubmit (datos dinámicos, no se cachean).
  * ============================================================= */
 
-const CACHE_VERSION = 'v32';
+const CACHE_VERSION = 'v33';
 const CACHE_NAME = 'precissa-' + CACHE_VERSION;
 
 // Assets críticos pre-cacheados en install (la primera visita ya queda
@@ -33,6 +33,7 @@ const PRECACHE_URLS = [
   '/manifest.webmanifest',
   '/assets/favicon-32.png',
   '/assets/seal-ss.webp',
+  '/assets/site.css',
   '/assets/legal.css',
   '/assets/legal.js'
 ];

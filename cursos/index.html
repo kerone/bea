@@ -244,113 +244,59 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="/assets/site.css?v=1">
 <style>
-:root {
-  --bg: #F2ECE3; --bg2: #E6DDCC; --soft: #E5D9C5;
-  --ink: #241D17; --ink-soft: #544A40; --muted: #726A5D;
-  --accent: #A86B4E; --accent-dark: #7E4C36;
-  --line: rgba(36,29,23,0.10); --line-strong: rgba(36,29,23,0.18);
-  --serif: 'Instrument Serif', serif; --sans: 'Manrope', sans-serif; --r: 12px; --r-sm: 4px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-a { color: inherit; text-decoration: none; }
-:focus-visible { outline: 2px solid var(--accent-dark); outline-offset: 3px; }
-:focus:not(:focus-visible) { outline: none; }
-.footer :focus-visible, .contact :focus-visible, .lp-field :focus-visible { outline-color: var(--bg); }
-.nav { position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 1px solid var(--line); }
-.nav-inner { max-width: 920px; margin: 0 auto; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.nav-logo { font-family: var(--serif); font-size: 22px; letter-spacing: 0.14em; line-height: 1; }
-.nav-logo-sub { display: block; font-family: var(--sans); font-size: 10px; font-weight: 500; letter-spacing: 0.10em; color: var(--muted); margin-top: 6px; }
-.nav-cta { display: inline-flex; align-items: center; padding: 9px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); font-size: 13px; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
-.breadcrumb { max-width: 920px; margin: 0 auto; padding: 18px 32px 0; font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
-.breadcrumb a:hover { color: var(--accent); }
-.breadcrumb-sep { margin: 0 8px; color: var(--line-strong); }
-.eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 14px; }
-.eyebrow-muted { color: var(--muted); }
-main { max-width: 920px; margin: 0 auto; padding: 40px 32px 64px; }
-h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(38px, 6vw, 58px); line-height: 1.05; letter-spacing: -0.02em; margin: 16px 0 14px; }
-h1 em { font-style: italic; color: var(--accent-dark); }
-.lede { font-size: 16.5px; color: var(--ink-soft); max-width: 660px; margin-bottom: 12px; }
-h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(26px, 4vw, 34px); letter-spacing: -0.015em; margin-bottom: 6px; }
-.cat { padding: 34px 0 8px; border-top: 1px solid var(--line); margin-top: 26px; }
-.cat:first-of-type { border-top: none; margin-top: 8px; }
-.cat-lede { font-size: 14.5px; color: var(--ink-soft); margin: 6px 0 4px; }
-.cat-lede a { color: var(--accent-dark); text-decoration: underline; text-underline-offset: 3px; }
-.course-list { list-style: none; margin-top: 14px; }
-.course-item { display: block; padding: 16px 8px; border-bottom: 1px solid var(--line); transition: background 0.15s; border-radius: var(--r-sm); }
-.course-item:hover { background: rgba(168,107,78,0.06); }
-.course-title { display: block; font-family: var(--serif); font-size: 21px; letter-spacing: -0.01em; }
-.course-item:hover .course-title { color: var(--accent-dark); }
-.course-meta { display: block; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 3px 0 6px; }
-.course-desc { display: block; font-size: 14px; color: var(--ink-soft); line-height: 1.55; max-width: 720px; }
-.contact { background: var(--ink); color: var(--bg); padding: 52px 32px; text-align: center; margin-top: 48px; border-radius: 12px; }
-.contact h2 { color: var(--bg); }
-.contact p { color: rgba(242,236,227,0.8); margin: 8px 0 16px; }
-.contact-phone { font-family: var(--serif); font-style: normal; font-size: 28px; color: var(--bg); }
-.footer { background: var(--bg2); padding: 30px 32px; font-size: 13px; color: var(--ink-soft); margin-top: 56px; }
-.footer-inner { max-width: 920px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-.footer a:hover { color: var(--accent); }
-.footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
-@media (max-width: 720px) {
-  .nav-inner { padding: 14px 20px; gap: 10px; }
-  .nav-logo { font-size: 16px; }
-  .nav-cta { padding: 9px 14px; font-size: 12px; }
-  main { padding: 28px 20px 48px; }
-  .breadcrumb { padding: 14px 20px 0; }
-}
-.ico { display:inline-block; width:1em; height:1em; flex:none; background-color:currentColor;
-  -webkit-mask:var(--ico) center/contain no-repeat; mask:var(--ico) center/contain no-repeat;
-  vertical-align:-0.125em; }
-.ico-arrow  { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E"); }
-.ico-wa     { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23000'%3E%3Cpath d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z'/%3E%3C/svg%3E"); }
-.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border-radius: 999px; font-family: var(--sans); font-size: 14px; font-weight: 500; transition: background 0.18s, transform 0.12s; white-space: nowrap; }
-.btn:hover { transform: translateY(-1px); }
-.btn-dark { background: var(--ink); color: var(--bg); }
-.btn-dark:hover { background: #3a302a; }
-.btn-sm { padding: 9px 18px; font-size: 13px; }
-.cat-cta { margin: 18px 0 8px; }
-
-.info-block { padding: 34px 0 8px; border-top: 1px solid var(--line); margin-top: 34px; }
-.info-block h2 { margin-bottom: 12px; }
-.info-block p { font-size: 15px; color: var(--ink-soft); line-height: 1.65; max-width: 720px; margin-bottom: 12px; }
-.faq-item { background: var(--bg2); border-radius: var(--r); padding: 18px 22px; margin-top: 12px; }
-.faq-q { font-family: var(--serif); font-size: 18.5px; margin-bottom: 6px; }
-.faq-a { font-size: 14px; color: var(--ink-soft); line-height: 1.6; }
-.faq-a a, .info-block p a { color: var(--accent-dark); text-decoration: underline; text-underline-offset: 3px; }
-/* ─── Accesibilidad ─── */
-.skip-link { position: absolute; left: -9999px; top: 12px; z-index: 999; padding: 10px 14px; background: var(--ink); color: var(--bg); border-radius: 999px; }
-.skip-link:focus { left: 12px; }
-main:focus { outline: none; }
-@media (max-width: 768px) {
-  .breadcrumb a { display: inline-block; padding: 6px 2px; }
-  .lp-rgpd { padding: 6px 0; }
-  .footer a { display: inline-block; padding: 8px 0; }
-}
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; scroll-behavior: auto !important; } }
+main{max-width:var(--measure);margin:0 auto;padding:40px 32px 64px}
+.lede{font-size:16.5px;max-width:660px;margin-bottom:12px}
+.cat{padding:34px 0 8px;border-top:1px solid var(--line);margin-top:26px}
+.cat:first-of-type{border-top:none;margin-top:8px}
+.cat h2{margin-bottom:6px}
+.cat-lede{font-size:14.5px;margin:6px 0 4px}
+.cat-lede a,.faq-a a,.info-block p a{color:var(--accent-dark);text-decoration:underline;text-underline-offset:3px}
+.course-list{list-style:none;margin-top:14px}
+.course-item{display:block;padding:16px 8px;border-bottom:1px solid var(--line);transition:background .15s;border-radius:var(--r-sm)}
+.course-item:hover{background:rgba(168,107,78,0.06)}
+.course-title{display:block;font-family:var(--serif);font-size:21px;letter-spacing:-0.01em}
+.course-item:hover .course-title{color:var(--accent-dark)}
+.course-meta{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:3px 0 6px}
+.course-desc{display:block;font-size:14px;color:var(--ink-soft);line-height:1.55;max-width:720px}
+.cat-cta{margin:18px 0 8px}
+.info-block{padding:34px 0 8px;border-top:1px solid var(--line);margin-top:34px}
+.info-block h2{margin-bottom:12px}
+.info-block p{font-size:15px;max-width:720px;margin-bottom:12px}
+.contact{margin-top:48px;border-radius:var(--r)}
+@media (max-width:720px){main{padding:28px 20px 48px}}
 </style>
 </head>
 <body>
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-<nav class="nav" aria-label="Navegación principal">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo" aria-label="PRECISSA INSTITUTE Dermocosmiatría &amp; Electroestética, ir al inicio">PRECISSA INSTITUTE <span class="nav-logo-sub">Dermocosmiatría &amp; Electroestética</span></a>
-    <a href="tel:+34601056706" class="nav-cta">601 05 67 06</a>
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a href="/" class="site-nav-logo" aria-label="PRECISSA INSTITUTE Dermocosmiatría &amp; Electroestética, ir al inicio">PRECISSA INSTITUTE<span>Dermocosmiatría &amp; Electroestética</span></a>
+    <nav class="site-nav-links" aria-label="Navegación principal">
+      <a href="/cursos/" aria-current="page">Cursos</a>
+      <a href="/#tienda">Aparatología</a>
+      <a href="/sobre/">Sobre</a>
+    </nav>
+    <div class="site-nav-actions">
+      <a class="btn btn-dark btn-sm site-nav-wa" href="https://wa.me/34601056706?text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20vuestros%20cursos." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><i class="ico ico-wa" aria-hidden="true"></i><span>WhatsApp</span></a>
+      <a class="btn btn-outline btn-sm" href="/#aula">Entrar al aula</a>
+    </div>
   </div>
-</nav>
+</header>
 
 <nav class="breadcrumb" aria-label="Breadcrumb">
   <a href="/">Inicio</a><span class="breadcrumb-sep">/</span><span aria-current="page">Cursos</span>
 </nav>
 
 <main id="contenido" tabindex="-1">
-  <div class="eyebrow">Catálogo completo</div>
+  <div class="eyebrow accent">Catálogo completo</div>
   <h1>Cursos de estética <em>en Valencia</em></h1>
   <p class="lede">Formación profesional de estética para esteticistas y futuras especialistas: 23 cursos de aparatología, Plasmapen, micropigmentación, dermocosmiatría y técnicas corporales. Formación presencial en Valencia, con prácticas tuteladas y certificación.</p>
 
 <section class="cat">
-  <div class="eyebrow eyebrow-muted">Dermocosmiatría, cosmetología y servicios de cabina facial</div>
+  <div class="eyebrow">Dermocosmiatría, cosmetología y servicios de cabina facial</div>
   <h2>Estética Facial Avanzada</h2>
   <ul class="course-list">
     <li>
@@ -400,7 +346,7 @@ main:focus { outline: none; }
 </section>
 
 <section class="cat">
-  <div class="eyebrow eyebrow-muted">Aparatología facial y corporal · luz, energía y mecánica controlada</div>
+  <div class="eyebrow">Aparatología facial y corporal · luz, energía y mecánica controlada</div>
   <h2>Electroestética</h2>
   <p class="cat-lede">¿Quieres la visión completa de la aparatología? Mira el <a href="/cursos/electroestetica-valencia/"><strong>curso de Electroestética en Valencia</strong></a>.</p>
   <ul class="course-list">
@@ -472,7 +418,7 @@ main:focus { outline: none; }
 </section>
 
 <section class="cat">
-  <div class="eyebrow eyebrow-muted">Pigmentación profesional de cejas, labios y eyeliner</div>
+  <div class="eyebrow">Pigmentación profesional de cejas, labios y eyeliner</div>
   <h2>Micropigmentación</h2>
   <ul class="course-list">
     <li>
@@ -508,7 +454,7 @@ main:focus { outline: none; }
 </section>
 
 <section class="cat">
-  <div class="eyebrow eyebrow-muted">Técnicas manuales y combinadas de modelado, drenaje y relajación</div>
+  <div class="eyebrow">Técnicas manuales y combinadas de modelado, drenaje y relajación</div>
   <h2>Corporal y Bienestar</h2>
   <ul class="course-list">
     <li>
@@ -544,14 +490,14 @@ main:focus { outline: none; }
 </section>
 
   <section class="info-block">
-    <div class="eyebrow eyebrow-muted">La escuela</div>
+    <div class="eyebrow">La escuela</div>
     <h2>Formación de estética con criterio clínico</h2>
     <p>En PRECISSA INSTITUTE formamos esteticistas que entienden lo que hacen: cada curso se construye sobre anatomía y fundamentos físicos reales, protocolos documentados paso a paso y un bloque de seguridad que incluye contraindicaciones, manejo de complicaciones y el marco legal de cada técnica — de la normativa REACH de pigmentos al posicionamiento AEMPS de la aparatología.</p>
     <p>Toda la formación es presencial, en nuestro centro de Valencia, en grupos reducidos y con supervisión directa; el aula virtual acompaña con la materia, la presentación y los tests de cada curso. Cada curso se certifica tras superar el test y las prácticas, y detrás de cada temario hay más de 15 años de experiencia clínica y docente.</p>
   </section>
 
   <section class="info-block">
-    <div class="eyebrow eyebrow-muted">FAQ</div>
+    <div class="eyebrow">FAQ</div>
     <h2>Preguntas frecuentes</h2>
   <div class="faq-item">
     <div class="faq-q">¿Necesito experiencia previa para hacer un curso de estética?</div>
@@ -586,18 +532,60 @@ main:focus { outline: none; }
   </section>
 </main>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <address style="font-style:normal;font-size:13px;line-height:1.6">
-      <a href="https://maps.app.goo.gl/RfxWU2e8j4qnrgg5A" target="_blank" rel="noopener">Av. Primero de Mayo, 59, bajo, 46017 València</a>
-      · <a href="tel:+34601056706">601 05 67 06</a> · Lunes a viernes 9:30–14:00
-    </address>
-    <div>© 2026 PRECISSA INSTITUTE · Valencia</div>
-    <div class="footer-links">
-      <a href="/">Inicio</a>
-      <a href="/cursos/plasmapen-valencia/">Plasmapen</a>
-      <a href="/cursos/electroestetica-valencia/">Electroestética</a>
-      <a href="/sobre/">Sobre nosotras</a>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">PRECISSA INSTITUTE<span class="footer-logo-sub">Dermocosmiatría &amp; Electroestética</span></div>
+        <p class="footer-bio">Escuela de estética avanzada y tienda de aparatología profesional. Formación rigurosa para las mejores especialistas de España.</p>
+        <address class="footer-nap">
+          <a class="footer-nap-line" href="https://maps.app.goo.gl/RfxWU2e8j4qnrgg5A" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Av. Primero de Mayo, 59, bajo · 46017 València</span></a>
+          <a class="footer-nap-line" href="tel:+34601056706"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>601 05 67 06</span></a>
+          <span class="footer-nap-line footer-nap-hours"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Lunes a viernes · 9:30–14:00</span></span>
+          <a class="footer-nap-line" href="https://www.google.com/maps/dir/?api=1&destination=Precissa%20Institute%2C%20Av.%20Primero%20de%20Mayo%2C%2059%2C%20bajo%2C%2046017%20Val%C3%A8ncia" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg><span>Cómo llegar</span></a>
+          <a class="footer-nap-line" href="https://maps.app.goo.gl/RfxWU2e8j4qnrgg5A" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>Reseñas en Google</span></a>
+        </address>
+      </div>
+      <div>
+        <div class="footer-col-title">Escuela</div>
+        <a class="footer-link" href="/cursos/">Cursos de estética en Valencia</a>
+        <a class="footer-link" href="/#aula">Aula</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Cursos en Valencia</div>
+        <a class="footer-link" href="/cursos/plasmapen-valencia/">Curso de Plasmapen</a>
+        <a class="footer-link" href="/cursos/electroestetica-valencia/">Curso de Electroestética</a>
+        <a class="footer-link" href="/cursos/microblading-valencia/">Curso de Microblading</a>
+        <a class="footer-link" href="/cursos/hifu-valencia/">Curso de HIFU</a>
+        <a class="footer-link" href="/cursos/depilacion-laser-valencia/">Curso de Depilación Láser</a>
+        <a class="footer-link" href="/cursos/micropigmentacion-valencia/">Curso de Micropigmentación</a>
+        <a class="footer-link" href="/cursos/dermapen-valencia/">Curso de Dermapen</a>
+        <a class="footer-link" href="/cursos/hyaluron-pen-valencia/">Curso de Hyaluron Pen</a>
+        <a class="footer-link" href="/cursos/cejas-valencia/">Curso de Cejas</a>
+        <a class="footer-link" href="/cursos/lifting-pestanas-valencia/">Curso de Lifting de Pestañas</a>
+        <a class="footer-link" href="/cursos/maderoterapia-valencia/">Curso de Maderoterapia</a>
+        <a class="footer-link" href="/cursos/drenaje-linfatico-valencia/">Curso de Drenaje Linfático</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Aparatología</div>
+        <a class="footer-link" href="/#tienda">Catálogo</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Compañía</div>
+        <a class="footer-link" href="/sobre/">Sobre PRECISSA INSTITUTE</a>
+        <a class="footer-link" href="/aviso-legal/">Aviso legal</a>
+        <a class="footer-link" href="/privacidad/">Privacidad</a>
+        <a class="footer-link" href="/cookies/">Cookies</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 PRECISSA INSTITUTE · Todos los derechos reservados</span>
+      <div>
+        <a class="footer-social" href="https://www.instagram.com/precissainstitute" target="_blank" rel="noopener" aria-label="Instagram PRECISSA INSTITUTE">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.7"/><circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none"/></svg>
+          <span>Instagram</span>
+        </a>
+      </div>
     </div>
   </div>
 </footer>
