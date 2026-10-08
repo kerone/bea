@@ -243,7 +243,7 @@
 <style>
 :root {
   --bg: #F2ECE3; --bg2: #E6DDCC; --soft: #E5D9C5;
-  --ink: #241D17; --ink-soft: #544A40; --muted: #6E6558;
+  --ink: #241D17; --ink-soft: #544A40; --muted: #726A5D;
   --accent: #A86B4E; --accent-dark: #7E4C36;
   --line: rgba(36,29,23,0.10); --line-strong: rgba(36,29,23,0.18);
   --serif: 'Instrument Serif', serif; --sans: 'Manrope', sans-serif;
@@ -251,6 +251,9 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 2px solid var(--accent-dark); outline-offset: 3px; }
+:focus:not(:focus-visible) { outline: none; }
+.footer :focus-visible, .contact :focus-visible, .lp-field :focus-visible { outline-color: var(--bg); }
 .nav { position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 1px solid var(--line); }
 .nav-inner { max-width: 1100px; margin: 0 auto; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .nav-logo { font-family: var(--serif); font-size: 22px; letter-spacing: 0.14em; line-height: 1; }
@@ -259,7 +262,7 @@ a { color: inherit; text-decoration: none; }
 .breadcrumb { max-width: 920px; margin: 0 auto; padding: 18px 32px 0; font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
 .breadcrumb a:hover { color: var(--accent); }
 .breadcrumb-sep { margin: 0 8px; color: var(--line-strong); }
-.eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+.eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 14px; }
 .eyebrow-muted { color: var(--muted); }
 main { max-width: 920px; margin: 0 auto; padding: 40px 32px 64px; }
 h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(38px, 6vw, 58px); line-height: 1.05; letter-spacing: -0.02em; margin: 16px 0 14px; }
@@ -281,7 +284,7 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(26px, 4vw, 34
 .contact h2 { color: var(--bg); }
 .contact p { color: rgba(242,236,227,0.8); margin: 8px 0 16px; }
 .contact-phone { font-family: var(--serif); font-style: italic; font-size: 28px; color: var(--bg); }
-.footer { background: var(--bg2); padding: 30px 32px; font-size: 13px; color: var(--muted); margin-top: 56px; }
+.footer { background: var(--bg2); padding: 30px 32px; font-size: 13px; color: var(--ink-soft); margin-top: 56px; }
 .footer-inner { max-width: 920px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
 .footer a:hover { color: var(--accent); }
 .footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
@@ -299,6 +302,7 @@ h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(26px, 4vw, 34
 .faq-item { background: var(--bg2); border-radius: 10px; padding: 18px 22px; margin-top: 12px; }
 .faq-q { font-family: var(--serif); font-size: 18.5px; margin-bottom: 6px; }
 .faq-a { font-size: 14px; color: var(--ink-soft); line-height: 1.6; }
+.faq-a a, .info-block p a { color: var(--accent-dark); text-decoration: underline; text-underline-offset: 3px; }
 </style>
 </head>
 <body>

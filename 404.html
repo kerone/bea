@@ -29,7 +29,8 @@ p { color: var(--ink-soft); max-width: 420px; line-height: 1.6; margin-bottom: 2
 .btn-dark { background: var(--ink); color: var(--bg); }
 .btn-outline { color: var(--ink); border: 1px solid rgba(36,29,23,0.25); }
 .tel { margin-top: 28px; font-size: 13px; color: var(--muted); }
-.tel a { color: var(--accent-dark); text-decoration: none; }
+.tel a { color: var(--accent-dark); text-decoration: underline; text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent-dark); outline-offset: 3px; }
 </style>
 </head>
 <body>
