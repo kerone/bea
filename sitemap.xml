@@ -106,6 +106,12 @@
 
   <!-- Catálogo de cursos (página estática indexable) -->
   <url>
+    <loc>https://precissainstitute.com/convocatorias/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://precissainstitute.com/cursos/</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>

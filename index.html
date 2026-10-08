@@ -615,6 +615,7 @@ button.drawer-item { background: none; border: 0; border-bottom: 1px solid var(-
 .convocatorias[hidden] { display: none; }
 .convocatorias-header { text-align: center; margin-bottom: 36px; }
 .convocatorias-h2 { font-family: var(--serif); font-size: 40px; line-height: 1.1; letter-spacing: -0.018em; margin-top: 12px; }
+.convocatorias-more { text-align: center; margin: 28px 0 0; }
 .convocatorias-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 .convocatoria { display: grid; grid-template-columns: 40% minmax(0, 1fr); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
 .convocatoria-img { position: relative; aspect-ratio: 4 / 5; background: var(--bg2); overflow: hidden; }
@@ -988,6 +989,7 @@ a.footer-nap-line:hover { color: var(--bg); }
       <h2 class="convocatorias-h2" id="convocatorias-h2"></h2>
     </div>
     <div class="convocatorias-grid" id="convocatorias-grid"></div>
+    <p class="convocatorias-more"><a class="btn btn-outline btn-sm" href="/convocatorias/">Ver las convocatorias <i class="ico ico-arrow" aria-hidden="true"></i></a></p>
   </section>
 
   <!-- DIPTYCH -->
@@ -1160,6 +1162,7 @@ a.footer-nap-line:hover { color: var(--bg); }
       </div>
       <div>
         <div class="footer-col-title">Escuela</div>
+        <a class="footer-link" href="/convocatorias/">Próximas convocatorias</a>
         <a class="footer-link" href="/cursos/" onclick="goTo('cursos','docencia');return false">Cursos de estética en Valencia</a>
         <a class="footer-link" href="/#aula" onclick="goTo('aula','docencia');return false">Aula</a>
       </div>
