@@ -13,6 +13,7 @@
   const isConfigured = Boolean(cfg.url && cfg.anonKey);
   let client = null;
   let mode = 'login'; // 'login' | 'signup'
+  let recovering = false; // true mientras elige la nueva contraseña
 
   if (isConfigured && window.supabase && window.supabase.createClient) {
     client = window.supabase.createClient(cfg.url, cfg.anonKey);
@@ -35,24 +36,40 @@
     el.textContent = text;
   }
 
+  // Traduce los errores de Supabase a un español comprensible. Nunca
+  // devuelve el mensaje original (queda en consola para quien lo necesite).
+  function mensajeAuth(error) {
+    const raw = String((error && (error.message || error.error_description)) || error || '');
+    const m = raw.toLowerCase();
+    if (m.includes('invalid login credentials')) return 'El email o la contraseña no coinciden. Revisa ambos o pulsa «¿Olvidaste la contraseña?».';
+    if (m.includes('email not confirmed')) return 'Aún no has confirmado tu email. Busca nuestro correo (mira también en spam) y pulsa el enlace.';
+    if (m.includes('user already registered') || m.includes('already been registered')) return 'Ya tienes cuenta con este email. Pulsa «Entrar» e inicia sesión.';
+    if (m.includes('password should be at least') || (m.includes('password') && m.includes('6'))) return 'La contraseña debe tener al menos 6 caracteres.';
+    if (m.includes('rate limit') || m.includes('too many requests')) return 'Demasiados intentos seguidos. Espera un minuto y vuelve a probar.';
+    if (m.includes('invalid email') || m.includes('unable to validate email')) return 'Ese email no parece correcto. Revísalo.';
+    if (m.includes('network') || m.includes('failed to fetch')) return 'No hay conexión con el aula. Revisa tu internet e inténtalo de nuevo.';
+    console.warn('[auth] error no traducido:', raw);
+    return 'No hemos podido completar la operación. Inténtalo de nuevo o escríbenos por WhatsApp.';
+  }
+
+  const MSG_SIN_CONEXION = 'No hemos podido conectar con el aula. Revisa tu conexión o inténtalo en unos minutos.';
+
   function showConfigWarning() {
     const warn = $('aula-config-warn');
+    if (!isConfigured) console.warn('[auth] Supabase no configurado: revisa assets/js/supabase-config.js');
     if (warn) warn.style.display = isConfigured ? 'none' : '';
   }
 
   function setMode(next) {
     mode = next;
     const submit = $('aula-submit-btn');
-    const modeText = $('aula-mode-text');
     const toggle = $('aula-mode-toggle');
     if (mode === 'login') {
       submit.textContent = 'Entrar';
-      modeText.textContent = '¿No tienes cuenta?';
-      toggle.textContent = 'Date de alta';
+      toggle.textContent = '¿Primera vez? Crea tu contraseña';
     } else {
       submit.textContent = 'Crear cuenta';
-      modeText.textContent = '¿Ya tienes cuenta?';
-      toggle.textContent = 'Entra';
+      toggle.textContent = '¿Ya tienes contraseña? Entra';
     }
     setMsg('');
   }
@@ -77,6 +94,13 @@
     const aulaPage = document.getElementById('page-aula');
     if (aulaPage && aulaPage.classList.contains('active') && typeof window.renderAulaCourses === 'function') {
       Promise.resolve(window.renderAulaCourses()).catch(() => {});
+    }
+    if (recovering) {
+      // La sesión de recuperación ya existe, pero hasta guardar la contraseña
+      // se mantiene visible el formulario de nueva contraseña.
+      show(loginSection, true);
+      show(listSection, false);
+      return;
     }
     if (!client) {
       show(loginSection, true);
@@ -122,17 +146,17 @@
 
   // ─── Acciones ───────────────────────────────────────────
   async function loginWithGoogle() {
-    if (!client) { setMsg('Configura Supabase en assets/js/supabase-config.js antes de poder usar Google.', 'err'); return; }
+    if (!client) { console.warn('[auth] sin cliente Supabase'); setMsg(MSG_SIN_CONEXION, 'err'); return; }
     setMsg('Redirigiendo a Google…', 'info');
     const { error } = await client.auth.signInWithOAuth({
       provider: 'google',
       options: { redirectTo: cfg.redirectTo }
     });
-    if (error) setMsg(error.message, 'err');
+    if (error) setMsg(mensajeAuth(error), 'err');
   }
 
   async function loginWithEmail() {
-    if (!client) { setMsg('Configura Supabase en assets/js/supabase-config.js antes de poder iniciar sesión.', 'err'); return; }
+    if (!client) { console.warn('[auth] sin cliente Supabase'); setMsg(MSG_SIN_CONEXION, 'err'); return; }
     const email = ($('aula-email').value || '').trim();
     const password = $('aula-password').value || '';
     if (!email || !password) { setMsg('Introduce email y contraseña.', 'err'); return; }
@@ -143,7 +167,7 @@
     } else {
       res = await client.auth.signInWithPassword({ email, password });
     }
-    if (res.error) { setMsg(res.error.message, 'err'); return; }
+    if (res.error) { setMsg(mensajeAuth(res.error), 'err'); return; }
     if (mode === 'signup' && res.data && res.data.user && !res.data.session) {
       setMsg('Te hemos enviado un email de confirmación. Ábrelo para activar tu cuenta.', 'ok');
       return;
@@ -161,24 +185,55 @@
   }
 
   async function forgotPassword() {
-    if (!client) { setMsg('Configura Supabase antes de poder recuperar la contraseña.', 'err'); return; }
+    if (!client) { console.warn('[auth] sin cliente Supabase'); setMsg(MSG_SIN_CONEXION, 'err'); return; }
     const email = ($('aula-email').value || '').trim();
     if (!email) { setMsg('Escribe tu email arriba y vuelve a pulsar "¿Olvidaste la contraseña?".', 'err'); return; }
     setMsg('Enviando enlace de recuperación a ' + email + '…', 'info');
     const { error } = await client.auth.resetPasswordForEmail(email, { redirectTo: cfg.redirectTo });
-    if (error) { setMsg(error.message, 'err'); return; }
+    if (error) { setMsg(mensajeAuth(error), 'err'); return; }
     setMsg('Listo. Revisa tu bandeja de entrada (y la de spam) y pulsa el enlace que te mandamos.', 'ok');
   }
 
-  async function promptNewPassword() {
+  // Flujo de recuperación: muestra el formulario de nueva contraseña
+  // dentro de la propia tarjeta de login (sin prompt ni alert).
+  function promptNewPassword() {
     if (!client) return;
-    const pw = prompt('Recibimos tu solicitud de recuperación. Introduce tu nueva contraseña (mínimo 6 caracteres):');
-    if (!pw) return;
-    if (pw.length < 6) { alert('La contraseña debe tener al menos 6 caracteres.'); return promptNewPassword(); }
-    const { error } = await client.auth.updateUser({ password: pw });
-    if (error) { alert('Error al actualizar la contraseña: ' + error.message); return; }
-    alert('Contraseña actualizada. Ya estás dentro del aula.');
-    refresh();
+    const np = $('aula-newpass');
+    if (!np) return;
+    recovering = true;
+    show($('aula-login-form'), false);
+    show($('aula-foot-mode'), false);
+    show($('aula-foot-forgot'), false);
+    np.hidden = false;
+    show($('aula-login-section'), true);
+    show($('aula-list-section'), false);
+    setMsg('');
+    const inp = $('aula-newpass-input');
+    if (inp) { inp.value = ''; try { inp.focus(); } catch (e) {} }
+  }
+
+  async function saveNewPassword() {
+    if (!client) { setMsg(MSG_SIN_CONEXION, 'err'); return; }
+    const inp = $('aula-newpass-input');
+    const pw = inp ? inp.value : '';
+    if (pw.length < 6) { setMsg('La contraseña debe tener al menos 6 caracteres.', 'err'); return; }
+    setMsg('Guardando tu contraseña…', 'info');
+    let res;
+    try { res = await client.auth.updateUser({ password: pw }); }
+    catch (err) { setMsg(mensajeAuth(err), 'err'); return; }
+    if (res.error) { setMsg(mensajeAuth(res.error), 'err'); return; }
+    if (inp) inp.value = '';
+    $('aula-newpass').hidden = true;
+    setMsg('Contraseña actualizada. Ya estás dentro del aula.', 'ok');
+    // Deja leer la confirmación un instante y entra al aula.
+    setTimeout(function () {
+      recovering = false;
+      show($('aula-login-form'), true);
+      show($('aula-foot-mode'), true);
+      show($('aula-foot-forgot'), true);
+      setMsg('');
+      refresh();
+    }, 1600);
   }
 
   // ─── Init y suscripción a cambios ───────────────────────
@@ -203,7 +258,7 @@
   window.auth = {
     init, refresh,
     loginWithGoogle, loginWithEmail, toggleMode, logout,
-    forgotPassword,
+    forgotPassword, saveNewPassword, mensajeAuth,
     isConfigured: () => isConfigured,
     getClient: () => client
   };
