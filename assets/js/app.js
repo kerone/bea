@@ -2817,7 +2817,7 @@ async function renderTestimonials() {
         <p class="testimonial-quote">"${escapeHtml(t.quote || '')}"</p>
         <div class="testimonial-name">${escapeHtml(nombre)}</div>
         ${t.centro ? `<div class="testimonial-centro">${escapeHtml(t.centro)}</div>` : ''}
-        ${t.google ? `<a class="testimonial-google" href="https://maps.app.goo.gl/RfxWU2e8j4qnrgg5A" target="_blank" rel="noopener">Reseña en Google</a>` : ''}
+        ${t.google ? `<span class="testimonial-google"><i class="ico ico-star" aria-hidden="true"></i>Reseña en Google</span>` : ''}
       </div>`;
   }).join('');
   sec.hidden = false;
