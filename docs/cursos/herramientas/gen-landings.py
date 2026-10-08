@@ -12,7 +12,7 @@ BASE = 'https://precissainstitute.com'
 # se copian tal cual de la plantilla hifu (assets/site.css es la fuente de lo demás).
 STYLE = re.search(r'<link rel="stylesheet" href="/assets/site\.css[^>]*>\s*<style>.*?</style>', TPL, re.S).group(0)
 NAV = re.search(r'<header class="site-nav">.*?</header>', TPL, re.S).group(0)
-FONTS = re.search(r'<link rel="preconnect".*?rel="stylesheet">', TPL, re.S).group(0)
+FONTS = re.search(r'<link rel="preconnect".*?</noscript>', TPL, re.S).group(0)
 FAVICON = re.search(r'<!-- ═══ FAVICON.*?theme-color" content="#F2ECE3">', TPL, re.S).group(0)
 ORG_LD = re.search(r'<!-- ═══ SCHEMA.ORG · LocalBusiness.*?</script>', TPL, re.S).group(0)
 SCRIPTS = TPL[TPL.index('<!-- Envío del formulario'):]

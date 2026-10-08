@@ -56,8 +56,11 @@ propietaria, no un olvido. No los añadas.
 ## 3. Estructura
 
 ```
-index.html          SPA de ~6200 líneas: home, catálogo, tienda, aula, admin.
-                    Todo el CSS y el JS van inline. Routing por hash.
+index.html          SPA: home, catálogo, tienda, aula, admin. CSS inline sobre
+                    assets/site.css (tokens y componentes comunes a toda la
+                    web). El JS de la SPA vive en assets/js/app.js?v=N (antes
+                    era inline): al cambiarlo, sube la versión en index.html.
+                    Routing por hash.
 cursos/index.html   Catálogo estático indexable (SEO). Generado desde
                     courses-data.js — si cambia el catálogo, regenerar.
 cursos/<x>-valencia/  12 landings SEO locales (plasmapen, electroestetica,
@@ -145,6 +148,24 @@ temporal, solo a quien tiene matrícula (o es admin).
 - Sistema visual: eyebrows sin `· ` inicial, títulos sin punto final, cursiva
   de acento solo en el hero y la cita; radios `999px` (píldora), `12px`
   (tarjeta) y `4px` (detalle); filtros como pestañas con subrayado.
+- **`assets/site.css?v=N` es la única fuente de tokens y componentes**
+  (`.btn`, `.chip`, `.eyebrow`, `.ico-*`, cabecera y pie `.site-nav` /
+  `.site-footer`, formulario `.lp-*`). Las landings, el catálogo, Sobre,
+  legales y 404 la cargan y solo llevan un `<style>` residual; index.html
+  también la carga y anula a propósito unas pocas reglas (body 15 px,
+  secciones a ancho completo) en un bloque comentado. Al cambiar site.css:
+  subir `?v=N` en TODAS las páginas y `CACHE_VERSION` en sw.js.
+- Imágenes: el hero y las portadas tienen versión `.webp` junto al `.jpg`
+  (`<picture>`; en la SPA, `coverImgHtml()` con `WEBP_COVERS`). Al añadir una
+  foto nueva, genera su .webp (Pillow, calidad 80) y añádela a esa lista.
+- Formularios: nombre + RGPD + (teléfono o email) obligatorios, validación
+  propia en español bajo el campo (nada de `reportValidity`), dos canales
+  (WhatsApp con mensaje prellenado y copia por correo; o solo correo) y
+  éxito solo con `res.ok` y `json.success`.
+- Los testimonios de la home solo se muestran con reseñas reales cargadas
+  desde el panel; no hay reseñas de respaldo en el HTML (eran inventadas).
+- Fechas de convocatoria: campo `nextStart` (ISO) en courses-data.js; se
+  pinta en tarjetas, catálogo estático, modal y landing. No se publica precio.
 
 ## 8. Contenido intencionado (no son fallos)
 
@@ -181,7 +202,8 @@ Está declarado en la política de cookies.
 Valida siempre:
 
 1. **JSON-LD** de las páginas tocadas parsea (`json.loads`).
-2. **JS inline** de index.html sin errores de sintaxis (`new Function`).
+2. **JS de la SPA**: `node --check assets/js/app.js` y los `<script>` inline
+   que queden en index.html sin errores de sintaxis (`new Function`).
 3. **sitemap.xml** es XML válido si lo tocaste.
 4. Los **enlaces internos** nuevos apuntan a archivos que existen.
 5. Si tocaste una FAQ, que schema y HTML sigan coincidiendo.
